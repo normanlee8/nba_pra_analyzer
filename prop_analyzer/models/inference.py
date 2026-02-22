@@ -113,22 +113,11 @@ def predict_props(todays_props_df):
     grouped = todays_props_df.groupby(Cols.PROP_TYPE)
     
     for prop_cat, group in grouped:
-        model_to_load = prop_cat
-        is_multi = False
-        target_idx = 0
-
-        if prop_cat in ['PTS', 'REB', 'AST']:
-            multi_arts = load_artifacts('BASE_MULTI')
-            if multi_arts and 'metadata' in multi_arts and prop_cat in multi_arts['metadata']['target_cols']:
-                model_to_load = 'BASE_MULTI'
-                is_multi = True
-                target_idx = multi_arts['metadata']['target_cols'].index(prop_cat)
-
-        artifacts = load_artifacts(model_to_load)
+        # Load the specific, independent model for this exact prop category
+        artifacts = load_artifacts(prop_cat)
         if not artifacts:
-            artifacts = load_artifacts(prop_cat)
-            is_multi = False
-            if not artifacts: continue
+            logging.warning(f"No trained artifacts found for {prop_cat}. Skipping.")
+            continue
             
         model, scaler, feature_names = artifacts['model'], artifacts['scaler'], artifacts['features']
         
@@ -146,9 +135,8 @@ def predict_props(todays_props_df):
             X_scaled = scaler.transform(X_model)
             X_scaled_df = pd.DataFrame(X_scaled, columns=X_model.columns, index=X_model.index)
             
-            # Prediction is now the RESIDUAL
-            preds = model.predict(X_scaled_df)
-            raw_proj_residuals = preds[:, target_idx] if is_multi else preds
+            # Prediction is now strictly the 1D RESIDUAL array
+            raw_proj_residuals = model.predict(X_scaled_df)
             
             szn_avgs = get_col_safe(X_raw, prop_cat, 'SZN_AVG')
             l5_avgs = get_col_safe(X_raw, prop_cat, 'L5_AVG')
@@ -163,7 +151,7 @@ def predict_props(todays_props_df):
                 # INVERSE TRANSFORM: Raw Projection = Market Line + Predicted Residual
                 raw_val = line + predicted_residual
                 
-                # SKEPTICISM DECAY: If model disagrees with the line by > 40%, assume the line knows something we don't.
+                # SKEPTICISM DECAY: Regress back to market line if gap > 40%
                 delta_gap = abs(raw_val - line) / line if line > 0 else 0
                 if delta_gap > cfg.SKEPTICISM_DECAY_THRESHOLD:
                     raw_val = (raw_val * 0.3) + (line * 0.7)
@@ -175,7 +163,7 @@ def predict_props(todays_props_df):
                 o_pace = float(opp_pace.iloc[idx]) if not pd.isna(opp_pace.iloc[idx]) else None
                 days_rest = float(row.get(Cols.DAYS_REST, 2.0))
                 
-                # CALCULATE IMPLIED MINS VARIANCE
+                # IMPLIED MINS DEVIATION
                 per_36 = (s_avg / float(row.get('MIN_SZN_AVG', 36.0))) * 36.0 if row.get('MIN_SZN_AVG', 0) > 0 else 0
                 implied_mins = calculate_implied_minutes(line, per_36)
                 hist_mins = float(row.get('MIN_L10_AVG', implied_mins))
@@ -192,7 +180,7 @@ def predict_props(todays_props_df):
                 eval_res = evaluate_prop(proj, line, variance, prop_cat)
                 if not eval_res: continue
                 
-                # UNCERTAINTY PENALTY: Slash Kelly in half for high variance context
+                # UNCERTAINTY PENALTY: Slash Kelly for high variance context
                 if days_rest > 7.0 or min_deviation > 0.30:
                     eval_res['Kelly'] = eval_res['Kelly'] * 0.5
                 
@@ -207,7 +195,7 @@ def predict_props(todays_props_df):
                     'Prob': round(eval_res['Win_Prob'], 3),
                     'Pick': eval_res['Pick'],
                     'EV%': round(eval_res['EV_Pct'], 2),
-                    'Kelly': round(eval_res['Kelly'], 4), # Increased decimal depth for precision
+                    'Kelly': round(eval_res['Kelly'], 4),
                     'Tier': eval_res['Tier'],
                     '_Sort_Diff': eval_res['EV_Pct']
                 }
