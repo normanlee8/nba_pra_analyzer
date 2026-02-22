@@ -16,13 +16,11 @@ from prop_analyzer.features.calculator import (smooth_projection,
                                                get_discrete_probabilities, 
                                                estimate_combo_variance, 
                                                scale_by_pace)
-from prop_analyzer.models.training import rename_features_for_model
 
 def load_artifacts(prop_cat):
     return registry.load_artifacts(prop_cat)
 
 def get_recent_bias_map(days_back=21):
-    """Loads graded history and calculates average model error for bias correction."""
     graded_files = sorted(cfg.GRADED_DIR.glob("graded_*.parquet"), reverse=True)
     if not graded_files: return {}
 
@@ -34,7 +32,6 @@ def get_recent_bias_map(days_back=21):
             file_date_str = f.stem.replace('graded_props_', '').replace('graded_', '')
             file_date = pd.to_datetime(file_date_str)
             if file_date < cutoff_date: continue
-                
             df = pd.read_parquet(f)
             if Cols.ACTUAL_VAL in df.columns and Cols.PREDICTION in df.columns:
                 recent_dfs.append(df)
@@ -53,30 +50,17 @@ def get_recent_bias_map(days_back=21):
     full_history['Error'] = full_history[Cols.ACTUAL_VAL] - full_history[Cols.PREDICTION]
     group_cols = [Cols.PLAYER_ID, Cols.PROP_TYPE] if Cols.PLAYER_ID in full_history.columns else [Cols.PLAYER_NAME, Cols.PROP_TYPE]
 
-    bias_series = full_history.groupby(group_cols)['Error'].mean()
-    return bias_series.to_dict()
+    return full_history.groupby(group_cols)['Error'].mean().to_dict()
 
 def calculate_betting_metrics(probs, odds=-110):
-    """Calculates EV and Kelly Criterion based on sportsbook odds."""
     p_win, p_loss = probs['win'], probs['loss']
-    
-    if odds < 0:
-        decimal_odds = 1.0 + (100.0 / abs(odds))
-    else:
-        decimal_odds = 1.0 + (odds / 100.0)
-        
+    decimal_odds = 1.0 + (100.0 / abs(odds)) if odds < 0 else 1.0 + (odds / 100.0)
     b = decimal_odds - 1.0
     ev = (p_win * b) - p_loss
-    
-    if p_win > 0 and ev > 0:
-        kelly = ev / b 
-    else:
-        kelly = 0.0
-        
+    kelly = ev / b if p_win > 0 and ev > 0 else 0.0
     return {'EV': ev, 'Kelly': kelly, 'Implied_Odds': 1.0 / decimal_odds}
 
 def determine_ev_tier(ev, win_prob, pick_type):
-    """Professional Grade Tiering based STRICTLY on Expected Value (EV)."""
     tier = 'Pass'
     ev_pct = ev * 100.0
     win_pct = win_prob * 100.0
@@ -85,13 +69,10 @@ def determine_ev_tier(ev, win_prob, pick_type):
     elif ev_pct >= 4.0 and win_pct >= 54.0: tier = 'A Tier'
     elif ev_pct >= 1.5: tier = 'B Tier'
     else: tier = 'C Tier'
-
     return tier
 
 def evaluate_prop(proj, line, variance, prop_type):
-    """Evaluates both sides (Over/Under) to find the best EV play."""
     if line <= 0: return None
-    
     dist_type = 'nbinom' if prop_type in ['REB', 'AST', 'STL', 'BLK', 'FG3M'] else 'normal'
     
     probs_over = get_discrete_probabilities(proj, line, variance, dist_type=dist_type)
@@ -101,43 +82,30 @@ def evaluate_prop(proj, line, variance, prop_type):
     metrics_under = calculate_betting_metrics(probs_under)
     
     if metrics_over['EV'] >= metrics_under['EV']:
-        pick = 'Over'
-        metrics = metrics_over
-        win_prob = probs_over['win']
+        pick, metrics, win_prob = 'Over', metrics_over, probs_over['win']
     else:
-        pick = 'Under'
-        metrics = metrics_under
-        win_prob = probs_under['win']
+        pick, metrics, win_prob = 'Under', metrics_under, probs_under['win']
         
-    tier = determine_ev_tier(metrics['EV'], win_prob, pick)
-    
     return {
         'Pick': pick,
         'Win_Prob': win_prob,
         'EV_Pct': metrics['EV'] * 100.0,
         'Kelly': metrics['Kelly'],
-        'Tier': tier
+        'Tier': determine_ev_tier(metrics['EV'], win_prob, pick)
     }
 
 def get_col_safe(df, prop_cat, base_name):
-    """Safely extracts a column checking for both generic and stat-specific prefixes."""
     if base_name in df.columns: return df[base_name]
-    cat_name = f"{prop_cat}_{base_name}"
-    if cat_name in df.columns: return df[cat_name]
+    if f"{prop_cat}_{base_name}" in df.columns: return df[f"{prop_cat}_{base_name}"]
     return pd.Series(np.nan, index=df.index)
 
 def predict_props(todays_props_df):
     logging.info(f"Starting EV inference for {len(todays_props_df)} props...")
     results = []
     
-    if Cols.PROP_TYPE not in todays_props_df.columns:
-        logging.critical(f"Column '{Cols.PROP_TYPE}' not found in input.")
-        return pd.DataFrame()
-
-    try:
-        bias_map = get_recent_bias_map(days_back=21)
-    except Exception as e:
-        bias_map = {}
+    if Cols.PROP_TYPE not in todays_props_df.columns: return pd.DataFrame()
+    try: bias_map = get_recent_bias_map(days_back=21)
+    except Exception: bias_map = {}
 
     grouped = todays_props_df.groupby(Cols.PROP_TYPE)
     
@@ -157,12 +125,12 @@ def predict_props(todays_props_df):
         if not artifacts:
             artifacts = load_artifacts(prop_cat)
             is_multi = False
-            if not artifacts:
-                continue
+            if not artifacts: continue
             
         model, scaler, feature_names = artifacts['model'], artifacts['scaler'], artifacts['features']
         
-        X_raw = rename_features_for_model(group.copy(), prop_cat)
+        # FIX: Removed the buggy rename wrapper, passing raw columns perfectly mapped
+        X_raw = group.copy()
         X_model = pd.DataFrame(index=X_raw.index)
         sanitized_map = {c: re.sub(r'[^\w\s]', '_', str(c)).replace(' ', '_') for c in X_raw.columns}
         inv_map = {v: k for k, v in sanitized_map.items()}
@@ -174,14 +142,11 @@ def predict_props(todays_props_df):
 
         try:
             X_scaled = scaler.transform(X_model)
-            
-            # FIX: Convert scaled array back to DataFrame with correct feature names to silence LightGBM warnings
             X_scaled_df = pd.DataFrame(X_scaled, columns=X_model.columns, index=X_model.index)
             
             preds = model.predict(X_scaled_df)
             raw_proj_values = preds[:, target_idx] if is_multi else preds
             
-            # FIX: Look up exact string names configured in generator.py
             szn_avgs = get_col_safe(X_raw, prop_cat, 'SZN_AVG')
             l5_avgs = get_col_safe(X_raw, prop_cat, 'L5_AVG')
             stds = get_col_safe(X_raw, prop_cat, 'L10_STD_DEV')

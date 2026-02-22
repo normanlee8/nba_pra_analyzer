@@ -37,3 +37,20 @@
 2026-02-21 23:04:39 [INFO] root: ---------------------------
 2026-02-21 23:04:39 [INFO] root: Saved Excel analysis to: output/processed_props.xlsx
 2026-02-21 23:04:39 [INFO] root: <<< EV ANALYSIS COMPLETE >>>
+2026-02-21 23:54:18 [INFO] root: Logging initialized. Writing to logs/analysis_pregame.log
+2026-02-21 23:54:18 [INFO] root: >>> STARTING PRE-GAME EV PROP ANALYSIS <<<
+2026-02-21 23:54:18 [INFO] root: Loaded 485 props.
+2026-02-21 23:54:18 [INFO] root: Building EV feature set...
+2026-02-21 23:54:18 [INFO] root: --- Loading Static Data Files (Parquet) ---
+2026-02-21 23:54:19 [INFO] root: Feature set built. Final Shape: (468, 160)
+2026-02-21 23:54:19 [INFO] root: Running Probabilistic EV Inference...
+2026-02-21 23:54:19 [INFO] root: Starting EV inference for 468 props...
+2026-02-21 23:54:20 [INFO] root: --- EV ANALYSIS SUMMARY ---
+2026-02-21 23:54:20 [INFO] root:   S Tier: 120 props
+2026-02-21 23:54:20 [INFO] root:   A Tier: 20 props
+2026-02-21 23:54:20 [INFO] root:   B Tier: 6 props
+2026-02-21 23:54:20 [INFO] root:   C Tier: 15 props
+2026-02-21 23:54:20 [INFO] root:   Pass: 0 props
+2026-02-21 23:54:20 [INFO] root: ---------------------------
+2026-02-21 23:54:20 [INFO] root: Saved Excel analysis to: output/processed_props.xlsx
+2026-02-21 23:54:20 [INFO] root: <<< EV ANALYSIS COMPLETE >>>
