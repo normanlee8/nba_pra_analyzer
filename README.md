@@ -1,3 +1,3 @@
-Fix DNP like Joan and Joel. Maybe add a filter if not enough data recently.
-
-Keep track of prop lines
+TODO: Update grading to check correct rate of each category. Keep track of rate to see which one has highest correct percentage.
+TODO: Make S tier more strict
+TODO: Keep track of prop lines

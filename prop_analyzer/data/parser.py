@@ -59,7 +59,7 @@ class SmartDateDetector:
             dfs = []
             for f in files:
                 try:
-                    # UPDATED: Read Parquet instead of CSV
+                    # Read Parquet instead of CSV
                     d = pd.read_parquet(f, columns=['TEAM_ABBREVIATION', 'OPPONENT_ABBREV', 'GAME_DATE'])
                     dfs.append(d)
                 except Exception as e: 
@@ -184,6 +184,43 @@ def parse_matchup(matchup_line):
         return team1, team2, full_matchup_string, day_str
     return None, None, None, None
 
+
+def update_master_prop_history(data_to_write, header):
+    """
+    Appends new daily props to the master history tracking file.
+    This creates a historical database of Vegas lines for model training.
+    """
+    if not data_to_write:
+        return
+        
+    new_df = pd.DataFrame(data_to_write, columns=header)
+    history_file = cfg.MASTER_PROP_HISTORY_FILE
+    
+    try:
+        if history_file.exists():
+            hist_df = pd.read_parquet(history_file)
+            # Combine old and new
+            combined_df = pd.concat([hist_df, new_df], ignore_index=True)
+            # Drop duplicates in case the converter is run multiple times on the same day
+            # Keep the last entry so line movement (updates) overwrite earlier parses
+            combined_df = combined_df.drop_duplicates(
+                subset=[Cols.PLAYER_NAME, Cols.DATE, Cols.PROP_TYPE], 
+                keep='last'
+            )
+        else:
+            combined_df = new_df
+            
+        # Ensure the directory exists
+        history_file.parent.mkdir(parents=True, exist_ok=True)
+        
+        # Save back to parquet
+        combined_df.to_parquet(history_file, index=False)
+        logging.info(f"Updated Master Prop History: {history_file.name} (Total records: {len(combined_df)})")
+        
+    except Exception as e:
+        logging.error(f"Failed to update master prop history: {e}")
+
+
 def parse_text_to_csv(input_path=None, output_path=None):
     if input_path is None: input_path = cfg.INPUT_PROPS_TXT
     if output_path is None: output_path = cfg.PROPS_FILE
@@ -206,7 +243,7 @@ def parse_text_to_csv(input_path=None, output_path=None):
     props_parsed = 0
     suspicious_lines = 0
 
-    # --- NEW: List of keywords to explicitly ignore ---
+    # List of keywords to explicitly ignore
     IGNORED_PHRASES = {
         'HIGHER', 'LOWER', 'FEWER PICKS', 'MORE PICKS', 'DRAFTS', 
         'PICK\'EM', 'LIVE', 'RESULTS', 'RANKINGS', 'NEWS FEED', 
@@ -265,7 +302,7 @@ def parse_text_to_csv(input_path=None, output_path=None):
                 continue
 
             # 4. Fallback: Player Name
-            # === FIX: Skip known garbage lines before assigning them as Player Name ===
+            # Skip known garbage lines before assigning them as Player Name
             upper_line = line.upper()
             if upper_line in IGNORED_PHRASES or any(upper_line.startswith(p) for p in ['MORE PICKS', 'GET UP TO', 'CLAIM YOUR']):
                 continue
@@ -308,6 +345,9 @@ def parse_text_to_csv(input_path=None, output_path=None):
             writer = csv.writer(f_rec)
             writer.writerow(header)
             writer.writerows(data_to_write)
+
+        # UPDATE THE MASTER HISTORY FILE
+        update_master_prop_history(data_to_write, header)
 
     except Exception as e:
         logging.error(f"Error parsing props: {e}", exc_info=True)
