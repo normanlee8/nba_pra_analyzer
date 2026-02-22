@@ -57,23 +57,17 @@ def get_recent_bias_map(days_back=21):
     return bias_series.to_dict()
 
 def calculate_betting_metrics(probs, odds=-110):
-    """Calculates EV and Kelly Criterion based on sportsbook odds (Standard -110)."""
+    """Calculates EV and Kelly Criterion based on sportsbook odds."""
     p_win, p_loss = probs['win'], probs['loss']
     
-    # Calculate Decimal Odds & Payout
     if odds < 0:
         decimal_odds = 1.0 + (100.0 / abs(odds))
     else:
         decimal_odds = 1.0 + (odds / 100.0)
         
-    b = decimal_odds - 1.0  # Profit per $1 wagered (Payout)
-    
-    # Expected Value Formula: EV = (Win Prob * Payout) - (Loss Prob * 1)
-    # Note: Push probability returns stake, EV effect is 0.
+    b = decimal_odds - 1.0
     ev = (p_win * b) - p_loss
     
-    # Kelly Criterion Formula: f* = (bp - q) / b
-    # Tells us the optimal % of bankroll to wager.
     if p_win > 0 and ev > 0:
         kelly = ev / b 
     else:
@@ -84,20 +78,12 @@ def calculate_betting_metrics(probs, odds=-110):
 def determine_ev_tier(ev, win_prob, pick_type):
     """Professional Grade Tiering based STRICTLY on Expected Value (EV)."""
     tier = 'Pass'
-    
     ev_pct = ev * 100.0
     win_pct = win_prob * 100.0
     
-    # S Tier: "Nuke" Play -> High EV, High Certainty. Warrants max bet.
     if ev_pct >= 8.0 and win_pct >= 58.0: tier = 'S Tier'
-    
-    # A Tier: Strong +EV play.
     elif ev_pct >= 4.0 and win_pct >= 54.0: tier = 'A Tier'
-    
-    # B Tier: Slight edge, good for parlays or volume.
     elif ev_pct >= 1.5: tier = 'B Tier'
-    
-    # C Tier: Negative or neutral EV. 
     else: tier = 'C Tier'
 
     return tier
@@ -106,19 +92,14 @@ def evaluate_prop(proj, line, variance, prop_type):
     """Evaluates both sides (Over/Under) to find the best EV play."""
     if line <= 0: return None
     
-    # Pick probability distribution type based on prop category
     dist_type = 'nbinom' if prop_type in ['REB', 'AST', 'STL', 'BLK', 'FG3M'] else 'normal'
     
-    # Calculate probabilities for the OVER
     probs_over = get_discrete_probabilities(proj, line, variance, dist_type=dist_type)
     metrics_over = calculate_betting_metrics(probs_over)
     
-    # Calculate probabilities for the UNDER
-    # Win Under = Loss Over. Loss Under = Win Over.
     probs_under = {'win': probs_over['loss'], 'loss': probs_over['win'], 'push': probs_over['push']}
     metrics_under = calculate_betting_metrics(probs_under)
     
-    # Select best side based on EV
     if metrics_over['EV'] >= metrics_under['EV']:
         pick = 'Over'
         metrics = metrics_over
@@ -138,6 +119,13 @@ def evaluate_prop(proj, line, variance, prop_type):
         'Tier': tier
     }
 
+def get_col_safe(df, prop_cat, base_name):
+    """Safely extracts a column checking for both generic and stat-specific prefixes."""
+    if base_name in df.columns: return df[base_name]
+    cat_name = f"{prop_cat}_{base_name}"
+    if cat_name in df.columns: return df[cat_name]
+    return pd.Series(np.nan, index=df.index)
+
 def predict_props(todays_props_df):
     logging.info(f"Starting EV inference for {len(todays_props_df)} props...")
     results = []
@@ -149,14 +137,11 @@ def predict_props(todays_props_df):
     try:
         bias_map = get_recent_bias_map(days_back=21)
     except Exception as e:
-        logging.warning(f"Failed to load bias map: {e}")
         bias_map = {}
 
     grouped = todays_props_df.groupby(Cols.PROP_TYPE)
     
     for prop_cat, group in grouped:
-        logging.info(f"Predicting {len(group)} rows for {prop_cat}...")
-        
         model_to_load = prop_cat
         is_multi = False
         target_idx = 0
@@ -189,14 +174,19 @@ def predict_props(todays_props_df):
 
         try:
             X_scaled = scaler.transform(X_model)
-            preds = model.predict(X_scaled)
+            
+            # FIX: Convert scaled array back to DataFrame with correct feature names to silence LightGBM warnings
+            X_scaled_df = pd.DataFrame(X_scaled, columns=X_model.columns, index=X_model.index)
+            
+            preds = model.predict(X_scaled_df)
             raw_proj_values = preds[:, target_idx] if is_multi else preds
             
-            szn_avgs = X_raw.get('SZN Avg', pd.Series(np.nan, index=X_raw.index))
-            l5_avgs = X_raw.get('L5 Avg', szn_avgs)
-            stds = X_raw.get('L10_STD_DEV', pd.Series(np.nan, index=X_raw.index))
-            team_pace = X_raw.get('GAME_PACE', pd.Series(np.nan, index=X_raw.index))
-            opp_pace = X_raw.get('OPP_GAME_PACE', pd.Series(np.nan, index=X_raw.index))
+            # FIX: Look up exact string names configured in generator.py
+            szn_avgs = get_col_safe(X_raw, prop_cat, 'SZN_AVG')
+            l5_avgs = get_col_safe(X_raw, prop_cat, 'L5_AVG')
+            stds = get_col_safe(X_raw, prop_cat, 'L10_STD_DEV')
+            team_pace = get_col_safe(X_raw, prop_cat, 'GAME_PACE')
+            opp_pace = get_col_safe(X_raw, prop_cat, 'OPP_GAME_PACE')
             
             for idx, (orig_idx, row) in enumerate(group.iterrows()):
                 line = float(row[Cols.PROP_LINE])
@@ -208,21 +198,14 @@ def predict_props(todays_props_df):
                 t_pace = float(team_pace.iloc[idx]) if not pd.isna(team_pace.iloc[idx]) else None
                 o_pace = float(opp_pace.iloc[idx]) if not pd.isna(opp_pace.iloc[idx]) else None
                 
-                # 1. Base Smoothed Projection
                 proj = smooth_projection(raw_val, s_avg, r_avg, std_dev if std_dev else 1.0)
-                
-                # 2. Scale via Matchup Pace
                 proj = scale_by_pace(proj, 36.0, t_pace, o_pace)
                 
-                # 3. Apply Bias Correction
                 p_id = row.get(Cols.PLAYER_ID)
                 key = (int(p_id), prop_cat) if not pd.isna(p_id) else (row.get(Cols.PLAYER_NAME), prop_cat)
                 proj += (bias_map.get(key, 0.0) * 0.5)
                 
-                # 4. Calculate Variance (Handling Combos)
                 variance = estimate_combo_variance(prop_cat, proj, std_dev)
-                
-                # 5. Evaluate Expected Value & Probability
                 eval_res = evaluate_prop(proj, line, variance, prop_cat)
                 if not eval_res: continue
                 
@@ -239,7 +222,7 @@ def predict_props(todays_props_df):
                     'EV%': round(eval_res['EV_Pct'], 2),
                     'Kelly': round(eval_res['Kelly'], 3),
                     'Tier': eval_res['Tier'],
-                    '_Sort_Diff': eval_res['EV_Pct'] # Used by run_analysis for sorting
+                    '_Sort_Diff': eval_res['EV_Pct']
                 }
                 results.append(res_dict)
 
