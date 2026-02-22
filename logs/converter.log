@@ -1,0 +1,4 @@
+2026-02-21 22:47:10 [INFO] root: Logging initialized. Writing to logs/converter.log
+2026-02-21 22:47:10 [INFO] root: >>> STARTING PROP CONVERTER <<<
+2026-02-21 22:47:10 [INFO] root: Successfully converted props to input/props_today.csv (485 rows)
+2026-02-21 22:47:10 [INFO] root: <<< CONVERTER COMPLETE >>>

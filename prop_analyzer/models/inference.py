@@ -5,7 +5,6 @@ import logging
 import re
 from pathlib import Path
 from datetime import datetime, timedelta
-from scipy.stats import norm
 
 # Add project root to path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
@@ -13,7 +12,10 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 from prop_analyzer import config as cfg
 from prop_analyzer.config import Cols
 from prop_analyzer.models import registry
-from prop_analyzer.features.calculator import smooth_projection
+from prop_analyzer.features.calculator import (smooth_projection, 
+                                               get_discrete_probabilities, 
+                                               estimate_combo_variance, 
+                                               scale_by_pace)
 from prop_analyzer.models.training import rename_features_for_model
 
 def load_artifacts(prop_cat):
@@ -54,57 +56,96 @@ def get_recent_bias_map(days_back=21):
     bias_series = full_history.groupby(group_cols)['Error'].mean()
     return bias_series.to_dict()
 
-def calculate_implied_probability(proj, line, std_dev=None):
-    """
-    Since we replaced the Classifier with an Ensemble Regressor, we derive
-    the win probability based on the continuous projection using a Normal Distribution.
-    """
-    if pd.isna(std_dev) or std_dev <= 0:
-        std_dev = max(line * 0.20, 1.0) # Fallback: assume variance is ~20% of the line
+def calculate_betting_metrics(probs, odds=-110):
+    """Calculates EV and Kelly Criterion based on sportsbook odds (Standard -110)."""
+    p_win, p_loss = probs['win'], probs['loss']
     
-    # Probability of actual going OVER the discrete line
-    prob_over = 1.0 - norm.cdf(line, loc=proj, scale=std_dev)
-    return prob_over
-
-def determine_tier(prob_over, proj_val, line, prop_type):
-    """Calculates confidence Tier based on Continuous Edge and Derived Probability."""
-    if pd.isna(prob_over) or pd.isna(proj_val) or pd.isna(line) or line == 0:
-        return {'Tier': 'C Tier', 'Best Pick': 'Pass', 'Win_Prob': 0.0, 'Edge': 0.0}
-
-    is_over = prob_over >= 0.50
-    
-    if is_over:
-        win_prob = prob_over
-        edge_val = proj_val - line
-        pick = 'Over'
-        if proj_val < line: return {'Tier': 'C Tier', 'Best Pick': 'Over', 'Win_Prob': win_prob, 'Edge': 0.0}
+    # Calculate Decimal Odds & Payout
+    if odds < 0:
+        decimal_odds = 1.0 + (100.0 / abs(odds))
     else:
-        win_prob = 1.0 - prob_over
-        edge_val = line - proj_val
+        decimal_odds = 1.0 + (odds / 100.0)
+        
+    b = decimal_odds - 1.0  # Profit per $1 wagered (Payout)
+    
+    # Expected Value Formula: EV = (Win Prob * Payout) - (Loss Prob * 1)
+    # Note: Push probability returns stake, EV effect is 0.
+    ev = (p_win * b) - p_loss
+    
+    # Kelly Criterion Formula: f* = (bp - q) / b
+    # Tells us the optimal % of bankroll to wager.
+    if p_win > 0 and ev > 0:
+        kelly = ev / b 
+    else:
+        kelly = 0.0
+        
+    return {'EV': ev, 'Kelly': kelly, 'Implied_Odds': 1.0 / decimal_odds}
+
+def determine_ev_tier(ev, win_prob, pick_type):
+    """Professional Grade Tiering based STRICTLY on Expected Value (EV)."""
+    tier = 'Pass'
+    
+    ev_pct = ev * 100.0
+    win_pct = win_prob * 100.0
+    
+    # S Tier: "Nuke" Play -> High EV, High Certainty. Warrants max bet.
+    if ev_pct >= 8.0 and win_pct >= 58.0: tier = 'S Tier'
+    
+    # A Tier: Strong +EV play.
+    elif ev_pct >= 4.0 and win_pct >= 54.0: tier = 'A Tier'
+    
+    # B Tier: Slight edge, good for parlays or volume.
+    elif ev_pct >= 1.5: tier = 'B Tier'
+    
+    # C Tier: Negative or neutral EV. 
+    else: tier = 'C Tier'
+
+    return tier
+
+def evaluate_prop(proj, line, variance, prop_type):
+    """Evaluates both sides (Over/Under) to find the best EV play."""
+    if line <= 0: return None
+    
+    # Pick probability distribution type based on prop category
+    dist_type = 'nbinom' if prop_type in ['REB', 'AST', 'STL', 'BLK', 'FG3M'] else 'normal'
+    
+    # Calculate probabilities for the OVER
+    probs_over = get_discrete_probabilities(proj, line, variance, dist_type=dist_type)
+    metrics_over = calculate_betting_metrics(probs_over)
+    
+    # Calculate probabilities for the UNDER
+    # Win Under = Loss Over. Loss Under = Win Over.
+    probs_under = {'win': probs_over['loss'], 'loss': probs_over['win'], 'push': probs_over['push']}
+    metrics_under = calculate_betting_metrics(probs_under)
+    
+    # Select best side based on EV
+    if metrics_over['EV'] >= metrics_under['EV']:
+        pick = 'Over'
+        metrics = metrics_over
+        win_prob = probs_over['win']
+    else:
         pick = 'Under'
-        if proj_val > line: return {'Tier': 'C Tier', 'Best Pick': 'Under', 'Win_Prob': win_prob, 'Edge': 0.0}
-
-    tier = 'C Tier'
-    edge_pct = (edge_val / line) if line > 0 else 0.0
+        metrics = metrics_under
+        win_prob = probs_under['win']
+        
+    tier = determine_ev_tier(metrics['EV'], win_prob, pick)
     
-    if win_prob > 0.60 and edge_pct > 0.10: tier = 'S Tier'
-    elif win_prob > 0.56 and edge_pct > 0.05: tier = 'A Tier'
-    elif win_prob > 0.53: tier = 'B Tier'
-    
-    if prop_type in ['BLK', 'STL', 'FG3M'] and tier == 'S Tier' and edge_pct < 0.15:
-        tier = 'A Tier'
-
-    return {'Tier': tier, 'Best Pick': pick, 'Win_Prob': win_prob, 'Edge': edge_val}
+    return {
+        'Pick': pick,
+        'Win_Prob': win_prob,
+        'EV_Pct': metrics['EV'] * 100.0,
+        'Kelly': metrics['Kelly'],
+        'Tier': tier
+    }
 
 def predict_props(todays_props_df):
-    logging.info(f"Starting batch inference for {len(todays_props_df)} props...")
+    logging.info(f"Starting EV inference for {len(todays_props_df)} props...")
     results = []
     
     if Cols.PROP_TYPE not in todays_props_df.columns:
         logging.critical(f"Column '{Cols.PROP_TYPE}' not found in input.")
         return pd.DataFrame()
 
-    logging.info("Loading recent grading history for Bias Correction...")
     try:
         bias_map = get_recent_bias_map(days_back=21)
     except Exception as e:
@@ -116,7 +157,6 @@ def predict_props(todays_props_df):
     for prop_cat, group in grouped:
         logging.info(f"Predicting {len(group)} rows for {prop_cat}...")
         
-        # --- 1. DETERMINE MODEL SOURCE (Multi-Output vs Individual) ---
         model_to_load = prop_cat
         is_multi = False
         target_idx = 0
@@ -130,21 +170,14 @@ def predict_props(todays_props_df):
 
         artifacts = load_artifacts(model_to_load)
         if not artifacts:
-            # Fallback to direct model if MULTI fails
             artifacts = load_artifacts(prop_cat)
             is_multi = False
             if not artifacts:
-                logging.warning(f"No model artifacts found for {prop_cat}. Skipping.")
                 continue
             
-        model = artifacts['model']
-        scaler = artifacts['scaler']
-        feature_names = artifacts['features']
+        model, scaler, feature_names = artifacts['model'], artifacts['scaler'], artifacts['features']
         
-        # --- 2. PREPROCESS FEATURES ---
-        X_raw = group.copy()
-        X_raw = rename_features_for_model(X_raw, prop_cat)
-        
+        X_raw = rename_features_for_model(group.copy(), prop_cat)
         X_model = pd.DataFrame(index=X_raw.index)
         sanitized_map = {c: re.sub(r'[^\w\s]', '_', str(c)).replace(' ', '_') for c in X_raw.columns}
         inv_map = {v: k for k, v in sanitized_map.items()}
@@ -156,54 +189,43 @@ def predict_props(todays_props_df):
 
         try:
             X_scaled = scaler.transform(X_model)
-            
-            # --- 3. GENERATE ENSEMBLE PREDICTIONS ---
             preds = model.predict(X_scaled)
+            raw_proj_values = preds[:, target_idx] if is_multi else preds
             
-            # Extract target array depending on if the model is Multi-Output
-            if is_multi:
-                raw_proj_values = preds[:, target_idx]
-            else:
-                raw_proj_values = preds
-            
-            # Extract Stabilization Factors
             szn_avgs = X_raw.get('SZN Avg', pd.Series(np.nan, index=X_raw.index))
             l5_avgs = X_raw.get('L5 Avg', szn_avgs)
-            vols = X_raw.get('L10_STD_DEV', pd.Series(np.nan, index=X_raw.index))
+            stds = X_raw.get('L10_STD_DEV', pd.Series(np.nan, index=X_raw.index))
+            team_pace = X_raw.get('GAME_PACE', pd.Series(np.nan, index=X_raw.index))
+            opp_pace = X_raw.get('OPP_GAME_PACE', pd.Series(np.nan, index=X_raw.index))
             
-            final_proj_values = []
-            final_probs = []
-            
-            # --- 4. STABILIZE AND CALCULATE PROBABILITY ---
-            for idx, raw_val in enumerate(raw_proj_values):
-                s_avg = float(szn_avgs.iloc[idx]) if not pd.isna(szn_avgs.iloc[idx]) else raw_val
-                r_avg = float(l5_avgs.iloc[idx]) if not pd.isna(l5_avgs.iloc[idx]) else raw_val
-                vol = float(vols.iloc[idx]) if not pd.isna(vols.iloc[idx]) else None
-                
-                smoothed = smooth_projection(raw_val, s_avg, r_avg, vol if vol else 1.0)
-                final_proj_values.append(smoothed)
-                
-                line = float(group.iloc[idx][Cols.PROP_LINE])
-                prob_over = calculate_implied_probability(smoothed, line, vol)
-                final_probs.append(prob_over)
-            
-            # --- 5. BUILD FINAL RESULTS ---
             for idx, (orig_idx, row) in enumerate(group.iterrows()):
                 line = float(row[Cols.PROP_LINE])
-                prob = float(final_probs[idx])
-                proj = float(final_proj_values[idx])
+                raw_val = raw_proj_values[idx]
                 
-                # Apply Bias Correction
+                s_avg = float(szn_avgs.iloc[idx]) if not pd.isna(szn_avgs.iloc[idx]) else raw_val
+                r_avg = float(l5_avgs.iloc[idx]) if not pd.isna(l5_avgs.iloc[idx]) else raw_val
+                std_dev = float(stds.iloc[idx]) if not pd.isna(stds.iloc[idx]) else None
+                t_pace = float(team_pace.iloc[idx]) if not pd.isna(team_pace.iloc[idx]) else None
+                o_pace = float(opp_pace.iloc[idx]) if not pd.isna(opp_pace.iloc[idx]) else None
+                
+                # 1. Base Smoothed Projection
+                proj = smooth_projection(raw_val, s_avg, r_avg, std_dev if std_dev else 1.0)
+                
+                # 2. Scale via Matchup Pace
+                proj = scale_by_pace(proj, 36.0, t_pace, o_pace)
+                
+                # 3. Apply Bias Correction
                 p_id = row.get(Cols.PLAYER_ID)
                 key = (int(p_id), prop_cat) if not pd.isna(p_id) else (row.get(Cols.PLAYER_NAME), prop_cat)
+                proj += (bias_map.get(key, 0.0) * 0.5)
                 
-                bias = bias_map.get(key, 0.0)
-                proj = proj + (bias * 0.5)
+                # 4. Calculate Variance (Handling Combos)
+                variance = estimate_combo_variance(prop_cat, proj, std_dev)
                 
-                # Grade Signal
-                analysis = determine_tier(prob, proj, line, prop_cat)
-                diff_pct = (analysis['Edge'] / line) * 100.0 if line > 0 else 0.0
-
+                # 5. Evaluate Expected Value & Probability
+                eval_res = evaluate_prop(proj, line, variance, prop_cat)
+                if not eval_res: continue
+                
                 res_dict = {
                     Cols.PLAYER_NAME: row[Cols.PLAYER_NAME],
                     Cols.TEAM: row.get('TEAM_ABBREVIATION', row.get(Cols.TEAM, 'UNK')),
@@ -212,10 +234,12 @@ def predict_props(todays_props_df):
                     Cols.PROP_TYPE: prop_cat,
                     Cols.PROP_LINE: line,
                     'Proj': round(proj, 2),
-                    'Prob': round(analysis['Win_Prob'], 3),
-                    'Pick': analysis['Best Pick'],
-                    'Tier': analysis['Tier'],
-                    '_Sort_Diff': diff_pct 
+                    'Prob': round(eval_res['Win_Prob'], 3),
+                    'Pick': eval_res['Pick'],
+                    'EV%': round(eval_res['EV_Pct'], 2),
+                    'Kelly': round(eval_res['Kelly'], 3),
+                    'Tier': eval_res['Tier'],
+                    '_Sort_Diff': eval_res['EV_Pct'] # Used by run_analysis for sorting
                 }
                 results.append(res_dict)
 
