@@ -68,10 +68,13 @@ def determine_ev_tier(ev, win_prob, pick_type):
     ev_pct = ev * 100.0
     win_pct = win_prob * 100.0
     
-    if ev_pct >= 8.0 and win_pct >= 58.0: tier = 'S Tier'
-    elif ev_pct >= 4.0 and win_pct >= 54.0: tier = 'A Tier'
-    elif ev_pct >= 1.5: tier = 'B Tier'
-    else: tier = 'C Tier'
+    # Stricter criteria based on recent performance logs
+    if ev_pct >= 25.0 and win_pct >= 68.0: tier = 'S Tier'
+    elif ev_pct >= 15.0 and win_pct >= 62.0: tier = 'A Tier'
+    elif ev_pct >= 8.0 and win_pct >= 58.0: tier = 'B Tier'
+    elif ev_pct >= 3.0 and win_pct >= 54.0: tier = 'C Tier'
+    else: tier = 'Pass'
+    
     return tier
 
 def evaluate_prop(proj, line, variance, prop_type):
@@ -184,9 +187,14 @@ def predict_props(todays_props_df):
                 if days_rest > 7.0 or min_deviation > 0.30:
                     eval_res['Kelly'] = eval_res['Kelly'] * 0.5
                     
-                    # Force downgrade tier due to DNP/Injury return risk
-                    if eval_res['Tier'] in ['S Tier', 'A Tier']:
-                        eval_res['Tier'] = 'C Tier' # Demotes them off the main board
+                    # Graceful downgrade: Drop exactly 1 tier instead of straight to C Tier
+                    tier_ladder = ['S Tier', 'A Tier', 'B Tier', 'C Tier', 'Pass']
+                    
+                    if eval_res['Tier'] in tier_ladder:
+                        current_idx = tier_ladder.index(eval_res['Tier'])
+                        # If they are S, A, or B, demote them one level down
+                        if current_idx < len(tier_ladder) - 2: 
+                            eval_res['Tier'] = tier_ladder[current_idx + 1]
                 
                 res_dict = {
                     Cols.PLAYER_NAME: row[Cols.PLAYER_NAME],
