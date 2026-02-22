@@ -9,14 +9,13 @@ from prop_analyzer.data import loader
 def add_rolling_stats_history(df, stats_to_roll=None):
     """
     Calculates historical rolling features on a dataset.
-    CRITICAL FIX: All rolling stats are shifted by 1 to represent "stats entering the game".
+    CRITICAL: All rolling stats are shifted by 1 to represent "stats entering the game".
     """
     if Cols.PLAYER_ID not in df.columns or Cols.DATE not in df.columns:
         logging.error(f"Missing ID/Date columns. Cols found: {df.columns}")
         return df
 
-    # CRITICAL FIX: Strict Multi-Level Sort to prevent leakage
-    # We sort by Player -> Date -> GameID (if avail) to ensure deterministic order
+    # Strict Multi-Level Sort to prevent leakage
     sort_cols = [Cols.PLAYER_ID, Cols.DATE]
     if Cols.GAME_ID in df.columns:
         sort_cols.append(Cols.GAME_ID)
@@ -24,53 +23,79 @@ def add_rolling_stats_history(df, stats_to_roll=None):
     df = df.sort_values(by=sort_cols).reset_index(drop=True)
     
     if stats_to_roll is None:
-        stats_to_roll = [
-            'PTS', 'REB', 'AST', 'PRA', 'PR', 'PA', 'RA'
-        ]
+        stats_to_roll = ['PTS', 'REB', 'AST', 'PRA', 'PR', 'PA', 'RA', 'USG_PROXY', 'TS_PCT', 'MIN']
         
-    # Ensure stats exist (fill missing with 0 to prevent errors)
     for col in stats_to_roll:
         if col not in df.columns: 
             df[col] = 0.0
 
     grouped = df.groupby(Cols.PLAYER_ID)
 
+    # 1. Base Rolling Averages & Volatility
     for col in stats_to_roll:
-        # --- CRITICAL FIX: .shift(1) applied to all aggregations ---
-        # This ensures the feature for Game X only contains data from Games 1 to X-1.
-        
-        # SZN Avg (Expanding Mean)
-        # Note: min_periods=1 allows the first game to have a value (likely NaN after shift, handled by Imputer)
+        # Expanding (Season) Avg
         df[f'{col}_{Cols.SZN_AVG}'] = grouped[col].expanding().mean().shift(1).values
         
-        # L5 Avg (Rolling 5)
-        df[f'{col}_{Cols.L5_AVG}'] = grouped[col].rolling(window=5, min_periods=1).mean().shift(1).values
+        # Short, Medium, Long Form
+        df[f'{col}_L5_AVG'] = grouped[col].rolling(window=5, min_periods=1).mean().shift(1).values
+        df[f'{col}_L10_AVG'] = grouped[col].rolling(window=10, min_periods=1).mean().shift(1).values
+        df[f'{col}_L20_AVG'] = grouped[col].rolling(window=20, min_periods=1).mean().shift(1).values
         
-        # L10 Std Dev
+        # Volatility (Std Dev and Coefficient of Variation)
         df[f'{col}_L10_STD'] = grouped[col].rolling(window=10, min_periods=3).std().shift(1).values
+        # CV normalizes volatility so a 30ppg and 10ppg scorer can be compared
+        df[f'{col}_L10_CV'] = np.where(df[f'{col}_L10_AVG'] > 0, 
+                                       df[f'{col}_L10_STD'] / df[f'{col}_L10_AVG'], 
+                                       0.0)
         
-        # EWMA (Exponential Weighted Moving Average)
-        df[f'{col}_L5_EWMA'] = grouped[col].ewm(alpha=0.15, adjust=False).mean().shift(1).values
+        # Form vs Baseline Ratios (Is player hot or cold?)
+        df[f'{col}_FORM_RATIO'] = np.where(df[f'{col}_{Cols.SZN_AVG}'] > 0, 
+                                           df[f'{col}_L5_AVG'] / df[f'{col}_{Cols.SZN_AVG}'], 
+                                           1.0)
 
-    # Advanced Stats (Only if present)
-    if 'USG_PROXY' in df.columns:
-        df['SZN_USG_PROXY'] = grouped['USG_PROXY'].expanding().mean().shift(1).values
-        df['L5_USG_PROXY'] = grouped['USG_PROXY'].rolling(window=5).mean().shift(1).values
-        
-    if 'TS_PCT' in df.columns:
-        df['SZN_TS_PCT'] = grouped['TS_PCT'].expanding().mean().shift(1).values
-        
+    # 2. Contextual Splits (Home/Away & Rest)
+    split_targets = ['PTS', 'REB', 'AST', 'PRA', 'USG_PROXY', 'MIN']
+    
+    if 'IS_HOME' in df.columns:
+        for col in split_targets:
+            if col in df.columns:
+                # Transform guarantees index alignment. Fallback to SZN Avg if split has no history.
+                df[f'{col}_HOME_AWAY_AVG'] = df.groupby([Cols.PLAYER_ID, 'IS_HOME'])[col].transform(
+                    lambda x: x.expanding().mean().shift(1)
+                ).fillna(df[f'{col}_{Cols.SZN_AVG}'])
+                
+    if 'Rest_Category' in df.columns:
+        for col in split_targets:
+            if col in df.columns:
+                df[f'{col}_REST_SPLIT_AVG'] = df.groupby([Cols.PLAYER_ID, 'Rest_Category'])[col].transform(
+                    lambda x: x.expanding().mean().shift(1)
+                ).fillna(df[f'{col}_{Cols.SZN_AVG}'])
+
+    # 3. Rolling Hit Rates (Floor / Ceiling Detection)
+    hit_targets = {
+        'PTS': [10, 15, 20, 25, 30],
+        'REB': [6, 8, 10, 12],
+        'AST': [4, 6, 8, 10],
+        'PRA': [20, 25, 30, 35, 40]
+    }
+    
+    for stat, thresholds in hit_targets.items():
+        if stat in df.columns:
+            for t in thresholds:
+                temp_hit = (df[stat] >= t).astype(float)
+                # Calculates % of games over threshold in the last 10 games
+                df[f'{stat}_L10_HitRate_{t}'] = temp_hit.groupby(df[Cols.PLAYER_ID]).transform(
+                    lambda x: x.rolling(10, min_periods=1).mean().shift(1)
+                )
+
     return df
 
 def build_feature_set(props_df):
     logging.info("Building feature set with Point-in-Time safety (Leakage Fixed)...")
     
-    # 1. Load Data (Optimized: Load once)
-    # Note: loader functions should already implement caching, but we ensure explicit single calls here.
     player_stats_static, team_stats, _ = loader.load_static_data()
     vs_opp_df = loader.load_vs_opponent_data()
     
-    # Only load heavy history files if we actually have props to process
     if props_df.empty:
         return pd.DataFrame()
 
@@ -80,50 +105,33 @@ def build_feature_set(props_df):
     if cfg.MASTER_DVP_FILE.exists():
         try:
             dvp_df = pd.read_parquet(cfg.MASTER_DVP_FILE)
-            # Ensure Season ID exists for correct merging
-            if 'SEASON_ID' not in dvp_df.columns:
-                # If missing (legacy file), assume current season or drop
-                logging.warning("DVP file missing SEASON_ID. DVP merging might be inaccurate.")
         except Exception as e:
             logging.error(f"Failed to read DVP Parquet: {e}")
             dvp_df = None
 
-    # 2. Map Player Names to IDs
     if Cols.PLAYER_ID not in props_df.columns:
         if player_stats_static is not None:
-            # Create cleaner name map
             name_map = player_stats_static.set_index('clean_name')[Cols.PLAYER_ID].to_dict()
             props_df['clean_name'] = props_df[Cols.PLAYER_NAME].apply(lambda x: str(x).lower().strip())
             
-            # Manual Mapping overrides
             manual_map = {
-                'deuce mcbride': 'miles mcbride',
-                'cam johnson': 'cameron johnson',
-                'lu dort': 'luguentz dort',
-                'pj washington': 'p.j. washington',
-                'jimmy butler': 'jimmy butler iii',
-                'herb jones': 'herbert jones',
-                'robert williams': 'robert williams iii',
-                'trey murphy': 'trey murphy iii',
-                'kelly oubre': 'kelly oubre jr.',
-                'michael porter': 'michael porter jr.',
-                'nick richards': 'nick richards',
-                'gg jackson': 'gg jackson ii'
+                'deuce mcbride': 'miles mcbride', 'cam johnson': 'cameron johnson',
+                'lu dort': 'luguentz dort', 'pj washington': 'p.j. washington',
+                'jimmy butler': 'jimmy butler iii', 'herb jones': 'herbert jones',
+                'robert williams': 'robert williams iii', 'trey murphy': 'trey murphy iii',
+                'kelly oubre': 'kelly oubre jr.', 'michael porter': 'michael porter jr.',
+                'nick richards': 'nick richards', 'gg jackson': 'gg jackson ii'
             }
             props_df['clean_name'] = props_df['clean_name'].replace(manual_map)
             props_df[Cols.PLAYER_ID] = props_df['clean_name'].map(name_map)
             
             props_df = props_df.dropna(subset=[Cols.PLAYER_ID]).copy()
             if props_df.empty: 
-                logging.warning("No players matched ID map. Check naming conventions.")
+                logging.warning("No players matched ID map.")
                 return pd.DataFrame()
 
             props_df[Cols.PLAYER_ID] = props_df[Cols.PLAYER_ID].astype('int64')
-        else:
-            logging.error("Static player stats missing. Cannot map IDs.")
-            return pd.DataFrame()
 
-    # 3. Time-Travel Feature Engineering (Full Game)
     if box_scores is not None and not box_scores.empty:
         logging.info("Calculating Full Game rolling stats...")
         
@@ -132,10 +140,7 @@ def build_feature_set(props_df):
         
         if Cols.DATE in box_scores.columns:
             box_scores[Cols.DATE] = pd.to_datetime(box_scores[Cols.DATE])
-        elif 'GAME_DATE' in box_scores.columns:
-             box_scores[Cols.DATE] = pd.to_datetime(box_scores['GAME_DATE'])
 
-        # Calculate history with shifts
         history_df = add_rolling_stats_history(box_scores.copy())
         
         props_df[Cols.DATE] = pd.to_datetime(props_df[Cols.DATE])
@@ -144,22 +149,18 @@ def build_feature_set(props_df):
         props_df = props_df.sort_values(Cols.DATE)
         history_df = history_df.sort_values(Cols.DATE)
         
-        # Merge point-in-time stats
         features_df = pd.merge_asof(
             props_df, history_df, on=Cols.DATE, by=Cols.PLAYER_ID,
             direction='backward', suffixes=('', '_hist')
         )
         
-        # Merge Static Stats (Season Avg, etc from current season file)
         if player_stats_static is not None:
             cols_to_use = [c for c in player_stats_static.columns 
                            if c not in features_df.columns or c == Cols.PLAYER_ID]
             features_df = pd.merge(features_df, player_stats_static[cols_to_use], on=Cols.PLAYER_ID, how='left')
     else:
-        # Fallback if no history
         features_df = pd.merge(props_df, player_stats_static, on=Cols.PLAYER_ID, how='left')
 
-    # 4. Merge Team/Opponent Stats (Season-Aware)
     if 'TEAM_ABBREVIATION' not in features_df.columns and Cols.TEAM in features_df.columns:
         features_df['TEAM_ABBREVIATION'] = features_df[Cols.TEAM]
         
@@ -168,35 +169,21 @@ def build_feature_set(props_df):
         if 'TEAM_TEAM_ABBREVIATION' in team_stats_renamed.columns:
              team_stats_renamed = team_stats_renamed.rename(columns={'TEAM_TEAM_ABBREVIATION': 'TEAM_ABBREVIATION'})
         
-        # Merge Team Stats
         features_df = pd.merge(features_df, team_stats_renamed, left_on='TEAM_ABBREVIATION', right_index=True, how='left')
         
-        # Merge Opponent Stats
         opp_stats_renamed = team_stats.add_prefix('OPP_')
         features_df = pd.merge(features_df, opp_stats_renamed, left_on=Cols.OPPONENT, right_index=True, how='left')
 
-    # 5. Merge DVP (Season-Aware)
     if dvp_df is not None:
-        # Standardize Position
-        if 'Pos' not in features_df.columns and player_stats_static is not None:
-             if Cols.PLAYER_ID in player_stats_static.columns:
-                 pos_map = player_stats_static.set_index(Cols.PLAYER_ID)['Pos'].to_dict()
-                 features_df['Pos'] = features_df[Cols.PLAYER_ID].map(pos_map).fillna('PG')
-
         def normalize_pos(p):
             p = str(p).split('-')[0].upper().strip()
             if p == 'G': return 'SG'
             if p == 'F': return 'PF'
             return p if p in ['PG','SG','SF','PF','C'] else 'PG'
             
-        features_df['Primary_Pos'] = features_df.get('Pos', 'PG').apply(normalize_pos)
-        features_df['Primary_Pos'] = features_df['Primary_Pos'].astype(str)
+        features_df['Primary_Pos'] = features_df.get('Pos', 'PG').apply(normalize_pos).astype(str)
+        if 'Primary_Pos' in dvp_df.columns: dvp_df['Primary_Pos'] = dvp_df['Primary_Pos'].astype(str)
         
-        # Normalize columns for merge
-        if 'Primary_Pos' in dvp_df.columns:
-            dvp_df['Primary_Pos'] = dvp_df['Primary_Pos'].astype(str)
-        
-        # Ensure props_df has SEASON_ID
         if 'SEASON_ID' not in features_df.columns:
              features_df['yr'] = features_df[Cols.DATE].dt.year
              features_df['mo'] = features_df[Cols.DATE].dt.month
@@ -205,23 +192,13 @@ def build_feature_set(props_df):
              features_df.drop(columns=['yr', 'mo', 'season_start'], inplace=True)
 
         if 'SEASON_ID' in dvp_df.columns:
-            # Merge on Season + Opponent + Position
             features_df = pd.merge(
                 features_df, dvp_df, 
                 left_on=['SEASON_ID', Cols.OPPONENT, 'Primary_Pos'], 
                 right_on=['SEASON_ID', 'OPPONENT_ABBREV', 'Primary_Pos'], 
                 how='left'
             )
-        else:
-            # Fallback legacy merge
-            features_df = pd.merge(
-                features_df, dvp_df, 
-                left_on=[Cols.OPPONENT, 'Primary_Pos'], 
-                right_on=['OPPONENT_ABBREV', 'Primary_Pos'], 
-                how='left'
-            )
 
-    # 6. Merge H2H (Head to Head)
     if vs_opp_df is not None and not vs_opp_df.empty:
         features_df = pd.merge(
             features_df, vs_opp_df,
@@ -230,7 +207,6 @@ def build_feature_set(props_df):
             how='left'
         )
 
-    # 7. Final Polish / Fill Vacancy
     if 'TEAM_Possessions per Game' in features_df.columns:
         features_df['GAME_PACE'] = features_df['TEAM_Possessions per Game']
         
@@ -240,4 +216,4 @@ def build_feature_set(props_df):
         features_df[c] = features_df[c].fillna(0.0)
 
     logging.info(f"Feature set built. Final Shape: {features_df.shape}")
-    return features_dfs
+    return features_df

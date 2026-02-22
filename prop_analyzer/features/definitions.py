@@ -1,39 +1,38 @@
 # --- FEATURE GROUPS ---
 
-# Features that should ALWAYS be included if available
+# Core Base Features (Advanced ETL Output)
 BASE_FEATURE_COLS = [
-    # Trend & Average
-    'SZN Avg', 'L3 Avg', 'L5 EWMA', 'Loc Avg', 'CoV %',
-    'SZN Games', 'Selected Std Dev', 'L10_STD_DEV',
+    # General Averages
+    'SZN_AVG', 'L5_AVG', 'L10_AVG', 'L20_AVG',
     
-    # Context
-    'Prop Line',
+    # Form vs Baseline
+    'FORM_RATIO', 
     
-    # Fatigue / Schedule
-    'GAMES_IN_L5', 'IS_B2B', 'Days Rest',
+    # Volatility & Hit Rates
+    'L10_STD', 'L10_CV',
+    'L10_HitRate_10', 'L10_HitRate_15', 'L10_HitRate_20', 'L10_HitRate_25', 'L10_HitRate_30',
     
-    # Vacancy (The new split logic)
+    # Contextual Splits
+    'HOME_AWAY_AVG', 'REST_SPLIT_AVG', 'IS_HOME', 'Days_Rest',
+    
+    # Rate & Advanced
+    'USG_PROXY_PER36', 'TS_PCT', 'USG_PROXY', 
+    'L5_USG_PROXY', 'SZN_USG_PROXY',
+    
+    # Opponent Context
+    'DVP_MULTIPLIER', 'OPP_DEF_EFF',
+    
+    # Vacancy (Missing Usage/Minutes on Team)
     'TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 
-    'MISSING_USG_G', 'MISSING_USG_F',
-    
-    # Advanced
-    'SZN_TS_PCT', 'SZN_EFG_PCT', 'SZN_USG_PROXY',
-    'L5_TS_PCT', 'L5_EFG_PCT', 'L5_USG_PROXY',
-    'LOC_TS_PCT', 'LOC_EFG_PCT', 'LOC_USG_PROXY',
-    'TS_DIFF', 'EFG_DIFF', 'USG_DIFF',
-    
-    # PBP / OnCourt
-    'PBP_OnCourt_PlusMinus', 'PBP_OnCourt_USG_PCT'
+    'MISSING_USG_G', 'MISSING_USG_F', 'MISSING_USG_C'
 ]
 
-# Features that are specific to Matchup History (Prefix: VS_OPP_)
 VS_OPP_FEATURES = [
     'VS_OPP_PTS', 'VS_OPP_REB', 'VS_OPP_AST', 
     'VS_OPP_PRA', 'VS_OPP_PR', 'VS_OPP_PA', 'VS_OPP_RA', 
     'VS_OPP_MIN', 'VS_OPP_GAMES_PLAYED'
 ]
 
-# Features regarding historical averages (Prefix: HIST_)
 HIST_FEATURES = [
     'HIST_VS_OPP_PTS_AVG', 'HIST_VS_OPP_REB_AVG', 'HIST_VS_OPP_AST_AVG',
     'HIST_VS_OPP_PRA_AVG', 'HIST_VS_OPP_PR_AVG', 'HIST_VS_OPP_PA_AVG',
@@ -41,11 +40,7 @@ HIST_FEATURES = [
 ]
 
 # --- MAPPINGS ---
-
-# For Feature Pruning: Defines which VS_OPP and HIST stats are relevant 
-# for a specific target prop. 
 PROP_FEATURE_MAP = {
-    # Full Game
     'PTS': ['PTS', 'PRA', 'PR', 'PA', 'USG_PROXY', 'TS_PCT'],
     'REB': ['REB', 'PRA', 'PR', 'RA'],
     'AST': ['AST', 'PRA', 'PA', 'RA'],
@@ -55,13 +50,12 @@ PROP_FEATURE_MAP = {
     'RA':  ['RA', 'REB', 'AST', 'PRA'],
 }
 
-# Keywords to look for in "Team Stats" columns (e.g. Rank columns)
 RELEVANT_KEYWORDS = {
     'PTS': ['Points', 'PTS', 'Offensive Efficiency', 'True Shooting'],
     'REB': ['Rebound', 'REB', 'Opponent Total Rebounds'],
     'AST': ['Assist', 'AST'],
     'PRA': ['Points', 'Rebound', 'Assist', 'Offensive Efficiency'],
-    'PR': ['Points', 'Rebound'],
-    'PA': ['Points', 'Assist'],
-    'RA': ['Rebound', 'Assist'],
+    'PR':  ['Points', 'Rebound'],
+    'PA':  ['Points', 'Assist'],
+    'RA':  ['Rebound', 'Assist'],
 }

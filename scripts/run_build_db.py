@@ -45,10 +45,6 @@ def main():
         etl.process_vs_opponent_stats(cfg.DATA_DIR, cfg.DATA_DIR)
         etl.process_dvp_stats(cfg.DATA_DIR)
 
-        # 5. NEW: Process Q1 History
-        # This aggregates the daily Q1 scrapes into master_q1_stats.parquet
-        etl.process_q1_history(cfg.DATA_DIR)
-
         # --- PHASE 2: Dataset Creation ---
         logging.info("Step 2: Building Final Training Dataset...")
         

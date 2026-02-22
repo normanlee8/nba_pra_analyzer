@@ -1,0 +1,110 @@
+2026-02-21 19:24:52 [INFO] root: Logging initialized. Writing to logs/build_db.log
+2026-02-21 19:24:52 [INFO] root: >>> STARTING ETL PIPELINE (Parquet Optimized) <<<
+2026-02-21 19:24:52 [INFO] root: Step 1: Aggregating Master Files from Season Folders...
+2026-02-21 19:24:52 [INFO] root: Found Seasons: ['2024-25', '2025-26']
+2026-02-21 19:24:52 [INFO] root: Creating Player ID Map from ESPN Box Scores...
+2026-02-21 19:24:52 [INFO] root: --- Starting: process_master_player_stats (BBref Only) ---
+2026-02-21 19:24:52 [INFO] root: Saved master_player_stats_2024-25.parquet
+2026-02-21 19:24:52 [INFO] root: Saved master_player_stats_2025-26.parquet
+2026-02-21 19:24:52 [INFO] root: --- Starting: process_master_team_stats ---
+2026-02-21 19:24:53 [INFO] root: Saved master_team_stats_2024-25.parquet
+2026-02-21 19:24:53 [INFO] root: Saved master_team_stats_2025-26.parquet
+2026-02-21 19:24:53 [INFO] root: --- Starting: process_master_box_scores (Advanced Features) ---
+2026-02-21 19:24:53 [INFO] root: Saved master_box_scores_2024-25.parquet (26754 rows)
+2026-02-21 19:24:53 [INFO] root: Saved master_box_scores_2025-26.parquet (18267 rows)
+2026-02-21 19:24:53 [INFO] root: --- Starting: process_vs_opponent_stats ---
+2026-02-21 19:24:53 [INFO] root: Saved master_vs_opponent.parquet
+2026-02-21 19:24:53 [INFO] root: --- Starting: process_dvp_stats (Advanced Composite) ---
+2026-02-21 19:24:53 [INFO] root: Saved master_dvp_stats.parquet (Multi-Season: 333 rows)
+2026-02-21 19:24:53 [INFO] root: Step 2: Building Final Training Dataset...
+2026-02-21 19:24:53 [INFO] root: --- Building Final Training Dataset ---
+2026-02-21 19:24:53 [CRITICAL] root: FATAL ERROR in Database Build: module 'prop_analyzer.config' has no attribute 'MASTER_Q1_FILE'
+Traceback (most recent call last):
+  File "/Users/normanlee/Work/Projects/nba_pra_analyzer/scripts/run_build_db.py", line 56, in main
+    dataset.create_training_dataset()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/normanlee/Work/Projects/nba_pra_analyzer/prop_analyzer/data/dataset.py", line 22, in create_training_dataset
+    q1_df = loader.load_master_q1_history()
+  File "/Users/normanlee/Work/Projects/nba_pra_analyzer/prop_analyzer/data/loader.py", line 123, in load_master_q1_history
+    path = cfg.MASTER_Q1_FILE
+           ^^^^^^^^^^^^^^^^^^
+AttributeError: module 'prop_analyzer.config' has no attribute 'MASTER_Q1_FILE'. Did you mean: 'MASTER_DVP_FILE'?
+2026-02-21 19:27:42 [INFO] root: Logging initialized. Writing to logs/build_db.log
+2026-02-21 19:27:42 [INFO] root: >>> STARTING ETL PIPELINE (Parquet Optimized) <<<
+2026-02-21 19:27:42 [INFO] root: Step 1: Aggregating Master Files from Season Folders...
+2026-02-21 19:27:42 [INFO] root: Found Seasons: ['2024-25', '2025-26']
+2026-02-21 19:27:42 [INFO] root: Creating Player ID Map from ESPN Box Scores...
+2026-02-21 19:27:42 [INFO] root: --- Starting: process_master_player_stats (BBref Only) ---
+2026-02-21 19:27:42 [INFO] root: Saved master_player_stats_2024-25.parquet
+2026-02-21 19:27:42 [INFO] root: Saved master_player_stats_2025-26.parquet
+2026-02-21 19:27:42 [INFO] root: --- Starting: process_master_team_stats ---
+2026-02-21 19:27:42 [INFO] root: Saved master_team_stats_2024-25.parquet
+2026-02-21 19:27:42 [INFO] root: Saved master_team_stats_2025-26.parquet
+2026-02-21 19:27:42 [INFO] root: --- Starting: process_master_box_scores (Advanced Features) ---
+2026-02-21 19:27:42 [INFO] root: Saved master_box_scores_2024-25.parquet (26754 rows)
+2026-02-21 19:27:42 [INFO] root: Saved master_box_scores_2025-26.parquet (18267 rows)
+2026-02-21 19:27:42 [INFO] root: --- Starting: process_vs_opponent_stats ---
+2026-02-21 19:27:42 [INFO] root: Saved master_vs_opponent.parquet
+2026-02-21 19:27:42 [INFO] root: --- Starting: process_dvp_stats (Advanced Composite) ---
+2026-02-21 19:27:42 [INFO] root: Saved master_dvp_stats.parquet (Multi-Season: 333 rows)
+2026-02-21 19:27:42 [INFO] root: Step 2: Building Final Training Dataset...
+2026-02-21 19:27:42 [INFO] root: --- Building Final Training Dataset ---
+2026-02-21 19:27:42 [WARNING] root: Master Q1 file does not exist. 1Q props cannot be graded.
+2026-02-21 19:27:42 [WARNING] root: Master 1H file does not exist. 1H props cannot be graded.
+2026-02-21 19:27:42 [INFO] root: Calculating advanced features for training set...
+2026-02-21 19:27:45 [INFO] root: Saving training set with 135 columns...
+2026-02-21 19:27:45 [INFO] root: Saved to prop_data/master_training_dataset.parquet
+2026-02-21 19:27:45 [INFO] root: <<< DATABASE BUILD COMPLETE >>>
+2026-02-21 19:33:37 [INFO] root: Logging initialized. Writing to logs/build_db.log
+2026-02-21 19:33:37 [INFO] root: >>> STARTING ETL PIPELINE (Parquet Optimized) <<<
+2026-02-21 19:33:37 [INFO] root: Step 1: Aggregating Master Files from Season Folders...
+2026-02-21 19:33:37 [INFO] root: Found Seasons: ['2024-25', '2025-26']
+2026-02-21 19:33:37 [INFO] root: Creating Player ID Map from ESPN Box Scores...
+2026-02-21 19:33:37 [INFO] root: --- Starting: process_master_player_stats (BBref Only) ---
+2026-02-21 19:33:38 [INFO] root: Saved master_player_stats_2024-25.parquet
+2026-02-21 19:33:38 [INFO] root: Saved master_player_stats_2025-26.parquet
+2026-02-21 19:33:38 [INFO] root: --- Starting: process_master_team_stats ---
+2026-02-21 19:33:38 [INFO] root: Saved master_team_stats_2024-25.parquet
+2026-02-21 19:33:38 [INFO] root: Saved master_team_stats_2025-26.parquet
+2026-02-21 19:33:38 [INFO] root: --- Starting: process_master_box_scores (Advanced Features) ---
+2026-02-21 19:33:38 [INFO] root: Saved master_box_scores_2024-25.parquet (26754 rows)
+2026-02-21 19:33:38 [INFO] root: Saved master_box_scores_2025-26.parquet (18267 rows)
+2026-02-21 19:33:38 [INFO] root: --- Starting: process_vs_opponent_stats ---
+2026-02-21 19:33:38 [INFO] root: Saved master_vs_opponent.parquet
+2026-02-21 19:33:38 [INFO] root: --- Starting: process_dvp_stats (Advanced Composite) ---
+2026-02-21 19:33:38 [INFO] root: Saved master_dvp_stats.parquet (Multi-Season: 333 rows)
+2026-02-21 19:33:38 [INFO] root: Step 2: Building Final Training Dataset...
+2026-02-21 19:33:38 [INFO] root: --- Building Final Training Dataset ---
+2026-02-21 19:33:38 [CRITICAL] root: FATAL ERROR in Database Build: module 'prop_analyzer.data.loader' has no attribute 'load_master_q1_history'
+Traceback (most recent call last):
+  File "/Users/normanlee/Work/Projects/nba_pra_analyzer/scripts/run_build_db.py", line 52, in main
+    dataset.create_training_dataset()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/normanlee/Work/Projects/nba_pra_analyzer/prop_analyzer/data/dataset.py", line 22, in create_training_dataset
+    q1_df = loader.load_master_q1_history()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'prop_analyzer.data.loader' has no attribute 'load_master_q1_history'
+2026-02-21 19:36:20 [INFO] root: Logging initialized. Writing to logs/build_db.log
+2026-02-21 19:36:20 [INFO] root: >>> STARTING ETL PIPELINE (Parquet Optimized) <<<
+2026-02-21 19:36:20 [INFO] root: Step 1: Aggregating Master Files from Season Folders...
+2026-02-21 19:36:20 [INFO] root: Found Seasons: ['2024-25', '2025-26']
+2026-02-21 19:36:20 [INFO] root: Creating Player ID Map from ESPN Box Scores...
+2026-02-21 19:36:20 [INFO] root: --- Starting: process_master_player_stats (BBref Only) ---
+2026-02-21 19:36:20 [INFO] root: Saved master_player_stats_2024-25.parquet
+2026-02-21 19:36:20 [INFO] root: Saved master_player_stats_2025-26.parquet
+2026-02-21 19:36:20 [INFO] root: --- Starting: process_master_team_stats ---
+2026-02-21 19:36:20 [INFO] root: Saved master_team_stats_2024-25.parquet
+2026-02-21 19:36:20 [INFO] root: Saved master_team_stats_2025-26.parquet
+2026-02-21 19:36:20 [INFO] root: --- Starting: process_master_box_scores (Advanced Features) ---
+2026-02-21 19:36:20 [INFO] root: Saved master_box_scores_2024-25.parquet (26754 rows)
+2026-02-21 19:36:20 [INFO] root: Saved master_box_scores_2025-26.parquet (18267 rows)
+2026-02-21 19:36:20 [INFO] root: --- Starting: process_vs_opponent_stats ---
+2026-02-21 19:36:20 [INFO] root: Saved master_vs_opponent.parquet
+2026-02-21 19:36:20 [INFO] root: --- Starting: process_dvp_stats (Advanced Composite) ---
+2026-02-21 19:36:20 [INFO] root: Saved master_dvp_stats.parquet (Multi-Season: 333 rows)
+2026-02-21 19:36:20 [INFO] root: Step 2: Building Final Training Dataset...
+2026-02-21 19:36:20 [INFO] root: --- Building Final Training Dataset ---
+2026-02-21 19:36:20 [INFO] root: Calculating advanced features for training set...
+2026-02-21 19:36:23 [INFO] root: Saving training set with 135 columns...
+2026-02-21 19:36:23 [INFO] root: Saved to prop_data/master_training_dataset.parquet
+2026-02-21 19:36:23 [INFO] root: <<< DATABASE BUILD COMPLETE >>>

@@ -47,7 +47,7 @@ MASTER_TRAINING_FILE = DATA_DIR / "master_training_dataset.parquet"
 class Cols:
     PLAYER_NAME = 'Player Name'
     PLAYER_ID = 'PLAYER_ID'
-    GAME_ID = 'GAME_ID'  # Added GAME_ID
+    GAME_ID = 'GAME_ID'  
     TEAM = 'Team'
     OPPONENT = 'Opponent'
     MATCHUP = 'Matchup'
@@ -73,13 +73,13 @@ class Cols:
         return [cls.PLAYER_NAME, cls.TEAM, cls.OPPONENT, cls.MATCHUP, cls.PROP_TYPE, cls.PROP_LINE, cls.DATE]
 
 # --- THRESHOLDS ---
-MIN_PROB_FOR_S_TIER = 0.59  # Slightly stricter given improved model honesty
+MIN_PROB_FOR_S_TIER = 0.59  
 MIN_EDGE_FOR_S_TIER = 1.5
 MIN_EDGE_FOR_A_TIER = 1.0
 LIVE_MIN_PROB_THRESHOLD = 0.65
 LIVE_BLOWOUT_THRESHOLD = 20
-BAYESIAN_PRIOR_WEIGHT = 6.0  # Reduced from 12.0 to allow mid-season stats to dominate
-EWMA_DECAY_FACTOR = 0.80     # Reduced from 0.85 to make L5 trends more responsive
+BAYESIAN_PRIOR_WEIGHT = 6.0  
+EWMA_DECAY_FACTOR = 0.80     
 MIN_GAMES_FOR_ANALYSIS = 5
 
 # --- PRIORS ---
