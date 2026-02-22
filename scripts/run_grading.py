@@ -34,9 +34,6 @@ def save_user_scorecard(df, date_str):
     Saves a clean, human-readable Excel file for the user.
     Applies conditional formatting: WIN = Green, LOSS = Red.
     """
-    # Map System Cols -> Scorecard Cols
-    # We use the internal Cols keys to ensure we grab the right data
-    
     col_map = {
         Cols.PLAYER_NAME: 'Player',
         'Team': 'Team',
@@ -52,7 +49,6 @@ def save_user_scorecard(df, date_str):
         Cols.RESULT: 'Result'
     }
     
-    # Optional columns that might be in the data
     optional_map = {
         'Units': 'Units',
         'Diff%': 'Diff%',
@@ -60,7 +56,6 @@ def save_user_scorecard(df, date_str):
         'SZN': 'SZN'
     }
     
-    # Build final rename list based on what exists
     final_rename = {}
     for sys_col, user_col in col_map.items():
         if sys_col in df.columns:
@@ -76,16 +71,13 @@ def save_user_scorecard(df, date_str):
 
     clean_df = df[list(final_rename.keys())].rename(columns=final_rename).copy()
     
-    # Save to specific subfolder: user_scorecards
     scorecard_dir = cfg.GRADED_DIR / "user_scorecards"
     scorecard_dir.mkdir(parents=True, exist_ok=True)
     
     scorecard_path = scorecard_dir / f"{date_str}.xlsx"
     
     try:
-        # --- STYLING LOGIC ---
         def color_result(val):
-            """Colors the text based on Win/Loss"""
             if val == 'WIN':
                 return 'color: #008000; font-weight: bold' # Green
             elif val == 'LOSS':
@@ -94,7 +86,6 @@ def save_user_scorecard(df, date_str):
                 return 'color: #808080; font-weight: bold' # Gray
             return ''
 
-        # Fix for FutureWarning: Use .map instead of .applymap for newer pandas versions
         if 'Result' in clean_df.columns:
             try:
                 styler = clean_df.style.map(color_result, subset=['Result'])
@@ -121,9 +112,6 @@ def grade_predictions():
             logging.warning("Predictions file is empty.")
             return
             
-        # --- CRITICAL FIX: Normalize Column Names ---
-        # The analyzer now outputs "clean" names (Player, Prop, Date).
-        # We must map them back to internal names (Cols.PLAYER_NAME) for grading logic.
         clean_map = {
             'Player': Cols.PLAYER_NAME,
             'Prop': Cols.PROP_TYPE,
@@ -134,7 +122,6 @@ def grade_predictions():
             'Proj': Cols.PREDICTION,
             'Tier': Cols.TIER
         }
-        # Only rename if the "clean" name exists and the "system" name is missing
         actual_rename = {k: v for k, v in clean_map.items() if k in preds_df.columns and v not in preds_df.columns}
         if actual_rename:
             preds_df.rename(columns=actual_rename, inplace=True)
@@ -147,36 +134,28 @@ def grade_predictions():
     logging.info("Loading historical data for grading...")
     
     full_game_df = loader.load_box_scores()
-    q1_game_df = loader.load_master_q1_history()
-    h1_game_df = loader.load_master_1h_history()
-
-    # --- Combo Stats Calculation ---
-    if not q1_game_df.empty:
-        for col in ['PTS', 'REB', 'AST']:
-            if col not in q1_game_df.columns: q1_game_df[col] = 0
-        q1_game_df['PRA'] = q1_game_df['PTS'] + q1_game_df['REB'] + q1_game_df['AST']
-        q1_game_df['PR'] = q1_game_df['PTS'] + q1_game_df['REB']
-        q1_game_df['PA'] = q1_game_df['PTS'] + q1_game_df['AST']
-        q1_game_df['RA'] = q1_game_df['REB'] + q1_game_df['AST']
-
-    if not h1_game_df.empty:
-        for col in ['PTS', 'REB', 'AST']:
-            if col not in h1_game_df.columns: h1_game_df[col] = 0
-        h1_game_df['PRA'] = h1_game_df['PTS'] + h1_game_df['REB'] + h1_game_df['AST']
-        h1_game_df['PR'] = h1_game_df['PTS'] + h1_game_df['REB']
-        h1_game_df['PA'] = h1_game_df['PTS'] + h1_game_df['AST']
-        h1_game_df['RA'] = h1_game_df['REB'] + h1_game_df['AST']
 
     if full_game_df is None or full_game_df.empty:
-        logging.warning("No master box scores found. Full game props cannot be graded.")
-        full_game_df = pd.DataFrame()
+        logging.warning("No master box scores found. Props cannot be graded.")
+        return
+
+    # --- Combo Stats Calculation (Numeric forced for ESPN API) ---
+    for col in ['PTS', 'REB', 'AST']:
+        if col not in full_game_df.columns: 
+            full_game_df[col] = 0
+        else:
+            full_game_df[col] = pd.to_numeric(full_game_df[col], errors='coerce').fillna(0)
+
+    full_game_df['PRA'] = full_game_df['PTS'] + full_game_df['REB'] + full_game_df['AST']
+    full_game_df['PR'] = full_game_df['PTS'] + full_game_df['REB']
+    full_game_df['PA'] = full_game_df['PTS'] + full_game_df['AST']
+    full_game_df['RA'] = full_game_df['REB'] + full_game_df['AST']
 
     logging.info(f"Grading {len(preds_df)} predictions...")
 
     # Normalize Dates
-    for df in [full_game_df, q1_game_df, h1_game_df]:
-        if not df.empty and Cols.DATE in df.columns:
-            df[Cols.DATE] = pd.to_datetime(df[Cols.DATE]).dt.normalize()
+    if Cols.DATE in full_game_df.columns:
+        full_game_df[Cols.DATE] = pd.to_datetime(full_game_df[Cols.DATE]).dt.normalize()
 
     preds_df['Match_Date'] = pd.to_datetime(preds_df[Cols.DATE]).dt.normalize()
     prop_map = cfg.MASTER_PROP_MAP
@@ -188,24 +167,8 @@ def grade_predictions():
         p_date = row['Match_Date']
         
         prop_key = str(prop_map.get(prop_type, prop_type))
-        
-        is_q1 = '1st Quarter' in prop_type or '1Q' in prop_type or prop_key.startswith('Q1_')
-        is_1h = '1st Half' in prop_type or '1H' in prop_type or prop_key.startswith('1H_')
-        
-        if is_q1:
-            truth_df = q1_game_df
-            data_col = prop_key.replace('Q1_', '')
-        elif is_1h:
-            truth_df = h1_game_df
-            data_col = prop_key.replace('1H_', '')
-        else:
-            truth_df = full_game_df
-            data_col = prop_key
-
-        if truth_df.empty:
-            row[Cols.RESULT] = 'Missing Data Source'
-            results.append(row)
-            continue
+        truth_df = full_game_df
+        data_col = prop_key
 
         mask = None
         # Try finding by ID
@@ -283,6 +246,9 @@ def grade_predictions():
         logging.warning("No results to grade.")
         return
 
+    # Add mapping to graded_df BEFORE creating the finished subset
+    graded_df['Mapped_Prop'] = graded_df[Cols.PROP_TYPE].map(lambda x: cfg.MASTER_PROP_MAP.get(x, x))
+    
     finished = graded_df[graded_df[Cols.RESULT].isin(['WIN', 'LOSS', 'PUSH'])]
     
     print_accuracy_report(finished, "Total Props")
@@ -290,13 +256,22 @@ def grade_predictions():
     if Cols.TIER in finished.columns:
         for tier in ['S Tier', 'A Tier', 'B Tier']:
             tier_df = finished[finished[Cols.TIER] == tier]
-            print_accuracy_report(tier_df, f"{tier} Props")
+            if not tier_df.empty:
+                print_accuracy_report(tier_df, f"{tier} Props")
+
+    # --- CATEGORY REPORTING ---
+    logging.info(">>> CATEGORY HIT RATES <<<")
+    categories = ['PTS', 'REB', 'AST', 'PRA', 'PR', 'PA', 'RA']
+    
+    for cat in categories:
+        cat_df = finished[finished['Mapped_Prop'] == cat]
+        if not cat_df.empty:
+            print_accuracy_report(cat_df, f"{cat} Props")
 
     logging.info("-" * 40)
     
     # 8. Save Outputs
     today_str = datetime.now().strftime("%Y-%m-%d")
-    
     parquet_path = cfg.GRADED_DIR / f"graded_props_{today_str}.parquet"
     csv_path = cfg.GRADED_DIR / f"graded_{today_str}.csv"
     

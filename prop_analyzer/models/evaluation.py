@@ -7,19 +7,17 @@ from prop_analyzer.utils import text
 
 def calculate_derived_stats(df):
     """Calculates composite stats (PRA, PA, etc.) from raw box score columns."""
-    for q in ['Q1', 'Q2', 'Q3', 'Q4']:
-        pts, reb, ast = f'{q}_PTS', f'{q}_REB', f'{q}_AST'
-        if pts in df.columns and reb in df.columns and ast in df.columns:
-            df[f'{q}_PRA'] = df[pts] + df[reb] + df[ast]
-            df[f'{q}_PR'] = df[pts] + df[reb]
-            df[f'{q}_PA'] = df[pts] + df[ast]
-            df[f'{q}_RA'] = df[reb] + df[ast]
+    # Ensure base stats are numeric for ESPN API calculations
+    for stat in ['PTS', 'REB', 'AST']:
+        if stat in df.columns:
+            df[stat] = pd.to_numeric(df[stat], errors='coerce').fillna(0)
+        else:
+            df[stat] = 0
 
-    base_stats = ['PTS', 'REB', 'AST', 'PRA', 'PR', 'PA', 'RA', 'STL', 'BLK', 'TOV', 'FG3M']
-    for stat in base_stats:
-        q1_col, q2_col = f'Q1_{stat}', f'Q2_{stat}'
-        if q1_col in df.columns and q2_col in df.columns:
-            df[f'1H_{stat}'] = df[q1_col] + df[q2_col]
+    df['PRA'] = df['PTS'] + df['REB'] + df['AST']
+    df['PR'] = df['PTS'] + df['REB']
+    df['PA'] = df['PTS'] + df['AST']
+    df['RA'] = df['REB'] + df['AST']
             
     return df
 
@@ -95,6 +93,8 @@ def grade_predictions():
     df_box['join_player'] = df_box['PLAYER_NAME'].apply(text.preprocess_name_for_fuzzy_match)
     date_col_box = Cols.DATE if Cols.DATE in df_box.columns else 'GAME_DATE'
     df_box['join_date'] = pd.to_datetime(df_box[date_col_box], errors='coerce').dt.strftime('%Y-%m-%d')
+    
+    # Apply calculated stats correctly
     df_box = calculate_derived_stats(df_box)
 
     df_merged = pd.merge(df_props, df_box, on=['join_player', 'join_date'], how='left', suffixes=('', '_box'))
@@ -112,7 +112,7 @@ def grade_predictions():
     
     # 6. Performance Summary Report
     if Cols.CORRECTNESS in df_merged.columns:
-        graded = df_merged[df_merged[Cols.CORRECTNESS].isin(['Correct', 'Incorrect'])]
+        graded = df_merged[df_merged[Cols.CORRECTNESS].isin(['Correct', 'Incorrect'])].copy()
         
         def log_performance(subset, label):
             total = len(subset)
@@ -135,10 +135,19 @@ def grade_predictions():
         log_performance(graded, "Total Graded Props")
         
         if 'Tier' in graded.columns:
-            s_tier = graded[graded['Tier'] == 'S Tier']
-            log_performance(s_tier, "S-Tier Props")
-            
-            a_tier = graded[graded['Tier'] == 'A Tier']
-            log_performance(a_tier, "A-Tier Props")
+            for tier in ['S Tier', 'A Tier', 'B Tier']:
+                tier_df = graded[graded['Tier'] == tier]
+                if not tier_df.empty:
+                    log_performance(tier_df, f"{tier} Props")
+                    
+        # --- CATEGORY PERFORMANCE SUMMARY ---
+        logging.info("--- PERFORMANCE BY CATEGORY ---")
+        graded['Mapped_Prop'] = graded[Cols.PROP_TYPE].map(lambda x: cfg.MASTER_PROP_MAP.get(x, x))
+        categories = ['PTS', 'REB', 'AST', 'PRA', 'PR', 'PA', 'RA']
+        
+        for cat in categories:
+            cat_df = graded[graded['Mapped_Prop'] == cat]
+            if not cat_df.empty:
+                log_performance(cat_df, f"{cat} Props")
         
         logging.info("-" * 50)

@@ -88,6 +88,11 @@ def load_box_scores(player_ids=None):
         
         box_scores_df = pd.concat(dfs, ignore_index=True)
 
+        # Force numeric cast for ESPN API string outputs
+        for stat in ['PTS', 'REB', 'AST']:
+            if stat in box_scores_df.columns:
+                box_scores_df[stat] = pd.to_numeric(box_scores_df[stat], errors='coerce').fillna(0)
+
         date_col = Cols.DATE if Cols.DATE in box_scores_df.columns else 'GAME_DATE'
         if date_col in box_scores_df.columns:
             box_scores_df[date_col] = pd.to_datetime(box_scores_df[date_col], errors='coerce').dt.normalize()
