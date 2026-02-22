@@ -180,9 +180,13 @@ def predict_props(todays_props_df):
                 eval_res = evaluate_prop(proj, line, variance, prop_cat)
                 if not eval_res: continue
                 
-                # UNCERTAINTY PENALTY: Slash Kelly for high variance context
+                # UNCERTAINTY PENALTY: Slash Kelly and downgrade tier for high variance context
                 if days_rest > 7.0 or min_deviation > 0.30:
                     eval_res['Kelly'] = eval_res['Kelly'] * 0.5
+                    
+                    # Force downgrade tier due to DNP/Injury return risk
+                    if eval_res['Tier'] in ['S Tier', 'A Tier']:
+                        eval_res['Tier'] = 'C Tier' # Demotes them off the main board
                 
                 res_dict = {
                     Cols.PLAYER_NAME: row[Cols.PLAYER_NAME],
