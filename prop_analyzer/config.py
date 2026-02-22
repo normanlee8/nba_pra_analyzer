@@ -10,13 +10,14 @@ INPUT_DIR = BASE_DIR / "input"
 OUTPUT_DIR = BASE_DIR / "output"
 GRADED_DIR = OUTPUT_DIR / "graded_history"
 
+# Advanced Modeling Directories
+MODEL_VERSIONS_DIR = MODEL_DIR / "versions"
+MODEL_METADATA_DIR = MODEL_DIR / "metadata"
+
 # Ensure key directories exist
-DATA_DIR.mkdir(parents=True, exist_ok=True)
-MODEL_DIR.mkdir(parents=True, exist_ok=True)
-INPUT_DIR.mkdir(parents=True, exist_ok=True)
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-(INPUT_DIR / "records").mkdir(parents=True, exist_ok=True)
-GRADED_DIR.mkdir(parents=True, exist_ok=True)
+for d in [DATA_DIR, MODEL_DIR, INPUT_DIR, OUTPUT_DIR, GRADED_DIR, 
+          INPUT_DIR / "records", MODEL_VERSIONS_DIR, MODEL_METADATA_DIR]:
+    d.mkdir(parents=True, exist_ok=True)
 
 # Specific File Paths
 INPUT_PROPS_TXT = INPUT_DIR / "props_input.txt"
@@ -36,9 +37,7 @@ MASTER_TEAM_PATTERN = "master_team_stats_*.parquet"
 MASTER_BOX_SCORES_FILE = DATA_DIR / "master_box_scores_2025-26.parquet"
 MASTER_BOX_SCORES_PATTERN = "master_box_scores_*.parquet"
 
-# NEW: Master Prop History (Real Vegas Lines)
 MASTER_PROP_HISTORY_FILE = DATA_DIR / "master_prop_history.parquet"
-
 MASTER_VS_OPP_FILE = DATA_DIR / "master_vs_opponent.parquet"
 MASTER_DVP_FILE = DATA_DIR / "master_dvp_stats.parquet"
 MASTER_TRAINING_FILE = DATA_DIR / "master_training_dataset.parquet"
@@ -82,6 +81,12 @@ BAYESIAN_PRIOR_WEIGHT = 6.0
 EWMA_DECAY_FACTOR = 0.80     
 MIN_GAMES_FOR_ANALYSIS = 5
 
+# --- ADVANCED TRAINING CONFIGURATION ---
+CV_TIME_SPLITS = 5
+OPTUNA_N_TRIALS_XGB = 20  # Set to 50+ for production runs
+OPTUNA_N_TRIALS_LGB = 20  # Set to 50+ for production runs
+OPTUNA_N_TRIALS_RF = 10
+
 # --- PRIORS ---
 BAYESIAN_PRIORS = {
     'PTS': 12.0, 'REB': 4.0, 'AST': 3.0, 'PRA': 18.0,
@@ -90,19 +95,15 @@ BAYESIAN_PRIORS = {
 
 # --- PROP MAPPING ---
 MASTER_PROP_MAP = {
-    # Core
     'Points': 'PTS', 'pts': 'PTS',
     'Rebounds': 'REB', 'reb': 'REB',
     'Assists': 'AST', 'ast': 'AST',
-    
-    # Combos
     'Pts + Rebs + Asts': 'PRA', 'Pts+Rebs+Asts': 'PRA', 'pra': 'PRA',
     'Rebounds + Assists': 'RA', 'ra': 'RA',
     'Points + Rebounds': 'PR', 'pr': 'PR',
     'Points + Assists': 'PA', 'pa': 'PA'
 }
 
-SUPPORTED_PROPS = [
-    'PTS', 'REB', 'AST',
-    'PRA', 'PR', 'PA', 'RA'
-]
+BASE_TARGETS = ['PTS', 'REB', 'AST']
+COMPOSITE_TARGETS = ['PRA', 'PR', 'PA', 'RA']
+SUPPORTED_PROPS = BASE_TARGETS + COMPOSITE_TARGETS
