@@ -353,6 +353,10 @@ def fetch_espn_daily_box_scores(session, target_date):
                             ft_split = stat_dict.get('FT', '0-0').split('-')
                             fta = ft_split[1] if len(ft_split) > 1 else '0'
                             
+                            # Securely extract Position
+                            pos_dict = ath.get('athlete', {}).get('position', {})
+                            position_str = pos_dict.get('abbreviation', 'UNK')
+                            
                             record = {
                                 'GAME_ID': game_id,
                                 Cols.DATE: target_date.strftime('%Y-%m-%d'),
@@ -360,6 +364,7 @@ def fetch_espn_daily_box_scores(session, target_date):
                                 'PLAYER_NAME': ath['athlete']['displayName'],
                                 'TEAM_ABBREVIATION': current_team,
                                 'OPPONENT_ABBREV': opp_team,
+                                'Position': position_str,  # Extracted explicitly
                                 'MIN': stat_dict.get('MIN', '0'),
                                 'PTS': stat_dict.get('PTS', '0'),
                                 'REB': stat_dict.get('REB', '0'),

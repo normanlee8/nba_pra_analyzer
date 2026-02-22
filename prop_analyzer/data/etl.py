@@ -34,7 +34,7 @@ TEAM_NAME_MAP = {
 }
 
 BBREF_COLUMN_MAP = {
-    'G': 'SEASON_G', 'PTS': 'SEASON_PTS', 'TRB': 'SEASON_TRB', 'AST': 'SEASON_AST'
+    'G': 'SEASON_G', 'PTS': 'SEASON_PTS', 'TRB': 'SEASON_TRB', 'AST': 'SEASON_AST', 'Pos': 'Position'
 }
 
 def get_season_folders(data_dir):
@@ -94,7 +94,7 @@ def create_player_id_map(data_dir, season_folders):
     return player_map_df
 
 def process_master_player_stats(player_id_map, season_folders, output_dir):
-    logging.info("--- Starting: process_master_player_stats (BBref Only) ---")
+    logging.info("--- Starting: process_master_player_stats (BBref & ID Sync) ---")
     
     id_map_clean = player_id_map[[Cols.PLAYER_ID, 'Player_Clean', 'TEAM_ABBREVIATION', 'PLAYER_NAME']].drop_duplicates(subset=['Player_Clean'])
     name_to_id = id_map_clean.set_index('Player_Clean')[Cols.PLAYER_ID].to_dict()
@@ -116,12 +116,17 @@ def process_master_player_stats(player_id_map, season_folders, output_dir):
             if bball_ref_df is not None:
                 bball_ref_df['Player_Clean'] = bball_ref_df['Player'].apply(lambda x: unidecode(str(x)).lower().strip())
                 bball_ref_df = bball_ref_df.rename(columns=BBREF_COLUMN_MAP)
+                
+                # Standardize Position String (e.g., 'PG-SG' -> 'PG')
+                if 'Position' in bball_ref_df.columns:
+                    bball_ref_df['Position'] = bball_ref_df['Position'].astype(str).apply(lambda x: x.split('-')[0] if '-' in x else x)
+
                 bball_ref_df[Cols.PLAYER_ID] = bball_ref_df['Player_Clean'].apply(find_match)
                 bball_ref_df = bball_ref_df[bball_ref_df[Cols.PLAYER_ID].notna()]
                 bball_ref_df[Cols.PLAYER_ID] = bball_ref_df[Cols.PLAYER_ID].astype(int)
                 bball_ref_df.drop_duplicates(subset=[Cols.PLAYER_ID], keep='first', inplace=True)
                 
-                season_cols = [Cols.PLAYER_ID, 'Pos', 'SEASON_G', 'SEASON_PTS', 'SEASON_TRB', 'SEASON_AST']
+                season_cols = [Cols.PLAYER_ID, 'Position', 'SEASON_G', 'SEASON_PTS', 'SEASON_TRB', 'SEASON_AST']
                 cols_exist = [col for col in season_cols if col in bball_ref_df.columns]
                 season_player_df = pd.merge(season_player_df, bball_ref_df[cols_exist], on=Cols.PLAYER_ID, how="left")
                 
@@ -228,8 +233,16 @@ def process_master_box_scores(player_id_map, season_folders, output_dir):
                 p_stats = pd.read_parquet(p_stats_path)
                 if Cols.PLAYER_ID in p_stats.columns:
                     p_stats[Cols.PLAYER_ID] = pd.to_numeric(p_stats[Cols.PLAYER_ID], errors='coerce').fillna(0).astype(int)
-                    p_stats_szn = p_stats[[Cols.PLAYER_ID, 'Pos']].drop_duplicates(subset=[Cols.PLAYER_ID])
-                    bs_df = pd.merge(bs_df, p_stats_szn, on=Cols.PLAYER_ID, how='left')
+                    # Use 'Position' if it exists, fallback to 'Pos' to support legacy data gracefully
+                    pos_col = 'Position' if 'Position' in p_stats.columns else ('Pos' if 'Pos' in p_stats.columns else None)
+                    if pos_col:
+                        p_stats_szn = p_stats[[Cols.PLAYER_ID, pos_col]].drop_duplicates(subset=[Cols.PLAYER_ID])
+                        if pos_col != 'Position':
+                            p_stats_szn.rename(columns={pos_col: 'Position'}, inplace=True)
+                        
+                        # Merge position into box scores if missing
+                        if 'Position' not in bs_df.columns:
+                            bs_df = pd.merge(bs_df, p_stats_szn, on=Cols.PLAYER_ID, how='left')
 
             numeric_cols = ['PTS', 'REB', 'AST', 'FGA', 'FTA', 'TOV', 'MIN', 'STL', 'BLK']
             for col in numeric_cols:
@@ -312,7 +325,9 @@ def process_dvp_stats(output_dir):
                 if 'Defensive Efficiency' in ts_df.columns:
                     team_def_rtg = ts_df[['TEAM_ABBREVIATION', 'Defensive Efficiency']].set_index('TEAM_ABBREVIATION').to_dict()['Defensive Efficiency']
 
-            required = ['Pos', 'OPPONENT_ABBREV']
+            pos_col = 'Position' if 'Position' in df.columns else ('Pos' if 'Pos' in df.columns else None)
+            
+            required = [pos_col, 'OPPONENT_ABBREV'] if pos_col else ['OPPONENT_ABBREV']
             if Cols.DATE in df.columns: required.append(Cols.DATE)
             if not all(c in df.columns for c in required): continue
 
@@ -323,7 +338,11 @@ def process_dvp_stats(output_dir):
                 if p == 'F': return 'PF' 
                 return p
             
-            df['Primary_Pos'] = df['Pos'].apply(normalize_pos)
+            if pos_col:
+                df['Primary_Pos'] = df[pos_col].apply(normalize_pos)
+            else:
+                df['Primary_Pos'] = 'UNKNOWN'
+                
             valid_positions = ['PG', 'SG', 'SF', 'PF', 'C']
             df = df[df['Primary_Pos'].isin(valid_positions)].copy()
 

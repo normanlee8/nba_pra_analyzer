@@ -139,5 +139,17 @@ def build_feature_set(props_df):
         if c not in features_df.columns: features_df[c] = 0.0
         features_df[c] = features_df[c].fillna(0.0)
 
+    # --- NEW: STANDARDIZE POSITION ---
+    if 'Position' not in features_df.columns:
+        if 'Pos' in features_df.columns:
+            features_df['Position'] = features_df['Pos']
+        elif 'POSITION' in features_df.columns:
+            features_df['Position'] = features_df['POSITION']
+        else:
+            features_df['Position'] = 'UNK'
+            
+    # Clean up position strings (e.g. BBall-Ref often formats primary/secondary positions like 'PG-SG')
+    features_df['Position'] = features_df['Position'].astype(str).apply(lambda x: x.split('-')[0] if '-' in x else x)
+
     logging.info(f"Feature set built. Final Shape: {features_df.shape}")
     return features_df

@@ -1,3 +1,5 @@
+# prop_analyzer/models/inference.py
+
 import sys
 import pandas as pd
 import numpy as np
@@ -196,10 +198,14 @@ def predict_props(todays_props_df):
                         if current_idx < len(tier_ladder) - 2: 
                             eval_res['Tier'] = tier_ladder[current_idx + 1]
                 
+                # Extract Position accurately. Fall back to 'UNK' if it's not mapped yet
+                position = row.get('POSITION', row.get('PLAYER_POSITION', row.get('Position', 'UNK')))
+
                 res_dict = {
                     Cols.PLAYER_NAME: row[Cols.PLAYER_NAME],
                     Cols.TEAM: row.get('TEAM_ABBREVIATION', row.get(Cols.TEAM, 'UNK')),
                     Cols.OPPONENT: row.get(Cols.OPPONENT, 'UNK'),
+                    'Position': position,
                     Cols.DATE: row[Cols.DATE],
                     Cols.PROP_TYPE: prop_cat,
                     Cols.PROP_LINE: line,
