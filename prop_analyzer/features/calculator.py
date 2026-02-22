@@ -3,6 +3,28 @@ import pandas as pd
 import logging
 import math
 from scipy.stats import nbinom, poisson, norm
+from scipy.stats.mstats import winsorize
+
+# ====================================================================
+# NEW HELPERS: FEATURE ENGINEERING & INFERENCE
+# ====================================================================
+
+def winsorize_series(series, limit=0.10):
+    """Caps the top 10% of outlier performances to prevent artificial projection spikes."""
+    clean = series.dropna()
+    if len(clean) < 5: return series
+    return pd.Series(winsorize(clean, limits=(0, limit)), index=clean.index)
+
+def calculate_implied_minutes(prop_line, per_36_rate):
+    """Reverse-engineers expected minutes based on the Underdog line and player's historical efficiency."""
+    if pd.isna(prop_line) or pd.isna(per_36_rate) or per_36_rate <= 0:
+        return 0.0
+    return (float(prop_line) / float(per_36_rate)) * 36.0
+
+
+# ====================================================================
+# ORIGINAL FUNCTIONS
+# ====================================================================
 
 def calculate_bayesian_std(series, method='neg_binomial', shrinkage_param=10.0, dispersion=0.15):
     """Calculates a blended Standard Deviation shrinking towards a theoretical prior."""
@@ -186,11 +208,16 @@ def get_discrete_probabilities(proj, line, variance, dist_type='normal'):
         logging.warning(f"Error calculating distribution prob: {e}")
         return {'win': 0.5, 'push': 0.0, 'loss': 0.5}
 
-def scale_by_pace(player_proj, proj_mins, team_pace, opp_pace):
-    """Adjusts projection based on projected game pace versus baseline."""
+def scale_by_pace(player_proj, proj_mins, team_pace, opp_pace, prop_type='PTS'):
+    """Adjusts projection based on projected game pace. Applies non-linear scaling for rebounds."""
     if pd.isna(team_pace) or pd.isna(opp_pace) or team_pace <= 0:
         return player_proj
-    # Matchup Pace Estimator
+        
     matchup_pace = (team_pace + opp_pace) / 2.0
     pace_modifier = matchup_pace / team_pace
+    
+    if prop_type == 'REB':
+        # Rebounds scale non-linearly with pace (faster pace = lower FG% = more rebound chances)
+        pace_modifier = 1.0 + ((pace_modifier - 1.0) * 1.2)
+        
     return player_proj * pace_modifier

@@ -15,7 +15,8 @@ from prop_analyzer.models import registry
 from prop_analyzer.features.calculator import (smooth_projection, 
                                                get_discrete_probabilities, 
                                                estimate_combo_variance, 
-                                               scale_by_pace)
+                                               scale_by_pace,
+                                               calculate_implied_minutes)
 
 def load_artifacts(prop_cat):
     return registry.load_artifacts(prop_cat)
@@ -57,7 +58,9 @@ def calculate_betting_metrics(probs, odds=-110):
     decimal_odds = 1.0 + (100.0 / abs(odds)) if odds < 0 else 1.0 + (odds / 100.0)
     b = decimal_odds - 1.0
     ev = (p_win * b) - p_loss
-    kelly = ev / b if p_win > 0 and ev > 0 else 0.0
+    
+    # Quarter-Kelly base to protect bankroll variance
+    kelly = (ev / b) * 0.25 if p_win > 0 and ev > 0 else 0.0
     return {'EV': ev, 'Kelly': kelly, 'Implied_Odds': 1.0 / decimal_odds}
 
 def determine_ev_tier(ev, win_prob, pick_type):
@@ -129,7 +132,6 @@ def predict_props(todays_props_df):
             
         model, scaler, feature_names = artifacts['model'], artifacts['scaler'], artifacts['features']
         
-        # FIX: Removed the buggy rename wrapper, passing raw columns perfectly mapped
         X_raw = group.copy()
         X_model = pd.DataFrame(index=X_raw.index)
         sanitized_map = {c: re.sub(r'[^\w\s]', '_', str(c)).replace(' ', '_') for c in X_raw.columns}
@@ -144,8 +146,9 @@ def predict_props(todays_props_df):
             X_scaled = scaler.transform(X_model)
             X_scaled_df = pd.DataFrame(X_scaled, columns=X_model.columns, index=X_model.index)
             
+            # Prediction is now the RESIDUAL
             preds = model.predict(X_scaled_df)
-            raw_proj_values = preds[:, target_idx] if is_multi else preds
+            raw_proj_residuals = preds[:, target_idx] if is_multi else preds
             
             szn_avgs = get_col_safe(X_raw, prop_cat, 'SZN_AVG')
             l5_avgs = get_col_safe(X_raw, prop_cat, 'L5_AVG')
@@ -155,16 +158,31 @@ def predict_props(todays_props_df):
             
             for idx, (orig_idx, row) in enumerate(group.iterrows()):
                 line = float(row[Cols.PROP_LINE])
-                raw_val = raw_proj_values[idx]
+                predicted_residual = raw_proj_residuals[idx]
+                
+                # INVERSE TRANSFORM: Raw Projection = Market Line + Predicted Residual
+                raw_val = line + predicted_residual
+                
+                # SKEPTICISM DECAY: If model disagrees with the line by > 40%, assume the line knows something we don't.
+                delta_gap = abs(raw_val - line) / line if line > 0 else 0
+                if delta_gap > cfg.SKEPTICISM_DECAY_THRESHOLD:
+                    raw_val = (raw_val * 0.3) + (line * 0.7)
                 
                 s_avg = float(szn_avgs.iloc[idx]) if not pd.isna(szn_avgs.iloc[idx]) else raw_val
                 r_avg = float(l5_avgs.iloc[idx]) if not pd.isna(l5_avgs.iloc[idx]) else raw_val
                 std_dev = float(stds.iloc[idx]) if not pd.isna(stds.iloc[idx]) else None
                 t_pace = float(team_pace.iloc[idx]) if not pd.isna(team_pace.iloc[idx]) else None
                 o_pace = float(opp_pace.iloc[idx]) if not pd.isna(opp_pace.iloc[idx]) else None
+                days_rest = float(row.get(Cols.DAYS_REST, 2.0))
                 
+                # CALCULATE IMPLIED MINS VARIANCE
+                per_36 = (s_avg / float(row.get('MIN_SZN_AVG', 36.0))) * 36.0 if row.get('MIN_SZN_AVG', 0) > 0 else 0
+                implied_mins = calculate_implied_minutes(line, per_36)
+                hist_mins = float(row.get('MIN_L10_AVG', implied_mins))
+                min_deviation = abs(implied_mins - hist_mins) / hist_mins if hist_mins > 0 else 0
+
                 proj = smooth_projection(raw_val, s_avg, r_avg, std_dev if std_dev else 1.0)
-                proj = scale_by_pace(proj, 36.0, t_pace, o_pace)
+                proj = scale_by_pace(proj, 36.0, t_pace, o_pace, prop_type=prop_cat)
                 
                 p_id = row.get(Cols.PLAYER_ID)
                 key = (int(p_id), prop_cat) if not pd.isna(p_id) else (row.get(Cols.PLAYER_NAME), prop_cat)
@@ -173,6 +191,10 @@ def predict_props(todays_props_df):
                 variance = estimate_combo_variance(prop_cat, proj, std_dev)
                 eval_res = evaluate_prop(proj, line, variance, prop_cat)
                 if not eval_res: continue
+                
+                # UNCERTAINTY PENALTY: Slash Kelly in half for high variance context
+                if days_rest > 7.0 or min_deviation > 0.30:
+                    eval_res['Kelly'] = eval_res['Kelly'] * 0.5
                 
                 res_dict = {
                     Cols.PLAYER_NAME: row[Cols.PLAYER_NAME],
@@ -185,7 +207,7 @@ def predict_props(todays_props_df):
                     'Prob': round(eval_res['Win_Prob'], 3),
                     'Pick': eval_res['Pick'],
                     'EV%': round(eval_res['EV_Pct'], 2),
-                    'Kelly': round(eval_res['Kelly'], 3),
+                    'Kelly': round(eval_res['Kelly'], 4), # Increased decimal depth for precision
                     'Tier': eval_res['Tier'],
                     '_Sort_Diff': eval_res['EV_Pct']
                 }

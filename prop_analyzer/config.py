@@ -67,6 +67,11 @@ class Cols:
     SZN_AVG = 'SZN_AVG'
     L5_AVG = 'L5_AVG'
     
+    # --- NEW COLUMNS ADDED FOR PHASE 1 & 2 ---
+    DAYS_REST = 'DAYS_REST'
+    IMPLIED_MINS = 'IMPLIED_MINS'
+    RESIDUAL = 'RESIDUAL'
+    
     @classmethod
     def get_required_input_cols(cls):
         return [cls.PLAYER_NAME, cls.TEAM, cls.OPPONENT, cls.MATCHUP, cls.PROP_TYPE, cls.PROP_LINE, cls.DATE]
@@ -80,6 +85,9 @@ LIVE_BLOWOUT_THRESHOLD = 20
 BAYESIAN_PRIOR_WEIGHT = 6.0  
 EWMA_DECAY_FACTOR = 0.80     
 MIN_GAMES_FOR_ANALYSIS = 5
+
+# --- NEW INFERENCE THRESHOLDS ---
+SKEPTICISM_DECAY_THRESHOLD = 0.40  # 40% gap triggers regression to market
 
 # --- ADVANCED TRAINING CONFIGURATION ---
 CV_TIME_SPLITS = 5

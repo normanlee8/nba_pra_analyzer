@@ -5,6 +5,7 @@ from prop_analyzer import config as cfg
 from prop_analyzer.config import Cols
 from prop_analyzer.features import definitions as feat_defs
 from prop_analyzer.data import loader
+from prop_analyzer.features.calculator import winsorize_series, calculate_implied_minutes
 
 def add_rolling_stats_history(df, stats_to_roll=None):
     """Calculates historical rolling features on a dataset."""
@@ -25,14 +26,22 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         if col not in df.columns: 
             df[col] = 0.0
 
+    # NEW: Calculate Days Rest (penalizes injury returnees later)
+    df[Cols.DAYS_REST] = df.groupby(Cols.PLAYER_ID)[Cols.DATE].diff().dt.days.fillna(7.0)
+
     grouped = df.groupby(Cols.PLAYER_ID)
 
     # 1. Base Rolling Averages & Volatility (CRITICAL FOR EV MATH)
     for col in stats_to_roll:
+        # Pre-process: Cap 90th percentile outliers per player before taking medians
+        df[f'{col}_WINSOR'] = grouped[col].transform(lambda x: winsorize_series(x, limit=0.10))
+        grouped_winsor = df.groupby(Cols.PLAYER_ID)[f'{col}_WINSOR']
+        
+        # SZN_AVG remains mean for volume mapping, but L5/L10 become rolling MEDIANS to resist outliers
         df[f'{col}_{Cols.SZN_AVG}'] = grouped[col].expanding().mean().shift(1).values
-        df[f'{col}_L5_AVG'] = grouped[col].rolling(window=5, min_periods=1).mean().shift(1).values
-        df[f'{col}_L10_AVG'] = grouped[col].rolling(window=10, min_periods=1).mean().shift(1).values
-        df[f'{col}_L20_AVG'] = grouped[col].rolling(window=20, min_periods=1).mean().shift(1).values
+        df[f'{col}_L5_AVG'] = grouped_winsor.rolling(window=5, min_periods=1).median().shift(1).values
+        df[f'{col}_L10_AVG'] = grouped_winsor.rolling(window=10, min_periods=1).median().shift(1).values
+        df[f'{col}_L20_AVG'] = grouped_winsor.rolling(window=20, min_periods=1).median().shift(1).values
         
         # Volatility mapped accurately for inference distribution sizing
         df[f'{col}_L10_STD_DEV'] = grouped[col].rolling(window=10, min_periods=3).std().shift(1).values
@@ -59,6 +68,10 @@ def add_rolling_stats_history(df, stats_to_roll=None):
                 df[f'{col}_REST_SPLIT_AVG'] = df.groupby([Cols.PLAYER_ID, 'Rest_Category'])[col].transform(
                     lambda x: x.expanding().mean().shift(1)
                 ).fillna(df[f'{col}_{Cols.SZN_AVG}'])
+
+    # Cleanup temporary winsorized columns to save memory
+    drop_cols = [c for c in df.columns if c.endswith('_WINSOR')]
+    df.drop(columns=drop_cols, inplace=True)
 
     return df
 

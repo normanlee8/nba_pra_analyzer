@@ -42,8 +42,8 @@ def get_feature_cols(prop_cat, all_columns):
             if prefixed_feat in all_columns:
                 relevant.append(prefixed_feat)
 
-    # 2. Vacancy Columns
-    vacancy_cols = ['TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 'MISSING_USG_G', 'MISSING_USG_F']
+    # 2. Vacancy & Context Columns
+    vacancy_cols = ['TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 'MISSING_USG_G', 'MISSING_USG_F', Cols.DAYS_REST]
     for vc in vacancy_cols:
         if vc in all_columns:
             relevant.append(vc)
@@ -52,12 +52,10 @@ def get_feature_cols(prop_cat, all_columns):
     keywords = feat_defs.RELEVANT_KEYWORDS.get(prop_cat, [])
     for c in all_columns:
         if any(x in c for x in ['_RANK', 'TEAM_', 'OPP_', 'DVP_']):
-            # Exclude identifiers
             if any(x in c for x in ['NAME', 'ABBREV', Cols.DATE, 'SEASON_ID', Cols.PLAYER_ID]):
                 continue
             if c in vacancy_cols:
                 continue
-                
             if keywords:
                 if any(k in c for k in keywords) or 'PACE' in c or 'EFF' in c or 'DVP_' in c:
                     relevant.append(c)
@@ -105,6 +103,10 @@ def train_ensemble_model(df, target_cols, prop_name):
     feature_list = []
     for t in target_cols:
         feature_list.extend(get_feature_cols(t, df.columns))
+        
+    # MUST explicitly include PROP_LINE in training features as the Bayesian Prior
+    if Cols.PROP_LINE in df.columns:
+        feature_list.append(Cols.PROP_LINE)
     
     feature_list = list(set(feature_list)) 
     
@@ -115,9 +117,21 @@ def train_ensemble_model(df, target_cols, prop_name):
     df = backfill_missing_cols(df, feature_list)
     sanitized_cols = [re.sub(r'[^\w\s]', '_', str(col)).replace(' ', '_') for col in feature_list]
     
+    # Feature Frame
     X = df[feature_list].copy()
     X.columns = sanitized_cols
+    
+    # NEW: Create Residual Targets (Actual Result - Prop Line)
     y = df[target_cols].copy()
+    for col in target_cols:
+        fallback_line = df[f'{col}_{Cols.SZN_AVG}'] if f'{col}_{Cols.SZN_AVG}' in df.columns else df[col]
+        hist_line = df[Cols.PROP_LINE].fillna(fallback_line) if Cols.PROP_LINE in df.columns else fallback_line
+        
+        # PREVENT NaN ERROR: SZN_AVG can be NaN (e.g., player's first game of the season)
+        # If everything is missing, assume the line was perfectly set (Residual = 0)
+        hist_line = hist_line.fillna(df[col])
+        
+        y[col] = df[col] - hist_line
 
     is_multi_output = len(target_cols) > 1
     if not is_multi_output:
@@ -139,7 +153,6 @@ def train_ensemble_model(df, target_cols, prop_name):
     tscv = TimeSeriesSplit(n_splits=5) 
 
     def optimize_base_models():
-        # ENABLED LOGGING to see trial progress and prevent silent hangs
         optuna.logging.set_verbosity(optuna.logging.INFO)
         
         def xgb_objective(trial):
@@ -150,7 +163,6 @@ def train_ensemble_model(df, target_cols, prop_name):
                 'subsample': trial.suggest_float('subsample', 0.6, 1.0),
                 'colsample_bytree': trial.suggest_float('colsample_bytree', 0.6, 1.0),
             }
-            # n_jobs=2 prevents macOS thread starving during CV loops
             base_mod = xgb.XGBRegressor(**params, random_state=42, n_jobs=2, objective='reg:squarederror')
             mod = MultiOutputRegressor(base_mod) if is_multi_output else base_mod
             
@@ -161,7 +173,7 @@ def train_ensemble_model(df, target_cols, prop_name):
             return np.mean(maes)
 
         study_xgb = optuna.create_study(direction='minimize')
-        study_xgb.optimize(xgb_objective, n_trials=5) # Reduced for speed
+        study_xgb.optimize(xgb_objective, n_trials=5)
         
         def lgb_objective(trial):
             params = {
@@ -170,7 +182,6 @@ def train_ensemble_model(df, target_cols, prop_name):
                 'max_depth': trial.suggest_int('max_depth', 3, 6),
                 'num_leaves': trial.suggest_int('num_leaves', 20, 50),
             }
-            # n_jobs=2 to prevent LightGBM macOS hangs
             base_mod = lgb.LGBMRegressor(**params, random_state=42, n_jobs=2, verbose=-1)
             mod = MultiOutputRegressor(base_mod) if is_multi_output else base_mod
             
@@ -181,16 +192,18 @@ def train_ensemble_model(df, target_cols, prop_name):
             return np.mean(maes)
 
         study_lgb = optuna.create_study(direction='minimize')
-        study_lgb.optimize(lgb_objective, n_trials=5) # Reduced for speed
+        study_lgb.optimize(lgb_objective, n_trials=5)
 
         def rf_objective(trial):
             params = {
-                'n_estimators': trial.suggest_int('n_estimators', 50, 100),
-                'max_depth': trial.suggest_int('max_depth', 5, 10),
+                'n_estimators': trial.suggest_int('n_estimators', 30, 70), # Reduced tree count for speed
+                'max_depth': trial.suggest_int('max_depth', 4, 8),         # Reduced depth for speed
                 'min_samples_split': trial.suggest_int('min_samples_split', 2, 5),
+                'max_features': 'sqrt',                                    # HUGE SPEEDUP: feature sampling
+                'max_samples': 0.5                                         # HUGE SPEEDUP: row sampling
             }
-            # n_jobs=2 safely caps the RandomForest cores
-            base_mod = RandomForestRegressor(**params, random_state=42, n_jobs=2)
+            # n_jobs=-1 safely uses all cores since RF runs independent trees
+            base_mod = RandomForestRegressor(**params, random_state=42, n_jobs=-1)
             mod = MultiOutputRegressor(base_mod) if is_multi_output else base_mod
             
             maes = []
@@ -200,17 +213,24 @@ def train_ensemble_model(df, target_cols, prop_name):
             return np.mean(maes)
 
         study_rf = optuna.create_study(direction='minimize')
-        study_rf.optimize(rf_objective, n_trials=3) # Reduced for speed
+        study_rf.optimize(rf_objective, n_trials=3)
 
         return study_xgb.best_params, study_lgb.best_params, study_rf.best_params
 
     logging.info(f"[{prop_name}] Running Hyperparameter Optimization (Walk-Forward CV)...")
     xgb_params, lgb_params, rf_params = optimize_base_models()
 
-    # We can safely return to n_jobs=-1 for the final, single model fits to be fast
     xgb_best = xgb.XGBRegressor(**xgb_params, random_state=42, n_jobs=-1)
     lgb_best = lgb.LGBMRegressor(**lgb_params, random_state=42, n_jobs=-1, verbose=-1)
-    rf_best = RandomForestRegressor(**rf_params, random_state=42, n_jobs=-1)
+    
+    # Ensure speedup features are passed to the final RF model
+    rf_best = RandomForestRegressor(
+        **rf_params, 
+        max_features='sqrt', 
+        max_samples=0.5, 
+        random_state=42, 
+        n_jobs=-1
+    )
 
     ensemble = VotingRegressor(estimators=[('xgb', xgb_best), ('lgb', lgb_best), ('rf', rf_best)])
     final_model = MultiOutputRegressor(ensemble) if is_multi_output else ensemble
