@@ -205,7 +205,6 @@ def process_master_box_scores(player_id_map, season_folders, output_dir):
             if 'ESPN_ID' in bs_df.columns:
                 bs_df.rename(columns={'ESPN_ID': Cols.PLAYER_ID}, inplace=True)
             
-            # --- FIX: Standardize player name column here ---
             if 'PLAYER_NAME' in bs_df.columns:
                 bs_df.rename(columns={'PLAYER_NAME': Cols.PLAYER_NAME}, inplace=True)
             
@@ -217,6 +216,7 @@ def process_master_box_scores(player_id_map, season_folders, output_dir):
             if Cols.DATE in bs_df.columns: 
                 bs_df[Cols.DATE] = pd.to_datetime(bs_df[Cols.DATE], errors='coerce')
 
+            # Identify if player is Home or Away based on Matchup string (e.g. LAL @ BOS)
             if 'MATCHUP' in bs_df.columns:
                 bs_df['IS_HOME'] = np.where(bs_df['MATCHUP'].str.contains('@'), 0, 1)
             else:
@@ -270,6 +270,15 @@ def process_master_box_scores(player_id_map, season_folders, output_dir):
             if p_stats_path.exists():
                 bs_df = calculate_historical_vacancy(bs_df, pd.read_parquet(p_stats_path))
 
+            # --- Calculate Expanding Home/Away Split Averages for Historical ML Training ---
+            # Calculates the running mean of the player in this split, shifted by 1 to prevent data leakage.
+            split_stat_cols = ['PTS', 'REB', 'AST', 'PRA', 'MIN']
+            for col in split_stat_cols:
+                if col in bs_df.columns:
+                    bs_df[f'{col}_SPLIT_AVG'] = bs_df.groupby([Cols.PLAYER_ID, 'IS_HOME'])[col].transform(
+                        lambda x: x.expanding().mean().shift(1)
+                    ).fillna(0.0).round(2)
+
             if 'OPPONENT_ABBREV' not in bs_df.columns:
                  bs_df['OPPONENT_ABBREV'] = "UNK"
 
@@ -300,7 +309,6 @@ def process_vs_opponent_stats(data_dir, output_dir):
     agg_cols = {k: 'mean' for k in ['PTS', 'REB', 'AST', 'PRA', 'PR', 'PA', 'RA', 'MIN'] if k in df.columns}
     if Cols.GAME_ID in df.columns: agg_cols[Cols.GAME_ID] = 'count'
     
-    # --- FIX: Support either column name based on what's in the dataframe ---
     name_col = Cols.PLAYER_NAME if Cols.PLAYER_NAME in df.columns else 'PLAYER_NAME'
     
     vs_opp_df = df.groupby([Cols.PLAYER_ID, name_col, 'OPPONENT_ABBREV']).agg(agg_cols).reset_index()
@@ -400,3 +408,59 @@ def process_dvp_stats(output_dir):
         final_dvp_all = pd.concat(all_dvp_dfs, ignore_index=True)
         final_dvp_all.round(3).to_parquet(output_dir / "master_dvp_stats.parquet", index=False)
         logging.info(f"Saved master_dvp_stats.parquet (Multi-Season: {len(final_dvp_all)} rows)")
+
+def process_home_away_splits(output_dir):
+    """
+    Calculates season-long Home and Away averages and differentials for players.
+    This creates a lookup table for daily feature generation.
+    """
+    logging.info("--- Starting: process_home_away_splits ---")
+    all_files = sorted(output_dir.glob("master_box_scores_*.parquet"))
+    if not all_files: return
+
+    dfs = []
+    for f in all_files:
+        try: 
+            df = pd.read_parquet(f)
+            # Ensure season ID is present
+            match = re.search(r'\d{4}-\d{2}', f.name)
+            if match and 'SEASON_ID' not in df.columns:
+                df['SEASON_ID'] = match.group(0)
+            dfs.append(df)
+        except Exception as e:
+            logging.error(f"Error loading {f.name} for home/away splits: {e}")
+            
+    if not dfs: return
+    combined_df = pd.concat(dfs, ignore_index=True)
+    
+    stat_cols = ['PTS', 'REB', 'AST', 'PRA', 'MIN']
+    valid_cols = [c for c in stat_cols if c in combined_df.columns]
+    
+    if not valid_cols: return
+    
+    name_col = Cols.PLAYER_NAME if Cols.PLAYER_NAME in combined_df.columns else 'PLAYER_NAME'
+    
+    # Calculate means for Home/Away splits
+    splits_df = combined_df.groupby(['SEASON_ID', Cols.PLAYER_ID, name_col, 'IS_HOME'])[valid_cols].mean().reset_index()
+    
+    # Calculate games played in each split to evaluate sample size
+    counts_df = combined_df.groupby(['SEASON_ID', Cols.PLAYER_ID, 'IS_HOME']).size().reset_index(name='GP_SPLIT')
+    splits_df = pd.merge(splits_df, counts_df, on=['SEASON_ID', Cols.PLAYER_ID, 'IS_HOME'], how='left')
+    
+    # Pivot the metrics so 0 (Away) and 1 (Home) become separate columns
+    pivot_cols = valid_cols + ['GP_SPLIT']
+    splits_pivot = splits_df.pivot(index=['SEASON_ID', Cols.PLAYER_ID, name_col], columns='IS_HOME', values=pivot_cols)
+    
+    # Flatten multi-index columns and rename
+    splits_pivot.columns = [f"{col}_{'HOME' if is_home == 1 else 'AWAY'}" for col, is_home in splits_pivot.columns]
+    splits_pivot = splits_pivot.reset_index()
+    
+    # Calculate Home - Away differentials
+    for col in valid_cols:
+        home_col = f"{col}_HOME"
+        away_col = f"{col}_AWAY"
+        if home_col in splits_pivot.columns and away_col in splits_pivot.columns:
+            splits_pivot[f"{col}_DIFF"] = splits_pivot[home_col] - splits_pivot[away_col]
+            
+    splits_pivot.round(2).to_parquet(output_dir / "master_home_away_splits.parquet", index=False)
+    logging.info(f"Saved master_home_away_splits.parquet ({len(splits_pivot)} rows)")

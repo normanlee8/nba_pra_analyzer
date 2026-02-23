@@ -28,7 +28,6 @@ def main():
         logging.info(f"Found Seasons: {[f.name for f in season_folders]}")
 
         # 2. Build ID Map
-        # Scans all years to map Player Names to unique IDs
         player_id_map = etl.create_player_id_map(cfg.DATA_DIR, season_folders)
         if player_id_map is None:
             logging.critical("Failed to create Player ID Map. Aborting.")
@@ -41,9 +40,12 @@ def main():
         # Note: Box Scores depends on Player Stats existing first
         etl.process_master_box_scores(player_id_map, season_folders, cfg.DATA_DIR)
         
-        # 4. Derivative Stats (Vs Opponent & DVP)
+        # 4. Derivative & Split Stats
         etl.process_vs_opponent_stats(cfg.DATA_DIR, cfg.DATA_DIR)
         etl.process_dvp_stats(cfg.DATA_DIR)
+        
+        # --- NEW: Process Home/Away Lookup Table ---
+        etl.process_home_away_splits(cfg.DATA_DIR)
 
         # --- PHASE 2: Dataset Creation ---
         logging.info("Step 2: Building Final Training Dataset...")

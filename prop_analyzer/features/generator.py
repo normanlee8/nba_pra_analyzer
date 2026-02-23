@@ -50,15 +50,8 @@ def add_rolling_stats_history(df, stats_to_roll=None):
                                            df[f'{col}_L5_AVG'] / df[f'{col}_{Cols.SZN_AVG}'], 
                                            1.0)
 
-    # 2. Contextual Splits
+    # 2. Contextual Splits (Rest splits only, Home/Away is managed dynamically)
     split_targets = ['PTS', 'REB', 'AST', 'PRA', 'USG_PROXY', 'MIN']
-    if 'IS_HOME' in df.columns:
-        for col in split_targets:
-            if col in df.columns:
-                df[f'{col}_HOME_AWAY_AVG'] = df.groupby([Cols.PLAYER_ID, 'IS_HOME'])[col].transform(
-                    lambda x: x.expanding().mean().shift(1)
-                ).fillna(df[f'{col}_{Cols.SZN_AVG}'])
-                
     if 'Rest_Category' in df.columns:
         for col in split_targets:
             if col in df.columns:
@@ -123,6 +116,12 @@ def build_feature_set(props_df):
         opp_stats_renamed = team_stats.add_prefix('OPP_')
         features_df = pd.merge(features_df, opp_stats_renamed, left_on=Cols.OPPONENT, right_index=True, how='left')
 
+    # Establish if the player is playing at Home today based on their matchup string
+    if 'MATCHUP' in features_df.columns and 'IS_HOME' not in features_df.columns:
+        features_df['IS_HOME'] = np.where(features_df['MATCHUP'].str.contains('@'), 0, 1)
+    elif 'IS_HOME' not in features_df.columns:
+        features_df['IS_HOME'] = 1  # Failsafe if we don't know the location
+
     # Mapping Pace
     if 'TEAM_Possessions per Game' in features_df.columns:
         features_df['GAME_PACE'] = features_df['TEAM_Possessions per Game']
@@ -134,8 +133,43 @@ def build_feature_set(props_df):
         if c not in features_df.columns: features_df[c] = 0.0
         features_df[c] = features_df[c].fillna(0.0)
 
-    # --- NEW: Safe Imputation for Advanced Stats ---
-    # Fills missing values with the league median so ML Models never crash on missing data
+    # --- Home/Away Split Inference Overwrite ---
+    # We look up the current season splits and enforce them on today's games!
+    splits_path = cfg.DATA_DIR / "master_home_away_splits.parquet"
+    if splits_path.exists():
+        splits_df = pd.read_parquet(splits_path)
+        # Grab the most recent season splits
+        if 'SEASON_ID' in splits_df.columns:
+            latest_szn = splits_df['SEASON_ID'].max()
+            splits_df = splits_df[splits_df['SEASON_ID'] == latest_szn].drop(columns=['SEASON_ID', Cols.PLAYER_NAME], errors='ignore')
+            
+        features_df = pd.merge(features_df, splits_df, on=Cols.PLAYER_ID, how='left')
+        
+        stat_cols = ['PTS', 'REB', 'AST', 'PRA', 'MIN']
+        for col in stat_cols:
+            if f'{col}_HOME' in features_df.columns and f'{col}_AWAY' in features_df.columns:
+                # Fills any missing lookup data with 0.0
+                features_df[f'{col}_HOME'] = features_df[f'{col}_HOME'].fillna(0.0)
+                features_df[f'{col}_AWAY'] = features_df[f'{col}_AWAY'].fillna(0.0)
+                features_df[f'{col}_DIFF'] = features_df[f'{col}_DIFF'].fillna(0.0)
+                
+                # Apply the specific split average based on today's location
+                features_df[f'{col}_SPLIT_AVG'] = np.where(
+                    features_df['IS_HOME'] == 1,
+                    features_df[f'{col}_HOME'],
+                    features_df[f'{col}_AWAY']
+                )
+
+        # Composite Splits for PR, PA, RA combos
+        features_df['PR_SPLIT_AVG'] = features_df.get('PTS_SPLIT_AVG', 0) + features_df.get('REB_SPLIT_AVG', 0)
+        features_df['PA_SPLIT_AVG'] = features_df.get('PTS_SPLIT_AVG', 0) + features_df.get('AST_SPLIT_AVG', 0)
+        features_df['RA_SPLIT_AVG'] = features_df.get('REB_SPLIT_AVG', 0) + features_df.get('AST_SPLIT_AVG', 0)
+
+        features_df['PR_DIFF'] = features_df.get('PTS_DIFF', 0) + features_df.get('REB_DIFF', 0)
+        features_df['PA_DIFF'] = features_df.get('PTS_DIFF', 0) + features_df.get('AST_DIFF', 0)
+        features_df['RA_DIFF'] = features_df.get('REB_DIFF', 0) + features_df.get('AST_DIFF', 0)
+
+    # Imputation for Advanced Stats
     advanced_stats = [
         'OPP_Opponent Effective Field Goal %', 'OPP_Opponent True Shooting %',
         'TEAM_Field Goals Attempted per Game', 'OPP_Field Goals Attempted per Game',

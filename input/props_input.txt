@@ -6,647 +6,255 @@ Rankings
 News feed
 $0.00
 athlete or team avatar
-Donovan Mitchell
+Cade Cunningham
 
-CLE @ OKC - Sun 10:00AM PST
-25.5
-Points
-athlete or team avatar
-Chet Holmgren
-
-OKC vs CLE - Sun 10:00AM PST
-18.5
-Points
-athlete or team avatar
-Jarrett Allen
-
-CLE @ OKC - Sun 10:00AM PST
-13.5
-Points
-athlete or team avatar
-Isaiah Joe
-
-OKC vs CLE - Sun 10:00AM PST
-12.5
-Points
-athlete or team avatar
-Jared McCain
-
-OKC vs CLE - Sun 10:00AM PST
-11.5
-Points
-athlete or team avatar
-Isaiah Hartenstein
-
-OKC vs CLE - Sun 10:00AM PST
-9.5
-Points
-athlete or team avatar
-Dennis Schroder
-
-CLE @ OKC - Sun 10:00AM PST
-8.5
-Points
-athlete or team avatar
-Dean Wade
-
-CLE @ OKC - Sun 10:00AM PST
-5.5
-Points
-athlete or team avatar
-Brandon Ingram
-
-TOR @ MIL - Sun 12:30PM PST
-24.5
-Points
-athlete or team avatar
-Jalen Johnson
-
-ATL vs BKN - Sun 12:30PM PST
-23.5
-Points
-athlete or team avatar
-Nickeil Alexander-Walker
-
-ATL vs BKN - Sun 12:30PM PST
-19.5
-Points
-athlete or team avatar
-Kevin Porter Jr.
-
-MIL vs TOR - Sun 12:30PM PST
-18.5
-Points
-athlete or team avatar
-RJ Barrett
-
-TOR @ MIL - Sun 12:30PM PST
-17.5
-Points
-athlete or team avatar
-Cam Thomas
-
-MIL vs TOR - Sun 12:30PM PST
-15.5
-Points
-athlete or team avatar
-De'Anthony Melton
-
-GSW vs DEN - Sun 12:30PM PST
-14.5
-Points
-athlete or team avatar
-Moses Moody
-
-GSW vs DEN - Sun 12:30PM PST
-13.5
-Points
-athlete or team avatar
-Kristaps Porzingis
-
-GSW vs DEN - Sun 12:30PM PST
-12.5
-Points
-athlete or team avatar
-Julian Strawther
-
-DEN @ GSW - Sun 12:30PM PST
-12.5
-Points
-athlete or team avatar
-Cam Johnson
-
-DEN @ GSW - Sun 12:30PM PST
-11.5
-Points
-athlete or team avatar
-Dyson Daniels
-
-ATL vs BKN - Sun 12:30PM PST
-11.5
-Points
-athlete or team avatar
-Gui Santos
-
-GSW vs DEN - Sun 12:30PM PST
-11.5
-Points
-athlete or team avatar
-Egor Demin
-
-BKN @ ATL - Sun 12:30PM PST
-10.5
-Points
-athlete or team avatar
-Nolan Traore
-
-BKN @ ATL - Sun 12:30PM PST
-10.5
-Points
-athlete or team avatar
-Collin Murray-Boyles
-
-TOR @ MIL - Sun 12:30PM PST
-9.5
-Points
-athlete or team avatar
-Zaccharie Risacher
-
-ATL vs BKN - Sun 12:30PM PST
-8.5
-Points
-athlete or team avatar
-Al Horford
-
-GSW vs DEN - Sun 12:30PM PST
-8.5
-Points
-athlete or team avatar
-Jock Landale
-
-ATL vs BKN - Sun 12:30PM PST
-7.5
-Points
-athlete or team avatar
-Naji Marshall
-
-DAL @ IND - Sun 2:00PM PST
-18.5
-Points
-athlete or team avatar
-Max Christie
-
-DAL @ IND - Sun 2:00PM PST
-15.5
-Points
-athlete or team avatar
-Daniel Gafford
-
-DAL @ IND - Sun 2:00PM PST
-7.5
-Points
-athlete or team avatar
-Brandon Miller
-
-CHA @ WAS - Sun 3:00PM PST
-23.5
-Points
-athlete or team avatar
-Kon Knueppel
-
-CHA @ WAS - Sun 3:00PM PST
-20.5
-Points
-athlete or team avatar
-Kyshawn George
-
-WAS vs CHA - Sun 3:00PM PST
-12.5
-Points
-athlete or team avatar
-Grant Williams
-
-CHA @ WAS - Sun 3:00PM PST
-11.5
-Points
-athlete or team avatar
-Bilal Coulibaly
-
-WAS vs CHA - Sun 3:00PM PST
-10.5
-Points
-athlete or team avatar
-Luka Doncic
-
-LAL vs BOS - Sun 3:30PM PST
-29.5
-Points
-athlete or team avatar
-Austin Reaves
-
-LAL vs BOS - Sun 3:30PM PST
-20.5
-Points
-athlete or team avatar
-Derrick White
-
-BOS @ LAL - Sun 3:30PM PST
-18.5
-Points
-athlete or team avatar
-Nikola Vucevic
-
-BOS @ LAL - Sun 3:30PM PST
-12.5
-Points
-athlete or team avatar
-Sam Hauser
-
-BOS @ LAL - Sun 3:30PM PST
-9.5
-Points
-athlete or team avatar
-Marcus Smart
-
-LAL vs BOS - Sun 3:30PM PST
-7.5
-Points
-athlete or team avatar
-Baylor Scheierman
-
-BOS @ LAL - Sun 3:30PM PST
-6.5
-Points
-athlete or team avatar
-Tyrese Maxey
-
-PHI @ MIN - Sun 4:00PM PST
+DET vs SAS - Mon 4:00PM PST
 27.5
 Points
 athlete or team avatar
-Julius Randle
+De'Aaron Fox
 
-MIN vs PHI - Sun 4:00PM PST
-21.5
-Points
-athlete or team avatar
-VJ Edgecombe
-
-PHI @ MIN - Sun 4:00PM PST
-15.5
-Points
-athlete or team avatar
-Jaden McDaniels
-
-MIN vs PHI - Sun 4:00PM PST
-13.5
-Points
-athlete or team avatar
-Donte DiVincenzo
-
-MIN vs PHI - Sun 4:00PM PST
-10.5
-Points
-athlete or team avatar
-Dominick Barlow
-
-PHI @ MIN - Sun 4:00PM PST
-8.5
-Points
-athlete or team avatar
-Kawhi Leonard
-
-LAC vs ORL - Sun 6:00PM PST
-28.5
-Points
-athlete or team avatar
-Bennedict Mathurin
-
-LAC vs ORL - Sun 6:00PM PST
-22.5
-Points
-athlete or team avatar
-Anthony Black
-
-ORL @ LAC - Sun 6:00PM PST
-15.5
-Points
-athlete or team avatar
-Derrick Jones Jr.
-
-LAC vs ORL - Sun 6:00PM PST
-12.5
-Points
-athlete or team avatar
-Wendell Carter Jr.
-
-ORL @ LAC - Sun 6:00PM PST
-9.5
-Points
-athlete or team avatar
-James Harden
-
-CLE @ OKC - Sun 10:00AM PST
-19.5
-Points
-athlete or team avatar
-Aaron Wiggins
-
-OKC vs CLE - Sun 10:00AM PST
-14.5
-Points
-athlete or team avatar
-Evan Mobley
-
-CLE @ OKC - Sun 10:00AM PST
-12.5
-Points
-athlete or team avatar
-Cason Wallace
-
-OKC vs CLE - Sun 10:00AM PST
-11.5
-Points
-athlete or team avatar
-Lu Dort
-
-OKC vs CLE - Sun 10:00AM PST
-9.5
-Points
-athlete or team avatar
-Jaylon Tyson
-
-CLE @ OKC - Sun 10:00AM PST
-9.5
-Points
-athlete or team avatar
-Sam Merrill
-
-CLE @ OKC - Sun 10:00AM PST
-7.5
-Points
-athlete or team avatar
-Nikola Jokic
-
-DEN @ GSW - Sun 12:30PM PST
-29.5
-Points
-athlete or team avatar
-Jamal Murray
-
-DEN @ GSW - Sun 12:30PM PST
-24.5
-Points
-athlete or team avatar
-Michael Porter Jr.
-
-BKN @ ATL - Sun 12:30PM PST
-22.5
-Points
-athlete or team avatar
-CJ McCollum
-
-ATL vs BKN - Sun 12:30PM PST
-18.5
-Points
-athlete or team avatar
-Ryan Rollins
-
-MIL vs TOR - Sun 12:30PM PST
-18.5
-Points
-athlete or team avatar
-Immanuel Quickley
-
-TOR @ MIL - Sun 12:30PM PST
-17.5
-Points
-athlete or team avatar
-Brandin Podziemski
-
-GSW vs DEN - Sun 12:30PM PST
-15.5
-Points
-athlete or team avatar
-Onyeka Okongwu
-
-ATL vs BKN - Sun 12:30PM PST
-14.5
-Points
-athlete or team avatar
-Kyle Kuzma
-
-MIL vs TOR - Sun 12:30PM PST
-12.5
-Points
-athlete or team avatar
-Tim Hardaway Jr.
-
-DEN @ GSW - Sun 12:30PM PST
-12.5
-Points
-athlete or team avatar
-Myles Turner
-
-MIL vs TOR - Sun 12:30PM PST
-11.5
-Points
-athlete or team avatar
-Christian Braun
-
-DEN @ GSW - Sun 12:30PM PST
-11.5
-Points
-athlete or team avatar
-Noah Clowney
-
-BKN @ ATL - Sun 12:30PM PST
-11.5
-Points
-athlete or team avatar
-Nic Claxton
-
-BKN @ ATL - Sun 12:30PM PST
-10.5
-Points
-athlete or team avatar
-Pat Spencer
-
-GSW vs DEN - Sun 12:30PM PST
-10.5
-Points
-athlete or team avatar
-AJ Green
-
-MIL vs TOR - Sun 12:30PM PST
-9.5
-Points
-athlete or team avatar
-Draymond Green
-
-GSW vs DEN - Sun 12:30PM PST
-8.5
-Points
-athlete or team avatar
-Corey Kispert
-
-ATL vs BKN - Sun 12:30PM PST
-8.5
-Points
-athlete or team avatar
-Jonas Valanciunas
-
-DEN @ GSW - Sun 12:30PM PST
-7.5
-Points
-athlete or team avatar
-Jamal Shead
-
-TOR @ MIL - Sun 12:30PM PST
-6.5
-Points
-athlete or team avatar
-PJ Washington
-
-DAL @ IND - Sun 2:00PM PST
-15.5
-Points
-athlete or team avatar
-Klay Thompson
-
-DAL @ IND - Sun 2:00PM PST
-12.5
-Points
-athlete or team avatar
-Tyus Jones
-
-DAL @ IND - Sun 2:00PM PST
-6.5
-Points
-athlete or team avatar
-LaMelo Ball
-
-CHA @ WAS - Sun 3:00PM PST
-20.5
-Points
-athlete or team avatar
-Tre Johnson
-
-WAS vs CHA - Sun 3:00PM PST
-13.5
-Points
-athlete or team avatar
-Tristan Vukcevic
-
-WAS vs CHA - Sun 3:00PM PST
-12.5
-Points
-athlete or team avatar
-Bub Carrington
-
-WAS vs CHA - Sun 3:00PM PST
-10.5
-Points
-athlete or team avatar
-Ryan Kalkbrenner
-
-CHA @ WAS - Sun 3:00PM PST
-9.5
-Points
-athlete or team avatar
-Jaylen Brown
-
-BOS @ LAL - Sun 3:30PM PST
-28.5
-Points
-athlete or team avatar
-LeBron James
-
-LAL vs BOS - Sun 3:30PM PST
-19.5
-Points
-athlete or team avatar
-Payton Pritchard
-
-BOS @ LAL - Sun 3:30PM PST
-17.5
-Points
-athlete or team avatar
-Deandre Ayton
-
-LAL vs BOS - Sun 3:30PM PST
-9.5
-Points
-athlete or team avatar
-Rui Hachimura
-
-LAL vs BOS - Sun 3:30PM PST
-8.5
-Points
-athlete or team avatar
-Neemias Queta
-
-BOS @ LAL - Sun 3:30PM PST
-7.5
-Points
-athlete or team avatar
-Anthony Edwards
-
-MIN vs PHI - Sun 4:00PM PST
-29.5
-Points
-athlete or team avatar
-Joel Embiid
-
-PHI @ MIN - Sun 4:00PM PST
-26.5
-Points
-athlete or team avatar
-Naz Reid
-
-MIN vs PHI - Sun 4:00PM PST
+SAS @ DET - Mon 4:00PM PST
 16.5
 Points
 athlete or team avatar
-Kelly Oubre
+Stephon Castle
 
-PHI @ MIN - Sun 4:00PM PST
-15.5
+SAS @ DET - Mon 4:00PM PST
+14.5
 Points
 athlete or team avatar
-Ayo Dosunmu
+Devin Vassell
 
-MIN vs PHI - Sun 4:00PM PST
-12.5
+SAS @ DET - Mon 4:00PM PST
+10.5
 Points
 athlete or team avatar
-Quentin Grimes
+Keldon Johnson
 
-PHI @ MIN - Sun 4:00PM PST
+SAS @ DET - Mon 4:00PM PST
+10.5
+Points
+athlete or team avatar
+Ausar Thompson
+
+DET vs SAS - Mon 4:00PM PST
 9.5
 Points
 athlete or team avatar
-Joan Beringer
+Caris LeVert
 
-MIN vs PHI - Sun 4:00PM PST
-8.5
+DET vs SAS - Mon 4:00PM PST
+7.5
 Points
 athlete or team avatar
-Paolo Banchero
+Ty Jerome
 
-ORL @ LAC - Sun 6:00PM PST
-22.5
+MEM vs SAC - Mon 5:00PM PST
+17.5
 Points
 athlete or team avatar
-Desmond Bane
+Keegan Murray
 
-ORL @ LAC - Sun 6:00PM PST
+SAC @ MEM - Mon 5:00PM PST
+16.5
+Points
+athlete or team avatar
+Maxime Raynaud
+
+SAC @ MEM - Mon 5:00PM PST
+15.5
+Points
+athlete or team avatar
+Malik Monk
+
+SAC @ MEM - Mon 5:00PM PST
+12.5
+Points
+athlete or team avatar
+Walter Clayton Jr.
+
+MEM vs SAC - Mon 5:00PM PST
+10.5
+Points
+athlete or team avatar
+Cam Spencer
+
+MEM vs SAC - Mon 5:00PM PST
+9.5
+Points
+athlete or team avatar
+Precious Achiuwa
+
+SAC @ MEM - Mon 5:00PM PST
+7.5
+Points
+athlete or team avatar
+Lauri Markkanen
+
+UTA @ HOU - Mon 6:30PM PST
 18.5
 Points
 athlete or team avatar
-Brook Lopez
+Amen Thompson
 
-LAC vs ORL - Sun 6:00PM PST
+HOU vs UTA - Mon 6:30PM PST
+16.5
+Points
+athlete or team avatar
+Keyonte George
+
+UTA @ HOU - Mon 6:30PM PST
+14.5
+Points
+athlete or team avatar
+Tari Eason
+
+HOU vs UTA - Mon 6:30PM PST
 13.5
 Points
 athlete or team avatar
-Jalen Suggs
+Reed Sheppard
 
-ORL @ LAC - Sun 6:00PM PST
+HOU vs UTA - Mon 6:30PM PST
+12.5
+Points
+athlete or team avatar
+Cody Williams
+
+UTA @ HOU - Mon 6:30PM PST
+6.5
+Points
+athlete or team avatar
+Clint Capela
+
+HOU vs UTA - Mon 6:30PM PST
+4.5
+Points
+athlete or team avatar
+Victor Wembanyama
+
+SAS @ DET - Mon 4:00PM PST
+23.5
+Points
+athlete or team avatar
+Jalen Duren
+
+DET vs SAS - Mon 4:00PM PST
+16.5
+Points
+athlete or team avatar
+Tobias Harris
+
+DET vs SAS - Mon 4:00PM PST
+13.5
+Points
+athlete or team avatar
+Dylan Harper
+
+SAS @ DET - Mon 4:00PM PST
+10.5
+Points
+athlete or team avatar
+Duncan Robinson
+
+DET vs SAS - Mon 4:00PM PST
+10.5
+Points
+athlete or team avatar
+Daniss Jenkins
+
+DET vs SAS - Mon 4:00PM PST
+8.5
+Points
+athlete or team avatar
+Julian Champagnie
+
+SAS @ DET - Mon 4:00PM PST
+7.5
+Points
+athlete or team avatar
+DeMar DeRozan
+
+SAC @ MEM - Mon 5:00PM PST
+16.5
+Points
+athlete or team avatar
+GG Jackson
+
+MEM vs SAC - Mon 5:00PM PST
+15.5
+Points
+athlete or team avatar
+Jaylen Wells
+
+MEM vs SAC - Mon 5:00PM PST
+14.5
+Points
+athlete or team avatar
+Russell Westbrook
+
+SAC @ MEM - Mon 5:00PM PST
 11.5
 Points
 athlete or team avatar
-Kris Dunn
+Nique Clifford
 
-LAC vs ORL - Sun 6:00PM PST
-7.5
+SAC @ MEM - Mon 5:00PM PST
+10.5
+Points
+athlete or team avatar
+Taylor Hendricks
+
+MEM vs SAC - Mon 5:00PM PST
+8.5
+Points
+athlete or team avatar
+Kevin Durant
+
+HOU vs UTA - Mon 6:30PM PST
+26.5
+Points
+athlete or team avatar
+Alperen Sengun
+
+HOU vs UTA - Mon 6:30PM PST
+18.5
+Points
+athlete or team avatar
+Jabari Smith Jr.
+
+HOU vs UTA - Mon 6:30PM PST
+15.5
+Points
+athlete or team avatar
+Ace Bailey
+
+UTA @ HOU - Mon 6:30PM PST
+13.5
+Points
+athlete or team avatar
+Brice Sensabaugh
+
+UTA @ HOU - Mon 6:30PM PST
+13.5
+Points
+athlete or team avatar
+Kyle Filipowski
+
+UTA @ HOU - Mon 6:30PM PST
+12.5
+Points
+athlete or team avatar
+Dorian Finney-Smith
+
+HOU vs UTA - Mon 6:30PM PST
+5.5
 Points
 Add picks
 
 Add picks to start playing.
 Champions entry amount
-
-Rewards
 
 Standard
 
@@ -660,2340 +268,917 @@ Rankings
 News feed
 $0.00
 athlete or team avatar
-Donovan Mitchell
+Cade Cunningham
 
-CLE @ OKC - Sun 10:00AM PST
-34.5
+DET vs SAS - Mon 4:00PM PST
+43.5
 Pts + Rebs + Asts
 athlete or team avatar
-Chet Holmgren
+Jalen Duren
 
-OKC vs CLE - Sun 10:00AM PST
+DET vs SAS - Mon 4:00PM PST
 29.5
 Pts + Rebs + Asts
 athlete or team avatar
-Isaiah Hartenstein
+Stephon Castle
 
-OKC vs CLE - Sun 10:00AM PST
-23.5
-Pts + Rebs + Asts
-athlete or team avatar
-Aaron Wiggins
-
-OKC vs CLE - Sun 10:00AM PST
-20.5
-Pts + Rebs + Asts
-athlete or team avatar
-Isaiah Joe
-
-OKC vs CLE - Sun 10:00AM PST
-18.5
-Pts + Rebs + Asts
-athlete or team avatar
-Lu Dort
-
-OKC vs CLE - Sun 10:00AM PST
-14.5
-Pts + Rebs + Asts
-athlete or team avatar
-Dennis Schroder
-
-CLE @ OKC - Sun 10:00AM PST
-13.5
-Pts + Rebs + Asts
-athlete or team avatar
-Dean Wade
-
-CLE @ OKC - Sun 10:00AM PST
-10.5
-Pts + Rebs + Asts
-athlete or team avatar
-Jalen Johnson
-
-ATL vs BKN - Sun 12:30PM PST
-42.5
-Pts + Rebs + Asts
-athlete or team avatar
-Brandon Ingram
-
-TOR @ MIL - Sun 12:30PM PST
-34.5
-Pts + Rebs + Asts
-athlete or team avatar
-Kevin Porter Jr.
-
-MIL vs TOR - Sun 12:30PM PST
-30.5
-Pts + Rebs + Asts
-athlete or team avatar
-RJ Barrett
-
-TOR @ MIL - Sun 12:30PM PST
-27.5
-Pts + Rebs + Asts
-athlete or team avatar
-Nickeil Alexander-Walker
-
-ATL vs BKN - Sun 12:30PM PST
-26.5
-Pts + Rebs + Asts
-athlete or team avatar
-Onyeka Okongwu
-
-ATL vs BKN - Sun 12:30PM PST
-25.5
-Pts + Rebs + Asts
-athlete or team avatar
-Dyson Daniels
-
-ATL vs BKN - Sun 12:30PM PST
-23.5
-Pts + Rebs + Asts
-athlete or team avatar
-Kyle Kuzma
-
-MIL vs TOR - Sun 12:30PM PST
-20.5
-Pts + Rebs + Asts
-athlete or team avatar
-Pat Spencer
-
-GSW vs DEN - Sun 12:30PM PST
-20.5
-Pts + Rebs + Asts
-athlete or team avatar
-De'Anthony Melton
-
-GSW vs DEN - Sun 12:30PM PST
-19.5
-Pts + Rebs + Asts
-athlete or team avatar
-Draymond Green
-
-GSW vs DEN - Sun 12:30PM PST
-18.5
-Pts + Rebs + Asts
-athlete or team avatar
-Myles Turner
-
-MIL vs TOR - Sun 12:30PM PST
-18.5
-Pts + Rebs + Asts
-athlete or team avatar
-Collin Murray-Boyles
-
-TOR @ MIL - Sun 12:30PM PST
-18.5
-Pts + Rebs + Asts
-athlete or team avatar
-Cam Johnson
-
-DEN @ GSW - Sun 12:30PM PST
-17.5
-Pts + Rebs + Asts
-athlete or team avatar
-Egor Demin
-
-BKN @ ATL - Sun 12:30PM PST
-17.5
-Pts + Rebs + Asts
-athlete or team avatar
-Al Horford
-
-GSW vs DEN - Sun 12:30PM PST
-16.5
-Pts + Rebs + Asts
-athlete or team avatar
-Jock Landale
-
-ATL vs BKN - Sun 12:30PM PST
-15.5
-Pts + Rebs + Asts
-athlete or team avatar
-AJ Green
-
-MIL vs TOR - Sun 12:30PM PST
-14.5
-Pts + Rebs + Asts
-athlete or team avatar
-Zaccharie Risacher
-
-ATL vs BKN - Sun 12:30PM PST
-13.5
-Pts + Rebs + Asts
-athlete or team avatar
-Naji Marshall
-
-DAL @ IND - Sun 2:00PM PST
-28.5
-Pts + Rebs + Asts
-athlete or team avatar
-Max Christie
-
-DAL @ IND - Sun 2:00PM PST
-23.5
-Pts + Rebs + Asts
-athlete or team avatar
-Daniel Gafford
-
-DAL @ IND - Sun 2:00PM PST
-15.5
-Pts + Rebs + Asts
-athlete or team avatar
-Brandon Miller
-
-CHA @ WAS - Sun 3:00PM PST
-33.5
-Pts + Rebs + Asts
-athlete or team avatar
-Kon Knueppel
-
-CHA @ WAS - Sun 3:00PM PST
-30.5
-Pts + Rebs + Asts
-athlete or team avatar
-Tristan Vukcevic
-
-WAS vs CHA - Sun 3:00PM PST
-19.5
-Pts + Rebs + Asts
-athlete or team avatar
-Bub Carrington
-
-WAS vs CHA - Sun 3:00PM PST
-17.5
-Pts + Rebs + Asts
-athlete or team avatar
-Ryan Kalkbrenner
-
-CHA @ WAS - Sun 3:00PM PST
-17.5
-Pts + Rebs + Asts
-athlete or team avatar
-Luka Doncic
-
-LAL vs BOS - Sun 3:30PM PST
-45.5
-Pts + Rebs + Asts
-athlete or team avatar
-LeBron James
-
-LAL vs BOS - Sun 3:30PM PST
-30.5
-Pts + Rebs + Asts
-athlete or team avatar
-Derrick White
-
-BOS @ LAL - Sun 3:30PM PST
-27.5
-Pts + Rebs + Asts
-athlete or team avatar
-Nikola Vucevic
-
-BOS @ LAL - Sun 3:30PM PST
-22.5
-Pts + Rebs + Asts
-athlete or team avatar
-Neemias Queta
-
-BOS @ LAL - Sun 3:30PM PST
-15.5
-Pts + Rebs + Asts
-athlete or team avatar
-Rui Hachimura
-
-LAL vs BOS - Sun 3:30PM PST
-12.5
-Pts + Rebs + Asts
-athlete or team avatar
-Marcus Smart
-
-LAL vs BOS - Sun 3:30PM PST
-11.5
-Pts + Rebs + Asts
-athlete or team avatar
-Joel Embiid
-
-PHI @ MIN - Sun 4:00PM PST
-39.5
-Pts + Rebs + Asts
-athlete or team avatar
-Julius Randle
-
-MIN vs PHI - Sun 4:00PM PST
-34.5
-Pts + Rebs + Asts
-athlete or team avatar
-VJ Edgecombe
-
-PHI @ MIN - Sun 4:00PM PST
+SAS @ DET - Mon 4:00PM PST
 24.5
 Pts + Rebs + Asts
 athlete or team avatar
-Kelly Oubre
+Dylan Harper
 
-PHI @ MIN - Sun 4:00PM PST
-22.5
-Pts + Rebs + Asts
-athlete or team avatar
-Donte DiVincenzo
-
-MIN vs PHI - Sun 4:00PM PST
+SAS @ DET - Mon 4:00PM PST
 18.5
 Pts + Rebs + Asts
 athlete or team avatar
-Dominick Barlow
+Devin Vassell
 
-PHI @ MIN - Sun 4:00PM PST
-14.5
-Pts + Rebs + Asts
-athlete or team avatar
-Kawhi Leonard
-
-LAC vs ORL - Sun 6:00PM PST
-40.5
-Pts + Rebs + Asts
-athlete or team avatar
-Bennedict Mathurin
-
-LAC vs ORL - Sun 6:00PM PST
-32.5
-Pts + Rebs + Asts
-athlete or team avatar
-Anthony Black
-
-ORL @ LAC - Sun 6:00PM PST
-23.5
-Pts + Rebs + Asts
-athlete or team avatar
-Brook Lopez
-
-LAC vs ORL - Sun 6:00PM PST
-21.5
-Pts + Rebs + Asts
-athlete or team avatar
-Derrick Jones Jr.
-
-LAC vs ORL - Sun 6:00PM PST
-18.5
-Pts + Rebs + Asts
-athlete or team avatar
-James Harden
-
-CLE @ OKC - Sun 10:00AM PST
-32.5
-Pts + Rebs + Asts
-athlete or team avatar
-Jarrett Allen
-
-CLE @ OKC - Sun 10:00AM PST
-25.5
-Pts + Rebs + Asts
-athlete or team avatar
-Evan Mobley
-
-CLE @ OKC - Sun 10:00AM PST
-21.5
-Pts + Rebs + Asts
-athlete or team avatar
-Cason Wallace
-
-OKC vs CLE - Sun 10:00AM PST
-18.5
-Pts + Rebs + Asts
-athlete or team avatar
-Jared McCain
-
-OKC vs CLE - Sun 10:00AM PST
+SAS @ DET - Mon 4:00PM PST
 16.5
 Pts + Rebs + Asts
 athlete or team avatar
-Jaylon Tyson
+Duncan Robinson
 
-CLE @ OKC - Sun 10:00AM PST
+DET vs SAS - Mon 4:00PM PST
 14.5
 Pts + Rebs + Asts
 athlete or team avatar
-Sam Merrill
+Daniss Jenkins
 
-CLE @ OKC - Sun 10:00AM PST
-11.5
+DET vs SAS - Mon 4:00PM PST
+12.5
 Pts + Rebs + Asts
 athlete or team avatar
-Nikola Jokic
+Maxime Raynaud
 
-DEN @ GSW - Sun 12:30PM PST
-52.5
-Pts + Rebs + Asts
-athlete or team avatar
-Jamal Murray
-
-DEN @ GSW - Sun 12:30PM PST
-35.5
-Pts + Rebs + Asts
-athlete or team avatar
-Michael Porter Jr.
-
-BKN @ ATL - Sun 12:30PM PST
-32.5
-Pts + Rebs + Asts
-athlete or team avatar
-Immanuel Quickley
-
-TOR @ MIL - Sun 12:30PM PST
-28.5
-Pts + Rebs + Asts
-athlete or team avatar
-Ryan Rollins
-
-MIL vs TOR - Sun 12:30PM PST
-27.5
-Pts + Rebs + Asts
-athlete or team avatar
-CJ McCollum
-
-ATL vs BKN - Sun 12:30PM PST
-25.5
-Pts + Rebs + Asts
-athlete or team avatar
-Brandin Podziemski
-
-GSW vs DEN - Sun 12:30PM PST
-23.5
-Pts + Rebs + Asts
-athlete or team avatar
-Nic Claxton
-
-BKN @ ATL - Sun 12:30PM PST
-21.5
-Pts + Rebs + Asts
-athlete or team avatar
-Gui Santos
-
-GSW vs DEN - Sun 12:30PM PST
-20.5
-Pts + Rebs + Asts
-athlete or team avatar
-Cam Thomas
-
-MIL vs TOR - Sun 12:30PM PST
-19.5
-Pts + Rebs + Asts
-athlete or team avatar
-Moses Moody
-
-GSW vs DEN - Sun 12:30PM PST
-19.5
-Pts + Rebs + Asts
-athlete or team avatar
-Kristaps Porzingis
-
-GSW vs DEN - Sun 12:30PM PST
-18.5
-Pts + Rebs + Asts
-athlete or team avatar
-Christian Braun
-
-DEN @ GSW - Sun 12:30PM PST
-18.5
-Pts + Rebs + Asts
-athlete or team avatar
-Julian Strawther
-
-DEN @ GSW - Sun 12:30PM PST
-18.5
-Pts + Rebs + Asts
-athlete or team avatar
-Noah Clowney
-
-BKN @ ATL - Sun 12:30PM PST
-17.5
-Pts + Rebs + Asts
-athlete or team avatar
-Nolan Traore
-
-BKN @ ATL - Sun 12:30PM PST
-17.5
-Pts + Rebs + Asts
-athlete or team avatar
-Tim Hardaway Jr.
-
-DEN @ GSW - Sun 12:30PM PST
-15.5
-Pts + Rebs + Asts
-athlete or team avatar
-Jamal Shead
-
-TOR @ MIL - Sun 12:30PM PST
-14.5
-Pts + Rebs + Asts
-athlete or team avatar
-Jonas Valanciunas
-
-DEN @ GSW - Sun 12:30PM PST
-13.5
-Pts + Rebs + Asts
-athlete or team avatar
-Corey Kispert
-
-ATL vs BKN - Sun 12:30PM PST
-13.5
-Pts + Rebs + Asts
-athlete or team avatar
-PJ Washington
-
-DAL @ IND - Sun 2:00PM PST
+SAC @ MEM - Mon 5:00PM PST
 26.5
 Pts + Rebs + Asts
 athlete or team avatar
-Klay Thompson
+Keegan Murray
 
-DAL @ IND - Sun 2:00PM PST
-17.5
+SAC @ MEM - Mon 5:00PM PST
+24.5
 Pts + Rebs + Asts
 athlete or team avatar
-Tyus Jones
+DeMar DeRozan
 
-DAL @ IND - Sun 2:00PM PST
-14.5
+SAC @ MEM - Mon 5:00PM PST
+22.5
 Pts + Rebs + Asts
 athlete or team avatar
-LaMelo Ball
+Jaylen Wells
 
-CHA @ WAS - Sun 3:00PM PST
-32.5
-Pts + Rebs + Asts
-athlete or team avatar
-Grant Williams
-
-CHA @ WAS - Sun 3:00PM PST
+MEM vs SAC - Mon 5:00PM PST
 19.5
 Pts + Rebs + Asts
 athlete or team avatar
-Kyshawn George
+Malik Monk
 
-WAS vs CHA - Sun 3:00PM PST
-18.5
-Pts + Rebs + Asts
-athlete or team avatar
-Tre Johnson
-
-WAS vs CHA - Sun 3:00PM PST
+SAC @ MEM - Mon 5:00PM PST
 17.5
 Pts + Rebs + Asts
 athlete or team avatar
-Bilal Coulibaly
+Cam Spencer
 
-WAS vs CHA - Sun 3:00PM PST
+MEM vs SAC - Mon 5:00PM PST
+17.5
+Pts + Rebs + Asts
+athlete or team avatar
+Taylor Hendricks
+
+MEM vs SAC - Mon 5:00PM PST
+15.5
+Pts + Rebs + Asts
+athlete or team avatar
+Alperen Sengun
+
+HOU vs UTA - Mon 6:30PM PST
+34.5
+Pts + Rebs + Asts
+athlete or team avatar
+Lauri Markkanen
+
+UTA @ HOU - Mon 6:30PM PST
+25.5
+Pts + Rebs + Asts
+athlete or team avatar
+Tari Eason
+
+HOU vs UTA - Mon 6:30PM PST
+23.5
+Pts + Rebs + Asts
+athlete or team avatar
+Keyonte George
+
+UTA @ HOU - Mon 6:30PM PST
+21.5
+Pts + Rebs + Asts
+athlete or team avatar
+Brice Sensabaugh
+
+UTA @ HOU - Mon 6:30PM PST
+18.5
+Pts + Rebs + Asts
+athlete or team avatar
+Clint Capela
+
+HOU vs UTA - Mon 6:30PM PST
+10.5
+Pts + Rebs + Asts
+athlete or team avatar
+Dorian Finney-Smith
+
+HOU vs UTA - Mon 6:30PM PST
+9.5
+Pts + Rebs + Asts
+athlete or team avatar
+Victor Wembanyama
+
+SAS @ DET - Mon 4:00PM PST
+36.5
+Pts + Rebs + Asts
+athlete or team avatar
+De'Aaron Fox
+
+SAS @ DET - Mon 4:00PM PST
+26.5
+Pts + Rebs + Asts
+athlete or team avatar
+Tobias Harris
+
+DET vs SAS - Mon 4:00PM PST
+21.5
+Pts + Rebs + Asts
+athlete or team avatar
+Ausar Thompson
+
+DET vs SAS - Mon 4:00PM PST
+17.5
+Pts + Rebs + Asts
+athlete or team avatar
+Keldon Johnson
+
+SAS @ DET - Mon 4:00PM PST
 16.5
 Pts + Rebs + Asts
 athlete or team avatar
-Jaylen Brown
+Julian Champagnie
 
-BOS @ LAL - Sun 3:30PM PST
-39.5
+SAS @ DET - Mon 4:00PM PST
+13.5
 Pts + Rebs + Asts
 athlete or team avatar
-Austin Reaves
+Caris LeVert
 
-LAL vs BOS - Sun 3:30PM PST
+DET vs SAS - Mon 4:00PM PST
+11.5
+Pts + Rebs + Asts
+athlete or team avatar
+Ty Jerome
+
+MEM vs SAC - Mon 5:00PM PST
+25.5
+Pts + Rebs + Asts
+athlete or team avatar
+GG Jackson
+
+MEM vs SAC - Mon 5:00PM PST
+23.5
+Pts + Rebs + Asts
+athlete or team avatar
+Russell Westbrook
+
+SAC @ MEM - Mon 5:00PM PST
+20.5
+Pts + Rebs + Asts
+athlete or team avatar
+Walter Clayton Jr.
+
+MEM vs SAC - Mon 5:00PM PST
+18.5
+Pts + Rebs + Asts
+athlete or team avatar
+Nique Clifford
+
+SAC @ MEM - Mon 5:00PM PST
+17.5
+Pts + Rebs + Asts
+athlete or team avatar
+Precious Achiuwa
+
+SAC @ MEM - Mon 5:00PM PST
+15.5
+Pts + Rebs + Asts
+athlete or team avatar
+Kevin Durant
+
+HOU vs UTA - Mon 6:30PM PST
+36.5
+Pts + Rebs + Asts
+athlete or team avatar
+Amen Thompson
+
+HOU vs UTA - Mon 6:30PM PST
 29.5
 Pts + Rebs + Asts
 athlete or team avatar
-Payton Pritchard
+Jabari Smith Jr.
 
-BOS @ LAL - Sun 3:30PM PST
-27.5
+HOU vs UTA - Mon 6:30PM PST
+24.5
 Pts + Rebs + Asts
 athlete or team avatar
-Deandre Ayton
+Kyle Filipowski
 
-LAL vs BOS - Sun 3:30PM PST
-18.5
-Pts + Rebs + Asts
-athlete or team avatar
-Sam Hauser
-
-BOS @ LAL - Sun 3:30PM PST
-14.5
-Pts + Rebs + Asts
-athlete or team avatar
-Baylor Scheierman
-
-BOS @ LAL - Sun 3:30PM PST
-12.5
-Pts + Rebs + Asts
-athlete or team avatar
-Anthony Edwards
-
-MIN vs PHI - Sun 4:00PM PST
-39.5
-Pts + Rebs + Asts
-athlete or team avatar
-Tyrese Maxey
-
-PHI @ MIN - Sun 4:00PM PST
-39.5
-Pts + Rebs + Asts
-athlete or team avatar
-Naz Reid
-
-MIN vs PHI - Sun 4:00PM PST
-26.5
-Pts + Rebs + Asts
-athlete or team avatar
-Jaden McDaniels
-
-MIN vs PHI - Sun 4:00PM PST
-22.5
-Pts + Rebs + Asts
-athlete or team avatar
-Ayo Dosunmu
-
-MIN vs PHI - Sun 4:00PM PST
-20.5
-Pts + Rebs + Asts
-athlete or team avatar
-Quentin Grimes
-
-PHI @ MIN - Sun 4:00PM PST
-15.5
-Pts + Rebs + Asts
-athlete or team avatar
-Joan Beringer
-
-MIN vs PHI - Sun 4:00PM PST
-14.5
-Pts + Rebs + Asts
-athlete or team avatar
-Paolo Banchero
-
-ORL @ LAC - Sun 6:00PM PST
-35.5
-Pts + Rebs + Asts
-athlete or team avatar
-Desmond Bane
-
-ORL @ LAC - Sun 6:00PM PST
-25.5
-Pts + Rebs + Asts
-athlete or team avatar
-Jalen Suggs
-
-ORL @ LAC - Sun 6:00PM PST
-21.5
-Pts + Rebs + Asts
-athlete or team avatar
-Wendell Carter Jr.
-
-ORL @ LAC - Sun 6:00PM PST
-19.5
-Pts + Rebs + Asts
-athlete or team avatar
-Kris Dunn
-
-LAC vs ORL - Sun 6:00PM PST
-18.5
-Pts + Rebs + Asts
-Add picks
-
-Add picks to start playing.
-Champions entry amount
-
-Rewards
-
-Standard
-
-Flex
-
-Champions
-Drafts
-Live
-Results
-Rankings
-News feed
-$0.00
-athlete or team avatar
-Jarrett Allen
-
-CLE @ OKC - Sun 10:00AM PST
-9.5
-Rebounds
-athlete or team avatar
-Isaiah Hartenstein
-
-OKC vs CLE - Sun 10:00AM PST
-8.5
-Rebounds
-athlete or team avatar
-James Harden
-
-CLE @ OKC - Sun 10:00AM PST
-4.5
-Rebounds
-athlete or team avatar
-Lu Dort
-
-OKC vs CLE - Sun 10:00AM PST
-3.5
-Rebounds
-athlete or team avatar
-Dean Wade
-
-CLE @ OKC - Sun 10:00AM PST
-3.5
-Rebounds
-athlete or team avatar
-Isaiah Joe
-
-OKC vs CLE - Sun 10:00AM PST
-3.5
-Rebounds
-athlete or team avatar
-Jaylon Tyson
-
-CLE @ OKC - Sun 10:00AM PST
-3.5
-Rebounds
-athlete or team avatar
-Sam Merrill
-
-CLE @ OKC - Sun 10:00AM PST
-2.5
-Rebounds
-athlete or team avatar
-Jalen Johnson
-
-ATL vs BKN - Sun 12:30PM PST
-10.5
-Rebounds
-athlete or team avatar
-Michael Porter Jr.
-
-BKN @ ATL - Sun 12:30PM PST
-6.5
-Rebounds
-athlete or team avatar
-Dyson Daniels
-
-ATL vs BKN - Sun 12:30PM PST
-6.5
-Rebounds
-athlete or team avatar
-Brandon Ingram
-
-TOR @ MIL - Sun 12:30PM PST
-5.5
-Rebounds
-athlete or team avatar
-Myles Turner
-
-MIL vs TOR - Sun 12:30PM PST
-5.5
-Rebounds
-athlete or team avatar
-Al Horford
-
-GSW vs DEN - Sun 12:30PM PST
-5.5
-Rebounds
-athlete or team avatar
-Gui Santos
-
-GSW vs DEN - Sun 12:30PM PST
-5.5
-Rebounds
-athlete or team avatar
-Draymond Green
-
-GSW vs DEN - Sun 12:30PM PST
-4.5
-Rebounds
-athlete or team avatar
-Brandin Podziemski
-
-GSW vs DEN - Sun 12:30PM PST
-4.5
-Rebounds
-athlete or team avatar
-Christian Braun
-
-DEN @ GSW - Sun 12:30PM PST
-4.5
-Rebounds
-athlete or team avatar
-Kevin Porter Jr.
-
-MIL vs TOR - Sun 12:30PM PST
-4.5
-Rebounds
-athlete or team avatar
-Kristaps Porzingis
-
-GSW vs DEN - Sun 12:30PM PST
-3.5
-Rebounds
-athlete or team avatar
-Zaccharie Risacher
-
-ATL vs BKN - Sun 12:30PM PST
-3.5
-Rebounds
-athlete or team avatar
-De'Anthony Melton
-
-GSW vs DEN - Sun 12:30PM PST
-3.5
-Rebounds
-athlete or team avatar
-Egor Demin
-
-BKN @ ATL - Sun 12:30PM PST
-3.5
-Rebounds
-athlete or team avatar
-Pat Spencer
-
-GSW vs DEN - Sun 12:30PM PST
-3.5
-Rebounds
-athlete or team avatar
-Corey Kispert
-
-ATL vs BKN - Sun 12:30PM PST
-2.5
-Rebounds
-athlete or team avatar
-AJ Green
-
-MIL vs TOR - Sun 12:30PM PST
-2.5
-Rebounds
-athlete or team avatar
-Cam Thomas
-
-MIL vs TOR - Sun 12:30PM PST
-1.5
-Rebounds
-athlete or team avatar
-PJ Washington
-
-DAL @ IND - Sun 2:00PM PST
-7.5
-Rebounds
-athlete or team avatar
-Naji Marshall
-
-DAL @ IND - Sun 2:00PM PST
-5.5
-Rebounds
-athlete or team avatar
-Klay Thompson
-
-DAL @ IND - Sun 2:00PM PST
-2.5
-Rebounds
-athlete or team avatar
-Ryan Kalkbrenner
-
-CHA @ WAS - Sun 3:00PM PST
-7.5
-Rebounds
-athlete or team avatar
-Kon Knueppel
-
-CHA @ WAS - Sun 3:00PM PST
-5.5
-Rebounds
-athlete or team avatar
-Tristan Vukcevic
-
-WAS vs CHA - Sun 3:00PM PST
-5.5
-Rebounds
-athlete or team avatar
-Bilal Coulibaly
-
-WAS vs CHA - Sun 3:00PM PST
-3.5
-Rebounds
-athlete or team avatar
-Bub Carrington
-
-WAS vs CHA - Sun 3:00PM PST
-2.5
-Rebounds
-athlete or team avatar
-Luka Doncic
-
-LAL vs BOS - Sun 3:30PM PST
-7.5
-Rebounds
-athlete or team avatar
-Deandre Ayton
-
-LAL vs BOS - Sun 3:30PM PST
-7.5
-Rebounds
-athlete or team avatar
-Neemias Queta
-
-BOS @ LAL - Sun 3:30PM PST
-6.5
-Rebounds
-athlete or team avatar
-Austin Reaves
-
-LAL vs BOS - Sun 3:30PM PST
-4.5
-Rebounds
-athlete or team avatar
-Derrick White
-
-BOS @ LAL - Sun 3:30PM PST
-3.5
-Rebounds
-athlete or team avatar
-Sam Hauser
-
-BOS @ LAL - Sun 3:30PM PST
-3.5
-Rebounds
-athlete or team avatar
-Marcus Smart
-
-LAL vs BOS - Sun 3:30PM PST
-2.5
-Rebounds
-athlete or team avatar
-Julius Randle
-
-MIN vs PHI - Sun 4:00PM PST
-8.5
-Rebounds
-athlete or team avatar
-Anthony Edwards
-
-MIN vs PHI - Sun 4:00PM PST
-6.5
-Rebounds
-athlete or team avatar
-Joan Beringer
-
-MIN vs PHI - Sun 4:00PM PST
-5.5
-Rebounds
-athlete or team avatar
-Jaden McDaniels
-
-MIN vs PHI - Sun 4:00PM PST
-4.5
-Rebounds
-athlete or team avatar
-Dominick Barlow
-
-PHI @ MIN - Sun 4:00PM PST
-4.5
-Rebounds
-athlete or team avatar
-Ayo Dosunmu
-
-MIN vs PHI - Sun 4:00PM PST
-3.5
-Rebounds
-athlete or team avatar
-Paolo Banchero
-
-ORL @ LAC - Sun 6:00PM PST
-7.5
-Rebounds
-athlete or team avatar
-Kawhi Leonard
-
-LAC vs ORL - Sun 6:00PM PST
-6.5
-Rebounds
-athlete or team avatar
-Bennedict Mathurin
-
-LAC vs ORL - Sun 6:00PM PST
-5.5
-Rebounds
-athlete or team avatar
-Kris Dunn
-
-LAC vs ORL - Sun 6:00PM PST
-4.5
-Rebounds
-athlete or team avatar
-Jalen Suggs
-
-ORL @ LAC - Sun 6:00PM PST
-3.5
-Rebounds
-athlete or team avatar
-Chet Holmgren
-
-OKC vs CLE - Sun 10:00AM PST
-8.5
-Rebounds
-athlete or team avatar
-Evan Mobley
-
-CLE @ OKC - Sun 10:00AM PST
-6.5
-Rebounds
-athlete or team avatar
-Donovan Mitchell
-
-CLE @ OKC - Sun 10:00AM PST
-3.5
-Rebounds
-athlete or team avatar
-Cason Wallace
-
-OKC vs CLE - Sun 10:00AM PST
-3.5
-Rebounds
-athlete or team avatar
-Aaron Wiggins
-
-OKC vs CLE - Sun 10:00AM PST
-3.5
-Rebounds
-athlete or team avatar
-Jared McCain
-
-OKC vs CLE - Sun 10:00AM PST
-3.5
-Rebounds
-athlete or team avatar
-Dennis Schroder
-
-CLE @ OKC - Sun 10:00AM PST
-2.5
-Rebounds
-athlete or team avatar
-Nikola Jokic
-
-DEN @ GSW - Sun 12:30PM PST
-13.5
-Rebounds
-athlete or team avatar
-Nic Claxton
-
-BKN @ ATL - Sun 12:30PM PST
-6.5
-Rebounds
-athlete or team avatar
-Onyeka Okongwu
-
-ATL vs BKN - Sun 12:30PM PST
-6.5
-Rebounds
-athlete or team avatar
-Jock Landale
-
-ATL vs BKN - Sun 12:30PM PST
-6.5
-Rebounds
-athlete or team avatar
-Kyle Kuzma
-
-MIL vs TOR - Sun 12:30PM PST
-5.5
-Rebounds
-athlete or team avatar
-RJ Barrett
-
-TOR @ MIL - Sun 12:30PM PST
-5.5
-Rebounds
-athlete or team avatar
-Collin Murray-Boyles
-
-TOR @ MIL - Sun 12:30PM PST
-5.5
-Rebounds
-athlete or team avatar
-Jamal Murray
-
-DEN @ GSW - Sun 12:30PM PST
-4.5
-Rebounds
-athlete or team avatar
-Immanuel Quickley
-
-TOR @ MIL - Sun 12:30PM PST
-4.5
-Rebounds
-athlete or team avatar
-Jonas Valanciunas
-
-DEN @ GSW - Sun 12:30PM PST
-4.5
-Rebounds
-athlete or team avatar
-Noah Clowney
-
-BKN @ ATL - Sun 12:30PM PST
-4.5
-Rebounds
-athlete or team avatar
-Ryan Rollins
-
-MIL vs TOR - Sun 12:30PM PST
-4.5
-Rebounds
-athlete or team avatar
-CJ McCollum
-
-ATL vs BKN - Sun 12:30PM PST
-3.5
-Rebounds
-athlete or team avatar
-Cam Johnson
-
-DEN @ GSW - Sun 12:30PM PST
-3.5
-Rebounds
-athlete or team avatar
-Nickeil Alexander-Walker
-
-ATL vs BKN - Sun 12:30PM PST
-3.5
-Rebounds
-athlete or team avatar
-Moses Moody
-
-GSW vs DEN - Sun 12:30PM PST
-3.5
-Rebounds
-athlete or team avatar
-Julian Strawther
-
-DEN @ GSW - Sun 12:30PM PST
-3.5
-Rebounds
-athlete or team avatar
-Tim Hardaway Jr.
-
-DEN @ GSW - Sun 12:30PM PST
-2.5
-Rebounds
-athlete or team avatar
-Nolan Traore
-
-BKN @ ATL - Sun 12:30PM PST
-2.5
-Rebounds
-athlete or team avatar
-Jamal Shead
-
-TOR @ MIL - Sun 12:30PM PST
-1.5
-Rebounds
-athlete or team avatar
-Daniel Gafford
-
-DAL @ IND - Sun 2:00PM PST
-7.5
-Rebounds
-athlete or team avatar
-Max Christie
-
-DAL @ IND - Sun 2:00PM PST
-3.5
-Rebounds
-athlete or team avatar
-Tyus Jones
-
-DAL @ IND - Sun 2:00PM PST
-1.5
-Rebounds
-athlete or team avatar
-Brandon Miller
-
-CHA @ WAS - Sun 3:00PM PST
-5.5
-Rebounds
-athlete or team avatar
-Grant Williams
-
-CHA @ WAS - Sun 3:00PM PST
-5.5
-Rebounds
-athlete or team avatar
-LaMelo Ball
-
-CHA @ WAS - Sun 3:00PM PST
-4.5
-Rebounds
-athlete or team avatar
-Kyshawn George
-
-WAS vs CHA - Sun 3:00PM PST
-3.5
-Rebounds
-athlete or team avatar
-Tre Johnson
-
-WAS vs CHA - Sun 3:00PM PST
-2.5
-Rebounds
-athlete or team avatar
-Nikola Vucevic
-
-BOS @ LAL - Sun 3:30PM PST
-7.5
-Rebounds
-athlete or team avatar
-Jaylen Brown
-
-BOS @ LAL - Sun 3:30PM PST
-6.5
-Rebounds
-athlete or team avatar
-LeBron James
-
-LAL vs BOS - Sun 3:30PM PST
-5.5
-Rebounds
-athlete or team avatar
-Baylor Scheierman
-
-BOS @ LAL - Sun 3:30PM PST
-4.5
-Rebounds
-athlete or team avatar
-Payton Pritchard
-
-BOS @ LAL - Sun 3:30PM PST
-3.5
-Rebounds
-athlete or team avatar
-Rui Hachimura
-
-LAL vs BOS - Sun 3:30PM PST
-2.5
-Rebounds
-athlete or team avatar
-Joel Embiid
-
-PHI @ MIN - Sun 4:00PM PST
-8.5
-Rebounds
-athlete or team avatar
-Naz Reid
-
-MIN vs PHI - Sun 4:00PM PST
-8.5
-Rebounds
-athlete or team avatar
-VJ Edgecombe
-
-PHI @ MIN - Sun 4:00PM PST
-5.5
-Rebounds
-athlete or team avatar
-Donte DiVincenzo
-
-MIN vs PHI - Sun 4:00PM PST
-4.5
-Rebounds
-athlete or team avatar
-Kelly Oubre
-
-PHI @ MIN - Sun 4:00PM PST
-4.5
-Rebounds
-athlete or team avatar
-Tyrese Maxey
-
-PHI @ MIN - Sun 4:00PM PST
-3.5
-Rebounds
-athlete or team avatar
-Quentin Grimes
-
-PHI @ MIN - Sun 4:00PM PST
-2.5
-Rebounds
-athlete or team avatar
-Wendell Carter Jr.
-
-ORL @ LAC - Sun 6:00PM PST
-7.5
-Rebounds
-athlete or team avatar
-Brook Lopez
-
-LAC vs ORL - Sun 6:00PM PST
-5.5
-Rebounds
-athlete or team avatar
-Derrick Jones Jr.
-
-LAC vs ORL - Sun 6:00PM PST
-4.5
-Rebounds
-athlete or team avatar
-Desmond Bane
-
-ORL @ LAC - Sun 6:00PM PST
-3.5
-Rebounds
-athlete or team avatar
-Anthony Black
-
-ORL @ LAC - Sun 6:00PM PST
-3.5
-Rebounds
-Add picks
-
-Add picks to start playing.
-Champions entry amount
-
-Rewards
-
-Standard
-
-Flex
-
-Champions
-Drafts
-Live
-Results
-Rankings
-News feed
-$0.00
-athlete or team avatar
-James Harden
-
-CLE @ OKC - Sun 10:00AM PST
-8.5
-Assists
-athlete or team avatar
-Isaiah Hartenstein
-
-OKC vs CLE - Sun 10:00AM PST
-4.5
-Assists
-athlete or team avatar
-Cason Wallace
-
-OKC vs CLE - Sun 10:00AM PST
-3.5
-Assists
-athlete or team avatar
-Aaron Wiggins
-
-OKC vs CLE - Sun 10:00AM PST
-2.5
-Assists
-athlete or team avatar
-Chet Holmgren
-
-OKC vs CLE - Sun 10:00AM PST
-1.5
-Assists
-athlete or team avatar
-Lu Dort
-
-OKC vs CLE - Sun 10:00AM PST
-1.5
-Assists
-athlete or team avatar
-Sam Merrill
-
-CLE @ OKC - Sun 10:00AM PST
-1.5
-Assists
-athlete or team avatar
-Nikola Jokic
-
-DEN @ GSW - Sun 12:30PM PST
-9.5
-Assists
-athlete or team avatar
-Jalen Johnson
-
-ATL vs BKN - Sun 12:30PM PST
-7.5
-Assists
-athlete or team avatar
-Immanuel Quickley
-
-TOR @ MIL - Sun 12:30PM PST
-6.5
-Assists
-athlete or team avatar
-Pat Spencer
-
-GSW vs DEN - Sun 12:30PM PST
-5.5
-Assists
-athlete or team avatar
-Jamal Shead
-
-TOR @ MIL - Sun 12:30PM PST
-4.5
-Assists
-athlete or team avatar
-Nolan Traore
-
-BKN @ ATL - Sun 12:30PM PST
-4.5
-Assists
-athlete or team avatar
-Nic Claxton
-
-BKN @ ATL - Sun 12:30PM PST
-3.5
-Assists
-athlete or team avatar
-CJ McCollum
-
-ATL vs BKN - Sun 12:30PM PST
-3.5
-Assists
-athlete or team avatar
-Nickeil Alexander-Walker
-
-ATL vs BKN - Sun 12:30PM PST
-3.5
-Assists
-athlete or team avatar
-Kyle Kuzma
-
-MIL vs TOR - Sun 12:30PM PST
-2.5
-Assists
-athlete or team avatar
-Michael Porter Jr.
-
-BKN @ ATL - Sun 12:30PM PST
-2.5
-Assists
-athlete or team avatar
-Christian Braun
-
-DEN @ GSW - Sun 12:30PM PST
-2.5
-Assists
-athlete or team avatar
-De'Anthony Melton
-
-GSW vs DEN - Sun 12:30PM PST
-2.5
-Assists
-athlete or team avatar
-Collin Murray-Boyles
-
-TOR @ MIL - Sun 12:30PM PST
-2.5
-Assists
-athlete or team avatar
-Julian Strawther
-
-DEN @ GSW - Sun 12:30PM PST
-2.5
-Assists
-athlete or team avatar
-Myles Turner
-
-MIL vs TOR - Sun 12:30PM PST
-1.5
-Assists
-athlete or team avatar
-Corey Kispert
-
-ATL vs BKN - Sun 12:30PM PST
-1.5
-Assists
-athlete or team avatar
-Jock Landale
-
-ATL vs BKN - Sun 12:30PM PST
-1.5
-Assists
-athlete or team avatar
-AJ Green
-
-MIL vs TOR - Sun 12:30PM PST
-1.5
-Assists
-athlete or team avatar
-Tyus Jones
-
-DAL @ IND - Sun 2:00PM PST
-5.5
-Assists
-athlete or team avatar
-Max Christie
-
-DAL @ IND - Sun 2:00PM PST
-2.5
-Assists
-athlete or team avatar
-PJ Washington
-
-DAL @ IND - Sun 2:00PM PST
-1.5
-Assists
-athlete or team avatar
-Bub Carrington
-
-WAS vs CHA - Sun 3:00PM PST
-4.5
-Assists
-athlete or team avatar
-Kon Knueppel
-
-CHA @ WAS - Sun 3:00PM PST
-3.5
-Assists
-athlete or team avatar
-Bilal Coulibaly
-
-WAS vs CHA - Sun 3:00PM PST
-2.5
-Assists
-athlete or team avatar
-Tre Johnson
-
-WAS vs CHA - Sun 3:00PM PST
-1.5
-Assists
-athlete or team avatar
-Tristan Vukcevic
-
-WAS vs CHA - Sun 3:00PM PST
-1.5
-Assists
-athlete or team avatar
-LeBron James
-
-LAL vs BOS - Sun 3:30PM PST
-6.5
-Assists
-athlete or team avatar
-Payton Pritchard
-
-BOS @ LAL - Sun 3:30PM PST
-5.5
-Assists
-athlete or team avatar
-Austin Reaves
-
-LAL vs BOS - Sun 3:30PM PST
-4.5
-Assists
-athlete or team avatar
-Marcus Smart
-
-LAL vs BOS - Sun 3:30PM PST
-2.5
-Assists
-athlete or team avatar
-Neemias Queta
-
-BOS @ LAL - Sun 3:30PM PST
-1.5
-Assists
-athlete or team avatar
-Tyrese Maxey
-
-PHI @ MIN - Sun 4:00PM PST
-6.5
-Assists
-athlete or team avatar
-Donte DiVincenzo
-
-MIN vs PHI - Sun 4:00PM PST
-4.5
-Assists
-athlete or team avatar
-Joel Embiid
-
-PHI @ MIN - Sun 4:00PM PST
-3.5
-Assists
-athlete or team avatar
-Jaden McDaniels
-
-MIN vs PHI - Sun 4:00PM PST
-3.5
-Assists
-athlete or team avatar
-Naz Reid
-
-MIN vs PHI - Sun 4:00PM PST
-2.5
-Assists
-athlete or team avatar
-Kelly Oubre
-
-PHI @ MIN - Sun 4:00PM PST
-1.5
-Assists
-athlete or team avatar
-Jalen Suggs
-
-ORL @ LAC - Sun 6:00PM PST
-5.5
-Assists
-athlete or team avatar
-Paolo Banchero
-
-ORL @ LAC - Sun 6:00PM PST
-4.5
-Assists
-athlete or team avatar
-Desmond Bane
-
-ORL @ LAC - Sun 6:00PM PST
-3.5
-Assists
-athlete or team avatar
-Wendell Carter Jr.
-
-ORL @ LAC - Sun 6:00PM PST
-1.5
-Assists
-athlete or team avatar
-Derrick Jones Jr.
-
-LAC vs ORL - Sun 6:00PM PST
-1.5
-Assists
-athlete or team avatar
-Donovan Mitchell
-
-CLE @ OKC - Sun 10:00AM PST
-4.5
-Assists
-athlete or team avatar
-Dennis Schroder
-
-CLE @ OKC - Sun 10:00AM PST
-3.5
-Assists
-athlete or team avatar
-Evan Mobley
-
-CLE @ OKC - Sun 10:00AM PST
-2.5
-Assists
-athlete or team avatar
-Jared McCain
-
-OKC vs CLE - Sun 10:00AM PST
-2.5
-Assists
-athlete or team avatar
-Jarrett Allen
-
-CLE @ OKC - Sun 10:00AM PST
-1.5
-Assists
-athlete or team avatar
-Isaiah Joe
-
-OKC vs CLE - Sun 10:00AM PST
-1.5
-Assists
-athlete or team avatar
-Jaylon Tyson
-
-CLE @ OKC - Sun 10:00AM PST
-1.5
-Assists
-athlete or team avatar
-Jamal Murray
-
-DEN @ GSW - Sun 12:30PM PST
-7.5
-Assists
-athlete or team avatar
-Kevin Porter Jr.
-
-MIL vs TOR - Sun 12:30PM PST
-7.5
-Assists
-athlete or team avatar
-Dyson Daniels
-
-ATL vs BKN - Sun 12:30PM PST
-5.5
-Assists
-athlete or team avatar
-Draymond Green
-
-GSW vs DEN - Sun 12:30PM PST
-4.5
-Assists
-athlete or team avatar
-Ryan Rollins
-
-MIL vs TOR - Sun 12:30PM PST
-4.5
-Assists
-athlete or team avatar
-Brandon Ingram
-
-TOR @ MIL - Sun 12:30PM PST
-3.5
-Assists
-athlete or team avatar
-RJ Barrett
-
-TOR @ MIL - Sun 12:30PM PST
-3.5
-Assists
-athlete or team avatar
-Brandin Podziemski
-
-GSW vs DEN - Sun 12:30PM PST
-3.5
-Assists
-athlete or team avatar
-Egor Demin
-
-BKN @ ATL - Sun 12:30PM PST
-3.5
-Assists
-athlete or team avatar
-Cam Thomas
-
-MIL vs TOR - Sun 12:30PM PST
-2.5
-Assists
-athlete or team avatar
-Cam Johnson
-
-DEN @ GSW - Sun 12:30PM PST
-2.5
-Assists
-athlete or team avatar
-Al Horford
-
-GSW vs DEN - Sun 12:30PM PST
-2.5
-Assists
-athlete or team avatar
-Onyeka Okongwu
-
-ATL vs BKN - Sun 12:30PM PST
-2.5
-Assists
-athlete or team avatar
-Gui Santos
-
-GSW vs DEN - Sun 12:30PM PST
-2.5
-Assists
-athlete or team avatar
-Kristaps Porzingis
-
-GSW vs DEN - Sun 12:30PM PST
-1.5
-Assists
-athlete or team avatar
-Jonas Valanciunas
-
-DEN @ GSW - Sun 12:30PM PST
-1.5
-Assists
-athlete or team avatar
-Tim Hardaway Jr.
-
-DEN @ GSW - Sun 12:30PM PST
-1.5
-Assists
-athlete or team avatar
-Noah Clowney
-
-BKN @ ATL - Sun 12:30PM PST
-1.5
-Assists
-athlete or team avatar
-Moses Moody
-
-GSW vs DEN - Sun 12:30PM PST
-1.5
-Assists
-athlete or team avatar
-Naji Marshall
-
-DAL @ IND - Sun 2:00PM PST
-3.5
-Assists
-athlete or team avatar
-Klay Thompson
-
-DAL @ IND - Sun 2:00PM PST
-1.5
-Assists
-athlete or team avatar
-LaMelo Ball
-
-CHA @ WAS - Sun 3:00PM PST
-7.5
-Assists
-athlete or team avatar
-Brandon Miller
-
-CHA @ WAS - Sun 3:00PM PST
-3.5
-Assists
-athlete or team avatar
-Kyshawn George
-
-WAS vs CHA - Sun 3:00PM PST
-3.5
-Assists
-athlete or team avatar
-Grant Williams
-
-CHA @ WAS - Sun 3:00PM PST
-2.5
-Assists
-athlete or team avatar
-Ryan Kalkbrenner
-
-CHA @ WAS - Sun 3:00PM PST
-1.5
-Assists
-athlete or team avatar
-Luka Doncic
-
-LAL vs BOS - Sun 3:30PM PST
-7.5
-Assists
-athlete or team avatar
-Derrick White
-
-BOS @ LAL - Sun 3:30PM PST
-6.5
-Assists
-athlete or team avatar
-Jaylen Brown
-
-BOS @ LAL - Sun 3:30PM PST
-4.5
-Assists
-athlete or team avatar
-Nikola Vucevic
-
-BOS @ LAL - Sun 3:30PM PST
-2.5
-Assists
-athlete or team avatar
-Sam Hauser
-
-BOS @ LAL - Sun 3:30PM PST
-1.5
-Assists
-athlete or team avatar
-Baylor Scheierman
-
-BOS @ LAL - Sun 3:30PM PST
-1.5
-Assists
-athlete or team avatar
-Julius Randle
-
-MIN vs PHI - Sun 4:00PM PST
-4.5
-Assists
-athlete or team avatar
-Anthony Edwards
-
-MIN vs PHI - Sun 4:00PM PST
-3.5
-Assists
-athlete or team avatar
-VJ Edgecombe
-
-PHI @ MIN - Sun 4:00PM PST
-3.5
-Assists
-athlete or team avatar
-Ayo Dosunmu
-
-MIN vs PHI - Sun 4:00PM PST
-3.5
-Assists
-athlete or team avatar
-Quentin Grimes
-
-PHI @ MIN - Sun 4:00PM PST
-2.5
-Assists
-athlete or team avatar
-Kris Dunn
-
-LAC vs ORL - Sun 6:00PM PST
-6.5
-Assists
-athlete or team avatar
-Kawhi Leonard
-
-LAC vs ORL - Sun 6:00PM PST
-4.5
-Assists
-athlete or team avatar
-Anthony Black
-
-ORL @ LAC - Sun 6:00PM PST
-4.5
-Assists
-athlete or team avatar
-Bennedict Mathurin
-
-LAC vs ORL - Sun 6:00PM PST
-2.5
-Assists
-athlete or team avatar
-Brook Lopez
-
-LAC vs ORL - Sun 6:00PM PST
-1.5
-Assists
-Add picks
-
-Add picks to start playing.
-Champions entry amount
-
-Rewards
-
-Standard
-
-Flex
-
-Champions
-Drafts
-Live
-Results
-Rankings
-News feed
-$0.00
-athlete or team avatar
-Isaiah Hartenstein
-
-OKC vs CLE - Sun 10:00AM PST
-13.5
-Rebounds + Assists
-athlete or team avatar
-Chet Holmgren
-
-OKC vs CLE - Sun 10:00AM PST
-10.5
-Rebounds + Assists
-athlete or team avatar
-Donovan Mitchell
-
-CLE @ OKC - Sun 10:00AM PST
-9.5
-Rebounds + Assists
-athlete or team avatar
-Aaron Wiggins
-
-OKC vs CLE - Sun 10:00AM PST
-6.5
-Rebounds + Assists
-athlete or team avatar
-Jalen Johnson
-
-ATL vs BKN - Sun 12:30PM PST
-19.5
-Rebounds + Assists
-athlete or team avatar
-Dyson Daniels
-
-ATL vs BKN - Sun 12:30PM PST
-11.5
-Rebounds + Assists
-athlete or team avatar
-Nic Claxton
-
-BKN @ ATL - Sun 12:30PM PST
-10.5
-Rebounds + Assists
-athlete or team avatar
-Brandon Ingram
-
-TOR @ MIL - Sun 12:30PM PST
-9.5
-Rebounds + Assists
-athlete or team avatar
-RJ Barrett
-
-TOR @ MIL - Sun 12:30PM PST
-9.5
-Rebounds + Assists
-athlete or team avatar
-Onyeka Okongwu
-
-ATL vs BKN - Sun 12:30PM PST
-9.5
-Rebounds + Assists
-athlete or team avatar
-Pat Spencer
-
-GSW vs DEN - Sun 12:30PM PST
-9.5
-Rebounds + Assists
-athlete or team avatar
-Al Horford
-
-GSW vs DEN - Sun 12:30PM PST
-8.5
-Rebounds + Assists
-athlete or team avatar
-Gui Santos
-
-GSW vs DEN - Sun 12:30PM PST
-8.5
-Rebounds + Assists
-athlete or team avatar
-Myles Turner
-
-MIL vs TOR - Sun 12:30PM PST
-7.5
-Rebounds + Assists
-athlete or team avatar
-Nickeil Alexander-Walker
-
-ATL vs BKN - Sun 12:30PM PST
-7.5
-Rebounds + Assists
-athlete or team avatar
-Egor Demin
-
-BKN @ ATL - Sun 12:30PM PST
-7.5
-Rebounds + Assists
-athlete or team avatar
-PJ Washington
-
-DAL @ IND - Sun 2:00PM PST
-9.5
-Rebounds + Assists
-athlete or team avatar
-Daniel Gafford
-
-DAL @ IND - Sun 2:00PM PST
-7.5
-Rebounds + Assists
-athlete or team avatar
-Brandon Miller
-
-CHA @ WAS - Sun 3:00PM PST
-9.5
-Rebounds + Assists
-athlete or team avatar
-Grant Williams
-
-CHA @ WAS - Sun 3:00PM PST
-8.5
-Rebounds + Assists
-athlete or team avatar
-Bub Carrington
-
-WAS vs CHA - Sun 3:00PM PST
-7.5
-Rebounds + Assists
-athlete or team avatar
-LeBron James
-
-LAL vs BOS - Sun 3:30PM PST
-11.5
-Rebounds + Assists
-athlete or team avatar
-Derrick White
-
-BOS @ LAL - Sun 3:30PM PST
-10.5
-Rebounds + Assists
-athlete or team avatar
-Payton Pritchard
-
-BOS @ LAL - Sun 3:30PM PST
-9.5
-Rebounds + Assists
-athlete or team avatar
-Deandre Ayton
-
-LAL vs BOS - Sun 3:30PM PST
-8.5
-Rebounds + Assists
-athlete or team avatar
-Joel Embiid
-
-PHI @ MIN - Sun 4:00PM PST
-12.5
-Rebounds + Assists
-athlete or team avatar
-Anthony Edwards
-
-MIN vs PHI - Sun 4:00PM PST
-10.5
-Rebounds + Assists
-athlete or team avatar
-VJ Edgecombe
-
-PHI @ MIN - Sun 4:00PM PST
-9.5
-Rebounds + Assists
-athlete or team avatar
-Donte DiVincenzo
-
-MIN vs PHI - Sun 4:00PM PST
-9.5
-Rebounds + Assists
-athlete or team avatar
-Ayo Dosunmu
-
-MIN vs PHI - Sun 4:00PM PST
-7.5
-Rebounds + Assists
-athlete or team avatar
-Kawhi Leonard
-
-LAC vs ORL - Sun 6:00PM PST
-11.5
-Rebounds + Assists
-athlete or team avatar
-Jalen Suggs
-
-ORL @ LAC - Sun 6:00PM PST
-9.5
-Rebounds + Assists
-athlete or team avatar
-Bennedict Mathurin
-
-LAC vs ORL - Sun 6:00PM PST
-9.5
-Rebounds + Assists
-athlete or team avatar
-Desmond Bane
-
-ORL @ LAC - Sun 6:00PM PST
-7.5
-Rebounds + Assists
-athlete or team avatar
-James Harden
-
-CLE @ OKC - Sun 10:00AM PST
-12.5
-Rebounds + Assists
-athlete or team avatar
-Jarrett Allen
-
-CLE @ OKC - Sun 10:00AM PST
-10.5
-Rebounds + Assists
-athlete or team avatar
-Evan Mobley
-
-CLE @ OKC - Sun 10:00AM PST
-9.5
-Rebounds + Assists
-athlete or team avatar
-Nikola Jokic
-
-DEN @ GSW - Sun 12:30PM PST
+UTA @ HOU - Mon 6:30PM PST
 23.5
-Rebounds + Assists
+Pts + Rebs + Asts
 athlete or team avatar
-Jamal Murray
+Ace Bailey
 
-DEN @ GSW - Sun 12:30PM PST
-11.5
-Rebounds + Assists
+UTA @ HOU - Mon 6:30PM PST
+19.5
+Pts + Rebs + Asts
 athlete or team avatar
-Kevin Porter Jr.
+Reed Sheppard
 
-MIL vs TOR - Sun 12:30PM PST
-11.5
-Rebounds + Assists
+HOU vs UTA - Mon 6:30PM PST
+17.5
+Pts + Rebs + Asts
 athlete or team avatar
-Immanuel Quickley
+Cody Williams
 
-TOR @ MIL - Sun 12:30PM PST
+UTA @ HOU - Mon 6:30PM PST
 10.5
-Rebounds + Assists
-athlete or team avatar
-Draymond Green
+Pts + Rebs + Asts
+Add picks
 
-GSW vs DEN - Sun 12:30PM PST
-9.5
-Rebounds + Assists
-athlete or team avatar
-Michael Porter Jr.
+Add picks to start playing.
+Champions entry amount
 
-BKN @ ATL - Sun 12:30PM PST
-9.5
-Rebounds + Assists
-athlete or team avatar
-Ryan Rollins
+Standard
 
-MIL vs TOR - Sun 12:30PM PST
-9.5
-Rebounds + Assists
-athlete or team avatar
-Brandin Podziemski
+Flex
 
-GSW vs DEN - Sun 12:30PM PST
-8.5
-Rebounds + Assists
+Champions
+Drafts
+Live
+Results
+Rankings
+News feed
+$0.00
 athlete or team avatar
-Collin Murray-Boyles
+Victor Wembanyama
 
-TOR @ MIL - Sun 12:30PM PST
-8.5
-Rebounds + Assists
-athlete or team avatar
-Kyle Kuzma
-
-MIL vs TOR - Sun 12:30PM PST
-7.5
-Rebounds + Assists
-athlete or team avatar
-Christian Braun
-
-DEN @ GSW - Sun 12:30PM PST
-7.5
-Rebounds + Assists
-athlete or team avatar
-Jock Landale
-
-ATL vs BKN - Sun 12:30PM PST
-7.5
-Rebounds + Assists
-athlete or team avatar
-Naji Marshall
-
-DAL @ IND - Sun 2:00PM PST
+SAS @ DET - Mon 4:00PM PST
 10.5
-Rebounds + Assists
+Rebounds
 athlete or team avatar
-Tyus Jones
+Cade Cunningham
 
-DAL @ IND - Sun 2:00PM PST
+DET vs SAS - Mon 4:00PM PST
+5.5
+Rebounds
+athlete or team avatar
+Ausar Thompson
+
+DET vs SAS - Mon 4:00PM PST
+5.5
+Rebounds
+athlete or team avatar
+Stephon Castle
+
+SAS @ DET - Mon 4:00PM PST
+4.5
+Rebounds
+athlete or team avatar
+De'Aaron Fox
+
+SAS @ DET - Mon 4:00PM PST
+3.5
+Rebounds
+athlete or team avatar
+Dylan Harper
+
+SAS @ DET - Mon 4:00PM PST
+3.5
+Rebounds
+athlete or team avatar
+Caris LeVert
+
+DET vs SAS - Mon 4:00PM PST
+1.5
+Rebounds
+athlete or team avatar
+Maxime Raynaud
+
+SAC @ MEM - Mon 5:00PM PST
+10.5
+Rebounds
+athlete or team avatar
+GG Jackson
+
+MEM vs SAC - Mon 5:00PM PST
+6.5
+Rebounds
+athlete or team avatar
+Precious Achiuwa
+
+SAC @ MEM - Mon 5:00PM PST
+5.5
+Rebounds
+athlete or team avatar
+Russell Westbrook
+
+SAC @ MEM - Mon 5:00PM PST
+3.5
+Rebounds
+athlete or team avatar
+Ty Jerome
+
+MEM vs SAC - Mon 5:00PM PST
+3.5
+Rebounds
+athlete or team avatar
+DeMar DeRozan
+
+SAC @ MEM - Mon 5:00PM PST
+2.5
+Rebounds
+athlete or team avatar
+Malik Monk
+
+SAC @ MEM - Mon 5:00PM PST
+1.5
+Rebounds
+athlete or team avatar
+Amen Thompson
+
+HOU vs UTA - Mon 6:30PM PST
 7.5
+Rebounds
+athlete or team avatar
+Jabari Smith Jr.
+
+HOU vs UTA - Mon 6:30PM PST
+6.5
+Rebounds
+athlete or team avatar
+Kevin Durant
+
+HOU vs UTA - Mon 6:30PM PST
+5.5
+Rebounds
+athlete or team avatar
+Clint Capela
+
+HOU vs UTA - Mon 6:30PM PST
+4.5
+Rebounds
+athlete or team avatar
+Dorian Finney-Smith
+
+HOU vs UTA - Mon 6:30PM PST
+2.5
+Rebounds
+athlete or team avatar
+Brice Sensabaugh
+
+UTA @ HOU - Mon 6:30PM PST
+2.5
+Rebounds
+athlete or team avatar
+Keyonte George
+
+UTA @ HOU - Mon 6:30PM PST
+1.5
+Rebounds
+athlete or team avatar
+Jalen Duren
+
+DET vs SAS - Mon 4:00PM PST
+10.5
+Rebounds
+athlete or team avatar
+Tobias Harris
+
+DET vs SAS - Mon 4:00PM PST
+5.5
+Rebounds
+athlete or team avatar
+Keldon Johnson
+
+SAS @ DET - Mon 4:00PM PST
+4.5
+Rebounds
+athlete or team avatar
+Julian Champagnie
+
+SAS @ DET - Mon 4:00PM PST
+4.5
+Rebounds
+athlete or team avatar
+Devin Vassell
+
+SAS @ DET - Mon 4:00PM PST
+3.5
+Rebounds
+athlete or team avatar
+Duncan Robinson
+
+DET vs SAS - Mon 4:00PM PST
+2.5
+Rebounds
+athlete or team avatar
+Daniss Jenkins
+
+DET vs SAS - Mon 4:00PM PST
+1.5
+Rebounds
+athlete or team avatar
+Keegan Murray
+
+SAC @ MEM - Mon 5:00PM PST
+6.5
+Rebounds
+athlete or team avatar
+Taylor Hendricks
+
+MEM vs SAC - Mon 5:00PM PST
+6.5
+Rebounds
+athlete or team avatar
+Nique Clifford
+
+SAC @ MEM - Mon 5:00PM PST
+4.5
+Rebounds
+athlete or team avatar
+Walter Clayton Jr.
+
+MEM vs SAC - Mon 5:00PM PST
+3.5
+Rebounds
+athlete or team avatar
+Jaylen Wells
+
+MEM vs SAC - Mon 5:00PM PST
+3.5
+Rebounds
+athlete or team avatar
+Cam Spencer
+
+MEM vs SAC - Mon 5:00PM PST
+2.5
+Rebounds
+athlete or team avatar
+Alperen Sengun
+
+HOU vs UTA - Mon 6:30PM PST
+8.5
+Rebounds
+athlete or team avatar
+Kyle Filipowski
+
+UTA @ HOU - Mon 6:30PM PST
+7.5
+Rebounds
+athlete or team avatar
+Tari Eason
+
+HOU vs UTA - Mon 6:30PM PST
+6.5
+Rebounds
+athlete or team avatar
+Lauri Markkanen
+
+UTA @ HOU - Mon 6:30PM PST
+4.5
+Rebounds
+athlete or team avatar
+Ace Bailey
+
+UTA @ HOU - Mon 6:30PM PST
+3.5
+Rebounds
+athlete or team avatar
+Reed Sheppard
+
+HOU vs UTA - Mon 6:30PM PST
+2.5
+Rebounds
+athlete or team avatar
+Cody Williams
+
+UTA @ HOU - Mon 6:30PM PST
+2.5
+Rebounds
+Add picks
+
+Add picks to start playing.
+Champions entry amount
+
+Standard
+
+Flex
+
+Champions
+Drafts
+Live
+Results
+Rankings
+News feed
+$0.00
+athlete or team avatar
+Cade Cunningham
+
+DET vs SAS - Mon 4:00PM PST
+9.5
+Assists
+athlete or team avatar
+Stephon Castle
+
+SAS @ DET - Mon 4:00PM PST
+5.5
+Assists
+athlete or team avatar
+Victor Wembanyama
+
+SAS @ DET - Mon 4:00PM PST
+2.5
+Assists
+athlete or team avatar
+Caris LeVert
+
+DET vs SAS - Mon 4:00PM PST
+2.5
+Assists
+athlete or team avatar
+Devin Vassell
+
+SAS @ DET - Mon 4:00PM PST
+1.5
+Assists
+athlete or team avatar
+Jalen Duren
+
+DET vs SAS - Mon 4:00PM PST
+1.5
+Assists
+athlete or team avatar
+Julian Champagnie
+
+SAS @ DET - Mon 4:00PM PST
+1.5
+Assists
+athlete or team avatar
+Russell Westbrook
+
+SAC @ MEM - Mon 5:00PM PST
+5.5
+Assists
+athlete or team avatar
+Ty Jerome
+
+MEM vs SAC - Mon 5:00PM PST
+4.5
+Assists
+athlete or team avatar
+DeMar DeRozan
+
+SAC @ MEM - Mon 5:00PM PST
+3.5
+Assists
+athlete or team avatar
+Nique Clifford
+
+SAC @ MEM - Mon 5:00PM PST
+2.5
+Assists
+athlete or team avatar
+GG Jackson
+
+MEM vs SAC - Mon 5:00PM PST
+1.5
+Assists
+athlete or team avatar
+Maxime Raynaud
+
+SAC @ MEM - Mon 5:00PM PST
+1.5
+Assists
+athlete or team avatar
+Alperen Sengun
+
+HOU vs UTA - Mon 6:30PM PST
+6.5
+Assists
+athlete or team avatar
+Kevin Durant
+
+HOU vs UTA - Mon 6:30PM PST
+4.5
+Assists
+athlete or team avatar
+Reed Sheppard
+
+HOU vs UTA - Mon 6:30PM PST
+3.5
+Assists
+athlete or team avatar
+Lauri Markkanen
+
+UTA @ HOU - Mon 6:30PM PST
+1.5
+Assists
+athlete or team avatar
+Jabari Smith Jr.
+
+HOU vs UTA - Mon 6:30PM PST
+1.5
+Assists
+athlete or team avatar
+Brice Sensabaugh
+
+UTA @ HOU - Mon 6:30PM PST
+1.5
+Assists
+athlete or team avatar
+De'Aaron Fox
+
+SAS @ DET - Mon 4:00PM PST
+5.5
+Assists
+athlete or team avatar
+Dylan Harper
+
+SAS @ DET - Mon 4:00PM PST
+3.5
+Assists
+athlete or team avatar
+Ausar Thompson
+
+DET vs SAS - Mon 4:00PM PST
+2.5
+Assists
+athlete or team avatar
+Daniss Jenkins
+
+DET vs SAS - Mon 4:00PM PST
+2.5
+Assists
+athlete or team avatar
+Tobias Harris
+
+DET vs SAS - Mon 4:00PM PST
+1.5
+Assists
+athlete or team avatar
+Keldon Johnson
+
+SAS @ DET - Mon 4:00PM PST
+1.5
+Assists
+athlete or team avatar
+Duncan Robinson
+
+DET vs SAS - Mon 4:00PM PST
+1.5
+Assists
+athlete or team avatar
+Walter Clayton Jr.
+
+MEM vs SAC - Mon 5:00PM PST
+4.5
+Assists
+athlete or team avatar
+Cam Spencer
+
+MEM vs SAC - Mon 5:00PM PST
+4.5
+Assists
+athlete or team avatar
+Malik Monk
+
+SAC @ MEM - Mon 5:00PM PST
+3.5
+Assists
+athlete or team avatar
+Keegan Murray
+
+SAC @ MEM - Mon 5:00PM PST
+1.5
+Assists
+athlete or team avatar
+Precious Achiuwa
+
+SAC @ MEM - Mon 5:00PM PST
+1.5
+Assists
+athlete or team avatar
+Jaylen Wells
+
+MEM vs SAC - Mon 5:00PM PST
+1.5
+Assists
+athlete or team avatar
+Amen Thompson
+
+HOU vs UTA - Mon 6:30PM PST
+6.5
+Assists
+athlete or team avatar
+Keyonte George
+
+UTA @ HOU - Mon 6:30PM PST
+4.5
+Assists
+athlete or team avatar
+Kyle Filipowski
+
+UTA @ HOU - Mon 6:30PM PST
+2.5
+Assists
+athlete or team avatar
+Ace Bailey
+
+UTA @ HOU - Mon 6:30PM PST
+1.5
+Assists
+athlete or team avatar
+Tari Eason
+
+HOU vs UTA - Mon 6:30PM PST
+1.5
+Assists
+athlete or team avatar
+Cody Williams
+
+UTA @ HOU - Mon 6:30PM PST
+1.5
+Assists
+Add picks
+
+Add picks to start playing.
+Champions entry amount
+
+Standard
+
+Flex
+
+Champions
+Drafts
+Live
+Results
+Rankings
+News feed
+$0.00
+athlete or team avatar
+Cade Cunningham
+
+DET vs SAS - Mon 4:00PM PST
+15.5
 Rebounds + Assists
 athlete or team avatar
-LaMelo Ball
+Jalen Duren
 
-CHA @ WAS - Sun 3:00PM PST
+DET vs SAS - Mon 4:00PM PST
 12.5
 Rebounds + Assists
 athlete or team avatar
-Kon Knueppel
+De'Aaron Fox
 
-CHA @ WAS - Sun 3:00PM PST
+SAS @ DET - Mon 4:00PM PST
 9.5
 Rebounds + Assists
 athlete or team avatar
-Ryan Kalkbrenner
+Dylan Harper
 
-CHA @ WAS - Sun 3:00PM PST
-8.5
-Rebounds + Assists
-athlete or team avatar
-Luka Doncic
-
-LAL vs BOS - Sun 3:30PM PST
-14.5
-Rebounds + Assists
-athlete or team avatar
-Jaylen Brown
-
-BOS @ LAL - Sun 3:30PM PST
-11.5
-Rebounds + Assists
-athlete or team avatar
-Nikola Vucevic
-
-BOS @ LAL - Sun 3:30PM PST
-9.5
-Rebounds + Assists
-athlete or team avatar
-Austin Reaves
-
-LAL vs BOS - Sun 3:30PM PST
-8.5
-Rebounds + Assists
-athlete or team avatar
-Neemias Queta
-
-BOS @ LAL - Sun 3:30PM PST
+SAS @ DET - Mon 4:00PM PST
 7.5
 Rebounds + Assists
 athlete or team avatar
-Julius Randle
+Maxime Raynaud
 
-MIN vs PHI - Sun 4:00PM PST
+SAC @ MEM - Mon 5:00PM PST
 12.5
 Rebounds + Assists
 athlete or team avatar
-Naz Reid
+Keegan Murray
 
-MIN vs PHI - Sun 4:00PM PST
-10.5
-Rebounds + Assists
-athlete or team avatar
-Tyrese Maxey
-
-PHI @ MIN - Sun 4:00PM PST
-9.5
-Rebounds + Assists
-athlete or team avatar
-Jaden McDaniels
-
-MIN vs PHI - Sun 4:00PM PST
-8.5
-Rebounds + Assists
-athlete or team avatar
-Paolo Banchero
-
-ORL @ LAC - Sun 6:00PM PST
-12.5
-Rebounds + Assists
-athlete or team avatar
-Kris Dunn
-
-LAC vs ORL - Sun 6:00PM PST
-10.5
-Rebounds + Assists
-athlete or team avatar
-Wendell Carter Jr.
-
-ORL @ LAC - Sun 6:00PM PST
-9.5
-Rebounds + Assists
-athlete or team avatar
-Brook Lopez
-
-LAC vs ORL - Sun 6:00PM PST
-8.5
-Rebounds + Assists
-athlete or team avatar
-Anthony Black
-
-ORL @ LAC - Sun 6:00PM PST
+SAC @ MEM - Mon 5:00PM PST
 7.5
+Rebounds + Assists
+athlete or team avatar
+Precious Achiuwa
+
+SAC @ MEM - Mon 5:00PM PST
+7.5
+Rebounds + Assists
+athlete or team avatar
+Nique Clifford
+
+SAC @ MEM - Mon 5:00PM PST
+7.5
+Rebounds + Assists
+athlete or team avatar
+Cam Spencer
+
+MEM vs SAC - Mon 5:00PM PST
+7.5
+Rebounds + Assists
+athlete or team avatar
+Amen Thompson
+
+HOU vs UTA - Mon 6:30PM PST
+13.5
+Rebounds + Assists
+athlete or team avatar
+Kevin Durant
+
+HOU vs UTA - Mon 6:30PM PST
+9.5
+Rebounds + Assists
+athlete or team avatar
+Jabari Smith Jr.
+
+HOU vs UTA - Mon 6:30PM PST
+8.5
+Rebounds + Assists
+athlete or team avatar
+Victor Wembanyama
+
+SAS @ DET - Mon 4:00PM PST
+13.5
+Rebounds + Assists
+athlete or team avatar
+Stephon Castle
+
+SAS @ DET - Mon 4:00PM PST
+10.5
+Rebounds + Assists
+athlete or team avatar
+Ausar Thompson
+
+DET vs SAS - Mon 4:00PM PST
+8.5
+Rebounds + Assists
+athlete or team avatar
+Tobias Harris
+
+DET vs SAS - Mon 4:00PM PST
+7.5
+Rebounds + Assists
+athlete or team avatar
+Russell Westbrook
+
+SAC @ MEM - Mon 5:00PM PST
+8.5
+Rebounds + Assists
+athlete or team avatar
+GG Jackson
+
+MEM vs SAC - Mon 5:00PM PST
+7.5
+Rebounds + Assists
+athlete or team avatar
+Walter Clayton Jr.
+
+MEM vs SAC - Mon 5:00PM PST
+7.5
+Rebounds + Assists
+athlete or team avatar
+Ty Jerome
+
+MEM vs SAC - Mon 5:00PM PST
+7.5
+Rebounds + Assists
+athlete or team avatar
+Alperen Sengun
+
+HOU vs UTA - Mon 6:30PM PST
+15.5
+Rebounds + Assists
+athlete or team avatar
+Kyle Filipowski
+
+UTA @ HOU - Mon 6:30PM PST
+10.5
+Rebounds + Assists
+athlete or team avatar
+Tari Eason
+
+HOU vs UTA - Mon 6:30PM PST
+9.5
 Rebounds + Assists
 Add picks
 
 Add picks to start playing.
 Champions entry amount
 
-Rewards
-
 Standard
 
 Flex
+

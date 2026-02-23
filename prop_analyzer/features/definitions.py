@@ -13,7 +13,7 @@ BASE_FEATURE_COLS = [
     'L10_HitRate_10', 'L10_HitRate_15', 'L10_HitRate_20', 'L10_HitRate_25', 'L10_HitRate_30',
     
     # Contextual Splits
-    'HOME_AWAY_AVG', 'REST_SPLIT_AVG', 'IS_HOME', 'Days_Rest',
+    'REST_SPLIT_AVG', 'IS_HOME', 'Days_Rest',
     
     # Rate & Advanced
     'USG_PROXY_PER36', 'TS_PCT', 'USG_PROXY', 
@@ -27,7 +27,7 @@ BASE_FEATURE_COLS = [
     'TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 
     'MISSING_USG_G', 'MISSING_USG_F', 'MISSING_USG_C',
 
-    # --- NEW: ADVANCED SCRAPED STATS ---
+    # --- ADVANCED SCRAPED STATS ---
     # Rebounding Context
     'OPP_Opponent Effective Field Goal %', 'OPP_Opponent True Shooting %',
     'TEAM_Field Goals Attempted per Game', 'OPP_Field Goals Attempted per Game',
@@ -60,34 +60,42 @@ HIST_FEATURES = [
 
 # --- MAPPINGS ---
 # Smartly isolating the new metrics specifically to the prop types they influence
+# We now include targeted SPLIT_AVG and DIFF features to detect Home/Away variance
 PROP_FEATURE_MAP = {
     'PTS': ['PTS', 'PRA', 'PR', 'PA', 'USG_PROXY', 'TS_PCT', 'GAME_PACE', 'OPP_GAME_PACE',
+            'PTS_SPLIT_AVG', 'PTS_DIFF', 'MIN_SPLIT_AVG',
             'OPP_Opponent Points in Paint per Game', 'OPP_Opponent Percent of Points from 3 Pointers',
             'OPP_Opponent Personal Fouls per Game', 'OPP_Opponent Fastbreak Points per Game',
             'TEAM_Extra Scoring Chances per Game', 'OPP_Extra Scoring Chances per Game'],
             
     'REB': ['REB', 'PRA', 'PR', 'RA', 'GAME_PACE', 'OPP_GAME_PACE',
+            'REB_SPLIT_AVG', 'REB_DIFF', 'MIN_SPLIT_AVG',
             'OPP_Opponent Effective Field Goal %', 'OPP_Opponent True Shooting %',
             'TEAM_Field Goals Attempted per Game', 'OPP_Field Goals Attempted per Game',
             'TEAM_Three Pointers Attempted per Game', 'OPP_Three Pointers Attempted per Game',
             'OPP_Opponent Offensive Rebounding %'],
             
     'AST': ['AST', 'PRA', 'PA', 'RA', 'GAME_PACE', 'OPP_GAME_PACE',
+            'AST_SPLIT_AVG', 'AST_DIFF', 'MIN_SPLIT_AVG',
             'TEAM_Assists per FGM', 'OPP_Opponent Assists per FGM', 'TEAM_Assist to Turnover Ratio'],
             
     'PRA': ['PRA', 'PTS', 'REB', 'AST', 'PR', 'PA', 'RA', 'GAME_PACE', 'OPP_GAME_PACE',
+            'PRA_SPLIT_AVG', 'PRA_DIFF', 'MIN_SPLIT_AVG',
             'TEAM_Extra Scoring Chances per Game', 'OPP_Extra Scoring Chances per Game',
             'OPP_Opponent Points + Rebounds + Assists per Game'],
             
     'PR':  ['PR', 'PTS', 'REB', 'PRA', 'GAME_PACE', 'OPP_GAME_PACE',
+            'PR_SPLIT_AVG', 'PR_DIFF', 'MIN_SPLIT_AVG',
             'OPP_Opponent Points in Paint per Game', 'OPP_Opponent Effective Field Goal %',
             'TEAM_Extra Scoring Chances per Game'],
             
     'PA':  ['PA', 'PTS', 'AST', 'PRA', 'GAME_PACE', 'OPP_GAME_PACE',
+            'PA_SPLIT_AVG', 'PA_DIFF', 'MIN_SPLIT_AVG',
             'OPP_Opponent Points + Assists per Game', 'OPP_Opponent Assists per FGM',
             'TEAM_Extra Scoring Chances per Game'],
             
     'RA':  ['RA', 'REB', 'AST', 'PRA', 'GAME_PACE', 'OPP_GAME_PACE',
+            'RA_SPLIT_AVG', 'RA_DIFF', 'MIN_SPLIT_AVG',
             'OPP_Opponent Effective Field Goal %', 'OPP_Opponent Assists per FGM'],
 }
 

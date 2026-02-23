@@ -19,9 +19,48 @@ def create_training_dataset():
     if Cols.DATE in box_scores.columns:
         box_scores[Cols.DATE] = pd.to_datetime(box_scores[Cols.DATE]).dt.normalize()
 
-    # --- FIX: Align column name from raw Scraper output to System Config ---
     if 'PLAYER_NAME' in box_scores.columns and Cols.PLAYER_NAME not in box_scores.columns:
         box_scores.rename(columns={'PLAYER_NAME': Cols.PLAYER_NAME}, inplace=True)
+
+    # --- NEW: Calculate Historical Home/Away Differentials (No Data Leakage) ---
+    logging.info("Calculating historical point-in-time Home/Away differentials...")
+    stat_cols = ['PTS', 'REB', 'AST', 'PRA', 'MIN']
+    
+    # Sort chronologically to strictly enforce point-in-time calculations
+    box_scores = box_scores.sort_values(by=[Cols.PLAYER_ID, Cols.DATE])
+    
+    for col in stat_cols:
+        if col in box_scores.columns:
+            # Isolate Home and Away stats into temporary columns
+            box_scores[f'{col}_TEMP_HOME'] = np.where(box_scores['IS_HOME'] == 1, box_scores[col], np.nan)
+            box_scores[f'{col}_TEMP_AWAY'] = np.where(box_scores['IS_HOME'] == 0, box_scores[col], np.nan)
+            
+            # Forward fill the expanding means so an Away game still knows what the current Home average is
+            box_scores[f'{col}_RUNNING_HOME'] = box_scores.groupby(Cols.PLAYER_ID)[f'{col}_TEMP_HOME'].transform(
+                lambda x: x.expanding().mean().shift(1).ffill()
+            ).fillna(0.0)
+            
+            box_scores[f'{col}_RUNNING_AWAY'] = box_scores.groupby(Cols.PLAYER_ID)[f'{col}_TEMP_AWAY'].transform(
+                lambda x: x.expanding().mean().shift(1).ffill()
+            ).fillna(0.0)
+            
+            # Calculate the point-in-time differential (Home - Away)
+            box_scores[f'{col}_DIFF'] = box_scores[f'{col}_RUNNING_HOME'] - box_scores[f'{col}_RUNNING_AWAY']
+            
+            # Drop the temporary calculation columns
+            box_scores.drop(columns=[
+                f'{col}_TEMP_HOME', f'{col}_TEMP_AWAY', 
+                f'{col}_RUNNING_HOME', f'{col}_RUNNING_AWAY'
+            ], inplace=True)
+
+    # Composite Combo Splits (PR, PA, RA)
+    box_scores['PR_SPLIT_AVG'] = box_scores.get('PTS_SPLIT_AVG', 0) + box_scores.get('REB_SPLIT_AVG', 0)
+    box_scores['PA_SPLIT_AVG'] = box_scores.get('PTS_SPLIT_AVG', 0) + box_scores.get('AST_SPLIT_AVG', 0)
+    box_scores['RA_SPLIT_AVG'] = box_scores.get('REB_SPLIT_AVG', 0) + box_scores.get('AST_SPLIT_AVG', 0)
+    
+    box_scores['PR_DIFF'] = box_scores.get('PTS_DIFF', 0) + box_scores.get('REB_DIFF', 0)
+    box_scores['PA_DIFF'] = box_scores.get('PTS_DIFF', 0) + box_scores.get('AST_DIFF', 0)
+    box_scores['RA_DIFF'] = box_scores.get('REB_DIFF', 0) + box_scores.get('AST_DIFF', 0)
 
     # 2. Merge Real Vegas Lines (History)
     prop_hist_path = cfg.MASTER_PROP_HISTORY_FILE
