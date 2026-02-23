@@ -1,71 +1,71 @@
 Legs,Joint Prob,Ticket EV%,Payout,Picks
 2,0.7865340000000001,1.3596020000000002,3.0x,Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST
-2,0.7518,1.2553999999999998,3.0x,Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB
-2,0.7194,1.1582,3.0x,Joan Beringer Under 5.5 REB | Joel Embiid Over 26.5 PTS
+2,0.7548,1.2644000000000002,3.0x,Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB
+2,0.7144,1.1432000000000002,3.0x,Joan Beringer Under 5.5 REB | Joel Embiid Over 26.5 PTS
 2,0.708249,1.1247470000000002,3.0x,Joan Beringer Under 5.5 REB | RJ Barrett Under 27.5 PRA
-2,0.706,1.1179999999999999,3.0x,Jonas Valanciunas Under 1.5 AST | Tim Hardaway Jr. Under 1.5 AST
+2,0.7011,1.1033,3.0x,Jonas Valanciunas Under 1.5 AST | Tim Hardaway Jr. Under 1.5 AST
 2,0.696276,1.088828,3.0x,Jaylen Brown Under 4.5 AST | Joan Beringer Under 5.5 REB
 2,0.6870660000000001,1.061198,3.0x,Joan Beringer Under 5.5 REB | Tim Hardaway Jr. Under 1.5 AST
 2,0.684303,1.052909,3.0x,Joan Beringer Under 5.5 REB | Kyshawn George Under 12.5 PTS
 2,0.682461,1.047383,3.0x,Joan Beringer Under 5.5 REB | Ryan Kalkbrenner Under 7.5 REB
-2,0.6806,1.0417999999999998,3.0x,Anthony Edwards Under 3.5 AST | Joan Beringer Under 5.5 REB
-3,0.650226,2.901356,6.0x,Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Tim Hardaway Jr. Under 1.5 AST
-3,0.6479,2.8874000000000004,6.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB
-3,0.6420372,2.8522232,6.0x,Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST
-3,0.6282,2.7691999999999997,6.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST
-3,0.6233328,2.7399968,6.0x,Joan Beringer Under 5.5 REB | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
-3,0.6143676,2.6862056,6.0x,Joan Beringer Under 5.5 REB | Joel Embiid Over 26.5 PTS | Jonas Valanciunas Under 1.5 AST
+2,0.6817,1.0450999999999997,3.0x,Anthony Edwards Under 3.5 AST | Joan Beringer Under 5.5 REB
+3,0.6485,2.891,6.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB
+3,0.6457130999999999,2.8742785999999994,6.0x,Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Tim Hardaway Jr. Under 1.5 AST
+3,0.6445992,2.8675952000000002,6.0x,Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST
+3,0.6296,2.7776000000000005,6.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST
+3,0.6267405,2.7604430000000004,6.0x,Joan Beringer Under 5.5 REB | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
+3,0.6100976,2.6605856,6.0x,Joan Beringer Under 5.5 REB | Joel Embiid Over 26.5 PTS | Jonas Valanciunas Under 1.5 AST
+3,0.6049128,2.6294768,6.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Joan Beringer Under 5.5 REB
 3,0.6048446460000001,2.6290678760000006,6.0x,Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | RJ Barrett Under 27.5 PRA
 3,0.6039918000000001,2.6239508000000002,6.0x,Aaron Wiggins Under 14.5 PTS | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB
-3,0.6012288000000001,2.6073728000000007,6.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Joan Beringer Under 5.5 REB
-3,0.5968,2.5808,6.0x,Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB | Joel Embiid Over 26.5 PTS
-4,0.5785722,4.785722,10.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB
-4,0.5533066,4.533066,10.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST
-4,0.5364827999999999,4.364827999999999,10.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Jonas Valanciunas Under 1.5 AST
-4,0.5340879,4.340878999999999,10.0x,Jaylen Brown Under 4.5 AST | Joan Beringer Under 5.5 REB | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
-4,0.5323262112,4.323262112,10.0x,Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
-4,0.5307708,4.307708,10.0x,Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Tim Hardaway Jr. Under 1.5 AST
-4,0.5215623,4.215623000000001,10.0x,CJ McCollum Under 3.5 REB | Jalen Johnson Under 7.5 AST | Joan Beringer Under 5.5 REB | Jock Landale Under 1.5 AST
+3,0.5963475,2.578085,6.0x,Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB
+4,0.5798616000000001,4.798616000000001,10.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB
+4,0.553819,4.538189999999999,10.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST
+4,0.5376784,4.376784,10.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Jonas Valanciunas Under 1.5 AST
+4,0.5352363870000001,4.352363870000001,10.0x,Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
+4,0.5306802,4.306802,10.0x,Jaylen Brown Under 4.5 AST | Joan Beringer Under 5.5 REB | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
+4,0.52919028,4.2919028,10.0x,Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Tim Hardaway Jr. Under 1.5 AST
+4,0.5167731000000001,4.167731000000001,10.0x,CJ McCollum Under 3.5 REB | Jalen Johnson Under 7.5 AST | Joan Beringer Under 5.5 REB | Jock Landale Under 1.5 AST
+4,0.5165955312,4.165955312,10.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST
 4,0.5158089972000001,4.158089972000001,10.0x,Aaron Wiggins Under 14.5 PTS | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST
-4,0.5134493952000001,4.1344939520000015,10.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST
-4,0.5096672,4.096672,10.0x,Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB | Joel Embiid Over 26.5 PTS | Jonas Valanciunas Under 1.5 AST
-5,0.4941006588,8.882013176,20.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST
-5,0.47228076,8.4456152,20.0x,Aaron Wiggins Under 14.5 PTS | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB
-5,0.4574174,8.148347999999999,20.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Tim Hardaway Jr. Under 1.5 AST
-5,0.45611106659999995,8.122221331999999,20.0x,Jaylen Brown Under 4.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
-5,0.45192708000000004,8.0385416,20.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Joel Embiid Over 26.5 PTS
-5,0.4454142042,7.908284084,20.0x,CJ McCollum Under 3.5 REB | Jalen Johnson Under 7.5 AST | Joan Beringer Under 5.5 REB | Jock Landale Under 1.5 AST | Jonas Valanciunas Under 1.5 AST
-5,0.4449220218,7.898440436,20.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | RJ Barrett Under 27.5 PRA
-5,0.44350919999999994,7.870183999999998,20.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Jonas Valanciunas Under 1.5 AST | Tim Hardaway Jr. Under 1.5 AST
-5,0.44007295679999997,7.801459136,20.0x,Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST | Tim Hardaway Jr. Under 1.5 AST
-5,0.43849872,7.769974400000001,20.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
-6,0.40847197319999995,9.211799329999998,25.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Tim Hardaway Jr. Under 1.5 AST
-6,0.40701078,9.1752695,25.0x,Aaron Wiggins Under 14.5 PTS | Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB
-6,0.40332776904,9.083194226,25.0x,Aaron Wiggins Under 14.5 PTS | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST
-6,0.39157766495999996,8.789441623999998,25.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
-6,0.38594572632,8.648643158,25.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Joel Embiid Over 26.5 PTS | Jonas Valanciunas Under 1.5 AST
-6,0.3799634066172,8.499085165430001,25.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | RJ Barrett Under 27.5 PRA
-6,0.37706605739999993,8.426651434999998,25.0x,Jaylen Brown Under 4.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST | Tim Hardaway Jr. Under 1.5 AST
-6,0.37571721,8.392930250000001,25.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Jaylen Brown Under 4.5 AST | Joan Beringer Under 5.5 REB | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
-6,0.37490976,8.372743999999999,25.0x,Aaron Wiggins Under 14.5 PTS | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Joel Embiid Over 26.5 PTS
-6,0.37447790688,8.361947672,25.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
-7,0.34758720612,12.9034882448,40.0x,Aaron Wiggins Under 14.5 PTS | Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST
-7,0.33551401878000003,12.420560751200002,40.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Jaylen Brown Under 4.5 AST | Joan Beringer Under 5.5 REB | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
-7,0.33440732587584,12.3762930350336,40.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
-7,0.33343021656,12.3372086624,40.0x,Aaron Wiggins Under 14.5 PTS | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Tim Hardaway Jr. Under 1.5 AST
-7,0.32764543686000003,12.105817474400002,40.0x,Aaron Wiggins Under 14.5 PTS | CJ McCollum Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jalen Johnson Under 7.5 AST | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jock Landale Under 1.5 AST
-7,0.32086249734,11.8344998936,40.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Jaylen Brown Under 4.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
-7,0.32017293504,11.8069174016,40.0x,Aaron Wiggins Under 14.5 PTS | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Joel Embiid Over 26.5 PTS | Jonas Valanciunas Under 1.5 AST
-7,0.319639618368,11.785584734719999,40.0x,Aaron Wiggins Under 14.5 PTS | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
-7,0.31906051848,11.7624207392,40.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Joel Embiid Over 26.5 PTS | Jonas Valanciunas Under 1.5 AST | Tim Hardaway Jr. Under 1.5 AST
-7,0.3184974,11.739896,40.0x,Aaron Wiggins Under 14.5 PTS | Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Joel Embiid Over 26.5 PTS
-8,0.28734961068,21.9879688544,80.0x,Aaron Wiggins Under 14.5 PTS | Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Tim Hardaway Jr. Under 1.5 AST
-8,0.28652897203812,21.9223177630496,80.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Jaylen Brown Under 4.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
-8,0.27980920307844004,21.384736246275203,80.0x,Aaron Wiggins Under 14.5 PTS | CJ McCollum Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jalen Johnson Under 7.5 AST | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jock Landale Under 1.5 AST | Jonas Valanciunas Under 1.5 AST
-8,0.27645383146175995,21.116306516940796,80.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST | Tim Hardaway Jr. Under 1.5 AST
-8,0.275464895904,21.03719167232,80.0x,Aaron Wiggins Under 14.5 PTS | Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
-8,0.273875612724,20.910049017920002,80.0x,Aaron Wiggins Under 14.5 PTS | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Jaylen Brown Under 4.5 AST | Joan Beringer Under 5.5 REB | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
-8,0.27297223408627197,20.837778726901757,80.0x,Aaron Wiggins Under 14.5 PTS | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
-8,0.27199677959999996,20.759742367999998,80.0x,Aaron Wiggins Under 14.5 PTS | Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Joel Embiid Over 26.5 PTS | Jonas Valanciunas Under 1.5 AST
-8,0.267452594388,20.39620755104,80.0x,Aaron Wiggins Under 14.5 PTS | Ayo Dosunmu Under 3.5 REB | CJ McCollum Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jalen Johnson Under 7.5 AST | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jock Landale Under 1.5 AST
-8,0.26729456150628,20.3835649205024,80.0x,Aaron Wiggins Under 14.5 PTS | Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | RJ Barrett Under 27.5 PRA
+4,0.5136414,4.136414,10.0x,Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
+5,0.49520180640000006,8.904036128000001,20.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST
+5,0.47522208000000005,8.504441600000002,20.0x,Aaron Wiggins Under 14.5 PTS | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB
+5,0.45466334999999997,8.093266999999999,20.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Tim Hardaway Jr. Under 1.5 AST
+5,0.45320089080000003,8.064017816,20.0x,Jaylen Brown Under 4.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
+5,0.44978624000000006,7.995724800000001,20.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Joel Embiid Over 26.5 PTS
+5,0.44591357040000007,7.918271408000001,20.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | RJ Barrett Under 27.5 PRA
+5,0.44141256,7.8282512,20.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Jonas Valanciunas Under 1.5 AST | Tim Hardaway Jr. Under 1.5 AST
+5,0.44132422740000005,7.826484548000002,20.0x,CJ McCollum Under 3.5 REB | Jalen Johnson Under 7.5 AST | Joan Beringer Under 5.5 REB | Jock Landale Under 1.5 AST | Jonas Valanciunas Under 1.5 AST
+5,0.44130424999999995,7.826084999999999,20.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
+5,0.43940776454999997,7.788155290999999,20.0x,Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST | Tim Hardaway Jr. Under 1.5 AST
+6,0.40829560000000004,9.20739,25.0x,Aaron Wiggins Under 14.5 PTS | Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB
+6,0.40654096776000004,9.163524194,25.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Tim Hardaway Jr. Under 1.5 AST
+6,0.40583965632,9.145991408,25.0x,Aaron Wiggins Under 14.5 PTS | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST
+6,0.39459581880000005,8.86489547,25.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
+6,0.38411744896000005,8.602936224,25.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Joel Embiid Over 26.5 PTS | Jonas Valanciunas Under 1.5 AST
+6,0.38081018912160003,8.520254728040001,25.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | RJ Barrett Under 27.5 PRA
+6,0.3768738295,8.4218457375,25.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
+6,0.37498976000000006,8.374744000000002,25.0x,Aaron Wiggins Under 14.5 PTS | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Joel Embiid Over 26.5 PTS
+6,0.37437256563840005,8.35931414096,25.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Jaylen Brown Under 4.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST
+6,0.3736657,8.341642499999999,25.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Jaylen Brown Under 4.5 AST | Joan Beringer Under 5.5 REB | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
+7,0.3486844424,12.947377696,40.0x,Aaron Wiggins Under 14.5 PTS | Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST
+7,0.3369848292552,12.479393170208,40.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
+7,0.3341162539200001,12.364650156800003,40.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Jaylen Brown Under 4.5 AST | Joan Beringer Under 5.5 REB | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
+7,0.333178200288,12.32712801152,40.0x,Aaron Wiggins Under 14.5 PTS | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Tim Hardaway Jr. Under 1.5 AST
+7,0.32536034376000006,12.014413750400003,40.0x,Aaron Wiggins Under 14.5 PTS | CJ McCollum Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jalen Johnson Under 7.5 AST | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jock Landale Under 1.5 AST
+7,0.32338862544,11.9355450176,40.0x,Aaron Wiggins Under 14.5 PTS | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
+7,0.32024125504000006,11.809650201600002,40.0x,Aaron Wiggins Under 14.5 PTS | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Joel Embiid Over 26.5 PTS | Jonas Valanciunas Under 1.5 AST
+7,0.3191105078,11.764420312,40.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Jaylen Brown Under 4.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
+7,0.31845168,11.7380672,40.0x,Aaron Wiggins Under 14.5 PTS | Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Joel Embiid Over 26.5 PTS
+7,0.315345132864,11.61380531456,40.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Joel Embiid Over 26.5 PTS | Jonas Valanciunas Under 1.5 AST | Tim Hardaway Jr. Under 1.5 AST
+8,0.28625604516,21.900483612800002,80.0x,Aaron Wiggins Under 14.5 PTS | Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Tim Hardaway Jr. Under 1.5 AST
+8,0.28533528084768006,21.826822467814406,80.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Jaylen Brown Under 4.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
+8,0.27785773357104004,21.2286186856832,80.0x,Aaron Wiggins Under 14.5 PTS | CJ McCollum Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jalen Johnson Under 7.5 AST | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jock Landale Under 1.5 AST | Jonas Valanciunas Under 1.5 AST
+8,0.2778451558,21.227612464000003,80.0x,Aaron Wiggins Under 14.5 PTS | Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
+8,0.27665112856068,21.132090284854403,80.0x,Aaron Wiggins Under 14.5 PTS | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST | Tim Hardaway Jr. Under 1.5 AST
+8,0.27617388612576,21.093910890060798,80.0x,Aaron Wiggins Under 14.5 PTS | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
+8,0.273822962496,20.90583699968,80.0x,Aaron Wiggins Under 14.5 PTS | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Jaylen Brown Under 4.5 AST | Joan Beringer Under 5.5 REB | Neemias Queta Under 1.5 AST | Nikola Vucevic Under 2.5 AST
+8,0.27195773472,20.7566187776,80.0x,Aaron Wiggins Under 14.5 PTS | Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Joel Embiid Over 26.5 PTS | Jonas Valanciunas Under 1.5 AST
+8,0.2681383362056,20.451066896448,80.0x,Aaron Wiggins Under 14.5 PTS | Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | RJ Barrett Under 27.5 PRA
+8,0.26664710908800004,20.331768727040004,80.0x,Aaron Wiggins Under 14.5 PTS | Ayo Dosunmu Under 3.5 REB | CJ McCollum Under 3.5 REB | Chet Holmgren Under 8.5 REB | Jalen Johnson Under 7.5 AST | Jared McCain Under 2.5 AST | Joan Beringer Under 5.5 REB | Jock Landale Under 1.5 AST

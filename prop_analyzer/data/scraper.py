@@ -316,7 +316,7 @@ def get_season_dates(season_str):
     start_date = datetime(start_year, 10, 20) 
     end_date = datetime(start_year + 1, 4, 20)
     if end_date > datetime.now():
-        end_date = datetime.now() - timedelta(days=1)
+        end_date = datetime.now()
     return start_date, end_date
 
 def fetch_espn_daily_box_scores(session, target_date):

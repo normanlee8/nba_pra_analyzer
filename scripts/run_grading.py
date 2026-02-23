@@ -133,11 +133,15 @@ def grade_predictions():
     # 2. Load Truth Data
     logging.info("Loading historical data for grading...")
     
-    full_game_df = loader.load_box_scores()
-
-    if full_game_df is None or full_game_df.empty:
-        logging.warning("No master box scores found. Props cannot be graded.")
+    # Load raw box scores instead of master DB to ensure PLAYER_NAME is present
+    raw_files = list(cfg.DATA_DIR.glob("*/NBA Player Box Scores.parquet"))
+    if not raw_files:
+        logging.warning("No raw box scores found. Props cannot be graded.")
         return
+        
+    full_game_df = pd.concat([pd.read_parquet(f) for f in raw_files], ignore_index=True)
+    if 'GAME_DATE' in full_game_df.columns and Cols.DATE not in full_game_df.columns:
+        full_game_df.rename(columns={'GAME_DATE': Cols.DATE}, inplace=True)
 
     # --- Combo Stats Calculation (Numeric forced for ESPN API) ---
     for col in ['PTS', 'REB', 'AST']:
@@ -177,11 +181,21 @@ def grade_predictions():
              if Cols.PLAYER_ID in truth_df.columns:
                  mask = (truth_df[Cols.PLAYER_ID] == p_id) & (truth_df[Cols.DATE] == p_date)
         
-        # Fallback to Name match
+        # Fallback to Name match (Robust)
         if mask is None or mask.sum() == 0:
              p_name = str(row.get(Cols.PLAYER_NAME, '')).lower().strip()
-             if 'PLAYER_NAME' in truth_df.columns:
-                 mask = (truth_df['PLAYER_NAME'].str.lower().str.strip() == p_name) & (truth_df[Cols.DATE] == p_date)
+             
+             # Try common name columns to guarantee a match
+             name_col = None
+             for col in ['PLAYER_NAME', Cols.PLAYER_NAME, 'Player', 'Player_Name']:
+                 if col in truth_df.columns:
+                     name_col = col
+                     break
+                     
+             if name_col:
+                 # Allow a 1-day window in case props were fetched the night before
+                 date_diff = (truth_df[Cols.DATE] - p_date).dt.days.abs()
+                 mask = (truth_df[name_col].astype(str).str.lower().str.strip() == p_name) & (date_diff <= 1)
              
         if mask is not None:
             match = truth_df[mask]
