@@ -24,12 +24,6 @@ def load_artifacts(prop_cat):
     return registry.load_artifacts(prop_cat)
 
 def get_system_learning_maps(days_back=21):
-    """
-    Reads the system's post-mortem grading files and returns 3 learning mechanisms:
-    1. Player Bias: Is the model routinely missing on a specific player?
-    2. Category Bias: Is the model systematically over-projecting a specific stat (e.g., Assists)?
-    3. Category MAE: What is the Mean Absolute Error for a category? (Used to inflate variance)
-    """
     graded_files = sorted(cfg.GRADED_DIR.glob("graded_*.parquet"), reverse=True)
     if not graded_files: return {}, {}, {}
 
@@ -56,20 +50,13 @@ def get_system_learning_maps(days_back=21):
     full_history[Cols.PREDICTION] = pd.to_numeric(full_history[Cols.PREDICTION], errors='coerce')
     full_history.dropna(subset=[Cols.ACTUAL_VAL, Cols.PREDICTION], inplace=True)
     
-    # Error = Actual - Predicted. 
-    # (Positive = System is under-projecting. Negative = System is over-projecting.)
     full_history['Error'] = full_history[Cols.ACTUAL_VAL] - full_history[Cols.PREDICTION]
     full_history['Abs_Error'] = full_history['Error'].abs()
     
     group_cols = [Cols.PLAYER_ID, Cols.PROP_TYPE] if Cols.PLAYER_ID in full_history.columns else [Cols.PLAYER_NAME, Cols.PROP_TYPE]
 
-    # 1. Player Bias
     player_bias = full_history.groupby(group_cols)['Error'].mean().to_dict()
-    
-    # 2. Map props cleanly to learn globally (PTS, REB, AST)
     full_history['Mapped_Prop'] = full_history[Cols.PROP_TYPE].map(lambda x: cfg.MASTER_PROP_MAP.get(x, x))
-    
-    # 3. Category Systemic Bias and Volatility (MAE)
     cat_bias = full_history.groupby('Mapped_Prop')['Error'].mean().to_dict()
     cat_mae = full_history.groupby('Mapped_Prop')['Abs_Error'].mean().to_dict()
 
@@ -81,25 +68,39 @@ def calculate_betting_metrics(probs, odds=-110):
     b = decimal_odds - 1.0
     ev = (p_win * b) - p_loss
     
-    # Quarter-Kelly base to protect bankroll variance
     kelly = (ev / b) * 0.25 if p_win > 0 and ev > 0 else 0.0
     return {'EV': ev, 'Kelly': kelly, 'Implied_Odds': 1.0 / decimal_odds}
 
-def determine_ev_tier(ev, win_prob, pick_type, delta_gap):
+def determine_ev_tier(ev, win_prob, pick_type, delta_gap, line, abs_diff):
     tier = 'Pass'
     ev_pct = ev * 100.0
     win_pct = win_prob * 100.0
     
-    # NEW: The Vegas Trap Check
-    # If the line differs from our projection by more than 35%, Vegas knows something. Avoid.
-    if delta_gap > 0.35:
+    # NEW: Dynamic Vegas Trap Check based on Line Size.
+    # Small lines (blocks, steals, low rebounds/assists) naturally have high percentage gaps.
+    is_trap = False
+    if line <= 4.5:
+        # For a 1.5 line, an absolute diff of 0.8 is a 53% gap.
+        if delta_gap > 0.50 and abs_diff > 1.25: is_trap = True
+    elif line <= 12.5:
+        # For an 8.5 line, an absolute diff of 2.5 is a 29% gap.
+        if delta_gap > 0.28 and abs_diff > 2.0: is_trap = True
+    else:
+        # For a 20.5 line, an absolute diff of 4.5 is a 21% gap.
+        if delta_gap > 0.20 and abs_diff > 3.5: is_trap = True
+
+    if is_trap:
         return 'Trap / High Variance'
 
-    # Stricter criteria based on recent performance logs
-    if ev_pct >= 25.0 and win_pct >= 68.0: tier = 'S Tier'
-    elif ev_pct >= 15.0 and win_pct >= 62.0: tier = 'A Tier'
-    elif ev_pct >= 8.0 and win_pct >= 58.0: tier = 'B Tier'
-    elif ev_pct >= 3.0 and win_pct >= 54.0: tier = 'C Tier'
+    # Relaxed EV Cap - only block truly broken mathematical anomalies
+    if ev_pct > 75.0:
+        return 'Trap / High Variance'
+
+    # Adjusted criteria to ensure S-Tier is strong
+    if ev_pct >= 15.0 and win_pct >= 66.0: tier = 'S Tier'
+    elif ev_pct >= 8.0 and win_pct >= 60.0: tier = 'A Tier'
+    elif ev_pct >= 4.0 and win_pct >= 55.0: tier = 'B Tier'
+    elif ev_pct >= 2.0 and win_pct >= 52.0: tier = 'C Tier'
     else: tier = 'Pass'
     
     return tier
@@ -119,12 +120,15 @@ def evaluate_prop(proj, line, variance, prop_type, delta_gap):
     else:
         pick, metrics, win_prob = 'Under', metrics_under, probs_under['win']
         
+    abs_diff = abs(proj - line)
+    tier = determine_ev_tier(metrics['EV'], win_prob, pick, delta_gap, line, abs_diff)
+        
     return {
         'Pick': pick,
         'Win_Prob': win_prob,
         'EV_Pct': metrics['EV'] * 100.0,
         'Kelly': metrics['Kelly'],
-        'Tier': determine_ev_tier(metrics['EV'], win_prob, pick, delta_gap)
+        'Tier': tier
     }
 
 def get_col_safe(df, prop_cat, base_name):
@@ -138,7 +142,6 @@ def predict_props(todays_props_df):
     
     if Cols.PROP_TYPE not in todays_props_df.columns: return pd.DataFrame()
     
-    # --- AUTONOMOUS SYSTEM LEARNING ---
     try: 
         player_bias, cat_bias, cat_mae = get_system_learning_maps(days_back=21)
     except Exception as e: 
@@ -148,7 +151,6 @@ def predict_props(todays_props_df):
     grouped = todays_props_df.groupby(Cols.PROP_TYPE)
     
     for prop_cat, group in grouped:
-        # Load the specific, independent model for this exact prop category
         artifacts = load_artifacts(prop_cat)
         if not artifacts:
             logging.warning(f"No trained artifacts found for {prop_cat}. Skipping.")
@@ -169,8 +171,6 @@ def predict_props(todays_props_df):
         try:
             X_scaled = scaler.transform(X_model)
             X_scaled_df = pd.DataFrame(X_scaled, columns=X_model.columns, index=X_model.index)
-            
-            # Prediction is now strictly the 1D RESIDUAL array
             raw_proj_residuals = model.predict(X_scaled_df)
             
             szn_avgs = get_col_safe(X_raw, prop_cat, 'SZN_AVG')
@@ -183,13 +183,17 @@ def predict_props(todays_props_df):
                 line = float(row[Cols.PROP_LINE])
                 predicted_residual = raw_proj_residuals[idx]
                 
-                # INVERSE TRANSFORM: Raw Projection = Market Line + Predicted Residual
                 raw_val = line + predicted_residual
                 
-                # SKEPTICISM DECAY: Regress back to market line if gap > 40%
-                delta_gap = abs(raw_val - line) / line if line > 0 else 0
-                if delta_gap > cfg.SKEPTICISM_DECAY_THRESHOLD:
-                    raw_val = (raw_val * 0.3) + (line * 0.7)
+                # NEW: Dynamic Skepticism Decay
+                # Don't ruthlessly regress small numbers unless the absolute difference is notable
+                abs_diff_raw = abs(raw_val - line)
+                delta_gap_raw = abs_diff_raw / line if line > 0 else 0
+                
+                decay_threshold = 0.45 if line <= 4.5 else (0.28 if line <= 12.5 else 0.20)
+                
+                if delta_gap_raw > decay_threshold and abs_diff_raw > 1.2:
+                    raw_val = (raw_val * 0.5) + (line * 0.5)
                 
                 s_avg = float(szn_avgs.iloc[idx]) if not pd.isna(szn_avgs.iloc[idx]) else raw_val
                 r_avg = float(l5_avgs.iloc[idx]) if not pd.isna(l5_avgs.iloc[idx]) else raw_val
@@ -198,7 +202,6 @@ def predict_props(todays_props_df):
                 o_pace = float(opp_pace.iloc[idx]) if not pd.isna(opp_pace.iloc[idx]) else None
                 days_rest = float(row.get(Cols.DAYS_REST, 2.0))
                 
-                # IMPLIED MINS DEVIATION
                 per_36 = (s_avg / float(row.get('MIN_SZN_AVG', 36.0))) * 36.0 if row.get('MIN_SZN_AVG', 0) > 0 else 0
                 implied_mins = calculate_implied_minutes(line, per_36)
                 hist_mins = float(row.get('MIN_L10_AVG', implied_mins))
@@ -207,43 +210,37 @@ def predict_props(todays_props_df):
                 proj = smooth_projection(raw_val, s_avg, r_avg, std_dev if std_dev else 1.0)
                 proj = scale_by_pace(proj, 36.0, t_pace, o_pace, prop_type=prop_cat)
                 
-                # --- APPLY SYSTEM LEARNING CORRECTIONS ---
-                
-                # 1. Global Category Bias Correction (Dampened to 30% to avoid over-correcting)
                 c_bias = cat_bias.get(prop_cat, 0.0)
                 proj += (c_bias * 0.30)
                 
-                # 2. Player Specific Bias Correction
                 p_id = row.get(Cols.PLAYER_ID)
                 key = (int(p_id), prop_cat) if not pd.isna(p_id) else (row.get(Cols.PLAYER_NAME), prop_cat)
                 proj += (player_bias.get(key, 0.0) * 0.5)
                 
                 variance = estimate_combo_variance(prop_cat, proj, std_dev)
                 
-                # 3. Dynamic Uncertainty Penalty based on Post-Mortem MAE
-                # If the system has high historic error on this stat, inflate the variance 
-                # to slash confidence and prevent it from hitting S-Tier.
                 historic_mae = cat_mae.get(prop_cat, 1.0)
                 if historic_mae > 1.5:  
-                    variance = variance * (1.0 + (historic_mae * 0.15))
+                    variance = variance * (1.0 + (historic_mae * 0.35))
 
-                eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap)
+                delta_gap_final = abs(proj - line) / line if line > 0 else 0
+                eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap_final)
                 if not eval_res: continue
                 
-                # UNCERTAINTY PENALTY: Slash Kelly and downgrade tier for high variance context
-                if days_rest > 7.0 or min_deviation > 0.30:
+                # NEW: Volatility Check (Coefficient of Variation) 
+                # This explicitly blocks highly volatile players (like Chet) from S/A Tiers
+                cv = (std_dev / line) if (line > 0 and std_dev) else 0.0
+                
+                # UNCERTAINTY PENALTY
+                if days_rest > 7.0 or min_deviation > 0.30 or cv > 0.45:
                     eval_res['Kelly'] = eval_res['Kelly'] * 0.5
                     
-                    # Graceful downgrade: Drop exactly 1 tier instead of straight to C Tier
                     tier_ladder = ['S Tier', 'A Tier', 'B Tier', 'C Tier', 'Pass']
-                    
                     if eval_res['Tier'] in tier_ladder:
                         current_idx = tier_ladder.index(eval_res['Tier'])
-                        # If they are S, A, or B, demote them one level down
                         if current_idx < len(tier_ladder) - 2: 
                             eval_res['Tier'] = tier_ladder[current_idx + 1]
                 
-                # Extract Position accurately. Fall back to 'UNK' if it's not mapped yet
                 position = row.get('POSITION', row.get('PLAYER_POSITION', row.get('Position', 'UNK')))
 
                 res_dict = {

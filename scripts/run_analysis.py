@@ -255,7 +255,8 @@ def main():
                     'stat_type': row['Prop'],
                     'win_prob': prob_val,
                     'pick': row['Pick'],
-                    'line': row['Line']
+                    'line': row['Line'],
+                    'Tier': row['Tier'] # <-- FIX: Now the parlay optimizer knows what tier the prop is
                 })
                 
             # Run Combinatorial Search for 2 to 8 legs
@@ -268,7 +269,8 @@ def main():
 
 
         # --- FINAL CONSOLE AND FILE OUTPUTS ---
-        keep_cols = ['Player', 'Team', 'Opponent', 'Position', 'Prop', 'Line', 'Proj', 'Prob', 'Pick', 'EV%', 'Kelly', 'Tier', 'Date']
+        # FIX: 'Position' has been removed from this keep_cols list so it won't export anymore
+        keep_cols = ['Player', 'Team', 'Opponent', 'Prop', 'Line', 'Proj', 'Prob', 'Pick', 'EV%', 'Kelly', 'Tier', 'Date']
         final_cols = [c for c in keep_cols if c in results_df.columns]
         final_output = results_df[final_cols].copy()
 

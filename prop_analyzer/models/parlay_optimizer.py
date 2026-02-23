@@ -35,7 +35,7 @@ class ParlayOptimizer:
     def _build_correlation_matrix(self) -> pd.DataFrame:
         """
         Builds a correlation matrix from historical box scores. 
-        Groups by game_id to find same-game correlations between stat categories.
+        Groups by game_id to find same-game correlations between all stat categories, including PRA combos.
         """
         logger.info("Building correlation matrix from historical data...")
         
@@ -47,23 +47,32 @@ class ParlayOptimizer:
 
         df = self.historical_data.copy()
         
+        # Ensure base stats are numeric to safely calculate combos
+        for stat in ['PTS', 'REB', 'AST']:
+            df[stat] = pd.to_numeric(df[stat], errors='coerce').fillna(0)
+        
+        # NEW: Dynamically calculate combos so the matrix supports them
+        df['PRA'] = df['PTS'] + df['REB'] + df['AST']
+        df['PR'] = df['PTS'] + df['REB']
+        df['PA'] = df['PTS'] + df['AST']
+        df['RA'] = df['REB'] + df['AST']
+        
         # Create a unique key for Team + Position (e.g., LAL_PG)
         df['pos_stat'] = df['TEAM_ABBREVIATION'] + '_' + df['Position'] 
         
-        # Pivot stats per game
-        pivot_pts = df.pivot_table(index='GAME_ID', columns='pos_stat', values='PTS', aggfunc='mean').fillna(0)
-        pivot_reb = df.pivot_table(index='GAME_ID', columns='pos_stat', values='REB', aggfunc='mean').fillna(0)
-        pivot_ast = df.pivot_table(index='GAME_ID', columns='pos_stat', values='AST', aggfunc='mean').fillna(0)
+        categories = ['PTS', 'REB', 'AST', 'PRA', 'PR', 'PA', 'RA']
+        pivots = []
         
-        pivot_pts.columns = [f"{c}_PTS" for c in pivot_pts.columns]
-        pivot_reb.columns = [f"{c}_REB" for c in pivot_reb.columns]
-        pivot_ast.columns = [f"{c}_AST" for c in pivot_ast.columns]
+        for cat in categories:
+            pivot = df.pivot_table(index='GAME_ID', columns='pos_stat', values=cat, aggfunc='mean').fillna(0)
+            pivot.columns = [f"{c}_{cat}" for c in pivot.columns]
+            pivots.append(pivot)
         
         # Merge and compute Pearson correlation
-        combined = pd.concat([pivot_pts, pivot_reb, pivot_ast], axis=1)
+        combined = pd.concat(pivots, axis=1)
         corr_matrix = combined.corr()
         
-        logger.info("Correlation matrix built successfully.")
+        logger.info(f"Correlation matrix built successfully. Matrix shape: {corr_matrix.shape}")
         return corr_matrix
 
     def get_correlation(self, prop1: dict, prop2: dict) -> float:
@@ -79,6 +88,7 @@ class ParlayOptimizer:
         try:
             return self.correlation_matrix.loc[key1, key2]
         except KeyError:
+            # Occurs if a position is missing from historical data
             return 0.0
 
     def simulate_same_game_cluster(self, cluster_props: list) -> float:
@@ -88,11 +98,11 @@ class ParlayOptimizer:
         """
         n = len(cluster_props)
         if n == 1:
-            return cluster_props[0]['win_prob']
+            return cluster_props[0].get('win_prob', cluster_props[0].get('Prob', 0))
             
         # Create a unique, order-independent cache key for this exact cluster of props
         cache_key = frozenset([
-            f"{p['player_name']}_{p['stat_type']}_{p['pick']}" for p in cluster_props
+            f"{p['player_name']}_{p.get('stat_type', p.get('Prop Category', ''))}_{p['pick']}" for p in cluster_props
         ])
         
         if cache_key in self._simulation_cache:
@@ -109,15 +119,20 @@ class ParlayOptimizer:
                 cov_matrix[i, j] = corr
                 cov_matrix[j, i] = corr
                 
+        # NEW: Mathematical safeguard to ensure the covariance matrix is positive semi-definite
+        min_eig = np.min(np.real(np.linalg.eigvals(cov_matrix)))
+        if min_eig < 0:
+            cov_matrix -= 10 * min_eig * np.eye(*cov_matrix.shape)
+                
         # Map individual win probabilities to standard normal thresholds
-        thresholds = [norm.ppf(1 - prop['win_prob']) for prop in cluster_props]
+        thresholds = [norm.ppf(1 - prop.get('win_prob', prop.get('Prob', 0))) for prop in cluster_props]
         
         # Simulate Multivariant Normal Distribution
         mean = np.zeros(n)
         try:
             samples = np.random.multivariate_normal(mean, cov_matrix, self.num_simulations)
         except np.linalg.LinAlgError:
-            # Fallback to independent probability if matrix is not positive semi-definite
+            # Fallback to independent probability if matrix still fails
             samples = np.random.multivariate_normal(mean, np.eye(n), self.num_simulations)
         
         # Calculate joint probability
@@ -168,13 +183,22 @@ class ParlayOptimizer:
         """
         logger.info(f"Optimizing parlays for {len(daily_props)} props using Beam Search...")
         
-        # 1. Pre-Pruning: Only keep props mathematically viable for an Underdog ticket
-        viable_props = [p for p in daily_props if p.get('win_prob', 0) >= 0.535]
-        viable_props = sorted(viable_props, key=lambda x: x['win_prob'], reverse=True)[:35]
+        # 1. Pre-Pruning: Only keep highly confident S and A tier props.
+        viable_props = []
+        for p in daily_props:
+            prob = p.get('win_prob', p.get('Prob', 0))
+            tier = p.get('Tier', 'Pass')
+            
+            # Since inference.py handles variance penalties securely, we can just trust the Tier status
+            if tier in ['S Tier', 'A Tier'] and prob >= 0.55:
+                viable_props.append(p)
+                
+        # Take only the absolute best to keep combinatorics manageable and quality high
+        viable_props = sorted(viable_props, key=lambda x: x.get('win_prob', x.get('Prob', 0)), reverse=True)[:35]
         
-        logger.info(f"Filtered down to {len(viable_props)} core S/A-Tier props.")
+        logger.info(f"Filtered down to {len(viable_props)} core S/A-Tier props for parlay construction.")
         if len(viable_props) < min_legs:
-            logger.warning("Not enough viable props to form parlays.")
+            logger.warning("Not enough viable S/A-Tier props to form profitable parlays today.")
             return []
 
         final_best_tickets = []
@@ -193,7 +217,7 @@ class ParlayOptimizer:
                         continue 
                     
                     new_ticket = sorted(base_ticket + [prop], key=lambda x: x['player_name'])
-                    ticket_signature = tuple(f"{p['player_name']}_{p['stat_type']}_{p['pick']}" for p in new_ticket)
+                    ticket_signature = tuple(f"{p['player_name']}_{p.get('stat_type', p.get('Prop Category', ''))}_{p['pick']}" for p in new_ticket)
                     next_beams.append((ticket_signature, new_ticket))
             
             # Deduplicate the new combinations
@@ -214,12 +238,10 @@ class ParlayOptimizer:
                 break
 
             # SAVE THE BEST FOR THIS SPECIFIC LEG COUNT
-            # We sort by joint probability to ensure the highest likelihood of winning is saved
             leg_best = sorted(evaluated_tickets, key=lambda x: x['joint_prob'], reverse=True)[:top_n]
             final_best_tickets.extend(leg_best)
             
             # THE GREEDY CUT FOR THE NEXT BEAM
-            # We sort by EV here so the algorithm continues searching the most mathematically profitable paths
             evaluated_tickets = sorted(evaluated_tickets, key=lambda x: x['ev'], reverse=True)[:beam_width]
             current_beams = [t['ticket'] for t in evaluated_tickets]
 
