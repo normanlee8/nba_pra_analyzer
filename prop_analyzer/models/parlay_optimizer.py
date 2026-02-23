@@ -119,7 +119,7 @@ class ParlayOptimizer:
                 cov_matrix[i, j] = corr
                 cov_matrix[j, i] = corr
                 
-        # NEW: Mathematical safeguard to ensure the covariance matrix is positive semi-definite
+        # Mathematical safeguard to ensure the covariance matrix is positive semi-definite
         min_eig = np.min(np.real(np.linalg.eigvals(cov_matrix)))
         if min_eig < 0:
             cov_matrix -= 10 * min_eig * np.eye(*cov_matrix.shape)
@@ -183,22 +183,22 @@ class ParlayOptimizer:
         """
         logger.info(f"Optimizing parlays for {len(daily_props)} props using Beam Search...")
         
-        # 1. Pre-Pruning: Only keep highly confident S and A tier props.
+        # 1. Pre-Pruning: Keep props with high win probabilities, filtering out explicit traps.
         viable_props = []
         for p in daily_props:
             prob = p.get('win_prob', p.get('Prob', 0))
             tier = p.get('Tier', 'Pass')
             
-            # Since inference.py handles variance penalties securely, we can just trust the Tier status
-            if tier in ['S Tier', 'A Tier'] and prob >= 0.55:
+            # Use raw win probability as the primary filter, but explicitly avoid known high variance traps
+            if tier != 'Trap / High Variance' and prob >= 0.55:
                 viable_props.append(p)
                 
         # Take only the absolute best to keep combinatorics manageable and quality high
         viable_props = sorted(viable_props, key=lambda x: x.get('win_prob', x.get('Prob', 0)), reverse=True)[:35]
         
-        logger.info(f"Filtered down to {len(viable_props)} core S/A-Tier props for parlay construction.")
+        logger.info(f"Filtered down to {len(viable_props)} core props for parlay construction based on Win Prob.")
         if len(viable_props) < min_legs:
-            logger.warning("Not enough viable S/A-Tier props to form profitable parlays today.")
+            logger.warning("Not enough viable props to form profitable parlays today.")
             return []
 
         final_best_tickets = []
