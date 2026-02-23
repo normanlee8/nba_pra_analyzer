@@ -10,7 +10,6 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 from prop_analyzer import config as cfg
 from prop_analyzer.config import Cols
 from prop_analyzer.utils import common
-from prop_analyzer.data import loader
 
 def print_accuracy_report(df, label="Total"):
     """Helper to print formatted percentage stats"""
@@ -104,13 +103,13 @@ def grade_predictions():
     preds_path = cfg.PROCESSED_OUTPUT_SYSTEM
     if not preds_path.exists():
         logging.critical(f"No predictions file found at {preds_path}")
-        return
+        return pd.DataFrame() 
 
     try:
         preds_df = pd.read_parquet(preds_path)
         if preds_df.empty:
             logging.warning("Predictions file is empty.")
-            return
+            return pd.DataFrame()
             
         clean_map = {
             'Player': Cols.PLAYER_NAME,
@@ -128,7 +127,7 @@ def grade_predictions():
             
     except Exception as e:
         logging.critical(f"Failed to load predictions: {e}")
-        return
+        return pd.DataFrame()
 
     # 2. Load Truth Data
     logging.info("Loading historical data for grading...")
@@ -137,7 +136,7 @@ def grade_predictions():
     raw_files = list(cfg.DATA_DIR.glob("*/NBA Player Box Scores.parquet"))
     if not raw_files:
         logging.warning("No raw box scores found. Props cannot be graded.")
-        return
+        return pd.DataFrame()
         
     full_game_df = pd.concat([pd.read_parquet(f) for f in raw_files], ignore_index=True)
     if 'GAME_DATE' in full_game_df.columns and Cols.DATE not in full_game_df.columns:
@@ -248,6 +247,13 @@ def grade_predictions():
             
         row[Cols.RESULT] = res
         row[Cols.CORRECTNESS] = 1 if res == 'WIN' else 0
+        
+        # Capture error difference for analytics
+        if pd.notna(row.get(Cols.PREDICTION)):
+            row['Proj_Error'] = float(actual) - float(row[Cols.PREDICTION])
+        else:
+            row['Proj_Error'] = None
+
         results.append(row)
 
     graded_df = pd.DataFrame(results)
@@ -258,7 +264,7 @@ def grade_predictions():
     
     if graded_df.empty:
         logging.warning("No results to grade.")
-        return
+        return pd.DataFrame()
 
     # Add mapping to graded_df BEFORE creating the finished subset
     graded_df['Mapped_Prop'] = graded_df[Cols.PROP_TYPE].map(lambda x: cfg.MASTER_PROP_MAP.get(x, x))
@@ -268,7 +274,8 @@ def grade_predictions():
     print_accuracy_report(finished, "Total Props")
     
     if Cols.TIER in finished.columns:
-        for tier in ['S Tier', 'A Tier', 'B Tier']:
+        # Include our newly established tier 'Trap / High Variance' if any fell into it
+        for tier in ['S Tier', 'A Tier', 'B Tier', 'Trap / High Variance']:
             tier_df = finished[finished[Cols.TIER] == tier]
             if not tier_df.empty:
                 print_accuracy_report(tier_df, f"{tier} Props")
@@ -302,10 +309,128 @@ def grade_predictions():
         
     except Exception as e:
         logging.error(f"Failed to save output: {e}")
+        
+    return graded_df
+
+def analyze_strengths_and_weaknesses(graded_df):
+    """Provides a deep dive into where the model leaks value."""
+    logging.info(">>> POST-MORTEM SYSTEM ANALYSIS <<<")
+    
+    if 'Proj_Error' not in graded_df.columns:
+        return
+        
+    graded_df['Proj_Error'] = pd.to_numeric(graded_df['Proj_Error'], errors='coerce')
+    graded_df['Abs_Error'] = graded_df['Proj_Error'].abs()
+    
+    # Where is the model missing by the widest margin?
+    worst_props = graded_df.groupby(Cols.PROP_TYPE)['Abs_Error'].mean().sort_values(ascending=False)
+    logging.info(f"\nHighest Average Error by Stat Type:\n{worst_props.head(3).to_string()}")
+    
+    # Are we systematically over-projecting or under-projecting?
+    bias_props = graded_df.groupby(Cols.PROP_TYPE)['Proj_Error'].mean()
+    logging.info(f"\nSystematic Bias (Positive = Under-projecting, Negative = Over-projecting):\n{bias_props.to_string()}")
+
+def grade_parlays(graded_props_df):
+    """Grades historical parlays by parsing the 'Picks' column string."""
+    parlay_path = cfg.OUTPUT_DIR / "EV_Parlays.csv"
+    if not parlay_path.exists():
+        logging.warning("No EV_Parlays.csv found to grade.")
+        return
+        
+    logging.info(">>> GRADING PARLAYS <<<")
+    parlays_df = pd.read_csv(parlay_path)
+    
+    # Ensure Mapped_Prop exists
+    if 'Mapped_Prop' not in graded_props_df.columns:
+        graded_props_df['Mapped_Prop'] = graded_props_df[Cols.PROP_TYPE].map(lambda x: cfg.MASTER_PROP_MAP.get(x, x))
+        
+    graded_props_df['Lookup_Key'] = graded_props_df[Cols.PLAYER_NAME].str.lower() + "_" + graded_props_df['Mapped_Prop']
+    result_map = dict(zip(graded_props_df['Lookup_Key'], graded_props_df[Cols.RESULT]))
+    
+    parlay_results = []
+    total_wagered = 0
+    total_won = 0
+    
+    for idx, row in parlays_df.iterrows():
+        try:
+            ticket_str = str(row.get('Picks', ''))
+            payout_str = str(row.get('Payout', '0')).replace('x', '')
+            payout = float(payout_str)
+            
+            # The CSV outputs legs separated by " | "
+            legs = ticket_str.split(' | ')
+            leg_results = []
+            
+            for leg in legs:
+                parts = leg.strip().split()
+                # Expected string format: "Aaron Wiggins Under 14.5 PTS"
+                # So we need at least 4 parts: [First, Last, Pick, Line, Prop]
+                if len(parts) >= 4:
+                    prop = parts[-1] 
+                    # Everything before the last 3 items (Pick, Line, Prop) is the name
+                    player_name = " ".join(parts[:-3]).strip().lower()
+                    key = f"{player_name}_{prop}"
+                    
+                    leg_results.append(result_map.get(key, 'PENDING'))
+                else:
+                    leg_results.append('PARSE_ERROR')
+                    
+            if 'PENDING' in leg_results or 'PARSE_ERROR' in leg_results or 'ERROR' in leg_results:
+                status = 'PENDING/ERROR'
+            elif 'LOSS' in leg_results:
+                status = 'LOSS'
+            elif all(res == 'WIN' for res in leg_results):
+                status = 'WIN'
+            else:
+                # E.g., Wins and a Push = Downgraded Parlay
+                status = 'PUSH/DOWNGRADE'
+                
+            parlay_results.append(status)
+            
+            # ROI Calculations (Assuming 1 Unit flat bet per ticket)
+            if status in ['WIN', 'LOSS', 'PUSH/DOWNGRADE']:
+                total_wagered += 1 
+            if status == 'WIN':
+                total_won += payout
+                
+        except Exception as e:
+            parlay_results.append('PARSE_ERROR')
+            
+    parlays_df['Result'] = parlay_results
+    
+    wins = len(parlays_df[parlays_df['Result'] == 'WIN'])
+    losses = len(parlays_df[parlays_df['Result'] == 'LOSS'])
+    total_decided = wins + losses
+    
+    if total_decided > 0:
+        roi = ((total_won - total_wagered) / total_wagered) * 100
+        logging.info(f"Parlay Win Rate: {(wins/total_decided)*100:.1f}% ({wins}/{total_decided})")
+        logging.info(f"Parlay ROI: {roi:.2f}% (Units Wagered: {total_wagered}, Units Won: {total_won:.2f})")
+    else:
+        logging.info("No parlays fully completed yet.")
+    
+    # Save graded parlays
+    parlays_df.to_csv(cfg.GRADED_DIR / f"graded_parlays_{datetime.now().strftime('%Y-%m-%d')}.csv", index=False)
 
 def main():
     common.setup_logging(name="grading")
-    grade_predictions()
+    
+    # 1. Grade individual props
+    graded_df = grade_predictions() 
+    
+    # 2. Grade Parlays & Generate Insights
+    if not graded_df.empty:
+        grade_parlays(graded_df)
+        analyze_strengths_and_weaknesses(graded_df)
+    else:
+        # Fallback to load from disk if `grade_predictions` returns empty but parquet exists
+        today_str = datetime.now().strftime("%Y-%m-%d")
+        parquet_path = cfg.GRADED_DIR / f"graded_props_{today_str}.parquet"
+        
+        if parquet_path.exists():
+            graded_df = pd.read_parquet(parquet_path)
+            grade_parlays(graded_df)
+            analyze_strengths_and_weaknesses(graded_df)
 
 if __name__ == "__main__":
     main()

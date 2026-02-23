@@ -23,9 +23,15 @@ from prop_analyzer.features.calculator import (smooth_projection,
 def load_artifacts(prop_cat):
     return registry.load_artifacts(prop_cat)
 
-def get_recent_bias_map(days_back=21):
+def get_system_learning_maps(days_back=21):
+    """
+    Reads the system's post-mortem grading files and returns 3 learning mechanisms:
+    1. Player Bias: Is the model routinely missing on a specific player?
+    2. Category Bias: Is the model systematically over-projecting a specific stat (e.g., Assists)?
+    3. Category MAE: What is the Mean Absolute Error for a category? (Used to inflate variance)
+    """
     graded_files = sorted(cfg.GRADED_DIR.glob("graded_*.parquet"), reverse=True)
-    if not graded_files: return {}
+    if not graded_files: return {}, {}, {}
 
     recent_dfs = []
     cutoff_date = pd.Timestamp.now() - timedelta(days=days_back)
@@ -40,7 +46,7 @@ def get_recent_bias_map(days_back=21):
                 recent_dfs.append(df)
         except Exception: continue
             
-    if not recent_dfs: return {}
+    if not recent_dfs: return {}, {}, {}
         
     full_history = pd.concat(recent_dfs, ignore_index=True)
     keep_cols = [c for c in [Cols.PLAYER_ID, Cols.PLAYER_NAME, Cols.PROP_TYPE, Cols.ACTUAL_VAL, Cols.PREDICTION] if c in full_history.columns]
@@ -50,10 +56,24 @@ def get_recent_bias_map(days_back=21):
     full_history[Cols.PREDICTION] = pd.to_numeric(full_history[Cols.PREDICTION], errors='coerce')
     full_history.dropna(subset=[Cols.ACTUAL_VAL, Cols.PREDICTION], inplace=True)
     
+    # Error = Actual - Predicted. 
+    # (Positive = System is under-projecting. Negative = System is over-projecting.)
     full_history['Error'] = full_history[Cols.ACTUAL_VAL] - full_history[Cols.PREDICTION]
+    full_history['Abs_Error'] = full_history['Error'].abs()
+    
     group_cols = [Cols.PLAYER_ID, Cols.PROP_TYPE] if Cols.PLAYER_ID in full_history.columns else [Cols.PLAYER_NAME, Cols.PROP_TYPE]
 
-    return full_history.groupby(group_cols)['Error'].mean().to_dict()
+    # 1. Player Bias
+    player_bias = full_history.groupby(group_cols)['Error'].mean().to_dict()
+    
+    # 2. Map props cleanly to learn globally (PTS, REB, AST)
+    full_history['Mapped_Prop'] = full_history[Cols.PROP_TYPE].map(lambda x: cfg.MASTER_PROP_MAP.get(x, x))
+    
+    # 3. Category Systemic Bias and Volatility (MAE)
+    cat_bias = full_history.groupby('Mapped_Prop')['Error'].mean().to_dict()
+    cat_mae = full_history.groupby('Mapped_Prop')['Abs_Error'].mean().to_dict()
+
+    return player_bias, cat_bias, cat_mae
 
 def calculate_betting_metrics(probs, odds=-110):
     p_win, p_loss = probs['win'], probs['loss']
@@ -65,11 +85,16 @@ def calculate_betting_metrics(probs, odds=-110):
     kelly = (ev / b) * 0.25 if p_win > 0 and ev > 0 else 0.0
     return {'EV': ev, 'Kelly': kelly, 'Implied_Odds': 1.0 / decimal_odds}
 
-def determine_ev_tier(ev, win_prob, pick_type):
+def determine_ev_tier(ev, win_prob, pick_type, delta_gap):
     tier = 'Pass'
     ev_pct = ev * 100.0
     win_pct = win_prob * 100.0
     
+    # NEW: The Vegas Trap Check
+    # If the line differs from our projection by more than 35%, Vegas knows something. Avoid.
+    if delta_gap > 0.35:
+        return 'Trap / High Variance'
+
     # Stricter criteria based on recent performance logs
     if ev_pct >= 25.0 and win_pct >= 68.0: tier = 'S Tier'
     elif ev_pct >= 15.0 and win_pct >= 62.0: tier = 'A Tier'
@@ -79,7 +104,7 @@ def determine_ev_tier(ev, win_prob, pick_type):
     
     return tier
 
-def evaluate_prop(proj, line, variance, prop_type):
+def evaluate_prop(proj, line, variance, prop_type, delta_gap):
     if line <= 0: return None
     dist_type = 'nbinom' if prop_type in ['REB', 'AST', 'STL', 'BLK', 'FG3M'] else 'normal'
     
@@ -99,7 +124,7 @@ def evaluate_prop(proj, line, variance, prop_type):
         'Win_Prob': win_prob,
         'EV_Pct': metrics['EV'] * 100.0,
         'Kelly': metrics['Kelly'],
-        'Tier': determine_ev_tier(metrics['EV'], win_prob, pick)
+        'Tier': determine_ev_tier(metrics['EV'], win_prob, pick, delta_gap)
     }
 
 def get_col_safe(df, prop_cat, base_name):
@@ -112,8 +137,13 @@ def predict_props(todays_props_df):
     results = []
     
     if Cols.PROP_TYPE not in todays_props_df.columns: return pd.DataFrame()
-    try: bias_map = get_recent_bias_map(days_back=21)
-    except Exception: bias_map = {}
+    
+    # --- AUTONOMOUS SYSTEM LEARNING ---
+    try: 
+        player_bias, cat_bias, cat_mae = get_system_learning_maps(days_back=21)
+    except Exception as e: 
+        logging.warning(f"Could not load system learning maps: {e}")
+        player_bias, cat_bias, cat_mae = {}, {}, {}
 
     grouped = todays_props_df.groupby(Cols.PROP_TYPE)
     
@@ -177,12 +207,27 @@ def predict_props(todays_props_df):
                 proj = smooth_projection(raw_val, s_avg, r_avg, std_dev if std_dev else 1.0)
                 proj = scale_by_pace(proj, 36.0, t_pace, o_pace, prop_type=prop_cat)
                 
+                # --- APPLY SYSTEM LEARNING CORRECTIONS ---
+                
+                # 1. Global Category Bias Correction (Dampened to 30% to avoid over-correcting)
+                c_bias = cat_bias.get(prop_cat, 0.0)
+                proj += (c_bias * 0.30)
+                
+                # 2. Player Specific Bias Correction
                 p_id = row.get(Cols.PLAYER_ID)
                 key = (int(p_id), prop_cat) if not pd.isna(p_id) else (row.get(Cols.PLAYER_NAME), prop_cat)
-                proj += (bias_map.get(key, 0.0) * 0.5)
+                proj += (player_bias.get(key, 0.0) * 0.5)
                 
                 variance = estimate_combo_variance(prop_cat, proj, std_dev)
-                eval_res = evaluate_prop(proj, line, variance, prop_cat)
+                
+                # 3. Dynamic Uncertainty Penalty based on Post-Mortem MAE
+                # If the system has high historic error on this stat, inflate the variance 
+                # to slash confidence and prevent it from hitting S-Tier.
+                historic_mae = cat_mae.get(prop_cat, 1.0)
+                if historic_mae > 1.5:  
+                    variance = variance * (1.0 + (historic_mae * 0.15))
+
+                eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap)
                 if not eval_res: continue
                 
                 # UNCERTAINTY PENALTY: Slash Kelly and downgrade tier for high variance context
