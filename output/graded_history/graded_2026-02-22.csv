@@ -1,164 +1,160 @@
 Player Name,Team,Opponent,Position,Prop Category,Prop Line,Model_Pred,Model_Conf,Edge_Type,EV%,Kelly,Tier,GAME_DATE,Match_Date,Actual Value,Result,Mapped_Prop
-Jonas Valanciunas,DEN,GSW,C,AST,1.5,0.62,0.854,Under,62.96,0.1731,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Joel Embiid,PHI,MIN,C,PTS,26.5,31.53,0.788,Over,50.45,0.1387,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Tim Hardaway Jr.,DEN,GSW,SG,AST,1.5,0.99,0.746,Under,42.43,0.1167,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Brandon Ingram,TOR,MIL,SF,AST,3.5,2.5,0.742,Under,41.73,0.1148,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Desmond Bane,ORL,LAC,SG,PRA,25.5,30.44,0.742,Over,41.68,0.1146,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Jalen Johnson,ATL,BKN,SF,AST,7.5,5.46,0.739,Under,41.1,0.113,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Jaylen Brown,BOS,LAL,SF,AST,4.5,3.47,0.73,Under,39.44,0.1085,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-CJ McCollum,ATL,BKN,PG,REB,3.5,2.56,0.728,Under,38.92,0.107,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Tyrese Maxey,PHI,MIN,PG,AST,6.5,4.99,0.719,Under,37.17,0.1022,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Chet Holmgren,OKC,CLE,PF,REB,8.5,6.56,0.718,Under,37.16,0.1022,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Bilal Coulibaly,WSH,CHA,SG,PTS,10.5,12.91,0.718,Over,36.98,0.1017,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-LeBron James,LAL,BOS,SF,PTS,19.5,14.55,0.712,Under,35.97,0.0989,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Brandon Miller,CHA,WAS,SF,PRA,33.5,29.26,0.71,Under,35.61,0.0979,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Dyson Daniels,ATL,BKN,SG,PRA,23.5,19.35,0.707,Under,34.95,0.0961,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Bub Carrington,WSH,CHA,PG,PRA,17.5,15.51,0.704,Under,34.35,0.0945,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Jock Landale,ATL,BKN,C,AST,1.5,1.19,0.7,Under,33.69,0.0927,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Donovan Mitchell,CLE,OKC,SG,REB,3.5,2.76,0.7,Under,33.68,0.0926,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-LaMelo Ball,CHA,WAS,PG,AST,7.5,6.35,0.694,Under,32.48,0.0893,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Anthony Edwards,MIN,PHI,SG,AST,3.5,2.83,0.683,Under,30.43,0.0837,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Joan Beringer,MIN,PHI,PF,REB,5.5,2.95,0.921,Under,75.87,0.1043,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-RJ Barrett,TOR,MIL,SF,PRA,27.5,22.68,0.796,Under,52.05,0.0716,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Ayo Dosunmu,MIN,PHI,SG,REB,3.5,2.34,0.758,Under,44.64,0.0614,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Kyshawn George,WSH,CHA,SF,PTS,12.5,8.64,0.749,Under,43.0,0.0591,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Ryan Kalkbrenner,CHA,WAS,C,REB,7.5,5.99,0.746,Under,42.42,0.0583,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Tyus Jones,DAL,IND,PG,PTS,6.5,5.44,0.727,Under,38.7,0.0532,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Aaron Wiggins,OKC,CLE,SG,PTS,14.5,11.11,0.724,Under,38.14,0.0524,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Kawhi Leonard,LAC,ORL,SF,AST,4.5,3.45,0.722,Under,37.85,0.052,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Derrick White,BOS,LAL,SG,PRA,27.5,23.89,0.72,Under,37.36,0.0514,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Jared McCain,OKC,CLE,SG,AST,2.5,1.84,0.719,Under,37.3,0.0513,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Nikola Vucevic,BOS,LAL,C,AST,2.5,1.87,0.715,Under,36.58,0.0503,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Jaylon Tyson,CLE,OKC,SG,AST,1.5,1.34,0.705,Under,34.67,0.0477,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Cam Thomas,MIL,TOR,SG,AST,2.5,2.04,0.701,Under,33.78,0.0465,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Brook Lopez,LAC,ORL,C,RA,8.5,7.16,0.681,Under,30.02,0.0413,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,RA
-Kris Dunn,LAC,ORL,PG,REB,4.5,3.74,0.675,Under,28.81,0.0792,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Egor Demin,BKN,ATL,None,AST,3.5,2.96,0.655,Under,25.11,0.0691,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Nic Claxton,BKN,ATL,C,PTS,10.5,12.14,0.655,Over,25.1,0.069,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Anthony Black,ORL,LAC,PG,AST,4.5,3.89,0.65,Under,24.04,0.0661,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Bennedict Mathurin,LAC,ORL,SF,AST,2.5,3.34,0.648,Over,23.72,0.0652,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Onyeka Okongwu,ATL,BKN,C,PTS,14.5,16.68,0.639,Over,21.93,0.0603,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Jarrett Allen,CLE,OKC,C,PRA,25.5,30.33,0.635,Over,21.25,0.0584,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Corey Kispert,ATL,BKN,SF,PRA,13.5,11.56,0.633,Under,20.78,0.0571,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-VJ Edgecombe,PHI,MIN,SG,AST,3.5,3.17,0.63,Under,20.27,0.0558,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Sam Merrill,CLE,OKC,SG,AST,1.5,1.39,0.63,Under,20.2,0.0556,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Kon Knueppel,CHA,WAS,SF,PRA,30.5,32.67,0.63,Over,20.19,0.0555,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Dennis Schroder,CLE,OKC,PG,AST,3.5,3.08,0.629,Under,20.09,0.0553,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Nolan Traore,BKN,ATL,PG,AST,4.5,5.92,0.626,Over,19.54,0.0537,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Bilal Coulibaly,WSH,CHA,SG,AST,2.5,2.26,0.621,Under,18.46,0.0508,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Tristan Vukcevic,WSH,CHA,C,REB,5.5,4.63,0.68,Under,29.77,0.0409,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Kristaps Porzingis,GS,DEN,C,AST,1.5,1.31,0.68,Under,29.73,0.0409,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Immanuel Quickley,TOR,MIL,PG,PRA,28.5,25.27,0.678,Under,29.46,0.0405,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Neemias Queta,BOS,LAL,C,AST,1.5,1.32,0.677,Under,29.33,0.0403,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Grant Williams,CHA,WAS,PF,AST,2.5,2.06,0.674,Under,28.58,0.0393,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Kyle Kuzma,MIL,TOR,PF,AST,2.5,2.42,0.667,Under,27.33,0.0376,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Jaden McDaniels,MIN,PHI,PF,REB,4.5,3.82,0.664,Under,26.7,0.0367,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Jalen Suggs,ORL,LAC,PG,REB,3.5,3.05,0.663,Under,26.59,0.0366,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Brandin Podziemski,GS,DEN,SG,AST,3.5,3.04,0.661,Under,26.24,0.0361,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Draymond Green,GS,DEN,PF,AST,4.5,3.85,0.655,Under,25.11,0.0345,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Jamal Shead,TOR,MIL,PG,PRA,14.5,12.02,0.653,Under,24.62,0.0339,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-De'Anthony Melton,GS,DEN,PG,PRA,19.5,22.13,0.652,Over,24.53,0.0337,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Ryan Rollins,MIL,TOR,PG,REB,4.5,5.54,0.649,Over,23.86,0.0328,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Al Horford,GS,DEN,C,PRA,16.5,13.92,0.646,Under,23.36,0.0321,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Daniel Gafford,DAL,IND,C,REB,7.5,6.62,0.645,Under,23.07,0.0317,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Julius Randle,MIN,PHI,PF,PTS,21.5,18.42,0.643,Under,22.68,0.0312,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Naz Reid,MIN,PHI,C,REB,8.5,7.69,0.636,Under,21.41,0.0294,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Kevin Porter Jr.,MIL,TOR,PG,RA,11.5,13.13,0.636,Over,21.37,0.0294,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,RA
-Evan Mobley,CLE,OKC,PF,AST,2.5,2.35,0.634,Under,20.97,0.0288,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Isaiah Joe,OKC,CLE,SG,PTS,12.5,14.9,0.632,Over,20.74,0.0285,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Neemias Queta,BOS,LAL,C,PTS,7.5,8.67,0.629,Over,20.12,0.0277,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Julian Strawther,DEN,GSW,SG,AST,2.5,2.18,0.628,Under,19.95,0.0274,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Klay Thompson,DAL,IND,SF,PRA,17.5,15.25,0.627,Under,19.67,0.027,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Payton Pritchard,BOS,LAL,PG,AST,5.5,6.68,0.626,Over,19.56,0.0269,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Cam Thomas,MIL,TOR,SG,PRA,19.5,22.69,0.625,Over,19.34,0.0266,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Cason Wallace,OKC,CLE,SG,REB,3.5,4.31,0.624,Over,19.14,0.0263,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Donte DiVincenzo,MIN,PHI,SG,REB,4.5,4.03,0.623,Under,19.0,0.0261,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-De'Anthony Melton,GS,DEN,PG,AST,2.5,2.32,0.622,Under,18.83,0.0259,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Jamal Murray,DEN,GSW,PG,AST,7.5,6.86,0.619,Under,18.09,0.0497,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Wendell Carter Jr.,ORL,LAC,C,PRA,19.5,17.36,0.617,Under,17.82,0.049,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Luka Doncic,LAL,BOS,PG,AST,7.5,6.91,0.616,Under,17.64,0.0485,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Tim Hardaway Jr.,DEN,GSW,SG,PRA,15.5,18.39,0.611,Over,16.57,0.0456,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Paolo Banchero,ORL,LAC,PF,REB,7.5,6.92,0.61,Under,16.39,0.0451,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Onyeka Okongwu,ATL,BKN,C,AST,2.5,2.25,0.609,Under,16.36,0.045,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Myles Turner,MIL,TOR,C,AST,1.5,1.35,0.609,Under,16.19,0.0445,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Dominick Barlow,PHI,MIN,PF,REB,4.5,4.5,0.607,Under,15.95,0.0439,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-James Harden,CLE,OKC,PG,RA,12.5,13.07,0.596,Over,13.79,0.0379,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,RA
-Nickeil Alexander-Walker,ATL,BKN,SG,AST,3.5,4.33,0.591,Over,12.74,0.035,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Julian Strawther,DEN,GSW,SG,PTS,12.5,13.86,0.588,Over,12.19,0.0335,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Noah Clowney,BKN,ATL,PF,PTS,11.5,9.82,0.587,Under,12.14,0.0334,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Joel Embiid,PHI,MIN,C,REB,8.5,8.07,0.587,Under,12.03,0.0331,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Nickeil Alexander-Walker,ATL,BKN,SG,REB,3.5,3.6,0.582,Under,11.03,0.0303,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Desmond Bane,ORL,LAC,SG,AST,3.5,3.12,0.619,Under,18.25,0.0251,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Austin Reaves,LAL,BOS,SG,PTS,20.5,23.08,0.614,Over,17.21,0.0237,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Derrick Jones Jr.,LAC,ORL,SF,AST,1.5,1.45,0.611,Under,16.73,0.023,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Naji Marshall,DAL,IND,SF,RA,10.5,9.59,0.61,Under,16.44,0.0226,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,RA
-Marcus Smart,LAL,BOS,SG,AST,2.5,3.21,0.61,Over,16.38,0.0225,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Pat Spencer,GS,DEN,PG,AST,5.5,5.07,0.606,Under,15.74,0.0216,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Austin Reaves,LAL,BOS,SG,REB,4.5,4.15,0.599,Under,14.45,0.0199,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Jalen Suggs,ORL,LAC,PG,PTS,11.5,12.77,0.594,Over,13.43,0.0185,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Rui Hachimura,LAL,BOS,PF,PRA,12.5,14.21,0.589,Over,12.54,0.0172,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Gui Santos,GS,DEN,PF,REB,5.5,5.23,0.586,Under,11.94,0.0164,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Isaiah Hartenstein,OKC,CLE,C,REB,8.5,8.07,0.585,Under,11.7,0.0161,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Deandre Ayton,LAL,BOS,C,PTS,9.5,10.89,0.578,Over,10.38,0.0143,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Nikola Jokic,DEN,GSW,C,REB,13.5,12.99,0.578,Under,10.33,0.0284,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Jarrett Allen,CLE,OKC,C,AST,1.5,1.5,0.577,Under,10.23,0.0281,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Michael Porter Jr.,BKN,ATL,SF,AST,2.5,2.99,0.575,Over,9.69,0.0267,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Collin Murray-Boyles,TOR,MIL,PF,REB,5.5,5.28,0.574,Under,9.49,0.0131,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Sam Hauser,BOS,LAL,PF,AST,1.5,1.47,0.572,Under,9.22,0.0127,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Tristan Vukcevic,WSH,CHA,C,PRA,19.5,20.86,0.571,Over,8.93,0.0123,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Quentin Grimes,PHI,MIN,SG,REB,2.5,2.4,0.571,Under,8.92,0.0123,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Brook Lopez,LAC,ORL,C,AST,1.5,1.91,0.57,Over,8.8,0.0242,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Kyle Kuzma,MIL,TOR,PF,PTS,12.5,13.84,0.569,Over,8.69,0.0119,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Quentin Grimes,PHI,MIN,SG,PRA,15.5,16.49,0.566,Over,8.02,0.0221,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Baylor Scheierman,BOS,LAL,SG,AST,1.5,2.16,0.564,Over,7.69,0.0106,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Nic Claxton,BKN,ATL,C,AST,3.5,3.53,0.563,Under,7.43,0.0204,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Collin Murray-Boyles,TOR,MIL,PF,PTS,9.5,10.25,0.563,Over,7.42,0.0102,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Kawhi Leonard,LAC,ORL,SF,PTS,28.5,30.37,0.562,Over,7.23,0.0199,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Zaccharie Risacher,ATL,BKN,SF,PRA,13.5,12.24,0.56,Under,6.84,0.0188,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Max Christie,DAL,IND,SG,AST,2.5,2.92,0.558,Over,6.5,0.0179,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Derrick White,BOS,LAL,SG,AST,6.5,7.05,0.557,Over,6.39,0.0088,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Sam Hauser,BOS,LAL,PF,PTS,9.5,10.26,0.557,Over,6.37,0.0088,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Kristaps Porzingis,GS,DEN,C,PTS,12.5,13.6,0.557,Over,6.32,0.0087,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Evan Mobley,CLE,OKC,PF,PTS,12.5,13.21,0.557,Over,6.25,0.0086,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Tre Johnson,WSH,CHA,SG,AST,1.5,1.63,0.556,Under,6.14,0.0084,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Isaiah Joe,OKC,CLE,SG,REB,3.5,3.41,0.555,Under,5.98,0.0082,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Moses Moody,GS,DEN,SG,AST,1.5,1.86,0.554,Over,5.75,0.0079,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Dominick Barlow,PHI,MIN,PF,PRA,14.5,15.95,0.552,Over,5.31,0.0146,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-AJ Green,MIL,TOR,SG,AST,1.5,1.85,0.55,Over,5.09,0.007,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Sam Merrill,CLE,OKC,SG,PTS,7.5,8.71,0.55,Over,4.98,0.0137,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Aaron Wiggins,OKC,CLE,SG,REB,3.5,3.91,0.549,Over,4.84,0.0066,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Myles Turner,MIL,TOR,C,RA,7.5,7.87,0.547,Over,4.42,0.0121,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,RA
-CJ McCollum,ATL,BKN,PG,PTS,18.5,19.5,0.547,Over,4.37,0.012,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Wendell Carter Jr.,ORL,LAC,C,AST,1.5,1.83,0.546,Over,4.15,0.0114,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Kris Dunn,LAC,ORL,PG,PRA,18.5,18.96,0.545,Over,3.99,0.011,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Kon Knueppel,CHA,WAS,SF,REB,5.5,5.42,0.545,Under,3.95,0.0109,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Noah Clowney,BKN,ATL,PF,AST,1.5,1.82,0.544,Over,3.78,0.0104,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Pat Spencer,GS,DEN,PG,RA,9.5,9.92,0.543,Over,3.59,0.0049,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,RA
-Christian Braun,DEN,GSW,SG,PTS,11.5,12.08,0.54,Over,3.13,0.0086,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-James Harden,CLE,OKC,PG,PRA,32.5,31.81,0.539,Under,2.96,0.0081,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Naz Reid,MIN,PHI,C,AST,2.5,2.83,0.538,Over,2.77,0.0038,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Jonas Valanciunas,DEN,GSW,C,PTS,7.5,7.86,0.537,Over,2.48,0.0068,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Kevin Porter Jr.,MIL,TOR,PG,PTS,18.5,17.8,0.534,Under,2.0,0.0028,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Daniel Gafford,DAL,IND,C,PTS,7.5,7.95,0.533,Over,1.67,0.0023,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-VJ Edgecombe,PHI,MIN,SG,REB,5.5,5.86,0.532,Over,1.59,0.0044,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Max Christie,DAL,IND,SG,REB,3.5,3.53,0.531,Under,1.31,0.0036,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Nikola Vucevic,BOS,LAL,C,PRA,22.5,23.35,0.53,Over,1.19,0.0016,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Dennis Schroder,CLE,OKC,PG,PRA,13.5,14.05,0.527,Over,0.55,0.0015,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Christian Braun,DEN,GSW,SG,AST,2.5,2.74,0.527,Under,0.52,0.0014,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Corey Kispert,ATL,BKN,SF,AST,1.5,1.77,0.526,Over,0.42,0.0011,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,AST
-Luka Doncic,LAL,BOS,PG,PTS,29.5,30.35,0.526,Over,0.34,0.0009,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Dean Wade,CLE,OKC,PF,REB,3.5,3.62,0.526,Under,0.33,0.0009,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Jaylon Tyson,CLE,OKC,SG,PTS,9.5,9.75,0.525,Over,0.21,0.0006,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Dean Wade,CLE,OKC,PF,PRA,10.5,10.8,0.524,Over,0.09,0.0002,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Isaiah Hartenstein,OKC,CLE,C,PTS,9.5,9.72,0.522,Over,-0.27,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Cason Wallace,OKC,CLE,SG,PTS,11.5,11.05,0.522,Under,-0.43,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Tre Johnson,WSH,CHA,SG,PRA,17.5,17.87,0.52,Over,-0.79,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Marcus Smart,LAL,BOS,SG,REB,2.5,2.69,0.52,Under,-0.82,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-AJ Green,MIL,TOR,SG,REB,2.5,2.61,0.516,Under,-1.54,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Grant Williams,CHA,WAS,PF,PTS,11.5,11.7,0.515,Over,-1.68,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Moses Moody,GS,DEN,SG,PRA,19.5,19.26,0.514,Under,-1.9,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
-Gui Santos,GS,DEN,PF,PTS,11.5,11.64,0.513,Over,-2.1,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Deandre Ayton,LAL,BOS,C,REB,7.5,7.75,0.511,Under,-2.4,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,REB
-Anthony Edwards,MIN,PHI,SG,PTS,29.5,29.78,0.51,Over,-2.65,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Jamal Murray,DEN,GSW,PG,PTS,24.5,24.7,0.507,Over,-3.22,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
-Michael Porter Jr.,BKN,ATL,SF,PTS,22.5,22.32,0.507,Under,-3.29,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Jonas Valanciunas,DEN,GSW,C,AST,1.5,0.62,0.854,Under,62.98,0.1732,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Joel Embiid,PHI,MIN,C,PTS,26.5,31.3,0.777,Over,48.39,0.1331,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Jaylen Brown,BOS,LAL,SF,AST,4.5,3.34,0.756,Under,44.36,0.122,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Tim Hardaway Jr.,DEN,GSW,SG,AST,1.5,0.99,0.746,Under,42.42,0.1167,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Brandon Ingram,TOR,MIL,SF,AST,3.5,2.53,0.737,Under,40.79,0.1122,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Jalen Johnson,ATL,BKN,SF,AST,7.5,5.57,0.731,Under,39.56,0.1088,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+CJ McCollum,ATL,BKN,PG,REB,3.5,2.55,0.729,Under,39.16,0.1077,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Tyrese Maxey,PHI,MIN,PG,AST,6.5,5.02,0.716,Under,36.72,0.101,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Chet Holmgren,OKC,CLE,PF,REB,8.5,6.64,0.713,Under,36.16,0.0994,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Brandon Miller,CHA,WAS,SF,PRA,33.5,29.23,0.712,Under,35.85,0.0986,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Bilal Coulibaly,WSH,CHA,SG,PTS,10.5,12.76,0.705,Over,34.57,0.0951,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Desmond Bane,ORL,LAC,SG,PRA,25.5,29.56,0.704,Over,34.31,0.0944,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Jock Landale,ATL,BKN,C,AST,1.5,1.19,0.701,Under,33.75,0.0928,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Dyson Daniels,ATL,BKN,SG,PRA,23.5,19.53,0.699,Under,33.38,0.0918,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+LaMelo Ball,CHA,WAS,PG,AST,7.5,6.35,0.695,Under,32.59,0.0896,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Donovan Mitchell,CLE,OKC,SG,REB,3.5,2.83,0.685,Under,30.72,0.0845,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Anthony Edwards,MIN,PHI,SG,AST,3.5,2.84,0.68,Under,29.91,0.0823,S Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Joan Beringer,MIN,PHI,PF,REB,5.5,2.95,0.921,Under,75.81,0.1042,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+RJ Barrett,TOR,MIL,SF,PRA,27.5,23.23,0.769,Under,46.75,0.0643,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Ayo Dosunmu,MIN,PHI,SG,REB,3.5,2.34,0.758,Under,44.74,0.0615,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Kyshawn George,WSH,CHA,SF,PTS,12.5,8.75,0.743,Under,41.8,0.0575,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Ryan Kalkbrenner,CHA,WAS,C,REB,7.5,6.02,0.741,Under,41.41,0.0569,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Payton Pritchard,BOS,LAL,PG,PRA,27.5,33.61,0.724,Over,38.14,0.0524,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Nikola Vucevic,BOS,LAL,C,AST,2.5,1.84,0.72,Under,37.55,0.0516,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Tyus Jones,DAL,IND,PG,PTS,6.5,5.48,0.718,Under,37.12,0.051,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Kawhi Leonard,LAC,ORL,SF,AST,4.5,3.49,0.716,Under,36.63,0.0504,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Aaron Wiggins,OKC,CLE,SG,PTS,14.5,11.29,0.713,Under,36.1,0.0496,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Jared McCain,OKC,CLE,SG,AST,2.5,1.87,0.711,Under,35.78,0.0492,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Jaylon Tyson,CLE,OKC,SG,AST,1.5,1.32,0.711,Under,35.72,0.0491,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Derrick White,BOS,LAL,SG,PRA,27.5,24.09,0.709,Under,35.31,0.0485,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Cam Thomas,MIL,TOR,SG,AST,2.5,2.05,0.698,Under,33.34,0.0458,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Egor Demin,BKN,ATL,None,AST,3.5,2.92,0.665,Under,27.03,0.0743,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Bub Carrington,WSH,CHA,PG,PRA,17.5,15.96,0.661,Under,26.16,0.0719,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Nic Claxton,BKN,ATL,C,PTS,10.5,12.2,0.66,Over,26.06,0.0717,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Kris Dunn,LAC,ORL,PG,REB,4.5,3.86,0.654,Under,24.81,0.0682,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Bennedict Mathurin,LAC,ORL,SF,AST,2.5,3.35,0.65,Over,24.02,0.0661,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Dennis Schroder,CLE,OKC,PG,AST,3.5,2.99,0.649,Under,23.85,0.0656,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Anthony Black,ORL,LAC,PG,PTS,15.5,13.15,0.648,Under,23.76,0.0653,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Kon Knueppel,CHA,WAS,SF,PTS,20.5,23.18,0.648,Over,23.61,0.0649,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+LeBron James,LAL,BOS,SF,REB,5.5,4.85,0.64,Under,22.25,0.0612,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Nolan Traore,BKN,ATL,PG,AST,4.5,6.02,0.64,Over,22.19,0.061,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+VJ Edgecombe,PHI,MIN,SG,AST,3.5,3.13,0.637,Under,21.61,0.0594,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Luka Doncic,LAL,BOS,PG,AST,7.5,6.76,0.631,Under,20.42,0.0562,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Onyeka Okongwu,ATL,BKN,C,PTS,14.5,16.52,0.629,Over,20.13,0.0554,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Jarrett Allen,CLE,OKC,C,PRA,25.5,30.01,0.626,Over,19.57,0.0538,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Wendell Carter Jr.,ORL,LAC,C,PTS,9.5,7.6,0.624,Under,19.13,0.0526,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Sam Merrill,CLE,OKC,SG,AST,1.5,1.41,0.623,Under,19.03,0.0523,A Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Kristaps Porzingis,GS,DEN,C,AST,1.5,1.31,0.68,Under,29.76,0.0409,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Neemias Queta,BOS,LAL,C,AST,1.5,1.32,0.678,Under,29.44,0.0405,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Immanuel Quickley,TOR,MIL,PG,AST,6.5,5.55,0.678,Under,29.35,0.0404,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Brook Lopez,LAC,ORL,C,REB,5.5,4.59,0.677,Under,29.21,0.0402,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Tristan Vukcevic,WSH,CHA,C,REB,5.5,4.67,0.674,Under,28.73,0.0395,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Grant Williams,CHA,WAS,PF,AST,2.5,2.06,0.674,Under,28.6,0.0393,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Jalen Suggs,ORL,LAC,PG,REB,3.5,3.02,0.667,Under,27.36,0.0376,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Kyle Kuzma,MIL,TOR,PF,AST,2.5,2.44,0.663,Under,26.66,0.0367,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Ryan Rollins,MIL,TOR,PG,REB,4.5,5.62,0.66,Over,26.08,0.0359,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Al Horford,GS,DEN,C,PRA,16.5,13.7,0.658,Under,25.66,0.0353,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Jaden McDaniels,MIN,PHI,PF,REB,4.5,3.86,0.657,Under,25.42,0.035,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Draymond Green,GS,DEN,PF,AST,4.5,3.85,0.656,Under,25.31,0.0348,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Brandin Podziemski,GS,DEN,SG,AST,3.5,3.07,0.656,Under,25.14,0.0346,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Julius Randle,MIN,PHI,PF,PTS,21.5,18.31,0.647,Under,23.59,0.0324,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+De'Anthony Melton,GS,DEN,PG,PRA,19.5,21.99,0.645,Over,23.06,0.0317,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Jamal Shead,TOR,MIL,PG,PRA,14.5,12.18,0.643,Under,22.75,0.0313,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Kevin Porter Jr.,MIL,TOR,PG,RA,11.5,13.18,0.64,Over,22.23,0.0306,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,RA
+Evan Mobley,CLE,OKC,PF,AST,2.5,2.34,0.637,Under,21.59,0.0297,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Naz Reid,MIN,PHI,C,REB,8.5,7.68,0.637,Under,21.53,0.0296,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Desmond Bane,ORL,LAC,SG,AST,3.5,3.07,0.631,Under,20.47,0.0281,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Cason Wallace,OKC,CLE,SG,REB,3.5,4.34,0.63,Over,20.37,0.028,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Daniel Gafford,DAL,IND,C,REB,7.5,6.79,0.626,Under,19.58,0.0269,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Grant Williams,CHA,WAS,PF,PRA,19.5,21.85,0.626,Over,19.43,0.0267,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Tristan Vukcevic,WSH,CHA,C,PTS,12.5,14.26,0.624,Over,19.22,0.0264,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Cam Thomas,MIL,TOR,SG,PTS,15.5,18.49,0.624,Over,19.2,0.0264,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Klay Thompson,DAL,IND,SF,PRA,17.5,15.32,0.623,Under,19.0,0.0261,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Bilal Coulibaly,WSH,CHA,SG,AST,2.5,2.29,0.613,Under,17.0,0.0468,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Jamal Murray,DEN,GSW,PG,AST,7.5,6.93,0.609,Under,16.21,0.0446,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Corey Kispert,ATL,BKN,SF,PRA,13.5,11.92,0.609,Under,16.17,0.0445,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Onyeka Okongwu,ATL,BKN,C,AST,2.5,2.26,0.606,Under,15.73,0.0433,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Dominick Barlow,PHI,MIN,PF,REB,4.5,4.52,0.605,Under,15.57,0.0428,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Tim Hardaway Jr.,DEN,GSW,SG,PRA,15.5,18.25,0.605,Over,15.55,0.0428,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Myles Turner,MIL,TOR,C,AST,1.5,1.36,0.605,Under,15.49,0.0426,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Nickeil Alexander-Walker,ATL,BKN,SG,AST,3.5,4.38,0.599,Over,14.41,0.0396,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Paolo Banchero,ORL,LAC,PF,REB,7.5,7.0,0.599,Under,14.41,0.0396,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Julian Strawther,DEN,GSW,SG,PTS,12.5,13.9,0.59,Over,12.65,0.0348,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Nickeil Alexander-Walker,ATL,BKN,SG,REB,3.5,3.59,0.583,Under,11.3,0.0311,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Joel Embiid,PHI,MIN,C,REB,8.5,8.13,0.58,Under,10.75,0.0295,B Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Donte DiVincenzo,MIN,PHI,SG,REB,4.5,4.05,0.618,Under,18.06,0.0248,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Isaiah Joe,OKC,CLE,SG,PTS,12.5,14.58,0.616,Over,17.51,0.0241,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Julian Strawther,DEN,GSW,SG,AST,2.5,2.23,0.615,Under,17.38,0.0239,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Derrick Jones Jr.,LAC,ORL,SF,REB,4.5,4.09,0.612,Under,16.78,0.0231,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Neemias Queta,BOS,LAL,C,PTS,7.5,8.51,0.612,Over,16.77,0.0231,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Austin Reaves,LAL,BOS,SG,REB,4.5,4.11,0.607,Under,15.94,0.0219,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+De'Anthony Melton,GS,DEN,PG,AST,2.5,2.39,0.607,Under,15.81,0.0217,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Marcus Smart,LAL,BOS,SG,AST,2.5,3.2,0.607,Over,15.81,0.0217,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Gui Santos,GS,DEN,PF,PRA,20.5,18.98,0.601,Under,14.71,0.0202,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Austin Reaves,LAL,BOS,SG,PRA,29.5,32.17,0.6,Over,14.63,0.0201,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Naji Marshall,DAL,IND,SF,RA,10.5,9.69,0.598,Under,14.13,0.0194,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,RA
+Rui Hachimura,LAL,BOS,PF,PRA,12.5,14.32,0.595,Over,13.61,0.0187,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Pat Spencer,GS,DEN,PG,AST,5.5,5.17,0.589,Under,12.41,0.0171,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Isaiah Hartenstein,OKC,CLE,C,REB,8.5,8.05,0.588,Under,12.17,0.0167,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+James Harden,CLE,OKC,PG,RA,12.5,12.97,0.58,Over,10.67,0.0294,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,RA
+Deandre Ayton,LAL,BOS,C,PTS,9.5,10.91,0.579,Over,10.59,0.0146,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Quentin Grimes,PHI,MIN,SG,PRA,15.5,16.66,0.578,Over,10.25,0.0282,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Quentin Grimes,PHI,MIN,SG,REB,2.5,2.38,0.575,Under,9.85,0.0135,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Michael Porter Jr.,BKN,ATL,SF,AST,2.5,2.99,0.575,Over,9.79,0.0269,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Sam Hauser,BOS,LAL,PF,AST,1.5,1.47,0.575,Under,9.7,0.0133,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Noah Clowney,BKN,ATL,PF,PTS,11.5,10.08,0.574,Under,9.61,0.0264,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Brook Lopez,LAC,ORL,C,AST,1.5,1.92,0.573,Over,9.43,0.0259,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Jarrett Allen,CLE,OKC,C,AST,1.5,1.51,0.572,Under,9.22,0.0253,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Collin Murray-Boyles,TOR,MIL,PF,PTS,9.5,10.35,0.571,Over,9.09,0.0125,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Nikola Jokic,DEN,GSW,C,REB,13.5,13.1,0.569,Under,8.62,0.0237,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Collin Murray-Boyles,TOR,MIL,PF,REB,5.5,5.31,0.569,Under,8.61,0.0118,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Baylor Scheierman,BOS,LAL,SG,AST,1.5,2.18,0.568,Over,8.53,0.0117,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+CJ McCollum,ATL,BKN,PG,PRA,25.5,27.08,0.566,Over,8.03,0.0221,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Sam Hauser,BOS,LAL,PF,PTS,9.5,10.36,0.564,Over,7.71,0.0106,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+AJ Green,MIL,TOR,SG,AST,1.5,1.88,0.562,Over,7.23,0.0099,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Derrick White,BOS,LAL,SG,AST,6.5,7.06,0.559,Over,6.79,0.0093,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Max Christie,DAL,IND,SG,AST,2.5,2.92,0.559,Over,6.79,0.0187,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Kyle Kuzma,MIL,TOR,PF,PTS,12.5,13.63,0.559,Over,6.66,0.0092,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Jalen Suggs,ORL,LAC,PG,PTS,11.5,12.28,0.559,Over,6.62,0.0091,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Zaccharie Risacher,ATL,BKN,SF,PRA,13.5,12.27,0.558,Under,6.56,0.018,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Kawhi Leonard,LAC,ORL,SF,PTS,28.5,30.24,0.557,Over,6.4,0.0176,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Nic Claxton,BKN,ATL,C,AST,3.5,3.56,0.556,Under,6.24,0.0171,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Isaiah Joe,OKC,CLE,SG,REB,3.5,3.41,0.556,Under,6.14,0.0084,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Evan Mobley,CLE,OKC,PF,PRA,21.5,22.55,0.556,Over,6.09,0.0084,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Tre Johnson,WSH,CHA,SG,AST,1.5,1.64,0.555,Under,5.87,0.0081,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Myles Turner,MIL,TOR,C,RA,7.5,7.92,0.553,Over,5.49,0.0151,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,RA
+Moses Moody,GS,DEN,SG,AST,1.5,1.85,0.551,Over,5.17,0.0071,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Christian Braun,DEN,GSW,SG,PRA,18.5,19.49,0.549,Over,4.76,0.0131,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Dominick Barlow,PHI,MIN,PF,PTS,8.5,9.33,0.548,Over,4.53,0.0125,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Kris Dunn,LAC,ORL,PG,AST,6.5,6.97,0.546,Over,4.24,0.0058,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Aaron Wiggins,OKC,CLE,SG,REB,3.5,3.9,0.546,Over,4.21,0.0058,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Wendell Carter Jr.,ORL,LAC,C,AST,1.5,1.83,0.545,Over,3.96,0.0109,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Jonas Valanciunas,DEN,GSW,C,PTS,7.5,7.93,0.544,Over,3.86,0.0106,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Noah Clowney,BKN,ATL,PF,AST,1.5,1.82,0.543,Over,3.71,0.0102,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Sam Merrill,CLE,OKC,SG,PTS,7.5,8.5,0.541,Over,3.34,0.0092,C Tier,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Naz Reid,MIN,PHI,C,AST,2.5,2.83,0.538,Over,2.79,0.0038,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Tre Johnson,WSH,CHA,SG,PRA,17.5,18.22,0.538,Over,2.71,0.0075,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Kon Knueppel,CHA,WAS,SF,REB,5.5,5.46,0.537,Under,2.61,0.0072,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Pat Spencer,GS,DEN,PG,RA,9.5,9.85,0.536,Over,2.39,0.0033,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,RA
+Dennis Schroder,CLE,OKC,PG,PRA,13.5,14.24,0.536,Over,2.26,0.0062,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Luka Doncic,LAL,BOS,PG,PTS,29.5,30.65,0.535,Over,2.1,0.0058,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Kevin Porter Jr.,MIL,TOR,PG,PTS,18.5,17.79,0.535,Under,2.04,0.0028,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+VJ Edgecombe,PHI,MIN,SG,REB,5.5,5.86,0.531,Over,1.37,0.0038,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Max Christie,DAL,IND,SG,REB,3.5,3.53,0.531,Under,1.28,0.0035,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Kristaps Porzingis,GS,DEN,C,PTS,12.5,13.07,0.53,Over,1.1,0.0015,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Christian Braun,DEN,GSW,SG,RA,7.5,7.23,0.528,Under,0.78,0.0021,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,RA
+Gui Santos,GS,DEN,PF,PTS,11.5,11.78,0.525,Over,0.28,0.0004,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Dean Wade,CLE,OKC,PF,PTS,5.5,5.71,0.523,Over,-0.09,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Cason Wallace,OKC,CLE,SG,PTS,11.5,11.05,0.522,Under,-0.42,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Daniel Gafford,DAL,IND,C,PTS,7.5,7.79,0.521,Over,-0.5,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+James Harden,CLE,OKC,PG,PTS,19.5,19.18,0.519,Under,-0.85,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Corey Kispert,ATL,BKN,SF,AST,1.5,1.74,0.517,Over,-1.32,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,AST
+Jamal Murray,DEN,GSW,PG,PRA,35.5,35.99,0.515,Over,-1.73,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Isaiah Hartenstein,OKC,CLE,C,PRA,23.5,23.77,0.514,Over,-1.83,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PRA
+Dean Wade,CLE,OKC,PF,REB,3.5,3.67,0.514,Under,-1.95,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Marcus Smart,LAL,BOS,SG,REB,2.5,2.72,0.511,Under,-2.41,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,REB
+Nikola Vucevic,BOS,LAL,C,PTS,12.5,12.67,0.51,Over,-2.58,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Anthony Edwards,MIN,PHI,SG,PTS,29.5,29.7,0.507,Over,-3.21,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,PTS
+Jaylon Tyson,CLE,OKC,SG,REB,3.5,3.68,0.501,Over,-4.32,0.0,Pass,2026-02-22,2026-02-22,None,Pending / Not Found,REB

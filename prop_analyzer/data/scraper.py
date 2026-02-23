@@ -94,8 +94,9 @@ TEAM_NAME_MAP = {
     "Washington": "WAS", "Washington Wizards": "WAS",
 }
 
-# Strictly filtered to PRA + Pace/Efficiency metrics
+# Strictly filtered to PRA + Pace/Efficiency metrics (UPDATED WITH NEW STATS)
 TEAMRANKINGS_SLUG_MAP = {
+    # Original Base Stats
     "Points per Game": "points-per-game",
     "Offensive Efficiency": "offensive-efficiency",
     "Defensive Efficiency": "defensive-efficiency",
@@ -108,6 +109,31 @@ TEAMRANKINGS_SLUG_MAP = {
     "Opponent Total Rebounds per Game": "opponent-total-rebounds-per-game",
     "Opponent Assists per Game": "opponent-assists-per-game",
     "Possessions per Game": "possessions-per-game",
+    
+    # --- NEW: Rebounding Optimization ---
+    "Opponent Effective Field Goal %": "opponent-effective-field-goal-pct",
+    "Opponent True Shooting %": "opponent-true-shooting-percentage",
+    "Field Goals Attempted per Game": "field-goals-attempted-per-game",
+    "Opponent Field Goals Attempted per Game": "opponent-field-goals-attempted-per-game",
+    "Three Pointers Attempted per Game": "three-pointers-attempted-per-game",
+    "Opponent Three Pointers Attempted per Game": "opponent-three-pointers-attempted-per-game",
+    "Opponent Offensive Rebounding %": "opponent-offensive-rebounding-pct",
+
+    # --- NEW: Assist Optimization ---
+    "Assists per FGM": "assists-per-fgm",
+    "Opponent Assists per FGM": "opponent-assists-per-fgm",
+    "Assist to Turnover Ratio": "assist-turnover-ratio",
+
+    # --- NEW: Points Optimization ---
+    "Opponent Points in Paint per Game": "opponent-points-in-paint-per-game",
+    "Opponent Percent of Points from 3 Pointers": "opponent-percent-of-points-from-3-pointers",
+    "Opponent Personal Fouls per Game": "opponent-personal-fouls-per-game",
+    "Opponent Fastbreak Points per Game": "opponent-fastbreak-points-per-game",
+
+    # --- NEW: Combination / Overall Volume Optimization ---
+    "Extra Scoring Chances per Game": "extra-scoring-chances-per-game",
+    "Opponent Points + Rebounds + Assists per Game": "opponent-points-rebounds-assists-per-game",
+    "Opponent Points + Assists per Game": "opponent-points-assists-per-game"
 }
 
 MASTER_FILE_MAP = {
@@ -290,13 +316,10 @@ def get_season_dates(season_str):
     start_date = datetime(start_year, 10, 20) 
     end_date = datetime(start_year + 1, 4, 20)
     if end_date > datetime.now():
-        end_date = datetime.now() - timedelta(days=1) # Don't fetch today yet if games aren't done
+        end_date = datetime.now() - timedelta(days=1)
     return start_date, end_date
 
 def fetch_espn_daily_box_scores(session, target_date):
-    """
-    Fetches a single day's box scores from ESPN.
-    """
     date_str = target_date.strftime('%Y%m%d')
     scoreboard_url = f"https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates={date_str}"
     
@@ -312,7 +335,6 @@ def fetch_espn_daily_box_scores(session, target_date):
         daily_records = []
         for event in events:
             game_id = event['id']
-            # Only pull box score if game is finished (status.type.completed == true)
             status = event.get('status', {}).get('type', {})
             if not status.get('completed', False):
                 continue
@@ -346,14 +368,12 @@ def fetch_espn_daily_box_scores(session, target_date):
                             
                             stat_dict = dict(zip(labels, ath['stats']))
                             
-                            # Parse compound fields
                             fg_split = stat_dict.get('FG', '0-0').split('-')
                             fga = fg_split[1] if len(fg_split) > 1 else '0'
                             
                             ft_split = stat_dict.get('FT', '0-0').split('-')
                             fta = ft_split[1] if len(ft_split) > 1 else '0'
                             
-                            # Securely extract Position
                             pos_dict = ath.get('athlete', {}).get('position', {})
                             position_str = pos_dict.get('abbreviation', 'UNK')
                             
@@ -364,7 +384,7 @@ def fetch_espn_daily_box_scores(session, target_date):
                                 'PLAYER_NAME': ath['athlete']['displayName'],
                                 'TEAM_ABBREVIATION': current_team,
                                 'OPPONENT_ABBREV': opp_team,
-                                'Position': position_str,  # Extracted explicitly
+                                'Position': position_str,  
                                 'MIN': stat_dict.get('MIN', '0'),
                                 'PTS': stat_dict.get('PTS', '0'),
                                 'REB': stat_dict.get('REB', '0'),
@@ -384,10 +404,6 @@ def fetch_espn_daily_box_scores(session, target_date):
         return pd.DataFrame()
 
 def scrape_espn_box_scores_incremental(session, season_cfg, output_dir):
-    """
-    Optimized ESPN fetcher. Detects gaps based on dates already present in the Parquet file.
-    Fetches missing dates concurrently.
-    """
     target_season = season_cfg['season_str']
     logging.info(f"--- Gap Detection: ESPN Box Scores for {target_season} ---")
     
@@ -397,7 +413,6 @@ def scrape_espn_box_scores_incremental(session, season_cfg, output_dir):
     
     start_date, end_date = get_season_dates(target_season)
 
-    # CHECK FOR EXISTING DATA AND FIND EXACT GAPS
     if box_scores_file.exists():
         try:
             existing_df = pd.read_parquet(box_scores_file)
@@ -406,7 +421,6 @@ def scrape_espn_box_scores_incremental(session, season_cfg, output_dir):
         except Exception as e:
             logging.warning(f"Could not read existing box scores ({e}). Re-scraping full season.")
 
-    # GENERATE MISSING DATES
     dates_to_fetch = []
     current = start_date
     while current <= end_date:
@@ -423,7 +437,6 @@ def scrape_espn_box_scores_incremental(session, season_cfg, output_dir):
     
     all_daily_stats = []
     
-    # PARALLEL FETCHING
     with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_ESPN_WORKERS) as executor:
         future_to_date = {executor.submit(fetch_espn_daily_box_scores, session, d): d for d in dates_to_fetch}
         
@@ -445,14 +458,12 @@ def scrape_espn_box_scores_incremental(session, season_cfg, output_dir):
         new_data_df = pd.concat(all_daily_stats, ignore_index=True)
         final_df = pd.concat([existing_df, new_data_df], ignore_index=True) if not existing_df.empty else new_data_df
         
-        # Cleanup string minutes
         final_df['MIN'] = final_df['MIN'].astype(str).str.replace(r'[a-zA-Z]', '', regex=True)
         final_df['MIN'] = pd.to_numeric(final_df['MIN'], errors='coerce').fillna(0).astype(int)
         
         subset_cols = ['ESPN_ID', Cols.DATE, 'GAME_ID']
         final_df.drop_duplicates(subset=subset_cols, keep='last', inplace=True)
         
-        # Sort chronologically before saving
         final_df.sort_values(by=[Cols.DATE, 'GAME_ID', 'TEAM_ABBREVIATION'], inplace=True)
         
         save_clean_parquet(final_df, "NBA Player Box Scores", output_dir)
@@ -461,9 +472,6 @@ def scrape_espn_box_scores_incremental(session, season_cfg, output_dir):
         logging.info("No new games found in the requested dates.")
 
 def should_skip_season_file(output_dir, filename_stem, is_current_season):
-    """
-    If the season is over (not current), we only need to scrape BBRef/TeamRankings once.
-    """
     if is_current_season: return False 
     clean_name = filename_stem.replace('.csv', '') + ".parquet"
     file_path = output_dir / clean_name
@@ -488,7 +496,6 @@ def main():
         if is_current:
             scrape_daily_injuries(session, output_dir)
             
-        # 1. BBall-Ref Averages (Parallelized)
         with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
             futures = []
             for filename, (source, data) in MASTER_FILE_MAP.items():
@@ -497,10 +504,8 @@ def main():
                 futures.append(executor.submit(scrape_bball_ref, session, url_template, table_id, filename, season_cfg, output_dir))
             for future in concurrent.futures.as_completed(futures): future.result() 
                 
-        # 2. ESPN Box Scores (Highly Parallelized & Gap Checked)
         scrape_espn_box_scores_incremental(session, season_cfg, output_dir)
         
-        # 3. TeamRankings (Parallelized)
         with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
             futures = []
             for friendly_name, slug in TEAMRANKINGS_SLUG_MAP.items():

@@ -117,7 +117,6 @@ def process_master_player_stats(player_id_map, season_folders, output_dir):
                 bball_ref_df['Player_Clean'] = bball_ref_df['Player'].apply(lambda x: unidecode(str(x)).lower().strip())
                 bball_ref_df = bball_ref_df.rename(columns=BBREF_COLUMN_MAP)
                 
-                # Standardize Position String (e.g., 'PG-SG' -> 'PG')
                 if 'Position' in bball_ref_df.columns:
                     bball_ref_df['Position'] = bball_ref_df['Position'].astype(str).apply(lambda x: x.split('-')[0] if '-' in x else x)
 
@@ -206,6 +205,10 @@ def process_master_box_scores(player_id_map, season_folders, output_dir):
             if 'ESPN_ID' in bs_df.columns:
                 bs_df.rename(columns={'ESPN_ID': Cols.PLAYER_ID}, inplace=True)
             
+            # --- FIX: Standardize player name column here ---
+            if 'PLAYER_NAME' in bs_df.columns:
+                bs_df.rename(columns={'PLAYER_NAME': Cols.PLAYER_NAME}, inplace=True)
+            
             bs_df.dropna(subset=[Cols.PLAYER_ID], inplace=True)
             bs_df[Cols.PLAYER_ID] = bs_df[Cols.PLAYER_ID].astype(int)
             
@@ -233,14 +236,12 @@ def process_master_box_scores(player_id_map, season_folders, output_dir):
                 p_stats = pd.read_parquet(p_stats_path)
                 if Cols.PLAYER_ID in p_stats.columns:
                     p_stats[Cols.PLAYER_ID] = pd.to_numeric(p_stats[Cols.PLAYER_ID], errors='coerce').fillna(0).astype(int)
-                    # Use 'Position' if it exists, fallback to 'Pos' to support legacy data gracefully
                     pos_col = 'Position' if 'Position' in p_stats.columns else ('Pos' if 'Pos' in p_stats.columns else None)
                     if pos_col:
                         p_stats_szn = p_stats[[Cols.PLAYER_ID, pos_col]].drop_duplicates(subset=[Cols.PLAYER_ID])
                         if pos_col != 'Position':
                             p_stats_szn.rename(columns={pos_col: 'Position'}, inplace=True)
                         
-                        # Merge position into box scores if missing
                         if 'Position' not in bs_df.columns:
                             bs_df = pd.merge(bs_df, p_stats_szn, on=Cols.PLAYER_ID, how='left')
 
@@ -299,7 +300,10 @@ def process_vs_opponent_stats(data_dir, output_dir):
     agg_cols = {k: 'mean' for k in ['PTS', 'REB', 'AST', 'PRA', 'PR', 'PA', 'RA', 'MIN'] if k in df.columns}
     if Cols.GAME_ID in df.columns: agg_cols[Cols.GAME_ID] = 'count'
     
-    vs_opp_df = df.groupby([Cols.PLAYER_ID, 'PLAYER_NAME', 'OPPONENT_ABBREV']).agg(agg_cols).reset_index()
+    # --- FIX: Support either column name based on what's in the dataframe ---
+    name_col = Cols.PLAYER_NAME if Cols.PLAYER_NAME in df.columns else 'PLAYER_NAME'
+    
+    vs_opp_df = df.groupby([Cols.PLAYER_ID, name_col, 'OPPONENT_ABBREV']).agg(agg_cols).reset_index()
     if Cols.GAME_ID in vs_opp_df.columns: vs_opp_df.rename(columns={Cols.GAME_ID: 'GAMES_PLAYED'}, inplace=True)
     
     vs_opp_df.round(2).to_parquet(output_dir / "master_vs_opponent.parquet", index=False)

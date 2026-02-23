@@ -34,3 +34,29 @@
 2026-02-22 13:21:20 [INFO] root: >>> CATEGORY HIT RATES <<<
 2026-02-22 13:21:20 [INFO] root: ----------------------------------------
 2026-02-22 13:21:20 [INFO] root: Saved graded results for 2026-02-22
+2026-02-22 13:25:27 [INFO] root: Logging initialized. Writing to logs/grading.log
+2026-02-22 13:25:27 [INFO] root: Loading historical data for grading...
+2026-02-22 13:25:45 [INFO] root: Logging initialized. Writing to logs/grading.log
+2026-02-22 13:25:45 [INFO] root: Loading historical data for grading...
+2026-02-22 13:25:45 [INFO] root: Grading 163 predictions...
+2026-02-22 13:25:47 [INFO] root: ----------------------------------------
+2026-02-22 13:25:47 [INFO] root: >>> GRADING REPORT <<<
+2026-02-22 13:25:47 [INFO] root: >>> CATEGORY HIT RATES <<<
+2026-02-22 13:25:47 [INFO] root: ----------------------------------------
+2026-02-22 13:25:47 [INFO] root: Saved graded results for 2026-02-22
+2026-02-22 14:18:12 [INFO] root: Logging initialized. Writing to logs/grading.log
+2026-02-22 14:18:12 [INFO] root: Loading historical data for grading...
+2026-02-22 14:18:12 [INFO] root: Grading 163 predictions...
+2026-02-22 14:18:13 [INFO] root: ----------------------------------------
+2026-02-22 14:18:13 [INFO] root: >>> GRADING REPORT <<<
+2026-02-22 14:18:13 [INFO] root: >>> CATEGORY HIT RATES <<<
+2026-02-22 14:18:13 [INFO] root: ----------------------------------------
+2026-02-22 14:18:14 [INFO] root: Saved graded results for 2026-02-22
+2026-02-22 16:02:47 [INFO] root: Logging initialized. Writing to logs/grading.log
+2026-02-22 16:02:47 [INFO] root: Loading historical data for grading...
+2026-02-22 16:02:47 [INFO] root: Grading 159 predictions...
+2026-02-22 16:02:47 [INFO] root: ----------------------------------------
+2026-02-22 16:02:47 [INFO] root: >>> GRADING REPORT <<<
+2026-02-22 16:02:47 [INFO] root: >>> CATEGORY HIT RATES <<<
+2026-02-22 16:02:47 [INFO] root: ----------------------------------------
+2026-02-22 16:02:47 [INFO] root: Saved graded results for 2026-02-22

@@ -67,7 +67,6 @@ class Cols:
     SZN_AVG = 'SZN_AVG'
     L5_AVG = 'L5_AVG'
     
-    # --- NEW COLUMNS ADDED FOR PHASE 1 & 2 ---
     DAYS_REST = 'DAYS_REST'
     IMPLIED_MINS = 'IMPLIED_MINS'
     RESIDUAL = 'RESIDUAL'
@@ -85,14 +84,12 @@ LIVE_BLOWOUT_THRESHOLD = 20
 BAYESIAN_PRIOR_WEIGHT = 6.0  
 EWMA_DECAY_FACTOR = 0.80     
 MIN_GAMES_FOR_ANALYSIS = 5
-
-# --- NEW INFERENCE THRESHOLDS ---
-SKEPTICISM_DECAY_THRESHOLD = 0.40  # 40% gap triggers regression to market
+SKEPTICISM_DECAY_THRESHOLD = 0.40  
 
 # --- ADVANCED TRAINING CONFIGURATION ---
 CV_TIME_SPLITS = 5
-OPTUNA_N_TRIALS_XGB = 20  # Set to 50+ for production runs
-OPTUNA_N_TRIALS_LGB = 20  # Set to 50+ for production runs
+OPTUNA_N_TRIALS_XGB = 20  
+OPTUNA_N_TRIALS_LGB = 20  
 OPTUNA_N_TRIALS_RF = 10
 
 # --- PRIORS ---
@@ -103,13 +100,20 @@ BAYESIAN_PRIORS = {
 
 # --- PROP MAPPING ---
 MASTER_PROP_MAP = {
+    # Standard / Underdog
     'Points': 'PTS', 'pts': 'PTS',
     'Rebounds': 'REB', 'reb': 'REB',
     'Assists': 'AST', 'ast': 'AST',
-    'Pts + Rebs + Asts': 'PRA', 'Pts+Rebs+Asts': 'PRA', 'pra': 'PRA',
+    'Pts + Rebs + Asts': 'PRA', 'pra': 'PRA',
     'Rebounds + Assists': 'RA', 'ra': 'RA',
     'Points + Rebounds': 'PR', 'pr': 'PR',
-    'Points + Assists': 'PA', 'pa': 'PA'
+    'Points + Assists': 'PA', 'pa': 'PA',
+    
+    # NEW: PrizePicks Specific
+    'Pts+Rebs': 'PR',
+    'Pts+Asts': 'PA',
+    'Rebs+Asts': 'RA',
+    'Pts+Rebs+Asts': 'PRA',
 }
 
 BASE_TARGETS = ['PTS', 'REB', 'AST']

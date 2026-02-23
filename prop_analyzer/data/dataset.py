@@ -19,8 +19,11 @@ def create_training_dataset():
     if Cols.DATE in box_scores.columns:
         box_scores[Cols.DATE] = pd.to_datetime(box_scores[Cols.DATE]).dt.normalize()
 
+    # --- FIX: Align column name from raw Scraper output to System Config ---
+    if 'PLAYER_NAME' in box_scores.columns and Cols.PLAYER_NAME not in box_scores.columns:
+        box_scores.rename(columns={'PLAYER_NAME': Cols.PLAYER_NAME}, inplace=True)
+
     # 2. Merge Real Vegas Lines (History)
-    # This allows training to use actual historical lines instead of synthetic ones
     prop_hist_path = cfg.MASTER_PROP_HISTORY_FILE
     if prop_hist_path.exists():
         logging.info("Merging real historical Vegas lines...")
@@ -65,7 +68,6 @@ def create_training_dataset():
             logging.warning(f"Failed to merge prop history: {e}")
 
     # 3. Generate Features (Rolling Averages, etc.)
-    # This adds the PRE-GAME context (e.g., L5_AVG) needed for training
     logging.info("Calculating advanced features for training set...")
     training_df = generator.add_rolling_stats_history(box_scores.copy())
 
@@ -75,6 +77,5 @@ def create_training_dataset():
     logging.info(f"Saved to {cfg.MASTER_TRAINING_FILE}")
 
 if __name__ == "__main__":
-    # Setup simple console logging if run directly
     logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
     create_training_dataset()

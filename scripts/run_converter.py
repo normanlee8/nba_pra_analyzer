@@ -13,7 +13,7 @@ def main():
     common.setup_logging(name="converter")
     
     try:
-        logging.info(">>> STARTING PROP CONVERTER <<<")
+        logging.info(">>> STARTING PRIZEPICKS PROP CONVERTER <<<")
         
         # Execute parsing (Logic moved to parser.py for better encapsulation)
         parser.parse_text_to_csv()

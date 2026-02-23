@@ -25,7 +25,25 @@ BASE_FEATURE_COLS = [
     
     # Vacancy (Missing Usage/Minutes on Team)
     'TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 
-    'MISSING_USG_G', 'MISSING_USG_F', 'MISSING_USG_C'
+    'MISSING_USG_G', 'MISSING_USG_F', 'MISSING_USG_C',
+
+    # --- NEW: ADVANCED SCRAPED STATS ---
+    # Rebounding Context
+    'OPP_Opponent Effective Field Goal %', 'OPP_Opponent True Shooting %',
+    'TEAM_Field Goals Attempted per Game', 'OPP_Field Goals Attempted per Game',
+    'TEAM_Three Pointers Attempted per Game', 'OPP_Three Pointers Attempted per Game',
+    'OPP_Opponent Offensive Rebounding %', 
+    
+    # Assist Context
+    'TEAM_Assists per FGM', 'OPP_Opponent Assists per FGM', 'TEAM_Assist to Turnover Ratio',
+    
+    # Scoring Context
+    'OPP_Opponent Points in Paint per Game', 'OPP_Opponent Percent of Points from 3 Pointers',
+    'OPP_Opponent Personal Fouls per Game', 'OPP_Opponent Fastbreak Points per Game',
+    
+    # Combo & Volume Context
+    'TEAM_Extra Scoring Chances per Game', 'OPP_Extra Scoring Chances per Game',
+    'OPP_Opponent Points + Rebounds + Assists per Game', 'OPP_Opponent Points + Assists per Game'
 ]
 
 VS_OPP_FEATURES = [
@@ -41,14 +59,36 @@ HIST_FEATURES = [
 ]
 
 # --- MAPPINGS ---
+# Smartly isolating the new metrics specifically to the prop types they influence
 PROP_FEATURE_MAP = {
-    'PTS': ['PTS', 'PRA', 'PR', 'PA', 'USG_PROXY', 'TS_PCT', 'GAME_PACE', 'OPP_GAME_PACE'],
-    'REB': ['REB', 'PRA', 'PR', 'RA', 'GAME_PACE', 'OPP_GAME_PACE'],
-    'AST': ['AST', 'PRA', 'PA', 'RA', 'GAME_PACE', 'OPP_GAME_PACE'],
-    'PRA': ['PRA', 'PTS', 'REB', 'AST', 'PR', 'PA', 'RA', 'GAME_PACE', 'OPP_GAME_PACE'],
-    'PR':  ['PR', 'PTS', 'REB', 'PRA', 'GAME_PACE', 'OPP_GAME_PACE'],
-    'PA':  ['PA', 'PTS', 'AST', 'PRA', 'GAME_PACE', 'OPP_GAME_PACE'],
-    'RA':  ['RA', 'REB', 'AST', 'PRA', 'GAME_PACE', 'OPP_GAME_PACE'],
+    'PTS': ['PTS', 'PRA', 'PR', 'PA', 'USG_PROXY', 'TS_PCT', 'GAME_PACE', 'OPP_GAME_PACE',
+            'OPP_Opponent Points in Paint per Game', 'OPP_Opponent Percent of Points from 3 Pointers',
+            'OPP_Opponent Personal Fouls per Game', 'OPP_Opponent Fastbreak Points per Game',
+            'TEAM_Extra Scoring Chances per Game', 'OPP_Extra Scoring Chances per Game'],
+            
+    'REB': ['REB', 'PRA', 'PR', 'RA', 'GAME_PACE', 'OPP_GAME_PACE',
+            'OPP_Opponent Effective Field Goal %', 'OPP_Opponent True Shooting %',
+            'TEAM_Field Goals Attempted per Game', 'OPP_Field Goals Attempted per Game',
+            'TEAM_Three Pointers Attempted per Game', 'OPP_Three Pointers Attempted per Game',
+            'OPP_Opponent Offensive Rebounding %'],
+            
+    'AST': ['AST', 'PRA', 'PA', 'RA', 'GAME_PACE', 'OPP_GAME_PACE',
+            'TEAM_Assists per FGM', 'OPP_Opponent Assists per FGM', 'TEAM_Assist to Turnover Ratio'],
+            
+    'PRA': ['PRA', 'PTS', 'REB', 'AST', 'PR', 'PA', 'RA', 'GAME_PACE', 'OPP_GAME_PACE',
+            'TEAM_Extra Scoring Chances per Game', 'OPP_Extra Scoring Chances per Game',
+            'OPP_Opponent Points + Rebounds + Assists per Game'],
+            
+    'PR':  ['PR', 'PTS', 'REB', 'PRA', 'GAME_PACE', 'OPP_GAME_PACE',
+            'OPP_Opponent Points in Paint per Game', 'OPP_Opponent Effective Field Goal %',
+            'TEAM_Extra Scoring Chances per Game'],
+            
+    'PA':  ['PA', 'PTS', 'AST', 'PRA', 'GAME_PACE', 'OPP_GAME_PACE',
+            'OPP_Opponent Points + Assists per Game', 'OPP_Opponent Assists per FGM',
+            'TEAM_Extra Scoring Chances per Game'],
+            
+    'RA':  ['RA', 'REB', 'AST', 'PRA', 'GAME_PACE', 'OPP_GAME_PACE',
+            'OPP_Opponent Effective Field Goal %', 'OPP_Opponent Assists per FGM'],
 }
 
 RELEVANT_KEYWORDS = {
