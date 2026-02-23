@@ -17,31 +17,6 @@ from prop_analyzer.models import inference
 from prop_analyzer.models.parlay_optimizer import ParlayOptimizer
 from prop_analyzer.utils import common
 
-def filter_cannibalized_props(df):
-    """
-    Prevents over-exposure to a single player by filtering out redundant Combo props.
-    If a player has multiple +EV Over props (e.g., PTS and PRA), it keeps only the highest EV play.
-    """
-    if df.empty or 'EV%' not in df.columns: return df
-    
-    filtered_rows = []
-    
-    # Group by Player, Date, and Pick Direction (Over/Under)
-    grouped = df.groupby(['Player', 'Date', 'Pick'])
-    
-    for _, group in grouped:
-        # Sort by Expected Value descending
-        sorted_group = group.sort_values(by='EV%', ascending=False)
-        # Keep only the highest EV prop for this player/direction combination
-        filtered_rows.append(sorted_group.iloc[0:1])
-        
-    if not filtered_rows: return df
-    
-    filtered_df = pd.concat(filtered_rows, ignore_index=True)
-    # Re-sort to maintain overall tier hierarchy
-    filtered_df.sort_values(by=['Tier_Rank', '_Sort_Diff'], ascending=[True, False], inplace=True)
-    return filtered_df
-
 def save_pretty_excel(df, output_path, sheet_name='EV_Picks'):
     try:
         if df.empty: return
@@ -225,8 +200,7 @@ def main():
         rename_map = {Cols.PLAYER_NAME: 'Player', Cols.PROP_TYPE: 'Prop', Cols.PROP_LINE: 'Line', Cols.DATE: 'Date'}
         results_df.rename(columns=rename_map, inplace=True)
 
-        # Apply Cannibalization Filter to isolate best risk for straight picks
-        results_df = filter_cannibalized_props(results_df)
+        # Removed the Cannibalization Filter here so all props remain in the DataFrame
 
         print_tier_summary(results_df)
 
@@ -256,7 +230,7 @@ def main():
                     'win_prob': prob_val,
                     'pick': row['Pick'],
                     'line': row['Line'],
-                    'Tier': row['Tier'] # <-- FIX: Now the parlay optimizer knows what tier the prop is
+                    'Tier': row['Tier'] 
                 })
                 
             # Run Combinatorial Search for 2 to 8 legs
@@ -269,7 +243,6 @@ def main():
 
 
         # --- FINAL CONSOLE AND FILE OUTPUTS ---
-        # FIX: 'Position' has been removed from this keep_cols list so it won't export anymore
         keep_cols = ['Player', 'Team', 'Opponent', 'Prop', 'Line', 'Proj', 'Prob', 'Pick', 'EV%', 'Kelly', 'Tier', 'Date']
         final_cols = [c for c in keep_cols if c in results_df.columns]
         final_output = results_df[final_cols].copy()
