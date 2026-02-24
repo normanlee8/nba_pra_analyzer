@@ -17,7 +17,7 @@ from prop_analyzer.models import inference
 from prop_analyzer.models.parlay_optimizer import ParlayOptimizer
 from prop_analyzer.utils import common
 
-def save_pretty_excel(df, output_path, sheet_name='EV_Picks'):
+def save_pretty_excel(df, output_path, sheet_name='High_Prob_Picks'):
     try:
         if df.empty: return
 
@@ -35,7 +35,7 @@ def save_pretty_excel(df, output_path, sheet_name='EV_Picks'):
             worksheet = writer.sheets[sheet_name]
             
             pct_fmt = workbook.add_format({'num_format': '0.0%'})
-            kelly_fmt = workbook.add_format({'num_format': '0.00%'})
+            float_fmt = workbook.add_format({'num_format': '0.00'})
             header_fmt = workbook.add_format({'bold': True, 'bottom': 1, 'bg_color': '#F0F0F0'})
             
             s_tier_fmt = workbook.add_format({'bg_color': '#C6EFCE', 'font_color': '#006100'})
@@ -51,9 +51,12 @@ def save_pretty_excel(df, output_path, sheet_name='EV_Picks'):
                 max_len = max(sample_values.map(len).max(), len(str(col)))
                 width = min(max_len + 4, 40)
                 
-                if col in ['Prob', 'Win Prob', 'Joint Prob']: worksheet.set_column(i, i, width, pct_fmt)
-                elif col in ['EV%', 'Kelly', 'Ticket EV%']: worksheet.set_column(i, i, width, kelly_fmt)
-                else: worksheet.set_column(i, i, width)
+                if col in ['Prob', 'Win Prob', 'Joint Prob']: 
+                    worksheet.set_column(i, i, width, pct_fmt)
+                elif col in ['Consistency_CV']: 
+                    worksheet.set_column(i, i, width, float_fmt)
+                else: 
+                    worksheet.set_column(i, i, width)
 
             tier_col_idx = df.columns.get_loc('Tier') if 'Tier' in df.columns else -1
             if tier_col_idx != -1:
@@ -75,13 +78,13 @@ def save_pretty_excel(df, output_path, sheet_name='EV_Picks'):
 def print_tier_summary(df):
     if 'Tier' not in df.columns: return
     counts = df['Tier'].value_counts()
-    logging.info("--- EV ANALYSIS SUMMARY ---")
-    for tier in ['S Tier', 'A Tier', 'B Tier', 'C Tier', 'Pass']:
+    logging.info("--- PROBABILITY ANALYSIS SUMMARY ---")
+    for tier in ['S Tier', 'A Tier', 'B Tier', 'C Tier', 'Pass', 'Pass / Too Volatile', 'Trap / High Variance']:
         count = counts.get(tier, 0)
         logging.info(f"  {tier}: {count} props")
-    logging.info("---------------------------")
+    logging.info("------------------------------------")
 
-def print_pretty_table(df, title="TOP 15 +EV DISCOVERIES"):
+def print_pretty_table(df, title="TOP 15 HIGHEST PROBABILITY DISCOVERIES"):
     if df.empty:
         print(f"\nNo results to display for {title}.")
         return
@@ -110,10 +113,6 @@ def print_pretty_table(df, title="TOP 15 +EV DISCOVERIES"):
         print(df.head(15))
 
 def print_stacked_parlays(df, title):
-    """
-    Prints parlays in a vertical, stacked bullet-point format to prevent 
-    console line-wrapping on high leg-count tickets.
-    """
     if df.empty: return
     
     print(f"\n{title}")
@@ -121,13 +120,10 @@ def print_stacked_parlays(df, title):
     
     for i, (_, row) in enumerate(df.iterrows(), 1):
         prob = row['Joint Prob']
-        ev = row['Ticket EV%']
         payout = row['Payout']
         
-        # Print the Ticket Header
-        print(f" OPTION {i}  |  Win Prob: {prob}  |  EV: {ev}  |  Payout: {payout}")
+        print(f" OPTION {i}  |  Win Prob: {prob}  |  Payout: {payout}")
         
-        # Split the string of picks and print each leg vertically
         picks = str(row['Picks']).split(' | ')
         for pick in picks:
             print(f"   [+] {pick}")
@@ -135,26 +131,23 @@ def print_stacked_parlays(df, title):
         print("-" * 65)
 
 def format_parlays_for_output(parlays):
-    """Converts the raw parlay dicts into a printable/saveable DataFrame"""
     rows = []
     for p in parlays:
         legs_str = " | ".join([f"{leg['player_name']} {leg['pick']} {leg['line']} {leg['stat_type']}" for leg in p['ticket']])
         rows.append({
             'Legs': p['legs'],
             'Joint Prob': p['joint_prob'],
-            'Ticket EV%': p['ev'],
             'Payout': f"{p['payout_multiplier']}x",
             'Picks': legs_str
         })
     df = pd.DataFrame(rows)
     if not df.empty:
-        # Sort strictly by Highest Probability of Winning
-        df = df.sort_values(by=['Joint Prob', 'Ticket EV%'], ascending=[False, False])
+        df = df.sort_values(by=['Joint Prob'], ascending=[False])
     return df
 
 def main():
     common.setup_logging(name="analysis_pregame")
-    logging.info(">>> STARTING PRE-GAME EV PROP ANALYSIS <<<")
+    logging.info(">>> STARTING PRE-GAME MAXIMUM PROBABILITY ANALYSIS <<<")
     
     try:
         props_path = cfg.PROPS_FILE
@@ -179,44 +172,38 @@ def main():
             logging.error("Feature generation returned empty dataframe.")
             return
 
-        logging.info("Running Probabilistic EV Inference...")
+        logging.info("Running Probabilistic Inference Engine...")
         results_df = inference.predict_props(features_df)
         
         if results_df is None or results_df.empty:
-            logging.warning("No EV predictions generated.")
+            logging.warning("No predictions generated.")
             return
 
         if '_Sort_Diff' not in results_df.columns: results_df['_Sort_Diff'] = 0.0
         if 'Tier' not in results_df.columns: results_df['Tier'] = 'Pass'
         
-        tier_map = {'S Tier': 0, 'A Tier': 1, 'B Tier': 2, 'C Tier': 3, 'Pass': 4}
+        tier_map = {'S Tier': 0, 'A Tier': 1, 'B Tier': 2, 'C Tier': 3, 'Pass': 4, 'Pass / Too Volatile': 5, 'Trap / High Variance': 6}
         results_df['Tier_Rank'] = results_df['Tier'].map(tier_map).fillna(99)
         results_df.sort_values(by=['Tier_Rank', '_Sort_Diff'], ascending=[True, False], inplace=True)
         
-        # Format Date and Rename Cols
         if Cols.DATE in results_df.columns:
             results_df[Cols.DATE] = pd.to_datetime(results_df[Cols.DATE]).dt.strftime('%Y-%m-%d')
 
         rename_map = {Cols.PLAYER_NAME: 'Player', Cols.PROP_TYPE: 'Prop', Cols.PROP_LINE: 'Line', Cols.DATE: 'Date'}
         results_df.rename(columns=rename_map, inplace=True)
 
-        # Removed the Cannibalization Filter here so all props remain in the DataFrame
-
         print_tier_summary(results_df)
 
         # --- PARLAY OPTIMIZER INTEGRATION ---
-        logging.info("Initializing Underdog Parlay Optimizer...")
+        logging.info("Initializing Maximum Probability Parlay Optimizer...")
         try:
             hist_df = pd.read_parquet(cfg.MASTER_BOX_SCORES_FILE) 
             optimizer = ParlayOptimizer(historical_data=hist_df)
             
-            # Map inference results to optimizer schema
             daily_props_for_parlays = []
             for _, row in results_df.iterrows():
-                # We need raw win probability, not the string format.
                 prob_val = row['Prob'] 
                 
-                # Construct pseudo-game_id to ensure games are isolated correctly
                 teams = sorted([str(row['Team']), str(row['Opponent'])])
                 game_id = f"{row['Date']}_{teams[0]}_{teams[1]}"
                 
@@ -233,7 +220,6 @@ def main():
                     'Tier': row['Tier'] 
                 })
                 
-            # Run Combinatorial Search for 2 to 8 legs
             top_parlays = optimizer.optimize_parlays(daily_props_for_parlays, min_legs=2, max_legs=8, top_n=10)
             parlays_df = format_parlays_for_output(top_parlays)
             
@@ -243,38 +229,34 @@ def main():
 
 
         # --- FINAL CONSOLE AND FILE OUTPUTS ---
-        keep_cols = ['Player', 'Team', 'Opponent', 'Prop', 'Line', 'Proj', 'Prob', 'Pick', 'EV%', 'Kelly', 'Tier', 'Date']
+        keep_cols = ['Player', 'Team', 'Opponent', 'Prop', 'Line', 'Proj', 'Prob', 'Pick', 'Consistency_CV', 'Active_Hit%', 'Tier', 'Date']
         final_cols = [c for c in keep_cols if c in results_df.columns]
         final_output = results_df[final_cols].copy()
 
         final_output.to_parquet(cfg.PROCESSED_OUTPUT_SYSTEM, index=False)
-        save_pretty_excel(final_output, cfg.PROCESSED_OUTPUT_XLSX, sheet_name='Straight_Picks')
+        save_pretty_excel(final_output, cfg.PROCESSED_OUTPUT_XLSX, sheet_name='High_Prob_Picks')
         
-        # Save parlays if generated
         if not parlays_df.empty:
-            parlay_output_path = cfg.OUTPUT_DIR / "EV_Parlays.csv"
+            parlay_output_path = cfg.OUTPUT_DIR / "High_Prob_Parlays.csv"
             parlays_df.to_csv(parlay_output_path, index=False)
             logging.info(f"Saved {len(parlays_df)} parlay combinations to {parlay_output_path}")
 
-        # Format Straight Picks for Console
         console_output = final_output.copy()
         if 'Prob' in console_output.columns:
             console_output['Prob'] = console_output['Prob'].apply(lambda x: f"{x*100:.1f}%" if pd.notna(x) else x)
-        if 'EV%' in console_output.columns:
-            console_output['EV%'] = console_output['EV%'].apply(lambda x: f"{x:.1f}%" if pd.notna(x) else x)
-        if 'Kelly' in console_output.columns:
-            console_output['Kelly'] = console_output['Kelly'].apply(lambda x: f"{x*100:.2f}%" if pd.notna(x) else x)
+        if 'Active_Hit%' in console_output.columns:
+            console_output['Active_Hit%'] = console_output['Active_Hit%'].apply(lambda x: f"{x:.1f}%" if pd.notna(x) else x)
+        if 'Consistency_CV' in console_output.columns:
+            console_output['Consistency_CV'] = console_output['Consistency_CV'].apply(lambda x: f"{x:.2f}" if pd.notna(x) else x)
             
-        print_pretty_table(console_output.head(15), title="TOP 15 STRAIGHT +EV PICKS")
+        print_pretty_table(console_output.head(15), title="TOP 15 HIGHEST PROBABILITY STRAIGHT PICKS")
         
-        # Format Parlays for Console (Stacked List Format)
         if not parlays_df.empty:
             console_parlays = parlays_df.copy()
-            console_parlays['Ticket EV%'] = console_parlays['Ticket EV%'].apply(lambda x: f"{x*100:.1f}%")
             console_parlays['Joint Prob'] = console_parlays['Joint Prob'].apply(lambda x: f"{x*100:.2f}%")
             
             print("\n" + "="*80)
-            print(" TOP UNDERDOG PARLAYS BY WIN PROBABILITY (PER LEG COUNT)")
+            print(" TOP UNDERDOG PARLAYS BY MAXIMUM WIN PROBABILITY (PER LEG COUNT)")
             print("="*80)
             
             for leg_count in range(2, 9):
@@ -282,7 +264,7 @@ def main():
                 if not leg_df.empty:
                     print_stacked_parlays(leg_df.head(3), title=f"TOP {leg_count}-LEG PARLAYS")
             
-        logging.info("<<< EV ANALYSIS COMPLETE >>>")
+        logging.info("<<< PROBABILITY ANALYSIS COMPLETE >>>")
         
     except Exception as e:
         logging.critical(f"FATAL ERROR in Analysis Pipeline: {e}", exc_info=True)

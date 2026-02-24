@@ -44,6 +44,12 @@ def get_feature_cols(prop_cat, all_columns):
         if vc in all_columns:
             relevant.append(vc)
 
+    # NEW: Include Probability and Consistency Features explicitly
+    consistency_keywords = ['_CV', '_HIT_RATE', '_STD_DEV']
+    for c in all_columns:
+        if any(k in c for k in consistency_keywords):
+            relevant.append(c)
+
     keywords = feat_defs.RELEVANT_KEYWORDS.get(prop_cat, [])
     for c in all_columns:
         if any(x in c for x in ['_RANK', 'TEAM_', 'OPP_', 'DVP_']):
@@ -74,7 +80,7 @@ def backfill_missing_cols(df, cols):
     return df
 
 def train_ensemble_model(df, target_col):
-    logging.info(f"Training Professional Ensemble for {target_col}...")
+    logging.info(f"Training Probability-Optimized Ensemble for {target_col}...")
 
     date_col = Cols.DATE if Cols.DATE in df.columns else 'GAME_DATE'
     if date_col in df.columns:
@@ -119,7 +125,6 @@ def train_ensemble_model(df, target_col):
     X_proc = preprocessor.fit_transform(X)
     X_proc_df = pd.DataFrame(X_proc, columns=sanitized_cols)
 
-    # SPEEDUP: Reduced from 5 to 3 splits
     tscv = TimeSeriesSplit(n_splits=3) 
 
     def optimize_base_models():
@@ -133,7 +138,6 @@ def train_ensemble_model(df, target_col):
                 'subsample': trial.suggest_float('subsample', 0.6, 1.0),
                 'colsample_bytree': trial.suggest_float('colsample_bytree', 0.6, 1.0),
             }
-            # SPEEDUP: tree_method='hist'
             mod = xgb.XGBRegressor(**params, random_state=42, n_jobs=2, objective='reg:squarederror', tree_method='hist')
             
             maes = []
@@ -171,15 +175,9 @@ def train_ensemble_model(df, target_col):
     xgb_best = xgb.XGBRegressor(**xgb_params, random_state=42, n_jobs=-1, tree_method='hist')
     lgb_best = lgb.LGBMRegressor(**lgb_params, random_state=42, n_jobs=-1, verbose=-1)
     
-    # SPEEDUP: Removed RF from Optuna entirely, using strict fast defaults
     rf_best = RandomForestRegressor(
-        n_estimators=75,
-        max_depth=6,
-        min_samples_split=3,
-        max_features='sqrt', 
-        max_samples=0.5, 
-        random_state=42, 
-        n_jobs=-1
+        n_estimators=75, max_depth=6, min_samples_split=3,
+        max_features='sqrt', max_samples=0.5, random_state=42, n_jobs=-1
     )
 
     ensemble = VotingRegressor(estimators=[('xgb', xgb_best), ('lgb', lgb_best), ('rf', rf_best)])
@@ -214,7 +212,6 @@ def train_ensemble_model(df, target_col):
         'training_date': datetime.now().isoformat(),
         'target_col': target_col,
         'metrics': {'MAE': float(mae), 'RMSE': float(rmse), 'R2': float(r2)},
-        'hyperparameters': {'xgb': xgb_params, 'lgb': lgb_params, 'rf': 'fast_defaults'},
         'top_features': shap_importance
     }
 
@@ -224,7 +221,7 @@ def train_ensemble_model(df, target_col):
 
 def main():
     common.setup_logging(name="train_models")
-    logging.info(">>> STARTING ADVANCED MODEL TRAINING PIPELINE")
+    logging.info(">>> STARTING ADVANCED PROBABILITY MODEL TRAINING PIPELINE")
 
     train_file = cfg.MASTER_TRAINING_FILE
     if not train_file.exists(): return
@@ -232,7 +229,6 @@ def main():
     df = pd.read_parquet(train_file)
     if df.empty: return
 
-    # Train a distinct, independent model for every prop configured
     for prop in cfg.SUPPORTED_PROPS:
         if prop in df.columns:
             logging.info(f"--- Training Engine: {prop} ---")

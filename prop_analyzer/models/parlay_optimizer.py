@@ -8,15 +8,9 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-# Underdog Fantasy Standard/Max Payout Multipliers
+# Underdog Fantasy Standard/Max Payout Multipliers (Kept for reference, but no longer used for optimization)
 UNDERDOG_PAYOUTS = {
-    2: 3.0,
-    3: 6.0,
-    4: 10.0,
-    5: 20.0,
-    6: 25.0,  
-    7: 40.0,  
-    8: 80.0   
+    2: 3.0, 3: 6.0, 4: 10.0, 5: 20.0, 6: 25.0, 7: 40.0, 8: 80.0   
 }
 
 class ParlayOptimizer:
@@ -29,13 +23,13 @@ class ParlayOptimizer:
         self.historical_data = historical_data
         self.correlation_matrix = self._build_correlation_matrix()
         
-        # Memoization Cache: Stores Monte Carlo joint probabilities so we never simulate the same cluster twice
+        # Memoization Cache
         self._simulation_cache = {}
 
     def _build_correlation_matrix(self) -> pd.DataFrame:
         """
         Builds a correlation matrix from historical box scores. 
-        Groups by game_id to find same-game correlations between all stat categories, including PRA combos.
+        Groups by game_id to find same-game correlations between all stat categories.
         """
         logger.info("Building correlation matrix from historical data...")
         
@@ -47,17 +41,14 @@ class ParlayOptimizer:
 
         df = self.historical_data.copy()
         
-        # Ensure base stats are numeric to safely calculate combos
         for stat in ['PTS', 'REB', 'AST']:
             df[stat] = pd.to_numeric(df[stat], errors='coerce').fillna(0)
         
-        # NEW: Dynamically calculate combos so the matrix supports them
         df['PRA'] = df['PTS'] + df['REB'] + df['AST']
         df['PR'] = df['PTS'] + df['REB']
         df['PA'] = df['PTS'] + df['AST']
         df['RA'] = df['REB'] + df['AST']
         
-        # Create a unique key for Team + Position (e.g., LAL_PG)
         df['pos_stat'] = df['TEAM_ABBREVIATION'] + '_' + df['Position'] 
         
         categories = ['PTS', 'REB', 'AST', 'PRA', 'PR', 'PA', 'RA']
@@ -68,7 +59,6 @@ class ParlayOptimizer:
             pivot.columns = [f"{c}_{cat}" for c in pivot.columns]
             pivots.append(pivot)
         
-        # Merge and compute Pearson correlation
         combined = pd.concat(pivots, axis=1)
         corr_matrix = combined.corr()
         
@@ -76,9 +66,6 @@ class ParlayOptimizer:
         return corr_matrix
 
     def get_correlation(self, prop1: dict, prop2: dict) -> float:
-        """
-        Retrieves historical correlation between two props. Returns 0 if cross-game.
-        """
         if prop1.get('game_id') != prop2.get('game_id'):
             return 0.0
             
@@ -88,19 +75,17 @@ class ParlayOptimizer:
         try:
             return self.correlation_matrix.loc[key1, key2]
         except KeyError:
-            # Occurs if a position is missing from historical data
             return 0.0
 
     def simulate_same_game_cluster(self, cluster_props: list) -> float:
         """
-        Uses a Gaussian Copula (Monte Carlo) to determine the joint probability.
-        Utilizes caching to skip heavy computations for known clusters.
+        Uses a Gaussian Copula (Monte Carlo) to determine the true joint probability 
+        of correlated same-game events.
         """
         n = len(cluster_props)
         if n == 1:
             return cluster_props[0].get('win_prob', cluster_props[0].get('Prob', 0))
             
-        # Create a unique, order-independent cache key for this exact cluster of props
         cache_key = frozenset([
             f"{p['player_name']}_{p.get('stat_type', p.get('Prop Category', ''))}_{p['pick']}" for p in cluster_props
         ])
@@ -108,50 +93,39 @@ class ParlayOptimizer:
         if cache_key in self._simulation_cache:
             return self._simulation_cache[cache_key]
 
-        # Build covariance matrix
         cov_matrix = np.eye(n)
         for i in range(n):
             for j in range(i + 1, n):
                 corr = self.get_correlation(cluster_props[i], cluster_props[j])
-                # Flip correlation if one is Over and the other is Under
                 if cluster_props[i]['pick'] != cluster_props[j]['pick']:
                     corr = -corr
                 cov_matrix[i, j] = corr
                 cov_matrix[j, i] = corr
                 
-        # Mathematical safeguard to ensure the covariance matrix is positive semi-definite
         min_eig = np.min(np.real(np.linalg.eigvals(cov_matrix)))
         if min_eig < 0:
             cov_matrix -= 10 * min_eig * np.eye(*cov_matrix.shape)
                 
-        # Map individual win probabilities to standard normal thresholds
         thresholds = [norm.ppf(1 - prop.get('win_prob', prop.get('Prob', 0))) for prop in cluster_props]
-        
-        # Simulate Multivariant Normal Distribution
         mean = np.zeros(n)
         try:
             samples = np.random.multivariate_normal(mean, cov_matrix, self.num_simulations)
         except np.linalg.LinAlgError:
-            # Fallback to independent probability if matrix still fails
             samples = np.random.multivariate_normal(mean, np.eye(n), self.num_simulations)
         
-        # Calculate joint probability
         hits = np.all(samples > thresholds, axis=1)
         joint_prob = np.sum(hits) / self.num_simulations
         
-        # Cache and return
         self._simulation_cache[cache_key] = joint_prob
         return joint_prob
 
-    def calculate_ticket_ev(self, ticket: list) -> dict:
+    def calculate_ticket_metrics(self, ticket: list) -> dict:
         """
-        Calculates the true Expected Value (EV) of an Underdog parlay ticket.
+        Calculates the true Joint Probability of the parlay hitting.
+        EV has been completely removed.
         """
         num_legs = len(ticket)
-        if num_legs not in UNDERDOG_PAYOUTS:
-            return {'ev': -1, 'joint_prob': 0}
             
-        # Group props by game to isolate correlations
         games = {}
         for prop in ticket:
             game_id = prop.get('game_id', 'unknown')
@@ -159,46 +133,42 @@ class ParlayOptimizer:
                 games[game_id] = []
             games[game_id].append(prop)
             
-        # Compute total joint probability (cross-game = independent multiplication)
         total_joint_prob = 1.0
         for game_id, cluster in games.items():
             cluster_prob = self.simulate_same_game_cluster(cluster)
             total_joint_prob *= cluster_prob
             
-        payout_multiplier = UNDERDOG_PAYOUTS[num_legs]
-        expected_value = (total_joint_prob * payout_multiplier) - 1.0
+        payout_multiplier = UNDERDOG_PAYOUTS.get(num_legs, 0.0)
         
         return {
             'ticket': ticket,
             'legs': num_legs,
             'joint_prob': total_joint_prob,
-            'payout_multiplier': payout_multiplier,
-            'ev': expected_value
+            'payout_multiplier': payout_multiplier
         }
 
     def optimize_parlays(self, daily_props: list, min_legs=2, max_legs=8, top_n=10, beam_width=150) -> list:
         """
         Optimizes parlays using a Greedy Beam Search algorithm.
-        Saves the best tickets PER LEG COUNT to ensure a diverse output.
+        Now strictly maximizes Joint Probability.
         """
-        logger.info(f"Optimizing parlays for {len(daily_props)} props using Beam Search...")
+        logger.info(f"Optimizing parlays for {len(daily_props)} props using Probability Maximization...")
         
-        # 1. Pre-Pruning: Keep props with high win probabilities, filtering out explicit traps.
+        # 1. Strict Probability Pruning
         viable_props = []
         for p in daily_props:
             prob = p.get('win_prob', p.get('Prob', 0))
             tier = p.get('Tier', 'Pass')
             
-            # Use raw win probability as the primary filter, but explicitly avoid known high variance traps
-            if tier != 'Trap / High Variance' and prob >= 0.55:
+            # Require minimum 58% baseline probability to even be considered for a parlay
+            if tier not in ['Trap / High Variance', 'Pass / Too Volatile', 'Pass'] and prob >= 0.58:
                 viable_props.append(p)
                 
-        # Take only the absolute best to keep combinatorics manageable and quality high
         viable_props = sorted(viable_props, key=lambda x: x.get('win_prob', x.get('Prob', 0)), reverse=True)[:35]
         
-        logger.info(f"Filtered down to {len(viable_props)} core props for parlay construction based on Win Prob.")
+        logger.info(f"Filtered down to {len(viable_props)} highly consistent props for parlay construction.")
         if len(viable_props) < min_legs:
-            logger.warning("Not enough viable props to form profitable parlays today.")
+            logger.warning("Not enough viable props to form high-probability parlays today.")
             return []
 
         final_best_tickets = []
@@ -208,7 +178,6 @@ class ParlayOptimizer:
             logger.info(f"Evaluating {k}-leg combinations...")
             next_beams = []
             
-            # Expand current top tickets by 1 leg
             for base_ticket in current_beams:
                 existing_players = {p['player_name'] for p in base_ticket}
                 
@@ -220,29 +189,27 @@ class ParlayOptimizer:
                     ticket_signature = tuple(f"{p['player_name']}_{p.get('stat_type', p.get('Prop Category', ''))}_{p['pick']}" for p in new_ticket)
                     next_beams.append((ticket_signature, new_ticket))
             
-            # Deduplicate the new combinations
             unique_next_beams = {}
             for sig, ticket in next_beams:
                 if sig not in unique_next_beams:
                     unique_next_beams[sig] = ticket
                     
-            # Evaluate all unique valid tickets at this leg count
             evaluated_tickets = []
             for ticket in unique_next_beams.values():
-                ticket_eval = self.calculate_ticket_ev(ticket)
-                if ticket_eval['ev'] > 0:
+                ticket_eval = self.calculate_ticket_metrics(ticket)
+                # Keep ticket if the joint probability is non-zero
+                if ticket_eval['joint_prob'] > 0:
                     evaluated_tickets.append(ticket_eval)
             
             if not evaluated_tickets:
-                logger.info(f"No +EV paths remaining at {k} legs. Halting search.")
                 break
 
-            # SAVE THE BEST FOR THIS SPECIFIC LEG COUNT
+            # Sort strictly by Highest Likelihood of Hitting
             leg_best = sorted(evaluated_tickets, key=lambda x: x['joint_prob'], reverse=True)[:top_n]
             final_best_tickets.extend(leg_best)
             
-            # THE GREEDY CUT FOR THE NEXT BEAM
-            evaluated_tickets = sorted(evaluated_tickets, key=lambda x: x['ev'], reverse=True)[:beam_width]
+            # Feed the highest probability tickets to the next beam level
+            evaluated_tickets = sorted(evaluated_tickets, key=lambda x: x['joint_prob'], reverse=True)[:beam_width]
             current_beams = [t['ticket'] for t in evaluated_tickets]
 
         return final_best_tickets

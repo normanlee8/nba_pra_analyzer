@@ -21,6 +21,29 @@ def calculate_implied_minutes(prop_line, per_36_rate):
         return 0.0
     return (float(prop_line) / float(per_36_rate)) * 36.0
 
+def calculate_dynamic_hit_rates(past_performances, line):
+    """
+    Calculates hit rates against a specific prop line over multiple windows.
+    Essential for Probability/Consistency modeling.
+    past_performances should be ordered oldest to newest.
+    """
+    if not past_performances or pd.isna(line):
+        return {'L5_HIT_RATE': 0.0, 'L10_HIT_RATE': 0.0, 'L20_HIT_RATE': 0.0, 'SZN_HIT_RATE': 0.0}
+    
+    # Reverse so index 0 is the most recent game
+    recent = past_performances[::-1]
+    
+    hits = [1 if x >= line else 0 for x in recent]
+    
+    def safe_mean(lst):
+        return sum(lst) / len(lst) if lst else 0.0
+        
+    return {
+        'L5_HIT_RATE': safe_mean(hits[:5]),
+        'L10_HIT_RATE': safe_mean(hits[:10]),
+        'L20_HIT_RATE': safe_mean(hits[:20]),
+        'SZN_HIT_RATE': safe_mean(hits)
+    }
 
 # ====================================================================
 # ORIGINAL FUNCTIONS
@@ -140,7 +163,7 @@ def smooth_projection(raw_proj, season_avg, recent_avg, volatility):
     return final_proj
 
 # ====================================================================
-# NEW PROBABILISTIC / BETTING FUNCTIONS
+# PROBABILISTIC / BETTING FUNCTIONS
 # ====================================================================
 
 def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None):
@@ -204,15 +227,12 @@ def get_discrete_probabilities(proj, line, variance, dist_type='normal'):
 def scale_by_pace(player_proj, proj_mins, team_pace, opp_pace, prop_type='PTS', team_extra_chances=0.0, opp_extra_chances=0.0):
     """
     Adjusts projection based on projected game pace.
-    NEW: Accounts for "Extra Scoring Chances" (Rebounds + Turnovers) as synthetic pace.
     """
     if pd.isna(team_pace) or pd.isna(opp_pace) or team_pace <= 0:
         return player_proj
         
-    # Standard Pace 
     matchup_pace = (team_pace + opp_pace) / 2.0
     
-    # Calculate Synthetic Pace Adjustment from Rebounding & Turnovers
     team_extra_chances = 0.0 if pd.isna(team_extra_chances) else team_extra_chances
     opp_extra_chances = 0.0 if pd.isna(opp_extra_chances) else opp_extra_chances
     
@@ -222,7 +242,6 @@ def scale_by_pace(player_proj, proj_mins, team_pace, opp_pace, prop_type='PTS', 
     pace_modifier = adjusted_matchup_pace / team_pace
     
     if prop_type == 'REB':
-        # Rebounds scale non-linearly with pace (faster pace = lower FG% = more rebound chances)
         pace_modifier = 1.0 + ((pace_modifier - 1.0) * 1.2)
         
     return player_proj * pace_modifier

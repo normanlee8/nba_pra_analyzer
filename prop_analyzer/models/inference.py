@@ -1,5 +1,3 @@
-# prop_analyzer/models/inference.py
-
 import sys
 import pandas as pd
 import numpy as np
@@ -62,73 +60,68 @@ def get_system_learning_maps(days_back=21):
 
     return player_bias, cat_bias, cat_mae
 
-def calculate_betting_metrics(probs, odds=-110):
-    p_win, p_loss = probs['win'], probs['loss']
-    decimal_odds = 1.0 + (100.0 / abs(odds)) if odds < 0 else 1.0 + (odds / 100.0)
-    b = decimal_odds - 1.0
-    ev = (p_win * b) - p_loss
-    
-    kelly = (ev / b) * 0.25 if p_win > 0 and ev > 0 else 0.0
-    return {'EV': ev, 'Kelly': kelly, 'Implied_Odds': 1.0 / decimal_odds}
-
-def determine_ev_tier(ev, win_prob, pick_type, delta_gap, line, abs_diff):
+def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv, l10_hit_rate):
+    """
+    Strictly evaluates based on Win Probability, Hit Rates, and low Volatility.
+    EV math has been completely removed.
+    """
     tier = 'Pass'
-    ev_pct = ev * 100.0
     win_pct = win_prob * 100.0
     
-    # NEW: Dynamic Vegas Trap Check based on Line Size.
-    # Small lines (blocks, steals, low rebounds/assists) naturally have high percentage gaps.
+    # Dynamic Vegas Trap Check based on Line Size.
     is_trap = False
     if line <= 4.5:
-        # For a 1.5 line, an absolute diff of 0.8 is a 53% gap.
         if delta_gap > 0.50 and abs_diff > 1.25: is_trap = True
     elif line <= 12.5:
-        # For an 8.5 line, an absolute diff of 2.5 is a 29% gap.
         if delta_gap > 0.28 and abs_diff > 2.0: is_trap = True
     else:
-        # For a 20.5 line, an absolute diff of 4.5 is a 21% gap.
         if delta_gap > 0.20 and abs_diff > 3.5: is_trap = True
 
     if is_trap:
         return 'Trap / High Variance'
 
-    # Relaxed EV Cap - only block truly broken mathematical anomalies
-    if ev_pct > 75.0:
-        return 'Trap / High Variance'
+    # Filter out highly volatile players entirely
+    if cv > 0.40 or (pick_type == 'Over' and l10_hit_rate < 0.40):
+        return 'Pass / Too Volatile'
 
-    # Adjusted criteria to ensure S-Tier is strong
-    if ev_pct >= 15.0 and win_pct >= 66.0: tier = 'S Tier'
-    elif ev_pct >= 8.0 and win_pct >= 60.0: tier = 'A Tier'
-    elif ev_pct >= 4.0 and win_pct >= 55.0: tier = 'B Tier'
-    elif ev_pct >= 2.0 and win_pct >= 52.0: tier = 'C Tier'
-    else: tier = 'Pass'
+    # Probability-Driven Tiers
+    if win_pct >= 70.0 and cv < 0.25 and (pick_type == 'Over' and l10_hit_rate >= 0.70): 
+        tier = 'S Tier'
+    elif win_pct >= 64.0 and cv < 0.30: 
+        tier = 'A Tier'
+    elif win_pct >= 58.0 and cv < 0.35: 
+        tier = 'B Tier'
+    elif win_pct >= 54.0: 
+        tier = 'C Tier'
+    else: 
+        tier = 'Pass'
     
     return tier
 
-def evaluate_prop(proj, line, variance, prop_type, delta_gap):
+def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_hit_rate):
+    """Evaluates probability of outcome based on distribution modeling."""
     if line <= 0: return None
     dist_type = 'nbinom' if prop_type in ['REB', 'AST', 'STL', 'BLK', 'FG3M'] else 'normal'
     
     probs_over = get_discrete_probabilities(proj, line, variance, dist_type=dist_type)
-    metrics_over = calculate_betting_metrics(probs_over)
-    
     probs_under = {'win': probs_over['loss'], 'loss': probs_over['win'], 'push': probs_over['push']}
-    metrics_under = calculate_betting_metrics(probs_under)
     
-    if metrics_over['EV'] >= metrics_under['EV']:
-        pick, metrics, win_prob = 'Over', metrics_over, probs_over['win']
+    # Find the Maximum Probability Side
+    if probs_over['win'] >= probs_under['win']:
+        pick, win_prob = 'Over', probs_over['win']
+        active_hit_rate = l10_hit_rate
     else:
-        pick, metrics, win_prob = 'Under', metrics_under, probs_under['win']
+        pick, win_prob = 'Under', probs_under['win']
+        active_hit_rate = 1.0 - l10_hit_rate 
         
     abs_diff = abs(proj - line)
-    tier = determine_ev_tier(metrics['EV'], win_prob, pick, delta_gap, line, abs_diff)
+    tier = determine_confidence_tier(win_prob, pick, delta_gap, line, abs_diff, cv, active_hit_rate)
         
     return {
         'Pick': pick,
         'Win_Prob': win_prob,
-        'EV_Pct': metrics['EV'] * 100.0,
-        'Kelly': metrics['Kelly'],
-        'Tier': tier
+        'Tier': tier,
+        'Active_Hit_Rate': active_hit_rate
     }
 
 def get_col_safe(df, prop_cat, base_name):
@@ -137,7 +130,7 @@ def get_col_safe(df, prop_cat, base_name):
     return pd.Series(np.nan, index=df.index)
 
 def predict_props(todays_props_df):
-    logging.info(f"Starting EV inference for {len(todays_props_df)} props...")
+    logging.info(f"Starting Probability Inference for {len(todays_props_df)} props...")
     results = []
     
     if Cols.PROP_TYPE not in todays_props_df.columns: return pd.DataFrame()
@@ -159,14 +152,18 @@ def predict_props(todays_props_df):
         model, scaler, feature_names = artifacts['model'], artifacts['scaler'], artifacts['features']
         
         X_raw = group.copy()
-        X_model = pd.DataFrame(index=X_raw.index)
+        
         sanitized_map = {c: re.sub(r'[^\w\s]', '_', str(c)).replace(' ', '_') for c in X_raw.columns}
         inv_map = {v: k for k, v in sanitized_map.items()}
         
+        # Batch column addition to prevent DataFrame fragmentation warnings
+        new_features = {}
         for f in feature_names:
-            if f in X_raw.columns: X_model[f] = X_raw[f]
-            elif f in inv_map: X_model[f] = X_raw[inv_map[f]]
-            else: X_model[f] = 0.0 
+            if f in X_raw.columns: new_features[f] = X_raw[f]
+            elif f in inv_map: new_features[f] = X_raw[inv_map[f]]
+            else: new_features[f] = 0.0 
+            
+        X_model = pd.DataFrame(new_features, index=X_raw.index)
 
         try:
             X_scaled = scaler.transform(X_model)
@@ -176,6 +173,9 @@ def predict_props(todays_props_df):
             szn_avgs = get_col_safe(X_raw, prop_cat, 'SZN_AVG')
             l5_avgs = get_col_safe(X_raw, prop_cat, 'L5_AVG')
             stds = get_col_safe(X_raw, prop_cat, 'L10_STD_DEV')
+            cvs = get_col_safe(X_raw, prop_cat, 'L10_CV')
+            hit_rates = get_col_safe(X_raw, prop_cat, 'L10_HIT_RATE')
+            
             team_pace = get_col_safe(X_raw, prop_cat, 'GAME_PACE')
             opp_pace = get_col_safe(X_raw, prop_cat, 'OPP_GAME_PACE')
             
@@ -185,8 +185,6 @@ def predict_props(todays_props_df):
                 
                 raw_val = line + predicted_residual
                 
-                # NEW: Dynamic Skepticism Decay
-                # Don't ruthlessly regress small numbers unless the absolute difference is notable
                 abs_diff_raw = abs(raw_val - line)
                 delta_gap_raw = abs_diff_raw / line if line > 0 else 0
                 
@@ -197,7 +195,11 @@ def predict_props(todays_props_df):
                 
                 s_avg = float(szn_avgs.iloc[idx]) if not pd.isna(szn_avgs.iloc[idx]) else raw_val
                 r_avg = float(l5_avgs.iloc[idx]) if not pd.isna(l5_avgs.iloc[idx]) else raw_val
-                std_dev = float(stds.iloc[idx]) if not pd.isna(stds.iloc[idx]) else None
+                std_dev = float(stds.iloc[idx]) if not pd.isna(stds.iloc[idx]) else 1.0
+                
+                cv = float(cvs.iloc[idx]) if not pd.isna(cvs.iloc[idx]) else (std_dev / s_avg if s_avg > 0 else 0.5)
+                l10_hit_rate = float(hit_rates.iloc[idx]) if not pd.isna(hit_rates.iloc[idx]) else 0.50
+
                 t_pace = float(team_pace.iloc[idx]) if not pd.isna(team_pace.iloc[idx]) else None
                 o_pace = float(opp_pace.iloc[idx]) if not pd.isna(opp_pace.iloc[idx]) else None
                 days_rest = float(row.get(Cols.DAYS_REST, 2.0))
@@ -207,7 +209,7 @@ def predict_props(todays_props_df):
                 hist_mins = float(row.get('MIN_L10_AVG', implied_mins))
                 min_deviation = abs(implied_mins - hist_mins) / hist_mins if hist_mins > 0 else 0
 
-                proj = smooth_projection(raw_val, s_avg, r_avg, std_dev if std_dev else 1.0)
+                proj = smooth_projection(raw_val, s_avg, r_avg, std_dev)
                 proj = scale_by_pace(proj, 36.0, t_pace, o_pace, prop_type=prop_cat)
                 
                 c_bias = cat_bias.get(prop_cat, 0.0)
@@ -224,17 +226,11 @@ def predict_props(todays_props_df):
                     variance = variance * (1.0 + (historic_mae * 0.35))
 
                 delta_gap_final = abs(proj - line) / line if line > 0 else 0
-                eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap_final)
+                
+                eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap_final, cv, l10_hit_rate)
                 if not eval_res: continue
                 
-                # NEW: Volatility Check (Coefficient of Variation) 
-                # This explicitly blocks highly volatile players (like Chet) from S/A Tiers
-                cv = (std_dev / line) if (line > 0 and std_dev) else 0.0
-                
-                # UNCERTAINTY PENALTY
-                if days_rest > 7.0 or min_deviation > 0.30 or cv > 0.45:
-                    eval_res['Kelly'] = eval_res['Kelly'] * 0.5
-                    
+                if days_rest > 7.0 or min_deviation > 0.30:
                     tier_ladder = ['S Tier', 'A Tier', 'B Tier', 'C Tier', 'Pass']
                     if eval_res['Tier'] in tier_ladder:
                         current_idx = tier_ladder.index(eval_res['Tier'])
@@ -254,10 +250,10 @@ def predict_props(todays_props_df):
                     'Proj': round(proj, 2),
                     'Prob': round(eval_res['Win_Prob'], 3),
                     'Pick': eval_res['Pick'],
-                    'EV%': round(eval_res['EV_Pct'], 2),
-                    'Kelly': round(eval_res['Kelly'], 4),
+                    'Consistency_CV': round(cv, 3), 
+                    'Active_Hit%': round(eval_res['Active_Hit_Rate'] * 100.0, 1), 
                     'Tier': eval_res['Tier'],
-                    '_Sort_Diff': eval_res['EV_Pct']
+                    '_Sort_Diff': eval_res['Win_Prob'] 
                 }
                 results.append(res_dict)
 

@@ -5,10 +5,12 @@ from prop_analyzer import config as cfg
 from prop_analyzer.config import Cols
 from prop_analyzer.features import definitions as feat_defs
 from prop_analyzer.data import loader
-from prop_analyzer.features.calculator import winsorize_series, calculate_implied_minutes
+from prop_analyzer.features.calculator import (
+    winsorize_series, calculate_implied_minutes, calculate_dynamic_hit_rates
+)
 
 def add_rolling_stats_history(df, stats_to_roll=None):
-    """Calculates historical rolling features on a dataset."""
+    """Calculates historical rolling features, including new CV and Volatility metrics for consistency."""
     if Cols.PLAYER_ID not in df.columns or Cols.DATE not in df.columns:
         logging.error(f"Missing ID/Date columns. Cols found: {df.columns}")
         return df
@@ -31,41 +33,63 @@ def add_rolling_stats_history(df, stats_to_roll=None):
 
     grouped = df.groupby(Cols.PLAYER_ID)
 
-    # 1. Base Rolling Averages & Volatility
+    # Dictionary to hold new columns to prevent DataFrame fragmentation warnings
+    new_cols = {}
+
+    # 1. Base Rolling Averages & Volatility (Updated for Maximum Win Probability)
     for col in stats_to_roll:
-        df[f'{col}_WINSOR'] = grouped[col].transform(lambda x: winsorize_series(x, limit=0.10))
-        grouped_winsor = df.groupby(Cols.PLAYER_ID)[f'{col}_WINSOR']
+        winsorized = grouped[col].transform(lambda x: winsorize_series(x, limit=0.10))
+        grouped_winsor = winsorized.groupby(df[Cols.PLAYER_ID])
         
-        df[f'{col}_{Cols.SZN_AVG}'] = grouped[col].expanding().mean().shift(1).values
-        df[f'{col}_L5_AVG'] = grouped_winsor.rolling(window=5, min_periods=1).median().shift(1).values
-        df[f'{col}_L10_AVG'] = grouped_winsor.rolling(window=10, min_periods=1).median().shift(1).values
-        df[f'{col}_L20_AVG'] = grouped_winsor.rolling(window=20, min_periods=1).median().shift(1).values
+        # Averages
+        szn_avg = grouped[col].expanding().mean().shift(1).values
+        l5_avg = grouped_winsor.rolling(window=5, min_periods=1).median().shift(1).values
+        l10_avg = grouped_winsor.rolling(window=10, min_periods=1).median().shift(1).values
+        l20_avg = grouped_winsor.rolling(window=20, min_periods=1).median().shift(1).values
         
-        df[f'{col}_L10_STD_DEV'] = grouped[col].rolling(window=10, min_periods=3).std().shift(1).values
-        df[f'{col}_L10_CV'] = np.where(df[f'{col}_L10_AVG'] > 0, 
-                                       df[f'{col}_L10_STD_DEV'] / df[f'{col}_L10_AVG'], 
-                                       0.0)
+        new_cols[f'{col}_{Cols.SZN_AVG}'] = szn_avg
+        new_cols[f'{col}_L5_AVG'] = l5_avg
+        new_cols[f'{col}_L10_AVG'] = l10_avg
+        new_cols[f'{col}_L20_AVG'] = l20_avg
         
-        df[f'{col}_FORM_RATIO'] = np.where(df[f'{col}_{Cols.SZN_AVG}'] > 0, 
-                                           df[f'{col}_L5_AVG'] / df[f'{col}_{Cols.SZN_AVG}'], 
-                                           1.0)
+        # Volatility & Consistency 
+        l5_std = grouped[col].rolling(window=5, min_periods=2).std().shift(1).values
+        l10_std = grouped[col].rolling(window=10, min_periods=3).std().shift(1).values
+        l20_std = grouped[col].rolling(window=20, min_periods=5).std().shift(1).values
+
+        new_cols[f'{col}_L5_STD_DEV'] = l5_std
+        new_cols[f'{col}_L10_STD_DEV'] = l10_std
+        new_cols[f'{col}_L20_STD_DEV'] = l20_std
+
+        # FIX: Safe division to prevent RuntimeWarnings
+        new_cols[f'{col}_L5_CV'] = np.divide(l5_std, l5_avg, out=np.zeros_like(l5_std), where=(l5_avg > 0))
+        new_cols[f'{col}_L10_CV'] = np.divide(l10_std, l10_avg, out=np.zeros_like(l10_std), where=(l10_avg > 0))
+        new_cols[f'{col}_L20_CV'] = np.divide(l20_std, l20_avg, out=np.zeros_like(l20_std), where=(l20_avg > 0))
+        
+        # Form
+        form_out = np.ones_like(l5_avg)
+        new_cols[f'{col}_FORM_RATIO'] = np.divide(l5_avg, szn_avg, out=form_out, where=(szn_avg > 0))
+
+    # Attach all new stats simultaneously 
+    df = pd.concat([df, pd.DataFrame(new_cols, index=df.index)], axis=1)
 
     # 2. Contextual Splits (Rest splits only, Home/Away is managed dynamically)
     split_targets = ['PTS', 'REB', 'AST', 'PRA', 'USG_PROXY', 'MIN']
+    new_split_cols = {}
     if 'Rest_Category' in df.columns:
         for col in split_targets:
             if col in df.columns:
-                df[f'{col}_REST_SPLIT_AVG'] = df.groupby([Cols.PLAYER_ID, 'Rest_Category'])[col].transform(
-                    lambda x: x.expanding().mean().shift(1)
-                ).fillna(df[f'{col}_{Cols.SZN_AVG}'])
+                val = df.groupby([Cols.PLAYER_ID, 'Rest_Category'])[col].transform(lambda x: x.expanding().mean().shift(1))
+                new_split_cols[f'{col}_REST_SPLIT_AVG'] = val.fillna(df[f'{col}_{Cols.SZN_AVG}'])
 
-    drop_cols = [c for c in df.columns if c.endswith('_WINSOR')]
-    df.drop(columns=drop_cols, inplace=True)
+    if new_split_cols:
+        df = pd.concat([df, pd.DataFrame(new_split_cols, index=df.index)], axis=1)
 
     return df
 
+
 def build_feature_set(props_df):
-    logging.info("Building EV feature set...")
+    logging.info("Building Probability-Optimized feature set...")
     
     player_stats_static, team_stats, _ = loader.load_static_data()
     vs_opp_df = loader.load_vs_opponent_data()
@@ -73,6 +97,7 @@ def build_feature_set(props_df):
     
     if props_df.empty: return pd.DataFrame()
 
+    # Map Names to IDs
     if Cols.PLAYER_ID not in props_df.columns and player_stats_static is not None:
         name_map = player_stats_static.set_index('clean_name')[Cols.PLAYER_ID].to_dict()
         props_df['clean_name'] = props_df[Cols.PLAYER_NAME].apply(lambda x: str(x).lower().strip())
@@ -80,6 +105,7 @@ def build_feature_set(props_df):
         props_df = props_df.dropna(subset=[Cols.PLAYER_ID]).copy()
         if not props_df.empty: props_df[Cols.PLAYER_ID] = props_df[Cols.PLAYER_ID].astype('int64')
 
+    # Base Time Series Merge
     if box_scores is not None and not box_scores.empty:
         box_scores[Cols.PLAYER_ID] = box_scores[Cols.PLAYER_ID].fillna(0).astype('int64')
         if Cols.DATE in box_scores.columns: box_scores[Cols.DATE] = pd.to_datetime(box_scores[Cols.DATE])
@@ -103,6 +129,55 @@ def build_feature_set(props_df):
     else:
         features_df = pd.merge(props_df, player_stats_static, on=Cols.PLAYER_ID, how='left')
 
+
+    # ====================================================================
+    # NEW: DYNAMIC HIT RATES AGAINST TODAY'S LINES
+    # ====================================================================
+    if box_scores is not None and not box_scores.empty:
+        logging.info("Calculating dynamic line hit rates against today's odds...")
+        bs_sorted = box_scores.sort_values(Cols.DATE)
+        
+        # Include_groups=False fixes the Pandas FutureWarning
+        player_histories = bs_sorted.groupby(Cols.PLAYER_ID).apply(
+            lambda df: df.to_dict('records'), include_groups=False
+        ).to_dict()
+
+        def compute_row_hit_rates(row, stat_col, line_col):
+            pid = row.get(Cols.PLAYER_ID)
+            dt = row.get(Cols.DATE)
+            line = row.get(line_col)
+            
+            if pd.isna(pid) or pd.isna(line) or pid not in player_histories:
+                return pd.Series([0.0, 0.0, 0.0, 0.0])
+                
+            hist = player_histories[pid]
+            past_games = [g for g in hist if g[Cols.DATE] < dt]
+            if not past_games:
+                 return pd.Series([0.0, 0.0, 0.0, 0.0])
+                 
+            stats = [g[stat_col] for g in past_games if stat_col in g and not pd.isna(g[stat_col])]
+            rates = calculate_dynamic_hit_rates(stats, line)
+            return pd.Series([
+                rates['L5_HIT_RATE'], rates['L10_HIT_RATE'], rates['L20_HIT_RATE'], rates['SZN_HIT_RATE']
+            ])
+
+        # Batch hit rates together
+        if 'PROP_TYPE' in features_df.columns and 'LINE' in features_df.columns:
+            hr_cols = ['L5_HIT_RATE', 'L10_HIT_RATE', 'L20_HIT_RATE', 'SZN_HIT_RATE']
+            features_df[hr_cols] = features_df.apply(
+                lambda row: compute_row_hit_rates(row, row.get('PROP_TYPE'), 'LINE'), axis=1
+            )
+            
+        for stat in ['PTS', 'REB', 'AST', 'PRA', 'PR', 'PA', 'RA']:
+            line_col = f'{stat}_LINE'
+            if line_col in features_df.columns:
+                hr_cols = [f'{stat}_L5_HIT_RATE', f'{stat}_L10_HIT_RATE', f'{stat}_L20_HIT_RATE', f'{stat}_SZN_HIT_RATE']
+                features_df[hr_cols] = features_df.apply(
+                    lambda row: compute_row_hit_rates(row, stat, line_col), axis=1
+                )
+
+
+    # Merge Team Context
     if 'TEAM_ABBREVIATION' not in features_df.columns and Cols.TEAM in features_df.columns:
         features_df['TEAM_ABBREVIATION'] = features_df[Cols.TEAM]
         
@@ -116,11 +191,11 @@ def build_feature_set(props_df):
         opp_stats_renamed = team_stats.add_prefix('OPP_')
         features_df = pd.merge(features_df, opp_stats_renamed, left_on=Cols.OPPONENT, right_index=True, how='left')
 
-    # Establish if the player is playing at Home today based on their matchup string
+    # Establish Location
     if 'MATCHUP' in features_df.columns and 'IS_HOME' not in features_df.columns:
         features_df['IS_HOME'] = np.where(features_df['MATCHUP'].str.contains('@'), 0, 1)
     elif 'IS_HOME' not in features_df.columns:
-        features_df['IS_HOME'] = 1  # Failsafe if we don't know the location
+        features_df['IS_HOME'] = 1  
 
     # Mapping Pace
     if 'TEAM_Possessions per Game' in features_df.columns:
@@ -134,11 +209,9 @@ def build_feature_set(props_df):
         features_df[c] = features_df[c].fillna(0.0)
 
     # --- Home/Away Split Inference Overwrite ---
-    # We look up the current season splits and enforce them on today's games!
     splits_path = cfg.DATA_DIR / "master_home_away_splits.parquet"
     if splits_path.exists():
         splits_df = pd.read_parquet(splits_path)
-        # Grab the most recent season splits
         if 'SEASON_ID' in splits_df.columns:
             latest_szn = splits_df['SEASON_ID'].max()
             splits_df = splits_df[splits_df['SEASON_ID'] == latest_szn].drop(columns=['SEASON_ID', Cols.PLAYER_NAME], errors='ignore')
@@ -148,26 +221,19 @@ def build_feature_set(props_df):
         stat_cols = ['PTS', 'REB', 'AST', 'PRA', 'MIN']
         for col in stat_cols:
             if f'{col}_HOME' in features_df.columns and f'{col}_AWAY' in features_df.columns:
-                # Fills any missing lookup data with 0.0
                 features_df[f'{col}_HOME'] = features_df[f'{col}_HOME'].fillna(0.0)
                 features_df[f'{col}_AWAY'] = features_df[f'{col}_AWAY'].fillna(0.0)
                 features_df[f'{col}_DIFF'] = features_df[f'{col}_DIFF'].fillna(0.0)
                 
-                # Apply the specific split average based on today's location
                 features_df[f'{col}_SPLIT_AVG'] = np.where(
                     features_df['IS_HOME'] == 1,
                     features_df[f'{col}_HOME'],
                     features_df[f'{col}_AWAY']
                 )
 
-        # Composite Splits for PR, PA, RA combos
         features_df['PR_SPLIT_AVG'] = features_df.get('PTS_SPLIT_AVG', 0) + features_df.get('REB_SPLIT_AVG', 0)
         features_df['PA_SPLIT_AVG'] = features_df.get('PTS_SPLIT_AVG', 0) + features_df.get('AST_SPLIT_AVG', 0)
         features_df['RA_SPLIT_AVG'] = features_df.get('REB_SPLIT_AVG', 0) + features_df.get('AST_SPLIT_AVG', 0)
-
-        features_df['PR_DIFF'] = features_df.get('PTS_DIFF', 0) + features_df.get('REB_DIFF', 0)
-        features_df['PA_DIFF'] = features_df.get('PTS_DIFF', 0) + features_df.get('AST_DIFF', 0)
-        features_df['RA_DIFF'] = features_df.get('REB_DIFF', 0) + features_df.get('AST_DIFF', 0)
 
     # Imputation for Advanced Stats
     advanced_stats = [

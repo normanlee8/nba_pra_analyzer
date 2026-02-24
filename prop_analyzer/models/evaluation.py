@@ -1,13 +1,13 @@
 import pandas as pd
 import numpy as np
 import logging
+from sklearn.metrics import brier_score_loss
 from prop_analyzer import config as cfg
 from prop_analyzer.config import Cols
 from prop_analyzer.utils import text
 
 def calculate_derived_stats(df):
     """Calculates composite stats (PRA, PA, etc.) from raw box score columns."""
-    # Ensure base stats are numeric for ESPN API calculations
     for stat in ['PTS', 'REB', 'AST']:
         if stat in df.columns:
             df[stat] = pd.to_numeric(df[stat], errors='coerce').fillna(0)
@@ -44,14 +44,12 @@ def check_prop_row(row):
     
     res = 'Over' if actual > line else ('Under' if actual < line else 'Push')
     
-    # Check Pick from inference ('Pick' instead of 'Edge_Type' based on new inference.py)
     my_pick = row.get('Pick', row.get(Cols.EDGE_TYPE)) 
     
     correctness = 'Incorrect'
     if res == 'Push': correctness = 'Push'
     elif res == my_pick: correctness = 'Correct'
 
-    # Continuous Error Calculation (Actual - Projected)
     proj = row.get('Proj')
     error = np.nan
     if not pd.isna(proj):
@@ -94,23 +92,19 @@ def grade_predictions():
     date_col_box = Cols.DATE if Cols.DATE in df_box.columns else 'GAME_DATE'
     df_box['join_date'] = pd.to_datetime(df_box[date_col_box], errors='coerce').dt.strftime('%Y-%m-%d')
     
-    # Apply calculated stats correctly
     df_box = calculate_derived_stats(df_box)
-
     df_merged = pd.merge(df_props, df_box, on=['join_player', 'join_date'], how='left', suffixes=('', '_box'))
 
     out_cols = [Cols.ACTUAL_VAL, Cols.RESULT, Cols.CORRECTNESS, 'Proj_Error']
     df_merged[out_cols] = df_merged.apply(check_prop_row, axis=1)
     
     try:
-        # Save historical record
         save_path = cfg.GRADED_DIR / f"graded_props_{pd.Timestamp.now().strftime('%Y-%m-%d')}.parquet"
         df_merged.to_parquet(save_path, index=False)
         logging.info(f"Graded results saved to {save_path.name}")
     except Exception as e:
         logging.error(f"Failed to save grading results: {e}")
     
-    # 6. Performance Summary Report
     if Cols.CORRECTNESS in df_merged.columns:
         graded = df_merged[df_merged[Cols.CORRECTNESS].isin(['Correct', 'Incorrect'])].copy()
         
@@ -120,17 +114,20 @@ def grade_predictions():
                 correct = len(subset[subset[Cols.CORRECTNESS] == 'Correct'])
                 acc = (correct / total) * 100
                 
-                # Calculate Continuous Errors
-                valid_errors = subset['Proj_Error'].dropna()
-                mae = np.abs(valid_errors).mean() if not valid_errors.empty else 0.0
-                rmse = np.sqrt((valid_errors**2).mean()) if not valid_errors.empty else 0.0
+                # Brier Score for Probability Accuracy
+                brier_str = "N/A"
+                if 'Prob' in subset.columns:
+                    y_true = (subset[Cols.CORRECTNESS] == 'Correct').astype(int)
+                    y_prob = pd.to_numeric(subset['Prob'], errors='coerce').fillna(0.5)
+                    brier = brier_score_loss(y_true, y_prob)
+                    brier_str = f"{brier:.3f}"
                 
-                logging.info(f"[{label}] Acc: {acc:.2f}% ({correct}/{total}) | MAE: {mae:.2f} | RMSE: {rmse:.2f}")
+                logging.info(f"[{label}] Acc: {acc:.2f}% ({correct}/{total}) | Brier: {brier_str}")
             else:
                 logging.info(f"[{label}] No graded data available.")
 
         logging.info("-" * 50)
-        logging.info("PERFORMANCE SUMMARY (Win Rate & Projection Error)")
+        logging.info("PERFORMANCE SUMMARY (Win Rate & Probability Accuracy)")
         
         log_performance(graded, "Total Graded Props")
         
@@ -140,7 +137,6 @@ def grade_predictions():
                 if not tier_df.empty:
                     log_performance(tier_df, f"{tier} Props")
                     
-        # --- CATEGORY PERFORMANCE SUMMARY ---
         logging.info("--- PERFORMANCE BY CATEGORY ---")
         graded['Mapped_Prop'] = graded[Cols.PROP_TYPE].map(lambda x: cfg.MASTER_PROP_MAP.get(x, x))
         categories = ['PTS', 'REB', 'AST', 'PRA', 'PR', 'PA', 'RA']

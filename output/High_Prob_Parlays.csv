@@ -1,0 +1,71 @@
+Legs,Joint Prob,Payout,Picks
+2,0.6591,3.0x,Donovan Clingan Under 13.0 REB | Scoot Henderson Under 21.5 PA
+2,0.6577,3.0x,Evan Mobley Over 20.5 PR | James Harden Over 5.5 AST
+2,0.6533,3.0x,Evan Mobley Over 20.5 PR | James Harden Over 26.5 PA
+2,0.65,3.0x,Derrick White Over 5.5 AST | Payton Pritchard Over 8.5 RA
+2,0.6466,3.0x,Evan Mobley Over 20.5 PR | James Harden Over 12.5 RA
+2,0.6386,3.0x,Bam Adebayo Under 9.5 REB | Tyler Herro Under 3.5 AST
+2,0.6315,3.0x,Anthony Black Under 4.0 AST | Desmond Bane Under 4.0 REB
+2,0.62046,3.0x,Grayson Allen Over 19.5 PR | Mitchell Robinson Under 1.5 AST
+2,0.59616,3.0x,Grayson Allen Over 19.5 PR | Max Christie Over 1.5 AST
+2,0.5945400000000001,3.0x,Grayson Allen Over 19.5 PR | Luke Kennard Over 8.5 PR
+3,0.5338710000000001,6.0x,Donovan Clingan Under 13.0 REB | Grayson Allen Over 19.5 PR | Scoot Henderson Under 21.5 PA
+3,0.532737,6.0x,Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 5.5 AST
+3,0.529173,6.0x,Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 26.5 PA
+3,0.523746,6.0x,Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 12.5 RA
+3,0.5218,6.0x,Derrick White Over 5.5 AST | Grayson Allen Over 19.5 PR | Payton Pritchard Over 8.5 RA
+3,0.517266,6.0x,Bam Adebayo Under 9.5 REB | Grayson Allen Over 19.5 PR | Tyler Herro Under 3.5 AST
+3,0.5115149999999999,6.0x,Anthony Black Under 4.0 AST | Desmond Bane Under 4.0 REB | Grayson Allen Over 19.5 PR
+3,0.5048706000000001,6.0x,Donovan Clingan Under 13.0 REB | Mitchell Robinson Under 1.5 AST | Scoot Henderson Under 21.5 PA
+3,0.5037982,6.0x,Evan Mobley Over 20.5 PR | James Harden Over 5.5 AST | Mitchell Robinson Under 1.5 AST
+3,0.500916,6.0x,Donovan Clingan Under 13.0 REB | Grayson Allen Over 19.5 PA | Scoot Henderson Under 21.5 PA
+4,0.43349007,10.0x,Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | James Harden Over 5.5 AST | Scoot Henderson Under 21.5 PA
+4,0.43059003,10.0x,Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | James Harden Over 26.5 PA | Scoot Henderson Under 21.5 PA
+4,0.42841500000000005,10.0x,Derrick White Over 5.5 AST | Donovan Clingan Under 13.0 REB | Payton Pritchard Over 8.5 RA | Scoot Henderson Under 21.5 PA
+4,0.42750499999999997,10.0x,Derrick White Over 5.5 AST | Evan Mobley Over 20.5 PR | James Harden Over 5.5 AST | Payton Pritchard Over 8.5 RA
+4,0.42617405999999997,10.0x,Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | James Harden Over 12.5 RA | Scoot Henderson Under 21.5 PA
+4,0.424645,10.0x,Derrick White Over 5.5 AST | Evan Mobley Over 20.5 PR | James Harden Over 26.5 PA | Payton Pritchard Over 8.5 RA
+4,0.42090126,10.0x,Bam Adebayo Under 9.5 REB | Donovan Clingan Under 13.0 REB | Scoot Henderson Under 21.5 PA | Tyler Herro Under 3.5 AST
+4,0.42000721999999996,10.0x,Bam Adebayo Under 9.5 REB | Evan Mobley Over 20.5 PR | James Harden Over 5.5 AST | Tyler Herro Under 3.5 AST
+4,0.41719737999999995,10.0x,Bam Adebayo Under 9.5 REB | Evan Mobley Over 20.5 PR | James Harden Over 26.5 PA | Tyler Herro Under 3.5 AST
+4,0.41622165,10.0x,Anthony Black Under 4.0 AST | Desmond Bane Under 4.0 REB | Donovan Clingan Under 13.0 REB | Scoot Henderson Under 21.5 PA
+5,0.35112695670000005,20.0x,Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 5.5 AST | Scoot Henderson Under 21.5 PA
+5,0.34877792430000004,20.0x,Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 26.5 PA | Scoot Henderson Under 21.5 PA
+5,0.3452009886,20.0x,Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 12.5 RA | Scoot Henderson Under 21.5 PA
+5,0.34391838,20.0x,Derrick White Over 5.5 AST | Donovan Clingan Under 13.0 REB | Grayson Allen Over 19.5 PR | Payton Pritchard Over 8.5 RA | Scoot Henderson Under 21.5 PA
+5,0.34318786,20.0x,Derrick White Over 5.5 AST | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 5.5 AST | Payton Pritchard Over 8.5 RA
+5,0.3409300206,20.0x,Bam Adebayo Under 9.5 REB | Donovan Clingan Under 13.0 REB | Grayson Allen Over 19.5 PR | Scoot Henderson Under 21.5 PA | Tyler Herro Under 3.5 AST
+5,0.34089194,20.0x,Derrick White Over 5.5 AST | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 26.5 PA | Payton Pritchard Over 8.5 RA
+5,0.3402058482,20.0x,Bam Adebayo Under 9.5 REB | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 5.5 AST | Tyler Herro Under 3.5 AST
+5,0.3379298778,20.0x,Bam Adebayo Under 9.5 REB | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 26.5 PA | Tyler Herro Under 3.5 AST
+5,0.3371395365,20.0x,Anthony Black Under 4.0 AST | Desmond Bane Under 4.0 REB | Donovan Clingan Under 13.0 REB | Grayson Allen Over 19.5 PR | Scoot Henderson Under 21.5 PA
+6,0.2817685455,25.0x,Derrick White Over 5.5 AST | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | James Harden Over 5.5 AST | Payton Pritchard Over 8.5 RA | Scoot Henderson Under 21.5 PA
+6,0.2798835195,25.0x,Derrick White Over 5.5 AST | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | James Harden Over 26.5 PA | Payton Pritchard Over 8.5 RA | Scoot Henderson Under 21.5 PA
+6,0.27682675870199996,25.0x,Bam Adebayo Under 9.5 REB | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | James Harden Over 5.5 AST | Scoot Henderson Under 21.5 PA | Tyler Herro Under 3.5 AST
+6,0.274974793158,25.0x,Bam Adebayo Under 9.5 REB | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | James Harden Over 26.5 PA | Scoot Henderson Under 21.5 PA | Tyler Herro Under 3.5 AST
+6,0.271917603945,25.0x,Anthony Black Under 4.0 AST | Desmond Bane Under 4.0 REB | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | James Harden Over 26.5 PA | Scoot Henderson Under 21.5 PA
+6,0.2689632488322,25.0x,Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 5.5 AST | Mitchell Robinson Under 1.5 AST | Scoot Henderson Under 21.5 PA
+6,0.26716389001380003,25.0x,Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 26.5 PA | Mitchell Robinson Under 1.5 AST | Scoot Henderson Under 21.5 PA
+6,0.2644239572676,25.0x,Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 12.5 RA | Mitchell Robinson Under 1.5 AST | Scoot Henderson Under 21.5 PA
+6,0.26344147908000004,25.0x,Derrick White Over 5.5 AST | Donovan Clingan Under 13.0 REB | Grayson Allen Over 19.5 PR | Mitchell Robinson Under 1.5 AST | Payton Pritchard Over 8.5 RA | Scoot Henderson Under 21.5 PA
+6,0.26288190076,25.0x,Derrick White Over 5.5 AST | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 5.5 AST | Mitchell Robinson Under 1.5 AST | Payton Pritchard Over 8.5 RA
+7,0.226195118526,40.0x,Derrick White Over 5.5 AST | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 5.5 AST | Payton Pritchard Over 8.5 RA | Scoot Henderson Under 21.5 PA
+7,0.22468187765400002,40.0x,Derrick White Over 5.5 AST | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 26.5 PA | Payton Pritchard Over 8.5 RA | Scoot Henderson Under 21.5 PA
+7,0.22422967454861997,40.0x,Bam Adebayo Under 9.5 REB | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 5.5 AST | Scoot Henderson Under 21.5 PA | Tyler Herro Under 3.5 AST
+7,0.22272958245798002,40.0x,Bam Adebayo Under 9.5 REB | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 26.5 PA | Scoot Henderson Under 21.5 PA | Tyler Herro Under 3.5 AST
+7,0.22025325919545,40.0x,Anthony Black Under 4.0 AST | Desmond Bane Under 4.0 REB | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 26.5 PA | Scoot Henderson Under 21.5 PA
+7,0.21583470585300002,40.0x,Derrick White Over 5.5 AST | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | James Harden Over 5.5 AST | Mitchell Robinson Under 1.5 AST | Payton Pritchard Over 8.5 RA | Scoot Henderson Under 21.5 PA
+7,0.21509777273399996,40.0x,Derrick White Over 5.5 AST | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PA | James Harden Over 5.5 AST | Payton Pritchard Over 8.5 RA | Scoot Henderson Under 21.5 PA
+7,0.214390775937,40.0x,Derrick White Over 5.5 AST | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | James Harden Over 26.5 PA | Mitchell Robinson Under 1.5 AST | Payton Pritchard Over 8.5 RA | Scoot Henderson Under 21.5 PA
+7,0.213658772886,40.0x,Derrick White Over 5.5 AST | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PA | James Harden Over 26.5 PA | Payton Pritchard Over 8.5 RA | Scoot Henderson Under 21.5 PA
+7,0.212496832314,40.0x,Derrick White Over 5.5 AST | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | Grayson Allen Over 22.5 PRA | James Harden Over 5.5 AST | Payton Pritchard Over 8.5 RA | Scoot Henderson Under 21.5 PA
+8,0.1799373931563,80.0x,Bam Adebayo Under 9.5 REB | Derrick White Over 5.5 AST | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | James Harden Over 5.5 AST | Payton Pritchard Over 8.5 RA | Scoot Henderson Under 21.5 PA | Tyler Herro Under 3.5 AST
+8,0.1787336155527,80.0x,Bam Adebayo Under 9.5 REB | Derrick White Over 5.5 AST | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | James Harden Over 26.5 PA | Payton Pritchard Over 8.5 RA | Scoot Henderson Under 21.5 PA | Tyler Herro Under 3.5 AST
+8,0.17793683648324998,80.0x,Anthony Black Under 4.0 AST | Derrick White Over 5.5 AST | Desmond Bane Under 4.0 REB | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | James Harden Over 5.5 AST | Payton Pritchard Over 8.5 RA | Scoot Henderson Under 21.5 PA
+8,0.17674644256425,80.0x,Anthony Black Under 4.0 AST | Derrick White Over 5.5 AST | Desmond Bane Under 4.0 REB | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | James Harden Over 26.5 PA | Payton Pritchard Over 8.5 RA | Scoot Henderson Under 21.5 PA
+8,0.173265460790916,80.0x,Derrick White Over 5.5 AST | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 5.5 AST | Mitchell Robinson Under 1.5 AST | Payton Pritchard Over 8.5 RA | Scoot Henderson Under 21.5 PA
+8,0.17210631828296402,80.0x,Derrick White Over 5.5 AST | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 26.5 PA | Mitchell Robinson Under 1.5 AST | Payton Pritchard Over 8.5 RA | Scoot Henderson Under 21.5 PA
+8,0.1717599307042429,80.0x,Bam Adebayo Under 9.5 REB | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 5.5 AST | Mitchell Robinson Under 1.5 AST | Scoot Henderson Under 21.5 PA | Tyler Herro Under 3.5 AST
+8,0.1706108601628127,80.0x,Bam Adebayo Under 9.5 REB | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 26.5 PA | Mitchell Robinson Under 1.5 AST | Scoot Henderson Under 21.5 PA | Tyler Herro Under 3.5 AST
+8,0.1687139965437147,80.0x,Anthony Black Under 4.0 AST | Desmond Bane Under 4.0 REB | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 26.5 PA | Mitchell Robinson Under 1.5 AST | Scoot Henderson Under 21.5 PA
+8,0.166479607235136,80.0x,Derrick White Over 5.5 AST | Donovan Clingan Under 13.0 REB | Evan Mobley Over 20.5 PR | Grayson Allen Over 19.5 PR | James Harden Over 5.5 AST | Max Christie Over 1.5 AST | Payton Pritchard Over 8.5 RA | Scoot Henderson Under 21.5 PA
