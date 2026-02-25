@@ -60,10 +60,9 @@ def get_system_learning_maps(days_back=21):
 
     return player_bias, cat_bias, cat_mae
 
-def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv, l10_hit_rate):
+def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games):
     """
-    Strictly evaluates based on Win Probability, Hit Rates, and low Volatility.
-    EV math has been completely removed.
+    Strictly evaluates based on Win Probability, Hit Rates, low Volatility, and Matchup History.
     """
     tier = 'Pass'
     win_pct = win_prob * 100.0
@@ -84,6 +83,17 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
     if cv > 0.40 or (pick_type == 'Over' and l10_hit_rate < 0.40):
         return 'Pass / Too Volatile'
 
+    # NEW: Matchup-Specific Filter (The Coulibaly / Adebayo Check)
+    if vs_opp_games >= 3:
+        if pick_type == 'Over' and vs_opp_hit_rate <= 0.33:
+            return 'Pass / Bad Matchup History'
+        if pick_type == 'Under' and vs_opp_hit_rate >= 0.66:
+            return 'Pass / Bad Matchup History'
+            
+        # Optional: Boost tier if they own this matchup (Coulibaly logic)
+        if pick_type == 'Over' and vs_opp_hit_rate == 1.0:
+            win_pct += 5.0 # Artificial confidence boost for perfect matchup history
+
     # Probability-Driven Tiers
     if win_pct >= 70.0 and cv < 0.25 and (pick_type == 'Over' and l10_hit_rate >= 0.70): 
         tier = 'S Tier'
@@ -98,7 +108,7 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
     
     return tier
 
-def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_hit_rate):
+def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games):
     """Evaluates probability of outcome based on distribution modeling."""
     if line <= 0: return None
     dist_type = 'nbinom' if prop_type in ['REB', 'AST', 'STL', 'BLK', 'FG3M'] else 'normal'
@@ -115,7 +125,7 @@ def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_hit_rate):
         active_hit_rate = 1.0 - l10_hit_rate 
         
     abs_diff = abs(proj - line)
-    tier = determine_confidence_tier(win_prob, pick, delta_gap, line, abs_diff, cv, active_hit_rate)
+    tier = determine_confidence_tier(win_prob, pick, delta_gap, line, abs_diff, cv, active_hit_rate, vs_opp_hit_rate, vs_opp_games)
         
     return {
         'Pick': pick,
@@ -176,6 +186,10 @@ def predict_props(todays_props_df):
             cvs = get_col_safe(X_raw, prop_cat, 'L10_CV')
             hit_rates = get_col_safe(X_raw, prop_cat, 'L10_HIT_RATE')
             
+            # Extract Matchup Stats
+            vs_opp_hit_rates = get_col_safe(X_raw, prop_cat, 'VS_OPP_HIT_RATE')
+            vs_opp_games_counts = get_col_safe(X_raw, prop_cat, 'VS_OPP_GAMES_COUNT')
+            
             team_pace = get_col_safe(X_raw, prop_cat, 'GAME_PACE')
             opp_pace = get_col_safe(X_raw, prop_cat, 'OPP_GAME_PACE')
             
@@ -199,6 +213,9 @@ def predict_props(todays_props_df):
                 
                 cv = float(cvs.iloc[idx]) if not pd.isna(cvs.iloc[idx]) else (std_dev / s_avg if s_avg > 0 else 0.5)
                 l10_hit_rate = float(hit_rates.iloc[idx]) if not pd.isna(hit_rates.iloc[idx]) else 0.50
+                
+                vs_opp_hit_rate = float(vs_opp_hit_rates.iloc[idx]) if not pd.isna(vs_opp_hit_rates.iloc[idx]) else 0.50
+                vs_opp_games = int(vs_opp_games_counts.iloc[idx]) if not pd.isna(vs_opp_games_counts.iloc[idx]) else 0
 
                 t_pace = float(team_pace.iloc[idx]) if not pd.isna(team_pace.iloc[idx]) else None
                 o_pace = float(opp_pace.iloc[idx]) if not pd.isna(opp_pace.iloc[idx]) else None
@@ -227,7 +244,7 @@ def predict_props(todays_props_df):
 
                 delta_gap_final = abs(proj - line) / line if line > 0 else 0
                 
-                eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap_final, cv, l10_hit_rate)
+                eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap_final, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games)
                 if not eval_res: continue
                 
                 if days_rest > 7.0 or min_deviation > 0.30:
@@ -252,6 +269,7 @@ def predict_props(todays_props_df):
                     'Pick': eval_res['Pick'],
                     'Consistency_CV': round(cv, 3), 
                     'Active_Hit%': round(eval_res['Active_Hit_Rate'] * 100.0, 1), 
+                    'Matchup_Hit%': round(vs_opp_hit_rate * 100.0, 1) if vs_opp_games > 0 else 'N/A',
                     'Tier': eval_res['Tier'],
                     '_Sort_Diff': eval_res['Win_Prob'] 
                 }

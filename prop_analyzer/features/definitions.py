@@ -11,6 +11,7 @@ BASE_FEATURE_COLS = [
     # Volatility & Distribution Metrics (Crucial for EV Math)
     'L10_STD_DEV', 'L10_CV',
     'L10_HitRate_10', 'L10_HitRate_15', 'L10_HitRate_20', 'L10_HitRate_25', 'L10_HitRate_30',
+    'VS_OPP_HIT_RATE', 'VS_OPP_GAMES_COUNT', # NEW: Matchup Filters
     
     # Contextual Splits
     'REST_SPLIT_AVG', 'IS_HOME', 'Days_Rest',
@@ -59,8 +60,6 @@ HIST_FEATURES = [
 ]
 
 # --- MAPPINGS ---
-# Smartly isolating the new metrics specifically to the prop types they influence
-# We now include targeted SPLIT_AVG and DIFF features to detect Home/Away variance
 PROP_FEATURE_MAP = {
     'PTS': ['PTS', 'PRA', 'PR', 'PA', 'USG_PROXY', 'TS_PCT', 'GAME_PACE', 'OPP_GAME_PACE',
             'PTS_SPLIT_AVG', 'PTS_DIFF', 'MIN_SPLIT_AVG',

@@ -61,7 +61,7 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         new_cols[f'{col}_L10_STD_DEV'] = l10_std
         new_cols[f'{col}_L20_STD_DEV'] = l20_std
 
-        # FIX: Safe division to prevent RuntimeWarnings
+        # Safe division to prevent RuntimeWarnings
         new_cols[f'{col}_L5_CV'] = np.divide(l5_std, l5_avg, out=np.zeros_like(l5_std), where=(l5_avg > 0))
         new_cols[f'{col}_L10_CV'] = np.divide(l10_std, l10_avg, out=np.zeros_like(l10_std), where=(l10_avg > 0))
         new_cols[f'{col}_L20_CV'] = np.divide(l20_std, l20_avg, out=np.zeros_like(l20_std), where=(l20_avg > 0))
@@ -131,13 +131,12 @@ def build_feature_set(props_df):
 
 
     # ====================================================================
-    # NEW: DYNAMIC HIT RATES AGAINST TODAY'S LINES
+    # DYNAMIC HIT RATES AGAINST TODAY'S LINES & OPPONENT MATCHUPS
     # ====================================================================
     if box_scores is not None and not box_scores.empty:
-        logging.info("Calculating dynamic line hit rates against today's odds...")
+        logging.info("Calculating dynamic line hit rates against today's odds and opponent...")
         bs_sorted = box_scores.sort_values(Cols.DATE)
         
-        # Include_groups=False fixes the Pandas FutureWarning
         player_histories = bs_sorted.groupby(Cols.PLAYER_ID).apply(
             lambda df: df.to_dict('records'), include_groups=False
         ).to_dict()
@@ -146,24 +145,35 @@ def build_feature_set(props_df):
             pid = row.get(Cols.PLAYER_ID)
             dt = row.get(Cols.DATE)
             line = row.get(line_col)
+            opp = row.get(Cols.OPPONENT)
             
+            # Default return with 6 values (adding the 2 matchup stats)
             if pd.isna(pid) or pd.isna(line) or pid not in player_histories:
-                return pd.Series([0.0, 0.0, 0.0, 0.0])
+                return pd.Series([0.0, 0.0, 0.0, 0.0, 0.5, 0.0])
                 
             hist = player_histories[pid]
             past_games = [g for g in hist if g[Cols.DATE] < dt]
             if not past_games:
-                 return pd.Series([0.0, 0.0, 0.0, 0.0])
+                 return pd.Series([0.0, 0.0, 0.0, 0.0, 0.5, 0.0])
                  
+            # General Hit Rates
             stats = [g[stat_col] for g in past_games if stat_col in g and not pd.isna(g[stat_col])]
             rates = calculate_dynamic_hit_rates(stats, line)
+            
+            # Matchup-Specific Hit Rates
+            past_matchups = [g for g in past_games if g.get(Cols.OPPONENT) == opp]
+            matchup_stats = [g[stat_col] for g in past_matchups if stat_col in g and not pd.isna(g[stat_col])]
+            matchup_games_count = len(matchup_stats)
+            vs_opp_hit_rate = sum(1 for x in matchup_stats if x >= line) / matchup_games_count if matchup_games_count > 0 else 0.50
+            
             return pd.Series([
-                rates['L5_HIT_RATE'], rates['L10_HIT_RATE'], rates['L20_HIT_RATE'], rates['SZN_HIT_RATE']
+                rates['L5_HIT_RATE'], rates['L10_HIT_RATE'], rates['L20_HIT_RATE'], rates['SZN_HIT_RATE'],
+                vs_opp_hit_rate, float(matchup_games_count)
             ])
 
         # Batch hit rates together
         if 'PROP_TYPE' in features_df.columns and 'LINE' in features_df.columns:
-            hr_cols = ['L5_HIT_RATE', 'L10_HIT_RATE', 'L20_HIT_RATE', 'SZN_HIT_RATE']
+            hr_cols = ['L5_HIT_RATE', 'L10_HIT_RATE', 'L20_HIT_RATE', 'SZN_HIT_RATE', 'VS_OPP_HIT_RATE', 'VS_OPP_GAMES_COUNT']
             features_df[hr_cols] = features_df.apply(
                 lambda row: compute_row_hit_rates(row, row.get('PROP_TYPE'), 'LINE'), axis=1
             )
@@ -171,11 +181,10 @@ def build_feature_set(props_df):
         for stat in ['PTS', 'REB', 'AST', 'PRA', 'PR', 'PA', 'RA']:
             line_col = f'{stat}_LINE'
             if line_col in features_df.columns:
-                hr_cols = [f'{stat}_L5_HIT_RATE', f'{stat}_L10_HIT_RATE', f'{stat}_L20_HIT_RATE', f'{stat}_SZN_HIT_RATE']
+                hr_cols = [f'{stat}_L5_HIT_RATE', f'{stat}_L10_HIT_RATE', f'{stat}_L20_HIT_RATE', f'{stat}_SZN_HIT_RATE', f'{stat}_VS_OPP_HIT_RATE', f'{stat}_VS_OPP_GAMES_COUNT']
                 features_df[hr_cols] = features_df.apply(
                     lambda row: compute_row_hit_rates(row, stat, line_col), axis=1
                 )
-
 
     # Merge Team Context
     if 'TEAM_ABBREVIATION' not in features_df.columns and Cols.TEAM in features_df.columns:
@@ -190,6 +199,15 @@ def build_feature_set(props_df):
         
         opp_stats_renamed = team_stats.add_prefix('OPP_')
         features_df = pd.merge(features_df, opp_stats_renamed, left_on=Cols.OPPONENT, right_index=True, how='left')
+
+    # ====================================================================
+    # NEW: MERGE VS OPPONENT HISTORICAL DATA
+    # ====================================================================
+    if vs_opp_df is not None and not vs_opp_df.empty:
+        logging.info("Merging historical VS Opponent stats...")
+        if Cols.OPPONENT in features_df.columns and Cols.OPPONENT in vs_opp_df.columns:
+            features_df = pd.merge(features_df, vs_opp_df, on=[Cols.PLAYER_ID, Cols.OPPONENT], how='left')
+
 
     # Establish Location
     if 'MATCHUP' in features_df.columns and 'IS_HOME' not in features_df.columns:
