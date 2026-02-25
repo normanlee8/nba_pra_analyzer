@@ -103,13 +103,13 @@ def grade_predictions():
     preds_path = cfg.PROCESSED_OUTPUT_SYSTEM
     if not preds_path.exists():
         logging.critical(f"No predictions file found at {preds_path}")
-        return pd.DataFrame() 
+        return pd.DataFrame(), None 
 
     try:
         preds_df = pd.read_parquet(preds_path)
         if preds_df.empty:
             logging.warning("Predictions file is empty.")
-            return pd.DataFrame()
+            return pd.DataFrame(), None
             
         clean_map = {
             'Player': Cols.PLAYER_NAME,
@@ -127,7 +127,7 @@ def grade_predictions():
             
     except Exception as e:
         logging.critical(f"Failed to load predictions: {e}")
-        return pd.DataFrame()
+        return pd.DataFrame(), None
 
     # 2. Load Truth Data
     logging.info("Loading historical data for grading...")
@@ -136,7 +136,7 @@ def grade_predictions():
     raw_files = list(cfg.DATA_DIR.glob("*/NBA Player Box Scores.parquet"))
     if not raw_files:
         logging.warning("No raw box scores found. Props cannot be graded.")
-        return pd.DataFrame()
+        return pd.DataFrame(), None
         
     full_game_df = pd.concat([pd.read_parquet(f) for f in raw_files], ignore_index=True)
     if 'GAME_DATE' in full_game_df.columns and Cols.DATE not in full_game_df.columns:
@@ -258,13 +258,24 @@ def grade_predictions():
 
     graded_df = pd.DataFrame(results)
     
+    # Determine the actual game date based on the data
+    if not graded_df.empty and 'Match_Date' in graded_df.columns:
+        try:
+            # Get the most common date in the dataset
+            game_date = pd.to_datetime(graded_df['Match_Date']).dt.date.mode()[0]
+            game_date_str = game_date.strftime("%Y-%m-%d")
+        except Exception:
+            game_date_str = datetime.now().strftime("%Y-%m-%d")
+    else:
+        game_date_str = datetime.now().strftime("%Y-%m-%d")
+    
     # 7. Reporting
     logging.info("-" * 40)
     logging.info(">>> GRADING REPORT <<<")
     
     if graded_df.empty:
         logging.warning("No results to grade.")
-        return pd.DataFrame()
+        return pd.DataFrame(), game_date_str
 
     # Add mapping to graded_df BEFORE creating the finished subset
     graded_df['Mapped_Prop'] = graded_df[Cols.PROP_TYPE].map(lambda x: cfg.MASTER_PROP_MAP.get(x, x))
@@ -292,9 +303,8 @@ def grade_predictions():
     logging.info("-" * 40)
     
     # 8. Save Outputs
-    today_str = datetime.now().strftime("%Y-%m-%d")
-    parquet_path = cfg.GRADED_DIR / f"graded_props_{today_str}.parquet"
-    csv_path = cfg.GRADED_DIR / f"graded_{today_str}.csv"
+    parquet_path = cfg.GRADED_DIR / f"graded_props_{game_date_str}.parquet"
+    csv_path = cfg.GRADED_DIR / f"graded_{game_date_str}.csv"
     
     try:
         # Convert objects to string for saving
@@ -304,13 +314,13 @@ def grade_predictions():
         graded_df.to_parquet(parquet_path, index=False)
         graded_df.to_csv(csv_path, index=False)
         
-        save_user_scorecard(graded_df, today_str)
-        logging.info(f"Saved graded results for {today_str}")
+        save_user_scorecard(graded_df, game_date_str)
+        logging.info(f"Saved graded results for game date: {game_date_str}")
         
     except Exception as e:
         logging.error(f"Failed to save output: {e}")
         
-    return graded_df
+    return graded_df, game_date_str
 
 def analyze_strengths_and_weaknesses(graded_df):
     """Provides a deep dive into where the model leaks value."""
@@ -330,7 +340,7 @@ def analyze_strengths_and_weaknesses(graded_df):
     bias_props = graded_df.groupby(Cols.PROP_TYPE)['Proj_Error'].mean()
     logging.info(f"\nSystematic Bias (Positive = Under-projecting, Negative = Over-projecting):\n{bias_props.to_string()}")
 
-def grade_parlays(graded_props_df):
+def grade_parlays(graded_props_df, game_date_str):
     """Grades historical parlays by parsing the 'Picks' column string."""
     parlay_path = cfg.OUTPUT_DIR / "EV_Parlays.csv"
     if not parlay_path.exists():
@@ -409,27 +419,36 @@ def grade_parlays(graded_props_df):
     else:
         logging.info("No parlays fully completed yet.")
     
-    # Save graded parlays
-    parlays_df.to_csv(cfg.GRADED_DIR / f"graded_parlays_{datetime.now().strftime('%Y-%m-%d')}.csv", index=False)
+    # Save graded parlays using the game date instead of system date
+    parlays_df.to_csv(cfg.GRADED_DIR / f"graded_parlays_{game_date_str}.csv", index=False)
 
 def main():
     common.setup_logging(name="grading")
     
     # 1. Grade individual props
-    graded_df = grade_predictions() 
+    graded_df, game_date_str = grade_predictions() 
     
     # 2. Grade Parlays & Generate Insights
     if not graded_df.empty:
-        grade_parlays(graded_df)
+        grade_parlays(graded_df, game_date_str)
         analyze_strengths_and_weaknesses(graded_df)
     else:
-        # Fallback to load from disk if `grade_predictions` returns empty but parquet exists
-        today_str = datetime.now().strftime("%Y-%m-%d")
-        parquet_path = cfg.GRADED_DIR / f"graded_props_{today_str}.parquet"
+        # Fallback: Peek at PROCESSED_OUTPUT_SYSTEM to find the target date
+        try:
+            if cfg.PROCESSED_OUTPUT_SYSTEM.exists():
+                preds = pd.read_parquet(cfg.PROCESSED_OUTPUT_SYSTEM)
+                date_col = 'Date' if 'Date' in preds.columns else Cols.DATE
+                fallback_date_str = pd.to_datetime(preds[date_col]).dt.date.mode()[0].strftime("%Y-%m-%d")
+            else:
+                fallback_date_str = datetime.now().strftime("%Y-%m-%d")
+        except Exception:
+            fallback_date_str = datetime.now().strftime("%Y-%m-%d")
+
+        parquet_path = cfg.GRADED_DIR / f"graded_props_{fallback_date_str}.parquet"
         
         if parquet_path.exists():
             graded_df = pd.read_parquet(parquet_path)
-            grade_parlays(graded_df)
+            grade_parlays(graded_df, fallback_date_str)
             analyze_strengths_and_weaknesses(graded_df)
 
 if __name__ == "__main__":

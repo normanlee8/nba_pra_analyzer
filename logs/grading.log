@@ -532,3 +532,77 @@ PRA    1.027179
 PTS    0.532308
 RA     2.109091
 REB    0.464615
+2026-02-25 00:54:33 [INFO] root: Logging initialized. Writing to logs/grading.log
+2026-02-25 00:54:33 [INFO] root: Loading historical data for grading...
+2026-02-25 00:54:33 [INFO] root: Grading 971 predictions...
+2026-02-25 00:54:42 [INFO] root: ----------------------------------------
+2026-02-25 00:54:42 [INFO] root: >>> GRADING REPORT <<<
+2026-02-25 00:54:42 [INFO] root: Total Props: 49.0% (452/923) [Pushes: 15]
+2026-02-25 00:54:42 [INFO] root: A Tier Props: 53.8% (7/13) [Pushes: 1]
+2026-02-25 00:54:42 [INFO] root: B Tier Props: 44.8% (26/58) [Pushes: 0]
+2026-02-25 00:54:42 [INFO] root: Trap / High Variance Props: 51.5% (17/33) [Pushes: 0]
+2026-02-25 00:54:42 [INFO] root: >>> CATEGORY HIT RATES <<<
+2026-02-25 00:54:42 [INFO] root: PTS Props: 51.1% (72/141) [Pushes: 1]
+2026-02-25 00:54:42 [INFO] root: REB Props: 50.7% (68/134) [Pushes: 6]
+2026-02-25 00:54:42 [INFO] root: AST Props: 48.9% (64/131) [Pushes: 2]
+2026-02-25 00:54:42 [INFO] root: PRA Props: 45.4% (59/130) [Pushes: 1]
+2026-02-25 00:54:42 [INFO] root: PR Props: 47.4% (63/133) [Pushes: 2]
+2026-02-25 00:54:42 [INFO] root: PA Props: 46.8% (59/126) [Pushes: 0]
+2026-02-25 00:54:42 [INFO] root: RA Props: 52.3% (67/128) [Pushes: 3]
+2026-02-25 00:54:42 [INFO] root: ----------------------------------------
+2026-02-25 00:54:42 [INFO] root: Saved graded results for 2026-02-25
+2026-02-25 00:54:42 [WARNING] root: No EV_Parlays.csv found to grade.
+2026-02-25 00:54:42 [INFO] root: >>> POST-MORTEM SYSTEM ANALYSIS <<<
+2026-02-25 00:54:42 [INFO] root: 
+Highest Average Error by Stat Type:
+Prop Category
+PRA    6.497099
+PR     6.200741
+PA     5.373968
+2026-02-25 00:54:42 [INFO] root: 
+Systematic Bias (Positive = Under-projecting, Negative = Over-projecting):
+Prop Category
+AST    0.096617
+PA    -0.254603
+PR    -0.146815
+PRA   -0.061832
+PTS   -0.460775
+RA    -0.218092
+REB    0.353429
+2026-02-25 01:19:19 [INFO] root: Logging initialized. Writing to logs/grading.log
+2026-02-25 01:19:19 [INFO] root: Loading historical data for grading...
+2026-02-25 01:19:19 [INFO] root: Grading 971 predictions...
+2026-02-25 01:19:28 [INFO] root: ----------------------------------------
+2026-02-25 01:19:28 [INFO] root: >>> GRADING REPORT <<<
+2026-02-25 01:19:28 [INFO] root: Total Props: 49.0% (452/923) [Pushes: 15]
+2026-02-25 01:19:28 [INFO] root: A Tier Props: 53.8% (7/13) [Pushes: 1]
+2026-02-25 01:19:28 [INFO] root: B Tier Props: 44.8% (26/58) [Pushes: 0]
+2026-02-25 01:19:28 [INFO] root: Trap / High Variance Props: 51.5% (17/33) [Pushes: 0]
+2026-02-25 01:19:28 [INFO] root: >>> CATEGORY HIT RATES <<<
+2026-02-25 01:19:28 [INFO] root: PTS Props: 51.1% (72/141) [Pushes: 1]
+2026-02-25 01:19:28 [INFO] root: REB Props: 50.7% (68/134) [Pushes: 6]
+2026-02-25 01:19:28 [INFO] root: AST Props: 48.9% (64/131) [Pushes: 2]
+2026-02-25 01:19:28 [INFO] root: PRA Props: 45.4% (59/130) [Pushes: 1]
+2026-02-25 01:19:28 [INFO] root: PR Props: 47.4% (63/133) [Pushes: 2]
+2026-02-25 01:19:28 [INFO] root: PA Props: 46.8% (59/126) [Pushes: 0]
+2026-02-25 01:19:28 [INFO] root: RA Props: 52.3% (67/128) [Pushes: 3]
+2026-02-25 01:19:28 [INFO] root: ----------------------------------------
+2026-02-25 01:19:28 [INFO] root: Saved graded results for game date: 2026-02-24
+2026-02-25 01:19:28 [WARNING] root: No EV_Parlays.csv found to grade.
+2026-02-25 01:19:28 [INFO] root: >>> POST-MORTEM SYSTEM ANALYSIS <<<
+2026-02-25 01:19:28 [INFO] root: 
+Highest Average Error by Stat Type:
+Prop Category
+PRA    6.497099
+PR     6.200741
+PA     5.373968
+2026-02-25 01:19:28 [INFO] root: 
+Systematic Bias (Positive = Under-projecting, Negative = Over-projecting):
+Prop Category
+AST    0.096617
+PA    -0.254603
+PR    -0.146815
+PRA   -0.061832
+PTS   -0.460775
+RA    -0.218092
+REB    0.353429

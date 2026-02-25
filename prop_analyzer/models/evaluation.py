@@ -99,7 +99,13 @@ def grade_predictions():
     df_merged[out_cols] = df_merged.apply(check_prop_row, axis=1)
     
     try:
-        save_path = cfg.GRADED_DIR / f"graded_props_{pd.Timestamp.now().strftime('%Y-%m-%d')}.parquet"
+        # Determine the game date directly from the dataset instead of system clock
+        if not df_merged.empty and Cols.DATE in df_merged.columns:
+            game_date_str = pd.to_datetime(df_merged[Cols.DATE]).dt.date.mode()[0].strftime('%Y-%m-%d')
+        else:
+            game_date_str = pd.Timestamp.now().strftime('%Y-%m-%d')
+            
+        save_path = cfg.GRADED_DIR / f"graded_props_{game_date_str}.parquet"
         df_merged.to_parquet(save_path, index=False)
         logging.info(f"Graded results saved to {save_path.name}")
     except Exception as e:
