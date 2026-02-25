@@ -1,71 +1,71 @@
 Legs,Joint Prob,Payout,Picks
-2,0.6229,3.0x,AJ Green Over 3.5 RA | Ryan Rollins Over 23.5 PR
-2,0.6224,3.0x,AJ Green Over 3.5 RA | Ryan Rollins Over 18.5 PTS
-2,0.6049,3.0x,Ausar Thompson Under 12.0 PA | Tobias Harris Under 13.5 PTS
-2,0.6002,3.0x,Ausar Thompson Under 12.0 PA | Tobias Harris Under 15.5 PA
-2,0.5958,3.0x,Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
-2,0.5938,3.0x,AJ Green Over 3.5 RA | Myles Turner Over 6.5 RA
-2,0.5937,3.0x,Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
-3,0.5907,6.0x,AJ Green Over 3.5 RA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
+2,0.63,3.0x,AJ Green Over 3.5 RA | Ryan Rollins Over 23.5 PR
+2,0.622,3.0x,AJ Green Over 3.5 RA | Ryan Rollins Over 18.5 PTS
+2,0.6053,3.0x,Ausar Thompson Under 12.0 PA | Tobias Harris Under 13.5 PTS
+2,0.5949,3.0x,Ausar Thompson Under 12.0 PA | Tobias Harris Under 15.5 PA
+2,0.5937,3.0x,AJ Green Over 3.5 RA | Myles Turner Over 6.5 RA
+2,0.5897,3.0x,Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA
 2,0.5883,3.0x,Harrison Barnes Under 14.5 PA | Victor Wembanyama Under 11.5 REB
-2,0.5859,3.0x,Cam Spencer Over 6.5 RA | Jaylen Wells Over 12.5 PA
-3,0.5854,6.0x,AJ Green Over 3.5 RA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
-3,0.5827,6.0x,Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA
-2,0.581,3.0x,GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA
-3,0.563,6.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Ryan Rollins Over 23.5 PR
-3,0.5589,6.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Ryan Rollins Over 18.5 PTS
-3,0.5408,6.0x,Bobby Portis Over 15.5 PR | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
-4,0.5384,10.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
-3,0.5374,6.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Myles Turner Over 6.5 RA
-3,0.5374,6.0x,Bobby Portis Over 15.5 PR | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
-4,0.5294,10.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
-3,0.4428819,6.0x,AJ Green Over 3.5 RA | Collin Murray-Boyles Under 5.5 REB | Ryan Rollins Over 23.5 PR
-3,0.44252639999999993,6.0x,AJ Green Over 3.5 RA | Collin Murray-Boyles Under 5.5 REB | Ryan Rollins Over 18.5 PTS
-4,0.41998769999999996,10.0x,AJ Green Over 3.5 RA | Collin Murray-Boyles Under 5.5 REB | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
-4,0.4162194,10.0x,AJ Green Over 3.5 RA | Collin Murray-Boyles Under 5.5 REB | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
-4,0.4142997,10.0x,AJ Green Over 3.5 RA | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA
-4,0.4142997,10.0x,Cam Spencer Over 6.5 RA | Collin Murray-Boyles Under 5.5 REB | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA
-4,0.40029299999999995,10.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Collin Murray-Boyles Under 5.5 REB | Ryan Rollins Over 23.5 PR
-4,0.39754110000000004,10.0x,AJ Green Over 3.5 RA | Derrick White Over 9.5 RA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
-4,0.39737789999999995,10.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Collin Murray-Boyles Under 5.5 REB | Ryan Rollins Over 18.5 PTS
-4,0.39397420000000005,10.0x,AJ Green Over 3.5 RA | Derrick White Over 9.5 RA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
-5,0.3828024,20.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Collin Murray-Boyles Under 5.5 REB | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
-5,0.37640339999999994,20.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Collin Murray-Boyles Under 5.5 REB | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
-5,0.36296383,20.0x,AJ Green Over 3.5 RA | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Ryan Rollins Over 23.5 PR
-5,0.36267247999999996,20.0x,AJ Green Over 3.5 RA | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Ryan Rollins Over 18.5 PTS
-5,0.36234320000000003,20.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Derrick White Over 9.5 RA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
-5,0.35731443,20.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS | Tobias Harris Under 13.5 PTS
-5,0.3562862,20.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Derrick White Over 9.5 RA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
-5,0.35453814,20.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS | Tobias Harris Under 15.5 PA
-5,0.35410846,20.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR | Tobias Harris Under 13.5 PTS
-5,0.3538,20.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | James Harden Under 33.5 PRA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
-6,0.34420089,25.0x,AJ Green Over 3.5 RA | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
-6,0.34111258,25.0x,AJ Green Over 3.5 RA | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
-6,0.32806009999999997,25.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Ryan Rollins Over 23.5 PR
-6,0.32567816,25.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Bobby Portis Over 15.5 PR | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR | Tobias Harris Under 13.5 PTS
-6,0.32567103,25.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Ryan Rollins Over 18.5 PTS
-6,0.32314768,25.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Bobby Portis Over 15.5 PR | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR | Tobias Harris Under 15.5 PA
-6,0.32023406,25.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Bobby Portis Over 15.5 PR | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS | Tobias Harris Under 13.5 PTS
-6,0.31774588,25.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Bobby Portis Over 15.5 PR | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS | Tobias Harris Under 15.5 PA
-6,0.31674072000000003,25.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Harrison Barnes Under 14.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR | Victor Wembanyama Under 11.5 REB
-6,0.31544856,25.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
-7,0.31372568,40.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
-7,0.30848137999999997,40.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
-7,0.24472683279,40.0x,AJ Green Over 3.5 RA | Cam Spencer Over 6.5 RA | Collin Murray-Boyles Under 5.5 REB | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
-7,0.24253104437999998,40.0x,AJ Green Over 3.5 RA | Cam Spencer Over 6.5 RA | Collin Murray-Boyles Under 5.5 REB | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
-7,0.23325073109999997,40.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | Collin Murray-Boyles Under 5.5 REB | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Ryan Rollins Over 23.5 PR
-7,0.23164719897,40.0x,AJ Green Over 3.5 RA | Cam Spencer Over 6.5 RA | Derrick White Over 9.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
-7,0.23155717175999999,40.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Bobby Portis Over 15.5 PR | Collin Murray-Boyles Under 5.5 REB | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR | Tobias Harris Under 13.5 PTS
-7,0.23155210232999998,40.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | Collin Murray-Boyles Under 5.5 REB | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Ryan Rollins Over 18.5 PTS
-7,0.22975800047999997,40.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Bobby Portis Over 15.5 PR | Collin Murray-Boyles Under 5.5 REB | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR | Tobias Harris Under 15.5 PA
-7,0.22956876634,40.0x,AJ Green Over 3.5 RA | Cam Spencer Over 6.5 RA | Derrick White Over 9.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
-8,0.22305895847999999,80.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | Collin Murray-Boyles Under 5.5 REB | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
-8,0.21933026117999996,80.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | Collin Murray-Boyles Under 5.5 REB | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
-8,0.21113738264,80.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | Derrick White Over 9.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
-8,0.208207118361,80.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS | Tobias Harris Under 13.5 PTS
-8,0.20760796873999998,80.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | Derrick White Over 9.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
-8,0.206589374178,80.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS | Tobias Harris Under 15.5 PA
-8,0.206338999642,80.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR | Tobias Harris Under 13.5 PTS
-8,0.20615926,80.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | James Harden Under 33.5 PRA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
-8,0.204735770516,80.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR | Tobias Harris Under 15.5 PA
-8,0.20360796632,80.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Harrison Barnes Under 14.5 PA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
+3,0.5873,6.0x,AJ Green Over 3.5 RA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
+2,0.5861,3.0x,GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA
+2,0.5848,3.0x,Cam Spencer Over 6.5 RA | Jaylen Wells Over 12.5 PA
+2,0.5847,3.0x,Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
+3,0.5839,6.0x,AJ Green Over 3.5 RA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
+3,0.5782,6.0x,Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA
+3,0.5618,6.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Ryan Rollins Over 23.5 PR
+3,0.5582,6.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Ryan Rollins Over 18.5 PTS
+4,0.5356,10.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
+3,0.5337,6.0x,Bobby Portis Over 15.5 PR | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
+3,0.5336,6.0x,Bobby Portis Over 15.5 PR | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
+3,0.5322,6.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Myles Turner Over 6.5 RA
+4,0.5297,10.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
+3,0.44793,6.0x,AJ Green Over 3.5 RA | Collin Murray-Boyles Under 5.5 REB | Ryan Rollins Over 23.5 PR
+3,0.44224199999999997,6.0x,AJ Green Over 3.5 RA | Collin Murray-Boyles Under 5.5 REB | Ryan Rollins Over 18.5 PTS
+4,0.4175703,10.0x,AJ Green Over 3.5 RA | Collin Murray-Boyles Under 5.5 REB | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
+4,0.41515289999999994,10.0x,AJ Green Over 3.5 RA | Collin Murray-Boyles Under 5.5 REB | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
+4,0.4111002,10.0x,AJ Green Over 3.5 RA | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA
+4,0.4111002,10.0x,Cam Spencer Over 6.5 RA | Collin Murray-Boyles Under 5.5 REB | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA
+4,0.39943979999999996,10.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Collin Murray-Boyles Under 5.5 REB | Ryan Rollins Over 23.5 PR
+4,0.3968802,10.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Collin Murray-Boyles Under 5.5 REB | Ryan Rollins Over 18.5 PTS
+4,0.3952529000000001,10.0x,AJ Green Over 3.5 RA | Derrick White Over 9.5 RA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
+4,0.3929647,10.0x,AJ Green Over 3.5 RA | Derrick White Over 9.5 RA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
+5,0.3808116,20.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Collin Murray-Boyles Under 5.5 REB | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
+5,0.37661669999999997,20.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Collin Murray-Boyles Under 5.5 REB | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
+5,0.36426600000000003,20.0x,AJ Green Over 3.5 RA | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Ryan Rollins Over 23.5 PR
+5,0.3604588,20.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Derrick White Over 9.5 RA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
+5,0.3596404,20.0x,AJ Green Over 3.5 RA | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Ryan Rollins Over 18.5 PTS
+5,0.3564881,20.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Derrick White Over 9.5 RA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
+5,0.35549269,20.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR | Tobias Harris Under 13.5 PTS
+5,0.35343466999999995,20.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS | Tobias Harris Under 13.5 PTS
+5,0.34998446,20.0x,Ausar Thompson Under 12.0 PA | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Tobias Harris Under 13.5 PTS
+5,0.3498,20.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | James Harden Under 28.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
+6,0.33957686000000004,25.0x,AJ Green Over 3.5 RA | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
+6,0.33761098,25.0x,AJ Green Over 3.5 RA | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
+6,0.32483276,25.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Ryan Rollins Over 23.5 PR
+6,0.32419867999999996,25.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Bobby Portis Over 15.5 PR | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR | Tobias Harris Under 13.5 PTS
+6,0.32275124000000005,25.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Ryan Rollins Over 18.5 PTS
+6,0.32062740999999995,25.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Bobby Portis Over 15.5 PR | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS | Tobias Harris Under 13.5 PTS
+6,0.31862843999999996,25.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Bobby Portis Over 15.5 PR | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR | Tobias Harris Under 15.5 PA
+6,0.31584332,25.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
+6,0.31511852999999995,25.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Bobby Portis Over 15.5 PR | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS | Tobias Harris Under 15.5 PA
+6,0.31509348,25.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Harrison Barnes Under 14.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR | Victor Wembanyama Under 11.5 REB
+7,0.30968392,40.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
+7,0.30627254,40.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
+7,0.24143914746,40.0x,AJ Green Over 3.5 RA | Cam Spencer Over 6.5 RA | Collin Murray-Boyles Under 5.5 REB | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
+7,0.24004140678,40.0x,AJ Green Over 3.5 RA | Cam Spencer Over 6.5 RA | Collin Murray-Boyles Under 5.5 REB | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
+7,0.23095609235999998,40.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | Collin Murray-Boyles Under 5.5 REB | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Ryan Rollins Over 23.5 PR
+7,0.23050526147999997,40.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Bobby Portis Over 15.5 PR | Collin Murray-Boyles Under 5.5 REB | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR | Tobias Harris Under 13.5 PTS
+7,0.22947613164000003,40.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | Collin Murray-Boyles Under 5.5 REB | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Ryan Rollins Over 18.5 PTS
+7,0.22853522678000004,40.0x,AJ Green Over 3.5 RA | Cam Spencer Over 6.5 RA | Derrick White Over 9.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
+7,0.22796608850999994,40.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Bobby Portis Over 15.5 PR | Collin Murray-Boyles Under 5.5 REB | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS | Tobias Harris Under 13.5 PTS
+7,0.22721218954000003,40.0x,AJ Green Over 3.5 RA | Cam Spencer Over 6.5 RA | Derrick White Over 9.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
+8,0.22018526712,80.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | Collin Murray-Boyles Under 5.5 REB | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
+8,0.21775977593999998,80.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | Collin Murray-Boyles Under 5.5 REB | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
+8,0.20841727816000002,80.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | Derrick White Over 9.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
+8,0.20612141942,80.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | Derrick White Over 9.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS
+8,0.205545873358,80.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR | Tobias Harris Under 13.5 PTS
+8,0.20435592619399998,80.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 18.5 PTS | Tobias Harris Under 13.5 PTS
+8,0.20225436000000002,80.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | James Harden Under 28.5 PA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
+8,0.20201427401400002,80.0x,AJ Green Over 3.5 RA | Ausar Thompson Under 12.0 PA | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR | Tobias Harris Under 15.5 PA
+8,0.20138706,80.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | James Harden Under 33.5 PRA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR
+8,0.20098486408000002,80.0x,AJ Green Over 3.5 RA | Bobby Portis Over 15.5 PR | Cam Spencer Over 6.5 RA | GG Jackson Over 6.5 RA | Harrison Barnes Under 14.5 PA | Jaylen Wells Over 12.5 PA | Myles Turner Over 6.5 RA | Ryan Rollins Over 23.5 PR

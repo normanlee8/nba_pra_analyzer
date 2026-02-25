@@ -83,16 +83,20 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
     if cv > 0.40 or (pick_type == 'Over' and l10_hit_rate < 0.40):
         return 'Pass / Too Volatile'
 
-    # NEW: Matchup-Specific Filter (The Coulibaly / Adebayo Check)
-    if vs_opp_games >= 3:
-        if pick_type == 'Over' and vs_opp_hit_rate <= 0.33:
-            return 'Pass / Bad Matchup History'
-        if pick_type == 'Under' and vs_opp_hit_rate >= 0.66:
-            return 'Pass / Bad Matchup History'
+    # NEW: Volume-Scaled Matchup Filter
+    if vs_opp_games >= 5:
+        # High confidence sample: Require at least a 40% hit rate to play an Over
+        if pick_type == 'Over' and vs_opp_hit_rate < 0.40:
+            return 'Pass / Owned by Opponent'
+        if pick_type == 'Under' and vs_opp_hit_rate > 0.60:
+            return 'Pass / Owns Opponent'
             
-        # Optional: Boost tier if they own this matchup (Coulibaly logic)
-        if pick_type == 'Over' and vs_opp_hit_rate == 1.0:
-            win_pct += 5.0 # Artificial confidence boost for perfect matchup history
+    elif vs_opp_games >= 3:
+        # Low confidence sample (Noise): Only veto on absolute extremes (0% or 100%)
+        if pick_type == 'Over' and vs_opp_hit_rate == 0.0:
+            return 'Pass / Bad Matchup History'
+        if pick_type == 'Under' and vs_opp_hit_rate == 1.0:
+            return 'Pass / Bad Matchup History'
 
     # Probability-Driven Tiers
     if win_pct >= 70.0 and cv < 0.25 and (pick_type == 'Over' and l10_hit_rate >= 0.70): 
@@ -241,6 +245,21 @@ def predict_props(todays_props_df):
                 historic_mae = cat_mae.get(prop_cat, 1.0)
                 if historic_mae > 1.5:  
                     variance = variance * (1.0 + (historic_mae * 0.35))
+
+                # ---------------------------------------------------------
+                # MATHEMATICAL MATCHUP ADJUSTMENT 
+                # ---------------------------------------------------------
+                if vs_opp_games >= 4: # Require at least 4 games to care
+                    if vs_opp_hit_rate >= 0.75:
+                        # Player dominates this matchup. Nudge the projection up.
+                        matchup_boost = min((vs_opp_games * 0.015), 0.10) # Max 10% boost
+                        proj = proj * (1.0 + matchup_boost)
+                        
+                    elif vs_opp_hit_rate <= 0.25:
+                        # Player struggles in this matchup. Nudge the projection down.
+                        matchup_penalty = min((vs_opp_games * 0.015), 0.10)
+                        proj = proj * (1.0 - matchup_penalty)
+                # ---------------------------------------------------------
 
                 delta_gap_final = abs(proj - line) / line if line > 0 else 0
                 
