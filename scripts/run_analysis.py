@@ -237,7 +237,7 @@ def main():
         save_pretty_excel(final_output, cfg.PROCESSED_OUTPUT_XLSX, sheet_name='High_Prob_Picks')
         
         if not parlays_df.empty:
-            parlay_output_path = cfg.OUTPUT_DIR / "High_Prob_Parlays.csv"
+            parlay_output_path = cfg.OUTPUT_DIR / "processed_parlays.csv"
             parlays_df.to_csv(parlay_output_path, index=False)
             logging.info(f"Saved {len(parlays_df)} parlay combinations to {parlay_output_path}")
 

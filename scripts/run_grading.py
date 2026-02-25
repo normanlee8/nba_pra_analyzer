@@ -182,19 +182,20 @@ def grade_predictions():
         
         # Fallback to Name match (Robust)
         if mask is None or mask.sum() == 0:
-             p_name = str(row.get(Cols.PLAYER_NAME, '')).lower().strip()
+            p_name = str(row.get(Cols.PLAYER_NAME, '')).lower().strip()
              
              # Try common name columns to guarantee a match
-             name_col = None
-             for col in ['PLAYER_NAME', Cols.PLAYER_NAME, 'Player', 'Player_Name']:
+            name_col = None
+            for col in ['PLAYER_NAME', Cols.PLAYER_NAME, 'Player', 'Player_Name']:
                  if col in truth_df.columns:
                      name_col = col
                      break
                      
-             if name_col:
-                 # Allow a 1-day window in case props were fetched the night before
-                 date_diff = (truth_df[Cols.DATE] - p_date).dt.days.abs()
-                 mask = (truth_df[name_col].astype(str).str.lower().str.strip() == p_name) & (date_diff <= 1)
+            if name_col:
+                # Allow a 1-day window FORWARD in case props were fetched the night before,
+                # but strictly prevent looking backwards at yesterday's games.
+                date_diff = (truth_df[Cols.DATE] - p_date).dt.days
+                mask = (truth_df[name_col].astype(str).str.lower().str.strip() == p_name) & (date_diff >= 0) & (date_diff <= 1)
              
         if mask is not None:
             match = truth_df[mask]
@@ -342,9 +343,9 @@ def analyze_strengths_and_weaknesses(graded_df):
 
 def grade_parlays(graded_props_df, game_date_str):
     """Grades historical parlays by parsing the 'Picks' column string."""
-    parlay_path = cfg.OUTPUT_DIR / "EV_Parlays.csv"
+    parlay_path = cfg.OUTPUT_DIR / "processed_parlays.csv"
     if not parlay_path.exists():
-        logging.warning("No EV_Parlays.csv found to grade.")
+        logging.warning("No processed_parlays.csv found to grade.")
         return
         
     logging.info(">>> GRADING PARLAYS <<<")
