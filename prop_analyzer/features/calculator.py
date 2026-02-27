@@ -118,7 +118,8 @@ def calculate_player_metrics(history_df, stat_col, timeframe=None):
 def calculate_live_vacancy(team_roster_df):
     metrics = {
         'TEAM_MISSING_USG': 0.0, 'TEAM_MISSING_MIN': 0.0,
-        'MISSING_USG_G': 0.0, 'MISSING_USG_F': 0.0, 'MISSING_USG_C': 0.0
+        'MISSING_USG_G': 0.0, 'MISSING_USG_F': 0.0, 'MISSING_USG_C': 0.0,
+        'TEAM_MISSING_AST_PCT': 0.0, 'TEAM_MISSING_REB_PCT': 0.0
     }
     
     if team_roster_df is None or team_roster_df.empty: return metrics
@@ -133,6 +134,8 @@ def calculate_live_vacancy(team_roster_df):
     df = team_roster_df.copy()
     df['USG%'] = pd.to_numeric(df.get('USG%', 0), errors='coerce').fillna(0)
     df['MIN'] = pd.to_numeric(df.get('MIN', 0), errors='coerce').fillna(0)
+    df['AST%'] = pd.to_numeric(df.get('AST%', 0), errors='coerce').fillna(0)
+    df['TRB%'] = pd.to_numeric(df.get('TRB%', 0), errors='coerce').fillna(0)
     df['Impact_Weight'] = df.get('STATUS', '').apply(get_injury_weight)
     
     injured_df = df[df['Impact_Weight'] > 0].copy()
@@ -140,6 +143,8 @@ def calculate_live_vacancy(team_roster_df):
 
     metrics['TEAM_MISSING_USG'] = (injured_df['USG%'] * injured_df['Impact_Weight']).sum()
     metrics['TEAM_MISSING_MIN'] = (injured_df['MIN'] * injured_df['Impact_Weight']).sum()
+    metrics['TEAM_MISSING_AST_PCT'] = (injured_df['AST%'] * injured_df['Impact_Weight']).sum()
+    metrics['TEAM_MISSING_REB_PCT'] = (injured_df['TRB%'] * injured_df['Impact_Weight']).sum()
     
     if 'Pos' in df.columns:
         def cat_pos(p):
@@ -167,27 +172,33 @@ def smooth_projection(raw_proj, season_avg, recent_avg, volatility):
 # ====================================================================
 
 def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None):
-    """Estimates variance for Combo Props using baseline historical covariance matrices."""
-    if not pd.isna(std_dev) and std_dev > 0:
-        return std_dev ** 2
-        
-    variance = max(proj * 0.25, 1.0)
+    """Estimates variance for Combo Props using baseline historical covariance matrices and recent form."""
+    base_variance = max(proj * 0.25, 1.0)
     
+    # Calculate Structural Covariance
     if prop_type in ['PRA', 'PR', 'PA', 'RA'] and base_stds:
         var_pts = base_stds.get('PTS', proj*0.2)**2
         var_reb = base_stds.get('REB', proj*0.1)**2
         var_ast = base_stds.get('AST', proj*0.1)**2
         
         if prop_type == 'PRA':
-            variance = var_pts + var_reb + var_ast + 2*(0.1*math.sqrt(var_pts*var_reb)) - 2*(0.1*math.sqrt(var_pts*var_ast))
+            base_variance = var_pts + var_reb + var_ast + 2*(0.1*math.sqrt(var_pts*var_reb)) - 2*(0.1*math.sqrt(var_pts*var_ast))
         elif prop_type == 'PR':
-            variance = var_pts + var_reb + 2*(0.1*math.sqrt(var_pts*var_reb))
+            base_variance = var_pts + var_reb + 2*(0.1*math.sqrt(var_pts*var_reb))
         elif prop_type == 'PA':
-            variance = var_pts + var_ast - 2*(0.1*math.sqrt(var_pts*var_ast))
+            base_variance = var_pts + var_ast - 2*(0.1*math.sqrt(var_pts*var_ast))
         elif prop_type == 'RA':
-            variance = var_reb + var_ast
+            base_variance = var_reb + var_ast
             
-    return max(variance, 0.5)
+    recent_variance = std_dev ** 2 if not pd.isna(std_dev) and std_dev > 0 else base_variance
+    
+    # Blend Structural Covariance with Player's specific recent variance
+    if prop_type in ['PRA', 'PR', 'PA', 'RA']:
+        final_variance = (base_variance * 0.40) + (recent_variance * 0.60)
+    else:
+        final_variance = recent_variance
+        
+    return max(final_variance, 0.5)
 
 def get_discrete_probabilities(proj, line, variance, dist_type='normal'):
     """Calculates Win, Loss, and Push probabilities accurately accounting for whole/half point lines."""

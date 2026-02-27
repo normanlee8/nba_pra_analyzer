@@ -93,6 +93,7 @@ def build_feature_set(props_df):
     
     player_stats_static, team_stats, _ = loader.load_static_data()
     vs_opp_df = loader.load_vs_opponent_data()
+    dvp_df = loader.load_dvp_stats()
     box_scores = loader.load_box_scores()
     
     if props_df.empty: return pd.DataFrame()
@@ -129,6 +130,16 @@ def build_feature_set(props_df):
     else:
         features_df = pd.merge(props_df, player_stats_static, on=Cols.PLAYER_ID, how='left')
 
+    # Standardize Position Early (Needed for DVP merge)
+    if 'Position' not in features_df.columns:
+        if 'Pos' in features_df.columns:
+            features_df['Position'] = features_df['Pos']
+        elif 'POSITION' in features_df.columns:
+            features_df['Position'] = features_df['POSITION']
+        else:
+            features_df['Position'] = 'UNK'
+            
+    features_df['Position'] = features_df['Position'].astype(str).apply(lambda x: x.split('-')[0] if '-' in x else x)
 
     # ====================================================================
     # DYNAMIC HIT RATES AGAINST TODAY'S LINES & OPPONENT MATCHUPS
@@ -201,13 +212,41 @@ def build_feature_set(props_df):
         features_df = pd.merge(features_df, opp_stats_renamed, left_on=Cols.OPPONENT, right_index=True, how='left')
 
     # ====================================================================
-    # NEW: MERGE VS OPPONENT HISTORICAL DATA
+    # NEW: MERGE DVP (DEFENSE VS POSITION) STATS
+    # ====================================================================
+    if dvp_df is not None and not dvp_df.empty:
+        logging.info("Merging Defense vs Position (DvP) Stats...")
+        features_df['OPPONENT_ABBREV'] = features_df.get(Cols.OPPONENT, 'UNK')
+        
+        def normalize_pos(pos):
+            if not isinstance(pos, str): return 'UNKNOWN'
+            p = pos.split('-')[0].upper().strip()
+            if p == 'G': return 'SG'
+            if p == 'F': return 'PF'
+            return p
+            
+        features_df['Primary_Pos'] = features_df['Position'].apply(normalize_pos)
+        
+        if 'SEASON_ID' in dvp_df.columns:
+            latest_szn = dvp_df['SEASON_ID'].max()
+            dvp_to_merge = dvp_df[dvp_df['SEASON_ID'] == latest_szn].drop(columns=['SEASON_ID'])
+        else:
+            dvp_to_merge = dvp_df
+            
+        features_df = pd.merge(features_df, dvp_to_merge, on=['OPPONENT_ABBREV', 'Primary_Pos'], how='left')
+        
+        # Safely fill missing DVP multipliers with neutral 1.0
+        dvp_cols = [c for c in features_df.columns if c.startswith('DVP_') and 'MULTIPLIER' in c]
+        for c in dvp_cols:
+            features_df[c] = features_df[c].fillna(1.0)
+
+    # ====================================================================
+    # MERGE VS OPPONENT HISTORICAL DATA
     # ====================================================================
     if vs_opp_df is not None and not vs_opp_df.empty:
         logging.info("Merging historical VS Opponent stats...")
         if Cols.OPPONENT in features_df.columns and Cols.OPPONENT in vs_opp_df.columns:
             features_df = pd.merge(features_df, vs_opp_df, on=[Cols.PLAYER_ID, Cols.OPPONENT], how='left')
-
 
     # Establish Location
     if 'MATCHUP' in features_df.columns and 'IS_HOME' not in features_df.columns:
@@ -221,10 +260,20 @@ def build_feature_set(props_df):
     if 'OPP_Possessions per Game' in features_df.columns:
         features_df['OPP_GAME_PACE'] = features_df['OPP_Possessions per Game']
         
-    cols_to_fill = ['TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 'MISSING_USG_G', 'MISSING_USG_F']
+    # NEW: Incorporating Missing AST/REB PCT and Rest Contexts
+    cols_to_fill = [
+        'TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 'MISSING_USG_G', 'MISSING_USG_F',
+        'TEAM_MISSING_AST_PCT', 'TEAM_MISSING_REB_PCT'
+    ]
     for c in cols_to_fill:
         if c not in features_df.columns: features_df[c] = 0.0
         features_df[c] = features_df[c].fillna(0.0)
+
+    if 'OPP_DAYS_REST' not in features_df.columns: features_df['OPP_DAYS_REST'] = 2.0
+    features_df['OPP_DAYS_REST'] = features_df['OPP_DAYS_REST'].fillna(2.0)
+    
+    if 'OPP_IS_B2B' not in features_df.columns: features_df['OPP_IS_B2B'] = 0.0
+    features_df['OPP_IS_B2B'] = features_df['OPP_IS_B2B'].fillna(0.0)
 
     # --- Home/Away Split Inference Overwrite ---
     splits_path = cfg.DATA_DIR / "master_home_away_splits.parquet"
@@ -273,17 +322,6 @@ def build_feature_set(props_df):
             features_df[col] = pd.to_numeric(features_df[col], errors='coerce')
             median_val = features_df[col].median()
             features_df[col] = features_df[col].fillna(median_val if not pd.isna(median_val) else 0.0)
-
-    # Standardize Position
-    if 'Position' not in features_df.columns:
-        if 'Pos' in features_df.columns:
-            features_df['Position'] = features_df['Pos']
-        elif 'POSITION' in features_df.columns:
-            features_df['Position'] = features_df['POSITION']
-        else:
-            features_df['Position'] = 'UNK'
-            
-    features_df['Position'] = features_df['Position'].astype(str).apply(lambda x: x.split('-')[0] if '-' in x else x)
 
     logging.info(f"Feature set built. Final Shape: {features_df.shape}")
     return features_df

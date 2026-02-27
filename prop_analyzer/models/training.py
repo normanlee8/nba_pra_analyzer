@@ -44,7 +44,8 @@ def get_feature_cols(prop_cat, all_columns):
             if prefixed_feat in all_columns:
                 relevant.append(prefixed_feat)
 
-    vacancy_cols = ['TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 'MISSING_USG_G', 'MISSING_USG_F', Cols.DAYS_REST]
+    vacancy_cols = ['TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 'MISSING_USG_G', 'MISSING_USG_F', 
+                    'TEAM_MISSING_AST_PCT', 'TEAM_MISSING_REB_PCT', Cols.DAYS_REST, 'OPP_DAYS_REST', 'OPP_IS_B2B']
     for vc in vacancy_cols:
         if vc in all_columns:
             relevant.append(vc)
@@ -110,14 +111,13 @@ def train_ensemble_model(df, target_col):
     X = df[feature_list].copy()
     X.columns = sanitized_cols
     
-    # NEW: Predict Raw Target directly (Poisson requires positive counts)
     y = df[target_col]
 
-    # NEW: Sample Weighting (Exponential Decay - 45 Day Half-Life)
+    # Sample Weighting (Exponential Decay - 45 Day Half-Life)
     days_ago = (pd.Timestamp.now() - df[date_col]).dt.days
     sample_weights = np.exp(-days_ago / 45)
     
-    # NEW: Bypass imputation and standard scaling 
+    # Bypass imputation and standard scaling 
     preprocessor = PassThroughScaler()
     X_proc = preprocessor.fit_transform(X)
     X_proc_df = pd.DataFrame(X_proc, columns=sanitized_cols)
@@ -134,9 +134,10 @@ def train_ensemble_model(df, target_col):
                 'max_depth': trial.suggest_int('max_depth', 3, 6),
                 'subsample': trial.suggest_float('subsample', 0.6, 1.0),
                 'colsample_bytree': trial.suggest_float('colsample_bytree', 0.6, 1.0),
+                'tweedie_variance_power': trial.suggest_float('tweedie_variance_power', 1.1, 1.9)
             }
-            # NEW: Poisson Objective
-            mod = xgb.XGBRegressor(**params, random_state=42, n_jobs=2, objective='count:poisson', tree_method='hist')
+            # NEW: Tweedie Objective for Overdispersion
+            mod = xgb.XGBRegressor(**params, random_state=42, n_jobs=2, objective='reg:tweedie', tree_method='hist')
             
             maes = []
             for train_idx, val_idx in tscv.split(X_proc_df):
@@ -148,7 +149,7 @@ def train_ensemble_model(df, target_col):
             return np.mean(maes)
 
         study_xgb = optuna.create_study(direction='minimize')
-        study_xgb.optimize(xgb_objective, n_trials=15)  # NEW: Boosted to 15 trials
+        study_xgb.optimize(xgb_objective, n_trials=15)
         
         def lgb_objective(trial):
             params = {
@@ -156,9 +157,10 @@ def train_ensemble_model(df, target_col):
                 'learning_rate': trial.suggest_float('learning_rate', 0.01, 0.1, log=True),
                 'max_depth': trial.suggest_int('max_depth', 3, 6),
                 'num_leaves': trial.suggest_int('num_leaves', 20, 50),
+                'tweedie_variance_power': trial.suggest_float('tweedie_variance_power', 1.1, 1.9)
             }
-            # NEW: Poisson Objective
-            mod = lgb.LGBMRegressor(**params, random_state=42, n_jobs=2, objective='poisson', verbose=-1)
+            # NEW: Tweedie Objective for Overdispersion
+            mod = lgb.LGBMRegressor(**params, random_state=42, n_jobs=2, objective='tweedie', verbose=-1)
             
             maes = []
             for train_idx, val_idx in tscv.split(X_proc_df):
@@ -170,21 +172,19 @@ def train_ensemble_model(df, target_col):
             return np.mean(maes)
 
         study_lgb = optuna.create_study(direction='minimize')
-        study_lgb.optimize(lgb_objective, n_trials=15) # NEW: Boosted to 15 trials
+        study_lgb.optimize(lgb_objective, n_trials=15)
 
         return study_xgb.best_params, study_lgb.best_params
 
     logging.info(f"[{target_col}] Running Hyperparameter Optimization (Walk-Forward CV)...")
     xgb_params, lgb_params = optimize_base_models()
 
-    xgb_best = xgb.XGBRegressor(**xgb_params, random_state=42, n_jobs=-1, objective='count:poisson', tree_method='hist')
-    lgb_best = lgb.LGBMRegressor(**lgb_params, random_state=42, n_jobs=-1, objective='poisson', verbose=-1)
+    xgb_best = xgb.XGBRegressor(**xgb_params, random_state=42, n_jobs=-1, objective='reg:tweedie', tree_method='hist')
+    lgb_best = lgb.LGBMRegressor(**lgb_params, random_state=42, n_jobs=-1, objective='tweedie', verbose=-1)
     
-    # NEW: Removed Random Forest
     ensemble = VotingRegressor(estimators=[('xgb', xgb_best), ('lgb', lgb_best)])
 
     logging.info(f"[{target_col}] Fitting Final Ensemble Model on full training data...")
-    # NEW: Pass sample weights to final fit
     ensemble.fit(X_proc_df, y, sample_weight=sample_weights)
 
     split_idx = int(len(X_proc_df) * 0.85)

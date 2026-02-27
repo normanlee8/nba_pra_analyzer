@@ -138,7 +138,8 @@ def process_master_player_stats(player_id_map, season_folders, output_dir):
                     adv_df[Cols.PLAYER_ID] = adv_df[Cols.PLAYER_ID].astype(int)
                     adv_df.drop_duplicates(subset=[Cols.PLAYER_ID], keep='first', inplace=True)
                     
-                    adv_cols = [c for c in [Cols.PLAYER_ID, 'TS%', 'USG%', 'PER'] if c in adv_df.columns]
+                    # NEW: Added AST% and TRB% for Vacancy Logic
+                    adv_cols = [c for c in [Cols.PLAYER_ID, 'TS%', 'USG%', 'PER', 'AST%', 'TRB%'] if c in adv_df.columns]
                     season_player_df = pd.merge(season_player_df, adv_df[adv_cols], on=Cols.PLAYER_ID, how="left", suffixes=('', '_adv'))
 
             season_player_df.rename(columns={'Player_Clean': 'clean_name'}, inplace=True)
@@ -185,7 +186,7 @@ def process_master_team_stats(player_id_map, season_folders, output_dir):
             logging.info(f"Saved {out_name}")
 
 def calculate_historical_vacancy(bs_df, player_df):
-    vacancy_cols = ['TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 'MISSING_USG_G', 'MISSING_USG_F']
+    vacancy_cols = ['TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 'MISSING_USG_G', 'MISSING_USG_F', 'TEAM_MISSING_AST_PCT', 'TEAM_MISSING_REB_PCT']
     for c in vacancy_cols:
         if c not in bs_df.columns: bs_df[c] = 0.0
         else: bs_df[c] = bs_df[c].fillna(0.0)
@@ -230,6 +231,22 @@ def process_master_box_scores(player_id_map, season_folders, output_dir):
             conditions = [bs_df['Days_Rest'] == 0, bs_df['Days_Rest'] == 1, bs_df['Days_Rest'] >= 2]
             choices = ['B2B', '1_Day', '2_Plus_Days']
             bs_df['Rest_Category'] = np.select(conditions, choices, default='Unknown')
+            
+            # --- NEW: CALCULATE OPPONENT REST CONTEXT ---
+            if 'TEAM_ABBREVIATION' in bs_df.columns and 'OPPONENT_ABBREV' in bs_df.columns and Cols.DATE in bs_df.columns:
+                team_games = bs_df[['TEAM_ABBREVIATION', Cols.DATE]].drop_duplicates().sort_values(['TEAM_ABBREVIATION', Cols.DATE])
+                team_games['OPP_DAYS_REST'] = team_games.groupby('TEAM_ABBREVIATION')[Cols.DATE].diff().dt.days.fillna(3.0)
+                # Cap the maximum rest to prevent outliers from skewing rest assumptions
+                team_games['OPP_DAYS_REST'] = team_games['OPP_DAYS_REST'].clip(upper=7.0) 
+                team_games['OPP_IS_B2B'] = np.where(team_games['OPP_DAYS_REST'] <= 1, 1.0, 0.0)
+                
+                # Merge the calculated team rest onto the Opponent of the current row
+                bs_df = pd.merge(bs_df, team_games, left_on=['OPPONENT_ABBREV', Cols.DATE], right_on=['TEAM_ABBREVIATION', Cols.DATE], how='left', suffixes=('', '_opp_drop'))
+                if 'TEAM_ABBREVIATION_opp_drop' in bs_df.columns:
+                    bs_df.drop(columns=['TEAM_ABBREVIATION_opp_drop'], inplace=True)
+                
+                bs_df['OPP_DAYS_REST'] = bs_df['OPP_DAYS_REST'].fillna(3.0)
+                bs_df['OPP_IS_B2B'] = bs_df['OPP_IS_B2B'].fillna(0.0)
 
             p_stats_path = output_dir / f"master_player_stats_{season_id}.parquet"
             if p_stats_path.exists():

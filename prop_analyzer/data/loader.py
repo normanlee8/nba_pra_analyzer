@@ -120,6 +120,16 @@ def load_vs_opponent_data():
         logging.error(f"Error loading VS Opponent data: {e}")
         return pd.DataFrame()
 
+def load_dvp_stats():
+    """NEW: Loads the Defense vs Position (DvP) statistics."""
+    path = cfg.MASTER_DVP_FILE
+    if not path.exists(): return pd.DataFrame()
+    try:
+        return pd.read_parquet(path)
+    except Exception as e:
+        logging.error(f"Error loading DVP stats: {e}")
+        return pd.DataFrame()
+
 def get_cached_injury_data():
     global _INJURY_CACHE, _INJURY_WARNING_SHOWN
     

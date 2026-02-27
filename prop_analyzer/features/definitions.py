@@ -21,12 +21,14 @@ BASE_FEATURE_COLS = [
     'L5_USG_PROXY', 'SZN_USG_PROXY',
     
     # Opponent & Game Context (Pace Scaling)
-    'DVP_MULTIPLIER', 'OPP_DEF_EFF',
-    'GAME_PACE', 'OPP_GAME_PACE',
+    'DVP_PTS_MULTIPLIER', 'DVP_REB_MULTIPLIER', 'DVP_AST_MULTIPLIER', 
+    'DVP_PRA_MULTIPLIER', 'DVP_PR_MULTIPLIER', 'DVP_PA_MULTIPLIER', 'DVP_RA_MULTIPLIER',
+    'OPP_DEF_EFF', 'GAME_PACE', 'OPP_GAME_PACE', 'OPP_DAYS_REST', 'OPP_IS_B2B',
     
-    # Vacancy (Missing Usage/Minutes on Team)
+    # Vacancy (Missing Usage/Minutes/Rates on Team)
     'TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 
     'MISSING_USG_G', 'MISSING_USG_F', 'MISSING_USG_C',
+    'TEAM_MISSING_AST_PCT', 'TEAM_MISSING_REB_PCT',
 
     # --- ADVANCED SCRAPED STATS ---
     # Rebounding Context

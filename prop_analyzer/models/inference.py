@@ -67,10 +67,13 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
     tier = 'Pass'
     win_pct = win_prob * 100.0
     
-    # Dynamic Vegas Trap Check based on Line Size.
+    # Dynamic Vegas Trap Check based on Line Size (Refined for extreme low lines)
     is_trap = False
-    if line <= 4.5:
-        if delta_gap > 0.50 and abs_diff > 1.25: is_trap = True
+    if line <= 2.5:
+        # Lines of 1.5 and 2.5 are highly volatile, require severe gap to be considered a trap
+        if delta_gap > 0.60 and abs_diff > 1.5: is_trap = True
+    elif line <= 4.5:
+        if delta_gap > 0.45 and abs_diff > 1.35: is_trap = True
     elif line <= 12.5:
         if delta_gap > 0.28 and abs_diff > 2.0: is_trap = True
     else:
@@ -83,7 +86,7 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
     if cv > 0.40 or (pick_type == 'Over' and l10_hit_rate < 0.40):
         return 'Pass / Too Volatile'
 
-    # NEW: Volume-Scaled Matchup Filter
+    # Volume-Scaled Matchup Filter
     if vs_opp_games >= 5:
         # High confidence sample: Require at least a 40% hit rate to play an Over
         if pick_type == 'Over' and vs_opp_hit_rate < 0.40:
@@ -216,7 +219,12 @@ def predict_props(todays_props_df):
                 
                 s_avg = float(szn_avgs.iloc[idx]) if not pd.isna(szn_avgs.iloc[idx]) else raw_val
                 r_avg = float(l5_avgs.iloc[idx]) if not pd.isna(l5_avgs.iloc[idx]) else raw_val
-                std_dev = float(stds.iloc[idx]) if not pd.isna(stds.iloc[idx]) else 1.0
+                raw_std = float(stds.iloc[idx]) if not pd.isna(stds.iloc[idx]) else 1.0
+                
+                # THE FIX: Prevent Variance Suppression on Small Samples
+                # Establish a mathematical floor using the season average and line.
+                baseline_std = max(s_avg, line) * 0.15 # Assume at least a 15% standard deviation baseline
+                std_dev = max(raw_std, baseline_std)
                 
                 cv = float(cvs.iloc[idx]) if not pd.isna(cvs.iloc[idx]) else (std_dev / s_avg if s_avg > 0 else 0.5)
                 l10_hit_rate = float(hit_rates.iloc[idx]) if not pd.isna(hit_rates.iloc[idx]) else 0.50
