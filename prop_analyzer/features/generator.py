@@ -40,6 +40,7 @@ def add_rolling_stats_history(df, stats_to_roll=None):
     new_cols = {}
 
     for col in stats_to_roll:
+        # Fixed Winsorization handles its own expanding limit now to prevent lookahead bias
         winsorized = grouped[col].transform(lambda x: winsorize_series(x, limit=0.10))
         grouped_winsor = winsorized.groupby(df[Cols.PLAYER_ID])
         
@@ -325,6 +326,41 @@ def build_feature_set(props_df):
             features_df[col] = pd.to_numeric(features_df[col], errors='coerce')
             median_val = features_df[col].median()
             features_df[col] = features_df[col].fillna(median_val if not pd.isna(median_val) else 0.0)
+
+    # ==========================================
+    # --- NEW PUNITIVE & STRICT FEATURES ---
+    # ==========================================
+    
+    # 1. Blowout Potential (Net Rating Mismatch)
+    # Penalizes minutes variance when one team is vastly superior
+    has_eff = all(c in features_df.columns for c in [
+        'TEAM_Offensive Efficiency', 'TEAM_Defensive Efficiency', 
+        'OPP_Offensive Efficiency', 'OPP_Defensive Efficiency'
+    ])
+    if has_eff:
+        team_net = pd.to_numeric(features_df['TEAM_Offensive Efficiency'], errors='coerce') - pd.to_numeric(features_df['TEAM_Defensive Efficiency'], errors='coerce')
+        opp_net = pd.to_numeric(features_df['OPP_Offensive Efficiency'], errors='coerce') - pd.to_numeric(features_df['OPP_Defensive Efficiency'], errors='coerce')
+        features_df['BLOWOUT_POTENTIAL'] = abs(team_net - opp_net).fillna(0.0)
+    else:
+        features_df['BLOWOUT_POTENTIAL'] = 0.0
+
+    # 2. Foul Trouble Risk
+    # High opponent fouls drawn = higher variance for our player (especially bigs)
+    if 'OPP_Opponent Personal Fouls per Game' in features_df.columns:
+        features_df['OPP_FOUL_DRAW_RATE'] = pd.to_numeric(features_df['OPP_Opponent Personal Fouls per Game'], errors='coerce').fillna(20.0)
+    else:
+        features_df['OPP_FOUL_DRAW_RATE'] = 20.0
+
+    # 3. Conditioned Usage Proxy (No Leakage)
+    # How much missing usage is available, weighted by the player's own baseline usage
+    usg_col = f'USG_PROXY_{Cols.SZN_AVG}'
+    if 'TEAM_MISSING_USG' in features_df.columns and usg_col in features_df.columns:
+        # A 30% usage player absorbs a larger share of 40% missing team usage than a 10% usage player
+        player_usg = pd.to_numeric(features_df[usg_col], errors='coerce').fillna(15.0)
+        missing_usg = pd.to_numeric(features_df['TEAM_MISSING_USG'], errors='coerce').fillna(0.0)
+        features_df['EXPECTED_USG_SHIFT'] = (player_usg / 100.0) * missing_usg
+    else:
+        features_df['EXPECTED_USG_SHIFT'] = 0.0
 
     logging.info(f"Feature set built. Final Shape: {features_df.shape}")
     return features_df

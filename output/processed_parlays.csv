@@ -1,71 +1,71 @@
 Legs,Joint Prob,Payout,Picks
-2,0.5082479999999999,3.0x,Derrick White Over 5.5 AST | Mitchell Robinson Under 0.5 AST
-2,0.506076,3.0x,Mitchell Robinson Under 0.5 AST | Tobias Harris Under 15.5 PA
-2,0.5053519999999999,3.0x,Mitchell Robinson Under 0.5 AST | Tobias Harris Under 12.5 PTS
-2,0.50318,3.0x,Mitchell Robinson Under 0.5 AST | Payton Pritchard Under 17.5 PTS
-2,0.49811199999999994,3.0x,Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST
-2,0.4906979999999999,3.0x,Derrick White Over 5.5 AST | Tobias Harris Under 15.5 PA
-2,0.48999599999999993,3.0x,Derrick White Over 5.5 AST | Tobias Harris Under 12.5 PTS
-2,0.48580499999999993,3.0x,Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA
-2,0.48510999999999993,3.0x,Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS
-2,0.4829759999999999,3.0x,Derrick White Over 5.5 AST | Max Christie Under 15.5 PTS
-3,0.3552653519999999,6.0x,Derrick White Over 5.5 AST | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 15.5 PA
-3,0.35475710399999993,6.0x,Derrick White Over 5.5 AST | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 12.5 PTS
-3,0.35172281999999994,6.0x,Mitchell Robinson Under 0.5 AST | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA
-3,0.35121963999999994,6.0x,Mitchell Robinson Under 0.5 AST | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS
-3,0.34967462399999993,6.0x,Derrick White Over 5.5 AST | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST
-3,0.34818028799999995,6.0x,Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 15.5 PA
-3,0.34768217599999995,6.0x,Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 12.5 PTS
-3,0.3461878399999999,6.0x,Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Payton Pritchard Under 17.5 PTS
-3,0.34264619999999996,6.0x,Derrick White Over 5.5 AST | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS
-3,0.3411819,6.0x,Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Tobias Harris Under 15.5 PA
-4,0.24442256217599995,10.0x,Derrick White Over 5.5 AST | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 15.5 PA
-4,0.24407288755199993,10.0x,Derrick White Over 5.5 AST | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 12.5 PTS
-4,0.24198530015999992,10.0x,Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA
-4,0.24163911231999993,10.0x,Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS
-4,0.23950969379999995,10.0x,Derrick White Over 5.5 AST | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Tobias Harris Under 15.5 PA
-4,0.23916704759999996,10.0x,Derrick White Over 5.5 AST | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Tobias Harris Under 12.5 PTS
-4,0.23740264079999998,10.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Mitchell Robinson Under 0.5 AST
-4,0.23712142049999996,10.0x,Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA
-4,0.237097692,10.0x,Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST
-4,0.23704686719999996,10.0x,Derrick White Over 5.5 AST | James Harden Over 11.5 RA | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 15.5 PA
-5,0.16594444591919996,20.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 15.5 PA
-5,0.165731286708,20.0x,Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 15.5 PA
-5,0.16570704327839997,20.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 12.5 PTS
-5,0.165494189016,20.0x,Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 12.5 PTS
-5,0.16478266933439994,20.0x,Derrick White Over 5.5 AST | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Tobias Harris Under 15.5 PA
-5,0.16454692874879995,20.0x,Derrick White Over 5.5 AST | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Tobias Harris Under 12.5 PTS
-5,0.16428972922199997,20.0x,Brandon Williams Under 17.5 PTS | Jaylen Wells Under 13.5 PTS | Mitchell Robinson Under 0.5 AST | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA
-5,0.16407869552999996,20.0x,Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA
-5,0.16405469384399998,20.0x,Brandon Williams Under 17.5 PTS | Jaylen Wells Under 13.5 PTS | Mitchell Robinson Under 0.5 AST | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS
-5,0.16384396205999996,20.0x,Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS
-6,0.11325859421759997,25.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Jaylen Wells Under 17.5 PR | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 15.5 PA
-6,0.11315201461199997,25.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 15.5 PA
-6,0.11309656475519997,25.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Jaylen Wells Under 17.5 PR | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 12.5 PTS
-6,0.11299013762399997,25.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 12.5 PTS
-6,0.11212923501599997,25.0x,Brandon Williams Under 17.5 PTS | Jaylen Wells Under 17.5 PR | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA
-6,0.11202371817,25.0x,Brandon Williams Under 17.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA
-6,0.11196882123199997,25.0x,Brandon Williams Under 17.5 PTS | Jaylen Wells Under 17.5 PR | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS
-6,0.11187497797397998,25.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Tobias Harris Under 15.5 PA
-6,0.11186345533999999,25.0x,Brandon Williams Under 17.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS
-6,0.11173127215769998,25.0x,Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Tobias Harris Under 15.5 PA
-7,0.07635569038343998,40.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Jaylen Wells Under 17.5 PR | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Tobias Harris Under 15.5 PA
-7,0.07628383747529999,40.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Tobias Harris Under 15.5 PA
-7,0.07624645477487997,40.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Jaylen Wells Under 17.5 PR | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Tobias Harris Under 12.5 PTS
-7,0.07617470466059999,40.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Tobias Harris Under 12.5 PTS
-7,0.0757425730464,40.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 15.5 PA
-7,0.0756342145728,40.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 12.5 PTS
-7,0.07559430885539999,40.0x,Brandon Williams Under 17.5 PTS | Jaylen Wells Under 17.5 PR | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA
-7,0.07557054126335998,40.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | James Harden Over 11.5 RA | Jaylen Wells Under 17.5 PR | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 15.5 PA
-7,0.07552317242924998,40.0x,Brandon Williams Under 17.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA
-7,0.07549942720319998,40.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | James Harden Over 11.5 RA | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 15.5 PA
-8,0.05106346671816,80.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Tobias Harris Under 15.5 PA
-8,0.05099041454832,80.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Tobias Harris Under 12.5 PTS
-8,0.05094748783238399,80.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | James Harden Over 11.5 RA | Jaylen Wells Under 17.5 PR | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Tobias Harris Under 15.5 PA
-8,0.05089954477607999,80.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | James Harden Over 11.5 RA | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Tobias Harris Under 15.5 PA
-8,0.05055428685059998,80.0x,Brandon Williams Under 17.5 PTS | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA
-8,0.050538392087039995,80.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | GG Jackson Under 19.5 PTS | James Harden Over 11.5 RA | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 15.5 PA
-8,0.050481963121199985,80.0x,Brandon Williams Under 17.5 PTS | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS
-8,0.050439464449439995,80.0x,Brandon Williams Under 17.5 PTS | James Harden Over 11.5 RA | Jaylen Wells Under 17.5 PR | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA
-8,0.05039199945779999,80.0x,Brandon Williams Under 17.5 PTS | James Harden Over 11.5 RA | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA
-8,0.050182838572463986,80.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | James Harden Over 11.5 RA | Jaylen Wells Under 17.5 PR | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Tobias Harris Under 12.5 PTS
+2,0.5083439999999999,3.0x,Derrick White Over 5.5 AST | Tobias Harris Under 12.5 PTS
+2,0.5025999999999999,3.0x,Derrick White Over 5.5 AST | Tobias Harris Under 15.5 PA
+2,0.49489199999999994,3.0x,Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS
+2,0.49254800000000004,3.0x,Derrick White Over 5.5 AST | Max Christie Under 15.5 PTS
+2,0.48929999999999996,3.0x,Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA
+2,0.485688,3.0x,Max Christie Under 15.5 PTS | Tobias Harris Under 12.5 PTS
+2,0.48249600000000004,3.0x,Derrick White Over 5.5 AST | Mitchell Robinson Under 0.5 AST
+2,0.4802,3.0x,Max Christie Under 15.5 PTS | Tobias Harris Under 15.5 PA
+2,0.479514,3.0x,Max Christie Under 15.5 PTS | Payton Pritchard Under 17.5 PTS
+2,0.47577600000000003,3.0x,Mitchell Robinson Under 0.5 AST | Tobias Harris Under 12.5 PTS
+3,0.348723984,6.0x,Derrick White Over 5.5 AST | Max Christie Under 15.5 PTS | Tobias Harris Under 12.5 PTS
+3,0.3447836,6.0x,Derrick White Over 5.5 AST | Max Christie Under 15.5 PTS | Tobias Harris Under 15.5 PA
+3,0.3437066,6.0x,Derrick White Over 5.5 AST | Duncan Robinson Over 13.5 PR | Tobias Harris Under 15.5 PA
+3,0.341607168,6.0x,Derrick White Over 5.5 AST | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 12.5 PTS
+3,0.33949591199999996,6.0x,Max Christie Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS
+3,0.3377472,6.0x,Derrick White Over 5.5 AST | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 15.5 PA
+3,0.3371728,6.0x,Derrick White Over 5.5 AST | Duncan Robinson Over 13.5 PR | Tobias Harris Under 12.5 PTS
+3,0.33695739999999996,6.0x,Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS
+3,0.33652372799999997,6.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Tobias Harris Under 12.5 PTS
+3,0.336015384,6.0x,Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Tobias Harris Under 12.5 PTS
+4,0.23856583919999996,10.0x,Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Tobias Harris Under 12.5 PTS
+4,0.23587017999999996,10.0x,Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Tobias Harris Under 15.5 PA
+4,0.2357827276,10.0x,Derrick White Over 5.5 AST | Duncan Robinson Over 13.5 PR | Max Christie Under 15.5 PTS | Tobias Harris Under 15.5 PA
+4,0.234342517248,10.0x,Derrick White Over 5.5 AST | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 12.5 PTS
+4,0.23292322079999997,10.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Tobias Harris Under 12.5 PTS
+4,0.23225281559999997,10.0x,Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS
+4,0.2317540296,10.0x,Derrick White Over 5.5 AST | Jaylen Wells Under 17.5 PR | Max Christie Under 15.5 PTS | Tobias Harris Under 12.5 PTS
+4,0.2316945792,10.0x,Derrick White Over 5.5 AST | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 15.5 PA
+4,0.2313005408,10.0x,Derrick White Over 5.5 AST | Duncan Robinson Over 13.5 PR | Max Christie Under 15.5 PTS | Tobias Harris Under 12.5 PTS
+4,0.2312678,10.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS
+5,0.1637376024,20.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Tobias Harris Under 12.5 PTS
+5,0.16188745999999998,20.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Tobias Harris Under 15.5 PA
+5,0.16130150738,20.0x,Derrick White Over 5.5 AST | Duncan Robinson Over 13.5 PR | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Tobias Harris Under 15.5 PA
+5,0.160636704,20.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Jaylen Wells Under 17.5 PR | Max Christie Under 15.5 PTS | Tobias Harris Under 12.5 PTS
+5,0.1603162439424,20.0x,Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 12.5 PTS
+5,0.1602576,20.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS
+5,0.15967085039999998,20.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | GG Jackson Under 19.5 PTS | Max Christie Under 15.5 PTS | Tobias Harris Under 12.5 PTS
+5,0.1594047132,20.0x,Brandon Williams Under 17.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS
+5,0.1588216,20.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Jaylen Wells Under 17.5 PR | Max Christie Under 15.5 PTS | Tobias Harris Under 15.5 PA
+5,0.15850476095999996,20.0x,Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 15.5 PA
+6,0.1134623808,25.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Tobias Harris Under 12.5 PTS
+6,0.11218031999999999,25.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Tobias Harris Under 15.5 PA
+6,0.11070789586,25.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Duncan Robinson Over 13.5 PR | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Tobias Harris Under 15.5 PA
+6,0.11045989439999998,25.0x,Brandon Williams Under 17.5 PTS | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS
+6,0.11003166881280001,25.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 12.5 PTS
+6,0.10921175999999998,25.0x,Brandon Williams Under 17.5 PTS | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA
+6,0.10878837312,25.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 15.5 PA
+6,0.10861128560000001,25.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Duncan Robinson Over 13.5 PR | Jaylen Wells Under 17.5 PR | Max Christie Under 15.5 PTS | Tobias Harris Under 15.5 PA
+6,0.10860335888,25.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Duncan Robinson Over 13.5 PR | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Tobias Harris Under 12.5 PTS
+6,0.10839461295936,25.0x,Derrick White Over 5.5 AST | Duncan Robinson Over 13.5 PR | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 15.5 PA
+7,0.07671531312,40.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Duncan Robinson Over 13.5 PR | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Tobias Harris Under 15.5 PA
+7,0.0762467198976,40.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 12.5 PTS
+7,0.07538517504,40.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 15.5 PA
+7,0.07525696896,40.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Duncan Robinson Over 13.5 PR | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Tobias Harris Under 12.5 PTS
+7,0.07468524216,40.0x,Brandon Williams Under 17.5 PTS | Duncan Robinson Over 13.5 PR | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA
+7,0.07439570601792,40.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Duncan Robinson Over 13.5 PR | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 15.5 PA
+7,0.07424042688,40.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS
+7,0.07422904903680001,40.0x,Brandon Williams Under 17.5 PTS | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS
+7,0.07415676012696,40.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Tobias Harris Under 12.5 PTS
+7,0.07346208384,40.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Jaylon Tyson Under 17.5 PR | Max Christie Under 15.5 PTS | Tobias Harris Under 12.5 PTS
+8,0.051552690416640005,80.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Duncan Robinson Over 13.5 PR | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 15.5 PA
+8,0.05138711226432,80.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Tobias Harris Under 12.5 PTS
+8,0.050806466928,80.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Tobias Harris Under 15.5 PA
+8,0.050572683141120005,80.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Duncan Robinson Over 13.5 PR | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Tobias Harris Under 12.5 PTS
+8,0.050196175632000004,80.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Duncan Robinson Over 13.5 PR | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA
+8,0.050188482731520004,80.0x,Brandon Williams Under 17.5 PTS | Duncan Robinson Over 13.5 PR | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA
+8,0.050139606034994004,80.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | Duncan Robinson Over 13.5 PR | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Tobias Harris Under 15.5 PA
+8,0.05002728617376,80.0x,Brandon Williams Under 17.5 PTS | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS
+8,0.04988956686336,80.0x,Brandon Williams Under 17.5 PTS | Derrick White Over 5.5 AST | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS
+8,0.049462006104,80.0x,Brandon Williams Under 17.5 PTS | GG Jackson Under 19.5 PTS | Jaylen Wells Under 13.5 PTS | Max Christie Under 15.5 PTS | Mitchell Robinson Under 0.5 AST | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA

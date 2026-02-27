@@ -10,7 +10,9 @@ import re
 from datetime import datetime
 from pathlib import Path
 
-from sklearn.ensemble import VotingRegressor
+# --- NEW: Upgraded to Stacking Regressor and RidgeCV ---
+from sklearn.ensemble import StackingRegressor
+from sklearn.linear_model import RidgeCV
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import TimeSeriesSplit
 
@@ -44,12 +46,13 @@ def get_feature_cols(prop_cat, all_columns):
             if prefixed_feat in all_columns:
                 relevant.append(prefixed_feat)
 
-    # NEW: Registered the newly engineered features so the models pick them up
+    # Includes newly engineered punitive features
     vacancy_cols = [
         'TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 'MISSING_USG_G', 'MISSING_USG_F', 
         'TEAM_MISSING_AST_PCT', 'TEAM_MISSING_REB_PCT', Cols.DAYS_REST, 
         'OPP_DAYS_REST', 'OPP_IS_B2B', 'Games_in_Last_7_Days', 
-        'IS_ALTITUDE', 'PACE_PG_INTERACTION'
+        'IS_ALTITUDE', 'PACE_PG_INTERACTION', 'BLOWOUT_POTENTIAL', 
+        'OPP_FOUL_DRAW_RATE', 'EXPECTED_USG_SHIFT'
     ]
     for vc in vacancy_cols:
         if vc in all_columns:
@@ -90,7 +93,7 @@ def backfill_missing_cols(df, cols):
     return df
 
 def train_ensemble_model(df, target_col):
-    logging.info(f"Training Probability-Optimized Ensemble for {target_col}...")
+    logging.info(f"Training Probability-Optimized Meta-Ensemble for {target_col}...")
 
     date_col = Cols.DATE if Cols.DATE in df.columns else 'GAME_DATE'
     if date_col in df.columns:
@@ -100,7 +103,6 @@ def train_ensemble_model(df, target_col):
     df = df.dropna(subset=[target_col]).copy()
     
     feature_list = get_feature_cols(target_col, df.columns)
-    
     feature_list = list(set(feature_list)) 
     
     if len(feature_list) < 5:
@@ -112,7 +114,6 @@ def train_ensemble_model(df, target_col):
     
     X = df[feature_list].copy()
     X.columns = sanitized_cols
-    
     y = df[target_col]
 
     # Sample Weighting (Exponential Decay - 45 Day Half-Life)
@@ -181,10 +182,21 @@ def train_ensemble_model(df, target_col):
     xgb_best = xgb.XGBRegressor(**xgb_params, random_state=42, n_jobs=-1, objective='reg:tweedie', tree_method='hist')
     lgb_best = lgb.LGBMRegressor(**lgb_params, random_state=42, n_jobs=-1, objective='tweedie', verbose=-1)
     
-    ensemble = VotingRegressor(estimators=[('xgb', xgb_best), ('lgb', lgb_best)])
+    # --- UPGRADE: Stacking Regressor ---
+    ensemble = StackingRegressor(
+        estimators=[('xgb', xgb_best), ('lgb', lgb_best)],
+        final_estimator=RidgeCV(alphas=[0.1, 1.0, 10.0]),
+        n_jobs=-1
+    )
 
-    logging.info(f"[{target_col}] Fitting Final Ensemble Model on full training data...")
-    ensemble.fit(X_proc_df, y, sample_weight=sample_weights)
+    logging.info(f"[{target_col}] Fitting Final Stacking Ensemble on full training data...")
+    # StackingRegressor does not inherently support sample_weights in the meta-estimator fit natively in all sklearn versions,
+    # but the underlying base estimators will use them if passed via fit_params.
+    try:
+        ensemble.fit(X_proc_df, y, xgb__sample_weight=sample_weights, lgb__sample_weight=sample_weights)
+    except Exception as e:
+        logging.warning(f"Could not apply sample weights to stacking regressor ({e}). Fitting unweighted.")
+        ensemble.fit(X_proc_df, y)
 
     split_idx = int(len(X_proc_df) * 0.85)
     X_val, y_val = X_proc_df.iloc[split_idx:], y.iloc[split_idx:]
@@ -232,7 +244,6 @@ def main():
     df = pd.read_parquet(train_file)
     if df.empty: return
 
-    # ADDED 'MIN' to targets to explicitly build the new dedicated Minutes model
     training_targets = list(set(cfg.SUPPORTED_PROPS + ['MIN']))
 
     for prop in training_targets:

@@ -20,8 +20,12 @@ def load_artifacts(prop_cat):
     return registry.load_artifacts(prop_cat)
 
 def get_system_learning_maps(days_back=21):
+    """
+    Returns global system biases.
+    Player-level bias has been removed to prevent momentum-chasing loops.
+    """
     graded_files = sorted(cfg.GRADED_DIR.glob("graded_*.parquet"), reverse=True)
-    if not graded_files: return {}, {}, {}
+    if not graded_files: return {}, {}
 
     recent_dfs = []
     cutoff_date = pd.Timestamp.now() - timedelta(days=days_back)
@@ -36,7 +40,7 @@ def get_system_learning_maps(days_back=21):
                 recent_dfs.append(df)
         except Exception: continue
             
-    if not recent_dfs: return {}, {}, {}
+    if not recent_dfs: return {}, {}
         
     full_history = pd.concat(recent_dfs, ignore_index=True)
     keep_cols = [c for c in [Cols.PLAYER_ID, Cols.PLAYER_NAME, Cols.PROP_TYPE, Cols.ACTUAL_VAL, Cols.PREDICTION] if c in full_history.columns]
@@ -49,45 +53,36 @@ def get_system_learning_maps(days_back=21):
     full_history['Error'] = full_history[Cols.ACTUAL_VAL] - full_history[Cols.PREDICTION]
     full_history['Abs_Error'] = full_history['Error'].abs()
     
-    # NEW: Calculate Percentage Error for Multiplicative Bias Scaling
     full_history['Pct_Error'] = np.where(
         full_history[Cols.PREDICTION] > 0, 
         full_history['Error'] / full_history[Cols.PREDICTION], 
         0.0
     )
     
-    group_cols = [Cols.PLAYER_ID, Cols.PROP_TYPE] if Cols.PLAYER_ID in full_history.columns else [Cols.PLAYER_NAME, Cols.PROP_TYPE]
-
-    player_bias_pct = full_history.groupby(group_cols)['Pct_Error'].mean().to_dict()
     full_history['Mapped_Prop'] = full_history[Cols.PROP_TYPE].map(lambda x: cfg.MASTER_PROP_MAP.get(x, x))
     cat_bias_pct = full_history.groupby('Mapped_Prop')['Pct_Error'].mean().to_dict()
     cat_mae = full_history.groupby('Mapped_Prop')['Abs_Error'].mean().to_dict()
 
-    return player_bias_pct, cat_bias_pct, cat_mae
+    return cat_bias_pct, cat_mae
 
 def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games, s_avg, r_avg):
     """
     Strictly evaluates based on Win Probability, Hit Rates, low Volatility, and Matchup History.
-    Now includes advanced Vegas Trap Line detection.
     """
     tier = 'Pass'
     win_pct = win_prob * 100.0
     
     is_trap = False
     
-    # NEW: Advanced Vegas Trap Logic based on actual form
     if s_avg > 0 and r_avg > 0:
         form_avg = (s_avg + r_avg) / 2.0
         line_to_form_delta = (form_avg - line) / line if line > 0 else 0
         
-        # Vegas hangs a deflated line despite great form, but model says Over (Baiting the Over)
         if pick_type == 'Over' and line_to_form_delta > 0.20 and delta_gap > 0.15:
             is_trap = True
-        # Vegas hangs an inflated line despite poor form, but model says Under (Baiting the Under)
         elif pick_type == 'Under' and line_to_form_delta < -0.20 and delta_gap > 0.15:
             is_trap = True
 
-    # Fallback to extreme dynamic sizing
     if not is_trap:
         if line <= 2.5:
             if delta_gap > 0.60 and abs_diff > 1.5: is_trap = True
@@ -101,11 +96,9 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
     if is_trap:
         return 'Trap / High Variance'
 
-    # Filter out highly volatile players entirely
     if cv > 0.40 or (pick_type == 'Over' and l10_hit_rate < 0.40):
         return 'Pass / Too Volatile'
 
-    # Volume-Scaled Matchup Filter
     if vs_opp_games >= 5:
         if pick_type == 'Over' and vs_opp_hit_rate < 0.40:
             return 'Pass / Owned by Opponent'
@@ -118,7 +111,6 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
         if pick_type == 'Under' and vs_opp_hit_rate == 1.0:
             return 'Pass / Bad Matchup History'
 
-    # Probability-Driven Tiers
     if win_pct >= 70.0 and cv < 0.25 and (pick_type == 'Over' and l10_hit_rate >= 0.70): 
         tier = 'S Tier'
     elif win_pct >= 64.0 and cv < 0.30: 
@@ -140,7 +132,6 @@ def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_hit_rate, 
     probs_over = get_discrete_probabilities(proj, line, variance, dist_type=dist_type, tweedie_power=tweedie_power)
     probs_under = {'win': probs_over['loss'], 'loss': probs_over['win'], 'push': probs_over['push']}
     
-    # Find the Maximum Probability Side
     if probs_over['win'] >= probs_under['win']:
         pick, win_prob = 'Over', probs_over['win']
         active_hit_rate = l10_hit_rate
@@ -170,12 +161,11 @@ def predict_props(todays_props_df):
     if Cols.PROP_TYPE not in todays_props_df.columns: return pd.DataFrame()
     
     try: 
-        player_bias_pct, cat_bias_pct, cat_mae = get_system_learning_maps(days_back=21)
+        cat_bias_pct, cat_mae = get_system_learning_maps(days_back=21)
     except Exception as e: 
         logging.warning(f"Could not load system learning maps: {e}")
-        player_bias_pct, cat_bias_pct, cat_mae = {}, {}, {}
+        cat_bias_pct, cat_mae = {}, {}
 
-    # --- MINUTE MODEL INTEGRATION ---
     predicted_mins = {}
     min_artifacts = load_artifacts('MIN')
     if min_artifacts:
@@ -287,14 +277,9 @@ def predict_props(todays_props_df):
 
                 proj = smooth_projection(raw_val, s_avg, r_avg, std_dev)
                 
-                # NEW: Multiplicative Bias Adjustment
+                # Apply strictly conservative category bias (player bias removed to prevent momentum loops)
                 c_bias_pct = cat_bias_pct.get(prop_cat, 0.0)
                 proj *= (1.0 + (c_bias_pct * 0.30))
-                
-                p_id = row.get(Cols.PLAYER_ID)
-                key = (int(p_id), prop_cat) if not pd.isna(p_id) else (row.get(Cols.PLAYER_NAME), prop_cat)
-                p_bias_pct = player_bias_pct.get(key, 0.0)
-                proj *= (1.0 + (p_bias_pct * 0.50))
                 
                 dynamic_correlations = {
                     'PTS_REB': float(corr_pr.iloc[idx]) if not pd.isna(corr_pr.iloc[idx]) else 0.1,

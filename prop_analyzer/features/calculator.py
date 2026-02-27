@@ -3,17 +3,37 @@ import pandas as pd
 import logging
 import math
 from scipy.stats import nbinom, poisson, norm
-from scipy.stats.mstats import winsorize
+
+# Silence Pandas 2.1.0+ FutureWarnings regarding silent downcasting
+pd.set_option('future.no_silent_downcasting', True)
 
 # ====================================================================
 # HELPERS: FEATURE ENGINEERING & INFERENCE
 # ====================================================================
 
 def winsorize_series(series, limit=0.10):
-    """Caps the top 10% of outlier performances to prevent artificial projection spikes."""
+    """
+    Caps outlier performances using an expanding window.
+    This completely eliminates lookahead bias (target leakage) by ensuring
+    a player's future performances don't artificially raise their clipping threshold today.
+    """
     clean = series.dropna()
-    if len(clean) < 5: return series
-    return pd.Series(winsorize(clean, limits=(0, limit)), index=clean.index)
+    if len(clean) < 5: 
+        return series
+    
+    # Calculate the rolling percentile dynamically (e.g., 90th percentile)
+    # Uses data strictly BEFORE or INCLUDING the current row
+    expanding_thresholds = clean.expanding(min_periods=5).quantile(1.0 - limit)
+    
+    # Prevent clipping the first 4 games by setting their threshold to infinity
+    expanding_thresholds = expanding_thresholds.fillna(float('inf'))
+    
+    # Apply the mathematically honest, time-aware clipping
+    # .infer_objects(copy=False) added to explicitly handle dtypes for future pandas versions
+    capped = clean.clip(upper=expanding_thresholds).infer_objects(copy=False)
+    
+    # Re-align with the original series index to restore any NaNs properly
+    return capped.reindex(series.index)
 
 def calculate_dynamic_hit_rates(past_performances, benchmark):
     """
@@ -112,8 +132,6 @@ def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None, correlatio
 
 def get_discrete_probabilities(proj, line, historical_variance, dist_type='normal', tweedie_power=1.5):
     """Calculates probabilities accurately accounting for Tweedie dispersion and whole/half point lines."""
-    # Use Tweedie relationship (Var = phi * mu^p) to estimate dynamic variance 
-    # if historical variance is provided, we can back-calculate phi (dispersion)
     if proj > 0 and historical_variance > 0:
         phi = historical_variance / (proj ** tweedie_power)
     else:
