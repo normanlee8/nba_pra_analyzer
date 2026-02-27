@@ -14,9 +14,7 @@ from prop_analyzer.config import Cols
 from prop_analyzer.models import registry
 from prop_analyzer.features.calculator import (smooth_projection, 
                                                get_discrete_probabilities, 
-                                               estimate_combo_variance, 
-                                               scale_by_pace,
-                                               calculate_implied_minutes)
+                                               estimate_combo_variance)
 
 def load_artifacts(prop_cat):
     return registry.load_artifacts(prop_cat)
@@ -115,12 +113,13 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
     
     return tier
 
-def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games):
+def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games, tweedie_power=1.5):
     """Evaluates probability of outcome based on distribution modeling."""
     if line <= 0: return None
-    dist_type = 'nbinom' if prop_type in ['REB', 'AST', 'STL', 'BLK', 'FG3M'] else 'normal'
+    # FIX: Points are count-based and skewed, Negative Binomial is far more accurate than Normal
+    dist_type = 'nbinom' if prop_type in ['PTS', 'REB', 'AST', 'STL', 'BLK', 'FG3M'] else 'normal'
     
-    probs_over = get_discrete_probabilities(proj, line, variance, dist_type=dist_type)
+    probs_over = get_discrete_probabilities(proj, line, variance, dist_type=dist_type, tweedie_power=tweedie_power)
     probs_under = {'win': probs_over['loss'], 'loss': probs_over['win'], 'push': probs_over['push']}
     
     # Find the Maximum Probability Side
@@ -158,22 +157,52 @@ def predict_props(todays_props_df):
         logging.warning(f"Could not load system learning maps: {e}")
         player_bias, cat_bias, cat_mae = {}, {}, {}
 
+    # --- MINUTE MODEL INTEGRATION ---
+    predicted_mins = {}
+    min_artifacts = load_artifacts('MIN')
+    if min_artifacts:
+        logging.info("Standalone Minutes model found. Predicting minutes...")
+        min_model = min_artifacts['model']
+        min_features = min_artifacts['features']
+        min_scaler = min_artifacts['scaler']
+        
+        X_raw_mins = todays_props_df.copy()
+        sanitized_map_mins = {c: re.sub(r'[^\w\s]', '_', str(c)).replace(' ', '_') for c in X_raw_mins.columns}
+        inv_map_mins = {v: k for k, v in sanitized_map_mins.items()}
+        
+        new_features_mins = {}
+        for f in min_features:
+            if f in X_raw_mins.columns: new_features_mins[f] = X_raw_mins[f]
+            elif f in inv_map_mins: new_features_mins[f] = X_raw_mins[inv_map_mins[f]]
+            else: new_features_mins[f] = 0.0 
+            
+        X_min_model = pd.DataFrame(new_features_mins, index=X_raw_mins.index)
+        try:
+            X_min_scaled = min_scaler.transform(X_min_model)
+            X_min_scaled_df = pd.DataFrame(X_min_scaled, columns=X_min_model.columns, index=X_min_model.index)
+            X_raw_mins['PRED_MIN'] = min_model.predict(X_min_scaled_df)
+            predicted_mins = X_raw_mins['PRED_MIN'].to_dict()
+        except Exception as e:
+            logging.warning(f"Failed to predict standalone minutes: {e}")
+
     grouped = todays_props_df.groupby(Cols.PROP_TYPE)
     
     for prop_cat, group in grouped:
+        if prop_cat == 'MIN': continue # Skip if 'MIN' somehow made it to the prop lines
+        
         artifacts = load_artifacts(prop_cat)
         if not artifacts:
             logging.warning(f"No trained artifacts found for {prop_cat}. Skipping.")
             continue
             
         model, scaler, feature_names = artifacts['model'], artifacts['scaler'], artifacts['features']
+        tweedie_power = artifacts.get('metadata', {}).get('tweedie_variance_power', 1.5)
         
         X_raw = group.copy()
         
         sanitized_map = {c: re.sub(r'[^\w\s]', '_', str(c)).replace(' ', '_') for c in X_raw.columns}
         inv_map = {v: k for k, v in sanitized_map.items()}
         
-        # Batch column addition to prevent DataFrame fragmentation warnings
         new_features = {}
         for f in feature_names:
             if f in X_raw.columns: new_features[f] = X_raw[f]
@@ -183,11 +212,9 @@ def predict_props(todays_props_df):
         X_model = pd.DataFrame(new_features, index=X_raw.index)
 
         try:
-            # Pass through scaler (imputation & standard scaling removed during training update)
             X_scaled = scaler.transform(X_model)
             X_scaled_df = pd.DataFrame(X_scaled, columns=X_model.columns, index=X_model.index)
             
-            # MODEL PREDICTS RAW TARGET DIRECTLY NOW
             raw_projections = model.predict(X_scaled_df)
             
             szn_avgs = get_col_safe(X_raw, prop_cat, 'SZN_AVG')
@@ -196,17 +223,23 @@ def predict_props(todays_props_df):
             cvs = get_col_safe(X_raw, prop_cat, 'L10_CV')
             hit_rates = get_col_safe(X_raw, prop_cat, 'L10_HIT_RATE')
             
-            # Extract Matchup Stats
             vs_opp_hit_rates = get_col_safe(X_raw, prop_cat, 'VS_OPP_HIT_RATE')
             vs_opp_games_counts = get_col_safe(X_raw, prop_cat, 'VS_OPP_GAMES_COUNT')
             
-            team_pace = get_col_safe(X_raw, prop_cat, 'GAME_PACE')
-            opp_pace = get_col_safe(X_raw, prop_cat, 'OPP_GAME_PACE')
+            # Extract Dynamic Correlations for Variance Scaling
+            corr_pr = get_col_safe(X_raw, prop_cat, 'PTS_REB_CORR')
+            corr_pa = get_col_safe(X_raw, prop_cat, 'PTS_AST_CORR')
+            corr_ra = get_col_safe(X_raw, prop_cat, 'REB_AST_CORR')
+            
+            # Base historical standard deviations for structural covariance
+            base_stds = {
+                'PTS': get_col_safe(X_raw, 'PTS', 'L10_STD_DEV'),
+                'REB': get_col_safe(X_raw, 'REB', 'L10_STD_DEV'),
+                'AST': get_col_safe(X_raw, 'AST', 'L10_STD_DEV')
+            }
             
             for idx, (orig_idx, row) in enumerate(group.iterrows()):
                 line = float(row[Cols.PROP_LINE])
-                
-                # Assign the direct model output instead of adding to the line
                 raw_val = raw_projections[idx]
                 
                 abs_diff_raw = abs(raw_val - line)
@@ -221,9 +254,7 @@ def predict_props(todays_props_df):
                 r_avg = float(l5_avgs.iloc[idx]) if not pd.isna(l5_avgs.iloc[idx]) else raw_val
                 raw_std = float(stds.iloc[idx]) if not pd.isna(stds.iloc[idx]) else 1.0
                 
-                # THE FIX: Prevent Variance Suppression on Small Samples
-                # Establish a mathematical floor using the season average and line.
-                baseline_std = max(s_avg, line) * 0.15 # Assume at least a 15% standard deviation baseline
+                baseline_std = max(s_avg, line) * 0.15 
                 std_dev = max(raw_std, baseline_std)
                 
                 cv = float(cvs.iloc[idx]) if not pd.isna(cvs.iloc[idx]) else (std_dev / s_avg if s_avg > 0 else 0.5)
@@ -232,17 +263,14 @@ def predict_props(todays_props_df):
                 vs_opp_hit_rate = float(vs_opp_hit_rates.iloc[idx]) if not pd.isna(vs_opp_hit_rates.iloc[idx]) else 0.50
                 vs_opp_games = int(vs_opp_games_counts.iloc[idx]) if not pd.isna(vs_opp_games_counts.iloc[idx]) else 0
 
-                t_pace = float(team_pace.iloc[idx]) if not pd.isna(team_pace.iloc[idx]) else None
-                o_pace = float(opp_pace.iloc[idx]) if not pd.isna(opp_pace.iloc[idx]) else None
                 days_rest = float(row.get(Cols.DAYS_REST, 2.0))
                 
-                per_36 = (s_avg / float(row.get('MIN_SZN_AVG', 36.0))) * 36.0 if row.get('MIN_SZN_AVG', 0) > 0 else 0
-                implied_mins = calculate_implied_minutes(line, per_36)
-                hist_mins = float(row.get('MIN_L10_AVG', implied_mins))
-                min_deviation = abs(implied_mins - hist_mins) / hist_mins if hist_mins > 0 else 0
+                # Check for unexpected minute drops against our new predictive model
+                pred_min = predicted_mins.get(orig_idx, float(row.get('MIN_SZN_AVG', 36.0)))
+                hist_mins = float(row.get('MIN_L10_AVG', pred_min))
+                min_deviation = abs(pred_min - hist_mins) / hist_mins if hist_mins > 0 else 0
 
                 proj = smooth_projection(raw_val, s_avg, r_avg, std_dev)
-                proj = scale_by_pace(proj, 36.0, t_pace, o_pace, prop_type=prop_cat)
                 
                 c_bias = cat_bias.get(prop_cat, 0.0)
                 proj += (c_bias * 0.30)
@@ -251,30 +279,27 @@ def predict_props(todays_props_df):
                 key = (int(p_id), prop_cat) if not pd.isna(p_id) else (row.get(Cols.PLAYER_NAME), prop_cat)
                 proj += (player_bias.get(key, 0.0) * 0.5)
                 
-                variance = estimate_combo_variance(prop_cat, proj, std_dev)
+                dynamic_correlations = {
+                    'PTS_REB': float(corr_pr.iloc[idx]) if not pd.isna(corr_pr.iloc[idx]) else 0.1,
+                    'PTS_AST': float(corr_pa.iloc[idx]) if not pd.isna(corr_pa.iloc[idx]) else 0.1,
+                    'REB_AST': float(corr_ra.iloc[idx]) if not pd.isna(corr_ra.iloc[idx]) else 0.1
+                }
+                
+                dynamic_base_stds = {
+                    'PTS': float(base_stds['PTS'].iloc[idx]) if not pd.isna(base_stds['PTS'].iloc[idx]) else (proj*0.2),
+                    'REB': float(base_stds['REB'].iloc[idx]) if not pd.isna(base_stds['REB'].iloc[idx]) else (proj*0.1),
+                    'AST': float(base_stds['AST'].iloc[idx]) if not pd.isna(base_stds['AST'].iloc[idx]) else (proj*0.1)
+                }
+                
+                variance = estimate_combo_variance(prop_cat, proj, std_dev, base_stds=dynamic_base_stds, correlations=dynamic_correlations)
                 
                 historic_mae = cat_mae.get(prop_cat, 1.0)
                 if historic_mae > 1.5:  
                     variance = variance * (1.0 + (historic_mae * 0.35))
 
-                # ---------------------------------------------------------
-                # MATHEMATICAL MATCHUP ADJUSTMENT 
-                # ---------------------------------------------------------
-                if vs_opp_games >= 4: # Require at least 4 games to care
-                    if vs_opp_hit_rate >= 0.75:
-                        # Player dominates this matchup. Nudge the projection up.
-                        matchup_boost = min((vs_opp_games * 0.015), 0.10) # Max 10% boost
-                        proj = proj * (1.0 + matchup_boost)
-                        
-                    elif vs_opp_hit_rate <= 0.25:
-                        # Player struggles in this matchup. Nudge the projection down.
-                        matchup_penalty = min((vs_opp_games * 0.015), 0.10)
-                        proj = proj * (1.0 - matchup_penalty)
-                # ---------------------------------------------------------
-
                 delta_gap_final = abs(proj - line) / line if line > 0 else 0
                 
-                eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap_final, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games)
+                eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap_final, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games, tweedie_power=tweedie_power)
                 if not eval_res: continue
                 
                 if days_rest > 7.0 or min_deviation > 0.30:

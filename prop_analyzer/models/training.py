@@ -50,7 +50,7 @@ def get_feature_cols(prop_cat, all_columns):
         if vc in all_columns:
             relevant.append(vc)
 
-    consistency_keywords = ['_CV', '_HIT_RATE', '_STD_DEV']
+    consistency_keywords = ['_CV', '_HIT_RATE', '_STD_DEV', '_CORR']
     for c in all_columns:
         if any(k in c for k in consistency_keywords):
             relevant.append(c)
@@ -95,9 +95,8 @@ def train_ensemble_model(df, target_col):
     df = df.dropna(subset=[target_col]).copy()
     
     feature_list = get_feature_cols(target_col, df.columns)
-        
-    if Cols.PROP_LINE in df.columns:
-        feature_list.append(Cols.PROP_LINE)
+    
+    # DATA LEAKAGE FIX: Prop Line explicitly removed from training features here.
     
     feature_list = list(set(feature_list)) 
     
@@ -136,7 +135,6 @@ def train_ensemble_model(df, target_col):
                 'colsample_bytree': trial.suggest_float('colsample_bytree', 0.6, 1.0),
                 'tweedie_variance_power': trial.suggest_float('tweedie_variance_power', 1.1, 1.9)
             }
-            # NEW: Tweedie Objective for Overdispersion
             mod = xgb.XGBRegressor(**params, random_state=42, n_jobs=2, objective='reg:tweedie', tree_method='hist')
             
             maes = []
@@ -159,7 +157,6 @@ def train_ensemble_model(df, target_col):
                 'num_leaves': trial.suggest_int('num_leaves', 20, 50),
                 'tweedie_variance_power': trial.suggest_float('tweedie_variance_power', 1.1, 1.9)
             }
-            # NEW: Tweedie Objective for Overdispersion
             mod = lgb.LGBMRegressor(**params, random_state=42, n_jobs=2, objective='tweedie', verbose=-1)
             
             maes = []
@@ -210,11 +207,13 @@ def train_ensemble_model(df, target_col):
     except Exception as e:
         logging.warning(f"SHAP extraction failed: {e}")
 
+    # EXPORTING TWEEDIE VARIANCE POWER FOR INFERENCE
     metadata = {
         'training_date': datetime.now().isoformat(),
         'target_col': target_col,
         'metrics': {'MAE': float(mae), 'RMSE': float(rmse), 'R2': float(r2)},
-        'top_features': shap_importance
+        'top_features': shap_importance,
+        'tweedie_variance_power': float(xgb_params.get('tweedie_variance_power', 1.5))
     }
 
     artifacts = {'scaler': preprocessor, 'features': sanitized_cols, 'model': ensemble, 'metadata': metadata}
@@ -231,7 +230,10 @@ def main():
     df = pd.read_parquet(train_file)
     if df.empty: return
 
-    for prop in cfg.SUPPORTED_PROPS:
+    # ADDED 'MIN' to targets to explicitly build the new dedicated Minutes model
+    training_targets = list(set(cfg.SUPPORTED_PROPS + ['MIN']))
+
+    for prop in training_targets:
         if prop in df.columns:
             logging.info(f"--- Training Engine: {prop} ---")
             train_ensemble_model(df, target_col=prop)

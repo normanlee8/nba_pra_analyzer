@@ -6,7 +6,7 @@ from scipy.stats import nbinom, poisson, norm
 from scipy.stats.mstats import winsorize
 
 # ====================================================================
-# NEW HELPERS: FEATURE ENGINEERING & INFERENCE
+# HELPERS: FEATURE ENGINEERING & INFERENCE
 # ====================================================================
 
 def winsorize_series(series, limit=0.10):
@@ -15,25 +15,18 @@ def winsorize_series(series, limit=0.10):
     if len(clean) < 5: return series
     return pd.Series(winsorize(clean, limits=(0, limit)), index=clean.index)
 
-def calculate_implied_minutes(prop_line, per_36_rate):
-    """Reverse-engineers expected minutes based on the Underdog line and player's historical efficiency."""
-    if pd.isna(prop_line) or pd.isna(per_36_rate) or per_36_rate <= 0:
-        return 0.0
-    return (float(prop_line) / float(per_36_rate)) * 36.0
-
-def calculate_dynamic_hit_rates(past_performances, line):
+def calculate_dynamic_hit_rates(past_performances, benchmark):
     """
-    Calculates hit rates against a specific prop line over multiple windows.
-    Essential for Probability/Consistency modeling.
+    Calculates hit rates against a specific historical benchmark over multiple windows.
     past_performances should be ordered oldest to newest.
     """
-    if not past_performances or pd.isna(line):
+    if not past_performances or pd.isna(benchmark):
         return {'L5_HIT_RATE': 0.0, 'L10_HIT_RATE': 0.0, 'L20_HIT_RATE': 0.0, 'SZN_HIT_RATE': 0.0}
     
     # Reverse so index 0 is the most recent game
     recent = past_performances[::-1]
     
-    hits = [1 if x >= line else 0 for x in recent]
+    hits = [1 if x >= benchmark else 0 for x in recent]
     
     def safe_mean(lst):
         return sum(lst) / len(lst) if lst else 0.0
@@ -44,10 +37,6 @@ def calculate_dynamic_hit_rates(past_performances, line):
         'L20_HIT_RATE': safe_mean(hits[:20]),
         'SZN_HIT_RATE': safe_mean(hits)
     }
-
-# ====================================================================
-# ORIGINAL FUNCTIONS
-# ====================================================================
 
 def calculate_bayesian_std(series, method='neg_binomial', shrinkage_param=10.0, dispersion=0.15):
     """Calculates a blended Standard Deviation shrinking towards a theoretical prior."""
@@ -72,92 +61,6 @@ def calculate_bayesian_std(series, method='neg_binomial', shrinkage_param=10.0, 
     
     return final_std
 
-def calculate_slope(series):
-    y = series.dropna().values
-    n = len(y)
-    if n < 2: return 0.0
-    
-    x = np.arange(n)
-    slope = (n * np.sum(x * y) - np.sum(x) * np.sum(y)) / (n * np.sum(x**2) - (np.sum(x))**2)
-    return slope
-
-def calculate_hit_rates(series, lines):
-    clean = series.dropna()
-    if len(clean) == 0: return 0.0
-    
-    if isinstance(lines, (list, tuple)):
-        results = {}
-        for line in lines:
-            results[f'hit_{line}'] = (clean >= line).mean()
-        return results
-    else:
-        return (clean >= lines).mean()
-
-def calculate_player_metrics(history_df, stat_col, timeframe=None):
-    if history_df is None or history_df.empty or stat_col not in history_df.columns:
-        return {'avg': 0, 'std': 0, 'min': 0, 'max': 0, 'median': 0, 'trend_slope': 0, 'cv': 0}
-    
-    data = history_df[stat_col].tail(timeframe) if timeframe else history_df[stat_col]
-    data = data.dropna()
-    if data.empty: return {'avg': 0, 'std': 0, 'cv': 0}
-
-    avg = data.mean()
-    median = data.median()
-    std_dev = calculate_bayesian_std(data, shrinkage_param=8.0, method='neg_binomial')
-    slope = calculate_slope(data)
-    last_3 = data.tail(3)
-    recent_avg = last_3.mean() if not last_3.empty else avg
-    cv = std_dev / avg if avg > 0 else 0
-
-    return {
-        'avg': avg, 'std': std_dev, 'min': data.min(), 'max': data.max(), 
-        'median': median, 'trend_slope': slope, 'recent_avg': recent_avg, 
-        'count': len(data), 'cv': cv
-    }
-
-def calculate_live_vacancy(team_roster_df):
-    metrics = {
-        'TEAM_MISSING_USG': 0.0, 'TEAM_MISSING_MIN': 0.0,
-        'MISSING_USG_G': 0.0, 'MISSING_USG_F': 0.0, 'MISSING_USG_C': 0.0,
-        'TEAM_MISSING_AST_PCT': 0.0, 'TEAM_MISSING_REB_PCT': 0.0
-    }
-    
-    if team_roster_df is None or team_roster_df.empty: return metrics
-    
-    def get_injury_weight(status):
-        s = str(status).upper().strip()
-        if s in ['OUT', 'GTD']: return 1.0  
-        if 'DOUBTFUL' in s: return 0.75
-        if 'QUESTIONABLE' in s: return 0.50
-        return 0.0
-
-    df = team_roster_df.copy()
-    df['USG%'] = pd.to_numeric(df.get('USG%', 0), errors='coerce').fillna(0)
-    df['MIN'] = pd.to_numeric(df.get('MIN', 0), errors='coerce').fillna(0)
-    df['AST%'] = pd.to_numeric(df.get('AST%', 0), errors='coerce').fillna(0)
-    df['TRB%'] = pd.to_numeric(df.get('TRB%', 0), errors='coerce').fillna(0)
-    df['Impact_Weight'] = df.get('STATUS', '').apply(get_injury_weight)
-    
-    injured_df = df[df['Impact_Weight'] > 0].copy()
-    if injured_df.empty: return metrics
-
-    metrics['TEAM_MISSING_USG'] = (injured_df['USG%'] * injured_df['Impact_Weight']).sum()
-    metrics['TEAM_MISSING_MIN'] = (injured_df['MIN'] * injured_df['Impact_Weight']).sum()
-    metrics['TEAM_MISSING_AST_PCT'] = (injured_df['AST%'] * injured_df['Impact_Weight']).sum()
-    metrics['TEAM_MISSING_REB_PCT'] = (injured_df['TRB%'] * injured_df['Impact_Weight']).sum()
-    
-    if 'Pos' in df.columns:
-        def cat_pos(p):
-            p = str(p).upper()
-            return 'G' if 'G' in p else ('F' if 'F' in p else ('C' if 'C' in p else 'X'))
-        injured_df['Gen_Pos'] = injured_df['Pos'].apply(cat_pos)
-        
-        for p in ['G', 'F', 'C']:
-            mask = injured_df['Gen_Pos'] == p
-            metrics[f'MISSING_USG_{p}'] = (injured_df.loc[mask, 'USG%'] * injured_df.loc[mask, 'Impact_Weight']).sum()
-
-    return metrics
-
 def smooth_projection(raw_proj, season_avg, recent_avg, volatility):
     if pd.isna(raw_proj): raw_proj = season_avg
     if pd.isna(recent_avg): recent_avg = season_avg
@@ -171,24 +74,31 @@ def smooth_projection(raw_proj, season_avg, recent_avg, volatility):
 # PROBABILISTIC / BETTING FUNCTIONS
 # ====================================================================
 
-def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None):
-    """Estimates variance for Combo Props using baseline historical covariance matrices and recent form."""
+def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None, correlations=None):
+    """Estimates variance for Combo Props using baseline historical covariance matrices and dynamic correlations."""
     base_variance = max(proj * 0.25, 1.0)
     
+    if not correlations:
+        correlations = {'PTS_REB': 0.1, 'PTS_AST': 0.1, 'REB_AST': 0.1}
+        
     # Calculate Structural Covariance
     if prop_type in ['PRA', 'PR', 'PA', 'RA'] and base_stds:
         var_pts = base_stds.get('PTS', proj*0.2)**2
         var_reb = base_stds.get('REB', proj*0.1)**2
         var_ast = base_stds.get('AST', proj*0.1)**2
         
+        cov_pr = correlations.get('PTS_REB', 0.1) * math.sqrt(var_pts * var_reb)
+        cov_pa = correlations.get('PTS_AST', 0.1) * math.sqrt(var_pts * var_ast)
+        cov_ra = correlations.get('REB_AST', 0.1) * math.sqrt(var_reb * var_ast)
+        
         if prop_type == 'PRA':
-            base_variance = var_pts + var_reb + var_ast + 2*(0.1*math.sqrt(var_pts*var_reb)) - 2*(0.1*math.sqrt(var_pts*var_ast))
+            base_variance = var_pts + var_reb + var_ast + 2*cov_pr + 2*cov_pa + 2*cov_ra
         elif prop_type == 'PR':
-            base_variance = var_pts + var_reb + 2*(0.1*math.sqrt(var_pts*var_reb))
+            base_variance = var_pts + var_reb + 2*cov_pr
         elif prop_type == 'PA':
-            base_variance = var_pts + var_ast - 2*(0.1*math.sqrt(var_pts*var_ast))
+            base_variance = var_pts + var_ast + 2*cov_pa
         elif prop_type == 'RA':
-            base_variance = var_reb + var_ast
+            base_variance = var_reb + var_ast + 2*cov_ra
             
     recent_variance = std_dev ** 2 if not pd.isna(std_dev) and std_dev > 0 else base_variance
     
@@ -200,9 +110,19 @@ def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None):
         
     return max(final_variance, 0.5)
 
-def get_discrete_probabilities(proj, line, variance, dist_type='normal'):
-    """Calculates Win, Loss, and Push probabilities accurately accounting for whole/half point lines."""
-    std_dev = math.sqrt(max(variance, 0.01))
+def get_discrete_probabilities(proj, line, historical_variance, dist_type='normal', tweedie_power=1.5):
+    """Calculates probabilities accurately accounting for Tweedie dispersion and whole/half point lines."""
+    # Use Tweedie relationship (Var = phi * mu^p) to estimate dynamic variance 
+    # if historical variance is provided, we can back-calculate phi (dispersion)
+    if proj > 0 and historical_variance > 0:
+        phi = historical_variance / (proj ** tweedie_power)
+    else:
+        phi = 1.0
+        
+    dynamic_variance = phi * (proj ** tweedie_power)
+    variance = max(dynamic_variance, 0.01)
+    
+    std_dev = math.sqrt(variance)
     is_whole_line = (line % 1 == 0)
     win_target = int(math.ceil(line + 0.01))
     
@@ -211,6 +131,7 @@ def get_discrete_probabilities(proj, line, variance, dist_type='normal'):
     try:
         if dist_type in ['poisson', 'nbinom']:
             if variance <= proj:
+                # Fallback to Poisson if underdispersed
                 p_loss = poisson.cdf(win_target - 1, proj)
                 p_push = poisson.pmf(int(line), proj) if is_whole_line else 0.0
             else:
@@ -234,25 +155,3 @@ def get_discrete_probabilities(proj, line, variance, dist_type='normal'):
     except Exception as e:
         logging.warning(f"Error calculating distribution prob: {e}")
         return {'win': 0.5, 'push': 0.0, 'loss': 0.5}
-
-def scale_by_pace(player_proj, proj_mins, team_pace, opp_pace, prop_type='PTS', team_extra_chances=0.0, opp_extra_chances=0.0):
-    """
-    Adjusts projection based on projected game pace.
-    """
-    if pd.isna(team_pace) or pd.isna(opp_pace) or team_pace <= 0:
-        return player_proj
-        
-    matchup_pace = (team_pace + opp_pace) / 2.0
-    
-    team_extra_chances = 0.0 if pd.isna(team_extra_chances) else team_extra_chances
-    opp_extra_chances = 0.0 if pd.isna(opp_extra_chances) else opp_extra_chances
-    
-    net_extra_chances = (team_extra_chances - opp_extra_chances) / 2.0
-    adjusted_matchup_pace = matchup_pace + net_extra_chances
-    
-    pace_modifier = adjusted_matchup_pace / team_pace
-    
-    if prop_type == 'REB':
-        pace_modifier = 1.0 + ((pace_modifier - 1.0) * 1.2)
-        
-    return player_proj * pace_modifier

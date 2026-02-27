@@ -8,79 +8,67 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-# Underdog Fantasy Standard/Max Payout Multipliers (Kept for reference, but no longer used for optimization)
+# Underdog Fantasy Standard/Max Payout Multipliers
 UNDERDOG_PAYOUTS = {
     2: 3.0, 3: 6.0, 4: 10.0, 5: 20.0, 6: 25.0, 7: 40.0, 8: 80.0   
 }
 
 class ParlayOptimizer:
-    def __init__(self, historical_data: pd.DataFrame, num_simulations: int = 10000):
+    def __init__(self, historical_data: pd.DataFrame = None, num_simulations: int = 10000):
         """
         Initializes the Parlay Optimizer.
-        Builds the historical correlation matrix upon initialization.
+        Historical data parameter kept for API compatibility, but correlation 
+        now relies on structural NBA covariance rules for mathematical stability.
         """
         self.num_simulations = num_simulations
-        self.historical_data = historical_data
-        self.correlation_matrix = self._build_correlation_matrix()
-        
-        # Memoization Cache
         self._simulation_cache = {}
-
-    def _build_correlation_matrix(self) -> pd.DataFrame:
-        """
-        Builds a correlation matrix from historical box scores. 
-        Groups by game_id to find same-game correlations between all stat categories.
-        """
-        logger.info("Building correlation matrix from historical data...")
-        
-        required_cols = ['GAME_ID', 'TEAM_ABBREVIATION', 'Position', 'PTS', 'REB', 'AST']
-        missing = [col for col in required_cols if col not in self.historical_data.columns]
-        if missing:
-            logger.warning(f"Missing columns for perfect correlation: {missing}. Returning empty matrix.")
-            return pd.DataFrame()
-
-        df = self.historical_data.copy()
-        
-        for stat in ['PTS', 'REB', 'AST']:
-            df[stat] = pd.to_numeric(df[stat], errors='coerce').fillna(0)
-        
-        df['PRA'] = df['PTS'] + df['REB'] + df['AST']
-        df['PR'] = df['PTS'] + df['REB']
-        df['PA'] = df['PTS'] + df['AST']
-        df['RA'] = df['REB'] + df['AST']
-        
-        df['pos_stat'] = df['TEAM_ABBREVIATION'] + '_' + df['Position'] 
-        
-        categories = ['PTS', 'REB', 'AST', 'PRA', 'PR', 'PA', 'RA']
-        pivots = []
-        
-        for cat in categories:
-            pivot = df.pivot_table(index='GAME_ID', columns='pos_stat', values=cat, aggfunc='mean').fillna(0)
-            pivot.columns = [f"{c}_{cat}" for c in pivot.columns]
-            pivots.append(pivot)
-        
-        combined = pd.concat(pivots, axis=1)
-        corr_matrix = combined.corr()
-        
-        logger.info(f"Correlation matrix built successfully. Matrix shape: {corr_matrix.shape}")
-        return corr_matrix
+        logger.info("Initialized ParlayOptimizer with Structural Same-Game Correlation Rules.")
 
     def get_correlation(self, prop1: dict, prop2: dict) -> float:
+        """
+        Determines the structural correlation between two props in the same game.
+        """
         if prop1.get('game_id') != prop2.get('game_id'):
             return 0.0
             
-        key1 = f"{prop1.get('team')}_{prop1.get('position')}_{prop1.get('stat_type', '').upper()}"
-        key2 = f"{prop2.get('team')}_{prop2.get('position')}_{prop2.get('stat_type', '').upper()}"
+        is_same_team = prop1.get('team') == prop2.get('team')
         
-        try:
-            return self.correlation_matrix.loc[key1, key2]
-        except KeyError:
-            return 0.0
+        # Map combo stats to primary drivers for correlation purposes
+        def get_base_stat(stat):
+            stat = str(stat).upper()
+            if stat in ['PRA', 'PR', 'PA', 'PTS']: return 'PTS'
+            if stat in ['RA', 'REB']: return 'REB'
+            return stat
+            
+        base1 = get_base_stat(prop1.get('stat_type'))
+        base2 = get_base_stat(prop2.get('stat_type'))
+        
+        # DFS Same-Game Covariance Rules
+        if is_same_team:
+            if (base1 == 'PTS' and base2 == 'AST') or (base1 == 'AST' and base2 == 'PTS'):
+                return 0.25  # Scoring directly correlates with teammate assists
+            if base1 == 'REB' and base2 == 'REB':
+                return -0.20 # Rebounds are zero-sum among teammates
+            if base1 == 'PTS' and base2 == 'PTS':
+                return -0.15 # Usage sharing (only one ball)
+            if base1 == 'AST' and base2 == 'AST':
+                return -0.10 # Primary vs Secondary handler sharing
+        else:
+            if base1 == 'PTS' and base2 == 'PTS':
+                return 0.20  # Fast pace / shootout environment
+            if base1 == 'REB' and base2 == 'REB':
+                return -0.15 # Zero-sum total available rebounds
+            if base1 == 'AST' and base2 == 'AST':
+                return 0.15  # Pace up translates to more assists for both sides
+            if (base1 == 'PTS' and base2 == 'REB') or (base1 == 'REB' and base2 == 'PTS'):
+                return -0.10 # Opponent scoring heavily reduces defensive rebound opportunities
+
+        return 0.0
 
     def simulate_same_game_cluster(self, cluster_props: list) -> float:
         """
-        Uses a Gaussian Copula (Monte Carlo) to determine the true joint probability 
-        of correlated same-game events.
+        Uses a Gaussian Copula (Monte Carlo) to determine the true joint probability.
+        Properly maintains Standard Normal diagonals.
         """
         n = len(cluster_props)
         if n == 1:
@@ -97,35 +85,49 @@ class ParlayOptimizer:
         for i in range(n):
             for j in range(i + 1, n):
                 corr = self.get_correlation(cluster_props[i], cluster_props[j])
+                # Flip correlation mathematically if pick directions differ (e.g. Over vs Under)
                 if cluster_props[i]['pick'] != cluster_props[j]['pick']:
                     corr = -corr
                 cov_matrix[i, j] = corr
                 cov_matrix[j, i] = corr
                 
+        # PSD Check - Ensure matrix is positive semi-definite without ruining diagonal variances
         min_eig = np.min(np.real(np.linalg.eigvals(cov_matrix)))
-        if min_eig < 0:
-            cov_matrix -= 10 * min_eig * np.eye(*cov_matrix.shape)
+        while min_eig < 0:
+            # Shrink off-diagonals toward 0 (independence) by blending with the Identity matrix
+            cov_matrix = (cov_matrix * 0.8) + (np.eye(n) * 0.2)
+            min_eig = np.min(np.real(np.linalg.eigvals(cov_matrix)))
                 
         thresholds = [norm.ppf(1 - prop.get('win_prob', prop.get('Prob', 0))) for prop in cluster_props]
         mean = np.zeros(n)
+        
         try:
             samples = np.random.multivariate_normal(mean, cov_matrix, self.num_simulations)
+            hits = np.all(samples > thresholds, axis=1)
+            joint_prob = np.sum(hits) / self.num_simulations
         except np.linalg.LinAlgError:
-            samples = np.random.multivariate_normal(mean, np.eye(n), self.num_simulations)
-        
-        hits = np.all(samples > thresholds, axis=1)
-        joint_prob = np.sum(hits) / self.num_simulations
+            # Fallback to independence if covariance matrix fundamentally fails
+            joint_prob = np.prod([prop.get('win_prob', prop.get('Prob', 0)) for prop in cluster_props])
         
         self._simulation_cache[cache_key] = joint_prob
         return joint_prob
 
     def calculate_ticket_metrics(self, ticket: list) -> dict:
         """
-        Calculates the true Joint Probability of the parlay hitting.
-        EV has been completely removed.
+        Calculates the true Joint Probability of the parlay hitting and enforces strict DFS rules.
         """
         num_legs = len(ticket)
             
+        # DFS Rule Enforcement: Tickets MUST have players from at least 2 different teams
+        unique_teams = {prop.get('team') for prop in ticket}
+        if len(unique_teams) < 2:
+            return {
+                'ticket': ticket,
+                'legs': num_legs,
+                'joint_prob': 0.0,
+                'payout_multiplier': 0.0
+            }
+
         games = {}
         for prop in ticket:
             game_id = prop.get('game_id', 'unknown')
@@ -150,7 +152,6 @@ class ParlayOptimizer:
     def optimize_parlays(self, daily_props: list, min_legs=2, max_legs=8, top_n=10, beam_width=150) -> list:
         """
         Optimizes parlays using a Greedy Beam Search algorithm.
-        Now strictly maximizes Joint Probability.
         """
         logger.info(f"Optimizing parlays for {len(daily_props)} props using Probability Maximization...")
         
@@ -197,7 +198,7 @@ class ParlayOptimizer:
             evaluated_tickets = []
             for ticket in unique_next_beams.values():
                 ticket_eval = self.calculate_ticket_metrics(ticket)
-                # Keep ticket if the joint probability is non-zero
+                # Keep ticket if the joint probability is valid
                 if ticket_eval['joint_prob'] > 0:
                     evaluated_tickets.append(ticket_eval)
             

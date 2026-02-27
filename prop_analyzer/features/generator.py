@@ -6,7 +6,7 @@ from prop_analyzer.config import Cols
 from prop_analyzer.features import definitions as feat_defs
 from prop_analyzer.data import loader
 from prop_analyzer.features.calculator import (
-    winsorize_series, calculate_implied_minutes, calculate_dynamic_hit_rates
+    winsorize_series, calculate_dynamic_hit_rates
 )
 
 def add_rolling_stats_history(df, stats_to_roll=None):
@@ -36,7 +36,7 @@ def add_rolling_stats_history(df, stats_to_roll=None):
     # Dictionary to hold new columns to prevent DataFrame fragmentation warnings
     new_cols = {}
 
-    # 1. Base Rolling Averages & Volatility (Updated for Maximum Win Probability)
+    # 1. Base Rolling Averages & Volatility
     for col in stats_to_roll:
         winsorized = grouped[col].transform(lambda x: winsorize_series(x, limit=0.10))
         grouped_winsor = winsorized.groupby(df[Cols.PLAYER_ID])
@@ -70,10 +70,15 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         form_out = np.ones_like(l5_avg)
         new_cols[f'{col}_FORM_RATIO'] = np.divide(l5_avg, szn_avg, out=form_out, where=(szn_avg > 0))
 
+    # 2. Dynamic Correlation Matrices (For PRA/Combo variance scaling)
+    new_cols['PTS_REB_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['REB']), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
+    new_cols['PTS_AST_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['AST']), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
+    new_cols['REB_AST_CORR'] = grouped.apply(lambda x: x['REB'].rolling(50, min_periods=5).corr(x['AST']), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
+
     # Attach all new stats simultaneously 
     df = pd.concat([df, pd.DataFrame(new_cols, index=df.index)], axis=1)
 
-    # 2. Contextual Splits (Rest splits only, Home/Away is managed dynamically)
+    # 3. Contextual Splits (Rest splits only, Home/Away is managed dynamically)
     split_targets = ['PTS', 'REB', 'AST', 'PRA', 'USG_PROXY', 'MIN']
     new_split_cols = {}
     if 'Rest_Category' in df.columns:
@@ -142,24 +147,24 @@ def build_feature_set(props_df):
     features_df['Position'] = features_df['Position'].astype(str).apply(lambda x: x.split('-')[0] if '-' in x else x)
 
     # ====================================================================
-    # DYNAMIC HIT RATES AGAINST TODAY'S LINES & OPPONENT MATCHUPS
+    # DYNAMIC HIT RATES AGAINST HISTORICAL AVERAGES & OPPONENT MATCHUPS
     # ====================================================================
     if box_scores is not None and not box_scores.empty:
-        logging.info("Calculating dynamic line hit rates against today's odds and opponent...")
+        logging.info("Calculating form hit rates and opponent matchup history...")
         bs_sorted = box_scores.sort_values(Cols.DATE)
         
         player_histories = bs_sorted.groupby(Cols.PLAYER_ID).apply(
             lambda df: df.to_dict('records'), include_groups=False
         ).to_dict()
 
-        def compute_row_hit_rates(row, stat_col, line_col):
+        def compute_row_hit_rates(row, stat_col, benchmark_col):
             pid = row.get(Cols.PLAYER_ID)
             dt = row.get(Cols.DATE)
-            line = row.get(line_col)
+            benchmark = row.get(benchmark_col)
             opp = row.get(Cols.OPPONENT)
             
             # Default return with 6 values (adding the 2 matchup stats)
-            if pd.isna(pid) or pd.isna(line) or pid not in player_histories:
+            if pd.isna(pid) or pd.isna(benchmark) or pid not in player_histories:
                 return pd.Series([0.0, 0.0, 0.0, 0.0, 0.5, 0.0])
                 
             hist = player_histories[pid]
@@ -167,34 +172,34 @@ def build_feature_set(props_df):
             if not past_games:
                  return pd.Series([0.0, 0.0, 0.0, 0.0, 0.5, 0.0])
                  
-            # General Hit Rates
+            # General Hit Rates against Historical Benchmark (Eliminates Data Leakage of Sportsbook Line)
             stats = [g[stat_col] for g in past_games if stat_col in g and not pd.isna(g[stat_col])]
-            rates = calculate_dynamic_hit_rates(stats, line)
+            rates = calculate_dynamic_hit_rates(stats, benchmark)
             
             # Matchup-Specific Hit Rates
             past_matchups = [g for g in past_games if g.get(Cols.OPPONENT) == opp]
             matchup_stats = [g[stat_col] for g in past_matchups if stat_col in g and not pd.isna(g[stat_col])]
             matchup_games_count = len(matchup_stats)
-            vs_opp_hit_rate = sum(1 for x in matchup_stats if x >= line) / matchup_games_count if matchup_games_count > 0 else 0.50
+            vs_opp_hit_rate = sum(1 for x in matchup_stats if x >= benchmark) / matchup_games_count if matchup_games_count > 0 else 0.50
             
             return pd.Series([
                 rates['L5_HIT_RATE'], rates['L10_HIT_RATE'], rates['L20_HIT_RATE'], rates['SZN_HIT_RATE'],
                 vs_opp_hit_rate, float(matchup_games_count)
             ])
 
-        # Batch hit rates together
-        if 'PROP_TYPE' in features_df.columns and 'LINE' in features_df.columns:
+        # Batch hit rates together using Season Average as the blind benchmark instead of the daily line
+        if 'PROP_TYPE' in features_df.columns:
             hr_cols = ['L5_HIT_RATE', 'L10_HIT_RATE', 'L20_HIT_RATE', 'SZN_HIT_RATE', 'VS_OPP_HIT_RATE', 'VS_OPP_GAMES_COUNT']
             features_df[hr_cols] = features_df.apply(
-                lambda row: compute_row_hit_rates(row, row.get('PROP_TYPE'), 'LINE'), axis=1
+                lambda row: compute_row_hit_rates(row, row.get('PROP_TYPE'), f"{row.get('PROP_TYPE')}_{Cols.SZN_AVG}"), axis=1
             )
             
         for stat in ['PTS', 'REB', 'AST', 'PRA', 'PR', 'PA', 'RA']:
-            line_col = f'{stat}_LINE'
-            if line_col in features_df.columns:
+            benchmark_col = f'{stat}_{Cols.SZN_AVG}'
+            if benchmark_col in features_df.columns:
                 hr_cols = [f'{stat}_L5_HIT_RATE', f'{stat}_L10_HIT_RATE', f'{stat}_L20_HIT_RATE', f'{stat}_SZN_HIT_RATE', f'{stat}_VS_OPP_HIT_RATE', f'{stat}_VS_OPP_GAMES_COUNT']
                 features_df[hr_cols] = features_df.apply(
-                    lambda row: compute_row_hit_rates(row, stat, line_col), axis=1
+                    lambda row: compute_row_hit_rates(row, stat, benchmark_col), axis=1
                 )
 
     # Merge Team Context
@@ -212,7 +217,7 @@ def build_feature_set(props_df):
         features_df = pd.merge(features_df, opp_stats_renamed, left_on=Cols.OPPONENT, right_index=True, how='left')
 
     # ====================================================================
-    # NEW: MERGE DVP (DEFENSE VS POSITION) STATS
+    # MERGE DVP (DEFENSE VS POSITION) STATS
     # ====================================================================
     if dvp_df is not None and not dvp_df.empty:
         logging.info("Merging Defense vs Position (DvP) Stats...")
@@ -260,7 +265,7 @@ def build_feature_set(props_df):
     if 'OPP_Possessions per Game' in features_df.columns:
         features_df['OPP_GAME_PACE'] = features_df['OPP_Possessions per Game']
         
-    # NEW: Incorporating Missing AST/REB PCT and Rest Contexts
+    # Incorporating Missing AST/REB PCT and Rest Contexts
     cols_to_fill = [
         'TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 'MISSING_USG_G', 'MISSING_USG_F',
         'TEAM_MISSING_AST_PCT', 'TEAM_MISSING_REB_PCT'
