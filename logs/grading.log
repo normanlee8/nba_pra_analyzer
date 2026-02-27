@@ -695,3 +695,81 @@ REB    0.980513
 2026-02-25 02:09:35 [INFO] root: >>> GRADING PARLAYS <<<
 2026-02-25 02:09:35 [INFO] root: No parlays fully completed yet.
 2026-02-25 02:09:35 [INFO] root: >>> POST-MORTEM SYSTEM ANALYSIS <<<
+2026-02-26 00:32:32 [INFO] root: Logging initialized. Writing to logs/grading.log
+2026-02-26 00:32:32 [INFO] root: Loading historical data for grading...
+2026-02-26 00:32:32 [INFO] root: Grading 528 predictions...
+2026-02-26 00:32:37 [INFO] root: ----------------------------------------
+2026-02-26 00:32:37 [INFO] root: >>> GRADING REPORT <<<
+2026-02-26 00:32:37 [INFO] root: Total Props: 55.0% (259/471) [Pushes: 1]
+2026-02-26 00:32:37 [INFO] root: A Tier Props: 100.0% (1/1) [Pushes: 0]
+2026-02-26 00:32:37 [INFO] root: B Tier Props: 46.2% (6/13) [Pushes: 0]
+2026-02-26 00:32:37 [INFO] root: Trap / High Variance Props: 33.3% (1/3) [Pushes: 0]
+2026-02-26 00:32:37 [INFO] root: >>> CATEGORY HIT RATES <<<
+2026-02-26 00:32:37 [INFO] root: PTS Props: 60.6% (43/71) [Pushes: 1]
+2026-02-26 00:32:37 [INFO] root: REB Props: 47.2% (34/72) [Pushes: 0]
+2026-02-26 00:32:37 [INFO] root: AST Props: 38.2% (26/68) [Pushes: 0]
+2026-02-26 00:32:37 [INFO] root: PRA Props: 63.5% (40/63) [Pushes: 0]
+2026-02-26 00:32:37 [INFO] root: PR Props: 58.2% (39/67) [Pushes: 0]
+2026-02-26 00:32:37 [INFO] root: PA Props: 65.1% (41/63) [Pushes: 0]
+2026-02-26 00:32:37 [INFO] root: RA Props: 53.7% (36/67) [Pushes: 0]
+2026-02-26 00:32:37 [INFO] root: ----------------------------------------
+2026-02-26 00:32:37 [INFO] root: Saved graded results for game date: 2026-02-25
+2026-02-26 00:32:37 [INFO] root: >>> GRADING PARLAYS <<<
+2026-02-26 00:32:37 [INFO] root: Parlay Win Rate: 5.8% (4/69)
+2026-02-26 00:32:37 [INFO] root: Parlay ROI: -74.29% (Units Wagered: 70, Units Won: 18.00)
+2026-02-26 00:32:37 [INFO] root: >>> POST-MORTEM SYSTEM ANALYSIS <<<
+2026-02-26 00:32:37 [INFO] root: 
+Highest Average Error by Stat Type:
+Prop Category
+PRA    6.453651
+PR     6.104627
+PA     5.917619
+2026-02-26 00:32:37 [INFO] root: 
+Systematic Bias (Positive = Under-projecting, Negative = Over-projecting):
+Prop Category
+AST    0.230147
+PA    -0.156984
+PR    -0.029403
+PRA   -0.295556
+PTS    0.289167
+RA     0.068507
+REB    0.140139
+2026-02-27 00:23:13 [INFO] root: Logging initialized. Writing to logs/grading.log
+2026-02-27 00:23:13 [INFO] root: Loading historical data for grading...
+2026-02-27 00:23:13 [INFO] root: Grading 753 predictions...
+2026-02-27 00:23:20 [INFO] root: ----------------------------------------
+2026-02-27 00:23:20 [INFO] root: >>> GRADING REPORT <<<
+2026-02-27 00:23:20 [INFO] root: Total Props: 54.7% (373/682) [Pushes: 2]
+2026-02-27 00:23:20 [INFO] root: A Tier Props: 50.0% (2/4) [Pushes: 0]
+2026-02-27 00:23:20 [INFO] root: B Tier Props: 52.5% (21/40) [Pushes: 0]
+2026-02-27 00:23:20 [INFO] root: Trap / High Variance Props: 75.0% (12/16) [Pushes: 0]
+2026-02-27 00:23:20 [INFO] root: >>> CATEGORY HIT RATES <<<
+2026-02-27 00:23:20 [INFO] root: PTS Props: 57.5% (61/106) [Pushes: 0]
+2026-02-27 00:23:20 [INFO] root: REB Props: 40.8% (42/103) [Pushes: 1]
+2026-02-27 00:23:20 [INFO] root: AST Props: 55.2% (53/96) [Pushes: 0]
+2026-02-27 00:23:20 [INFO] root: PRA Props: 54.8% (51/93) [Pushes: 0]
+2026-02-27 00:23:20 [INFO] root: PR Props: 59.0% (59/100) [Pushes: 0]
+2026-02-27 00:23:20 [INFO] root: PA Props: 54.4% (49/90) [Pushes: 0]
+2026-02-27 00:23:20 [INFO] root: RA Props: 61.7% (58/94) [Pushes: 1]
+2026-02-27 00:23:20 [INFO] root: ----------------------------------------
+2026-02-27 00:23:20 [INFO] root: Saved graded results for game date: 2026-02-26
+2026-02-27 00:23:20 [INFO] root: >>> GRADING PARLAYS <<<
+2026-02-27 00:23:20 [INFO] root: Parlay Win Rate: 1.4% (1/69)
+2026-02-27 00:23:20 [INFO] root: Parlay ROI: -95.71% (Units Wagered: 70, Units Won: 3.00)
+2026-02-27 00:23:20 [INFO] root: >>> POST-MORTEM SYSTEM ANALYSIS <<<
+2026-02-27 00:23:20 [INFO] root: 
+Highest Average Error by Stat Type:
+Prop Category
+PRA    6.285699
+PR     5.954200
+PA     5.833444
+2026-02-27 00:23:20 [INFO] root: 
+Systematic Bias (Positive = Under-projecting, Negative = Over-projecting):
+Prop Category
+AST    0.315208
+PA     0.042111
+PR     0.065000
+PRA   -0.405699
+PTS    0.038679
+RA     0.058105
+REB    0.120865

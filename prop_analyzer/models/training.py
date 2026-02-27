@@ -10,11 +10,7 @@ import re
 from datetime import datetime
 from pathlib import Path
 
-from sklearn.ensemble import RandomForestRegressor, VotingRegressor
-from sklearn.preprocessing import StandardScaler
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline
-from sklearn.impute import SimpleImputer
+from sklearn.ensemble import VotingRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import TimeSeriesSplit
 
@@ -26,6 +22,15 @@ from prop_analyzer.config import Cols
 from prop_analyzer.features import definitions as feat_defs
 from prop_analyzer.models import registry
 from prop_analyzer.utils import common
+
+class PassThroughScaler:
+    """Dummy scaler to bypass imputation/scaling. Lets tree models handle NaNs natively."""
+    def fit(self, X, y=None): 
+        return self
+    def transform(self, X): 
+        return X.values if isinstance(X, pd.DataFrame) else X
+    def fit_transform(self, X, y=None): 
+        return self.transform(X)
 
 def get_feature_cols(prop_cat, all_columns):
     relevant = []
@@ -44,7 +49,6 @@ def get_feature_cols(prop_cat, all_columns):
         if vc in all_columns:
             relevant.append(vc)
 
-    # NEW: Include Probability and Consistency Features explicitly
     consistency_keywords = ['_CV', '_HIT_RATE', '_STD_DEV']
     for c in all_columns:
         if any(k in c for k in consistency_keywords):
@@ -106,22 +110,15 @@ def train_ensemble_model(df, target_col):
     X = df[feature_list].copy()
     X.columns = sanitized_cols
     
-    # RESIDUAL TARGET CREATION
-    fallback_line = df[f'{target_col}_{Cols.SZN_AVG}'] if f'{target_col}_{Cols.SZN_AVG}' in df.columns else df[target_col]
-    hist_line = df[Cols.PROP_LINE].fillna(fallback_line) if Cols.PROP_LINE in df.columns else fallback_line
-    hist_line = hist_line.fillna(df[target_col])
-    
-    y = df[target_col] - hist_line
+    # NEW: Predict Raw Target directly (Poisson requires positive counts)
+    y = df[target_col]
 
-    zero_impute_keywords = ['HIST_', 'VS_OPP_', 'DVP_', 'MISSING']
-    hist_cols = [c for c in X.columns if any(k in c for k in zero_impute_keywords)]
-    base_cols = [c for c in X.columns if c not in hist_cols]
+    # NEW: Sample Weighting (Exponential Decay - 45 Day Half-Life)
+    days_ago = (pd.Timestamp.now() - df[date_col]).dt.days
+    sample_weights = np.exp(-days_ago / 45)
     
-    preprocessor = ColumnTransformer([
-        ('zero_fill', Pipeline([('imputer', SimpleImputer(strategy='constant', fill_value=0)), ('scaler', StandardScaler())]), hist_cols),
-        ('median_fill', Pipeline([('imputer', SimpleImputer(strategy='median')), ('scaler', StandardScaler())]), base_cols)
-    ], remainder='passthrough')
-
+    # NEW: Bypass imputation and standard scaling 
+    preprocessor = PassThroughScaler()
     X_proc = preprocessor.fit_transform(X)
     X_proc_df = pd.DataFrame(X_proc, columns=sanitized_cols)
 
@@ -138,16 +135,20 @@ def train_ensemble_model(df, target_col):
                 'subsample': trial.suggest_float('subsample', 0.6, 1.0),
                 'colsample_bytree': trial.suggest_float('colsample_bytree', 0.6, 1.0),
             }
-            mod = xgb.XGBRegressor(**params, random_state=42, n_jobs=2, objective='reg:squarederror', tree_method='hist')
+            # NEW: Poisson Objective
+            mod = xgb.XGBRegressor(**params, random_state=42, n_jobs=2, objective='count:poisson', tree_method='hist')
             
             maes = []
             for train_idx, val_idx in tscv.split(X_proc_df):
-                mod.fit(X_proc_df.iloc[train_idx], y.iloc[train_idx])
+                mod.fit(
+                    X_proc_df.iloc[train_idx], y.iloc[train_idx],
+                    sample_weight=sample_weights.iloc[train_idx]
+                )
                 maes.append(mean_absolute_error(y.iloc[val_idx], mod.predict(X_proc_df.iloc[val_idx])))
             return np.mean(maes)
 
         study_xgb = optuna.create_study(direction='minimize')
-        study_xgb.optimize(xgb_objective, n_trials=5)
+        study_xgb.optimize(xgb_objective, n_trials=15)  # NEW: Boosted to 15 trials
         
         def lgb_objective(trial):
             params = {
@@ -156,34 +157,35 @@ def train_ensemble_model(df, target_col):
                 'max_depth': trial.suggest_int('max_depth', 3, 6),
                 'num_leaves': trial.suggest_int('num_leaves', 20, 50),
             }
-            mod = lgb.LGBMRegressor(**params, random_state=42, n_jobs=2, verbose=-1)
+            # NEW: Poisson Objective
+            mod = lgb.LGBMRegressor(**params, random_state=42, n_jobs=2, objective='poisson', verbose=-1)
             
             maes = []
             for train_idx, val_idx in tscv.split(X_proc_df):
-                mod.fit(X_proc_df.iloc[train_idx], y.iloc[train_idx])
+                mod.fit(
+                    X_proc_df.iloc[train_idx], y.iloc[train_idx],
+                    sample_weight=sample_weights.iloc[train_idx]
+                )
                 maes.append(mean_absolute_error(y.iloc[val_idx], mod.predict(X_proc_df.iloc[val_idx])))
             return np.mean(maes)
 
         study_lgb = optuna.create_study(direction='minimize')
-        study_lgb.optimize(lgb_objective, n_trials=5)
+        study_lgb.optimize(lgb_objective, n_trials=15) # NEW: Boosted to 15 trials
 
         return study_xgb.best_params, study_lgb.best_params
 
     logging.info(f"[{target_col}] Running Hyperparameter Optimization (Walk-Forward CV)...")
     xgb_params, lgb_params = optimize_base_models()
 
-    xgb_best = xgb.XGBRegressor(**xgb_params, random_state=42, n_jobs=-1, tree_method='hist')
-    lgb_best = lgb.LGBMRegressor(**lgb_params, random_state=42, n_jobs=-1, verbose=-1)
+    xgb_best = xgb.XGBRegressor(**xgb_params, random_state=42, n_jobs=-1, objective='count:poisson', tree_method='hist')
+    lgb_best = lgb.LGBMRegressor(**lgb_params, random_state=42, n_jobs=-1, objective='poisson', verbose=-1)
     
-    rf_best = RandomForestRegressor(
-        n_estimators=75, max_depth=6, min_samples_split=3,
-        max_features='sqrt', max_samples=0.5, random_state=42, n_jobs=-1
-    )
-
-    ensemble = VotingRegressor(estimators=[('xgb', xgb_best), ('lgb', lgb_best), ('rf', rf_best)])
+    # NEW: Removed Random Forest
+    ensemble = VotingRegressor(estimators=[('xgb', xgb_best), ('lgb', lgb_best)])
 
     logging.info(f"[{target_col}] Fitting Final Ensemble Model on full training data...")
-    ensemble.fit(X_proc_df, y)
+    # NEW: Pass sample weights to final fit
+    ensemble.fit(X_proc_df, y, sample_weight=sample_weights)
 
     split_idx = int(len(X_proc_df) * 0.85)
     X_val, y_val = X_proc_df.iloc[split_idx:], y.iloc[split_idx:]

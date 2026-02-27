@@ -180,9 +180,12 @@ def predict_props(todays_props_df):
         X_model = pd.DataFrame(new_features, index=X_raw.index)
 
         try:
+            # Pass through scaler (imputation & standard scaling removed during training update)
             X_scaled = scaler.transform(X_model)
             X_scaled_df = pd.DataFrame(X_scaled, columns=X_model.columns, index=X_model.index)
-            raw_proj_residuals = model.predict(X_scaled_df)
+            
+            # MODEL PREDICTS RAW TARGET DIRECTLY NOW
+            raw_projections = model.predict(X_scaled_df)
             
             szn_avgs = get_col_safe(X_raw, prop_cat, 'SZN_AVG')
             l5_avgs = get_col_safe(X_raw, prop_cat, 'L5_AVG')
@@ -199,9 +202,9 @@ def predict_props(todays_props_df):
             
             for idx, (orig_idx, row) in enumerate(group.iterrows()):
                 line = float(row[Cols.PROP_LINE])
-                predicted_residual = raw_proj_residuals[idx]
                 
-                raw_val = line + predicted_residual
+                # Assign the direct model output instead of adding to the line
+                raw_val = raw_projections[idx]
                 
                 abs_diff_raw = abs(raw_val - line)
                 delta_gap_raw = abs_diff_raw / line if line > 0 else 0
