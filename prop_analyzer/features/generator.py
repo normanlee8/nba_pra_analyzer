@@ -19,6 +19,7 @@ def add_rolling_stats_history(df, stats_to_roll=None):
     if Cols.GAME_ID in df.columns:
         sort_cols.append(Cols.GAME_ID)
         
+    df[Cols.DATE] = pd.to_datetime(df[Cols.DATE])
     df = df.sort_values(by=sort_cols).reset_index(drop=True)
     
     if stats_to_roll is None:
@@ -30,6 +31,12 @@ def add_rolling_stats_history(df, stats_to_roll=None):
 
     # Calculate Days Rest
     df[Cols.DAYS_REST] = df.groupby(Cols.PLAYER_ID)[Cols.DATE].diff().dt.days.fillna(7.0)
+
+    # Calculate Games in Last 7 Days (Schedule Density / Fatigue)
+    df_temp = df[[Cols.PLAYER_ID, Cols.DATE]].copy().set_index(Cols.DATE)
+    rolling_counts = df_temp.groupby(Cols.PLAYER_ID)[Cols.PLAYER_ID].rolling('7D').count() - 1
+    df['Games_in_Last_7_Days'] = rolling_counts.values
+    df['Games_in_Last_7_Days'] = df['Games_in_Last_7_Days'].clip(lower=0)
 
     grouped = df.groupby(Cols.PLAYER_ID)
 
@@ -71,9 +78,10 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         new_cols[f'{col}_FORM_RATIO'] = np.divide(l5_avg, szn_avg, out=form_out, where=(szn_avg > 0))
 
     # 2. Dynamic Correlation Matrices (For PRA/Combo variance scaling)
-    new_cols['PTS_REB_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['REB']), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
-    new_cols['PTS_AST_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['AST']), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
-    new_cols['REB_AST_CORR'] = grouped.apply(lambda x: x['REB'].rolling(50, min_periods=5).corr(x['AST']), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
+    # FIX: Appended .shift(1) to strictly eliminate data leakage
+    new_cols['PTS_REB_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['REB']).shift(1), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
+    new_cols['PTS_AST_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['AST']).shift(1), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
+    new_cols['REB_AST_CORR'] = grouped.apply(lambda x: x['REB'].rolling(50, min_periods=5).corr(x['AST']).shift(1), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
 
     # Attach all new stats simultaneously 
     df = pd.concat([df, pd.DataFrame(new_cols, index=df.index)], axis=1)
@@ -259,13 +267,30 @@ def build_feature_set(props_df):
     elif 'IS_HOME' not in features_df.columns:
         features_df['IS_HOME'] = 1  
 
+    # Add Altitude Fatigue Feature
+    if Cols.OPPONENT in features_df.columns:
+        features_df['IS_ALTITUDE'] = np.where(features_df[Cols.OPPONENT].isin(['DEN', 'UTA']), 1.0, 0.0)
+
     # Mapping Pace
     if 'TEAM_Possessions per Game' in features_df.columns:
         features_df['GAME_PACE'] = features_df['TEAM_Possessions per Game']
     if 'OPP_Possessions per Game' in features_df.columns:
         features_df['OPP_GAME_PACE'] = features_df['OPP_Possessions per Game']
         
+    # Add Pace-Position Interaction
+    if 'OPP_GAME_PACE' in features_df.columns and 'Primary_Pos' in features_df.columns:
+        features_df['PACE_PG_INTERACTION'] = np.where(features_df['Primary_Pos'] == 'PG', features_df['OPP_GAME_PACE'], 0.0)
+
     # Incorporating Missing AST/REB PCT and Rest Contexts
+    
+    # NEW: Merge active daily vacancy stats (Driven by injury report)
+    vacancy_path = cfg.DATA_DIR / "master_daily_vacancy.parquet"
+    if vacancy_path.exists():
+        vacancy_df = pd.read_parquet(vacancy_path)
+        drop_cols = [c for c in vacancy_df.columns if c in features_df.columns and c != 'TEAM_ABBREVIATION']
+        features_df.drop(columns=drop_cols, inplace=True, errors='ignore')
+        features_df = pd.merge(features_df, vacancy_df, on='TEAM_ABBREVIATION', how='left')
+
     cols_to_fill = [
         'TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 'MISSING_USG_G', 'MISSING_USG_F',
         'TEAM_MISSING_AST_PCT', 'TEAM_MISSING_REB_PCT'

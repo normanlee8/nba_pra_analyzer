@@ -481,3 +481,51 @@ def process_home_away_splits(output_dir):
             
     splits_pivot.round(2).to_parquet(output_dir / "master_home_away_splits.parquet", index=False)
     logging.info(f"Saved master_home_away_splits.parquet ({len(splits_pivot)} rows)")
+
+def process_daily_vacancy(player_id_map, season_folders, output_dir):
+    """
+    Parses the daily injury report, maps 'OUT' players to their respective teams,
+    and calculates the missing statistical usage per team for the given day.
+    """
+    logging.info("--- Starting: process_daily_vacancy ---")
+    if not season_folders: return
+    latest_folder = season_folders[-1]
+    season_id = latest_folder.name
+    
+    injuries_path = latest_folder / "daily_injuries.parquet"
+    if not injuries_path.exists(): 
+        logging.info("No daily injuries report found for current season.")
+        return
+        
+    inj_df = pd.read_parquet(injuries_path)
+    if inj_df is None or inj_df.empty: return
+    
+    if 'Status_Clean' not in inj_df.columns: return
+    out_df = inj_df[inj_df['Status_Clean'] == 'OUT'].copy()
+    if out_df.empty: return
+    
+    out_df['clean_name'] = out_df['Player'].apply(lambda x: unidecode(str(x)).lower().strip())
+    id_map_clean = player_id_map[['Player_Clean', Cols.PLAYER_ID]].drop_duplicates()
+    out_df = pd.merge(out_df, id_map_clean, left_on='clean_name', right_on='Player_Clean', how='left')
+    
+    p_stats_path = output_dir / f"master_player_stats_{season_id}.parquet"
+    if p_stats_path.exists():
+        p_stats = pd.read_parquet(p_stats_path)
+        stats_to_get = [c for c in ['USG%', 'AST%', 'TRB%'] if c in p_stats.columns]
+        
+        if stats_to_get:
+            out_df = pd.merge(out_df, p_stats[[Cols.PLAYER_ID] + stats_to_get], on=Cols.PLAYER_ID, how='left')
+            for c in stats_to_get:
+                out_df[c] = pd.to_numeric(out_df[c], errors='coerce').fillna(0.0)
+                
+            agg_dict = {c: 'sum' for c in stats_to_get}
+            team_vacancy = out_df.groupby('Team').agg(agg_dict).reset_index()
+            
+            rename_map = {'Team': 'TEAM_ABBREVIATION'}
+            if 'USG%' in team_vacancy.columns: rename_map['USG%'] = 'TEAM_MISSING_USG'
+            if 'AST%' in team_vacancy.columns: rename_map['AST%'] = 'TEAM_MISSING_AST_PCT'
+            if 'TRB%' in team_vacancy.columns: rename_map['TRB%'] = 'TEAM_MISSING_REB_PCT'
+            team_vacancy.rename(columns=rename_map, inplace=True)
+            
+            team_vacancy.to_parquet(output_dir / "master_daily_vacancy.parquet", index=False)
+            logging.info(f"Saved master_daily_vacancy.parquet with {len(team_vacancy)} teams registering missing usage stats.")

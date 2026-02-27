@@ -49,33 +49,54 @@ def get_system_learning_maps(days_back=21):
     full_history['Error'] = full_history[Cols.ACTUAL_VAL] - full_history[Cols.PREDICTION]
     full_history['Abs_Error'] = full_history['Error'].abs()
     
+    # NEW: Calculate Percentage Error for Multiplicative Bias Scaling
+    full_history['Pct_Error'] = np.where(
+        full_history[Cols.PREDICTION] > 0, 
+        full_history['Error'] / full_history[Cols.PREDICTION], 
+        0.0
+    )
+    
     group_cols = [Cols.PLAYER_ID, Cols.PROP_TYPE] if Cols.PLAYER_ID in full_history.columns else [Cols.PLAYER_NAME, Cols.PROP_TYPE]
 
-    player_bias = full_history.groupby(group_cols)['Error'].mean().to_dict()
+    player_bias_pct = full_history.groupby(group_cols)['Pct_Error'].mean().to_dict()
     full_history['Mapped_Prop'] = full_history[Cols.PROP_TYPE].map(lambda x: cfg.MASTER_PROP_MAP.get(x, x))
-    cat_bias = full_history.groupby('Mapped_Prop')['Error'].mean().to_dict()
+    cat_bias_pct = full_history.groupby('Mapped_Prop')['Pct_Error'].mean().to_dict()
     cat_mae = full_history.groupby('Mapped_Prop')['Abs_Error'].mean().to_dict()
 
-    return player_bias, cat_bias, cat_mae
+    return player_bias_pct, cat_bias_pct, cat_mae
 
-def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games):
+def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games, s_avg, r_avg):
     """
     Strictly evaluates based on Win Probability, Hit Rates, low Volatility, and Matchup History.
+    Now includes advanced Vegas Trap Line detection.
     """
     tier = 'Pass'
     win_pct = win_prob * 100.0
     
-    # Dynamic Vegas Trap Check based on Line Size (Refined for extreme low lines)
     is_trap = False
-    if line <= 2.5:
-        # Lines of 1.5 and 2.5 are highly volatile, require severe gap to be considered a trap
-        if delta_gap > 0.60 and abs_diff > 1.5: is_trap = True
-    elif line <= 4.5:
-        if delta_gap > 0.45 and abs_diff > 1.35: is_trap = True
-    elif line <= 12.5:
-        if delta_gap > 0.28 and abs_diff > 2.0: is_trap = True
-    else:
-        if delta_gap > 0.20 and abs_diff > 3.5: is_trap = True
+    
+    # NEW: Advanced Vegas Trap Logic based on actual form
+    if s_avg > 0 and r_avg > 0:
+        form_avg = (s_avg + r_avg) / 2.0
+        line_to_form_delta = (form_avg - line) / line if line > 0 else 0
+        
+        # Vegas hangs a deflated line despite great form, but model says Over (Baiting the Over)
+        if pick_type == 'Over' and line_to_form_delta > 0.20 and delta_gap > 0.15:
+            is_trap = True
+        # Vegas hangs an inflated line despite poor form, but model says Under (Baiting the Under)
+        elif pick_type == 'Under' and line_to_form_delta < -0.20 and delta_gap > 0.15:
+            is_trap = True
+
+    # Fallback to extreme dynamic sizing
+    if not is_trap:
+        if line <= 2.5:
+            if delta_gap > 0.60 and abs_diff > 1.5: is_trap = True
+        elif line <= 4.5:
+            if delta_gap > 0.45 and abs_diff > 1.35: is_trap = True
+        elif line <= 12.5:
+            if delta_gap > 0.28 and abs_diff > 2.0: is_trap = True
+        else:
+            if delta_gap > 0.20 and abs_diff > 3.5: is_trap = True
 
     if is_trap:
         return 'Trap / High Variance'
@@ -86,14 +107,12 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
 
     # Volume-Scaled Matchup Filter
     if vs_opp_games >= 5:
-        # High confidence sample: Require at least a 40% hit rate to play an Over
         if pick_type == 'Over' and vs_opp_hit_rate < 0.40:
             return 'Pass / Owned by Opponent'
         if pick_type == 'Under' and vs_opp_hit_rate > 0.60:
             return 'Pass / Owns Opponent'
             
     elif vs_opp_games >= 3:
-        # Low confidence sample (Noise): Only veto on absolute extremes (0% or 100%)
         if pick_type == 'Over' and vs_opp_hit_rate == 0.0:
             return 'Pass / Bad Matchup History'
         if pick_type == 'Under' and vs_opp_hit_rate == 1.0:
@@ -113,10 +132,9 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
     
     return tier
 
-def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games, tweedie_power=1.5):
+def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games, s_avg, r_avg, tweedie_power=1.5):
     """Evaluates probability of outcome based on distribution modeling."""
     if line <= 0: return None
-    # FIX: Points are count-based and skewed, Negative Binomial is far more accurate than Normal
     dist_type = 'nbinom' if prop_type in ['PTS', 'REB', 'AST', 'STL', 'BLK', 'FG3M'] else 'normal'
     
     probs_over = get_discrete_probabilities(proj, line, variance, dist_type=dist_type, tweedie_power=tweedie_power)
@@ -131,7 +149,7 @@ def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_hit_rate, 
         active_hit_rate = 1.0 - l10_hit_rate 
         
     abs_diff = abs(proj - line)
-    tier = determine_confidence_tier(win_prob, pick, delta_gap, line, abs_diff, cv, active_hit_rate, vs_opp_hit_rate, vs_opp_games)
+    tier = determine_confidence_tier(win_prob, pick, delta_gap, line, abs_diff, cv, active_hit_rate, vs_opp_hit_rate, vs_opp_games, s_avg, r_avg)
         
     return {
         'Pick': pick,
@@ -152,10 +170,10 @@ def predict_props(todays_props_df):
     if Cols.PROP_TYPE not in todays_props_df.columns: return pd.DataFrame()
     
     try: 
-        player_bias, cat_bias, cat_mae = get_system_learning_maps(days_back=21)
+        player_bias_pct, cat_bias_pct, cat_mae = get_system_learning_maps(days_back=21)
     except Exception as e: 
         logging.warning(f"Could not load system learning maps: {e}")
-        player_bias, cat_bias, cat_mae = {}, {}, {}
+        player_bias_pct, cat_bias_pct, cat_mae = {}, {}, {}
 
     # --- MINUTE MODEL INTEGRATION ---
     predicted_mins = {}
@@ -188,7 +206,7 @@ def predict_props(todays_props_df):
     grouped = todays_props_df.groupby(Cols.PROP_TYPE)
     
     for prop_cat, group in grouped:
-        if prop_cat == 'MIN': continue # Skip if 'MIN' somehow made it to the prop lines
+        if prop_cat == 'MIN': continue
         
         artifacts = load_artifacts(prop_cat)
         if not artifacts:
@@ -226,12 +244,10 @@ def predict_props(todays_props_df):
             vs_opp_hit_rates = get_col_safe(X_raw, prop_cat, 'VS_OPP_HIT_RATE')
             vs_opp_games_counts = get_col_safe(X_raw, prop_cat, 'VS_OPP_GAMES_COUNT')
             
-            # Extract Dynamic Correlations for Variance Scaling
             corr_pr = get_col_safe(X_raw, prop_cat, 'PTS_REB_CORR')
             corr_pa = get_col_safe(X_raw, prop_cat, 'PTS_AST_CORR')
             corr_ra = get_col_safe(X_raw, prop_cat, 'REB_AST_CORR')
             
-            # Base historical standard deviations for structural covariance
             base_stds = {
                 'PTS': get_col_safe(X_raw, 'PTS', 'L10_STD_DEV'),
                 'REB': get_col_safe(X_raw, 'REB', 'L10_STD_DEV'),
@@ -265,19 +281,20 @@ def predict_props(todays_props_df):
 
                 days_rest = float(row.get(Cols.DAYS_REST, 2.0))
                 
-                # Check for unexpected minute drops against our new predictive model
                 pred_min = predicted_mins.get(orig_idx, float(row.get('MIN_SZN_AVG', 36.0)))
                 hist_mins = float(row.get('MIN_L10_AVG', pred_min))
                 min_deviation = abs(pred_min - hist_mins) / hist_mins if hist_mins > 0 else 0
 
                 proj = smooth_projection(raw_val, s_avg, r_avg, std_dev)
                 
-                c_bias = cat_bias.get(prop_cat, 0.0)
-                proj += (c_bias * 0.30)
+                # NEW: Multiplicative Bias Adjustment
+                c_bias_pct = cat_bias_pct.get(prop_cat, 0.0)
+                proj *= (1.0 + (c_bias_pct * 0.30))
                 
                 p_id = row.get(Cols.PLAYER_ID)
                 key = (int(p_id), prop_cat) if not pd.isna(p_id) else (row.get(Cols.PLAYER_NAME), prop_cat)
-                proj += (player_bias.get(key, 0.0) * 0.5)
+                p_bias_pct = player_bias_pct.get(key, 0.0)
+                proj *= (1.0 + (p_bias_pct * 0.50))
                 
                 dynamic_correlations = {
                     'PTS_REB': float(corr_pr.iloc[idx]) if not pd.isna(corr_pr.iloc[idx]) else 0.1,
@@ -299,7 +316,7 @@ def predict_props(todays_props_df):
 
                 delta_gap_final = abs(proj - line) / line if line > 0 else 0
                 
-                eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap_final, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games, tweedie_power=tweedie_power)
+                eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap_final, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games, s_avg, r_avg, tweedie_power=tweedie_power)
                 if not eval_res: continue
                 
                 if days_rest > 7.0 or min_deviation > 0.30:

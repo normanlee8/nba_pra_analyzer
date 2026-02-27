@@ -44,8 +44,13 @@ def get_feature_cols(prop_cat, all_columns):
             if prefixed_feat in all_columns:
                 relevant.append(prefixed_feat)
 
-    vacancy_cols = ['TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 'MISSING_USG_G', 'MISSING_USG_F', 
-                    'TEAM_MISSING_AST_PCT', 'TEAM_MISSING_REB_PCT', Cols.DAYS_REST, 'OPP_DAYS_REST', 'OPP_IS_B2B']
+    # NEW: Registered the newly engineered features so the models pick them up
+    vacancy_cols = [
+        'TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 'MISSING_USG_G', 'MISSING_USG_F', 
+        'TEAM_MISSING_AST_PCT', 'TEAM_MISSING_REB_PCT', Cols.DAYS_REST, 
+        'OPP_DAYS_REST', 'OPP_IS_B2B', 'Games_in_Last_7_Days', 
+        'IS_ALTITUDE', 'PACE_PG_INTERACTION'
+    ]
     for vc in vacancy_cols:
         if vc in all_columns:
             relevant.append(vc)
@@ -96,8 +101,6 @@ def train_ensemble_model(df, target_col):
     
     feature_list = get_feature_cols(target_col, df.columns)
     
-    # DATA LEAKAGE FIX: Prop Line explicitly removed from training features here.
-    
     feature_list = list(set(feature_list)) 
     
     if len(feature_list) < 5:
@@ -116,7 +119,6 @@ def train_ensemble_model(df, target_col):
     days_ago = (pd.Timestamp.now() - df[date_col]).dt.days
     sample_weights = np.exp(-days_ago / 45)
     
-    # Bypass imputation and standard scaling 
     preprocessor = PassThroughScaler()
     X_proc = preprocessor.fit_transform(X)
     X_proc_df = pd.DataFrame(X_proc, columns=sanitized_cols)
