@@ -125,7 +125,7 @@ def process_master_player_stats(player_id_map, season_folders, output_dir):
                 bball_ref_df[Cols.PLAYER_ID] = bball_ref_df[Cols.PLAYER_ID].astype(int)
                 bball_ref_df.drop_duplicates(subset=[Cols.PLAYER_ID], keep='first', inplace=True)
                 
-                season_cols = [Cols.PLAYER_ID, 'Position', 'SEASON_G', 'SEASON_PTS', 'SEASON_TRB', 'SEASON_AST']
+                season_cols = [Cols.PLAYER_ID, 'Position', 'SEASON_G', 'SEASON_PTS', 'SEASON_TRB', 'SEASON_AST', 'MIN']
                 cols_exist = [col for col in season_cols if col in bball_ref_df.columns]
                 season_player_df = pd.merge(season_player_df, bball_ref_df[cols_exist], on=Cols.PLAYER_ID, how="left")
                 
@@ -138,7 +138,6 @@ def process_master_player_stats(player_id_map, season_folders, output_dir):
                     adv_df[Cols.PLAYER_ID] = adv_df[Cols.PLAYER_ID].astype(int)
                     adv_df.drop_duplicates(subset=[Cols.PLAYER_ID], keep='first', inplace=True)
                     
-                    # NEW: Added AST% and TRB% for Vacancy Logic
                     adv_cols = [c for c in [Cols.PLAYER_ID, 'TS%', 'USG%', 'PER', 'AST%', 'TRB%'] if c in adv_df.columns]
                     season_player_df = pd.merge(season_player_df, adv_df[adv_cols], on=Cols.PLAYER_ID, how="left", suffixes=('', '_adv'))
 
@@ -217,7 +216,6 @@ def process_master_box_scores(player_id_map, season_folders, output_dir):
             if Cols.DATE in bs_df.columns: 
                 bs_df[Cols.DATE] = pd.to_datetime(bs_df[Cols.DATE], errors='coerce')
 
-            # Identify if player is Home or Away based on Matchup string (e.g. LAL @ BOS)
             if 'MATCHUP' in bs_df.columns:
                 bs_df['IS_HOME'] = np.where(bs_df['MATCHUP'].str.contains('@'), 0, 1)
             else:
@@ -232,15 +230,12 @@ def process_master_box_scores(player_id_map, season_folders, output_dir):
             choices = ['B2B', '1_Day', '2_Plus_Days']
             bs_df['Rest_Category'] = np.select(conditions, choices, default='Unknown')
             
-            # --- NEW: CALCULATE OPPONENT REST CONTEXT ---
             if 'TEAM_ABBREVIATION' in bs_df.columns and 'OPPONENT_ABBREV' in bs_df.columns and Cols.DATE in bs_df.columns:
                 team_games = bs_df[['TEAM_ABBREVIATION', Cols.DATE]].drop_duplicates().sort_values(['TEAM_ABBREVIATION', Cols.DATE])
                 team_games['OPP_DAYS_REST'] = team_games.groupby('TEAM_ABBREVIATION')[Cols.DATE].diff().dt.days.fillna(3.0)
-                # Cap the maximum rest to prevent outliers from skewing rest assumptions
                 team_games['OPP_DAYS_REST'] = team_games['OPP_DAYS_REST'].clip(upper=7.0) 
                 team_games['OPP_IS_B2B'] = np.where(team_games['OPP_DAYS_REST'] <= 1, 1.0, 0.0)
                 
-                # Merge the calculated team rest onto the Opponent of the current row
                 bs_df = pd.merge(bs_df, team_games, left_on=['OPPONENT_ABBREV', Cols.DATE], right_on=['TEAM_ABBREVIATION', Cols.DATE], how='left', suffixes=('', '_opp_drop'))
                 if 'TEAM_ABBREVIATION_opp_drop' in bs_df.columns:
                     bs_df.drop(columns=['TEAM_ABBREVIATION_opp_drop'], inplace=True)
@@ -287,8 +282,6 @@ def process_master_box_scores(player_id_map, season_folders, output_dir):
             if p_stats_path.exists():
                 bs_df = calculate_historical_vacancy(bs_df, pd.read_parquet(p_stats_path))
 
-            # --- Calculate Expanding Home/Away Split Averages for Historical ML Training ---
-            # Calculates the running mean of the player in this split, shifted by 1 to prevent data leakage.
             split_stat_cols = ['PTS', 'REB', 'AST', 'PRA', 'MIN']
             for col in split_stat_cols:
                 if col in bs_df.columns:
@@ -427,10 +420,6 @@ def process_dvp_stats(output_dir):
         logging.info(f"Saved master_dvp_stats.parquet (Multi-Season: {len(final_dvp_all)} rows)")
 
 def process_home_away_splits(output_dir):
-    """
-    Calculates season-long Home and Away averages and differentials for players.
-    This creates a lookup table for daily feature generation.
-    """
     logging.info("--- Starting: process_home_away_splits ---")
     all_files = sorted(output_dir.glob("master_box_scores_*.parquet"))
     if not all_files: return
@@ -439,7 +428,6 @@ def process_home_away_splits(output_dir):
     for f in all_files:
         try: 
             df = pd.read_parquet(f)
-            # Ensure season ID is present
             match = re.search(r'\d{4}-\d{2}', f.name)
             if match and 'SEASON_ID' not in df.columns:
                 df['SEASON_ID'] = match.group(0)
@@ -457,22 +445,17 @@ def process_home_away_splits(output_dir):
     
     name_col = Cols.PLAYER_NAME if Cols.PLAYER_NAME in combined_df.columns else 'PLAYER_NAME'
     
-    # Calculate means for Home/Away splits
     splits_df = combined_df.groupby(['SEASON_ID', Cols.PLAYER_ID, name_col, 'IS_HOME'])[valid_cols].mean().reset_index()
     
-    # Calculate games played in each split to evaluate sample size
     counts_df = combined_df.groupby(['SEASON_ID', Cols.PLAYER_ID, 'IS_HOME']).size().reset_index(name='GP_SPLIT')
     splits_df = pd.merge(splits_df, counts_df, on=['SEASON_ID', Cols.PLAYER_ID, 'IS_HOME'], how='left')
     
-    # Pivot the metrics so 0 (Away) and 1 (Home) become separate columns
     pivot_cols = valid_cols + ['GP_SPLIT']
     splits_pivot = splits_df.pivot(index=['SEASON_ID', Cols.PLAYER_ID, name_col], columns='IS_HOME', values=pivot_cols)
     
-    # Flatten multi-index columns and rename
     splits_pivot.columns = [f"{col}_{'HOME' if is_home == 1 else 'AWAY'}" for col, is_home in splits_pivot.columns]
     splits_pivot = splits_pivot.reset_index()
     
-    # Calculate Home - Away differentials
     for col in valid_cols:
         home_col = f"{col}_HOME"
         away_col = f"{col}_AWAY"
@@ -484,8 +467,8 @@ def process_home_away_splits(output_dir):
 
 def process_daily_vacancy(player_id_map, season_folders, output_dir):
     """
-    Parses the daily injury report, maps 'OUT' players to their respective teams,
-    and calculates the missing statistical usage per team for the given day.
+    Parses daily injury report and maps missing usage. 
+    UPDATED: Uses volume weighting (MIN) and Decays long-term injuries to prevent double-counting.
     """
     logging.info("--- Starting: process_daily_vacancy ---")
     if not season_folders: return
@@ -508,24 +491,65 @@ def process_daily_vacancy(player_id_map, season_folders, output_dir):
     id_map_clean = player_id_map[['Player_Clean', Cols.PLAYER_ID]].drop_duplicates()
     out_df = pd.merge(out_df, id_map_clean, left_on='clean_name', right_on='Player_Clean', how='left')
     
+    # --- RECENCY CHECK: Prevent stale vacancy double-counting ---
+    bs_path = output_dir / f"master_box_scores_{season_id}.parquet"
+    if bs_path.exists():
+        bs_df = pd.read_parquet(bs_path)
+        if Cols.DATE in bs_df.columns and Cols.PLAYER_ID in bs_df.columns:
+            bs_df[Cols.DATE] = pd.to_datetime(bs_df[Cols.DATE])
+            last_played = bs_df.groupby(Cols.PLAYER_ID)[Cols.DATE].max().reset_index()
+            last_played.rename(columns={Cols.DATE: 'Last_Played_Date'}, inplace=True)
+            out_df = pd.merge(out_df, last_played, on=Cols.PLAYER_ID, how='left')
+            
+            # Find the most recent date available in the dataset
+            current_date = pd.Timestamp.today().normalize()
+            if 'Date' in inj_df.columns:
+                current_date = pd.to_datetime(inj_df['Date'].max())
+                
+            out_df['Days_Since_Played'] = (current_date - out_df['Last_Played_Date']).dt.days
+            
+            # Filter out players who have been out for more than 14 days
+            # Note: NaT means they haven't played at all yet, assume they are actively out
+            out_df = out_df[(out_df['Days_Since_Played'] <= 14) | (out_df['Days_Since_Played'].isna())]
+    
     p_stats_path = output_dir / f"master_player_stats_{season_id}.parquet"
     if p_stats_path.exists():
         p_stats = pd.read_parquet(p_stats_path)
-        stats_to_get = [c for c in ['USG%', 'AST%', 'TRB%'] if c in p_stats.columns]
+        
+        # Pull MIN and Position for volume weighting and positional splits
+        stats_to_get = [c for c in ['USG%', 'AST%', 'TRB%', 'MIN', 'Position'] if c in p_stats.columns]
         
         if stats_to_get:
             out_df = pd.merge(out_df, p_stats[[Cols.PLAYER_ID] + stats_to_get], on=Cols.PLAYER_ID, how='left')
-            for c in stats_to_get:
-                out_df[c] = pd.to_numeric(out_df[c], errors='coerce').fillna(0.0)
-                
-            agg_dict = {c: 'sum' for c in stats_to_get}
-            team_vacancy = out_df.groupby('Team').agg(agg_dict).reset_index()
             
-            rename_map = {'Team': 'TEAM_ABBREVIATION'}
-            if 'USG%' in team_vacancy.columns: rename_map['USG%'] = 'TEAM_MISSING_USG'
-            if 'AST%' in team_vacancy.columns: rename_map['AST%'] = 'TEAM_MISSING_AST_PCT'
-            if 'TRB%' in team_vacancy.columns: rename_map['TRB%'] = 'TEAM_MISSING_REB_PCT'
-            team_vacancy.rename(columns=rename_map, inplace=True)
+            # Convert metrics to numeric safely
+            for c in ['USG%', 'AST%', 'TRB%', 'MIN']:
+                if c in out_df.columns:
+                    out_df[c] = pd.to_numeric(out_df[c], errors='coerce').fillna(0.0)
+                    
+            # --- CALCULATE WEIGHTED VACANCY (Volume Base) ---
+            min_ratio = out_df.get('MIN', 0.0) / 48.0
+            out_df['TEAM_MISSING_USG'] = out_df.get('USG%', 0.0) * min_ratio
+            out_df['TEAM_MISSING_AST_PCT'] = out_df.get('AST%', 0.0) * min_ratio
+            out_df['TEAM_MISSING_REB_PCT'] = out_df.get('TRB%', 0.0) * min_ratio
+            out_df['TEAM_MISSING_MIN'] = out_df.get('MIN', 0.0)
+            
+            # --- CREATE POSITIONAL SPLITS ---
+            out_df['Position'] = out_df.get('Position', '').astype(str).str.upper()
+            out_df['MISSING_USG_G'] = np.where(out_df['Position'].str.contains('G'), out_df['TEAM_MISSING_USG'], 0.0)
+            out_df['MISSING_USG_F'] = np.where(out_df['Position'].str.contains('F|C'), out_df['TEAM_MISSING_USG'], 0.0)
+                
+            agg_dict = {
+                'TEAM_MISSING_USG': 'sum',
+                'TEAM_MISSING_AST_PCT': 'sum',
+                'TEAM_MISSING_REB_PCT': 'sum',
+                'TEAM_MISSING_MIN': 'sum',
+                'MISSING_USG_G': 'sum',
+                'MISSING_USG_F': 'sum'
+            }
+            
+            team_vacancy = out_df.groupby('Team').agg(agg_dict).reset_index()
+            team_vacancy.rename(columns={'Team': 'TEAM_ABBREVIATION'}, inplace=True)
             
             team_vacancy.to_parquet(output_dir / "master_daily_vacancy.parquet", index=False)
-            logging.info(f"Saved master_daily_vacancy.parquet with {len(team_vacancy)} teams registering missing usage stats.")
+            logging.info(f"Saved master_daily_vacancy.parquet with {len(team_vacancy)} teams registering active missing usage stats.")

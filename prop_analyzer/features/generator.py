@@ -29,26 +29,20 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         if col not in df.columns: 
             df[col] = 0.0
 
-    # Calculate Days Rest
     df[Cols.DAYS_REST] = df.groupby(Cols.PLAYER_ID)[Cols.DATE].diff().dt.days.fillna(7.0)
 
-    # Calculate Games in Last 7 Days (Schedule Density / Fatigue)
     df_temp = df[[Cols.PLAYER_ID, Cols.DATE]].copy().set_index(Cols.DATE)
     rolling_counts = df_temp.groupby(Cols.PLAYER_ID)[Cols.PLAYER_ID].rolling('7D').count() - 1
     df['Games_in_Last_7_Days'] = rolling_counts.values
     df['Games_in_Last_7_Days'] = df['Games_in_Last_7_Days'].clip(lower=0)
 
     grouped = df.groupby(Cols.PLAYER_ID)
-
-    # Dictionary to hold new columns to prevent DataFrame fragmentation warnings
     new_cols = {}
 
-    # 1. Base Rolling Averages & Volatility
     for col in stats_to_roll:
         winsorized = grouped[col].transform(lambda x: winsorize_series(x, limit=0.10))
         grouped_winsor = winsorized.groupby(df[Cols.PLAYER_ID])
         
-        # Averages
         szn_avg = grouped[col].expanding().mean().shift(1).values
         l5_avg = grouped_winsor.rolling(window=5, min_periods=1).median().shift(1).values
         l10_avg = grouped_winsor.rolling(window=10, min_periods=1).median().shift(1).values
@@ -59,7 +53,6 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         new_cols[f'{col}_L10_AVG'] = l10_avg
         new_cols[f'{col}_L20_AVG'] = l20_avg
         
-        # Volatility & Consistency 
         l5_std = grouped[col].rolling(window=5, min_periods=2).std().shift(1).values
         l10_std = grouped[col].rolling(window=10, min_periods=3).std().shift(1).values
         l20_std = grouped[col].rolling(window=20, min_periods=5).std().shift(1).values
@@ -68,25 +61,19 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         new_cols[f'{col}_L10_STD_DEV'] = l10_std
         new_cols[f'{col}_L20_STD_DEV'] = l20_std
 
-        # Safe division to prevent RuntimeWarnings
         new_cols[f'{col}_L5_CV'] = np.divide(l5_std, l5_avg, out=np.zeros_like(l5_std), where=(l5_avg > 0))
         new_cols[f'{col}_L10_CV'] = np.divide(l10_std, l10_avg, out=np.zeros_like(l10_std), where=(l10_avg > 0))
         new_cols[f'{col}_L20_CV'] = np.divide(l20_std, l20_avg, out=np.zeros_like(l20_std), where=(l20_avg > 0))
         
-        # Form
         form_out = np.ones_like(l5_avg)
         new_cols[f'{col}_FORM_RATIO'] = np.divide(l5_avg, szn_avg, out=form_out, where=(szn_avg > 0))
 
-    # 2. Dynamic Correlation Matrices (For PRA/Combo variance scaling)
-    # FIX: Appended .shift(1) to strictly eliminate data leakage
     new_cols['PTS_REB_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['REB']).shift(1), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
     new_cols['PTS_AST_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['AST']).shift(1), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
     new_cols['REB_AST_CORR'] = grouped.apply(lambda x: x['REB'].rolling(50, min_periods=5).corr(x['AST']).shift(1), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
 
-    # Attach all new stats simultaneously 
     df = pd.concat([df, pd.DataFrame(new_cols, index=df.index)], axis=1)
 
-    # 3. Contextual Splits (Rest splits only, Home/Away is managed dynamically)
     split_targets = ['PTS', 'REB', 'AST', 'PRA', 'USG_PROXY', 'MIN']
     new_split_cols = {}
     if 'Rest_Category' in df.columns:
@@ -111,7 +98,6 @@ def build_feature_set(props_df):
     
     if props_df.empty: return pd.DataFrame()
 
-    # Map Names to IDs
     if Cols.PLAYER_ID not in props_df.columns and player_stats_static is not None:
         name_map = player_stats_static.set_index('clean_name')[Cols.PLAYER_ID].to_dict()
         props_df['clean_name'] = props_df[Cols.PLAYER_NAME].apply(lambda x: str(x).lower().strip())
@@ -119,7 +105,6 @@ def build_feature_set(props_df):
         props_df = props_df.dropna(subset=[Cols.PLAYER_ID]).copy()
         if not props_df.empty: props_df[Cols.PLAYER_ID] = props_df[Cols.PLAYER_ID].astype('int64')
 
-    # Base Time Series Merge
     if box_scores is not None and not box_scores.empty:
         box_scores[Cols.PLAYER_ID] = box_scores[Cols.PLAYER_ID].fillna(0).astype('int64')
         if Cols.DATE in box_scores.columns: box_scores[Cols.DATE] = pd.to_datetime(box_scores[Cols.DATE])
@@ -143,7 +128,6 @@ def build_feature_set(props_df):
     else:
         features_df = pd.merge(props_df, player_stats_static, on=Cols.PLAYER_ID, how='left')
 
-    # Standardize Position Early (Needed for DVP merge)
     if 'Position' not in features_df.columns:
         if 'Pos' in features_df.columns:
             features_df['Position'] = features_df['Pos']
@@ -154,9 +138,6 @@ def build_feature_set(props_df):
             
     features_df['Position'] = features_df['Position'].astype(str).apply(lambda x: x.split('-')[0] if '-' in x else x)
 
-    # ====================================================================
-    # DYNAMIC HIT RATES AGAINST HISTORICAL AVERAGES & OPPONENT MATCHUPS
-    # ====================================================================
     if box_scores is not None and not box_scores.empty:
         logging.info("Calculating form hit rates and opponent matchup history...")
         bs_sorted = box_scores.sort_values(Cols.DATE)
@@ -171,7 +152,6 @@ def build_feature_set(props_df):
             benchmark = row.get(benchmark_col)
             opp = row.get(Cols.OPPONENT)
             
-            # Default return with 6 values (adding the 2 matchup stats)
             if pd.isna(pid) or pd.isna(benchmark) or pid not in player_histories:
                 return pd.Series([0.0, 0.0, 0.0, 0.0, 0.5, 0.0])
                 
@@ -180,11 +160,9 @@ def build_feature_set(props_df):
             if not past_games:
                  return pd.Series([0.0, 0.0, 0.0, 0.0, 0.5, 0.0])
                  
-            # General Hit Rates against Historical Benchmark (Eliminates Data Leakage of Sportsbook Line)
             stats = [g[stat_col] for g in past_games if stat_col in g and not pd.isna(g[stat_col])]
             rates = calculate_dynamic_hit_rates(stats, benchmark)
             
-            # Matchup-Specific Hit Rates
             past_matchups = [g for g in past_games if g.get(Cols.OPPONENT) == opp]
             matchup_stats = [g[stat_col] for g in past_matchups if stat_col in g and not pd.isna(g[stat_col])]
             matchup_games_count = len(matchup_stats)
@@ -195,7 +173,6 @@ def build_feature_set(props_df):
                 vs_opp_hit_rate, float(matchup_games_count)
             ])
 
-        # Batch hit rates together using Season Average as the blind benchmark instead of the daily line
         if 'PROP_TYPE' in features_df.columns:
             hr_cols = ['L5_HIT_RATE', 'L10_HIT_RATE', 'L20_HIT_RATE', 'SZN_HIT_RATE', 'VS_OPP_HIT_RATE', 'VS_OPP_GAMES_COUNT']
             features_df[hr_cols] = features_df.apply(
@@ -210,7 +187,6 @@ def build_feature_set(props_df):
                     lambda row: compute_row_hit_rates(row, stat, benchmark_col), axis=1
                 )
 
-    # Merge Team Context
     if 'TEAM_ABBREVIATION' not in features_df.columns and Cols.TEAM in features_df.columns:
         features_df['TEAM_ABBREVIATION'] = features_df[Cols.TEAM]
         
@@ -224,9 +200,6 @@ def build_feature_set(props_df):
         opp_stats_renamed = team_stats.add_prefix('OPP_')
         features_df = pd.merge(features_df, opp_stats_renamed, left_on=Cols.OPPONENT, right_index=True, how='left')
 
-    # ====================================================================
-    # MERGE DVP (DEFENSE VS POSITION) STATS
-    # ====================================================================
     if dvp_df is not None and not dvp_df.empty:
         logging.info("Merging Defense vs Position (DvP) Stats...")
         features_df['OPPONENT_ABBREV'] = features_df.get(Cols.OPPONENT, 'UNK')
@@ -248,48 +221,50 @@ def build_feature_set(props_df):
             
         features_df = pd.merge(features_df, dvp_to_merge, on=['OPPONENT_ABBREV', 'Primary_Pos'], how='left')
         
-        # Safely fill missing DVP multipliers with neutral 1.0
         dvp_cols = [c for c in features_df.columns if c.startswith('DVP_') and 'MULTIPLIER' in c]
         for c in dvp_cols:
             features_df[c] = features_df[c].fillna(1.0)
 
-    # ====================================================================
-    # MERGE VS OPPONENT HISTORICAL DATA
-    # ====================================================================
     if vs_opp_df is not None and not vs_opp_df.empty:
         logging.info("Merging historical VS Opponent stats...")
         if Cols.OPPONENT in features_df.columns and Cols.OPPONENT in vs_opp_df.columns:
             features_df = pd.merge(features_df, vs_opp_df, on=[Cols.PLAYER_ID, Cols.OPPONENT], how='left')
 
-    # Establish Location
     if 'MATCHUP' in features_df.columns and 'IS_HOME' not in features_df.columns:
         features_df['IS_HOME'] = np.where(features_df['MATCHUP'].str.contains('@'), 0, 1)
     elif 'IS_HOME' not in features_df.columns:
         features_df['IS_HOME'] = 1  
 
-    # Add Altitude Fatigue Feature
     if Cols.OPPONENT in features_df.columns:
         features_df['IS_ALTITUDE'] = np.where(features_df[Cols.OPPONENT].isin(['DEN', 'UTA']), 1.0, 0.0)
 
-    # Mapping Pace
     if 'TEAM_Possessions per Game' in features_df.columns:
         features_df['GAME_PACE'] = features_df['TEAM_Possessions per Game']
     if 'OPP_Possessions per Game' in features_df.columns:
         features_df['OPP_GAME_PACE'] = features_df['OPP_Possessions per Game']
         
-    # Add Pace-Position Interaction
     if 'OPP_GAME_PACE' in features_df.columns and 'Primary_Pos' in features_df.columns:
         features_df['PACE_PG_INTERACTION'] = np.where(features_df['Primary_Pos'] == 'PG', features_df['OPP_GAME_PACE'], 0.0)
 
-    # Incorporating Missing AST/REB PCT and Rest Contexts
-    
-    # NEW: Merge active daily vacancy stats (Driven by injury report)
+    # --- NEW: Safely Merge Active Daily Vacancy (No Historical Leakage) ---
     vacancy_path = cfg.DATA_DIR / "master_daily_vacancy.parquet"
     if vacancy_path.exists():
         vacancy_df = pd.read_parquet(vacancy_path)
-        drop_cols = [c for c in vacancy_df.columns if c in features_df.columns and c != 'TEAM_ABBREVIATION']
-        features_df.drop(columns=drop_cols, inplace=True, errors='ignore')
-        features_df = pd.merge(features_df, vacancy_df, on='TEAM_ABBREVIATION', how='left')
+        
+        if Cols.DATE in features_df.columns:
+            # We ONLY apply today's injury report to today's lines (Target Leakage Fix)
+            max_date = features_df[Cols.DATE].max()
+            today_mask = features_df[Cols.DATE] == max_date
+            
+            drop_cols = [c for c in vacancy_df.columns if c in features_df.columns and c != 'TEAM_ABBREVIATION']
+            features_df.drop(columns=drop_cols, inplace=True, errors='ignore')
+            
+            features_with_vacancy = pd.merge(features_df[today_mask], vacancy_df, on='TEAM_ABBREVIATION', how='left')
+            features_df = pd.concat([features_df[~today_mask], features_with_vacancy], ignore_index=True)
+        else:
+            drop_cols = [c for c in vacancy_df.columns if c in features_df.columns and c != 'TEAM_ABBREVIATION']
+            features_df.drop(columns=drop_cols, inplace=True, errors='ignore')
+            features_df = pd.merge(features_df, vacancy_df, on='TEAM_ABBREVIATION', how='left')
 
     cols_to_fill = [
         'TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 'MISSING_USG_G', 'MISSING_USG_F',
@@ -305,7 +280,6 @@ def build_feature_set(props_df):
     if 'OPP_IS_B2B' not in features_df.columns: features_df['OPP_IS_B2B'] = 0.0
     features_df['OPP_IS_B2B'] = features_df['OPP_IS_B2B'].fillna(0.0)
 
-    # --- Home/Away Split Inference Overwrite ---
     splits_path = cfg.DATA_DIR / "master_home_away_splits.parquet"
     if splits_path.exists():
         splits_df = pd.read_parquet(splits_path)
@@ -332,7 +306,6 @@ def build_feature_set(props_df):
         features_df['PA_SPLIT_AVG'] = features_df.get('PTS_SPLIT_AVG', 0) + features_df.get('AST_SPLIT_AVG', 0)
         features_df['RA_SPLIT_AVG'] = features_df.get('REB_SPLIT_AVG', 0) + features_df.get('AST_SPLIT_AVG', 0)
 
-    # Imputation for Advanced Stats
     advanced_stats = [
         'OPP_Opponent Effective Field Goal %', 'OPP_Opponent True Shooting %',
         'TEAM_Field Goals Attempted per Game', 'OPP_Field Goals Attempted per Game',
