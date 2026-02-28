@@ -87,14 +87,15 @@ def smooth_projection(raw_proj, season_avg, recent_avg, volatility):
     if pd.isna(volatility) or volatility <= 0: volatility = 1.0
     
     trust_recent = 1.0 / (1.0 + (volatility / 5.0))
-    final_proj = (0.50 * raw_proj) + (0.50 * trust_recent * recent_avg) + (0.50 * (1 - trust_recent) * season_avg)
+    # FIX: Trust the ML model heavily (90%). Only use averages as a 10% smoothing anchor to prevent extreme edge cases.
+    final_proj = (0.90 * raw_proj) + (0.10 * trust_recent * recent_avg) + (0.10 * (1 - trust_recent) * season_avg)
     return final_proj
 
 # ====================================================================
 # PROBABILISTIC / BETTING FUNCTIONS
 # ====================================================================
 
-def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None, correlations=None):
+def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None, correlations=None, sample_size=15):
     """Estimates variance for Combo Props using baseline historical covariance matrices and dynamic correlations."""
     base_variance = max(proj * 0.25, 1.0)
     
@@ -122,9 +123,11 @@ def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None, correlatio
             
     recent_variance = std_dev ** 2 if not pd.isna(std_dev) and std_dev > 0 else base_variance
     
-    # Blend Structural Covariance with Player's specific recent variance
+    # FIX: Bayesian Shrinkage. Base the blend on sample size instead of a hardcoded 40/60 split.
+    weight = min(sample_size / 20.0, 0.90)  # Max out at 90% trust in recent variance after 18+ games
+    
     if prop_type in ['PRA', 'PR', 'PA', 'RA']:
-        final_variance = (base_variance * 0.40) + (recent_variance * 0.60)
+        final_variance = (base_variance * (1.0 - weight)) + (recent_variance * weight)
     else:
         final_variance = recent_variance
         

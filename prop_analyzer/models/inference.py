@@ -67,35 +67,12 @@ def get_system_learning_maps(days_back=21):
 
 def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games, s_avg, r_avg):
     """
-    Strictly evaluates based on Win Probability, Hit Rates, low Volatility, and Matchup History.
+    Strictly evaluates based on Win Probability, Hit Rates, Volatility, and Matchup History.
+    Removed hardcoded absolute difference magic numbers. Let the probability distributions handle variance risk.
     """
     tier = 'Pass'
     win_pct = win_prob * 100.0
     
-    is_trap = False
-    
-    if s_avg > 0 and r_avg > 0:
-        form_avg = (s_avg + r_avg) / 2.0
-        line_to_form_delta = (form_avg - line) / line if line > 0 else 0
-        
-        if pick_type == 'Over' and line_to_form_delta > 0.20 and delta_gap > 0.15:
-            is_trap = True
-        elif pick_type == 'Under' and line_to_form_delta < -0.20 and delta_gap > 0.15:
-            is_trap = True
-
-    if not is_trap:
-        if line <= 2.5:
-            if delta_gap > 0.60 and abs_diff > 1.5: is_trap = True
-        elif line <= 4.5:
-            if delta_gap > 0.45 and abs_diff > 1.35: is_trap = True
-        elif line <= 12.5:
-            if delta_gap > 0.28 and abs_diff > 2.0: is_trap = True
-        else:
-            if delta_gap > 0.20 and abs_diff > 3.5: is_trap = True
-
-    if is_trap:
-        return 'Trap / High Variance'
-
     if cv > 0.40 or (pick_type == 'Over' and l10_hit_rate < 0.40):
         return 'Pass / Too Volatile'
 
@@ -230,6 +207,7 @@ def predict_props(todays_props_df):
             stds = get_col_safe(X_raw, prop_cat, 'L10_STD_DEV')
             cvs = get_col_safe(X_raw, prop_cat, 'L10_CV')
             hit_rates = get_col_safe(X_raw, prop_cat, 'L10_HIT_RATE')
+            games_played_col = get_col_safe(X_raw, prop_cat, 'SEASON_G')
             
             vs_opp_hit_rates = get_col_safe(X_raw, prop_cat, 'VS_OPP_HIT_RATE')
             vs_opp_games_counts = get_col_safe(X_raw, prop_cat, 'VS_OPP_GAMES_COUNT')
@@ -247,14 +225,6 @@ def predict_props(todays_props_df):
             for idx, (orig_idx, row) in enumerate(group.iterrows()):
                 line = float(row[Cols.PROP_LINE])
                 raw_val = raw_projections[idx]
-                
-                abs_diff_raw = abs(raw_val - line)
-                delta_gap_raw = abs_diff_raw / line if line > 0 else 0
-                
-                decay_threshold = 0.45 if line <= 4.5 else (0.28 if line <= 12.5 else 0.20)
-                
-                if delta_gap_raw > decay_threshold and abs_diff_raw > 1.2:
-                    raw_val = (raw_val * 0.5) + (line * 0.5)
                 
                 s_avg = float(szn_avgs.iloc[idx]) if not pd.isna(szn_avgs.iloc[idx]) else raw_val
                 r_avg = float(l5_avgs.iloc[idx]) if not pd.isna(l5_avgs.iloc[idx]) else raw_val
@@ -275,11 +245,10 @@ def predict_props(todays_props_df):
                 hist_mins = float(row.get('MIN_L10_AVG', pred_min))
                 min_deviation = abs(pred_min - hist_mins) / hist_mins if hist_mins > 0 else 0
 
+                # Trust the Stacking Regressor natively (Smoothing function updated)
                 proj = smooth_projection(raw_val, s_avg, r_avg, std_dev)
                 
-                # Apply strictly conservative category bias (player bias removed to prevent momentum loops)
-                c_bias_pct = cat_bias_pct.get(prop_cat, 0.0)
-                proj *= (1.0 + (c_bias_pct * 0.30))
+                # FIX: Removed the global system bias multiplier here. Trust the ML model's calibration.
                 
                 dynamic_correlations = {
                     'PTS_REB': float(corr_pr.iloc[idx]) if not pd.isna(corr_pr.iloc[idx]) else 0.1,
@@ -293,7 +262,9 @@ def predict_props(todays_props_df):
                     'AST': float(base_stds['AST'].iloc[idx]) if not pd.isna(base_stds['AST'].iloc[idx]) else (proj*0.1)
                 }
                 
-                variance = estimate_combo_variance(prop_cat, proj, std_dev, base_stds=dynamic_base_stds, correlations=dynamic_correlations)
+                # Fetch dynamically updated sample size for Bayesian Shrinkage
+                sample_size = int(games_played_col.iloc[idx]) if not pd.isna(games_played_col.iloc[idx]) else 15
+                variance = estimate_combo_variance(prop_cat, proj, std_dev, base_stds=dynamic_base_stds, correlations=dynamic_correlations, sample_size=sample_size)
                 
                 historic_mae = cat_mae.get(prop_cat, 1.0)
                 if historic_mae > 1.5:  

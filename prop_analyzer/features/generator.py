@@ -147,10 +147,17 @@ def build_feature_set(props_df):
             lambda df: df.to_dict('records'), include_groups=False
         ).to_dict()
 
-        def compute_row_hit_rates(row, stat_col, benchmark_col):
+        def compute_row_hit_rates(row, stat_col, default_benchmark_col):
             pid = row.get(Cols.PLAYER_ID)
             dt = row.get(Cols.DATE)
-            benchmark = row.get(benchmark_col)
+            
+            # FIX: Use the actual prop line if available as the benchmark, otherwise fallback to season average
+            prop_line = row.get(Cols.PROP_LINE)
+            if not pd.isna(prop_line) and prop_line > 0 and row.get('PROP_TYPE') == stat_col:
+                benchmark = prop_line
+            else:
+                benchmark = row.get(default_benchmark_col)
+                
             opp = row.get(Cols.OPPONENT)
             
             if pd.isna(pid) or pd.isna(benchmark) or pid not in player_histories:
@@ -247,13 +254,11 @@ def build_feature_set(props_df):
     if 'OPP_GAME_PACE' in features_df.columns and 'Primary_Pos' in features_df.columns:
         features_df['PACE_PG_INTERACTION'] = np.where(features_df['Primary_Pos'] == 'PG', features_df['OPP_GAME_PACE'], 0.0)
 
-    # --- NEW: Safely Merge Active Daily Vacancy (No Historical Leakage) ---
     vacancy_path = cfg.DATA_DIR / "master_daily_vacancy.parquet"
     if vacancy_path.exists():
         vacancy_df = pd.read_parquet(vacancy_path)
         
         if Cols.DATE in features_df.columns:
-            # We ONLY apply today's injury report to today's lines (Target Leakage Fix)
             max_date = features_df[Cols.DATE].max()
             today_mask = features_df[Cols.DATE] == max_date
             
@@ -327,12 +332,7 @@ def build_feature_set(props_df):
             median_val = features_df[col].median()
             features_df[col] = features_df[col].fillna(median_val if not pd.isna(median_val) else 0.0)
 
-    # ==========================================
-    # --- NEW PUNITIVE & STRICT FEATURES ---
-    # ==========================================
-    
     # 1. Blowout Potential (Net Rating Mismatch)
-    # Penalizes minutes variance when one team is vastly superior
     has_eff = all(c in features_df.columns for c in [
         'TEAM_Offensive Efficiency', 'TEAM_Defensive Efficiency', 
         'OPP_Offensive Efficiency', 'OPP_Defensive Efficiency'
@@ -345,20 +345,40 @@ def build_feature_set(props_df):
         features_df['BLOWOUT_POTENTIAL'] = 0.0
 
     # 2. Foul Trouble Risk
-    # High opponent fouls drawn = higher variance for our player (especially bigs)
     if 'OPP_Opponent Personal Fouls per Game' in features_df.columns:
         features_df['OPP_FOUL_DRAW_RATE'] = pd.to_numeric(features_df['OPP_Opponent Personal Fouls per Game'], errors='coerce').fillna(20.0)
     else:
         features_df['OPP_FOUL_DRAW_RATE'] = 20.0
 
-    # 3. Conditioned Usage Proxy (No Leakage)
-    # How much missing usage is available, weighted by the player's own baseline usage
+    # 3. FIX: Conditioned Usage Proxy (Non-Linear Distribution)
     usg_col = f'USG_PROXY_{Cols.SZN_AVG}'
     if 'TEAM_MISSING_USG' in features_df.columns and usg_col in features_df.columns:
-        # A 30% usage player absorbs a larger share of 40% missing team usage than a 10% usage player
-        player_usg = pd.to_numeric(features_df[usg_col], errors='coerce').fillna(15.0)
+        
+        # Rank the players on the team by their usage rate
+        # Using a transform per team to ensure ranks are handled properly
+        if Cols.DATE in features_df.columns:
+            features_df['USG_RANK'] = features_df.groupby(['TEAM_ABBREVIATION', Cols.DATE])[usg_col].rank(ascending=False, method='min')
+        else:
+            features_df['USG_RANK'] = features_df.groupby('TEAM_ABBREVIATION')[usg_col].rank(ascending=False, method='min')
+            
         missing_usg = pd.to_numeric(features_df['TEAM_MISSING_USG'], errors='coerce').fillna(0.0)
-        features_df['EXPECTED_USG_SHIFT'] = (player_usg / 100.0) * missing_usg
+        
+        # Apply non-linear multipliers. Secondary/Tertiary options get the largest bump to account for the primary option being heavily guarded.
+        conditions = [
+            features_df['USG_RANK'] == 1,
+            features_df['USG_RANK'] == 2,
+            features_df['USG_RANK'] == 3,
+            features_df['USG_RANK'] > 3
+        ]
+        choices = [
+            0.15,  # 1st Option (absorbs 15% due to double teams / maxed usage ceiling)
+            0.40,  # 2nd Option (absorbs 40% - biggest beneficiary)
+            0.30,  # 3rd Option (absorbs 30%)
+            0.15   # Everyone else splits the remaining 15%
+        ]
+        
+        absorption_rate = np.select(conditions, choices, default=0.20)
+        features_df['EXPECTED_USG_SHIFT'] = absorption_rate * missing_usg
     else:
         features_df['EXPECTED_USG_SHIFT'] = 0.0
 
