@@ -53,6 +53,7 @@ def get_system_learning_maps(days_back=21):
     full_history['Error'] = full_history[Cols.ACTUAL_VAL] - full_history[Cols.PREDICTION]
     full_history['Abs_Error'] = full_history['Error'].abs()
     
+    # Calculate percentage error (Positive means we under-predicted, Negative means we over-predicted)
     full_history['Pct_Error'] = np.where(
         full_history[Cols.PREDICTION] > 0, 
         full_history['Error'] / full_history[Cols.PREDICTION], 
@@ -67,34 +68,31 @@ def get_system_learning_maps(days_back=21):
 
 def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games, s_avg, r_avg):
     """
-    Strictly evaluates based on Win Probability, Hit Rates, Volatility, and Matchup History.
-    Removed hardcoded absolute difference magic numbers. Let the probability distributions handle variance risk.
+    Strictly evaluates based on Win Probability, Hit Rates, and Volatility.
+    Uses centralized risk configurations and removes artificial penalties for Unders.
     """
     tier = 'Pass'
-    win_pct = win_prob * 100.0
     
-    if cv > 0.40 or (pick_type == 'Over' and l10_hit_rate < 0.40):
-        return 'Pass / Too Volatile'
+    # Evaluate Hard Passes First
+    if pick_type == 'Over':
+        # Overs require consistency. High CV breaks over props.
+        if cv > cfg.MAX_CV_HARD_PASS_OVER or l10_hit_rate < cfg.MIN_L10_HIT_HARD_PASS_OVER:
+            return 'Pass / Too Volatile'
+    else:
+        # Unders benefit from high volatility (right-skewed tails). We do NOT hard pass here.
+        pass
+        
+    # NOTE: Matchup history hard-pass logic was removed here to let the ML model's 
+    # Pace and DvP interaction features dictate probability rather than legacy heuristics.
 
-    if vs_opp_games >= 5:
-        if pick_type == 'Over' and vs_opp_hit_rate < 0.40:
-            return 'Pass / Owned by Opponent'
-        if pick_type == 'Under' and vs_opp_hit_rate > 0.60:
-            return 'Pass / Owns Opponent'
-            
-    elif vs_opp_games >= 3:
-        if pick_type == 'Over' and vs_opp_hit_rate == 0.0:
-            return 'Pass / Bad Matchup History'
-        if pick_type == 'Under' and vs_opp_hit_rate == 1.0:
-            return 'Pass / Bad Matchup History'
-
-    if win_pct >= 70.0 and cv < 0.25 and (pick_type == 'Over' and l10_hit_rate >= 0.70): 
+    # Assign Tier Based on Config Thresholds
+    if win_prob >= cfg.MIN_PROB_FOR_S_TIER and cv < cfg.MAX_CV_FOR_S_TIER and (pick_type != 'Over' or l10_hit_rate >= cfg.MIN_L10_HIT_FOR_S_TIER): 
         tier = 'S Tier'
-    elif win_pct >= 64.0 and cv < 0.30: 
+    elif win_prob >= cfg.MIN_PROB_FOR_A_TIER and cv < cfg.MAX_CV_FOR_A_TIER: 
         tier = 'A Tier'
-    elif win_pct >= 58.0 and cv < 0.35: 
+    elif win_prob >= cfg.MIN_PROB_FOR_B_TIER and cv < cfg.MAX_CV_FOR_B_TIER: 
         tier = 'B Tier'
-    elif win_pct >= 54.0: 
+    elif win_prob >= cfg.MIN_PROB_FOR_C_TIER: 
         tier = 'C Tier'
     else: 
         tier = 'Pass'
@@ -142,6 +140,7 @@ def predict_props(todays_props_df):
     
     try: 
         cat_bias_pct, cat_mae = get_system_learning_maps(days_back=21)
+        logging.info(f"Loaded System Bias Adjustments: {cat_bias_pct}")
     except Exception as e: 
         logging.warning(f"Could not load system learning maps: {e}")
         cat_bias_pct, cat_mae = {}, {}
@@ -205,6 +204,9 @@ def predict_props(todays_props_df):
             
             raw_projections = model.predict(X_scaled_df)
             
+            # Retrieve active bias correction for this specific prop
+            prop_bias_pct = cat_bias_pct.get(cfg.MASTER_PROP_MAP.get(prop_cat, prop_cat), 0.0)
+            
             szn_avgs = get_col_safe(X_raw, prop_cat, 'SZN_AVG')
             l5_avgs = get_col_safe(X_raw, prop_cat, 'L5_AVG')
             stds = get_col_safe(X_raw, prop_cat, 'L10_STD_DEV')
@@ -233,10 +235,13 @@ def predict_props(todays_props_df):
             
             for idx, (orig_idx, row) in enumerate(group.iterrows()):
                 line = float(row[Cols.PROP_LINE])
-                raw_val = raw_projections[idx]
                 
-                s_avg = float(szn_avgs.iloc[idx]) if not pd.isna(szn_avgs.iloc[idx]) else raw_val
-                r_avg = float(l5_avgs.iloc[idx]) if not pd.isna(l5_avgs.iloc[idx]) else raw_val
+                # --- BUG FIX APPLIED: Apply dynamic system bias to the raw projection ---
+                raw_val = raw_projections[idx]
+                corrected_raw_val = raw_val * (1.0 + prop_bias_pct)
+                
+                s_avg = float(szn_avgs.iloc[idx]) if not pd.isna(szn_avgs.iloc[idx]) else corrected_raw_val
+                r_avg = float(l5_avgs.iloc[idx]) if not pd.isna(l5_avgs.iloc[idx]) else corrected_raw_val
                 raw_std = float(stds.iloc[idx]) if not pd.isna(stds.iloc[idx]) else 1.0
                 
                 baseline_std = max(s_avg, line) * 0.15 
@@ -260,12 +265,13 @@ def predict_props(todays_props_df):
                 hist_mins = float(row.get('MIN_L10_AVG', pred_min))
                 min_deviation = abs(pred_min - hist_mins) / hist_mins if hist_mins > 0 else 0
 
-                proj = smooth_projection(raw_val, s_avg, r_avg, std_dev)
+                # Calculate final projected output using smoothed value
+                proj = smooth_projection(corrected_raw_val, s_avg, r_avg, std_dev)
                 
                 dynamic_correlations = {
-                    'PTS_REB': float(corr_pr.iloc[idx]) if not pd.isna(corr_pr.iloc[idx]) else 0.1,
-                    'PTS_AST': float(corr_pa.iloc[idx]) if not pd.isna(corr_pa.iloc[idx]) else 0.1,
-                    'REB_AST': float(corr_ra.iloc[idx]) if not pd.isna(corr_ra.iloc[idx]) else 0.1
+                    'PTS_REB': float(corr_pr.iloc[idx]) if not pd.isna(corr_pr.iloc[idx]) else 0.25,
+                    'PTS_AST': float(corr_pa.iloc[idx]) if not pd.isna(corr_pa.iloc[idx]) else 0.25,
+                    'REB_AST': float(corr_ra.iloc[idx]) if not pd.isna(corr_ra.iloc[idx]) else 0.25
                 }
                 
                 dynamic_base_stds = {
@@ -277,6 +283,7 @@ def predict_props(todays_props_df):
                 sample_size = int(games_played_col.iloc[idx]) if not pd.isna(games_played_col.iloc[idx]) else 15
                 variance = estimate_combo_variance(prop_cat, proj, std_dev, base_stds=dynamic_base_stds, correlations=dynamic_correlations, sample_size=sample_size)
                 
+                # Expand variance safely if historically inaccurate
                 historic_mae = cat_mae.get(prop_cat, 1.0)
                 if historic_mae > 1.5:  
                     variance = variance * (1.0 + (historic_mae * 0.35))
@@ -286,6 +293,7 @@ def predict_props(todays_props_df):
                 eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap_final, cv, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, vs_opp_games, s_avg, r_avg, tweedie_power=tweedie_power)
                 if not eval_res: continue
                 
+                # Confidence Ladder Decay based on Extreme Rest or Massive Minute Deviations
                 if days_rest > 7.0 or min_deviation > 0.30:
                     tier_ladder = ['S Tier', 'A Tier', 'B Tier', 'C Tier', 'Pass']
                     if eval_res['Tier'] in tier_ladder:

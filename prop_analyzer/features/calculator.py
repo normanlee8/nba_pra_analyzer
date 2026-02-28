@@ -29,7 +29,6 @@ def winsorize_series(series, limit=0.10):
     expanding_thresholds = expanding_thresholds.fillna(float('inf'))
     
     # Apply the mathematically honest, time-aware clipping
-    # .infer_objects(copy=False) added to explicitly handle dtypes for future pandas versions
     capped = clean.clip(upper=expanding_thresholds).infer_objects(copy=False)
     
     # Re-align with the original series index to restore any NaNs properly
@@ -119,7 +118,7 @@ def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None, correlatio
     base_variance = max(proj * 0.25, 1.0)
     
     if not correlations:
-        correlations = {'PTS_REB': 0.1, 'PTS_AST': 0.1, 'REB_AST': 0.1}
+        correlations = {'PTS_REB': 0.25, 'PTS_AST': 0.25, 'REB_AST': 0.25}
         
     # Calculate Structural Covariance
     if prop_type in ['PRA', 'PR', 'PA', 'RA'] and base_stds:
@@ -127,9 +126,9 @@ def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None, correlatio
         var_reb = base_stds.get('REB', proj*0.1)**2
         var_ast = base_stds.get('AST', proj*0.1)**2
         
-        cov_pr = correlations.get('PTS_REB', 0.1) * math.sqrt(var_pts * var_reb)
-        cov_pa = correlations.get('PTS_AST', 0.1) * math.sqrt(var_pts * var_ast)
-        cov_ra = correlations.get('REB_AST', 0.1) * math.sqrt(var_reb * var_ast)
+        cov_pr = correlations.get('PTS_REB', 0.25) * math.sqrt(var_pts * var_reb)
+        cov_pa = correlations.get('PTS_AST', 0.25) * math.sqrt(var_pts * var_ast)
+        cov_ra = correlations.get('REB_AST', 0.25) * math.sqrt(var_reb * var_ast)
         
         if prop_type == 'PRA':
             base_variance = var_pts + var_reb + var_ast + 2*cov_pr + 2*cov_pa + 2*cov_ra

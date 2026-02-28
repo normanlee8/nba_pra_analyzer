@@ -336,7 +336,7 @@ def build_feature_set(props_df):
             median_val = features_df[col].median()
             features_df[col] = features_df[col].fillna(median_val if not pd.isna(median_val) else 0.0)
 
-    # 1. Blowout Potential (Net Rating Mismatch)
+    # 1. Blowout Potential (Net Rating Mismatch) - NON-LINEAR SCALING
     has_eff = all(c in features_df.columns for c in [
         'TEAM_Offensive Efficiency', 'TEAM_Defensive Efficiency', 
         'OPP_Offensive Efficiency', 'OPP_Defensive Efficiency'
@@ -344,7 +344,9 @@ def build_feature_set(props_df):
     if has_eff:
         team_net = pd.to_numeric(features_df['TEAM_Offensive Efficiency'], errors='coerce') - pd.to_numeric(features_df['TEAM_Defensive Efficiency'], errors='coerce')
         opp_net = pd.to_numeric(features_df['OPP_Offensive Efficiency'], errors='coerce') - pd.to_numeric(features_df['OPP_Defensive Efficiency'], errors='coerce')
-        features_df['BLOWOUT_POTENTIAL'] = abs(team_net - opp_net).fillna(0.0)
+        net_diff = abs(team_net - opp_net).fillna(0.0)
+        # Only heavily penalize massive mismatches (>10 point spread)
+        features_df['BLOWOUT_POTENTIAL'] = np.where(net_diff > 10.0, net_diff ** 2, 0.0)
     else:
         features_df['BLOWOUT_POTENTIAL'] = 0.0
 
@@ -354,33 +356,22 @@ def build_feature_set(props_df):
     else:
         features_df['OPP_FOUL_DRAW_RATE'] = 20.0
 
-    # 3. Conditioned Usage Proxy (Non-Linear Distribution)
+    # 3. Conditioned Usage Proxy (Proportional Distribution)
     usg_col = f'USG_PROXY_{Cols.SZN_AVG}'
     if 'TEAM_MISSING_USG' in features_df.columns and usg_col in features_df.columns:
-        
-        # Rank the players on the team by their usage rate
-        if Cols.DATE in features_df.columns:
-            features_df['USG_RANK'] = features_df.groupby(['TEAM_ABBREVIATION', Cols.DATE])[usg_col].rank(ascending=False, method='min')
-        else:
-            features_df['USG_RANK'] = features_df.groupby('TEAM_ABBREVIATION')[usg_col].rank(ascending=False, method='min')
-            
         missing_usg = pd.to_numeric(features_df['TEAM_MISSING_USG'], errors='coerce').fillna(0.0)
         
-        # Apply non-linear multipliers. Secondary/Tertiary options get the largest bump to account for the primary option being heavily guarded.
-        conditions = [
-            features_df['USG_RANK'] == 1,
-            features_df['USG_RANK'] == 2,
-            features_df['USG_RANK'] == 3,
-            features_df['USG_RANK'] > 3
-        ]
-        choices = [
-            0.15,  # 1st Option (absorbs 15% due to double teams / maxed usage ceiling)
-            0.40,  # 2nd Option (absorbs 40% - biggest beneficiary)
-            0.30,  # 3rd Option (absorbs 30%)
-            0.15   # Everyone else splits the remaining 15%
-        ]
+        # Calculate the sum of active usage on the team dynamically 
+        if Cols.DATE in features_df.columns:
+            team_active_usg = features_df.groupby(['TEAM_ABBREVIATION', Cols.DATE])[usg_col].transform('sum')
+        else:
+            team_active_usg = features_df.groupby('TEAM_ABBREVIATION')[usg_col].transform('sum')
+            
+        # Prevent zero-division
+        team_active_usg = team_active_usg.replace(0, 1.0)
         
-        absorption_rate = np.select(conditions, choices, default=0.20)
+        # Calculate proportional absorption rate based on current usage footprint
+        absorption_rate = features_df[usg_col] / team_active_usg
         features_df['EXPECTED_USG_SHIFT'] = absorption_rate * missing_usg
     else:
         features_df['EXPECTED_USG_SHIFT'] = 0.0
