@@ -22,7 +22,6 @@ def load_artifacts(prop_cat):
 def get_system_learning_maps(days_back=21):
     """
     Returns global system biases for retrospective analysis.
-    (Note: Actively removing this from live projection multipliers to let Stacking Regressor calibrate natively).
     """
     graded_files = sorted(cfg.GRADED_DIR.glob("graded_*.parquet"), reverse=True)
     if not graded_files: return {}, {}
@@ -53,7 +52,6 @@ def get_system_learning_maps(days_back=21):
     full_history['Error'] = full_history[Cols.ACTUAL_VAL] - full_history[Cols.PREDICTION]
     full_history['Abs_Error'] = full_history['Error'].abs()
     
-    # Calculate percentage error (Positive means we under-predicted, Negative means we over-predicted)
     full_history['Pct_Error'] = np.where(
         full_history[Cols.PREDICTION] > 0, 
         full_history['Error'] / full_history[Cols.PREDICTION], 
@@ -74,21 +72,17 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
     
     # Evaluate Hard Passes First
     if pick_type == 'Over':
-        # Overs require consistency. High CV breaks over props.
         if cv > cfg.MAX_CV_HARD_PASS_OVER or l10_hit_rate < cfg.MIN_L10_HIT_HARD_PASS_OVER:
             return 'Pass / Too Volatile'
     else:
-        # FIX: Unders also require predictability. High variance destroys Under hit rates via ceiling games.
         if cv > cfg.MAX_CV_HARD_PASS_UNDER or l10_hit_rate < cfg.MIN_L10_HIT_HARD_PASS_UNDER:
             return 'Pass / Too Volatile'
 
-    # Assign Tier Based on Config Thresholds + New Expected Value constraints
     if win_prob >= cfg.MIN_PROB_FOR_S_TIER and cv < cfg.MAX_CV_FOR_S_TIER and (pick_type != 'Over' or l10_hit_rate >= cfg.MIN_L10_HIT_FOR_S_TIER): 
-        # FIX: Ensure there is actually a mathematical edge (at least 8% cushion over the line)
         if abs_diff >= (line * 0.08):
             tier = 'S Tier'
         else:
-            tier = 'A Tier' # Downgraded due to thin margin of error
+            tier = 'A Tier' 
     elif win_prob >= cfg.MIN_PROB_FOR_A_TIER and cv < cfg.MAX_CV_FOR_A_TIER: 
         if abs_diff >= (line * 0.04):
             tier = 'A Tier'
@@ -106,10 +100,11 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
 def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, vs_opp_games, s_avg, r_avg, tweedie_power=1.5):
     """Evaluates probability of outcome based on distribution modeling."""
     if line <= 0: return None
-    dist_type = 'nbinom' if prop_type in ['PTS', 'REB', 'AST', 'STL', 'BLK', 'FG3M'] else 'normal'
+    
+    nbinom_props = ['PTS', 'REB', 'AST', 'STL', 'BLK', 'FG3M', 'PRA', 'PR', 'PA', 'RA']
+    dist_type = 'nbinom' if prop_type in nbinom_props else 'normal'
     
     probs_over = get_discrete_probabilities(proj, line, variance, dist_type=dist_type, tweedie_power=tweedie_power)
-    # Probs_under now correctly mirrors the strict discrete boundaries from the fixed probability generator
     probs_under = {'win': probs_over['loss'], 'loss': probs_over['win'], 'push': probs_over['push']}
     
     if probs_over['win'] >= probs_under['win']:
@@ -145,7 +140,6 @@ def predict_props(todays_props_df):
     
     try: 
         _, cat_mae = get_system_learning_maps(days_back=21)
-        # We no longer apply cat_bias_pct globally. Let the Stacking Regressor do the calibration.
     except Exception as e: 
         logging.warning(f"Could not load system learning maps: {e}")
         cat_mae = {}
@@ -166,7 +160,7 @@ def predict_props(todays_props_df):
         for f in min_features:
             if f in X_raw_mins.columns: new_features_mins[f] = X_raw_mins[f]
             elif f in inv_map_mins: new_features_mins[f] = X_raw_mins[inv_map_mins[f]]
-            else: new_features_mins[f] = 0.0 
+            else: new_features_mins[f] = np.nan 
             
         X_min_model = pd.DataFrame(new_features_mins, index=X_raw_mins.index)
         try:
@@ -199,7 +193,7 @@ def predict_props(todays_props_df):
         for f in feature_names:
             if f in X_raw.columns: new_features[f] = X_raw[f]
             elif f in inv_map: new_features[f] = X_raw[inv_map[f]]
-            else: new_features[f] = 0.0 
+            else: new_features[f] = np.nan 
             
         X_model = pd.DataFrame(new_features, index=X_raw.index)
 
@@ -207,7 +201,6 @@ def predict_props(todays_props_df):
             X_scaled = scaler.transform(X_model)
             X_scaled_df = pd.DataFrame(X_scaled, columns=X_model.columns, index=X_model.index)
             
-            # Predict raw outputs via stacked ensemble
             raw_projections = model.predict(X_scaled_df)
             
             szn_avgs = get_col_safe(X_raw, prop_cat, 'SZN_AVG')
@@ -216,7 +209,6 @@ def predict_props(todays_props_df):
             cvs = get_col_safe(X_raw, prop_cat, 'L10_CV')
             games_played_col = get_col_safe(X_raw, prop_cat, 'SEASON_G')
             
-            # Fetch dynamic hit rate vectors
             hit_rates_legacy = get_col_safe(X_raw, prop_cat, 'L10_HIT_RATE')
             hit_rates_over = get_col_safe(X_raw, prop_cat, 'L10_OVER_RATE')
             hit_rates_under = get_col_safe(X_raw, prop_cat, 'L10_UNDER_RATE')
@@ -238,20 +230,35 @@ def predict_props(todays_props_df):
             
             for idx, (orig_idx, row) in enumerate(group.iterrows()):
                 line = float(row[Cols.PROP_LINE])
-                
-                # FIX: Remove double-correction trap. The Stacking Regressor is already calibrated natively.
                 raw_val = raw_projections[idx]
                 
-                s_avg = float(szn_avgs.iloc[idx]) if not pd.isna(szn_avgs.iloc[idx]) else raw_val
-                r_avg = float(l5_avgs.iloc[idx]) if not pd.isna(l5_avgs.iloc[idx]) else raw_val
+                # 1. Scaler Adjustment via Expected Minutes
+                pred_min = predicted_mins.get(orig_idx, float(row.get('MIN_SZN_AVG', 36.0)))
+                hist_mins = float(row.get('MIN_L10_AVG', pred_min))
+                
+                if pd.isna(hist_mins) or hist_mins <= 5.0: hist_mins = pred_min
+                min_ratio = pred_min / hist_mins if hist_mins > 0 else 1.0
+                min_ratio = max(min(min_ratio, 1.35), 0.70) # Cap extreme inflation/deflation
+                
+                adjusted_raw = raw_val * min_ratio
+                
+                # 2. Market Consensus Anchor 
+                # (If model is drastically deviating from the sportsbook, anchor it heavily toward the line)
+                if line > 0:
+                    gap = abs(adjusted_raw - line) / line
+                    if gap > 0.10: 
+                        adjusted_raw = (adjusted_raw * 0.35) + (line * 0.65)
+                
+                s_avg = float(szn_avgs.iloc[idx]) if not pd.isna(szn_avgs.iloc[idx]) else adjusted_raw
+                r_avg = float(l5_avgs.iloc[idx]) if not pd.isna(l5_avgs.iloc[idx]) else adjusted_raw
                 raw_std = float(stds.iloc[idx]) if not pd.isna(stds.iloc[idx]) else 1.0
                 
-                baseline_std = max(s_avg, line) * 0.15 
-                std_dev = max(raw_std, baseline_std)
+                # 3. Floor the Standard Deviation to structural NBA baselines (~35% of mean)
+                floor_std = max(line * 0.35, np.sqrt(line))
+                std_dev = max(raw_std, floor_std)
                 
                 cv = float(cvs.iloc[idx]) if not pd.isna(cvs.iloc[idx]) else (std_dev / s_avg if s_avg > 0 else 0.5)
                 
-                # Assign directional hit rates
                 l10_hit_legacy = float(hit_rates_legacy.iloc[idx]) if not pd.isna(hit_rates_legacy.iloc[idx]) else 0.50
                 l10_over_rate = float(hit_rates_over.iloc[idx]) if not pd.isna(hit_rates_over.iloc[idx]) else l10_hit_legacy
                 l10_under_rate = float(hit_rates_under.iloc[idx]) if not pd.isna(hit_rates_under.iloc[idx]) else (1.0 - l10_hit_legacy)
@@ -262,13 +269,9 @@ def predict_props(todays_props_df):
                 vs_opp_games = int(vs_opp_games_counts.iloc[idx]) if not pd.isna(vs_opp_games_counts.iloc[idx]) else 0
 
                 days_rest = float(row.get(Cols.DAYS_REST, 2.0))
-                
-                pred_min = predicted_mins.get(orig_idx, float(row.get('MIN_SZN_AVG', 36.0)))
-                hist_mins = float(row.get('MIN_L10_AVG', pred_min))
                 min_deviation = abs(pred_min - hist_mins) / hist_mins if hist_mins > 0 else 0
 
-                # Calculate final projected output using smoothed value
-                proj = smooth_projection(raw_val, s_avg, r_avg, std_dev)
+                proj = smooth_projection(adjusted_raw, s_avg, r_avg, std_dev)
                 
                 dynamic_correlations = {
                     'PTS_REB': float(corr_pr.iloc[idx]) if not pd.isna(corr_pr.iloc[idx]) else 0.25,
@@ -285,7 +288,6 @@ def predict_props(todays_props_df):
                 sample_size = int(games_played_col.iloc[idx]) if not pd.isna(games_played_col.iloc[idx]) else 15
                 variance = estimate_combo_variance(prop_cat, proj, std_dev, base_stds=dynamic_base_stds, correlations=dynamic_correlations, sample_size=sample_size)
                 
-                # Expand variance safely if historically inaccurate
                 historic_mae = cat_mae.get(prop_cat, 1.0)
                 if historic_mae > 1.5:  
                     variance = variance * (1.0 + (historic_mae * 0.35))
@@ -295,7 +297,6 @@ def predict_props(todays_props_df):
                 eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap_final, cv, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, vs_opp_games, s_avg, r_avg, tweedie_power=tweedie_power)
                 if not eval_res: continue
                 
-                # Confidence Ladder Decay based on Extreme Rest or Massive Minute Deviations
                 if days_rest > 7.0 or min_deviation > 0.30:
                     tier_ladder = ['S Tier', 'A Tier', 'B Tier', 'C Tier', 'Pass']
                     if eval_res['Tier'] in tier_ladder:

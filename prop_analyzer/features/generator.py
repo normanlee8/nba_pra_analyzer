@@ -44,22 +44,22 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         winsorized = grouped[col].transform(lambda x: winsorize_series(x, limit=0.10))
         grouped_winsor = winsorized.groupby(df[Cols.PLAYER_ID])
         
-        szn_avg = grouped[col].expanding().mean().shift(1).values
-        # FIX: We create an L5 Mean to safely compare Mean-to-Mean for Form Ratio
-        l5_mean = grouped_winsor.rolling(window=5, min_periods=1).mean().shift(1).values
+        # FIX: Removed all .shift(1) calls to eliminate double-shift data lag
+        szn_avg = grouped[col].expanding().mean().values
+        l5_mean = grouped_winsor.rolling(window=5, min_periods=1).mean().values
         
-        l5_avg = grouped_winsor.rolling(window=5, min_periods=1).median().shift(1).values
-        l10_avg = grouped_winsor.rolling(window=10, min_periods=1).median().shift(1).values
-        l20_avg = grouped_winsor.rolling(window=20, min_periods=1).median().shift(1).values
+        l5_avg = grouped_winsor.rolling(window=5, min_periods=1).median().values
+        l10_avg = grouped_winsor.rolling(window=10, min_periods=1).median().values
+        l20_avg = grouped_winsor.rolling(window=20, min_periods=1).median().values
         
         new_cols[f'{col}_{Cols.SZN_AVG}'] = szn_avg
         new_cols[f'{col}_L5_AVG'] = l5_avg
         new_cols[f'{col}_L10_AVG'] = l10_avg
         new_cols[f'{col}_L20_AVG'] = l20_avg
         
-        l5_std = grouped[col].rolling(window=5, min_periods=2).std().shift(1).values
-        l10_std = grouped[col].rolling(window=10, min_periods=3).std().shift(1).values
-        l20_std = grouped[col].rolling(window=20, min_periods=5).std().shift(1).values
+        l5_std = grouped[col].rolling(window=5, min_periods=2).std().values
+        l10_std = grouped[col].rolling(window=10, min_periods=3).std().values
+        l20_std = grouped[col].rolling(window=20, min_periods=5).std().values
 
         new_cols[f'{col}_L5_STD_DEV'] = l5_std
         new_cols[f'{col}_L10_STD_DEV'] = l10_std
@@ -73,9 +73,9 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         # FIX: Form Ratio now accurately compares Mean to Mean
         new_cols[f'{col}_FORM_RATIO'] = np.divide(l5_mean, szn_avg, out=form_out, where=(szn_avg > 0))
 
-    new_cols['PTS_REB_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['REB']).shift(1), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
-    new_cols['PTS_AST_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['AST']).shift(1), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
-    new_cols['REB_AST_CORR'] = grouped.apply(lambda x: x['REB'].rolling(50, min_periods=5).corr(x['AST']).shift(1), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
+    new_cols['PTS_REB_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['REB']), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
+    new_cols['PTS_AST_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['AST']), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
+    new_cols['REB_AST_CORR'] = grouped.apply(lambda x: x['REB'].rolling(50, min_periods=5).corr(x['AST']), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
 
     df = pd.concat([df, pd.DataFrame(new_cols, index=df.index)], axis=1)
 
@@ -84,7 +84,7 @@ def add_rolling_stats_history(df, stats_to_roll=None):
     if 'Rest_Category' in df.columns:
         for col in split_targets:
             if col in df.columns:
-                val = df.groupby([Cols.PLAYER_ID, 'Rest_Category'])[col].transform(lambda x: x.expanding().mean().shift(1))
+                val = df.groupby([Cols.PLAYER_ID, 'Rest_Category'])[col].transform(lambda x: x.expanding().mean())
                 new_split_cols[f'{col}_REST_SPLIT_AVG'] = val.fillna(df[f'{col}_{Cols.SZN_AVG}'])
 
     if new_split_cols:
@@ -375,7 +375,6 @@ def build_feature_set(props_df):
     if 'TEAM_MISSING_USG' in features_df.columns and usg_col in features_df.columns:
         missing_usg = pd.to_numeric(features_df['TEAM_MISSING_USG'], errors='coerce').fillna(0.0)
         
-        # FIX: The old active_usg erroneously summed only players with listed props.
         # Active usage is 100% minus the missing usage. We set a floor of 20.0 to avoid zero division.
         team_active_usg = np.maximum(100.0 - missing_usg, 20.0)
         
