@@ -163,7 +163,9 @@ def get_discrete_probabilities(proj, line, historical_variance, dist_type='norma
     
     std_dev = math.sqrt(variance)
     is_whole_line = (line % 1 == 0)
-    win_target = int(math.ceil(line + 0.01))
+    
+    # FIX: A loss for an Over is strictly a number smaller than the exact line.
+    loss_threshold = math.floor(line - 0.01)
     
     if proj <= 0: return {'win': 0.0, 'push': 0.0, 'loss': 1.0}
 
@@ -171,25 +173,26 @@ def get_discrete_probabilities(proj, line, historical_variance, dist_type='norma
         if dist_type in ['poisson', 'nbinom']:
             if variance <= proj:
                 # Fallback to Poisson if underdispersed
-                p_loss = poisson.cdf(win_target - 1, proj)
+                p_loss_strict = poisson.cdf(loss_threshold, proj)
                 p_push = poisson.pmf(int(line), proj) if is_whole_line else 0.0
             else:
                 p = proj / variance
                 n = (proj ** 2) / (variance - proj)
-                p_loss = nbinom.cdf(win_target - 1, n, p)
+                p_loss_strict = nbinom.cdf(loss_threshold, n, p)
                 p_push = nbinom.pmf(int(line), n, p) if is_whole_line else 0.0
         else:
-            p_loss = norm.cdf(win_target - 0.5, loc=proj, scale=std_dev)
+            p_loss_strict = norm.cdf(line - 0.5, loc=proj, scale=std_dev) if is_whole_line else norm.cdf(line, loc=proj, scale=std_dev)
             if is_whole_line:
                 p_push = norm.cdf(line + 0.5, loc=proj, scale=std_dev) - norm.cdf(line - 0.5, loc=proj, scale=std_dev)
             else:
                 p_push = 0.0
                 
-        p_win = 1.0 - p_loss - p_push
+        p_win = 1.0 - p_loss_strict - p_push
         return {
             'win': max(min(p_win, 1.0), 0.0), 
             'push': max(min(p_push, 1.0), 0.0), 
-            'loss': max(min(p_loss, 1.0), 0.0)
+            # Output the strict loss probability so 'probs_under' perfectly mirrors it
+            'loss': max(min(p_loss_strict, 1.0), 0.0) 
         }
     except Exception as e:
         logging.warning(f"Error calculating distribution prob: {e}")

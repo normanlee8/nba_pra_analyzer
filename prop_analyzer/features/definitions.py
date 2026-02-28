@@ -11,7 +11,7 @@ BASE_FEATURE_COLS = [
     # Volatility & Distribution Metrics (Crucial for EV Math)
     'L10_STD_DEV', 'L10_CV',
     'L10_HitRate_10', 'L10_HitRate_15', 'L10_HitRate_20', 'L10_HitRate_25', 'L10_HitRate_30',
-    'VS_OPP_HIT_RATE', 'VS_OPP_GAMES_COUNT', # NEW: Matchup Filters
+    'VS_OPP_HIT_RATE', 'VS_OPP_GAMES_COUNT', 
     
     # Contextual Splits
     'REST_SPLIT_AVG', 'IS_HOME', 'Days_Rest',
@@ -36,6 +36,7 @@ BASE_FEATURE_COLS = [
     'TEAM_Field Goals Attempted per Game', 'OPP_Field Goals Attempted per Game',
     'TEAM_Three Pointers Attempted per Game', 'OPP_Three Pointers Attempted per Game',
     'OPP_Opponent Offensive Rebounding %', 
+    'TEAM_Total Rebounds per Game', 'OPP_Opponent Total Rebounds per Game', # NEW: Rebounding Total Context
     
     # Assist Context
     'TEAM_Assists per FGM', 'OPP_Opponent Assists per FGM', 'TEAM_Assist to Turnover Ratio',
@@ -43,6 +44,7 @@ BASE_FEATURE_COLS = [
     # Scoring Context
     'OPP_Opponent Points in Paint per Game', 'OPP_Opponent Percent of Points from 3 Pointers',
     'OPP_Opponent Personal Fouls per Game', 'OPP_Opponent Fastbreak Points per Game',
+    'TEAM_Points per Game', 'OPP_Opponent Points per Game', # NEW: Implied Scoring Environment
     
     # Combo & Volume Context
     'TEAM_Extra Scoring Chances per Game', 'OPP_Extra Scoring Chances per Game',
@@ -67,37 +69,46 @@ PROP_FEATURE_MAP = {
             'PTS_SPLIT_AVG', 'PTS_DIFF', 'MIN_SPLIT_AVG',
             'OPP_Opponent Points in Paint per Game', 'OPP_Opponent Percent of Points from 3 Pointers',
             'OPP_Opponent Personal Fouls per Game', 'OPP_Opponent Fastbreak Points per Game',
-            'TEAM_Extra Scoring Chances per Game', 'OPP_Extra Scoring Chances per Game'],
+            'TEAM_Extra Scoring Chances per Game', 'OPP_Extra Scoring Chances per Game',
+            'TEAM_Points per Game', 'OPP_Opponent Points per Game'], # NEW
             
     'REB': ['REB', 'PRA', 'PR', 'RA', 'GAME_PACE', 'OPP_GAME_PACE',
             'REB_SPLIT_AVG', 'REB_DIFF', 'MIN_SPLIT_AVG',
             'OPP_Opponent Effective Field Goal %', 'OPP_Opponent True Shooting %',
             'TEAM_Field Goals Attempted per Game', 'OPP_Field Goals Attempted per Game',
             'TEAM_Three Pointers Attempted per Game', 'OPP_Three Pointers Attempted per Game',
-            'OPP_Opponent Offensive Rebounding %'],
+            'OPP_Opponent Offensive Rebounding %',
+            'TEAM_Total Rebounds per Game', 'OPP_Opponent Total Rebounds per Game'], # NEW
             
     'AST': ['AST', 'PRA', 'PA', 'RA', 'GAME_PACE', 'OPP_GAME_PACE',
             'AST_SPLIT_AVG', 'AST_DIFF', 'MIN_SPLIT_AVG',
-            'TEAM_Assists per FGM', 'OPP_Opponent Assists per FGM', 'TEAM_Assist to Turnover Ratio'],
+            'TEAM_Assists per FGM', 'OPP_Opponent Assists per FGM', 'TEAM_Assist to Turnover Ratio',
+            'TEAM_Points per Game', 'OPP_Opponent Points per Game'], # NEW: High scoring games inflate AST
             
     'PRA': ['PRA', 'PTS', 'REB', 'AST', 'PR', 'PA', 'RA', 'GAME_PACE', 'OPP_GAME_PACE',
             'PRA_SPLIT_AVG', 'PRA_DIFF', 'MIN_SPLIT_AVG',
             'TEAM_Extra Scoring Chances per Game', 'OPP_Extra Scoring Chances per Game',
-            'OPP_Opponent Points + Rebounds + Assists per Game'],
+            'OPP_Opponent Points + Rebounds + Assists per Game',
+            'TEAM_Points per Game', 'OPP_Opponent Points per Game',
+            'TEAM_Total Rebounds per Game', 'OPP_Opponent Total Rebounds per Game'],
             
     'PR':  ['PR', 'PTS', 'REB', 'PRA', 'GAME_PACE', 'OPP_GAME_PACE',
             'PR_SPLIT_AVG', 'PR_DIFF', 'MIN_SPLIT_AVG',
             'OPP_Opponent Points in Paint per Game', 'OPP_Opponent Effective Field Goal %',
-            'TEAM_Extra Scoring Chances per Game'],
+            'TEAM_Extra Scoring Chances per Game',
+            'TEAM_Points per Game', 'OPP_Opponent Points per Game',
+            'TEAM_Total Rebounds per Game', 'OPP_Opponent Total Rebounds per Game'],
             
     'PA':  ['PA', 'PTS', 'AST', 'PRA', 'GAME_PACE', 'OPP_GAME_PACE',
             'PA_SPLIT_AVG', 'PA_DIFF', 'MIN_SPLIT_AVG',
             'OPP_Opponent Points + Assists per Game', 'OPP_Opponent Assists per FGM',
-            'TEAM_Extra Scoring Chances per Game'],
+            'TEAM_Extra Scoring Chances per Game',
+            'TEAM_Points per Game', 'OPP_Opponent Points per Game'],
             
     'RA':  ['RA', 'REB', 'AST', 'PRA', 'GAME_PACE', 'OPP_GAME_PACE',
             'RA_SPLIT_AVG', 'RA_DIFF', 'MIN_SPLIT_AVG',
-            'OPP_Opponent Effective Field Goal %', 'OPP_Opponent Assists per FGM'],
+            'OPP_Opponent Effective Field Goal %', 'OPP_Opponent Assists per FGM',
+            'TEAM_Total Rebounds per Game', 'OPP_Opponent Total Rebounds per Game'],
 }
 
 RELEVANT_KEYWORDS = {

@@ -10,13 +10,12 @@ import re
 from datetime import datetime
 from pathlib import Path
 
-# --- NEW: Upgraded to Stacking Regressor and RidgeCV ---
+# Upgraded to Stacking Regressor and RidgeCV
 from sklearn.ensemble import StackingRegressor
 from sklearn.linear_model import RidgeCV
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import TimeSeriesSplit
 
-# --- FIX: Enable metadata routing for StackingRegressor sample weights ---
 import sklearn
 sklearn.set_config(enable_metadata_routing=True)
 
@@ -50,7 +49,6 @@ def get_feature_cols(prop_cat, all_columns):
             if prefixed_feat in all_columns:
                 relevant.append(prefixed_feat)
 
-    # Includes newly engineered punitive features
     vacancy_cols = [
         'TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 'MISSING_USG_G', 'MISSING_USG_F', 
         'TEAM_MISSING_AST_PCT', 'TEAM_MISSING_REB_PCT', Cols.DAYS_REST, 
@@ -119,16 +117,19 @@ def train_ensemble_model(df, target_col):
     X = df[feature_list].copy()
     X.columns = sanitized_cols
     y = df[target_col]
-
-    # Sample Weighting (Exponential Decay - 45 Day Half-Life)
-    days_ago = (pd.Timestamp.now() - df[date_col]).dt.days
-    sample_weights = np.exp(-days_ago / 45)
     
     preprocessor = PassThroughScaler()
     X_proc = preprocessor.fit_transform(X)
     X_proc_df = pd.DataFrame(X_proc, columns=sanitized_cols)
 
     tscv = TimeSeriesSplit(n_splits=3) 
+
+    # FIX: Recency weighting is calculated dynamically inside each CV fold
+    def get_fold_weights(train_idx):
+        fold_dates = df.iloc[train_idx][date_col]
+        max_date = fold_dates.max()
+        days_ago = (max_date - fold_dates).dt.days
+        return np.exp(-days_ago / 45)
 
     def optimize_base_models():
         optuna.logging.set_verbosity(optuna.logging.INFO)
@@ -146,9 +147,10 @@ def train_ensemble_model(df, target_col):
             
             maes = []
             for train_idx, val_idx in tscv.split(X_proc_df):
+                fold_weights = get_fold_weights(train_idx)
                 mod.fit(
                     X_proc_df.iloc[train_idx], y.iloc[train_idx],
-                    sample_weight=sample_weights.iloc[train_idx]
+                    sample_weight=fold_weights
                 )
                 maes.append(mean_absolute_error(y.iloc[val_idx], mod.predict(X_proc_df.iloc[val_idx])))
             return np.mean(maes)
@@ -168,9 +170,10 @@ def train_ensemble_model(df, target_col):
             
             maes = []
             for train_idx, val_idx in tscv.split(X_proc_df):
+                fold_weights = get_fold_weights(train_idx)
                 mod.fit(
                     X_proc_df.iloc[train_idx], y.iloc[train_idx],
-                    sample_weight=sample_weights.iloc[train_idx]
+                    sample_weight=fold_weights
                 )
                 maes.append(mean_absolute_error(y.iloc[val_idx], mod.predict(X_proc_df.iloc[val_idx])))
             return np.mean(maes)
@@ -186,11 +189,9 @@ def train_ensemble_model(df, target_col):
     xgb_best = xgb.XGBRegressor(**xgb_params, random_state=42, n_jobs=-1, objective='reg:tweedie', tree_method='hist')
     lgb_best = lgb.LGBMRegressor(**lgb_params, random_state=42, n_jobs=-1, objective='tweedie', verbose=-1)
     
-    # --- FIX: Explicitly request sample weights for the base estimators ---
     xgb_best.set_fit_request(sample_weight=True)
     lgb_best.set_fit_request(sample_weight=True)
 
-    # --- UPGRADE: Stacking Regressor ---
     ensemble = StackingRegressor(
         estimators=[('xgb', xgb_best), ('lgb', lgb_best)],
         final_estimator=RidgeCV(alphas=[0.1, 1.0, 10.0]),
@@ -199,9 +200,10 @@ def train_ensemble_model(df, target_col):
 
     logging.info(f"[{target_col}] Fitting Final Stacking Ensemble on full training data...")
     try:
-        # FIX: With metadata routing enabled, pass 'sample_weight' directly. 
-        # The routing engine forwards it to the base models automatically.
-        ensemble.fit(X_proc_df, y, sample_weight=sample_weights)
+        # Calculate final weights spanning up to the latest known date overall
+        max_date_global = df[date_col].max()
+        final_sample_weights = np.exp(-(max_date_global - df[date_col]).dt.days / 45)
+        ensemble.fit(X_proc_df, y, sample_weight=final_sample_weights)
     except Exception as e:
         logging.warning(f"Could not apply sample weights to stacking regressor ({e}). Fitting unweighted.")
         ensemble.fit(X_proc_df, y)

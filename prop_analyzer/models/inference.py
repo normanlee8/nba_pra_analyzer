@@ -21,8 +21,8 @@ def load_artifacts(prop_cat):
 
 def get_system_learning_maps(days_back=21):
     """
-    Returns global system biases.
-    Player-level bias has been removed to prevent momentum-chasing loops.
+    Returns global system biases for retrospective analysis.
+    (Note: Actively removing this from live projection multipliers to let Stacking Regressor calibrate natively).
     """
     graded_files = sorted(cfg.GRADED_DIR.glob("graded_*.parquet"), reverse=True)
     if not graded_files: return {}, {}
@@ -68,8 +68,7 @@ def get_system_learning_maps(days_back=21):
 
 def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games, s_avg, r_avg):
     """
-    Strictly evaluates based on Win Probability, Hit Rates, and Volatility.
-    Uses centralized risk configurations and removes artificial penalties for Unders.
+    Strictly evaluates based on Win Probability, Hit Rates, Volatility, and Edge/Delta.
     """
     tier = 'Pass'
     
@@ -79,17 +78,22 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
         if cv > cfg.MAX_CV_HARD_PASS_OVER or l10_hit_rate < cfg.MIN_L10_HIT_HARD_PASS_OVER:
             return 'Pass / Too Volatile'
     else:
-        # Unders benefit from high volatility (right-skewed tails). We do NOT hard pass here.
-        pass
-        
-    # NOTE: Matchup history hard-pass logic was removed here to let the ML model's 
-    # Pace and DvP interaction features dictate probability rather than legacy heuristics.
+        # FIX: Unders also require predictability. High variance destroys Under hit rates via ceiling games.
+        if cv > cfg.MAX_CV_HARD_PASS_UNDER or l10_hit_rate < cfg.MIN_L10_HIT_HARD_PASS_UNDER:
+            return 'Pass / Too Volatile'
 
-    # Assign Tier Based on Config Thresholds
+    # Assign Tier Based on Config Thresholds + New Expected Value constraints
     if win_prob >= cfg.MIN_PROB_FOR_S_TIER and cv < cfg.MAX_CV_FOR_S_TIER and (pick_type != 'Over' or l10_hit_rate >= cfg.MIN_L10_HIT_FOR_S_TIER): 
-        tier = 'S Tier'
+        # FIX: Ensure there is actually a mathematical edge (at least 8% cushion over the line)
+        if abs_diff >= (line * 0.08):
+            tier = 'S Tier'
+        else:
+            tier = 'A Tier' # Downgraded due to thin margin of error
     elif win_prob >= cfg.MIN_PROB_FOR_A_TIER and cv < cfg.MAX_CV_FOR_A_TIER: 
-        tier = 'A Tier'
+        if abs_diff >= (line * 0.04):
+            tier = 'A Tier'
+        else:
+            tier = 'B Tier'
     elif win_prob >= cfg.MIN_PROB_FOR_B_TIER and cv < cfg.MAX_CV_FOR_B_TIER: 
         tier = 'B Tier'
     elif win_prob >= cfg.MIN_PROB_FOR_C_TIER: 
@@ -105,6 +109,7 @@ def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_over_rate,
     dist_type = 'nbinom' if prop_type in ['PTS', 'REB', 'AST', 'STL', 'BLK', 'FG3M'] else 'normal'
     
     probs_over = get_discrete_probabilities(proj, line, variance, dist_type=dist_type, tweedie_power=tweedie_power)
+    # Probs_under now correctly mirrors the strict discrete boundaries from the fixed probability generator
     probs_under = {'win': probs_over['loss'], 'loss': probs_over['win'], 'push': probs_over['push']}
     
     if probs_over['win'] >= probs_under['win']:
@@ -139,11 +144,11 @@ def predict_props(todays_props_df):
     if Cols.PROP_TYPE not in todays_props_df.columns: return pd.DataFrame()
     
     try: 
-        cat_bias_pct, cat_mae = get_system_learning_maps(days_back=21)
-        logging.info(f"Loaded System Bias Adjustments: {cat_bias_pct}")
+        _, cat_mae = get_system_learning_maps(days_back=21)
+        # We no longer apply cat_bias_pct globally. Let the Stacking Regressor do the calibration.
     except Exception as e: 
         logging.warning(f"Could not load system learning maps: {e}")
-        cat_bias_pct, cat_mae = {}, {}
+        cat_mae = {}
 
     predicted_mins = {}
     min_artifacts = load_artifacts('MIN')
@@ -202,10 +207,8 @@ def predict_props(todays_props_df):
             X_scaled = scaler.transform(X_model)
             X_scaled_df = pd.DataFrame(X_scaled, columns=X_model.columns, index=X_model.index)
             
+            # Predict raw outputs via stacked ensemble
             raw_projections = model.predict(X_scaled_df)
-            
-            # Retrieve active bias correction for this specific prop
-            prop_bias_pct = cat_bias_pct.get(cfg.MASTER_PROP_MAP.get(prop_cat, prop_cat), 0.0)
             
             szn_avgs = get_col_safe(X_raw, prop_cat, 'SZN_AVG')
             l5_avgs = get_col_safe(X_raw, prop_cat, 'L5_AVG')
@@ -236,12 +239,11 @@ def predict_props(todays_props_df):
             for idx, (orig_idx, row) in enumerate(group.iterrows()):
                 line = float(row[Cols.PROP_LINE])
                 
-                # --- BUG FIX APPLIED: Apply dynamic system bias to the raw projection ---
+                # FIX: Remove double-correction trap. The Stacking Regressor is already calibrated natively.
                 raw_val = raw_projections[idx]
-                corrected_raw_val = raw_val * (1.0 + prop_bias_pct)
                 
-                s_avg = float(szn_avgs.iloc[idx]) if not pd.isna(szn_avgs.iloc[idx]) else corrected_raw_val
-                r_avg = float(l5_avgs.iloc[idx]) if not pd.isna(l5_avgs.iloc[idx]) else corrected_raw_val
+                s_avg = float(szn_avgs.iloc[idx]) if not pd.isna(szn_avgs.iloc[idx]) else raw_val
+                r_avg = float(l5_avgs.iloc[idx]) if not pd.isna(l5_avgs.iloc[idx]) else raw_val
                 raw_std = float(stds.iloc[idx]) if not pd.isna(stds.iloc[idx]) else 1.0
                 
                 baseline_std = max(s_avg, line) * 0.15 
@@ -266,7 +268,7 @@ def predict_props(todays_props_df):
                 min_deviation = abs(pred_min - hist_mins) / hist_mins if hist_mins > 0 else 0
 
                 # Calculate final projected output using smoothed value
-                proj = smooth_projection(corrected_raw_val, s_avg, r_avg, std_dev)
+                proj = smooth_projection(raw_val, s_avg, r_avg, std_dev)
                 
                 dynamic_correlations = {
                     'PTS_REB': float(corr_pr.iloc[idx]) if not pd.isna(corr_pr.iloc[idx]) else 0.25,

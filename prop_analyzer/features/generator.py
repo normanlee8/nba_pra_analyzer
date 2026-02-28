@@ -45,6 +45,9 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         grouped_winsor = winsorized.groupby(df[Cols.PLAYER_ID])
         
         szn_avg = grouped[col].expanding().mean().shift(1).values
+        # FIX: We create an L5 Mean to safely compare Mean-to-Mean for Form Ratio
+        l5_mean = grouped_winsor.rolling(window=5, min_periods=1).mean().shift(1).values
+        
         l5_avg = grouped_winsor.rolling(window=5, min_periods=1).median().shift(1).values
         l10_avg = grouped_winsor.rolling(window=10, min_periods=1).median().shift(1).values
         l20_avg = grouped_winsor.rolling(window=20, min_periods=1).median().shift(1).values
@@ -66,8 +69,9 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         new_cols[f'{col}_L10_CV'] = np.divide(l10_std, l10_avg, out=np.zeros_like(l10_std), where=(l10_avg > 0))
         new_cols[f'{col}_L20_CV'] = np.divide(l20_std, l20_avg, out=np.zeros_like(l20_std), where=(l20_avg > 0))
         
-        form_out = np.ones_like(l5_avg)
-        new_cols[f'{col}_FORM_RATIO'] = np.divide(l5_avg, szn_avg, out=form_out, where=(szn_avg > 0))
+        form_out = np.ones_like(l5_mean)
+        # FIX: Form Ratio now accurately compares Mean to Mean
+        new_cols[f'{col}_FORM_RATIO'] = np.divide(l5_mean, szn_avg, out=form_out, where=(szn_avg > 0))
 
     new_cols['PTS_REB_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['REB']).shift(1), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
     new_cols['PTS_AST_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['AST']).shift(1), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
@@ -213,7 +217,7 @@ def build_feature_set(props_df):
         features_df = pd.merge(features_df, opp_stats_renamed, left_on=Cols.OPPONENT, right_index=True, how='left')
 
     if dvp_df is not None and not dvp_df.empty:
-        logging.info("Merging Defense vs Position (DvP) Stats...")
+        logging.info("Merging Defense vs Position (DvP) Stats safely to avoid leakage...")
         features_df['OPPONENT_ABBREV'] = features_df.get(Cols.OPPONENT, 'UNK')
         
         def normalize_pos(pos):
@@ -225,13 +229,23 @@ def build_feature_set(props_df):
             
         features_df['Primary_Pos'] = features_df['Position'].apply(normalize_pos)
         
-        if 'SEASON_ID' in dvp_df.columns:
-            latest_szn = dvp_df['SEASON_ID'].max()
-            dvp_to_merge = dvp_df[dvp_df['SEASON_ID'] == latest_szn].drop(columns=['SEASON_ID'])
-        else:
-            dvp_to_merge = dvp_df
+        # FIX: Ensure we use time-aware merging for DvP, preventing future knowledge
+        if Cols.DATE in dvp_df.columns and Cols.DATE in features_df.columns:
+            dvp_df[Cols.DATE] = pd.to_datetime(dvp_df[Cols.DATE])
+            features_df[Cols.DATE] = pd.to_datetime(features_df[Cols.DATE])
             
-        features_df = pd.merge(features_df, dvp_to_merge, on=['OPPONENT_ABBREV', 'Primary_Pos'], how='left')
+            dvp_sorted = dvp_df.sort_values(Cols.DATE)
+            feat_sorted = features_df.sort_values(Cols.DATE)
+            
+            features_df = pd.merge_asof(
+                feat_sorted, dvp_sorted,
+                on=Cols.DATE,
+                by=['OPPONENT_ABBREV', 'Primary_Pos'],
+                direction='backward'
+            )
+        else:
+            # Fallback for old static files without DATE
+            features_df = pd.merge(features_df, dvp_df, on=['OPPONENT_ABBREV', 'Primary_Pos'], how='left')
         
         dvp_cols = [c for c in features_df.columns if c.startswith('DVP_') and 'MULTIPLIER' in c]
         for c in dvp_cols:
@@ -361,14 +375,9 @@ def build_feature_set(props_df):
     if 'TEAM_MISSING_USG' in features_df.columns and usg_col in features_df.columns:
         missing_usg = pd.to_numeric(features_df['TEAM_MISSING_USG'], errors='coerce').fillna(0.0)
         
-        # Calculate the sum of active usage on the team dynamically 
-        if Cols.DATE in features_df.columns:
-            team_active_usg = features_df.groupby(['TEAM_ABBREVIATION', Cols.DATE])[usg_col].transform('sum')
-        else:
-            team_active_usg = features_df.groupby('TEAM_ABBREVIATION')[usg_col].transform('sum')
-            
-        # Prevent zero-division
-        team_active_usg = team_active_usg.replace(0, 1.0)
+        # FIX: The old active_usg erroneously summed only players with listed props.
+        # Active usage is 100% minus the missing usage. We set a floor of 20.0 to avoid zero division.
+        team_active_usg = np.maximum(100.0 - missing_usg, 20.0)
         
         # Calculate proportional absorption rate based on current usage footprint
         absorption_rate = features_df[usg_col] / team_active_usg

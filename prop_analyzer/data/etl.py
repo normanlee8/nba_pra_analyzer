@@ -328,7 +328,7 @@ def process_vs_opponent_stats(data_dir, output_dir):
     logging.info("Saved master_vs_opponent.parquet")
 
 def process_dvp_stats(output_dir):
-    logging.info("--- Starting: process_dvp_stats (Advanced Composite) ---")
+    logging.info("--- Starting: process_dvp_stats (Advanced Composite - Fixed Target Leakage) ---")
     files = sorted(output_dir.glob("master_box_scores_*.parquet"))
     if not files: return
     
@@ -349,8 +349,7 @@ def process_dvp_stats(output_dir):
 
             pos_col = 'Position' if 'Position' in df.columns else ('Pos' if 'Pos' in df.columns else None)
             
-            required = [pos_col, 'OPPONENT_ABBREV'] if pos_col else ['OPPONENT_ABBREV']
-            if Cols.DATE in df.columns: required.append(Cols.DATE)
+            required = [pos_col, 'OPPONENT_ABBREV', Cols.DATE] if pos_col else ['OPPONENT_ABBREV', Cols.DATE]
             if not all(c in df.columns for c in required): continue
 
             def normalize_pos(pos):
@@ -368,11 +367,12 @@ def process_dvp_stats(output_dir):
             valid_positions = ['PG', 'SG', 'SF', 'PF', 'C']
             df = df[df['Primary_Pos'].isin(valid_positions)].copy()
 
-            if Cols.DATE in df.columns:
-                df.sort_values(by=[Cols.PLAYER_ID, Cols.DATE], inplace=True)
+            # FIX: Ensure strict time order to prevent lookahead bias
+            df.sort_values(by=[Cols.PLAYER_ID, Cols.DATE], inplace=True)
 
             stat_cols = ['PTS', 'REB', 'AST', 'PRA', 'PR', 'PA', 'RA']
             
+            # Step 1: Calculate historical rolling expected output for the player
             for col in stat_cols:
                 if col in df.columns:
                     exp_series = df.groupby(Cols.PLAYER_ID)[col].expanding().mean()
@@ -380,35 +380,42 @@ def process_dvp_stats(output_dir):
                     
             df.dropna(subset=[f'{c}_AVG' for c in stat_cols if c in df.columns], inplace=True)
 
+            # Step 2: Calculate difference against expectation
             for col in stat_cols:
                 if col in df.columns:
                     df[f'{col}_PCT_DIFF'] = np.where(df[f'{col}_AVG'] > 0, 
                                                      (df[col] - df[f'{col}_AVG']) / df[f'{col}_AVG'], 0.0)
 
-            diff_cols = {f'{col}_PCT_DIFF': 'mean' for col in stat_cols if col in df.columns}
-            if not diff_cols: continue
+            # Step 3: Prevent Target Leakage - Expanding mean for the Matchup, shifted by 1 to exclude the game itself
+            df.sort_values(by=Cols.DATE, inplace=True)
+            dvp_group = df.groupby(['OPPONENT_ABBREV', 'Primary_Pos'])
             
-            dvp_diffs = df.groupby(['OPPONENT_ABBREV', 'Primary_Pos']).agg(diff_cols).reset_index()
+            for col in stat_cols:
+                if f'{col}_PCT_DIFF' in df.columns:
+                    df[f'EXP_MEAN_{col}_DIFF'] = dvp_group[f'{col}_PCT_DIFF'].transform(lambda x: x.expanding().mean().shift(1)).fillna(0.0)
+            
+            # Step 4: Extract the strictly time-aware rows for the final DVP structure
             league_pos_baselines = df.groupby('Primary_Pos')[stat_cols].mean().reset_index()
-            
             rename_map = {c: f"{c}_BASE" for c in stat_cols}
             league_pos_baselines.rename(columns=rename_map, inplace=True)
             
-            merged_dvp = pd.merge(dvp_diffs, league_pos_baselines, on='Primary_Pos', how='inner')
+            season_dvp = df[[Cols.DATE, 'OPPONENT_ABBREV', 'Primary_Pos']].copy().drop_duplicates(subset=['OPPONENT_ABBREV', 'Primary_Pos', Cols.DATE])
             
-            season_dvp = pd.DataFrame()
-            season_dvp['SEASON_ID'] = season_id
-            season_dvp['OPPONENT_ABBREV'] = merged_dvp['OPPONENT_ABBREV']
-            season_dvp['Primary_Pos'] = merged_dvp['Primary_Pos']
+            # Merge positional baselines
+            season_dvp = pd.merge(season_dvp, league_pos_baselines, on='Primary_Pos', how='left')
             
             for col in stat_cols:
-                if f'{col}_PCT_DIFF' in merged_dvp.columns and f'{col}_BASE' in merged_dvp.columns:
-                    season_dvp[f'DVP_{col}_MULTIPLIER'] = 1.0 + merged_dvp[f'{col}_PCT_DIFF']
-                    season_dvp[f'DVP_{col}'] = merged_dvp[f'{col}_BASE'] * season_dvp[f'DVP_{col}_MULTIPLIER']
+                if f'EXP_MEAN_{col}_DIFF' in df.columns:
+                    diff_map = df.drop_duplicates(subset=['OPPONENT_ABBREV', 'Primary_Pos', Cols.DATE]).set_index(['OPPONENT_ABBREV', 'Primary_Pos', Cols.DATE])[f'EXP_MEAN_{col}_DIFF']
+                    season_dvp[f'{col}_PCT_DIFF'] = season_dvp.set_index(['OPPONENT_ABBREV', 'Primary_Pos', Cols.DATE]).index.map(diff_map)
+                    
+                    season_dvp[f'DVP_{col}_MULTIPLIER'] = 1.0 + season_dvp[f'{col}_PCT_DIFF'].fillna(0.0)
+                    season_dvp[f'DVP_{col}'] = season_dvp[f'{col}_BASE'] * season_dvp[f'DVP_{col}_MULTIPLIER']
             
             if team_def_rtg:
                 season_dvp['OPP_DEF_EFF'] = season_dvp['OPPONENT_ABBREV'].map(team_def_rtg).fillna(110.0)
 
+            season_dvp['SEASON_ID'] = season_id
             all_dvp_dfs.append(season_dvp)
             
         except Exception as e:
@@ -416,8 +423,9 @@ def process_dvp_stats(output_dir):
 
     if all_dvp_dfs:
         final_dvp_all = pd.concat(all_dvp_dfs, ignore_index=True)
+        final_dvp_all.sort_values(by=['OPPONENT_ABBREV', 'Primary_Pos', Cols.DATE], inplace=True)
         final_dvp_all.round(3).to_parquet(output_dir / "master_dvp_stats.parquet", index=False)
-        logging.info(f"Saved master_dvp_stats.parquet (Multi-Season: {len(final_dvp_all)} rows)")
+        logging.info(f"Saved master_dvp_stats.parquet (Multi-Season Time-Series: {len(final_dvp_all)} rows)")
 
 def process_home_away_splits(output_dir):
     logging.info("--- Starting: process_home_away_splits ---")
@@ -466,10 +474,6 @@ def process_home_away_splits(output_dir):
     logging.info(f"Saved master_home_away_splits.parquet ({len(splits_pivot)} rows)")
 
 def process_daily_vacancy(player_id_map, season_folders, output_dir):
-    """
-    Parses daily injury report and maps missing usage. 
-    UPDATED: Uses volume weighting (MIN) and Decays long-term injuries to prevent double-counting.
-    """
     logging.info("--- Starting: process_daily_vacancy ---")
     if not season_folders: return
     latest_folder = season_folders[-1]
@@ -491,7 +495,6 @@ def process_daily_vacancy(player_id_map, season_folders, output_dir):
     id_map_clean = player_id_map[['Player_Clean', Cols.PLAYER_ID]].drop_duplicates()
     out_df = pd.merge(out_df, id_map_clean, left_on='clean_name', right_on='Player_Clean', how='left')
     
-    # --- RECENCY CHECK: Prevent stale vacancy double-counting ---
     bs_path = output_dir / f"master_box_scores_{season_id}.parquet"
     if bs_path.exists():
         bs_df = pd.read_parquet(bs_path)
@@ -501,40 +504,33 @@ def process_daily_vacancy(player_id_map, season_folders, output_dir):
             last_played.rename(columns={Cols.DATE: 'Last_Played_Date'}, inplace=True)
             out_df = pd.merge(out_df, last_played, on=Cols.PLAYER_ID, how='left')
             
-            # Find the most recent date available in the dataset
             current_date = pd.Timestamp.today().normalize()
             if 'Date' in inj_df.columns:
                 current_date = pd.to_datetime(inj_df['Date'].max())
                 
             out_df['Days_Since_Played'] = (current_date - out_df['Last_Played_Date']).dt.days
             
-            # Filter out players who have been out for more than 14 days
-            # Note: NaT means they haven't played at all yet, assume they are actively out
             out_df = out_df[(out_df['Days_Since_Played'] <= 14) | (out_df['Days_Since_Played'].isna())]
     
     p_stats_path = output_dir / f"master_player_stats_{season_id}.parquet"
     if p_stats_path.exists():
         p_stats = pd.read_parquet(p_stats_path)
         
-        # Pull MIN and Position for volume weighting and positional splits
         stats_to_get = [c for c in ['USG%', 'AST%', 'TRB%', 'MIN', 'Position'] if c in p_stats.columns]
         
         if stats_to_get:
             out_df = pd.merge(out_df, p_stats[[Cols.PLAYER_ID] + stats_to_get], on=Cols.PLAYER_ID, how='left')
             
-            # Convert metrics to numeric safely
             for c in ['USG%', 'AST%', 'TRB%', 'MIN']:
                 if c in out_df.columns:
                     out_df[c] = pd.to_numeric(out_df[c], errors='coerce').fillna(0.0)
                     
-            # --- CALCULATE WEIGHTED VACANCY (Volume Base) ---
             min_ratio = out_df.get('MIN', 0.0) / 48.0
             out_df['TEAM_MISSING_USG'] = out_df.get('USG%', 0.0) * min_ratio
             out_df['TEAM_MISSING_AST_PCT'] = out_df.get('AST%', 0.0) * min_ratio
             out_df['TEAM_MISSING_REB_PCT'] = out_df.get('TRB%', 0.0) * min_ratio
             out_df['TEAM_MISSING_MIN'] = out_df.get('MIN', 0.0)
             
-            # --- CREATE POSITIONAL SPLITS ---
             out_df['Position'] = out_df.get('Position', '').astype(str).str.upper()
             out_df['MISSING_USG_G'] = np.where(out_df['Position'].str.contains('G'), out_df['TEAM_MISSING_USG'], 0.0)
             out_df['MISSING_USG_F'] = np.where(out_df['Position'].str.contains('F|C'), out_df['TEAM_MISSING_USG'], 0.0)
