@@ -1,0 +1,71 @@
+Legs,Joint Prob,Payout,Picks,Result
+2,0.862106,3.0x,Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+2,0.841624,3.0x,Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS,LOSS
+2,0.814625,3.0x,Jamal Murray Under 33.5 PRA | Payton Pritchard Under 17.5 PTS,LOSS
+2,0.81025,3.0x,Jamal Murray Under 33.5 PRA | Tobias Harris Under 15.5 PA,LOSS
+2,0.807177,3.0x,Isaiah Joe Under 8.5 PTS | Payton Pritchard Under 17.5 PTS,LOSS
+2,0.805315,3.0x,OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS,LOSS
+2,0.8028420000000001,3.0x,Isaiah Joe Under 8.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+2,0.80099,3.0x,OG Anunoby Under 15.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+2,0.799729,3.0x,Ausar Thompson Over 6.5 RA | Payton Pritchard Under 17.5 PTS,LOSS
+2,0.797867,3.0x,GG Jackson Over 17.5 PA | Payton Pritchard Under 17.5 PTS,LOSS
+3,0.7543427500000001,6.0x,Jamal Murray Under 33.5 PRA | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+3,0.747445902,6.0x,Isaiah Joe Under 8.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+3,0.74572169,6.0x,OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+3,0.7441483000000001,6.0x,Ausar Thompson Over 6.5 RA | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+3,0.738824842,6.0x,GG Jackson Over 17.5 PA | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+3,0.7364210000000001,6.0x,Jamal Murray Under 33.5 PRA | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS,LOSS
+3,0.7302037820000001,6.0x,Mitchell Robinson Over 13.5 PR | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+3,0.729688008,6.0x,Isaiah Joe Under 8.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS,LOSS
+3,0.72800476,6.0x,OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS,LOSS
+3,0.7267386,6.0x,Ausar Thompson Over 6.5 RA | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS,LOSS
+4,0.6596835112000001,10.0x,Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+4,0.65250647875,10.0x,Jamal Murray Under 33.5 PRA | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+4,0.6511297625000001,10.0x,Ausar Thompson Over 6.5 RA | Jamal Murray Under 33.5 PRA | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+4,0.6465407052300001,10.0x,Isaiah Joe Under 8.5 PTS | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+4,0.64647173675,10.0x,GG Jackson Over 17.5 PA | Jamal Murray Under 33.5 PRA | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+4,0.6451765761,10.0x,Ausar Thompson Over 6.5 RA | Isaiah Joe Under 8.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+4,0.6440106848000001,10.0x,Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS,LOSS
+4,0.6436882795000001,10.0x,Ausar Thompson Over 6.5 RA | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+4,0.640561138014,10.0x,GG Jackson Over 17.5 PA | Isaiah Joe Under 8.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+4,0.6390834883300001,10.0x,GG Jackson Over 17.5 PA | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+5,0.570626237188,20.0x,Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+5,0.56942227916,20.0x,Ausar Thompson Over 6.5 RA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+5,0.5653487690984,20.0x,GG Jackson Over 17.5 PA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+5,0.5632272445625001,20.0x,Ausar Thompson Over 6.5 RA | Jamal Murray Under 33.5 PRA | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+5,0.55919805228875,20.0x,GG Jackson Over 17.5 PA | Jamal Murray Under 33.5 PRA | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+5,0.5587519339864,20.0x,Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Mitchell Robinson Over 13.5 PR | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+5,0.5580777383265,20.0x,Ausar Thompson Over 6.5 RA | Isaiah Joe Under 8.5 PTS | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+5,0.5580182064625,20.0x,Ausar Thompson Over 6.5 RA | GG Jackson Over 17.5 PA | Jamal Murray Under 33.5 PRA | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+5,0.5570692423520001,20.0x,Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS,LOSS
+5,0.55610037672,20.0x,Ausar Thompson Over 6.5 RA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS,LOSS
+6,0.4925502714733999,25.0x,Ausar Thompson Over 6.5 RA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+6,0.4890266852701159,25.0x,GG Jackson Over 17.5 PA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+6,0.48799489324012,25.0x,Ausar Thompson Over 6.5 RA | GG Jackson Over 17.5 PA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+6,0.48572496929656,25.0x,Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Mitchell Robinson Over 13.5 PR | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+6,0.4826857485900625,25.0x,Ausar Thompson Over 6.5 RA | GG Jackson Over 17.5 PA | Jamal Murray Under 33.5 PRA | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+6,0.48230067044852,25.0x,Ausar Thompson Over 6.5 RA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Mitchell Robinson Over 13.5 PR | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+6,0.4810268258628,25.0x,Ausar Thompson Over 6.5 RA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS,LOSS
+6,0.47942684412875,25.0x,Ausar Thompson Over 6.5 RA | Jamal Murray Under 33.5 PRA | Mitchell Robinson Over 13.5 PR | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+6,0.4793260392379201,25.0x,GG Jackson Over 21.5 PR | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+6,0.4788504074263447,25.0x,GG Jackson Over 17.5 PA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Mitchell Robinson Over 13.5 PR | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+7,0.4221155826527038,40.0x,Ausar Thompson Over 6.5 RA | GG Jackson Over 17.5 PA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+7,0.4192656241455079,40.0x,Ausar Thompson Over 6.5 RA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Mitchell Robinson Over 13.5 PR | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+7,0.4162662986871518,40.0x,GG Jackson Over 17.5 PA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Mitchell Robinson Over 13.5 PR | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+7,0.413742228037656,40.0x,Ausar Thompson Over 6.5 RA | GG Jackson Over 21.5 PR | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+7,0.4133316745743817,40.0x,Ausar Thompson Over 6.5 RA | GG Jackson Over 17.5 PA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Mitchell Robinson Over 13.5 PR | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+7,0.4122399897644196,40.0x,Ausar Thompson Over 6.5 RA | GG Jackson Over 17.5 PA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS,LOSS
+7,0.4108688054183387,40.0x,Ausar Thompson Over 6.5 RA | GG Jackson Over 17.5 PA | Jamal Murray Under 33.5 PRA | Mitchell Robinson Over 13.5 PR | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+7,0.4094567073789359,40.0x,Ausar Thompson Over 6.5 RA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Mitchell Robinson Over 13.5 PR | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS,LOSS
+7,0.4080089742091104,40.0x,GG Jackson Over 21.5 PR | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Mitchell Robinson Over 13.5 PR | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+7,0.4071122906259425,40.0x,Ausar Thompson Over 6.5 RA | GG Jackson Over 17.5 PA | Isaiah Joe Under 8.5 PTS | Mitchell Robinson Over 13.5 PR | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+8,0.3593106398927004,80.0x,Ausar Thompson Over 6.5 RA | GG Jackson Over 17.5 PA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Mitchell Robinson Over 13.5 PR | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+8,0.3521831242822266,80.0x,Ausar Thompson Over 6.5 RA | GG Jackson Over 21.5 PR | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Mitchell Robinson Over 13.5 PR | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+8,0.3509043982237481,80.0x,Ausar Thompson Over 6.5 RA | GG Jackson Over 17.5 PA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Mitchell Robinson Over 13.5 PR | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS,LOSS
+8,0.3439436341983062,80.0x,Ausar Thompson Over 6.5 RA | GG Jackson Over 21.5 PR | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Mitchell Robinson Over 13.5 PR | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 12.5 PTS,LOSS
+8,0.3421207493027345,80.0x,Ausar Thompson Over 6.5 RA | GG Jackson Over 23.5 PRA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Mitchell Robinson Over 13.5 PR | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+8,0.3409692128040201,80.0x,Aaron Wiggins Over 2.5 REB | Ausar Thompson Over 6.5 RA | GG Jackson Over 17.5 PA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+8,0.3399372426310676,80.0x,Ausar Thompson Over 6.5 RA | GG Jackson Over 17.5 PA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Mitchell Robinson Over 8.5 RA | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+8,0.338667122692549,80.0x,Aaron Wiggins Over 2.5 REB | Ausar Thompson Over 6.5 RA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Mitchell Robinson Over 13.5 PR | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+8,0.3377780743342612,80.0x,Duncan Robinson Over 1.5 REB | GG Jackson Over 17.5 PA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Mitchell Robinson Over 13.5 PR | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS
+8,0.3362443795328393,80.0x,Aaron Wiggins Over 2.5 REB | GG Jackson Over 17.5 PA | Isaiah Joe Under 8.5 PTS | Jamal Murray Under 33.5 PRA | Mitchell Robinson Over 13.5 PR | OG Anunoby Under 15.5 PTS | Payton Pritchard Under 17.5 PTS | Tobias Harris Under 15.5 PA,LOSS

@@ -151,7 +151,7 @@ def build_feature_set(props_df):
             pid = row.get(Cols.PLAYER_ID)
             dt = row.get(Cols.DATE)
             
-            # FIX: Use the actual prop line if available as the benchmark, otherwise fallback to season average
+            # Use the actual prop line if available as the benchmark, otherwise fallback to season average
             prop_line = row.get(Cols.PROP_LINE)
             if not pd.isna(prop_line) and prop_line > 0 and row.get('PROP_TYPE') == stat_col:
                 benchmark = prop_line
@@ -161,12 +161,12 @@ def build_feature_set(props_df):
             opp = row.get(Cols.OPPONENT)
             
             if pd.isna(pid) or pd.isna(benchmark) or pid not in player_histories:
-                return pd.Series([0.0, 0.0, 0.0, 0.0, 0.5, 0.0])
+                return pd.Series([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, 0.0])
                 
             hist = player_histories[pid]
             past_games = [g for g in hist if g[Cols.DATE] < dt]
             if not past_games:
-                 return pd.Series([0.0, 0.0, 0.0, 0.0, 0.5, 0.0])
+                 return pd.Series([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, 0.0])
                  
             stats = [g[stat_col] for g in past_games if stat_col in g and not pd.isna(g[stat_col])]
             rates = calculate_dynamic_hit_rates(stats, benchmark)
@@ -174,15 +174,19 @@ def build_feature_set(props_df):
             past_matchups = [g for g in past_games if g.get(Cols.OPPONENT) == opp]
             matchup_stats = [g[stat_col] for g in past_matchups if stat_col in g and not pd.isna(g[stat_col])]
             matchup_games_count = len(matchup_stats)
-            vs_opp_hit_rate = sum(1 for x in matchup_stats if x >= benchmark) / matchup_games_count if matchup_games_count > 0 else 0.50
+            
+            vs_opp_legacy_rate = sum(1 for x in matchup_stats if x >= benchmark) / matchup_games_count if matchup_games_count > 0 else 0.50
+            vs_opp_over_rate = sum(1 for x in matchup_stats if x > benchmark) / matchup_games_count if matchup_games_count > 0 else 0.50
+            vs_opp_under_rate = sum(1 for x in matchup_stats if x < benchmark) / matchup_games_count if matchup_games_count > 0 else 0.50
             
             return pd.Series([
                 rates['L5_HIT_RATE'], rates['L10_HIT_RATE'], rates['L20_HIT_RATE'], rates['SZN_HIT_RATE'],
-                vs_opp_hit_rate, float(matchup_games_count)
+                rates['L10_OVER_RATE'], rates['L10_UNDER_RATE'],
+                vs_opp_legacy_rate, vs_opp_over_rate, vs_opp_under_rate, float(matchup_games_count)
             ])
 
         if 'PROP_TYPE' in features_df.columns:
-            hr_cols = ['L5_HIT_RATE', 'L10_HIT_RATE', 'L20_HIT_RATE', 'SZN_HIT_RATE', 'VS_OPP_HIT_RATE', 'VS_OPP_GAMES_COUNT']
+            hr_cols = ['L5_HIT_RATE', 'L10_HIT_RATE', 'L20_HIT_RATE', 'SZN_HIT_RATE', 'L10_OVER_RATE', 'L10_UNDER_RATE', 'VS_OPP_HIT_RATE', 'VS_OPP_OVER_RATE', 'VS_OPP_UNDER_RATE', 'VS_OPP_GAMES_COUNT']
             features_df[hr_cols] = features_df.apply(
                 lambda row: compute_row_hit_rates(row, row.get('PROP_TYPE'), f"{row.get('PROP_TYPE')}_{Cols.SZN_AVG}"), axis=1
             )
@@ -190,7 +194,7 @@ def build_feature_set(props_df):
         for stat in ['PTS', 'REB', 'AST', 'PRA', 'PR', 'PA', 'RA']:
             benchmark_col = f'{stat}_{Cols.SZN_AVG}'
             if benchmark_col in features_df.columns:
-                hr_cols = [f'{stat}_L5_HIT_RATE', f'{stat}_L10_HIT_RATE', f'{stat}_L20_HIT_RATE', f'{stat}_SZN_HIT_RATE', f'{stat}_VS_OPP_HIT_RATE', f'{stat}_VS_OPP_GAMES_COUNT']
+                hr_cols = [f'{stat}_L5_HIT_RATE', f'{stat}_L10_HIT_RATE', f'{stat}_L20_HIT_RATE', f'{stat}_SZN_HIT_RATE', f'{stat}_L10_OVER_RATE', f'{stat}_L10_UNDER_RATE', f'{stat}_VS_OPP_HIT_RATE', f'{stat}_VS_OPP_OVER_RATE', f'{stat}_VS_OPP_UNDER_RATE', f'{stat}_VS_OPP_GAMES_COUNT']
                 features_df[hr_cols] = features_df.apply(
                     lambda row: compute_row_hit_rates(row, stat, benchmark_col), axis=1
                 )
@@ -350,12 +354,11 @@ def build_feature_set(props_df):
     else:
         features_df['OPP_FOUL_DRAW_RATE'] = 20.0
 
-    # 3. FIX: Conditioned Usage Proxy (Non-Linear Distribution)
+    # 3. Conditioned Usage Proxy (Non-Linear Distribution)
     usg_col = f'USG_PROXY_{Cols.SZN_AVG}'
     if 'TEAM_MISSING_USG' in features_df.columns and usg_col in features_df.columns:
         
         # Rank the players on the team by their usage rate
-        # Using a transform per team to ensure ranks are handled properly
         if Cols.DATE in features_df.columns:
             features_df['USG_RANK'] = features_df.groupby(['TEAM_ABBREVIATION', Cols.DATE])[usg_col].rank(ascending=False, method='min')
         else:

@@ -101,7 +101,7 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
     
     return tier
 
-def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games, s_avg, r_avg, tweedie_power=1.5):
+def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, vs_opp_games, s_avg, r_avg, tweedie_power=1.5):
     """Evaluates probability of outcome based on distribution modeling."""
     if line <= 0: return None
     dist_type = 'nbinom' if prop_type in ['PTS', 'REB', 'AST', 'STL', 'BLK', 'FG3M'] else 'normal'
@@ -111,19 +111,22 @@ def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_hit_rate, 
     
     if probs_over['win'] >= probs_under['win']:
         pick, win_prob = 'Over', probs_over['win']
-        active_hit_rate = l10_hit_rate
+        active_hit_rate = l10_over_rate
+        active_vs_opp_hit_rate = vs_opp_over_rate
     else:
         pick, win_prob = 'Under', probs_under['win']
-        active_hit_rate = 1.0 - l10_hit_rate 
+        active_hit_rate = l10_under_rate
+        active_vs_opp_hit_rate = vs_opp_under_rate 
         
     abs_diff = abs(proj - line)
-    tier = determine_confidence_tier(win_prob, pick, delta_gap, line, abs_diff, cv, active_hit_rate, vs_opp_hit_rate, vs_opp_games, s_avg, r_avg)
+    tier = determine_confidence_tier(win_prob, pick, delta_gap, line, abs_diff, cv, active_hit_rate, active_vs_opp_hit_rate, vs_opp_games, s_avg, r_avg)
         
     return {
         'Pick': pick,
         'Win_Prob': win_prob,
         'Tier': tier,
-        'Active_Hit_Rate': active_hit_rate
+        'Active_Hit_Rate': active_hit_rate,
+        'Active_VS_Opp_Hit_Rate': active_vs_opp_hit_rate
     }
 
 def get_col_safe(df, prop_cat, base_name):
@@ -206,10 +209,16 @@ def predict_props(todays_props_df):
             l5_avgs = get_col_safe(X_raw, prop_cat, 'L5_AVG')
             stds = get_col_safe(X_raw, prop_cat, 'L10_STD_DEV')
             cvs = get_col_safe(X_raw, prop_cat, 'L10_CV')
-            hit_rates = get_col_safe(X_raw, prop_cat, 'L10_HIT_RATE')
             games_played_col = get_col_safe(X_raw, prop_cat, 'SEASON_G')
             
-            vs_opp_hit_rates = get_col_safe(X_raw, prop_cat, 'VS_OPP_HIT_RATE')
+            # Fetch dynamic hit rate vectors
+            hit_rates_legacy = get_col_safe(X_raw, prop_cat, 'L10_HIT_RATE')
+            hit_rates_over = get_col_safe(X_raw, prop_cat, 'L10_OVER_RATE')
+            hit_rates_under = get_col_safe(X_raw, prop_cat, 'L10_UNDER_RATE')
+            
+            vs_opp_legacy_rates = get_col_safe(X_raw, prop_cat, 'VS_OPP_HIT_RATE')
+            vs_opp_over_rates = get_col_safe(X_raw, prop_cat, 'VS_OPP_OVER_RATE')
+            vs_opp_under_rates = get_col_safe(X_raw, prop_cat, 'VS_OPP_UNDER_RATE')
             vs_opp_games_counts = get_col_safe(X_raw, prop_cat, 'VS_OPP_GAMES_COUNT')
             
             corr_pr = get_col_safe(X_raw, prop_cat, 'PTS_REB_CORR')
@@ -234,9 +243,15 @@ def predict_props(todays_props_df):
                 std_dev = max(raw_std, baseline_std)
                 
                 cv = float(cvs.iloc[idx]) if not pd.isna(cvs.iloc[idx]) else (std_dev / s_avg if s_avg > 0 else 0.5)
-                l10_hit_rate = float(hit_rates.iloc[idx]) if not pd.isna(hit_rates.iloc[idx]) else 0.50
                 
-                vs_opp_hit_rate = float(vs_opp_hit_rates.iloc[idx]) if not pd.isna(vs_opp_hit_rates.iloc[idx]) else 0.50
+                # Assign directional hit rates
+                l10_hit_legacy = float(hit_rates_legacy.iloc[idx]) if not pd.isna(hit_rates_legacy.iloc[idx]) else 0.50
+                l10_over_rate = float(hit_rates_over.iloc[idx]) if not pd.isna(hit_rates_over.iloc[idx]) else l10_hit_legacy
+                l10_under_rate = float(hit_rates_under.iloc[idx]) if not pd.isna(hit_rates_under.iloc[idx]) else (1.0 - l10_hit_legacy)
+                
+                vs_opp_legacy = float(vs_opp_legacy_rates.iloc[idx]) if not pd.isna(vs_opp_legacy_rates.iloc[idx]) else 0.50
+                vs_opp_over_rate = float(vs_opp_over_rates.iloc[idx]) if not pd.isna(vs_opp_over_rates.iloc[idx]) else vs_opp_legacy
+                vs_opp_under_rate = float(vs_opp_under_rates.iloc[idx]) if not pd.isna(vs_opp_under_rates.iloc[idx]) else (1.0 - vs_opp_legacy)
                 vs_opp_games = int(vs_opp_games_counts.iloc[idx]) if not pd.isna(vs_opp_games_counts.iloc[idx]) else 0
 
                 days_rest = float(row.get(Cols.DAYS_REST, 2.0))
@@ -245,10 +260,7 @@ def predict_props(todays_props_df):
                 hist_mins = float(row.get('MIN_L10_AVG', pred_min))
                 min_deviation = abs(pred_min - hist_mins) / hist_mins if hist_mins > 0 else 0
 
-                # Trust the Stacking Regressor natively (Smoothing function updated)
                 proj = smooth_projection(raw_val, s_avg, r_avg, std_dev)
-                
-                # FIX: Removed the global system bias multiplier here. Trust the ML model's calibration.
                 
                 dynamic_correlations = {
                     'PTS_REB': float(corr_pr.iloc[idx]) if not pd.isna(corr_pr.iloc[idx]) else 0.1,
@@ -262,7 +274,6 @@ def predict_props(todays_props_df):
                     'AST': float(base_stds['AST'].iloc[idx]) if not pd.isna(base_stds['AST'].iloc[idx]) else (proj*0.1)
                 }
                 
-                # Fetch dynamically updated sample size for Bayesian Shrinkage
                 sample_size = int(games_played_col.iloc[idx]) if not pd.isna(games_played_col.iloc[idx]) else 15
                 variance = estimate_combo_variance(prop_cat, proj, std_dev, base_stds=dynamic_base_stds, correlations=dynamic_correlations, sample_size=sample_size)
                 
@@ -272,7 +283,7 @@ def predict_props(todays_props_df):
 
                 delta_gap_final = abs(proj - line) / line if line > 0 else 0
                 
-                eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap_final, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games, s_avg, r_avg, tweedie_power=tweedie_power)
+                eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap_final, cv, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, vs_opp_games, s_avg, r_avg, tweedie_power=tweedie_power)
                 if not eval_res: continue
                 
                 if days_rest > 7.0 or min_deviation > 0.30:
@@ -297,7 +308,7 @@ def predict_props(todays_props_df):
                     'Pick': eval_res['Pick'],
                     'Consistency_CV': round(cv, 3), 
                     'Active_Hit%': round(eval_res['Active_Hit_Rate'] * 100.0, 1), 
-                    'Matchup_Hit%': round(vs_opp_hit_rate * 100.0, 1) if vs_opp_games > 0 else 'N/A',
+                    'Matchup_Hit%': round(eval_res['Active_VS_Opp_Hit_Rate'] * 100.0, 1) if vs_opp_games > 0 else 'N/A',
                     'Tier': eval_res['Tier'],
                     '_Sort_Diff': eval_res['Win_Prob'] 
                 }

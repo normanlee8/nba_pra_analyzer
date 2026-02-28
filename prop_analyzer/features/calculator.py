@@ -41,21 +41,40 @@ def calculate_dynamic_hit_rates(past_performances, benchmark):
     past_performances should be ordered oldest to newest.
     """
     if not past_performances or pd.isna(benchmark):
-        return {'L5_HIT_RATE': 0.0, 'L10_HIT_RATE': 0.0, 'L20_HIT_RATE': 0.0, 'SZN_HIT_RATE': 0.0}
+        return {
+            'L5_HIT_RATE': 0.0, 'L10_HIT_RATE': 0.0, 'L20_HIT_RATE': 0.0, 'SZN_HIT_RATE': 0.0,
+            'L5_OVER_RATE': 0.0, 'L10_OVER_RATE': 0.0, 'L20_OVER_RATE': 0.0, 'SZN_OVER_RATE': 0.0,
+            'L5_UNDER_RATE': 0.0, 'L10_UNDER_RATE': 0.0, 'L20_UNDER_RATE': 0.0, 'SZN_UNDER_RATE': 0.0
+        }
     
     # Reverse so index 0 is the most recent game
     recent = past_performances[::-1]
     
-    hits = [1 if x >= benchmark else 0 for x in recent]
+    # Legacy hits for Machine Learning Features (Preserves >=)
+    legacy_hits = [1 if x >= benchmark else 0 for x in recent]
+    
+    # Accurate separated Win Rates (Resolves integer line Push logic)
+    over_hits = [1 if x > benchmark else 0 for x in recent]
+    under_hits = [1 if x < benchmark else 0 for x in recent]
     
     def safe_mean(lst):
         return sum(lst) / len(lst) if lst else 0.0
         
     return {
-        'L5_HIT_RATE': safe_mean(hits[:5]),
-        'L10_HIT_RATE': safe_mean(hits[:10]),
-        'L20_HIT_RATE': safe_mean(hits[:20]),
-        'SZN_HIT_RATE': safe_mean(hits)
+        'L5_HIT_RATE': safe_mean(legacy_hits[:5]),
+        'L10_HIT_RATE': safe_mean(legacy_hits[:10]),
+        'L20_HIT_RATE': safe_mean(legacy_hits[:20]),
+        'SZN_HIT_RATE': safe_mean(legacy_hits),
+        
+        'L5_OVER_RATE': safe_mean(over_hits[:5]),
+        'L10_OVER_RATE': safe_mean(over_hits[:10]),
+        'L20_OVER_RATE': safe_mean(over_hits[:20]),
+        'SZN_OVER_RATE': safe_mean(over_hits),
+        
+        'L5_UNDER_RATE': safe_mean(under_hits[:5]),
+        'L10_UNDER_RATE': safe_mean(under_hits[:10]),
+        'L20_UNDER_RATE': safe_mean(under_hits[:20]),
+        'SZN_UNDER_RATE': safe_mean(under_hits)
     }
 
 def calculate_bayesian_std(series, method='neg_binomial', shrinkage_param=10.0, dispersion=0.15):
@@ -87,7 +106,7 @@ def smooth_projection(raw_proj, season_avg, recent_avg, volatility):
     if pd.isna(volatility) or volatility <= 0: volatility = 1.0
     
     trust_recent = 1.0 / (1.0 + (volatility / 5.0))
-    # FIX: Trust the ML model heavily (90%). Only use averages as a 10% smoothing anchor to prevent extreme edge cases.
+    # Trust the ML model heavily (90%). Only use averages as a 10% smoothing anchor to prevent extreme edge cases.
     final_proj = (0.90 * raw_proj) + (0.10 * trust_recent * recent_avg) + (0.10 * (1 - trust_recent) * season_avg)
     return final_proj
 
@@ -123,7 +142,7 @@ def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None, correlatio
             
     recent_variance = std_dev ** 2 if not pd.isna(std_dev) and std_dev > 0 else base_variance
     
-    # FIX: Bayesian Shrinkage. Base the blend on sample size instead of a hardcoded 40/60 split.
+    # Bayesian Shrinkage. Base the blend on sample size instead of a hardcoded 40/60 split.
     weight = min(sample_size / 20.0, 0.90)  # Max out at 90% trust in recent variance after 18+ games
     
     if prop_type in ['PRA', 'PR', 'PA', 'RA']:
