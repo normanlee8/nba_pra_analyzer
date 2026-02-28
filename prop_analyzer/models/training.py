@@ -16,6 +16,10 @@ from sklearn.linear_model import RidgeCV
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import TimeSeriesSplit
 
+# --- FIX: Enable metadata routing for StackingRegressor sample weights ---
+import sklearn
+sklearn.set_config(enable_metadata_routing=True)
+
 # Add project root to path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
@@ -182,6 +186,10 @@ def train_ensemble_model(df, target_col):
     xgb_best = xgb.XGBRegressor(**xgb_params, random_state=42, n_jobs=-1, objective='reg:tweedie', tree_method='hist')
     lgb_best = lgb.LGBMRegressor(**lgb_params, random_state=42, n_jobs=-1, objective='tweedie', verbose=-1)
     
+    # --- FIX: Explicitly request sample weights for the base estimators ---
+    xgb_best.set_fit_request(sample_weight=True)
+    lgb_best.set_fit_request(sample_weight=True)
+
     # --- UPGRADE: Stacking Regressor ---
     ensemble = StackingRegressor(
         estimators=[('xgb', xgb_best), ('lgb', lgb_best)],
@@ -190,10 +198,10 @@ def train_ensemble_model(df, target_col):
     )
 
     logging.info(f"[{target_col}] Fitting Final Stacking Ensemble on full training data...")
-    # StackingRegressor does not inherently support sample_weights in the meta-estimator fit natively in all sklearn versions,
-    # but the underlying base estimators will use them if passed via fit_params.
     try:
-        ensemble.fit(X_proc_df, y, xgb__sample_weight=sample_weights, lgb__sample_weight=sample_weights)
+        # FIX: With metadata routing enabled, pass 'sample_weight' directly. 
+        # The routing engine forwards it to the base models automatically.
+        ensemble.fit(X_proc_df, y, sample_weight=sample_weights)
     except Exception as e:
         logging.warning(f"Could not apply sample weights to stacking regressor ({e}). Fitting unweighted.")
         ensemble.fit(X_proc_df, y)
