@@ -124,7 +124,6 @@ def train_ensemble_model(df, target_col):
 
     tscv = TimeSeriesSplit(n_splits=3) 
 
-    # FIX: Recency weighting is calculated dynamically inside each CV fold
     def get_fold_weights(train_idx):
         fold_dates = df.iloc[train_idx][date_col]
         max_date = fold_dates.max()
@@ -192,15 +191,18 @@ def train_ensemble_model(df, target_col):
     xgb_best.set_fit_request(sample_weight=True)
     lgb_best.set_fit_request(sample_weight=True)
 
+    # CRITICAL FIX: The final estimator inputs are the target predictions (clean floats, already scaled).
+    # We directly use RidgeCV and explicitly route sample_weight to it.
+    meta_estimator = RidgeCV(alphas=[0.1, 1.0, 10.0]).set_fit_request(sample_weight=True)
+
     ensemble = StackingRegressor(
         estimators=[('xgb', xgb_best), ('lgb', lgb_best)],
-        final_estimator=RidgeCV(alphas=[0.1, 1.0, 10.0]),
+        final_estimator=meta_estimator,
         n_jobs=-1
     )
 
     logging.info(f"[{target_col}] Fitting Final Stacking Ensemble on full training data...")
     try:
-        # Calculate final weights spanning up to the latest known date overall
         max_date_global = df[date_col].max()
         final_sample_weights = np.exp(-(max_date_global - df[date_col]).dt.days / 45)
         ensemble.fit(X_proc_df, y, sample_weight=final_sample_weights)
@@ -231,7 +233,6 @@ def train_ensemble_model(df, target_col):
     except Exception as e:
         logging.warning(f"SHAP extraction failed: {e}")
 
-    # EXPORTING TWEEDIE VARIANCE POWER FOR INFERENCE
     metadata = {
         'training_date': datetime.now().isoformat(),
         'target_col': target_col,

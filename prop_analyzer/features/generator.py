@@ -122,9 +122,10 @@ def build_feature_set(props_df):
         props_df = props_df.sort_values(Cols.DATE)
         history_df = history_df.sort_values(Cols.DATE)
         
+        # CRITICAL FIX: allow_exact_matches=False prevents future-knowledge data leakage
         features_df = pd.merge_asof(
             props_df, history_df, on=Cols.DATE, by=Cols.PLAYER_ID,
-            direction='backward', suffixes=('', '_hist')
+            direction='backward', allow_exact_matches=False, suffixes=('', '_hist')
         )
         
         if player_stats_static is not None:
@@ -237,11 +238,13 @@ def build_feature_set(props_df):
             dvp_sorted = dvp_df.sort_values(Cols.DATE)
             feat_sorted = features_df.sort_values(Cols.DATE)
             
+            # CRITICAL FIX: allow_exact_matches=False prevents leakage on DvP
             features_df = pd.merge_asof(
                 feat_sorted, dvp_sorted,
                 on=Cols.DATE,
                 by=['OPPONENT_ABBREV', 'Primary_Pos'],
-                direction='backward'
+                direction='backward',
+                allow_exact_matches=False
             )
         else:
             # Fallback for old static files without DATE

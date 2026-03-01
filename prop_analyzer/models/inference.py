@@ -77,7 +77,7 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
     else:
         # Dynamic CV threshold based on line size for Unders
         # Low lines (under 10) have a higher CV tolerance since small standard deviations cause huge CV spikes
-        dynamic_cv_threshold = cfg.MAX_CV_HARD_PASS_UNDER_LOW_LINE if line < 10.0 else cfg.MAX_CV_HARD_PASS_UNDER_BASE
+        dynamic_cv_threshold = getattr(cfg, 'MAX_CV_HARD_PASS_UNDER_LOW_LINE', 0.85) if line < 10.0 else getattr(cfg, 'MAX_CV_HARD_PASS_UNDER_BASE', 0.45)
         
         # Removed the L10 hit rate filter for Unders to account for minutes shifts
         if cv > dynamic_cv_threshold:
@@ -237,15 +237,13 @@ def predict_props(todays_props_df):
                 line = float(row[Cols.PROP_LINE])
                 raw_val = raw_projections[idx]
                 
-                # 1. Scaler Adjustment via Expected Minutes
+                # CRITICAL FIX: The ML model natively understands minutes shifts via its features.
+                # Double-counting a manual minutes ratio causes high-variance blowups for bench players.
+                # We simply trust the tree model's prediction output directly.
                 pred_min = predicted_mins.get(orig_idx, float(row.get('MIN_SZN_AVG', 36.0)))
                 hist_mins = float(row.get('MIN_L10_AVG', pred_min))
                 
-                if pd.isna(hist_mins) or hist_mins <= 5.0: hist_mins = pred_min
-                min_ratio = pred_min / hist_mins if hist_mins > 0 else 1.0
-                min_ratio = max(min(min_ratio, 1.35), 0.70) # Cap extreme inflation/deflation
-                
-                adjusted_raw = raw_val * min_ratio
+                adjusted_raw = raw_val
                 
                 # 2. Market Consensus Anchor 
                 # (If model is drastically deviating from the sportsbook, anchor it heavily toward the line)

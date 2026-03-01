@@ -115,6 +115,7 @@ class ParlayOptimizer:
     def calculate_ticket_metrics(self, ticket: list) -> dict:
         """
         Calculates the true Joint Probability of the parlay hitting and enforces strict DFS rules.
+        Now calculates Expected Value (EV) so larger parlays aren't punished in sorting.
         """
         num_legs = len(ticket)
             
@@ -125,7 +126,8 @@ class ParlayOptimizer:
                 'ticket': ticket,
                 'legs': num_legs,
                 'joint_prob': 0.0,
-                'payout_multiplier': 0.0
+                'payout_multiplier': 0.0,
+                'expected_value': 0.0
             }
 
         games = {}
@@ -142,18 +144,22 @@ class ParlayOptimizer:
             
         payout_multiplier = UNDERDOG_PAYOUTS.get(num_legs, 0.0)
         
+        # CRITICAL FIX: Calculate EV to compare parlays of different sizes fairly
+        expected_value = total_joint_prob * payout_multiplier
+        
         return {
             'ticket': ticket,
             'legs': num_legs,
             'joint_prob': total_joint_prob,
-            'payout_multiplier': payout_multiplier
+            'payout_multiplier': payout_multiplier,
+            'expected_value': expected_value
         }
 
     def optimize_parlays(self, daily_props: list, min_legs=2, max_legs=8, top_n=10, beam_width=150) -> list:
         """
-        Optimizes parlays using a Greedy Beam Search algorithm.
+        Optimizes parlays using a Greedy Beam Search algorithm sorted by Expected Value (EV).
         """
-        logger.info(f"Optimizing parlays for {len(daily_props)} props using Probability Maximization...")
+        logger.info(f"Optimizing parlays for {len(daily_props)} props using EV Maximization...")
         
         # 1. Strict Probability Pruning
         viable_props = []
@@ -205,12 +211,12 @@ class ParlayOptimizer:
             if not evaluated_tickets:
                 break
 
-            # Sort strictly by Highest Likelihood of Hitting
-            leg_best = sorted(evaluated_tickets, key=lambda x: x['joint_prob'], reverse=True)[:top_n]
+            # CRITICAL FIX: Sort strictly by Highest Expected Value Return
+            leg_best = sorted(evaluated_tickets, key=lambda x: x['expected_value'], reverse=True)[:top_n]
             final_best_tickets.extend(leg_best)
             
-            # Feed the highest probability tickets to the next beam level
-            evaluated_tickets = sorted(evaluated_tickets, key=lambda x: x['joint_prob'], reverse=True)[:beam_width]
+            # Feed the highest EV tickets to the next beam level
+            evaluated_tickets = sorted(evaluated_tickets, key=lambda x: x['expected_value'], reverse=True)[:beam_width]
             current_beams = [t['ticket'] for t in evaluated_tickets]
 
         return final_best_tickets

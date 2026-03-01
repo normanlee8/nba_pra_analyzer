@@ -1,71 +1,71 @@
 Legs,Joint Prob,Payout,Picks
-2,0.665072,3.0x,Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-2,0.659164,3.0x,Luke Kennard Over 4.5 PA | Zion Williamson Under 29.5 PA
-2,0.657476,3.0x,Luke Kennard Over 4.5 PA | Zion Williamson Under 31.5 PR
-2,0.656632,3.0x,Luke Kennard Over 4.5 PA | Zion Williamson Under 35.5 PRA
-2,0.656632,3.0x,Kris Murray Under 9.5 RA | Luke Kennard Over 4.5 PA
-2,0.646504,3.0x,Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA
-2,0.643128,3.0x,Josh Okogie Under 1.5 AST | Luke Kennard Over 4.5 PA
-2,0.642284,3.0x,Grant Williams Under 6.5 PTS | Luke Kennard Over 4.5 PA
-2,0.638064,3.0x,Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA
-2,0.6363759999999999,3.0x,Kel'el Ware Over 6.5 REB | Luke Kennard Over 4.5 PA
-3,0.517426016,6.0x,Kris Murray Under 9.5 RA | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-3,0.512829592,6.0x,Kris Murray Under 9.5 RA | Luke Kennard Over 4.5 PA | Zion Williamson Under 29.5 PA
-3,0.511516328,6.0x,Kris Murray Under 9.5 RA | Luke Kennard Over 4.5 PA | Zion Williamson Under 31.5 PR
-3,0.510859696,6.0x,Kris Murray Under 9.5 RA | Luke Kennard Over 4.5 PA | Zion Williamson Under 35.5 PRA
-3,0.509445152,6.0x,Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-3,0.506784864,6.0x,Josh Okogie Under 1.5 AST | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-3,0.506119792,6.0x,Grant Williams Under 6.5 PTS | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-3,0.504919624,6.0x,Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Zion Williamson Under 29.5 PA
-3,0.5046276,6.0x,Grant Williams Under 6.5 PTS | Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA
-3,0.5044588,6.0x,Grant Williams Under 6.5 PTS | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA
-4,0.3976465488,10.0x,Grant Williams Under 6.5 PTS | Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-4,0.3975135344,10.0x,Grant Williams Under 6.5 PTS | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-4,0.394278624192,10.0x,Josh Okogie Under 1.5 AST | Kris Murray Under 9.5 RA | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-4,0.39411415559999996,10.0x,Grant Williams Under 6.5 PTS | Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA | Zion Williamson Under 29.5 PA
-4,0.3939823228,10.0x,Grant Williams Under 6.5 PTS | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Zion Williamson Under 29.5 PA
-4,0.39310490039999996,10.0x,Grant Williams Under 6.5 PTS | Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA | Zion Williamson Under 31.5 PR
-4,0.3929734052,10.0x,Grant Williams Under 6.5 PTS | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Zion Williamson Under 31.5 PR
-4,0.3926002728,10.0x,Grant Williams Under 6.5 PTS | Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA | Zion Williamson Under 35.5 PRA
-4,0.3925920016,10.0x,Grant Williams Under 7.5 PA | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-4,0.3924689464,10.0x,Grant Williams Under 6.5 PTS | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Zion Williamson Under 35.5 PRA
-5,0.3030066701856,20.0x,Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-5,0.3029053132128,20.0x,Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-5,0.3003149865672,20.0x,Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA | Zion Williamson Under 29.5 PA
-5,0.3002145299736,20.0x,Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Zion Williamson Under 29.5 PA
-5,0.2998254977952,20.0x,Grant Williams Under 6.5 PTS | Kel'el Ware Over 6.5 REB | Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-5,0.2997252049376,20.0x,Grant Williams Under 6.5 PTS | Kel'el Ware Over 6.5 REB | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-5,0.2995459341048,20.0x,Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA | Zion Williamson Under 31.5 PR
-5,0.2994457347624,20.0x,Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Zion Williamson Under 31.5 PR
-5,0.2992792076544,20.0x,Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 9.5 RA | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-5,0.2991614078736,20.0x,Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA | Zion Williamson Under 35.5 PRA
-6,0.22999876382592002,25.0x,Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-6,0.22992182829696003,25.0x,Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-6,0.22795562759904003,25.0x,Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA | Zion Williamson Under 29.5 PA
-6,0.22787937550752002,25.0x,Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Zion Williamson Under 29.5 PA
-6,0.22737187439136003,25.0x,Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA | Zion Williamson Under 31.5 PR
-6,0.22729581756768003,25.0x,Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Zion Williamson Under 31.5 PR
-6,0.22707999778752003,25.0x,Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA | Zion Williamson Under 35.5 PRA
-6,0.22707521372544,25.0x,Grant Williams Under 7.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-6,0.22700403859776003,25.0x,Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Zion Williamson Under 35.5 PRA
-6,0.22599811631999997,25.0x,Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 9.5 RA | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-7,0.17118562815216,40.0x,Bryce McGowens Over 11.5 PR | Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-7,0.17112836585808003,40.0x,Bryce McGowens Over 11.5 PR | Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-7,0.16969705747257602,40.0x,DeAndre Jordan Under 0.5 AST | Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA | Zion Williamson Under 29.5 PA
-7,0.169640293111488,40.0x,DeAndre Jordan Under 0.5 AST | Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Zion Williamson Under 29.5 PA
-7,0.16900966097712003,40.0x,Bryce McGowens Over 11.5 PR | Grant Williams Under 7.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-7,0.16820798886000002,40.0x,Bryce McGowens Over 11.5 PR | Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 9.5 RA | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-7,0.16754001175123204,40.0x,DeAndre Jordan Under 0.5 AST | Grant Williams Under 7.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Zion Williamson Under 29.5 PA
-7,0.167128543358784,40.0x,DeAndre Jordan Under 0.5 AST | Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-7,0.167072638176192,40.0x,DeAndre Jordan Under 0.5 AST | Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-7,0.16698260505686402,40.0x,DeAndre Jordan Under 0.5 AST | Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA | Zion Williamson Under 35.5 PRA
-8,0.12405854044800002,80.0x,Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA | Ryan Kalkbrenner Under 4.5 PTS | Scoot Henderson Under 16.5 PTS | Zion Williamson Under 25.5 PTS
-8,0.12377244865392001,80.0x,Bryce McGowens Over 11.5 PR | Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kon Knueppel Under 20.5 PTS | Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA | Zion Williamson Under 25.5 PTS
-8,0.12328918515840001,80.0x,Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kon Knueppel Under 20.5 PTS | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Scoot Henderson Under 22.5 PA | Zion Williamson Under 25.5 PTS
-8,0.1232536522695552,80.0x,Bryce McGowens Over 11.5 PR | Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA | Pat Spencer Under 8.5 PTS | Zion Williamson Under 25.5 PTS
-8,0.12321242341781762,80.0x,Bryce McGowens Over 11.5 PR | Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Pat Spencer Under 8.5 PTS | Zion Williamson Under 25.5 PTS
-8,0.12269616649171201,80.0x,DeAndre Jordan Under 0.5 AST | Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kon Knueppel Under 20.5 PTS | Kris Murray Under 8.5 PTS | Luke Kennard Over 4.5 PA | Zion Williamson Under 29.5 PA
-8,0.12254130933120001,80.0x,Bryce McGowens Over 11.5 PR | Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Scoot Henderson Under 16.5 PTS | Zion Williamson Under 25.5 PTS
-8,0.12254130933120001,80.0x,Bryce McGowens Over 11.5 PR | Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 9.5 RA | Luke Kennard Over 4.5 PA | Scoot Henderson Under 16.5 PTS | Zion Williamson Under 25.5 PTS
-8,0.12245541589008002,80.0x,Bryce McGowens Over 11.5 PR | Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Scoot Henderson Under 25.5 PRA | Zion Williamson Under 25.5 PTS
-8,0.12219397666080001,80.0x,Grant Williams Under 6.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Over 6.5 REB | Kon Knueppel Under 20.5 PTS | Kris Murray Under 15.5 PRA | Luke Kennard Over 4.5 PA | Scoot Henderson Under 22.5 PA | Zion Williamson Under 29.5 PA
+2,0.587466,3.0x,Deni Avdija Under 6.5 REB | Mitchell Robinson Under 4.5 PTS
+2,0.57663,3.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB
+2,0.575856,3.0x,Deni Avdija Under 6.5 REB | Julian Strawther Under 11.5 PA
+2,0.574308,3.0x,Deni Avdija Under 6.5 REB | Julian Strawther Under 9.0 PTS
+2,0.56889,3.0x,Andre Drummond Under 7.5 PTS | Deni Avdija Under 6.5 REB
+2,0.568116,3.0x,Deni Avdija Under 6.5 REB | Nick Richards Under 1.5 AST
+2,0.565455,3.0x,DeAndre Jordan Under 1.5 AST | Mitchell Robinson Under 4.5 PTS
+2,0.56502,3.0x,Caris LeVert Under 3.5 REB | Deni Avdija Under 6.5 REB
+2,0.56502,3.0x,Deni Avdija Under 6.5 REB | Julian Strawther Under 13.5 PRA
+2,0.564696,3.0x,Julian Strawther Under 11.5 PA | Mitchell Robinson Under 4.5 PTS
+3,0.43766216999999996,6.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Mitchell Robinson Under 4.5 PTS
+3,0.43707470400000004,6.0x,Deni Avdija Under 6.5 REB | Julian Strawther Under 11.5 PA | Mitchell Robinson Under 4.5 PTS
+3,0.435899772,6.0x,Deni Avdija Under 6.5 REB | Julian Strawther Under 9.0 PTS | Mitchell Robinson Under 4.5 PTS
+3,0.43189200000000005,6.0x,Deni Avdija Under 6.5 REB | Julian Strawther Under 11.5 PA | Julius Randle Under 24.5 PA
+3,0.43187099999999995,6.0x,Deni Avdija Under 6.5 REB | Kris Murray Under 6.5 PTS | Mitchell Robinson Under 4.5 PTS
+3,0.43178751,6.0x,Andre Drummond Under 7.5 PTS | Deni Avdija Under 6.5 REB | Mitchell Robinson Under 4.5 PTS
+3,0.4315824,6.0x,Deni Avdija Under 6.5 REB | Julian Strawther Under 9.0 PTS | Julius Randle Under 24.5 PA
+3,0.431200044,6.0x,Deni Avdija Under 6.5 REB | Mitchell Robinson Under 4.5 PTS | Nick Richards Under 1.5 AST
+3,0.43042140000000007,6.0x,Deni Avdija Under 6.5 REB | Julian Strawther Under 13.5 PRA | Julius Randle Under 31.5 PRA
+3,0.42901271999999996,6.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 11.5 PA
+4,0.327806028,10.0x,Deni Avdija Under 6.5 REB | Julian Strawther Under 11.5 PA | Julius Randle Under 24.5 PA | Mitchell Robinson Under 4.5 PTS
+4,0.3275710416,10.0x,Deni Avdija Under 6.5 REB | Julian Strawther Under 9.0 PTS | Julius Randle Under 24.5 PA | Mitchell Robinson Under 4.5 PTS
+4,0.32668984260000006,10.0x,Deni Avdija Under 6.5 REB | Julian Strawther Under 13.5 PRA | Julius Randle Under 31.5 PRA | Mitchell Robinson Under 4.5 PTS
+4,0.32562065448,10.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 11.5 PA | Mitchell Robinson Under 4.5 PTS
+4,0.32545616400000005,10.0x,Deni Avdija Under 6.5 REB | Julian Strawther Under 9.0 PTS | Julius Randle Under 31.5 PRA | Mitchell Robinson Under 4.5 PTS
+4,0.325162431,10.0x,Deni Avdija Under 6.5 REB | Julian Strawther Under 11.5 PA | Julius Randle Under 31.5 PRA | Mitchell Robinson Under 4.5 PTS
+4,0.3247512048,10.0x,Deni Avdija Under 6.5 REB | Julian Strawther Under 13.5 PRA | Julius Randle Under 24.5 PA | Mitchell Robinson Under 4.5 PTS
+4,0.32474533013999995,10.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 9.0 PTS | Mitchell Robinson Under 4.5 PTS
+4,0.32175954,10.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 11.5 PA | Julius Randle Under 24.5 PA
+4,0.321743895,10.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Kris Murray Under 6.5 PTS | Mitchell Robinson Under 4.5 PTS
+5,0.24421549086000002,20.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 11.5 PA | Julius Randle Under 24.5 PA | Mitchell Robinson Under 4.5 PTS
+5,0.24404042599199996,20.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 9.0 PTS | Julius Randle Under 24.5 PA | Mitchell Robinson Under 4.5 PTS
+5,0.243383932737,20.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 13.5 PRA | Julius Randle Under 31.5 PRA | Mitchell Robinson Under 4.5 PTS
+5,0.24246484218000003,20.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 9.0 PTS | Julius Randle Under 31.5 PRA | Mitchell Robinson Under 4.5 PTS
+5,0.242246011095,20.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 11.5 PA | Julius Randle Under 31.5 PRA | Mitchell Robinson Under 4.5 PTS
+5,0.24193964757599998,20.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 13.5 PRA | Julius Randle Under 24.5 PA | Mitchell Robinson Under 4.5 PTS
+5,0.240984018,20.0x,Deni Avdija Under 6.5 REB | Julian Strawther Under 11.5 PA | Julius Randle Under 24.5 PA | Kris Murray Under 6.5 PTS | Mitchell Robinson Under 4.5 PTS
+5,0.24093743058,20.0x,Andre Drummond Under 7.5 PTS | Deni Avdija Under 6.5 REB | Julian Strawther Under 11.5 PA | Julius Randle Under 24.5 PA | Mitchell Robinson Under 4.5 PTS
+5,0.24081126959999996,20.0x,Deni Avdija Under 6.5 REB | Julian Strawther Under 9.0 PTS | Julius Randle Under 24.5 PA | Kris Murray Under 6.5 PTS | Mitchell Robinson Under 4.5 PTS
+5,0.240764715576,20.0x,Andre Drummond Under 7.5 PTS | Deni Avdija Under 6.5 REB | Julian Strawther Under 9.0 PTS | Julius Randle Under 24.5 PA | Mitchell Robinson Under 4.5 PTS
+6,0.17953309341,25.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 11.5 PA | Julius Randle Under 24.5 PA | Kris Murray Under 6.5 PTS | Mitchell Robinson Under 4.5 PTS
+6,0.17949838578210003,25.0x,Andre Drummond Under 7.5 PTS | DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 11.5 PA | Julius Randle Under 24.5 PA | Mitchell Robinson Under 4.5 PTS
+6,0.179404395852,25.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 9.0 PTS | Julius Randle Under 24.5 PA | Kris Murray Under 6.5 PTS | Mitchell Robinson Under 4.5 PTS
+6,0.17936971310412,25.0x,Andre Drummond Under 7.5 PTS | DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 9.0 PTS | Julius Randle Under 24.5 PA | Mitchell Robinson Under 4.5 PTS
+6,0.17925417029124002,25.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 11.5 PA | Julius Randle Under 24.5 PA | Mitchell Robinson Under 4.5 PTS | Nick Richards Under 1.5 AST
+6,0.17912567267812796,25.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 9.0 PTS | Julius Randle Under 24.5 PA | Mitchell Robinson Under 4.5 PTS | Nick Richards Under 1.5 AST
+6,0.17892178000950001,25.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 13.5 PRA | Julius Randle Under 31.5 PRA | Kris Murray Under 6.5 PTS | Mitchell Robinson Under 4.5 PTS
+6,0.17888719056169503,25.0x,Andre Drummond Under 7.5 PTS | DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 13.5 PRA | Julius Randle Under 31.5 PRA | Mitchell Robinson Under 4.5 PTS
+6,0.178643806628958,25.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 13.5 PRA | Julius Randle Under 31.5 PRA | Mitchell Robinson Under 4.5 PTS | Nick Richards Under 1.5 AST
+6,0.1782773083278,25.0x,Caris LeVert Under 3.5 REB | DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 11.5 PA | Julius Randle Under 24.5 PA | Mitchell Robinson Under 4.5 PTS
+7,0.13253197712040002,40.0x,Deni Avdija Under 6.5 REB | Jericho Sims Under 5.5 PTS | Julian Strawther Under 11.5 PA | Julius Randle Under 24.5 PA | Mitchell Robinson Under 4.5 PTS | Nick Richards Under 1.5 AST | Rob Dillingham Under 8.5 PTS
+7,0.13243697211888,40.0x,Deni Avdija Under 6.5 REB | Jericho Sims Under 5.5 PTS | Julian Strawther Under 9.0 PTS | Julius Randle Under 24.5 PA | Mitchell Robinson Under 4.5 PTS | Nick Richards Under 1.5 AST | Rob Dillingham Under 8.5 PTS
+7,0.13208070336318,40.0x,Deni Avdija Under 6.5 REB | Jericho Sims Under 5.5 PTS | Julian Strawther Under 13.5 PRA | Julius Randle Under 31.5 PRA | Mitchell Robinson Under 4.5 PTS | Nick Richards Under 1.5 AST | Rob Dillingham Under 8.5 PTS
+7,0.13195682365635,40.0x,Andre Drummond Under 7.5 PTS | DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 11.5 PA | Julius Randle Under 24.5 PA | Kris Murray Under 6.5 PTS | Mitchell Robinson Under 4.5 PTS
+7,0.13186223095122,40.0x,Andre Drummond Under 7.5 PTS | DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 9.0 PTS | Julius Randle Under 24.5 PA | Kris Murray Under 6.5 PTS | Mitchell Robinson Under 4.5 PTS
+7,0.13177729056294002,40.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 11.5 PA | Julius Randle Under 24.5 PA | Kris Murray Under 6.5 PTS | Mitchell Robinson Under 4.5 PTS | Nick Richards Under 1.5 AST
+7,0.13175181516406143,40.0x,Andre Drummond Under 7.5 PTS | DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 11.5 PA | Julius Randle Under 24.5 PA | Mitchell Robinson Under 4.5 PTS | Nick Richards Under 1.5 AST
+7,0.131682826555368,40.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 9.0 PTS | Julius Randle Under 24.5 PA | Kris Murray Under 6.5 PTS | Mitchell Robinson Under 4.5 PTS | Nick Richards Under 1.5 AST
+7,0.13165736941842407,40.0x,Andre Drummond Under 7.5 PTS | DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Julian Strawther Under 9.0 PTS | Julius Randle Under 24.5 PA | Mitchell Robinson Under 4.5 PTS | Nick Richards Under 1.5 AST
+7,0.131648430606264,40.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Jericho Sims Under 5.5 PTS | Julian Strawther Under 11.5 PA | Mitchell Robinson Under 4.5 PTS | Nick Richards Under 1.5 AST | Rob Dillingham Under 8.5 PTS
+8,0.09873632295469802,80.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Jericho Sims Under 5.5 PTS | Julian Strawther Under 11.5 PA | Julius Randle Under 24.5 PA | Mitchell Robinson Under 4.5 PTS | Nick Richards Under 1.5 AST | Rob Dillingham Under 8.5 PTS
+8,0.09866554422856559,80.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Jericho Sims Under 5.5 PTS | Julian Strawther Under 9.0 PTS | Julius Randle Under 24.5 PA | Mitchell Robinson Under 4.5 PTS | Nick Richards Under 1.5 AST | Rob Dillingham Under 8.5 PTS
+8,0.0984001240055691,80.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Jericho Sims Under 5.5 PTS | Julian Strawther Under 13.5 PRA | Julius Randle Under 31.5 PRA | Mitchell Robinson Under 4.5 PTS | Nick Richards Under 1.5 AST | Rob Dillingham Under 8.5 PTS
+8,0.09802853569337401,80.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Jericho Sims Under 5.5 PTS | Julian Strawther Under 9.0 PTS | Julius Randle Under 31.5 PRA | Mitchell Robinson Under 4.5 PTS | Nick Richards Under 1.5 AST | Rob Dillingham Under 8.5 PTS
+8,0.09794006228570849,80.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Jericho Sims Under 5.5 PTS | Julian Strawther Under 11.5 PA | Julius Randle Under 31.5 PRA | Mitchell Robinson Under 4.5 PTS | Nick Richards Under 1.5 AST | Rob Dillingham Under 8.5 PTS
+8,0.09781619951497679,80.0x,DeAndre Jordan Under 1.5 AST | Deni Avdija Under 6.5 REB | Jericho Sims Under 5.5 PTS | Julian Strawther Under 13.5 PRA | Julius Randle Under 24.5 PA | Mitchell Robinson Under 4.5 PTS | Nick Richards Under 1.5 AST | Rob Dillingham Under 8.5 PTS
+8,0.0974298384774,80.0x,Deni Avdija Under 6.5 REB | Jericho Sims Under 5.5 PTS | Julian Strawther Under 11.5 PA | Julius Randle Under 24.5 PA | Kris Murray Under 6.5 PTS | Mitchell Robinson Under 4.5 PTS | Nick Richards Under 1.5 AST | Rob Dillingham Under 8.5 PTS
+8,0.09741100318349402,80.0x,Andre Drummond Under 7.5 PTS | Deni Avdija Under 6.5 REB | Jericho Sims Under 5.5 PTS | Julian Strawther Under 11.5 PA | Julius Randle Under 24.5 PA | Mitchell Robinson Under 4.5 PTS | Nick Richards Under 1.5 AST | Rob Dillingham Under 8.5 PTS
+8,0.09735999629927998,80.0x,Deni Avdija Under 6.5 REB | Jericho Sims Under 5.5 PTS | Julian Strawther Under 9.0 PTS | Julius Randle Under 24.5 PA | Kris Murray Under 6.5 PTS | Mitchell Robinson Under 4.5 PTS | Nick Richards Under 1.5 AST | Rob Dillingham Under 8.5 PTS
+8,0.0973411745073768,80.0x,Andre Drummond Under 7.5 PTS | Deni Avdija Under 6.5 REB | Jericho Sims Under 5.5 PTS | Julian Strawther Under 9.0 PTS | Julius Randle Under 24.5 PA | Mitchell Robinson Under 4.5 PTS | Nick Richards Under 1.5 AST | Rob Dillingham Under 8.5 PTS
