@@ -1,0 +1,71 @@
+Legs,Joint Prob,Payout,Picks,Result
+2,0.55875,3.0x,DeAndre Jordan Under 0.5 AST | Keyonte George Under 10.5 RA,WIN
+2,0.55725,3.0x,DeAndre Jordan Under 0.5 AST | Keyonte George Under 20.5 PTS,WIN
+2,0.54825,3.0x,DeAndre Jordan Under 0.5 AST | Josh Okogie Under 1.5 AST,WIN
+2,0.5445949999999999,3.0x,Josh Okogie Under 1.5 AST | Keyonte George Under 10.5 RA,WIN
+2,0.543133,3.0x,Josh Okogie Under 1.5 AST | Keyonte George Under 20.5 PTS,WIN
+2,0.53025,3.0x,DeAndre Jordan Under 0.5 AST | Kel'el Ware Under 7.5 PTS,LOSS
+2,0.5267149999999999,3.0x,Kel'el Ware Under 7.5 PTS | Keyonte George Under 10.5 RA,LOSS
+2,0.525301,3.0x,Kel'el Ware Under 7.5 PTS | Keyonte George Under 20.5 PTS,LOSS
+2,0.5248,3.0x,Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS,LOSS
+2,0.522245,3.0x,Derik Queen Under 16.5 PA | Keyonte George Under 10.5 RA,WIN
+3,0.4131769999999999,6.0x,DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Keyonte George Under 10.5 RA,WIN
+3,0.4120678,6.0x,DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Keyonte George Under 20.5 PTS,WIN
+3,0.40844625,6.0x,DeAndre Jordan Under 0.5 AST | Josh Okogie Under 1.5 AST | Keyonte George Under 10.5 RA,WIN
+3,0.40734975,6.0x,DeAndre Jordan Under 0.5 AST | Josh Okogie Under 1.5 AST | Keyonte George Under 20.5 PTS,WIN
+3,0.4054125999999999,6.0x,DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST,WIN
+3,0.402598,6.0x,DeAndre Jordan Under 0.5 AST | Derik Queen Under 23.5 PRA | Keyonte George Under 10.5 RA,WIN
+3,0.4015171999999999,6.0x,DeAndre Jordan Under 0.5 AST | Derik Queen Under 23.5 PRA | Keyonte George Under 20.5 PTS,WIN
+3,0.3969749999999999,6.0x,Amen Thompson Under 15.5 PTS | DeAndre Jordan Under 0.5 AST | Josh Okogie Under 1.5 AST,LOSS
+3,0.3955,6.0x,Amen Thompson Under 15.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS,LOSS
+3,0.395175,6.0x,Amen Thompson Under 23.5 PR | DeAndre Jordan Under 0.5 AST | Josh Okogie Under 1.5 AST,LOSS
+4,0.3020323869999999,10.0x,DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Keyonte George Under 10.5 RA,WIN
+4,0.3012215618,10.0x,DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Keyonte George Under 20.5 PTS,WIN
+4,0.296625,10.0x,Amen Thompson Under 15.5 PTS | DeAndre Jordan Under 0.5 AST | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS,LOSS
+4,0.2957463749999999,10.0x,Amen Thompson Under 15.5 PTS | DeAndre Jordan Under 0.5 AST | Josh Okogie Under 1.5 AST | Keyonte George Under 10.5 RA,LOSS
+4,0.2949524249999999,10.0x,Amen Thompson Under 15.5 PTS | DeAndre Jordan Under 0.5 AST | Josh Okogie Under 1.5 AST | Keyonte George Under 20.5 PTS,LOSS
+4,0.2946475,10.0x,Amen Thompson Under 15.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 10.5 RA,LOSS
+4,0.294405375,10.0x,Amen Thompson Under 23.5 PR | DeAndre Jordan Under 0.5 AST | Josh Okogie Under 1.5 AST | Keyonte George Under 10.5 RA,LOSS
+4,0.294375,10.0x,Amen Thompson Under 28.5 PRA | DeAndre Jordan Under 0.5 AST | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS,LOSS
+4,0.294299138,10.0x,DeAndre Jordan Under 0.5 AST | Derik Queen Under 23.5 PRA | Josh Okogie Under 1.5 AST | Keyonte George Under 10.5 RA,WIN
+4,0.2938565,10.0x,Amen Thompson Under 15.5 PTS | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 20.5 PTS,LOSS
+5,0.220985625,20.0x,Amen Thompson Under 15.5 PTS | DeAndre Jordan Under 0.5 AST | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 10.5 RA,LOSS
+5,0.220392375,20.0x,Amen Thompson Under 15.5 PTS | DeAndre Jordan Under 0.5 AST | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 20.5 PTS,LOSS
+5,0.2193443,20.0x,Amen Thompson Under 15.5 PTS | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS,LOSS
+5,0.219309375,20.0x,Amen Thompson Under 28.5 PRA | DeAndre Jordan Under 0.5 AST | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 10.5 RA,LOSS
+5,0.218720625,20.0x,Amen Thompson Under 28.5 PRA | DeAndre Jordan Under 0.5 AST | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 20.5 PTS,LOSS
+5,0.2186945860999999,20.0x,Amen Thompson Under 15.5 PTS | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Keyonte George Under 10.5 RA,LOSS
+5,0.2181074865399999,20.0x,Amen Thompson Under 15.5 PTS | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Keyonte George Under 20.5 PTS,LOSS
+5,0.2177029613,20.0x,Amen Thompson Under 23.5 PR | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Keyonte George Under 10.5 RA,LOSS
+5,0.2176805,20.0x,Amen Thompson Under 28.5 PRA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS,LOSS
+5,0.2172484666,20.0x,Amen Thompson Under 20.5 PA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Keyonte George Under 10.5 RA,LOSS
+6,0.1634115035,25.0x,Amen Thompson Under 15.5 PTS | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 10.5 RA,LOSS
+6,0.1629728148999999,25.0x,Amen Thompson Under 15.5 PTS | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 20.5 PTS,LOSS
+6,0.1621719725,25.0x,Amen Thompson Under 28.5 PRA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 10.5 RA,LOSS
+6,0.1617366115,25.0x,Amen Thompson Under 28.5 PRA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 20.5 PTS,LOSS
+6,0.1595689574,25.0x,Amen Thompson Under 23.5 PR | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 10.5 RA,LOSS
+6,0.1594036865999999,25.0x,Amen Thompson Under 20.5 PA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 10.5 RA,LOSS
+6,0.159227509,25.0x,Amen Thompson Under 15.5 PTS | DeAndre Jordan Under 0.5 AST | Derik Queen Under 23.5 PRA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 10.5 RA,LOSS
+6,0.1591557803999999,25.0x,Amen Thompson Under 20.5 PA | Davion Mitchell Under 14.5 PA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Keyonte George Under 10.5 RA,LOSS
+6,0.15914058436,25.0x,Amen Thompson Under 23.5 PR | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 20.5 PTS,LOSS
+6,0.15897575724,25.0x,Amen Thompson Under 20.5 PA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 20.5 PTS,LOSS
+7,0.116102737,40.0x,Amen Thompson Under 15.5 PTS | Davion Mitchell Under 14.5 PA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 10.5 RA,LOSS
+7,0.1157910518,40.0x,Amen Thompson Under 15.5 PTS | Davion Mitchell Under 14.5 PA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 20.5 PTS,LOSS
+7,0.113734406436,40.0x,Amen Thompson Under 15.5 PTS | Bub Carrington Under 13.5 PA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 10.5 RA,LOSS
+7,0.1134290791704,40.0x,Amen Thompson Under 15.5 PTS | Bub Carrington Under 13.5 PA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 20.5 PTS,LOSS
+7,0.113130038,40.0x,Amen Thompson Under 15.5 PTS | Davion Mitchell Under 14.5 PA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 23.5 PRA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 10.5 RA,LOSS
+7,0.1128716928599999,40.0x,Amen Thompson Under 28.5 PRA | Bub Carrington Under 13.5 PA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 10.5 RA,LOSS
+7,0.1128263332,40.0x,Amen Thompson Under 15.5 PTS | Davion Mitchell Under 14.5 PA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 23.5 PRA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 20.5 PTS,LOSS
+7,0.1126142745,40.0x,Amen Thompson Under 15.5 PTS | Bub Carrington Under 13.5 PA | DeAndre Jordan Under 0.5 AST | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 10.5 RA | Tristan Vukcevic Under 3.5 AST,LOSS
+7,0.1125686816039999,40.0x,Amen Thompson Under 28.5 PRA | Bub Carrington Under 13.5 PA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 20.5 PTS,LOSS
+7,0.112427114408,40.0x,Amen Thompson Under 15.5 PTS | Bub Carrington Under 13.5 PR | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 10.5 RA,LOSS
+8,0.0832745021836,80.0x,Amen Thompson Under 15.5 PTS | Bub Carrington Under 13.5 PA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 10.5 RA | Tristan Vukcevic Under 3.5 AST,LOSS
+8,0.08305094647304,80.0x,Amen Thompson Under 15.5 PTS | Bub Carrington Under 13.5 PA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 20.5 PTS | Tristan Vukcevic Under 3.5 AST,LOSS
+8,0.082642837186,80.0x,Amen Thompson Under 28.5 PRA | Bub Carrington Under 13.5 PA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 10.5 RA | Tristan Vukcevic Under 3.5 AST,LOSS
+8,0.0824209772204,80.0x,Amen Thompson Under 28.5 PRA | Bub Carrington Under 13.5 PA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 20.5 PTS | Tristan Vukcevic Under 3.5 AST,LOSS
+8,0.08131634069104,80.0x,Amen Thompson Under 23.5 PR | Bub Carrington Under 13.5 PA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 10.5 RA | Tristan Vukcevic Under 3.5 AST,LOSS
+8,0.08123211869136,80.0x,Amen Thompson Under 20.5 PA | Bub Carrington Under 13.5 PA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 10.5 RA | Tristan Vukcevic Under 3.5 AST,LOSS
+8,0.0811423385864,80.0x,Amen Thompson Under 15.5 PTS | Bub Carrington Under 13.5 PA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 23.5 PRA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 10.5 RA | Tristan Vukcevic Under 3.5 AST,LOSS
+8,0.08110578569184,80.0x,Amen Thompson Under 20.5 PA | Bub Carrington Under 13.5 PA | Davion Mitchell Under 14.5 PA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Keyonte George Under 10.5 RA | Tristan Vukcevic Under 3.5 AST,LOSS
+8,0.081098041789856,80.0x,Amen Thompson Under 23.5 PR | Bub Carrington Under 13.5 PA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 20.5 PTS | Tristan Vukcevic Under 3.5 AST,LOSS
+8,0.081014045889504,80.0x,Amen Thompson Under 20.5 PA | Bub Carrington Under 13.5 PA | DeAndre Jordan Under 0.5 AST | Derik Queen Under 16.5 PA | Josh Okogie Under 1.5 AST | Kel'el Ware Under 7.5 PTS | Keyonte George Under 20.5 PTS | Tristan Vukcevic Under 3.5 AST,LOSS
