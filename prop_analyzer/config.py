@@ -92,8 +92,10 @@ MAX_CV_HARD_PASS_OVER = 0.40
 MIN_L10_HIT_HARD_PASS_OVER = 0.40
 
 # NEW: Volatility checks for Unders (Prevents High-Variance Ceiling Risk)
-MAX_CV_HARD_PASS_UNDER = 0.45  
-MIN_L10_HIT_HARD_PASS_UNDER = 0.40
+# We now use dynamic CV handling for Unders based on line size, and we drop the L10 hit rate 
+# filter for Unders entirely to capitalize on situations where minutes are projected to drop.
+MAX_CV_HARD_PASS_UNDER_BASE = 0.45  
+MAX_CV_HARD_PASS_UNDER_LOW_LINE = 0.85
 
 LIVE_MIN_PROB_THRESHOLD = 0.65
 LIVE_BLOWOUT_THRESHOLD = 20

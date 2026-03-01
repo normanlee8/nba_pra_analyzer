@@ -75,7 +75,12 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
         if cv > cfg.MAX_CV_HARD_PASS_OVER or l10_hit_rate < cfg.MIN_L10_HIT_HARD_PASS_OVER:
             return 'Pass / Too Volatile'
     else:
-        if cv > cfg.MAX_CV_HARD_PASS_UNDER or l10_hit_rate < cfg.MIN_L10_HIT_HARD_PASS_UNDER:
+        # Dynamic CV threshold based on line size for Unders
+        # Low lines (under 10) have a higher CV tolerance since small standard deviations cause huge CV spikes
+        dynamic_cv_threshold = cfg.MAX_CV_HARD_PASS_UNDER_LOW_LINE if line < 10.0 else cfg.MAX_CV_HARD_PASS_UNDER_BASE
+        
+        # Removed the L10 hit rate filter for Unders to account for minutes shifts
+        if cv > dynamic_cv_threshold:
             return 'Pass / Too Volatile'
 
     if win_prob >= cfg.MIN_PROB_FOR_S_TIER and cv < cfg.MAX_CV_FOR_S_TIER and (pick_type != 'Over' or l10_hit_rate >= cfg.MIN_L10_HIT_FOR_S_TIER): 
@@ -290,7 +295,9 @@ def predict_props(todays_props_df):
                 
                 historic_mae = cat_mae.get(prop_cat, 1.0)
                 if historic_mae > 1.5:  
-                    variance = variance * (1.0 + (historic_mae * 0.35))
+                    # Cap the variance multiplier so it doesn't artificially flatten composite prop distributions
+                    variance_multiplier = min(1.0 + (historic_mae * 0.15), 1.5)
+                    variance = variance * variance_multiplier
 
                 delta_gap_final = abs(proj - line) / line if line > 0 else 0
                 
