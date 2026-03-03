@@ -926,3 +926,80 @@ PRA   -0.530328
 PTS   -0.408116
 RA    -0.003651
 REB    0.455588
+2026-03-01 21:16:32 [INFO] root: Logging initialized. Writing to logs/grading.log
+2026-03-01 21:16:32 [INFO] root: Loading historical data for grading...
+2026-03-01 21:16:32 [INFO] root: Grading 937 predictions...
+2026-03-01 21:16:41 [INFO] root: ----------------------------------------
+2026-03-01 21:16:41 [INFO] root: >>> GRADING REPORT <<<
+2026-03-01 21:16:41 [INFO] root: Total Props: 53.5% (477/892) [Pushes: 10]
+2026-03-01 21:16:41 [INFO] root: S Tier Props: 100.0% (1/1) [Pushes: 0]
+2026-03-01 21:16:41 [INFO] root: A Tier Props: 100.0% (6/6) [Pushes: 0]
+2026-03-01 21:16:41 [INFO] root: B Tier Props: 44.8% (30/67) [Pushes: 0]
+2026-03-01 21:16:41 [INFO] root: >>> CATEGORY HIT RATES <<<
+2026-03-01 21:16:41 [INFO] root: PTS Props: 51.1% (68/133) [Pushes: 0]
+2026-03-01 21:16:41 [INFO] root: REB Props: 57.1% (72/126) [Pushes: 7]
+2026-03-01 21:16:41 [INFO] root: AST Props: 47.3% (61/129) [Pushes: 2]
+2026-03-01 21:16:41 [INFO] root: PRA Props: 50.0% (63/126) [Pushes: 0]
+2026-03-01 21:16:41 [INFO] root: PR Props: 50.4% (64/127) [Pushes: 0]
+2026-03-01 21:16:41 [INFO] root: PA Props: 57.0% (69/121) [Pushes: 0]
+2026-03-01 21:16:41 [INFO] root: RA Props: 61.5% (80/130) [Pushes: 1]
+2026-03-01 21:16:41 [INFO] root: ----------------------------------------
+2026-03-01 21:16:41 [INFO] root: Saved graded results for game date: 2026-03-01
+2026-03-01 21:16:41 [INFO] root: >>> GRADING PARLAYS <<<
+2026-03-01 21:16:41 [INFO] root: Parlay Win Rate: 13.3% (2/15)
+2026-03-01 21:16:41 [INFO] root: Parlay ROI: -91.43% (Units Wagered: 70, Units Won: 6.00)
+2026-03-01 21:16:41 [INFO] root: >>> POST-MORTEM SYSTEM ANALYSIS <<<
+2026-03-01 21:16:41 [INFO] root: 
+Highest Average Error by Stat Type:
+Prop Category
+PRA    5.981032
+PR     5.676693
+PA     4.886198
+2026-03-01 21:16:41 [INFO] root: 
+Systematic Bias (Positive = Under-projecting, Negative = Over-projecting):
+Prop Category
+AST    0.135649
+PA    -1.029174
+PR    -0.868661
+PRA   -0.909127
+PTS   -0.763609
+RA     0.139847
+REB    0.258421
+2026-03-02 21:55:50 [INFO] root: Logging initialized. Writing to logs/grading.log
+2026-03-02 21:55:50 [INFO] root: Loading historical data for grading...
+2026-03-02 21:55:50 [INFO] root: Grading 267 predictions...
+2026-03-02 21:55:52 [INFO] root: ----------------------------------------
+2026-03-02 21:55:52 [INFO] root: >>> GRADING REPORT <<<
+2026-03-02 21:55:52 [INFO] root: Total Props: 51.9% (123/237) [Pushes: 3]
+2026-03-02 21:55:52 [INFO] root: A Tier Props: 0.0% (0/2) [Pushes: 0]
+2026-03-02 21:55:52 [INFO] root: B Tier Props: 57.9% (11/19) [Pushes: 0]
+2026-03-02 21:55:52 [INFO] root: >>> CATEGORY HIT RATES <<<
+2026-03-02 21:55:52 [INFO] root: PTS Props: 56.1% (23/41) [Pushes: 0]
+2026-03-02 21:55:52 [INFO] root: REB Props: 50.0% (19/38) [Pushes: 1]
+2026-03-02 21:55:52 [INFO] root: AST Props: 53.1% (17/32) [Pushes: 0]
+2026-03-02 21:55:52 [INFO] root: PRA Props: 51.7% (15/29) [Pushes: 2]
+2026-03-02 21:55:52 [INFO] root: PR Props: 46.2% (18/39) [Pushes: 0]
+2026-03-02 21:55:52 [INFO] root: PA Props: 53.1% (17/32) [Pushes: 0]
+2026-03-02 21:55:52 [INFO] root: RA Props: 53.8% (14/26) [Pushes: 0]
+2026-03-02 21:55:52 [INFO] root: ----------------------------------------
+2026-03-02 21:55:53 [INFO] root: Saved graded results for game date: 2026-03-02
+2026-03-02 21:55:53 [INFO] root: >>> GRADING PARLAYS <<<
+2026-03-02 21:55:53 [INFO] root: Parlay Win Rate: 2.9% (2/70)
+2026-03-02 21:55:53 [INFO] root: Parlay ROI: -91.43% (Units Wagered: 70, Units Won: 6.00)
+2026-03-02 21:55:53 [INFO] root: >>> POST-MORTEM SYSTEM ANALYSIS <<<
+2026-03-02 21:55:53 [INFO] root: 
+Highest Average Error by Stat Type:
+Prop Category
+PRA    7.017742
+PA     6.726562
+PR     6.725385
+2026-03-02 21:55:53 [INFO] root: 
+Systematic Bias (Positive = Under-projecting, Negative = Over-projecting):
+Prop Category
+AST    0.056250
+PA     2.200938
+PR     1.540769
+PRA    2.410645
+PTS    0.920732
+RA     0.116154
+REB    0.337179

@@ -22,7 +22,7 @@ def create_training_dataset():
     if 'PLAYER_NAME' in box_scores.columns and Cols.PLAYER_NAME not in box_scores.columns:
         box_scores.rename(columns={'PLAYER_NAME': Cols.PLAYER_NAME}, inplace=True)
 
-    # --- NEW: Calculate Historical Home/Away Differentials (No Data Leakage) ---
+    # --- Calculate Historical Home/Away Differentials (No Data Leakage) ---
     logging.info("Calculating historical point-in-time Home/Away differentials...")
     stat_cols = ['PTS', 'REB', 'AST', 'PRA', 'MIN']
     
@@ -38,11 +38,11 @@ def create_training_dataset():
             # Forward fill the expanding means so an Away game still knows what the current Home average is
             box_scores[f'{col}_RUNNING_HOME'] = box_scores.groupby(Cols.PLAYER_ID)[f'{col}_TEMP_HOME'].transform(
                 lambda x: x.expanding().mean().shift(1).ffill()
-            ).fillna(0.0)
+            )
             
             box_scores[f'{col}_RUNNING_AWAY'] = box_scores.groupby(Cols.PLAYER_ID)[f'{col}_TEMP_AWAY'].transform(
                 lambda x: x.expanding().mean().shift(1).ffill()
-            ).fillna(0.0)
+            )
             
             # Calculate the point-in-time differential (Home - Away)
             box_scores[f'{col}_DIFF'] = box_scores[f'{col}_RUNNING_HOME'] - box_scores[f'{col}_RUNNING_AWAY']
@@ -54,13 +54,13 @@ def create_training_dataset():
             ], inplace=True)
 
     # Composite Combo Splits (PR, PA, RA)
-    box_scores['PR_SPLIT_AVG'] = box_scores.get('PTS_SPLIT_AVG', 0) + box_scores.get('REB_SPLIT_AVG', 0)
-    box_scores['PA_SPLIT_AVG'] = box_scores.get('PTS_SPLIT_AVG', 0) + box_scores.get('AST_SPLIT_AVG', 0)
-    box_scores['RA_SPLIT_AVG'] = box_scores.get('REB_SPLIT_AVG', 0) + box_scores.get('AST_SPLIT_AVG', 0)
+    box_scores['PR_SPLIT_AVG'] = box_scores.get('PTS_SPLIT_AVG', np.nan) + box_scores.get('REB_SPLIT_AVG', np.nan)
+    box_scores['PA_SPLIT_AVG'] = box_scores.get('PTS_SPLIT_AVG', np.nan) + box_scores.get('AST_SPLIT_AVG', np.nan)
+    box_scores['RA_SPLIT_AVG'] = box_scores.get('REB_SPLIT_AVG', np.nan) + box_scores.get('AST_SPLIT_AVG', np.nan)
     
-    box_scores['PR_DIFF'] = box_scores.get('PTS_DIFF', 0) + box_scores.get('REB_DIFF', 0)
-    box_scores['PA_DIFF'] = box_scores.get('PTS_DIFF', 0) + box_scores.get('AST_DIFF', 0)
-    box_scores['RA_DIFF'] = box_scores.get('REB_DIFF', 0) + box_scores.get('AST_DIFF', 0)
+    box_scores['PR_DIFF'] = box_scores.get('PTS_DIFF', np.nan) + box_scores.get('REB_DIFF', np.nan)
+    box_scores['PA_DIFF'] = box_scores.get('PTS_DIFF', np.nan) + box_scores.get('AST_DIFF', np.nan)
+    box_scores['RA_DIFF'] = box_scores.get('REB_DIFF', np.nan) + box_scores.get('AST_DIFF', np.nan)
 
     # 2. Merge Real Vegas Lines (History)
     prop_hist_path = cfg.MASTER_PROP_HISTORY_FILE

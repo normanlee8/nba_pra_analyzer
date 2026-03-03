@@ -27,7 +27,7 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         
     for col in stats_to_roll:
         if col not in df.columns: 
-            df[col] = 0.0
+            df[col] = np.nan
 
     df[Cols.DAYS_REST] = df.groupby(Cols.PLAYER_ID)[Cols.DATE].diff().dt.days.fillna(7.0)
 
@@ -44,7 +44,7 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         winsorized = grouped[col].transform(lambda x: winsorize_series(x, limit=0.10))
         grouped_winsor = winsorized.groupby(df[Cols.PLAYER_ID])
         
-        # FIX: Removed all .shift(1) calls to eliminate double-shift data lag
+        # Removed all .shift(1) calls to eliminate double-shift data lag
         szn_avg = grouped[col].expanding().mean().values
         l5_mean = grouped_winsor.rolling(window=5, min_periods=1).mean().values
         
@@ -70,12 +70,12 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         new_cols[f'{col}_L20_CV'] = np.divide(l20_std, l20_avg, out=np.zeros_like(l20_std), where=(l20_avg > 0))
         
         form_out = np.ones_like(l5_mean)
-        # FIX: Form Ratio now accurately compares Mean to Mean
+        # Form Ratio now accurately compares Mean to Mean
         new_cols[f'{col}_FORM_RATIO'] = np.divide(l5_mean, szn_avg, out=form_out, where=(szn_avg > 0))
 
-    new_cols['PTS_REB_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['REB']), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
-    new_cols['PTS_AST_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['AST']), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
-    new_cols['REB_AST_CORR'] = grouped.apply(lambda x: x['REB'].rolling(50, min_periods=5).corr(x['AST']), include_groups=False).reset_index(level=0, drop=True).fillna(0.1).values
+    new_cols['PTS_REB_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['REB']), include_groups=False).reset_index(level=0, drop=True).values
+    new_cols['PTS_AST_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['AST']), include_groups=False).reset_index(level=0, drop=True).values
+    new_cols['REB_AST_CORR'] = grouped.apply(lambda x: x['REB'].rolling(50, min_periods=5).corr(x['AST']), include_groups=False).reset_index(level=0, drop=True).values
 
     df = pd.concat([df, pd.DataFrame(new_cols, index=df.index)], axis=1)
 
@@ -122,7 +122,7 @@ def build_feature_set(props_df):
         props_df = props_df.sort_values(Cols.DATE)
         history_df = history_df.sort_values(Cols.DATE)
         
-        # CRITICAL FIX: allow_exact_matches=False prevents future-knowledge data leakage
+        # allow_exact_matches=False prevents future-knowledge data leakage
         features_df = pd.merge_asof(
             props_df, history_df, on=Cols.DATE, by=Cols.PLAYER_ID,
             direction='backward', allow_exact_matches=False, suffixes=('', '_hist')
@@ -166,12 +166,12 @@ def build_feature_set(props_df):
             opp = row.get(Cols.OPPONENT)
             
             if pd.isna(pid) or pd.isna(benchmark) or pid not in player_histories:
-                return pd.Series([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, 0.0])
+                return pd.Series([np.nan] * 10)
                 
             hist = player_histories[pid]
             past_games = [g for g in hist if g[Cols.DATE] < dt]
             if not past_games:
-                 return pd.Series([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, 0.0])
+                 return pd.Series([np.nan] * 10)
                  
             stats = [g[stat_col] for g in past_games if stat_col in g and not pd.isna(g[stat_col])]
             rates = calculate_dynamic_hit_rates(stats, benchmark)
@@ -180,9 +180,9 @@ def build_feature_set(props_df):
             matchup_stats = [g[stat_col] for g in past_matchups if stat_col in g and not pd.isna(g[stat_col])]
             matchup_games_count = len(matchup_stats)
             
-            vs_opp_legacy_rate = sum(1 for x in matchup_stats if x >= benchmark) / matchup_games_count if matchup_games_count > 0 else 0.50
-            vs_opp_over_rate = sum(1 for x in matchup_stats if x > benchmark) / matchup_games_count if matchup_games_count > 0 else 0.50
-            vs_opp_under_rate = sum(1 for x in matchup_stats if x < benchmark) / matchup_games_count if matchup_games_count > 0 else 0.50
+            vs_opp_legacy_rate = sum(1 for x in matchup_stats if x >= benchmark) / matchup_games_count if matchup_games_count > 0 else np.nan
+            vs_opp_over_rate = sum(1 for x in matchup_stats if x > benchmark) / matchup_games_count if matchup_games_count > 0 else np.nan
+            vs_opp_under_rate = sum(1 for x in matchup_stats if x < benchmark) / matchup_games_count if matchup_games_count > 0 else np.nan
             
             return pd.Series([
                 rates['L5_HIT_RATE'], rates['L10_HIT_RATE'], rates['L20_HIT_RATE'], rates['SZN_HIT_RATE'],
@@ -230,7 +230,7 @@ def build_feature_set(props_df):
             
         features_df['Primary_Pos'] = features_df['Position'].apply(normalize_pos)
         
-        # FIX: Ensure we use time-aware merging for DvP, preventing future knowledge
+        # Ensure we use time-aware merging for DvP, preventing future knowledge
         if Cols.DATE in dvp_df.columns and Cols.DATE in features_df.columns:
             dvp_df[Cols.DATE] = pd.to_datetime(dvp_df[Cols.DATE])
             features_df[Cols.DATE] = pd.to_datetime(features_df[Cols.DATE])
@@ -238,7 +238,7 @@ def build_feature_set(props_df):
             dvp_sorted = dvp_df.sort_values(Cols.DATE)
             feat_sorted = features_df.sort_values(Cols.DATE)
             
-            # CRITICAL FIX: allow_exact_matches=False prevents leakage on DvP
+            # allow_exact_matches=False prevents leakage on DvP
             features_df = pd.merge_asof(
                 feat_sorted, dvp_sorted,
                 on=Cols.DATE,
@@ -298,8 +298,8 @@ def build_feature_set(props_df):
         'TEAM_MISSING_AST_PCT', 'TEAM_MISSING_REB_PCT'
     ]
     for c in cols_to_fill:
-        if c not in features_df.columns: features_df[c] = 0.0
-        features_df[c] = features_df[c].fillna(0.0)
+        if c not in features_df.columns: features_df[c] = np.nan
+        # Allowed to stay as NaN to prevent false negatives
 
     if 'OPP_DAYS_REST' not in features_df.columns: features_df['OPP_DAYS_REST'] = 2.0
     features_df['OPP_DAYS_REST'] = features_df['OPP_DAYS_REST'].fillna(2.0)
@@ -319,19 +319,15 @@ def build_feature_set(props_df):
         stat_cols = ['PTS', 'REB', 'AST', 'PRA', 'MIN']
         for col in stat_cols:
             if f'{col}_HOME' in features_df.columns and f'{col}_AWAY' in features_df.columns:
-                features_df[f'{col}_HOME'] = features_df[f'{col}_HOME'].fillna(0.0)
-                features_df[f'{col}_AWAY'] = features_df[f'{col}_AWAY'].fillna(0.0)
-                features_df[f'{col}_DIFF'] = features_df[f'{col}_DIFF'].fillna(0.0)
-                
                 features_df[f'{col}_SPLIT_AVG'] = np.where(
                     features_df['IS_HOME'] == 1,
                     features_df[f'{col}_HOME'],
                     features_df[f'{col}_AWAY']
                 )
 
-        features_df['PR_SPLIT_AVG'] = features_df.get('PTS_SPLIT_AVG', 0) + features_df.get('REB_SPLIT_AVG', 0)
-        features_df['PA_SPLIT_AVG'] = features_df.get('PTS_SPLIT_AVG', 0) + features_df.get('AST_SPLIT_AVG', 0)
-        features_df['RA_SPLIT_AVG'] = features_df.get('REB_SPLIT_AVG', 0) + features_df.get('AST_SPLIT_AVG', 0)
+        features_df['PR_SPLIT_AVG'] = features_df.get('PTS_SPLIT_AVG', np.nan) + features_df.get('REB_SPLIT_AVG', np.nan)
+        features_df['PA_SPLIT_AVG'] = features_df.get('PTS_SPLIT_AVG', np.nan) + features_df.get('AST_SPLIT_AVG', np.nan)
+        features_df['RA_SPLIT_AVG'] = features_df.get('REB_SPLIT_AVG', np.nan) + features_df.get('AST_SPLIT_AVG', np.nan)
 
     advanced_stats = [
         'OPP_Opponent Effective Field Goal %', 'OPP_Opponent True Shooting %',
@@ -347,11 +343,11 @@ def build_feature_set(props_df):
     
     for col in advanced_stats:
         if col not in features_df.columns:
-            features_df[col] = 0.0
+            features_df[col] = np.nan
         else:
             features_df[col] = pd.to_numeric(features_df[col], errors='coerce')
             median_val = features_df[col].median()
-            features_df[col] = features_df[col].fillna(median_val if not pd.isna(median_val) else 0.0)
+            features_df[col] = features_df[col].fillna(median_val if not pd.isna(median_val) else np.nan)
 
     # 1. Blowout Potential (Net Rating Mismatch) - NON-LINEAR SCALING
     has_eff = all(c in features_df.columns for c in [
@@ -365,13 +361,13 @@ def build_feature_set(props_df):
         # Only heavily penalize massive mismatches (>10 point spread)
         features_df['BLOWOUT_POTENTIAL'] = np.where(net_diff > 10.0, net_diff ** 2, 0.0)
     else:
-        features_df['BLOWOUT_POTENTIAL'] = 0.0
+        features_df['BLOWOUT_POTENTIAL'] = np.nan
 
     # 2. Foul Trouble Risk
     if 'OPP_Opponent Personal Fouls per Game' in features_df.columns:
-        features_df['OPP_FOUL_DRAW_RATE'] = pd.to_numeric(features_df['OPP_Opponent Personal Fouls per Game'], errors='coerce').fillna(20.0)
+        features_df['OPP_FOUL_DRAW_RATE'] = pd.to_numeric(features_df['OPP_Opponent Personal Fouls per Game'], errors='coerce').fillna(np.nan)
     else:
-        features_df['OPP_FOUL_DRAW_RATE'] = 20.0
+        features_df['OPP_FOUL_DRAW_RATE'] = np.nan
 
     # 3. Conditioned Usage Proxy (Proportional Distribution)
     usg_col = f'USG_PROXY_{Cols.SZN_AVG}'
