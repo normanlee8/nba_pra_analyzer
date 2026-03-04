@@ -367,12 +367,10 @@ def process_dvp_stats(output_dir):
             valid_positions = ['PG', 'SG', 'SF', 'PF', 'C']
             df = df[df['Primary_Pos'].isin(valid_positions)].copy()
 
-            # FIX: Ensure strict time order to prevent lookahead bias
             df.sort_values(by=[Cols.PLAYER_ID, Cols.DATE], inplace=True)
 
             stat_cols = ['PTS', 'REB', 'AST', 'PRA', 'PR', 'PA', 'RA']
             
-            # Step 1: Calculate historical rolling expected output for the player
             for col in stat_cols:
                 if col in df.columns:
                     exp_series = df.groupby(Cols.PLAYER_ID)[col].expanding().mean()
@@ -380,13 +378,11 @@ def process_dvp_stats(output_dir):
                     
             df.dropna(subset=[f'{c}_AVG' for c in stat_cols if c in df.columns], inplace=True)
 
-            # Step 2: Calculate difference against expectation
             for col in stat_cols:
                 if col in df.columns:
                     df[f'{col}_PCT_DIFF'] = np.where(df[f'{col}_AVG'] > 0, 
                                                      (df[col] - df[f'{col}_AVG']) / df[f'{col}_AVG'], 0.0)
 
-            # Step 3: Prevent Target Leakage - Expanding mean for the Matchup, shifted by 1 to exclude the game itself
             df.sort_values(by=Cols.DATE, inplace=True)
             dvp_group = df.groupby(['OPPONENT_ABBREV', 'Primary_Pos'])
             
@@ -394,14 +390,12 @@ def process_dvp_stats(output_dir):
                 if f'{col}_PCT_DIFF' in df.columns:
                     df[f'EXP_MEAN_{col}_DIFF'] = dvp_group[f'{col}_PCT_DIFF'].transform(lambda x: x.expanding().mean().shift(1)).fillna(0.0)
             
-            # Step 4: Extract the strictly time-aware rows for the final DVP structure
             league_pos_baselines = df.groupby('Primary_Pos')[stat_cols].mean().reset_index()
             rename_map = {c: f"{c}_BASE" for c in stat_cols}
             league_pos_baselines.rename(columns=rename_map, inplace=True)
             
             season_dvp = df[[Cols.DATE, 'OPPONENT_ABBREV', 'Primary_Pos']].copy().drop_duplicates(subset=['OPPONENT_ABBREV', 'Primary_Pos', Cols.DATE])
             
-            # Merge positional baselines
             season_dvp = pd.merge(season_dvp, league_pos_baselines, on='Primary_Pos', how='left')
             
             for col in stat_cols:
@@ -472,6 +466,45 @@ def process_home_away_splits(output_dir):
             
     splits_pivot.round(2).to_parquet(output_dir / "master_home_away_splits.parquet", index=False)
     logging.info(f"Saved master_home_away_splits.parquet ({len(splits_pivot)} rows)")
+
+def process_pbpstats_data(player_id_map, season_folders, output_dir):
+    logging.info("--- Starting: process_pbpstats_data (Mapping Assist Networks, Foul Risk & WOWY Data) ---")
+    id_map_clean = player_id_map[[Cols.PLAYER_ID, 'PLAYER_NAME']].drop_duplicates()
+    id_map_clean['Name_Clean'] = id_map_clean['PLAYER_NAME'].apply(lambda x: unidecode(str(x)).lower().replace(" ", ""))
+
+    for folder in season_folders:
+        season_id = folder.name
+        
+        # 1. Map Assist Networks to exact Player IDs
+        ast_file = folder / "PBPStats Assist Networks.parquet"
+        if ast_file.exists():
+            ast_df = pd.read_parquet(ast_file)
+            if 'Passer' in ast_df.columns and 'Shooter' in ast_df.columns:
+                ast_df['Passer_Clean'] = ast_df['Passer'].apply(lambda x: unidecode(str(x)).lower().replace(" ", ""))
+                ast_df['Shooter_Clean'] = ast_df['Shooter'].apply(lambda x: unidecode(str(x)).lower().replace(" ", ""))
+                
+                ast_df = pd.merge(ast_df, id_map_clean.rename(columns={'Name_Clean': 'Passer_Clean', Cols.PLAYER_ID: 'PASSER_ID'}), on='Passer_Clean', how='left')
+                ast_df = pd.merge(ast_df, id_map_clean.rename(columns={'Name_Clean': 'Shooter_Clean', Cols.PLAYER_ID: 'SHOOTER_ID'}), on='Shooter_Clean', how='left')
+                
+                if 'PASSER_ID' in ast_df.columns:
+                    ast_df[Cols.PLAYER_ID] = ast_df['PASSER_ID']
+                    
+                ast_df.to_parquet(output_dir / f"master_assist_networks_{season_id}.parquet", index=False)
+                
+        # 2. Map Player Totals for Rotation Trust and Foul Troubleshooting
+        pt_file = folder / "PBPStats Player Totals.parquet"
+        if pt_file.exists():
+            pt_df = pd.read_parquet(pt_file)
+            if 'Name' in pt_df.columns:
+                pt_df['Name_Clean'] = pt_df['Name'].apply(lambda x: unidecode(str(x)).lower().replace(" ", ""))
+                pt_df = pd.merge(pt_df, id_map_clean, on='Name_Clean', how='left')
+                pt_df.to_parquet(output_dir / f"master_pbp_player_totals_{season_id}.parquet", index=False)
+                
+        # 3. Expose Lineup data for WOWY parsing in generator
+        lu_file = folder / "PBPStats Lineup Totals.parquet"
+        if lu_file.exists():
+            pd.read_parquet(lu_file).to_parquet(output_dir / f"master_pbp_lineups_{season_id}.parquet", index=False)
+
 
 def process_daily_vacancy(player_id_map, season_folders, output_dir):
     logging.info("--- Starting: process_daily_vacancy ---")
@@ -549,3 +582,6 @@ def process_daily_vacancy(player_id_map, season_folders, output_dir):
             
             team_vacancy.to_parquet(output_dir / "master_daily_vacancy.parquet", index=False)
             logging.info(f"Saved master_daily_vacancy.parquet with {len(team_vacancy)} teams registering active missing usage stats.")
+
+    # Hook the Play-By-Play parsing pipeline immediately following the vacancy builder
+    process_pbpstats_data(player_id_map, season_folders, output_dir)

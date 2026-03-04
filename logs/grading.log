@@ -1003,3 +1003,42 @@ PRA    2.410645
 PTS    0.920732
 RA     0.116154
 REB    0.337179
+2026-03-03 22:56:16 [INFO] root: Logging initialized. Writing to logs/grading.log
+2026-03-03 22:56:16 [INFO] root: Loading historical data for grading...
+2026-03-03 22:56:17 [INFO] root: Grading 907 predictions...
+2026-03-03 22:56:25 [INFO] root: ----------------------------------------
+2026-03-03 22:56:25 [INFO] root: >>> GRADING REPORT <<<
+2026-03-03 22:56:25 [INFO] root: Total Props: 47.7% (414/868) [Pushes: 16]
+2026-03-03 22:56:25 [INFO] root: S Tier Props: 100.0% (2/2) [Pushes: 0]
+2026-03-03 22:56:25 [INFO] root: A Tier Props: 75.0% (3/4) [Pushes: 0]
+2026-03-03 22:56:25 [INFO] root: B Tier Props: 65.2% (43/66) [Pushes: 0]
+2026-03-03 22:56:25 [INFO] root: >>> CATEGORY HIT RATES <<<
+2026-03-03 22:56:25 [INFO] root: PTS Props: 45.4% (59/130) [Pushes: 1]
+2026-03-03 22:56:25 [INFO] root: REB Props: 47.5% (58/122) [Pushes: 10]
+2026-03-03 22:56:25 [INFO] root: AST Props: 52.8% (67/127) [Pushes: 2]
+2026-03-03 22:56:25 [INFO] root: PRA Props: 52.0% (65/125) [Pushes: 1]
+2026-03-03 22:56:25 [INFO] root: PR Props: 45.5% (56/123) [Pushes: 0]
+2026-03-03 22:56:25 [INFO] root: PA Props: 45.2% (52/115) [Pushes: 0]
+2026-03-03 22:56:25 [INFO] root: RA Props: 45.2% (57/126) [Pushes: 2]
+2026-03-03 22:56:25 [INFO] root: ----------------------------------------
+2026-03-03 22:56:25 [INFO] root: Saved graded results for game date: 2026-03-03
+2026-03-03 22:56:25 [INFO] root: >>> GRADING PARLAYS <<<
+2026-03-03 22:56:25 [INFO] root: Parlay Win Rate: 1.4% (1/70)
+2026-03-03 22:56:25 [INFO] root: Parlay ROI: -95.71% (Units Wagered: 70, Units Won: 3.00)
+2026-03-03 22:56:25 [INFO] root: >>> POST-MORTEM SYSTEM ANALYSIS <<<
+2026-03-03 22:56:25 [INFO] root: 
+Highest Average Error by Stat Type:
+Prop Category
+PRA    5.825397
+PR     5.573496
+PA     5.038696
+2026-03-03 22:56:25 [INFO] root: 
+Systematic Bias (Positive = Under-projecting, Negative = Over-projecting):
+Prop Category
+AST    0.300930
+PA    -0.305130
+PR    -0.499837
+PRA   -0.371111
+PTS   -0.175878
+RA     0.186641
+REB    0.112121

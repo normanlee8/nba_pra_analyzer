@@ -1,0 +1,71 @@
+Legs,Joint Prob,Payout,Picks,Result
+2,0.6351930000000001,3.0x,Jaylin Williams Under 7.5 AST | Terance Mann Under 2.5 PTS,LOSS
+2,0.621576,3.0x,Devin Booker Under 5.5 AST | Terance Mann Under 2.5 PTS,LOSS
+2,0.6159690000000001,3.0x,Isaiah Stewart Under 0.5 AST | Terance Mann Under 2.5 PTS,LOSS
+2,0.615368,3.0x,Devin Booker Under 5.5 AST | Jaylin Williams Under 7.5 AST,LOSS
+2,0.6102,3.0x,Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST,WIN
+2,0.609817,3.0x,Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST,LOSS
+2,0.603954,3.0x,Devin Booker Under 32.5 PRA | Terance Mann Under 2.5 PTS,LOSS
+2,0.603153,3.0x,Terance Mann Under 2.5 PTS | Zion Williamson Under 25.5 PR,LOSS
+2,0.60075,3.0x,Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS,LOSS
+2,0.5999490000000001,3.0x,Terance Mann Under 2.5 PTS | Zion Williamson Under 20.5 PTS,LOSS
+3,0.492909768,6.0x,Devin Booker Under 5.5 AST | Jaylin Williams Under 7.5 AST | Terance Mann Under 2.5 PTS,LOSS
+3,0.4887702,6.0x,Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS,LOSS
+3,0.488463417,6.0x,Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Terance Mann Under 2.5 PTS,LOSS
+3,0.478935522,6.0x,Devin Booker Under 32.5 PRA | Jaylin Williams Under 7.5 AST | Terance Mann Under 2.5 PTS,LOSS
+3,0.4783003290000001,6.0x,Jaylin Williams Under 7.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 25.5 PR,LOSS
+3,0.477991944,6.0x,Devin Booker Under 5.5 AST | Isaiah Stewart Under 0.5 AST | Terance Mann Under 2.5 PTS,LOSS
+3,0.4757595570000001,6.0x,Jaylin Williams Under 7.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 20.5 PTS,LOSS
+3,0.473853978,6.0x,Isaiah Stewart Under 13.5 PR | Jaylin Williams Under 7.5 AST | Terance Mann Under 2.5 PTS,LOSS
+3,0.4735151999999999,6.0x,Devin Booker Under 5.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST,LOSS
+3,0.4732179920000001,6.0x,Devin Booker Under 5.5 AST | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST,LOSS
+4,0.3792856752,10.0x,Devin Booker Under 5.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS,LOSS
+4,0.379047611592,10.0x,Devin Booker Under 5.5 AST | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Terance Mann Under 2.5 PTS,LOSS
+4,0.3758642838,10.0x,Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS,LOSS
+4,0.371161055304,10.0x,Devin Booker Under 5.5 AST | Jaylin Williams Under 7.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 25.5 PR,LOSS
+4,0.369189416232,10.0x,Devin Booker Under 5.5 AST | Jaylin Williams Under 7.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 20.5 PTS,LOSS
+4,0.3689836137,10.0x,Duncan Robinson Under 12.5 PA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Terance Mann Under 2.5 PTS,LOSS
+4,0.3685327308,10.0x,Devin Booker Under 32.5 PRA | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS,LOSS
+4,0.368301416418,10.0x,Devin Booker Under 32.5 PRA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Terance Mann Under 2.5 PTS,LOSS
+4,0.3680439606,10.0x,Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 25.5 PR,LOSS
+4,0.367812953001,10.0x,Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 25.5 PR,LOSS
+5,0.2916706842288,20.0x,Devin Booker Under 5.5 AST | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS,LOSS
+5,0.2863312842312,20.0x,Devin Booker Under 5.5 AST | Duncan Robinson Under 12.5 PA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Terance Mann Under 2.5 PTS,LOSS
+5,0.2856021134256,20.0x,Devin Booker Under 5.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 25.5 PR,LOSS
+5,0.285422851528776,20.0x,Devin Booker Under 5.5 AST | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 25.5 PR,LOSS
+5,0.2840849707248,20.0x,Devin Booker Under 5.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 20.5 PTS,LOSS
+5,0.2839266091799999,20.0x,Duncan Robinson Under 12.5 PA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS,LOSS
+5,0.283906661082408,20.0x,Devin Booker Under 5.5 AST | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 20.5 PTS,LOSS
+5,0.2834016699852,20.0x,Devin Booker Under 32.5 PRA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS,LOSS
+5,0.2830258057014,20.0x,Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 25.5 PR,LOSS
+5,0.2829471136992,20.0x,Devin Booker Under 5.5 AST | Isaiah Stewart Under 13.5 PR | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS,LOSS
+6,0.22032704872368,25.0x,Devin Booker Under 5.5 AST | Duncan Robinson Under 12.5 PA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS,LOSS
+6,0.2196280252242864,25.0x,Devin Booker Under 5.5 AST | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 25.5 PR,LOSS
+6,0.2189012279688,25.0x,Dean Wade Under 5.0 PTS | Devin Booker Under 5.5 AST | Duncan Robinson Under 12.5 PA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Terance Mann Under 2.5 PTS,LOSS
+6,0.2184613424873712,25.0x,Devin Booker Under 5.5 AST | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 20.5 PTS,LOSS
+6,0.21763412042976,25.0x,Devin Booker Under 5.5 AST | Duncan Robinson Under 15.5 PRA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS,LOSS
+6,0.21706284582,25.0x,Dean Wade Under 5.0 PTS | Duncan Robinson Under 12.5 PA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS,LOSS
+6,0.2170029890662272,25.0x,Devin Booker Under 5.5 AST | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 23.5 PA,LOSS
+6,0.21698933478192,25.0x,Devin Booker Under 5.5 AST | Duncan Robinson Under 13.0 PR | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS,LOSS
+6,0.2167113183819983,25.0x,Devin Booker Under 5.5 AST | Grant Williams Under 7.0 PTS | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS,LOSS
+6,0.215836306329312,25.0x,Devin Booker Under 5.5 AST | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 28.5 PRA,LOSS
+7,0.16844076835632,40.0x,Dean Wade Under 5.0 PTS | Devin Booker Under 5.5 AST | Duncan Robinson Under 12.5 PA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS,LOSS
+7,0.165906267688931,40.0x,Devin Booker Under 5.5 AST | Duncan Robinson Under 12.5 PA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 25.5 PR,LOSS
+7,0.1650249594940363,40.0x,Devin Booker Under 5.5 AST | Duncan Robinson Under 12.5 PA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 20.5 PTS,LOSS
+7,0.1648326246605064,40.0x,Dean Wade Under 5.0 PTS | Devin Booker Under 5.5 AST | Duncan Robinson Under 12.5 PA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 25.5 PR,LOSS
+7,0.1639570197486312,40.0x,Dean Wade Under 5.0 PTS | Devin Booker Under 5.5 AST | Duncan Robinson Under 12.5 PA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 20.5 PTS,LOSS
+7,0.1639233242504179,40.0x,Devin Booker Under 5.5 AST | Duncan Robinson Under 12.5 PA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 23.5 PA,LOSS
+7,0.1638784926836093,40.0x,Devin Booker Under 5.5 AST | Duncan Robinson Under 15.5 PRA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 25.5 PR,LOSS
+7,0.1637029972016942,40.0x,Devin Booker Under 5.5 AST | Duncan Robinson Under 12.5 PA | Grant Williams Under 7.0 PTS | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS,LOSS
+7,0.16366538574828,40.0x,Dean Wade Under 5.0 PTS | Devin Booker Under 32.5 PRA | Duncan Robinson Under 12.5 PA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS,LOSS
+7,0.1635397526470881,40.0x,Devin Booker Under 5.5 AST | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Jeremiah Fears Over 15.5 PA | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 25.5 PR,LOSS
+8,0.1268358985723089,80.0x,Dean Wade Under 5.0 PTS | Devin Booker Under 5.5 AST | Duncan Robinson Under 12.5 PA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 25.5 PR,LOSS
+8,0.1261621354988837,80.0x,Dean Wade Under 5.0 PTS | Devin Booker Under 5.5 AST | Duncan Robinson Under 12.5 PA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 20.5 PTS,LOSS
+8,0.1253199316571021,80.0x,Dean Wade Under 5.0 PTS | Devin Booker Under 5.5 AST | Duncan Robinson Under 12.5 PA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 23.5 PA,LOSS
+8,0.1251514908887457,80.0x,Dean Wade Under 5.0 PTS | Devin Booker Under 5.5 AST | Duncan Robinson Under 12.5 PA | Grant Williams Under 7.0 PTS | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS,LOSS
+8,0.1246461685836768,80.0x,Dean Wade Under 5.0 PTS | Devin Booker Under 5.5 AST | Duncan Robinson Under 12.5 PA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 28.5 PRA,LOSS
+8,0.1244777278153204,80.0x,Cedric Coward Under 10.5 PTS | Dean Wade Under 5.0 PTS | Devin Booker Under 5.5 AST | Duncan Robinson Under 12.5 PA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS,LOSS
+8,0.1243335980856959,80.0x,Daeqwon Plowden Under 7.5 PTS | Dean Wade Under 5.0 PTS | Devin Booker Under 32.5 PRA | Duncan Robinson Under 12.5 PA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS,LOSS
+8,0.1239724055102515,80.0x,Dean Wade Under 5.0 PTS | Devin Booker Under 5.5 AST | Duncan Robinson Under 12.5 PA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Quentin Grimes Under 17.5 PR | Terance Mann Under 2.5 PTS,LOSS
+8,0.1235373762193673,80.0x,Devin Booker Under 5.5 AST | Duncan Robinson Under 12.5 PA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Jeremiah Fears Over 15.5 PA | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS | Zion Williamson Under 25.5 PR,LOSS
+8,0.1234670832051825,80.0x,Cedric Coward Under 16.5 PR | Dean Wade Under 5.0 PTS | Devin Booker Under 5.5 AST | Duncan Robinson Under 12.5 PA | Isaiah Stewart Under 0.5 AST | Jaylin Williams Under 7.5 AST | Nick Richards Under 1.5 AST | Terance Mann Under 2.5 PTS,LOSS

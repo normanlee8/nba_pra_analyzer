@@ -94,9 +94,7 @@ TEAM_NAME_MAP = {
     "Washington": "WAS", "Washington Wizards": "WAS",
 }
 
-# Strictly filtered to PRA + Pace/Efficiency metrics (UPDATED WITH NEW STATS)
 TEAMRANKINGS_SLUG_MAP = {
-    # Original Base Stats
     "Points per Game": "points-per-game",
     "Offensive Efficiency": "offensive-efficiency",
     "Defensive Efficiency": "defensive-efficiency",
@@ -109,8 +107,6 @@ TEAMRANKINGS_SLUG_MAP = {
     "Opponent Total Rebounds per Game": "opponent-total-rebounds-per-game",
     "Opponent Assists per Game": "opponent-assists-per-game",
     "Possessions per Game": "possessions-per-game",
-    
-    # --- NEW: Rebounding Optimization ---
     "Opponent Effective Field Goal %": "opponent-effective-field-goal-pct",
     "Opponent True Shooting %": "opponent-true-shooting-percentage",
     "Field Goals Attempted per Game": "field-goals-attempted-per-game",
@@ -118,19 +114,13 @@ TEAMRANKINGS_SLUG_MAP = {
     "Three Pointers Attempted per Game": "three-pointers-attempted-per-game",
     "Opponent Three Pointers Attempted per Game": "opponent-three-pointers-attempted-per-game",
     "Opponent Offensive Rebounding %": "opponent-offensive-rebounding-pct",
-
-    # --- NEW: Assist Optimization ---
     "Assists per FGM": "assists-per-fgm",
     "Opponent Assists per FGM": "opponent-assists-per-fgm",
     "Assist to Turnover Ratio": "assist-turnover-ratio",
-
-    # --- NEW: Points Optimization ---
     "Opponent Points in Paint per Game": "opponent-points-in-paint-per-game",
     "Opponent Percent of Points from 3 Pointers": "opponent-percent-of-points-from-3-pointers",
     "Opponent Personal Fouls per Game": "opponent-personal-fouls-per-game",
     "Opponent Fastbreak Points per Game": "opponent-fastbreak-points-per-game",
-
-    # --- NEW: Combination / Overall Volume Optimization ---
     "Extra Scoring Chances per Game": "extra-scoring-chances-per-game",
     "Opponent Points + Rebounds + Assists per Game": "opponent-points-rebounds-assists-per-game",
     "Opponent Points + Assists per Game": "opponent-points-assists-per-game"
@@ -238,6 +228,44 @@ def scrape_daily_injuries(session, output_dir):
         
     except Exception as e:
         logging.error(f"Failed to scrape injuries: {e}")
+
+def scrape_pbpstats_base_data(session, season_cfg, output_dir):
+    """Scrapes aggregated Play-by-Play stats for assist networks, rotation metrics, and WOWY construction."""
+    logging.info(f"--- Scraping PBPStats Play-by-Play Aggregates for {season_cfg['season_str']} ---")
+    season_str = season_cfg['season_str']
+    
+    # 1. Assist Networks (Who assists who)
+    try:
+        url_assists = f"https://api.pbpstats.com/get-assist-combo-summary/nba?Season={season_str}&SeasonType=Regular%2BSeason"
+        resp = session.get(url_assists, timeout=30)
+        if resp.status_code == 200 and 'results' in resp.json():
+            df_ast = pd.DataFrame(resp.json()['results'])
+            if not df_ast.empty:
+                save_clean_parquet(df_ast, "PBPStats Assist Networks", output_dir)
+    except Exception as e:
+        logging.error(f"Failed to scrape PBPStats Assist Networks: {e}")
+
+    # 2. Player Totals (Foul Trouble Risk, Coach Trust/Rotations)
+    try:
+        url_totals = f"https://api.pbpstats.com/get-totals/nba?Season={season_str}&SeasonType=Regular%2BSeason&Type=Player"
+        resp = session.get(url_totals, timeout=30)
+        if resp.status_code == 200 and 'multi_row_table_data' in resp.json():
+            df_tot = pd.DataFrame(resp.json()['multi_row_table_data'])
+            if not df_tot.empty:
+                save_clean_parquet(df_tot, "PBPStats Player Totals", output_dir)
+    except Exception as e:
+        logging.error(f"Failed to scrape PBPStats Player Totals: {e}")
+
+    # 3. Lineup Totals (Used for dynamic With-Or-Without-You WOWY Calculations)
+    try:
+        url_lineup = f"https://api.pbpstats.com/get-totals/nba?Season={season_str}&SeasonType=Regular%2BSeason&Type=Lineup"
+        resp = session.get(url_lineup, timeout=45)
+        if resp.status_code == 200 and 'multi_row_table_data' in resp.json():
+            df_lu = pd.DataFrame(resp.json()['multi_row_table_data'])
+            if not df_lu.empty:
+                save_clean_parquet(df_lu, "PBPStats Lineup Totals", output_dir)
+    except Exception as e:
+        logging.error(f"Failed to scrape PBPStats Lineup Totals: {e}")
 
 def scrape_teamrankings(session, slug, filename, season_cfg, output_dir):
     url = f"https://www.teamrankings.com/nba/stat/{slug}"
@@ -505,6 +533,7 @@ def main():
             for future in concurrent.futures.as_completed(futures): future.result() 
                 
         scrape_espn_box_scores_incremental(session, season_cfg, output_dir)
+        scrape_pbpstats_base_data(session, season_cfg, output_dir)
         
         with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
             futures = []
