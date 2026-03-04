@@ -185,6 +185,7 @@ def scrape_daily_injuries(session, output_dir):
             logging.warning("No injury tables found on CBS Sports.")
             return
 
+        current_date_str = datetime.now().strftime('%Y-%m-%d')
         all_rows = []
         for table in tables:
             team_abbr = "UNK"
@@ -205,6 +206,7 @@ def scrape_daily_injuries(session, output_dir):
                 try:
                     status = cols[4].get_text(strip=True)
                     all_rows.append({
+                        "Date": current_date_str,
                         "Team": team_abbr,
                         "Player": player_text,
                         "Position": cols[1].get_text(strip=True),
@@ -224,7 +226,23 @@ def scrape_daily_injuries(session, output_dir):
             return 'UNKNOWN'
         
         injury_df['Status_Clean'] = injury_df['Injury Status'].apply(clean_status)
-        save_clean_parquet(injury_df, filename, output_dir)
+        injury_df['Date'] = pd.to_datetime(injury_df['Date'])
+        
+        # TIME SERIES FIX: Append and drop duplicates instead of overwriting
+        injury_file_path = output_dir / f"{filename}.parquet"
+        if injury_file_path.exists():
+            try:
+                existing_df = pd.read_parquet(injury_file_path)
+                existing_df['Date'] = pd.to_datetime(existing_df['Date'])
+                combined_df = pd.concat([existing_df, injury_df], ignore_index=True)
+                # Drop duplicates in case of multiple scrapes per day
+                combined_df.drop_duplicates(subset=['Date', 'Player'], keep='last', inplace=True)
+                save_clean_parquet(combined_df, filename, output_dir)
+            except Exception as e:
+                logging.warning(f"Failed to read existing injuries, overwriting: {e}")
+                save_clean_parquet(injury_df, filename, output_dir)
+        else:
+            save_clean_parquet(injury_df, filename, output_dir)
         
     except Exception as e:
         logging.error(f"Failed to scrape injuries: {e}")

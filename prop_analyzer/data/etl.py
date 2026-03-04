@@ -505,9 +505,8 @@ def process_pbpstats_data(player_id_map, season_folders, output_dir):
         if lu_file.exists():
             pd.read_parquet(lu_file).to_parquet(output_dir / f"master_pbp_lineups_{season_id}.parquet", index=False)
 
-
 def process_daily_vacancy(player_id_map, season_folders, output_dir):
-    logging.info("--- Starting: process_daily_vacancy ---")
+    logging.info("--- Starting: process_daily_vacancy (Time-Series) ---")
     if not season_folders: return
     latest_folder = season_folders[-1]
     season_id = latest_folder.name
@@ -524,26 +523,14 @@ def process_daily_vacancy(player_id_map, season_folders, output_dir):
     out_df = inj_df[inj_df['Status_Clean'] == 'OUT'].copy()
     if out_df.empty: return
     
+    # TIME SERIES FIX: Ensure Date exists and calculate grouped by Date
+    if 'Date' not in out_df.columns:
+        out_df['Date'] = pd.Timestamp.today().normalize()
+    out_df['Date'] = pd.to_datetime(out_df['Date'])
+    
     out_df['clean_name'] = out_df['Player'].apply(lambda x: unidecode(str(x)).lower().strip())
     id_map_clean = player_id_map[['Player_Clean', Cols.PLAYER_ID]].drop_duplicates()
     out_df = pd.merge(out_df, id_map_clean, left_on='clean_name', right_on='Player_Clean', how='left')
-    
-    bs_path = output_dir / f"master_box_scores_{season_id}.parquet"
-    if bs_path.exists():
-        bs_df = pd.read_parquet(bs_path)
-        if Cols.DATE in bs_df.columns and Cols.PLAYER_ID in bs_df.columns:
-            bs_df[Cols.DATE] = pd.to_datetime(bs_df[Cols.DATE])
-            last_played = bs_df.groupby(Cols.PLAYER_ID)[Cols.DATE].max().reset_index()
-            last_played.rename(columns={Cols.DATE: 'Last_Played_Date'}, inplace=True)
-            out_df = pd.merge(out_df, last_played, on=Cols.PLAYER_ID, how='left')
-            
-            current_date = pd.Timestamp.today().normalize()
-            if 'Date' in inj_df.columns:
-                current_date = pd.to_datetime(inj_df['Date'].max())
-                
-            out_df['Days_Since_Played'] = (current_date - out_df['Last_Played_Date']).dt.days
-            
-            out_df = out_df[(out_df['Days_Since_Played'] <= 14) | (out_df['Days_Since_Played'].isna())]
     
     p_stats_path = output_dir / f"master_player_stats_{season_id}.parquet"
     if p_stats_path.exists():
@@ -552,6 +539,11 @@ def process_daily_vacancy(player_id_map, season_folders, output_dir):
         stats_to_get = [c for c in ['USG%', 'AST%', 'TRB%', 'MIN', 'Position'] if c in p_stats.columns]
         
         if stats_to_get:
+            # FIX: Drop overlapping columns BEFORE merge to prevent _x and _y suffixes
+            cols_to_drop = [c for c in stats_to_get if c in out_df.columns]
+            if cols_to_drop:
+                out_df.drop(columns=cols_to_drop, inplace=True)
+                
             out_df = pd.merge(out_df, p_stats[[Cols.PLAYER_ID] + stats_to_get], on=Cols.PLAYER_ID, how='left')
             
             for c in ['USG%', 'AST%', 'TRB%', 'MIN']:
@@ -564,7 +556,11 @@ def process_daily_vacancy(player_id_map, season_folders, output_dir):
             out_df['TEAM_MISSING_REB_PCT'] = out_df.get('TRB%', 0.0) * min_ratio
             out_df['TEAM_MISSING_MIN'] = out_df.get('MIN', 0.0)
             
-            out_df['Position'] = out_df.get('Position', '').astype(str).str.upper()
+            # FIX: Ensure column exists as a Series before astype
+            if 'Position' not in out_df.columns:
+                out_df['Position'] = 'UNK'
+            out_df['Position'] = out_df['Position'].astype(str).str.upper()
+            
             out_df['MISSING_USG_G'] = np.where(out_df['Position'].str.contains('G'), out_df['TEAM_MISSING_USG'], 0.0)
             out_df['MISSING_USG_F'] = np.where(out_df['Position'].str.contains('F|C'), out_df['TEAM_MISSING_USG'], 0.0)
                 
@@ -577,11 +573,12 @@ def process_daily_vacancy(player_id_map, season_folders, output_dir):
                 'MISSING_USG_F': 'sum'
             }
             
-            team_vacancy = out_df.groupby('Team').agg(agg_dict).reset_index()
+            # Grouping by both Date and Team prevents target leakage across games
+            team_vacancy = out_df.groupby(['Date', 'Team']).agg(agg_dict).reset_index()
             team_vacancy.rename(columns={'Team': 'TEAM_ABBREVIATION'}, inplace=True)
             
             team_vacancy.to_parquet(output_dir / "master_daily_vacancy.parquet", index=False)
-            logging.info(f"Saved master_daily_vacancy.parquet with {len(team_vacancy)} teams registering active missing usage stats.")
+            logging.info(f"Saved time-series master_daily_vacancy.parquet with {len(team_vacancy)} records.")
 
     # Hook the Play-By-Play parsing pipeline immediately following the vacancy builder
     process_pbpstats_data(player_id_map, season_folders, output_dir)

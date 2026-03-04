@@ -176,57 +176,84 @@ def build_feature_set(props_df):
         
         if inj_file.exists():
             inj_df = pd.read_parquet(inj_file)
-            out_players = inj_df[inj_df['Status_Clean'].isin(['OUT', 'GTD'])]
+            inj_df['Date'] = pd.to_datetime(inj_df.get('Date', pd.Timestamp.today().normalize()))
+            out_players = inj_df[inj_df['Status_Clean'].isin(['OUT', 'GTD'])].copy()
+            out_players['Name_Clean'] = out_players['Player'].apply(lambda x: unidecode(str(x)).lower().replace(" ", ""))
             
-            # -> ASSIST NETWORK DISRUPTION
+            # -> ASSIST NETWORK DISRUPTION (Point-In-Time Merge)
             if ast_file.exists() and not out_players.empty:
                 ast_df = pd.read_parquet(ast_file)
                 if 'SHOOTER_ID' in ast_df.columns:
-                    out_players['Name_Clean'] = out_players['Player'].apply(lambda x: unidecode(str(x)).lower().replace(" ", ""))
                     ast_df['Shooter_Clean'] = ast_df['Shooter'].apply(lambda x: unidecode(str(x)).lower().replace(" ", ""))
-                    
                     total_asts = ast_df.groupby(Cols.PLAYER_ID)['Asts'].sum().reset_index(name='Total_Asts')
-                    out_asts = ast_df[ast_df['Shooter_Clean'].isin(out_players['Name_Clean'])]
-                    lost_asts = out_asts.groupby(Cols.PLAYER_ID)['Asts'].sum().reset_index(name='Lost_Asts')
                     
-                    ast_impact = pd.merge(total_asts, lost_asts, on=Cols.PLAYER_ID, how='left').fillna(0)
-                    ast_impact['LOST_AST_SHARE'] = np.where(ast_impact['Total_Asts'] > 0, ast_impact['Lost_Asts'] / ast_impact['Total_Asts'], 0.0)
+                    ast_impact_records = []
+                    for dt, grp in out_players.groupby('Date'):
+                        out_asts = ast_df[ast_df['Shooter_Clean'].isin(grp['Name_Clean'])]
+                        lost_asts = out_asts.groupby(Cols.PLAYER_ID)['Asts'].sum().reset_index(name='Lost_Asts')
+                        ast_impact = pd.merge(total_asts, lost_asts, on=Cols.PLAYER_ID, how='left').fillna(0)
+                        ast_impact['LOST_AST_SHARE'] = np.where(ast_impact['Total_Asts'] > 0, ast_impact['Lost_Asts'] / ast_impact['Total_Asts'], 0.0)
+                        ast_impact['Date'] = dt
+                        ast_impact_records.append(ast_impact[[Cols.PLAYER_ID, 'Date', 'LOST_AST_SHARE']])
                     
-                    features_df = pd.merge(features_df, ast_impact[[Cols.PLAYER_ID, 'LOST_AST_SHARE']], on=Cols.PLAYER_ID, how='left')
-                    features_df['LOST_AST_SHARE'] = features_df['LOST_AST_SHARE'].fillna(0.0)
+                    if ast_impact_records:
+                        ast_history = pd.concat(ast_impact_records, ignore_index=True).sort_values('Date')
+                        features_df = pd.merge_asof(
+                            features_df.sort_values(Cols.DATE), 
+                            ast_history, 
+                            left_on=Cols.DATE, right_on='Date', 
+                            by=Cols.PLAYER_ID, direction='backward'
+                        )
+                        features_df.drop(columns=['Date'], inplace=True, errors='ignore')
+                        features_df['LOST_AST_SHARE'] = features_df['LOST_AST_SHARE'].fillna(0.0)
             else:
                 features_df['LOST_AST_SHARE'] = 0.0
                 
-            # -> WOWY TEAM EFFICIENCY IMPACT (Filtering Lineups directly)
+            # -> WOWY TEAM EFFICIENCY IMPACT (Filtering Lineups per Date)
             if lu_file.exists() and pbp_tot_file.exists() and not out_players.empty:
                 lu_df = pd.read_parquet(lu_file)
                 pt_df = pd.read_parquet(pbp_tot_file)
-                
                 pt_df['Name_Clean'] = pt_df['Name'].apply(lambda x: unidecode(str(x)).lower().replace(" ", ""))
                 out_mapped = pd.merge(out_players, pt_df[['Name_Clean', 'EntityId']], on='Name_Clean', how='inner')
-                out_ids = out_mapped['EntityId'].astype(str).tolist()
                 
-                if out_ids and 'LineupId' in lu_df.columns and 'TeamAbbreviation' in lu_df.columns:
-                    # Filter for lineups that do NOT contain ANY of the injured players
-                    def is_lineup_wowy(lineup_id_str):
-                        ids_in_lineup = str(lineup_id_str).split('-')
-                        return not any(out_id in ids_in_lineup for out_id in out_ids)
+                wowy_records = []
+                for dt, grp in out_mapped.groupby('Date'):
+                    out_ids = grp['EntityId'].astype(str).tolist()
+                    if not out_ids: continue
                     
-                    wowy_lineups = lu_df[lu_df['LineupId'].apply(is_lineup_wowy)]
-                    
-                    # Compute what the team's baseline is entirely without the missing stars
-                    wowy_team_stats = wowy_lineups.groupby('TeamAbbreviation').apply(
-                        lambda x: pd.Series({
-                            'WOWY_OFF_EFF': x['OffPoss'].sum() > 0 and (x['Pts'].sum() / x['OffPoss'].sum()) * 100 or 0,
-                            'WOWY_DEF_EFF': x['DefPoss'].sum() > 0 and (x['OppPts'].sum() / x['DefPoss'].sum()) * 100 or 0
-                        })
-                    ).reset_index()
-                    
-                    wowy_team_stats.rename(columns={'TeamAbbreviation': 'TEAM_ABBREVIATION'}, inplace=True)
-                    features_df = pd.merge(features_df, wowy_team_stats, on='TEAM_ABBREVIATION', how='left')
+                    if 'LineupId' in lu_df.columns and 'TeamAbbreviation' in lu_df.columns:
+                        def is_lineup_wowy(lineup_id_str):
+                            ids_in_lineup = str(lineup_id_str).split('-')
+                            # Exact string ID match to prevent substring bugs
+                            return not any(out_id in ids_in_lineup for out_id in out_ids)
+                        
+                        wowy_lineups = lu_df[lu_df['LineupId'].apply(is_lineup_wowy)]
+                        wowy_team_stats = wowy_lineups.groupby('TeamAbbreviation').apply(
+                            lambda x: pd.Series({
+                                'WOWY_OFF_EFF': x['OffPoss'].sum() > 0 and (x['Pts'].sum() / x['OffPoss'].sum()) * 100 or 0,
+                                'WOWY_DEF_EFF': x['DefPoss'].sum() > 0 and (x['OppPts'].sum() / x['DefPoss'].sum()) * 100 or 0
+                            })
+                        ).reset_index()
+                        
+                        wowy_team_stats.rename(columns={'TeamAbbreviation': 'TEAM_ABBREVIATION'}, inplace=True)
+                        wowy_team_stats['Date'] = dt
+                        wowy_records.append(wowy_team_stats)
+                
+                if wowy_records:
+                    wowy_history = pd.concat(wowy_records, ignore_index=True).sort_values('Date')
+                    features_df = pd.merge_asof(
+                        features_df.sort_values(Cols.DATE), 
+                        wowy_history, 
+                        left_on=Cols.DATE, right_on='Date', 
+                        by='TEAM_ABBREVIATION', direction='backward'
+                    )
+                    features_df.drop(columns=['Date'], inplace=True, errors='ignore')
                 else:
                     features_df['WOWY_OFF_EFF'] = np.nan
                     features_df['WOWY_DEF_EFF'] = np.nan
+            else:
+                features_df['WOWY_OFF_EFF'] = np.nan
+                features_df['WOWY_DEF_EFF'] = np.nan
         else:
             features_df['LOST_AST_SHARE'] = 0.0
             features_df['WOWY_OFF_EFF'] = np.nan
@@ -360,23 +387,28 @@ def build_feature_set(props_df):
     if 'OPP_GAME_PACE' in features_df.columns and 'Primary_Pos' in features_df.columns:
         features_df['PACE_PG_INTERACTION'] = np.where(features_df['Primary_Pos'] == 'PG', features_df['OPP_GAME_PACE'], 0.0)
 
+    # TIME SERIES FIX: Merge Vacancy point-in-time
     vacancy_path = cfg.DATA_DIR / "master_daily_vacancy.parquet"
     if vacancy_path.exists():
         vacancy_df = pd.read_parquet(vacancy_path)
-        
-        if Cols.DATE in features_df.columns:
-            max_date = features_df[Cols.DATE].max()
-            today_mask = features_df[Cols.DATE] == max_date
+        if 'Date' in vacancy_df.columns and Cols.DATE in features_df.columns:
+            vacancy_df['Date'] = pd.to_datetime(vacancy_df['Date'])
+            features_df[Cols.DATE] = pd.to_datetime(features_df[Cols.DATE])
             
-            drop_cols = [c for c in vacancy_df.columns if c in features_df.columns and c != 'TEAM_ABBREVIATION']
+            features_df = features_df.sort_values(Cols.DATE)
+            vacancy_df = vacancy_df.sort_values('Date')
+            
+            # Remove any overlapping older columns to prevent _x, _y duplication
+            drop_cols = [c for c in vacancy_df.columns if c in features_df.columns and c not in ['TEAM_ABBREVIATION', 'Date']]
             features_df.drop(columns=drop_cols, inplace=True, errors='ignore')
             
-            features_with_vacancy = pd.merge(features_df[today_mask], vacancy_df, on='TEAM_ABBREVIATION', how='left')
-            features_df = pd.concat([features_df[~today_mask], features_with_vacancy], ignore_index=True)
-        else:
-            drop_cols = [c for c in vacancy_df.columns if c in features_df.columns and c != 'TEAM_ABBREVIATION']
-            features_df.drop(columns=drop_cols, inplace=True, errors='ignore')
-            features_df = pd.merge(features_df, vacancy_df, on='TEAM_ABBREVIATION', how='left')
+            features_df = pd.merge_asof(
+                features_df, vacancy_df,
+                left_on=Cols.DATE, right_on='Date',
+                by='TEAM_ABBREVIATION',
+                direction='backward'
+            )
+            features_df.drop(columns=['Date'], inplace=True, errors='ignore')
 
     cols_to_fill = [
         'TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 'MISSING_USG_G', 'MISSING_USG_F',

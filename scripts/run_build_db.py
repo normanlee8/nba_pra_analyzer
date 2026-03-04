@@ -44,8 +44,12 @@ def main():
         etl.process_vs_opponent_stats(cfg.DATA_DIR, cfg.DATA_DIR)
         etl.process_dvp_stats(cfg.DATA_DIR)
         
-        # --- NEW: Process Home/Away Lookup Table ---
+        # 5. Home/Away Splits
         etl.process_home_away_splits(cfg.DATA_DIR)
+
+        # --- NEW: Process Daily Vacancy & Play-By-Play Integrations ---
+        logging.info("Processing Time-Series Vacancy and PBP/WOWY Data...")
+        etl.process_daily_vacancy(player_id_map, season_folders, cfg.DATA_DIR)
 
         # --- PHASE 2: Dataset Creation ---
         logging.info("Step 2: Building Final Training Dataset...")
