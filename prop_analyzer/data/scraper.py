@@ -249,41 +249,28 @@ def scrape_daily_injuries(session, output_dir):
 
 def scrape_pbpstats_base_data(session, season_cfg, output_dir):
     """Scrapes aggregated Play-by-Play stats for assist networks, rotation metrics, and WOWY construction."""
-    logging.info(f"--- Scraping PBPStats Play-by-Play Aggregates for {season_cfg['season_str']} ---")
     season_str = season_cfg['season_str']
+    is_current = season_cfg['is_current']
     
-    # 1. Assist Networks (Who assists who)
-    try:
-        url_assists = f"https://api.pbpstats.com/get-assist-combo-summary/nba?Season={season_str}&SeasonType=Regular%2BSeason"
-        resp = session.get(url_assists, timeout=30)
-        if resp.status_code == 200 and 'results' in resp.json():
-            df_ast = pd.DataFrame(resp.json()['results'])
-            if not df_ast.empty:
-                save_clean_parquet(df_ast, "PBPStats Assist Networks", output_dir)
-    except Exception as e:
-        logging.error(f"Failed to scrape PBPStats Assist Networks: {e}")
-
-    # 2. Player Totals (Foul Trouble Risk, Coach Trust/Rotations)
-    try:
-        url_totals = f"https://api.pbpstats.com/get-totals/nba?Season={season_str}&SeasonType=Regular%2BSeason&Type=Player"
-        resp = session.get(url_totals, timeout=30)
-        if resp.status_code == 200 and 'multi_row_table_data' in resp.json():
-            df_tot = pd.DataFrame(resp.json()['multi_row_table_data'])
-            if not df_tot.empty:
-                save_clean_parquet(df_tot, "PBPStats Player Totals", output_dir)
-    except Exception as e:
-        logging.error(f"Failed to scrape PBPStats Player Totals: {e}")
-
-    # 3. Lineup Totals (Used for dynamic With-Or-Without-You WOWY Calculations)
-    try:
-        url_lineup = f"https://api.pbpstats.com/get-totals/nba?Season={season_str}&SeasonType=Regular%2BSeason&Type=Lineup"
-        resp = session.get(url_lineup, timeout=45)
-        if resp.status_code == 200 and 'multi_row_table_data' in resp.json():
-            df_lu = pd.DataFrame(resp.json()['multi_row_table_data'])
-            if not df_lu.empty:
-                save_clean_parquet(df_lu, "PBPStats Lineup Totals", output_dir)
-    except Exception as e:
-        logging.error(f"Failed to scrape PBPStats Lineup Totals: {e}")
+    endpoints = [
+        ("PBPStats Assist Networks", f"https://api.pbpstats.com/get-assist-combo-summary/nba?Season={season_str}&SeasonType=Regular%2BSeason", "results"),
+        ("PBPStats Player Totals", f"https://api.pbpstats.com/get-totals/nba?Season={season_str}&SeasonType=Regular%2BSeason&Type=Player", "multi_row_table_data"),
+        ("PBPStats Lineup Totals", f"https://api.pbpstats.com/get-totals/nba?Season={season_str}&SeasonType=Regular%2BSeason&Type=Lineup", "multi_row_table_data")
+    ]
+    
+    for filename, url, data_key in endpoints:
+        if should_skip_season_file(output_dir, filename, is_current):
+            continue
+            
+        logging.info(f"--- Scraping {filename} for {season_str} ---")
+        try:
+            resp = session.get(url, timeout=45)
+            if resp.status_code == 200 and data_key in resp.json():
+                df = pd.DataFrame(resp.json()[data_key])
+                if not df.empty:
+                    save_clean_parquet(df, filename, output_dir)
+        except Exception as e:
+            logging.error(f"Failed to scrape {filename}: {e}")
 
 def scrape_teamrankings(session, slug, filename, season_cfg, output_dir):
     url = f"https://www.teamrankings.com/nba/stat/{slug}"
@@ -451,9 +438,16 @@ def fetch_espn_daily_box_scores(session, target_date):
 
 def scrape_espn_box_scores_incremental(session, season_cfg, output_dir):
     target_season = season_cfg['season_str']
-    logging.info(f"--- Gap Detection: ESPN Box Scores for {target_season} ---")
+    is_current = season_cfg['is_current']
     
     box_scores_file = output_dir / "NBA Player Box Scores.parquet"
+    
+    # NEW FIX: Skip past seasons entirely to avoid checking empty gap days (All-Star break, etc.)
+    if not is_current and box_scores_file.exists():
+        return
+        
+    logging.info(f"--- Gap Detection: ESPN Box Scores for {target_season} ---")
+    
     existing_df = pd.DataFrame()
     existing_dates_set = set()
     
@@ -517,11 +511,22 @@ def scrape_espn_box_scores_incremental(session, season_cfg, output_dir):
     else:
         logging.info("No new games found in the requested dates.")
 
-def should_skip_season_file(output_dir, filename_stem, is_current_season):
-    if is_current_season: return False 
+def should_skip_season_file(output_dir, filename_stem, is_current_season, max_age_hours=8):
     clean_name = filename_stem.replace('.csv', '') + ".parquet"
     file_path = output_dir / clean_name
-    return file_path.exists() and file_path.stat().st_size > 0
+    
+    if not file_path.exists() or file_path.stat().st_size == 0:
+        return False 
+        
+    if not is_current_season:
+        return True # Always skip completed past seasons if the file exists
+        
+    # For current season, skip if we already updated it very recently
+    file_mod_time = file_path.stat().st_mtime
+    if (time.time() - file_mod_time) < (max_age_hours * 3600):
+        return True
+        
+    return False
 
 def main():
     start_time = time.time()
