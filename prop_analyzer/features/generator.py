@@ -71,7 +71,6 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         form_out = np.ones_like(l5_mean)
         new_cols[f'{col}_FORM_RATIO'] = np.divide(l5_mean, szn_avg, out=form_out, where=(szn_avg > 0))
         
-        # IDEA 2: Generate historical Per-Minute rates so the model can multiply by incoming PRED_MIN
         if col != 'MIN':
             min_l10 = grouped['MIN'].rolling(window=10, min_periods=1).mean().values
             new_cols[f'{col}_PER_MIN_L10_AVG'] = np.divide(l10_avg, min_l10, out=np.zeros_like(l10_avg), where=(min_l10 > 0))
@@ -473,7 +472,7 @@ def build_feature_set(props_df):
             wowy_net = features_df['WOWY_OFF_EFF'].fillna(team_net) - features_df['WOWY_DEF_EFF'].fillna(team_net)
             net_diff = abs(wowy_net - opp_net).fillna(0.0)
             
-        features_df['BLOWOUT_POTENTIAL'] = np.where(net_diff > 10.0, net_diff ** 2, 0.0)
+        features_df['BLOWOUT_POTENTIAL'] = net_diff
     else:
         features_df['BLOWOUT_POTENTIAL'] = np.nan
 

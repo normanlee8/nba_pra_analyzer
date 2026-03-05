@@ -99,15 +99,6 @@ def calculate_bayesian_std(series, method='neg_binomial', shrinkage_param=10.0, 
     
     return final_std
 
-def smooth_projection(raw_proj, season_avg, recent_avg, volatility):
-    if pd.isna(raw_proj): raw_proj = season_avg
-    if pd.isna(recent_avg): recent_avg = season_avg
-    if pd.isna(volatility) or volatility <= 0: volatility = 1.0
-    
-    trust_recent = 1.0 / (1.0 + (volatility / 5.0))
-    # Trust the ML model heavily (90%). Only use averages as a 10% smoothing anchor to prevent extreme edge cases.
-    final_proj = (0.90 * raw_proj) + (0.10 * trust_recent * recent_avg) + (0.10 * (1 - trust_recent) * season_avg)
-    return final_proj
 
 # ====================================================================
 # PROBABILISTIC / BETTING FUNCTIONS
@@ -118,18 +109,9 @@ def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None, correlatio
     
     recent_variance = std_dev ** 2 if not pd.isna(std_dev) and std_dev > 0 else (proj * 0.35) ** 2
 
-    # 1. Structural NBA Variance Floors
-    # Combo props inherently have lower relative variance due to diversification
-    if prop_type in ['PRA', 'PR', 'PA', 'RA']:
-        floor_variance = (proj * 0.30) ** 2  
-    elif prop_type == 'PTS':
-        floor_variance = (proj * 0.40) ** 2  
-    else:
-        floor_variance = (proj * 0.35) ** 2
-        
-    structural_variance = floor_variance
-    
-    # 2. Exact Covariance Matrix Math for Combos
+    structural_variance = recent_variance  # Default fallback
+
+    # Exact Covariance Matrix Math for Combos
     if prop_type in ['PRA', 'PR', 'PA', 'RA'] and base_stds and correlations:
         std_p = base_stds.get('PTS', proj * 0.4)
         std_r = base_stds.get('REB', proj * 0.3)
@@ -152,7 +134,7 @@ def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None, correlatio
         elif prop_type == 'RA':
             structural_variance = var_r + var_a + 2*cov_ra
 
-    # 3. Bayesian Shrinkage (Blend recent observed variance with theoretical structural variance)
+    # Bayesian Shrinkage (Blend recent observed variance with theoretical structural variance)
     # We require ~30 games to fully trust the player's recent variance over the math model
     weight_recent = min(sample_size / 30.0, 0.80) 
     

@@ -12,8 +12,7 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 from prop_analyzer import config as cfg
 from prop_analyzer.config import Cols
 from prop_analyzer.models import registry
-from prop_analyzer.features.calculator import (smooth_projection, 
-                                               get_discrete_probabilities, 
+from prop_analyzer.features.calculator import (get_discrete_probabilities, 
                                                estimate_combo_variance)
 
 def load_artifacts(prop_cat):
@@ -61,53 +60,30 @@ def get_system_learning_maps(days_back=21):
 
     return cat_bias_pct, cat_mae
 
-def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games, s_avg, r_avg, is_minutes_spike=False):
-    tier = 'Pass'
-    
-    # CHANGE: Handle L10 Over bypass if we detect a minutes spike
-    if pick_type == 'Over':
-        if is_minutes_spike:
-            # Bypass L10 hit rate requirements for breakout spots, give slight leniency on CV
-            if cv > (cfg.MAX_CV_HARD_PASS_OVER * 1.25):
-                return 'Pass / Too Volatile'
-        else:
-            if cv > cfg.MAX_CV_HARD_PASS_OVER or l10_hit_rate < cfg.MIN_L10_HIT_HARD_PASS_OVER:
-                return 'Pass / Too Volatile'
+def determine_confidence_tier(win_prob):
+    """
+    Tiering based strictly on calibrated Win Probability distributions. 
+    Accuracy/Winning focused. High variance drops win probability naturally, 
+    so we don't need artificial CV filters here.
+    """
+    if win_prob >= 0.65:
+        return 'S Tier'
+    elif win_prob >= 0.60:
+        return 'A Tier'
+    elif win_prob >= 0.56:
+        return 'B Tier'
+    elif win_prob >= 0.53:
+        return 'C Tier'
     else:
-        dynamic_cv_threshold = getattr(cfg, 'MAX_CV_HARD_PASS_UNDER_LOW_LINE', 0.85) if line < 10.0 else getattr(cfg, 'MAX_CV_HARD_PASS_UNDER_BASE', 0.45)
-        if cv > dynamic_cv_threshold:
-            return 'Pass / Too Volatile'
+        return 'Pass'
 
-    if win_prob >= cfg.MIN_PROB_FOR_S_TIER and cv < cfg.MAX_CV_FOR_S_TIER: 
-        # Punish S-Tier if it's an Over, lacks historical hitting, AND isn't a projected spike
-        if pick_type == 'Over' and not is_minutes_spike and l10_hit_rate < cfg.MIN_L10_HIT_FOR_S_TIER:
-            tier = 'A Tier'
-        else:
-            if abs_diff >= (line * 0.08):
-                tier = 'S Tier'
-            else:
-                tier = 'A Tier' 
-    elif win_prob >= cfg.MIN_PROB_FOR_A_TIER and cv < cfg.MAX_CV_FOR_A_TIER: 
-        if abs_diff >= (line * 0.04):
-            tier = 'A Tier'
-        else:
-            tier = 'B Tier'
-    elif win_prob >= cfg.MIN_PROB_FOR_B_TIER and cv < cfg.MAX_CV_FOR_B_TIER: 
-        tier = 'B Tier'
-    elif win_prob >= cfg.MIN_PROB_FOR_C_TIER: 
-        tier = 'C Tier'
-    else: 
-        tier = 'Pass'
-    
-    return tier
-
-def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, vs_opp_games, s_avg, r_avg, is_minutes_spike=False, tweedie_power=1.5):
+def evaluate_prop(proj, line, variance, prop_type, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate):
     if line <= 0: return None
     
     nbinom_props = ['PTS', 'REB', 'AST', 'STL', 'BLK', 'FG3M', 'PRA', 'PR', 'PA', 'RA']
     dist_type = 'nbinom' if prop_type in nbinom_props else 'normal'
     
-    probs_over = get_discrete_probabilities(proj, line, variance, dist_type=dist_type, tweedie_power=tweedie_power)
+    probs_over = get_discrete_probabilities(proj, line, variance, dist_type=dist_type)
     probs_under = {'win': probs_over['loss'], 'loss': probs_over['win'], 'push': probs_over['push']}
     
     if probs_over['win'] >= probs_under['win']:
@@ -119,10 +95,7 @@ def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_over_rate,
         active_hit_rate = l10_under_rate
         active_vs_opp_hit_rate = vs_opp_under_rate 
         
-    abs_diff = abs(proj - line)
-    
-    # Pass minutes spike boolean down to bypass L10 checks if needed
-    tier = determine_confidence_tier(win_prob, pick, delta_gap, line, abs_diff, cv, active_hit_rate, active_vs_opp_hit_rate, vs_opp_games, s_avg, r_avg, is_minutes_spike)
+    tier = determine_confidence_tier(win_prob)
         
     return {
         'Pick': pick,
@@ -208,10 +181,9 @@ def predict_props(todays_props_df):
             X_scaled = scaler.transform(X_model)
             X_scaled_df = pd.DataFrame(X_scaled, columns=X_model.columns, index=X_model.index)
             
+            # The ML Model is the ultimate source of truth. No manual average smoothing.
             raw_projections = model.predict(X_scaled_df)
             
-            szn_avgs = get_col_safe(X_raw, prop_cat, 'SZN_AVG')
-            l5_avgs = get_col_safe(X_raw, prop_cat, 'L5_AVG')
             stds = get_col_safe(X_raw, prop_cat, 'L10_STD_DEV')
             cvs = get_col_safe(X_raw, prop_cat, 'L10_CV')
             games_played_col = get_col_safe(X_raw, prop_cat, 'SEASON_G')
@@ -237,34 +209,13 @@ def predict_props(todays_props_df):
             
             for idx, (orig_idx, row) in enumerate(group.iterrows()):
                 line = float(row[Cols.PROP_LINE])
-                raw_val = raw_projections[idx]
-                
-                pred_min = predicted_mins.get(orig_idx, float(row.get('MIN_SZN_AVG', 36.0)))
-                hist_mins = float(row.get('MIN_L10_AVG', pred_min))
-                
-                # CHANGE: Flag if this player is projected to see a 15%+ increase in playtime
-                is_minutes_spike = (pred_min / hist_mins) > 1.15 if hist_mins > 0 else False
+                proj = float(raw_projections[idx])  # Strict reliance on Stacking Ensemble
                 
                 raw_std = float(stds.iloc[idx]) if not pd.isna(stds.iloc[idx]) else 1.0
-                floor_std = max(line * 0.35, np.sqrt(line))
+                floor_std = max(line * 0.25, np.sqrt(line)) # Minimal sanity floor
                 std_dev = max(raw_std, floor_std)
                 
-                if line > 0:
-                    vegas_implied_std = max(line * 0.20, 1.5)
-                    var_vegas = vegas_implied_std ** 2
-                    var_model = std_dev ** 2
-                    
-                    weight_model = var_vegas / (var_model + var_vegas)
-                    weight_vegas = var_model / (var_model + var_vegas)
-                    
-                    adjusted_raw = (raw_val * weight_model) + (line * weight_vegas)
-                else:
-                    adjusted_raw = raw_val
-                
-                s_avg = float(szn_avgs.iloc[idx]) if not pd.isna(szn_avgs.iloc[idx]) else adjusted_raw
-                r_avg = float(l5_avgs.iloc[idx]) if not pd.isna(l5_avgs.iloc[idx]) else adjusted_raw
-                
-                cv = float(cvs.iloc[idx]) if not pd.isna(cvs.iloc[idx]) else (std_dev / s_avg if s_avg > 0 else 0.5)
+                cv = float(cvs.iloc[idx]) if not pd.isna(cvs.iloc[idx]) else (std_dev / proj if proj > 0 else 0.5)
                 
                 l10_hit_legacy = float(hit_rates_legacy.iloc[idx]) if not pd.isna(hit_rates_legacy.iloc[idx]) else 0.50
                 l10_over_rate = float(hit_rates_over.iloc[idx]) if not pd.isna(hit_rates_over.iloc[idx]) else l10_hit_legacy
@@ -274,11 +225,6 @@ def predict_props(todays_props_df):
                 vs_opp_over_rate = float(vs_opp_over_rates.iloc[idx]) if not pd.isna(vs_opp_over_rates.iloc[idx]) else vs_opp_legacy
                 vs_opp_under_rate = float(vs_opp_under_rates.iloc[idx]) if not pd.isna(vs_opp_under_rates.iloc[idx]) else (1.0 - vs_opp_legacy)
                 vs_opp_games = int(vs_opp_games_counts.iloc[idx]) if not pd.isna(vs_opp_games_counts.iloc[idx]) else 0
-
-                days_rest = float(row.get(Cols.DAYS_REST, 2.0))
-                min_deviation = abs(pred_min - hist_mins) / hist_mins if hist_mins > 0 else 0
-
-                proj = smooth_projection(adjusted_raw, s_avg, r_avg, std_dev)
                 
                 dynamic_correlations = {
                     'PTS_REB': float(corr_pr.iloc[idx]) if not pd.isna(corr_pr.iloc[idx]) else 0.25,
@@ -296,20 +242,8 @@ def predict_props(todays_props_df):
                 
                 variance = estimate_combo_variance(prop_cat, proj, std_dev, base_stds=dynamic_base_stds, correlations=dynamic_correlations, sample_size=sample_size)
                 
-                # CHANGE: Removed arbitrary MAE variance inflation multiplier to prevent Under bias 
-
-                delta_gap_final = abs(proj - line) / line if line > 0 else 0
-                
-                # CHANGE: Pass is_minutes_spike flag down into the evaluation logic
-                eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap_final, cv, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, vs_opp_games, s_avg, r_avg, is_minutes_spike=is_minutes_spike, tweedie_power=1.5)
+                eval_res = evaluate_prop(proj, line, variance, prop_cat, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate)
                 if not eval_res: continue
-                
-                if days_rest > 7.0 or min_deviation > 0.30:
-                    tier_ladder = ['S Tier', 'A Tier', 'B Tier', 'C Tier', 'Pass']
-                    if eval_res['Tier'] in tier_ladder:
-                        current_idx = tier_ladder.index(eval_res['Tier'])
-                        if current_idx < len(tier_ladder) - 2: 
-                            eval_res['Tier'] = tier_ladder[current_idx + 1]
                 
                 position = row.get('POSITION', row.get('PLAYER_POSITION', row.get('Position', 'UNK')))
 
