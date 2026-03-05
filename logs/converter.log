@@ -150,3 +150,8 @@
 2026-03-04 13:21:43 [INFO] root: Successfully converted PrizePicks props to input/props_today.csv (550 rows)
 2026-03-04 13:21:43 [INFO] root: Updated Master Prop History: master_prop_history.parquet (Total records: 7285)
 2026-03-04 13:21:43 [INFO] root: <<< CONVERTER COMPLETE >>>
+2026-03-05 00:32:36 [INFO] root: Logging initialized. Writing to logs/converter.log
+2026-03-05 00:32:36 [INFO] root: >>> STARTING PRIZEPICKS PROP CONVERTER <<<
+2026-03-05 00:32:36 [INFO] root: Successfully converted PrizePicks props to input/props_today.csv (754 rows)
+2026-03-05 00:32:36 [INFO] root: Updated Master Prop History: master_prop_history.parquet (Total records: 8039)
+2026-03-05 00:32:36 [INFO] root: <<< CONVERTER COMPLETE >>>

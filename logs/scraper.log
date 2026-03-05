@@ -2135,3 +2135,16 @@
 2026-03-04 23:07:29 [INFO] root: No new games found in the requested dates.
 2026-03-04 23:07:30 [INFO] root: ========= NBA DATA SCRAPER FINISHED in 0:03 minutes =========
 2026-03-04 23:07:30 [INFO] root: <<< SCRAPER COMPLETE >>>
+2026-03-04 23:55:01 [INFO] root: Logging initialized. Writing to logs/scraper.log
+2026-03-04 23:55:01 [INFO] root: >>> STARTING DATA SCRAPER <<<
+2026-03-04 23:55:01 [INFO] root: ========= STARTING NBA DATA SCRAPER (FAST CONCURRENT MODE) =========
+2026-03-04 23:55:01 [INFO] root: --- Processing Season: 2024-25 (Live: False) ---
+2026-03-04 23:55:03 [INFO] root: --- Processing Season: 2025-26 (Live: True) ---
+2026-03-04 23:55:03 [INFO] root: --- Scraping Daily Injury Report (CBS Sports) ---
+2026-03-04 23:55:03 [INFO] root: Successfully saved daily_injuries.parquet
+2026-03-04 23:55:03 [INFO] root: --- Gap Detection: ESPN Box Scores for 2025-26 ---
+2026-03-04 23:55:03 [INFO] root: Identified 8 missing days to fetch concurrently.
+2026-03-04 23:55:04 [INFO] root:   Fetches complete: 8/8
+2026-03-04 23:55:04 [INFO] root: No new games found in the requested dates.
+2026-03-04 23:55:05 [INFO] root: ========= NBA DATA SCRAPER FINISHED in 0:03 minutes =========
+2026-03-04 23:55:05 [INFO] root: <<< SCRAPER COMPLETE >>>

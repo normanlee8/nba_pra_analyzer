@@ -7,411 +7,586 @@ Enable Accessibility
 
 Invite Friends
 Get $25
-$13.15
-5.00
+$13.55
+2.00
 
-    Trending16.7K
-    OKC - G
-    Shai Gilgeous-Alexander
-    @ NYK Wed 4:10pm
-    30.5
-    Points
-    Trending9.9K
-    NYK - G
-    Jalen Brunson
-    vs OKC Wed 4:10pm
+    ORL - F
+    Paolo Banchero
+    vs DAL Thu 4:10pm
     24.5
     Points
-    OKC - C-F
-    Chet Holmgren
-    @ NYK Wed 4:10pm
-    15.5
+    ORL - G
+    Desmond Bane
+    vs DAL Thu 4:10pm
+    22.5
     Points
-    NYK - C-F
-    Karl-Anthony Towns
-    vs OKC Wed 4:10pm
-    17.5
-    Points
-    NYK - G-F
-    Mikal Bridges
-    vs OKC Wed 4:10pm
-    13.5
-    Points
-    NYK - F-G
-    OG Anunoby
-    vs OKC Wed 4:10pm
-    14.5
-    Points
-    OKC - G
-    Isaiah Joe
-    @ NYK Wed 4:10pm
-    9.5
-    Points
-    Trending10.8K
-    NYK - G
-    Josh Hart
-    vs OKC Wed 4:10pm
-    11
-    Points
-    Trending23.7K
-    OKC - G
-    Jared McCain
-    @ NYK Wed 4:10pm
-    9.5
-    Points
-    Trending12.6K
-    OKC - G
-    Cason Wallace
-    @ NYK Wed 4:10pm
-    9.5
-    Points
-    OKC - C-F
-    Isaiah Hartenstein
-    @ NYK Wed 4:10pm
-    8.5
-    Points
-    NYK - G
-    Landry Shamet
-    vs OKC Wed 4:10pm
-    8.5
-    Points
-    OKC - G
-    Luguentz Dort
-    @ NYK Wed 4:10pm
-    8.5
-    Points
-    OKC - G
-    Alex Caruso
-    @ NYK Wed 4:10pm
-    6
-    Points
-    NYK - G
-    Jose Alvarado
-    vs OKC Wed 4:10pm
-    6.5
-    Points
-    BOS - G-F
-    Jaylen Brown
-    vs CHA Wed 4:40pm
-    28.5
-    Points
-    Trending18.8K
-    CHA - F
-    Brandon Miller
-    @ BOS Wed 4:40pm
-    19.5
-    Points
-    Trending14.5K
-    BOS - G
-    Derrick White
-    vs CHA Wed 4:40pm
+    DAL - F
+    Naji Marshall
+    @ ORL Thu 4:10pm
     16.5
     Points
-    BOS - G
-    Payton Pritchard
-    vs CHA Wed 4:40pm
-    17.5
+    Trending1.8K
+    DAL - F
+    Cooper Flagg
+    @ ORL Thu 4:10pm
+    19.5
     Points
-    CHA - G-F
-    Kon Knueppel
-    @ BOS Wed 4:40pm
-    17.5
+    DAL - G
+    Max Christie
+    @ ORL Thu 4:10pm
+    13.5
     Points
-    CHA - G
-    LaMelo Ball
-    @ BOS Wed 4:40pm
-    17.5
+    DAL - F
+    P.J. Washington
+    @ ORL Thu 4:10pm
+    13.5
     Points
-    BOS - C
-    Nikola Vučević
-    vs CHA Wed 4:40pm
-    10.5
-    Points
-    CHA - F
-    Miles Bridges
-    @ BOS Wed 4:40pm
+    ORL - G
+    Anthony Black
+    vs DAL Thu 4:10pm
     14.5
     Points
-    CHA - G
-    Coby White
-    @ BOS Wed 4:40pm
+    DAL - G
+    Brandon Williams
+    @ ORL Thu 4:10pm
+    12.5
+    Points
+    ORL - G
+    Jalen Suggs
+    vs DAL Thu 4:10pm
+    12.5
+    Points
+    ORL - C-F
+    Wendell Carter
+    vs DAL Thu 4:10pm
     11.5
     Points
-    BOS - F
-    Sam Hauser
-    vs CHA Wed 4:40pm
+    DAL - F-C
+    Daniel Gafford
+    @ ORL Thu 4:10pm
+    8.5
+    Points
+    ORL - F
+    Tristan Silva
+    vs DAL Thu 4:10pm
     9.5
-    Points
-    BOS - C
-    Neemias Queta
-    vs CHA Wed 4:40pm
-    9.5
-    Points
-    BOS - G
-    Baylor Scheierman
-    vs CHA Wed 4:40pm
-    7.5
-    Points
-    CHA - F
-    Moussa Diabaté
-    @ BOS Wed 4:40pm
-    7.5
-    Points
-    CHA - C
-    Ryan Kalkbrenner
-    @ BOS Wed 4:40pm
-    3.5
-    Points
-    PHI - G
-    Tyrese Maxey
-    vs UTA Wed 4:40pm
-    33.5
     Points
     UTA - G
     Keyonte George
-    @ PHI Wed 4:40pm
-    22.5
+    @ WAS Thu 4:10pm
+    25.5
     Points
     UTA - F
     Ace Bailey
-    @ PHI Wed 4:40pm
-    16.5
-    Points
-    PHI - G
-    Quentin Grimes
-    vs UTA Wed 4:40pm
+    @ WAS Thu 4:10pm
     17.5
-    Points
-    UTA - F
-    Brice Sensabaugh
-    @ PHI Wed 4:40pm
-    15.5
     Points
     UTA - C
     Kyle Filipowski
-    @ PHI Wed 4:40pm
-    13.5
-    Points
-    UTA - G
-    Isaiah Collier
-    @ PHI Wed 4:40pm
-    12.5
-    Points
-    PHI - G
-    Cameron Payne
-    vs UTA Wed 4:40pm
-    8.5
-    Points
-    PHI - F
-    Dominick Barlow
-    vs UTA Wed 4:40pm
-    10
-    Points
-    PHI - C
-    Andre Drummond
-    vs UTA Wed 4:40pm
-    9.5
-    Points
-    PHI - F
-    Adem Bona
-    vs UTA Wed 4:40pm
-    6.5
-    Points
-    POR - F
-    Jerami Grant
-    @ MEM Wed 5:10pm
-    19.5
-    Points
-    POR - F
-    Deni Avdija
-    @ MEM Wed 5:10pm
-    19.5
-    Points
-    POR - G
-    Jrue Holiday
-    @ MEM Wed 5:10pm
-    17.5
-    Points
-    MEM - G
-    Cam Spencer
-    vs POR Wed 5:10pm
-    12.5
-    Points
-    POR - C
-    Donovan Clingan
-    @ MEM Wed 5:10pm
-    13.5
-    Points
-    POR - G
-    Scoot Henderson
-    @ MEM Wed 5:10pm
-    13.5
-    Points
-    POR - F
-    Toumani Camara
-    @ MEM Wed 5:10pm
-    13.5
-    Points
-    MEM - F
-    GG Jackson
-    vs POR Wed 5:10pm
-    15.5
-    Points
-    MEM - G
-    Walter Clayton
-    vs POR Wed 5:10pm
-    13.5
-    Points
-    MEM - F
-    Jaylen Wells
-    vs POR Wed 5:10pm
+    @ WAS Thu 4:10pm
     14.5
     Points
-    MEM - F
-    Taylor Hendricks
-    vs POR Wed 5:10pm
-    11
-    Points
-    MEM - F
-    Olivier-Maxence Prosper
-    vs POR Wed 5:10pm
-    11.5
-    Points
-    POR - C-F
-    Robert Williams
-    @ MEM Wed 5:10pm
-    6
-    Points
-    MIL - F
-    Giannis Antetokounmpo
-    vs ATL Wed 6:40pm
-    26.5
-    Points
-    ATL - F
-    Jalen Johnson
-    @ MIL Wed 6:40pm
-    21.5
-    Points
-    ATL - G
-    CJ McCollum
-    @ MIL Wed 6:40pm
-    17.5
-    Points
-    ATL - G
-    Nickeil Alexander-Walker
-    @ MIL Wed 6:40pm
-    17.5
-    Points
-    ATL - F-C
-    Onyeka Okongwu
-    @ MIL Wed 6:40pm
-    14.5
-    Points
-    Trending10.0K
-    ATL - F
-    Jonathan Kuminga
-    @ MIL Wed 6:40pm
-    13.5
-    Points
-    MIL - F
-    Bobby Portis
-    vs ATL Wed 6:40pm
+    WAS - G
+    Trae Young
+    vs UTA Thu 4:10pm
     12.5
     Points
-    MIL - G
-    Ryan Rollins
-    vs ATL Wed 6:40pm
+    WAS - F
+    Will Riley
+    vs UTA Thu 4:10pm
     16.5
     Points
-    MIL - G
-    AJ Green
-    vs ATL Wed 6:40pm
-    9.5
+    WAS - G
+    Bilal Coulibaly
+    vs UTA Thu 4:10pm
+    12.5
     Points
-    ATL - G
-    Dyson Daniels
-    @ MIL Wed 6:40pm
-    9.5
-    Points
-    ATL - C
-    Jock Landale
-    @ MIL Wed 6:40pm
-    7.5
-    Points
-    MIL - C-F
-    Myles Turner
-    vs ATL Wed 6:40pm
+    WAS - G
+    Bub Carrington
+    vs UTA Thu 4:10pm
     10.5
     Points
-    MIL - F
-    Ousmane Dieng
-    vs ATL Wed 6:40pm
-    9.5
+    WAS - G
+    Tre Johnson
+    vs UTA Thu 4:10pm
+    12.5
     Points
-    ATL - F
-    Zaccharie Risacher
-    @ MIL Wed 6:40pm
-    5.5
+    WAS - G-F
+    Justin Champagnie
+    vs UTA Thu 4:10pm
+    10.5
     Points
-    LAC - F
-    Kawhi Leonard
-    vs IND Wed 7:40pm
-    27.5
+    UTA - F
+    Cody Williams
+    @ WAS Thu 4:10pm
+    7.5
     Points
-    LAC - G-F
-    Bennedict Mathurin
-    vs IND Wed 7:40pm
-    19.5
-    Points
-    IND - F
-    Pascal Siakam
-    @ LAC Wed 7:40pm
+    MIA - C-F
+    Bam Adebayo
+    vs BKN Thu 4:40pm
     20.5
     Points
-    IND - G-F
-    Andrew Nembhard
-    @ LAC Wed 7:40pm
+    BKN - F
+    Michael Porter
+    @ MIA Thu 4:40pm
+    22.5
+    Points
+    MIA - G
+    Tyler Herro
+    vs BKN Thu 4:40pm
+    21.5
+    Points
+    MIA - F
+    Andrew Wiggins
+    vs BKN Thu 4:40pm
     15.5
     Points
-    LAC - G
-    Darius Garland
-    vs IND Wed 7:40pm
+    MIA - G
+    Jaime Jaquez
+    vs BKN Thu 4:40pm
     14.5
     Points
-    IND - G-F
-    Aaron Nesmith
-    @ LAC Wed 7:40pm
-    11.5
-    Points
-    LAC - F
-    Derrick Jones
-    vs IND Wed 7:40pm
-    11.5
-    Points
-    IND - C
-    Jay Huff
-    @ LAC Wed 7:40pm
+    BKN - F
+    Danny Wolf
+    @ MIA Thu 4:40pm
     10.5
     Points
-    LAC - C
-    Brook Lopez
-    vs IND Wed 7:40pm
-    9.5
+    MIA - G
+    Pelle Larsson
+    vs BKN Thu 4:40pm
+    12.5
     Points
-    LAC - G
-    Kobe Sanders
-    vs IND Wed 7:40pm
+    BKN - F-C
+    Noah Clowney
+    @ MIA Thu 4:40pm
+    11.5
+    Points
+    BKN - G
+    Nolan Traore
+    @ MIA Thu 4:40pm
+    10.5
+    Points
+    BKN - C
+    Nic Claxton
+    @ MIA Thu 4:40pm
+    10.5
+    Points
+    MIA - G
+    Davion Mitchell
+    vs BKN Thu 4:40pm
     6.5
     Points
-    LAC - G
-    Kris Dunn
-    vs IND Wed 7:40pm
+    Trending4.2K
+    HOU - F
+    Kevin Durant
+    vs GSW Thu 4:40pm
+    25.5
+    Points
+    HOU - C
+    Alperen Sengun
+    vs GSW Thu 4:40pm
+    19.5
+    Points
+    HOU - G-F
+    Amen Thompson
+    vs GSW Thu 4:40pm
+    15.5
+    Points
+    GSW - G
+    Brandin Podziemski
+    @ HOU Thu 4:40pm
+    15.5
+    Points
+    GSW - G
+    De'Anthony Melton
+    @ HOU Thu 4:40pm
+    15.5
+    Points
+    HOU - F
+    Jabari Smith
+    vs GSW Thu 4:40pm
+    13.5
+    Points
+    HOU - F
+    Tari Eason
+    vs GSW Thu 4:40pm
+    12.5
+    Points
+    GSW - F
+    Gui Santos
+    @ HOU Thu 4:40pm
+    12.5
+    Points
+    Trending2.9K
+    HOU - G
+    Reed Sheppard
+    vs GSW Thu 4:40pm
+    13.5
+    Points
+    GSW - C-F
+    Al Horford
+    @ HOU Thu 4:40pm
+    10.5
+    Points
+    GSW - F
+    Draymond Green
+    @ HOU Thu 4:40pm
+    8.5
+    Points
+    GSW - G
+    Pat Spencer
+    @ HOU Thu 4:40pm
+    9.5
+    Points
+    HOU - F
+    Dorian Finney-Smith
+    vs GSW Thu 4:40pm
+    3.5
+    Points
+    DET - G
+    Cade Cunningham
+    @ SAS Thu 5:10pm
+    26.5
+    Points
+    Trending1.4K
+    SAS - F-C
+    Victor Wembanyama
+    vs DET Thu 5:10pm
+    23.5
+    Points
+    SAS - G
+    De'Aaron Fox
+    vs DET Thu 5:10pm
+    16.5
+    Points
+    Trending1.8K
+    DET - C
+    Jalen Duren
+    @ SAS Thu 5:10pm
+    17.5
+    Points
+    SAS - G
+    Stephon Castle
+    vs DET Thu 5:10pm
+    15.5
+    Points
+    Trending1.8K
+    SAS - G-F
+    Devin Vassell
+    vs DET Thu 5:10pm
+    14.5
+    Points
+    SAS - G
+    Dylan Harper
+    vs DET Thu 5:10pm
+    10.5
+    Points
+    DET - F
+    Tobias Harris
+    @ SAS Thu 5:10pm
+    13.5
+    Points
+    DET - F
+    Duncan Robinson
+    @ SAS Thu 5:10pm
+    11.5
+    Points
+    SAS - F-G
+    Keldon Johnson
+    vs DET Thu 5:10pm
+    11.5
+    Points
+    SAS - F
+    Julian Champagnie
+    vs DET Thu 5:10pm
+    9.5
+    Points
+    DET - G-F
+    Ausar Thompson
+    @ SAS Thu 5:10pm
+    10
+    Points
+    DET - F-C
+    Isaiah Stewart
+    @ SAS Thu 5:10pm
+    8.5
+    Points
+    DET - F
+    Ronald Holland
+    @ SAS Thu 5:10pm
     7.5
     Points
-    IND - G
-    T.J. McConnell
-    @ LAC Wed 7:40pm
+    DET - G
+    Caris LeVert
+    @ SAS Thu 5:10pm
+    4.5
+    Points
+    SAS - C-F
+    Luke Kornet
+    vs DET Thu 5:10pm
+    9.5
+    Points
+    MIN - G
+    Anthony Edwards
+    vs TOR Thu 5:10pm
+    29.5
+    Points
+    TOR - F
+    Brandon Ingram
+    @ MIN Thu 5:10pm
+    21.5
+    Points
+    TOR - G
+    Immanuel Quickley
+    @ MIN Thu 5:10pm
+    17.5
+    Points
+    MIN - F-C
+    Julius Randle
+    vs TOR Thu 5:10pm
+    19.5
+    Points
+    TOR - F-G
+    RJ Barrett
+    @ MIN Thu 5:10pm
+    17.5
+    Points
+    TOR - F-G
+    Scottie Barnes
+    @ MIN Thu 5:10pm
+    17.5
+    Points
+    MIN - F
+    Jaden McDaniels
+    vs TOR Thu 5:10pm
+    13.5
+    Points
+    MIN - G
+    Ayo Dosunmu
+    vs TOR Thu 5:10pm
+    10.5
+    Points
+    MIN - G
+    Donte DiVincenzo
+    vs TOR Thu 5:10pm
+    11.5
+    Points
+    MIN - C-F
+    Naz Reid
+    vs TOR Thu 5:10pm
+    11.5
+    Points
+    TOR - F-C
+    Sandro Mamukelashvili
+    @ MIN Thu 5:10pm
+    4.5
+    Points
+    MIN - C
+    Rudy Gobert
+    vs TOR Thu 5:10pm
+    9.5
+    Points
+    TOR - C
+    Jakob Poeltl
+    @ MIN Thu 5:10pm
+    9.5
+    Points
+    TOR - G
+    Jamal Shead
+    @ MIN Thu 5:10pm
+    4.5
+    Points
+    PHX - G
+    Devin Booker
+    vs CHI Thu 6:10pm
+    24.5
+    Points
+    PHX - G
+    Grayson Allen
+    vs CHI Thu 6:10pm
+    17.5
+    Points
+    PHX - G
+    Jalen Green
+    vs CHI Thu 6:10pm
+    18.5
+    Points
+    CHI - G
+    Josh Giddey
+    @ PHX Thu 6:10pm
+    16.5
+    Points
+    CHI - F
+    Matas Buzelis
+    @ PHX Thu 6:10pm
+    16.5
+    Points
+    Trending1.3K
+    PHX - G
+    Collin Gillespie
+    vs CHI Thu 6:10pm
+    14.5
+    Points
+    CHI - G
+    Tre Jones
+    @ PHX Thu 6:10pm
+    14.5
+    Points
+    CHI - F
+    Guerschon Yabusele
+    @ PHX Thu 6:10pm
+    10.5
+    Points
+    CHI - F-G
+    Isaac Okoro
+    @ PHX Thu 6:10pm
+    11.5
+    Points
+    PHX - F
+    Royce O'Neale
+    vs CHI Thu 6:10pm
+    9.5
+    Points
+    PHX - F
+    Oso Ighodaro
+    vs CHI Thu 6:10pm
+    8.5
+    Points
+    PHX - F
+    Ryan Dunn
+    vs CHI Thu 6:10pm
+    6.5
+    Points
+    Trending1.6K
+    LAL - F-G
+    Luka Dončić
+    @ DEN Thu 7:10pm
+    30.5
+    Points
+    DEN - C
+    Nikola Jokić
+    vs LAL Thu 7:10pm
+    30.5
+    Points
+    DEN - G
+    Jamal Murray
+    vs LAL Thu 7:10pm
+    25.5
+    Points
+    LAL - F
+    LeBron James
+    @ DEN Thu 7:10pm
+    19.5
+    Points
+    LAL - G
+    Austin Reaves
+    @ DEN Thu 7:10pm
+    18.5
+    Points
+    DEN - G
+    Christian Braun
+    vs LAL Thu 7:10pm
+    12.5
+    Points
+    DEN - G-F
+    Tim Hardaway
+    vs LAL Thu 7:10pm
+    12.5
+    Points
+    DEN - F
+    Cameron Johnson
+    vs LAL Thu 7:10pm
+    11.5
+    Points
+    DEN - G
+    Julian Strawther
+    vs LAL Thu 7:10pm
+    8.5
+    Points
+    LAL - C
+    Deandre Ayton
+    @ DEN Thu 7:10pm
+    9.5
+    Points
+    DEN - G-F
+    Bruce Brown
+    vs LAL Thu 7:10pm
+    8.5
+    Points
+    LAL - G
+    Luke Kennard
+    @ DEN Thu 7:10pm
+    8.5
+    Points
+    LAL - F
+    Rui Hachimura
+    @ DEN Thu 7:10pm
     7.5
+    Points
+    LAL - G
+    Marcus Smart
+    @ DEN Thu 7:10pm
+    7.5
+    Points
+    LAL - F
+    Jake LaRavia
+    @ DEN Thu 7:10pm
+    9.5
+    Points
+    LAL - C-F
+    Jaxson Hayes
+    @ DEN Thu 7:10pm
+    4.5
+    Points
+    DEN - C
+    Jonas Valančiūnas
+    vs LAL Thu 7:10pm
+    4.5
+    Points
+    NOP - F
+    Trey Murphy
+    @ SAC Thu 7:10pm
+    23.5
+    Points
+    NOP - F
+    Zion Williamson
+    @ SAC Thu 7:10pm
+    23.5
+    Points
+    NOP - G-F
+    Saddiq Bey
+    @ SAC Thu 7:10pm
+    21.5
+    Points
+    SAC - G
+    Russell Westbrook
+    vs NOP Thu 7:10pm
+    15.5
+    Points
+    SAC - G
+    Nique Clifford
+    vs NOP Thu 7:10pm
+    15.5
+    Points
+    SAC - G-F
+    DeMar DeRozan
+    vs NOP Thu 7:10pm
+    14.5
+    Points
+    SAC - C
+    Maxime Raynaud
+    vs NOP Thu 7:10pm
+    15.5
+    Points
+    SAC - F
+    Precious Achiuwa
+    vs NOP Thu 7:10pm
+    13.5
+    Points
+    NOP - F
+    Herbert Jones
+    @ SAC Thu 7:10pm
+    10.5
     Points
 
     Privacy policy
@@ -432,405 +607,533 @@ Enable Accessibility
 
 Invite Friends
 Get $25
-$13.15
-5.00
+$13.55
+2.00
 
-    OKC - G
-    Shai Gilgeous-Alexander
-    @ NYK Wed 4:10pm
-    41.5
-    PRA
-    NYK - G
-    Jalen Brunson
-    vs OKC Wed 4:10pm
-    33.5
-    PRA
-    NYK - C-F
-    Karl-Anthony Towns
-    vs OKC Wed 4:10pm
-    32.5
-    PRA
-    OKC - C-F
-    Chet Holmgren
-    @ NYK Wed 4:10pm
-    25.5
-    PRA
-    NYK - G
-    Josh Hart
-    vs OKC Wed 4:10pm
-    23.5
-    PRA
-    OKC - C-F
-    Isaiah Hartenstein
-    @ NYK Wed 4:10pm
-    20.5
-    PRA
-    NYK - G-F
-    Mikal Bridges
-    vs OKC Wed 4:10pm
-    20.5
-    PRA
-    NYK - F-G
-    OG Anunoby
-    vs OKC Wed 4:10pm
-    22.5
-    PRA
-    OKC - G
-    Isaiah Joe
-    @ NYK Wed 4:10pm
-    14.5
-    PRA
-    OKC - G
-    Cason Wallace
-    @ NYK Wed 4:10pm
-    15.5
-    PRA
-    OKC - G
-    Alex Caruso
-    @ NYK Wed 4:10pm
-    11.5
-    PRA
-    NYK - G
-    Jose Alvarado
-    vs OKC Wed 4:10pm
-    11.5
-    PRA
-    NYK - G
-    Landry Shamet
-    vs OKC Wed 4:10pm
-    12
-    PRA
-    OKC - G
-    Luguentz Dort
-    @ NYK Wed 4:10pm
-    13.5
-    PRA
-    OKC - G
-    Jared McCain
-    @ NYK Wed 4:10pm
-    13.5
-    PRA
-    BOS - G-F
-    Jaylen Brown
-    vs CHA Wed 4:40pm
+    ORL - F
+    Paolo Banchero
+    vs DAL Thu 4:10pm
     39.5
     PRA
-    BOS - G
-    Payton Pritchard
-    vs CHA Wed 4:40pm
-    26.5
+    ORL - G
+    Desmond Bane
+    vs DAL Thu 4:10pm
+    29.5
     PRA
-    BOS - G
-    Derrick White
-    vs CHA Wed 4:40pm
-    26.5
-    PRA
-    CHA - G
-    LaMelo Ball
-    @ BOS Wed 4:40pm
+    DAL - F
+    Cooper Flagg
+    @ ORL Thu 4:10pm
     28.5
     PRA
-    CHA - F
-    Brandon Miller
-    @ BOS Wed 4:40pm
-    27.5
-    PRA
-    CHA - G-F
-    Kon Knueppel
-    @ BOS Wed 4:40pm
+    DAL - F
+    Naji Marshall
+    @ ORL Thu 4:10pm
     25.5
     PRA
-    BOS - C
-    Nikola Vučević
-    vs CHA Wed 4:40pm
+    ORL - G
+    Anthony Black
+    vs DAL Thu 4:10pm
+    21.5
+    PRA
+    DAL - G
+    Brandon Williams
+    @ ORL Thu 4:10pm
     20.5
     PRA
-    CHA - G
-    Coby White
-    @ BOS Wed 4:40pm
-    17.5
+    ORL - G
+    Jalen Suggs
+    vs DAL Thu 4:10pm
+    21.5
     PRA
-    CHA - F
-    Miles Bridges
-    @ BOS Wed 4:40pm
-    22.5
+    ORL - C-F
+    Wendell Carter
+    vs DAL Thu 4:10pm
+    21.5
     PRA
-    CHA - F
-    Moussa Diabaté
-    @ BOS Wed 4:40pm
-    19
-    PRA
-    BOS - C
-    Neemias Queta
-    vs CHA Wed 4:40pm
+    DAL - G
+    Max Christie
+    @ ORL Thu 4:10pm
     18.5
     PRA
-    BOS - F
-    Sam Hauser
-    vs CHA Wed 4:40pm
-    14.5
+    DAL - F
+    P.J. Washington
+    @ ORL Thu 4:10pm
+    21.5
     PRA
-    BOS - G
-    Baylor Scheierman
-    vs CHA Wed 4:40pm
-    14.5
+    ORL - F
+    Tristan Silva
+    vs DAL Thu 4:10pm
+    16.5
     PRA
-    CHA - C
-    Ryan Kalkbrenner
-    @ BOS Wed 4:40pm
-    9.5
-    PRA
-    PHI - G
-    Tyrese Maxey
-    vs UTA Wed 4:40pm
-    44.5
+    DAL - F-C
+    Daniel Gafford
+    @ ORL Thu 4:10pm
+    15.5
     PRA
     UTA - G
     Keyonte George
-    @ PHI Wed 4:40pm
-    29.5
+    @ WAS Thu 4:10pm
+    33.5
     PRA
     UTA - C
     Kyle Filipowski
-    @ PHI Wed 4:40pm
-    25.5
-    PRA
-    PHI - G
-    Quentin Grimes
-    vs UTA Wed 4:40pm
-    26.5
+    @ WAS Thu 4:10pm
+    27.5
     PRA
     UTA - F
     Ace Bailey
-    @ PHI Wed 4:40pm
+    @ WAS Thu 4:10pm
+    25.5
+    PRA
+    WAS - F
+    Will Riley
+    vs UTA Thu 4:10pm
+    25.5
+    PRA
+    WAS - G
+    Trae Young
+    vs UTA Thu 4:10pm
     22.5
     PRA
-    UTA - G
-    Isaiah Collier
-    @ PHI Wed 4:40pm
-    22.5
-    PRA
-    PHI - C
-    Andre Drummond
-    vs UTA Wed 4:40pm
+    WAS - G
+    Bub Carrington
+    vs UTA Thu 4:10pm
     20.5
     PRA
-    UTA - F
-    Brice Sensabaugh
-    @ PHI Wed 4:40pm
-    20.5
-    PRA
-    PHI - F
-    Dominick Barlow
-    vs UTA Wed 4:40pm
-    16
-    PRA
-    PHI - F
-    Adem Bona
-    vs UTA Wed 4:40pm
-    12.5
-    PRA
-    PHI - G
-    Cameron Payne
-    vs UTA Wed 4:40pm
-    14.5
-    PRA
-    POR - F
-    Deni Avdija
-    @ MEM Wed 5:10pm
-    31.5
-    PRA
-    POR - C
-    Donovan Clingan
-    @ MEM Wed 5:10pm
-    30.5
-    PRA
-    MEM - G
-    Walter Clayton
-    vs POR Wed 5:10pm
-    23.5
-    PRA
-    POR - G
-    Jrue Holiday
-    @ MEM Wed 5:10pm
-    27.5
-    PRA
-    POR - F
-    Jerami Grant
-    @ MEM Wed 5:10pm
-    24.5
-    PRA
-    MEM - G
-    Cam Spencer
-    vs POR Wed 5:10pm
-    21.5
-    PRA
-    POR - G
-    Scoot Henderson
-    @ MEM Wed 5:10pm
-    21.5
-    PRA
-    MEM - F
-    GG Jackson
-    vs POR Wed 5:10pm
-    23.5
-    PRA
-    POR - F
-    Toumani Camara
-    @ MEM Wed 5:10pm
-    21.5
-    PRA
-    MEM - F
-    Taylor Hendricks
-    vs POR Wed 5:10pm
+    WAS - G
+    Bilal Coulibaly
+    vs UTA Thu 4:10pm
     18.5
     PRA
-    MEM - F
-    Jaylen Wells
-    vs POR Wed 5:10pm
-    19.5
-    PRA
-    MEM - F
-    Olivier-Maxence Prosper
-    vs POR Wed 5:10pm
-    18.5
-    PRA
-    POR - C-F
-    Robert Williams
-    @ MEM Wed 5:10pm
-    14.5
-    PRA
-    MIL - F
-    Giannis Antetokounmpo
-    vs ATL Wed 6:40pm
-    41.5
-    PRA
-    ATL - F
-    Jalen Johnson
-    @ MIL Wed 6:40pm
-    39.5
-    PRA
-    Trending32.5K
-    ATL - F
-    Jonathan Kuminga
-    @ MIL Wed 6:40pm
-    22.5
-    PRA
-    ATL - F-C
-    Onyeka Okongwu
-    @ MIL Wed 6:40pm
-    23.5
-    PRA
-    ATL - G
-    Nickeil Alexander-Walker
-    @ MIL Wed 6:40pm
-    24.5
-    PRA
-    ATL - G
-    CJ McCollum
-    @ MIL Wed 6:40pm
-    24.5
-    PRA
-    MIL - G
-    Ryan Rollins
-    vs ATL Wed 6:40pm
-    27.5
-    PRA
-    ATL - G
-    Dyson Daniels
-    @ MIL Wed 6:40pm
-    21.5
-    PRA
-    MIL - F
-    Bobby Portis
-    vs ATL Wed 6:40pm
-    20.5
-    PRA
-    MIL - C-F
-    Myles Turner
-    vs ATL Wed 6:40pm
+    WAS - G
+    Tre Johnson
+    vs UTA Thu 4:10pm
     17.5
     PRA
-    MIL - F
-    Ousmane Dieng
-    vs ATL Wed 6:40pm
-    14.5
-    PRA
-    MIL - G
-    AJ Green
-    vs ATL Wed 6:40pm
-    14.5
-    PRA
-    ATL - C
-    Jock Landale
-    @ MIL Wed 6:40pm
-    14.5
-    PRA
-    ATL - F
-    Zaccharie Risacher
-    @ MIL Wed 6:40pm
+    UTA - F
+    Cody Williams
+    @ WAS Thu 4:10pm
     12.5
     PRA
-    LAC - F
-    Kawhi Leonard
-    vs IND Wed 7:40pm
+    MIA - C-F
+    Bam Adebayo
+    vs BKN Thu 4:40pm
+    34.5
+    PRA
+    BKN - F
+    Michael Porter
+    @ MIA Thu 4:40pm
+    30.5
+    PRA
+    MIA - G
+    Tyler Herro
+    vs BKN Thu 4:40pm
+    29.5
+    PRA
+    MIA - F
+    Andrew Wiggins
+    vs BKN Thu 4:40pm
+    23.5
+    PRA
+    MIA - G
+    Jaime Jaquez
+    vs BKN Thu 4:40pm
+    23.5
+    PRA
+    BKN - C
+    Nic Claxton
+    @ MIA Thu 4:40pm
+    20.5
+    PRA
+    MIA - G
+    Pelle Larsson
+    vs BKN Thu 4:40pm
+    19.5
+    PRA
+    BKN - G
+    Nolan Traore
+    @ MIA Thu 4:40pm
+    17.5
+    PRA
+    BKN - F
+    Danny Wolf
+    @ MIA Thu 4:40pm
+    18.5
+    PRA
+    MIA - G
+    Davion Mitchell
+    vs BKN Thu 4:40pm
+    16.5
+    PRA
+    BKN - F-C
+    Noah Clowney
+    @ MIA Thu 4:40pm
+    17.5
+    PRA
+    Trending1.2K
+    HOU - F
+    Kevin Durant
+    vs GSW Thu 4:40pm
+    36.5
+    PRA
+    HOU - C
+    Alperen Sengun
+    vs GSW Thu 4:40pm
+    34.5
+    PRA
+    Trending1.5K
+    HOU - G-F
+    Amen Thompson
+    vs GSW Thu 4:40pm
+    28.5
+    PRA
+    Trending2.0K
+    GSW - G
+    Brandin Podziemski
+    @ HOU Thu 4:40pm
+    25.5
+    PRA
+    GSW - G
+    De'Anthony Melton
+    @ HOU Thu 4:40pm
+    21.5
+    PRA
+    HOU - F
+    Jabari Smith
+    vs GSW Thu 4:40pm
+    21.5
+    PRA
+    HOU - F
+    Tari Eason
+    vs GSW Thu 4:40pm
+    21.5
+    PRA
+    GSW - F
+    Gui Santos
+    @ HOU Thu 4:40pm
+    21.5
+    PRA
+    Trending1.4K
+    HOU - G
+    Reed Sheppard
+    vs GSW Thu 4:40pm
+    20.5
+    PRA
+    GSW - C-F
+    Al Horford
+    @ HOU Thu 4:40pm
+    19.5
+    PRA
+    GSW - F
+    Draymond Green
+    @ HOU Thu 4:40pm
+    19.5
+    PRA
+    GSW - G
+    Pat Spencer
+    @ HOU Thu 4:40pm
+    17.5
+    PRA
+    DET - G
+    Cade Cunningham
+    @ SAS Thu 5:10pm
+    43.5
+    PRA
+    SAS - F-C
+    Victor Wembanyama
+    vs DET Thu 5:10pm
     38.5
     PRA
-    IND - F
-    Pascal Siakam
-    @ LAC Wed 7:40pm
-    29.5
+    DET - C
+    Jalen Duren
+    @ SAS Thu 5:10pm
+    30.5
     PRA
-    LAC - G-F
-    Bennedict Mathurin
-    vs IND Wed 7:40pm
-    28.5
+    SAS - G
+    Stephon Castle
+    vs DET Thu 5:10pm
+    26.5
     PRA
-    IND - G-F
-    Andrew Nembhard
-    @ LAC Wed 7:40pm
+    SAS - G
+    De'Aaron Fox
+    vs DET Thu 5:10pm
+    25.5
+    PRA
+    Trending5.0K
+    SAS - G-F
+    Devin Vassell
+    vs DET Thu 5:10pm
+    20.5
+    PRA
+    DET - F
+    Tobias Harris
+    @ SAS Thu 5:10pm
+    20.5
+    PRA
+    SAS - G
+    Dylan Harper
+    vs DET Thu 5:10pm
+    17.5
+    PRA
+    DET - G-F
+    Ausar Thompson
+    @ SAS Thu 5:10pm
+    18.5
+    PRA
+    DET - F
+    Duncan Robinson
+    @ SAS Thu 5:10pm
+    15.5
+    PRA
+    SAS - F
+    Julian Champagnie
+    vs DET Thu 5:10pm
+    16
+    PRA
+    DET - F-C
+    Isaiah Stewart
+    @ SAS Thu 5:10pm
+    13.5
+    PRA
+    DET - F
+    Ronald Holland
+    @ SAS Thu 5:10pm
+    12.5
+    PRA
+    DET - G
+    Caris LeVert
+    @ SAS Thu 5:10pm
+    8.5
+    PRA
+    MIN - G
+    Anthony Edwards
+    vs TOR Thu 5:10pm
+    38.5
+    PRA
+    TOR - F
+    Brandon Ingram
+    @ MIN Thu 5:10pm
+    30.5
+    PRA
+    MIN - F-C
+    Julius Randle
+    vs TOR Thu 5:10pm
+    31.5
+    PRA
+    TOR - F-G
+    Scottie Barnes
+    @ MIN Thu 5:10pm
+    30.5
+    PRA
+    TOR - G
+    Immanuel Quickley
+    @ MIN Thu 5:10pm
+    27.5
+    PRA
+    TOR - F-G
+    RJ Barrett
+    @ MIN Thu 5:10pm
+    27.5
+    PRA
+    MIN - C
+    Rudy Gobert
+    vs TOR Thu 5:10pm
     24.5
     PRA
-    LAC - G
-    Darius Garland
-    vs IND Wed 7:40pm
+    MIN - G
+    Donte DiVincenzo
+    vs TOR Thu 5:10pm
+    19.5
+    PRA
+    MIN - F
+    Jaden McDaniels
+    vs TOR Thu 5:10pm
     21.5
     PRA
-    Trending9.8K
-    IND - G-F
-    Aaron Nesmith
-    @ LAC Wed 7:40pm
-    17.5
+    MIN - C-F
+    Naz Reid
+    vs TOR Thu 5:10pm
+    20.5
     PRA
-    IND - C
-    Jay Huff
-    @ LAC Wed 7:40pm
+    TOR - C
+    Jakob Poeltl
+    @ MIN Thu 5:10pm
+    18.5
+    PRA
+    MIN - G
+    Ayo Dosunmu
+    vs TOR Thu 5:10pm
     16.5
     PRA
-    LAC - G
-    Kris Dunn
-    vs IND Wed 7:40pm
-    16.5
-    PRA
-    LAC - C
-    Brook Lopez
-    vs IND Wed 7:40pm
-    16.5
-    PRA
-    LAC - F
-    Derrick Jones
-    vs IND Wed 7:40pm
-    17.5
-    PRA
-    LAC - G
-    Kobe Sanders
-    vs IND Wed 7:40pm
+    TOR - G
+    Jamal Shead
+    @ MIN Thu 5:10pm
     12.5
     PRA
-    IND - G
-    T.J. McConnell
-    @ LAC Wed 7:40pm
-    13.5
+    PHX - G
+    Devin Booker
+    vs CHI Thu 6:10pm
+    35.5
+    PRA
+    CHI - G
+    Josh Giddey
+    @ PHX Thu 6:10pm
+    30.5
+    PRA
+    PHX - G
+    Grayson Allen
+    vs CHI Thu 6:10pm
+    26.5
+    PRA
+    CHI - F
+    Matas Buzelis
+    @ PHX Thu 6:10pm
+    25.5
+    PRA
+    PHX - G
+    Collin Gillespie
+    vs CHI Thu 6:10pm
+    25.5
+    PRA
+    PHX - G
+    Jalen Green
+    vs CHI Thu 6:10pm
+    25.5
+    PRA
+    CHI - G
+    Tre Jones
+    @ PHX Thu 6:10pm
+    22.5
+    PRA
+    CHI - F
+    Guerschon Yabusele
+    @ PHX Thu 6:10pm
+    19.5
+    PRA
+    PHX - F
+    Royce O'Neale
+    vs CHI Thu 6:10pm
+    18.5
+    PRA
+    CHI - F-G
+    Isaac Okoro
+    @ PHX Thu 6:10pm
+    16.5
+    PRA
+    DEN - C
+    Nikola Jokić
+    vs LAL Thu 7:10pm
+    54.5
+    PRA
+    LAL - F-G
+    Luka Dončić
+    @ DEN Thu 7:10pm
+    46.5
+    PRA
+    DEN - G
+    Jamal Murray
+    vs LAL Thu 7:10pm
+    36.5
+    PRA
+    LAL - F
+    LeBron James
+    @ DEN Thu 7:10pm
+    31.5
+    PRA
+    LAL - G
+    Austin Reaves
+    @ DEN Thu 7:10pm
+    27.5
+    PRA
+    DEN - G
+    Christian Braun
+    vs LAL Thu 7:10pm
+    20.5
+    PRA
+    DEN - F
+    Cameron Johnson
+    vs LAL Thu 7:10pm
+    17.5
+    PRA
+    LAL - C
+    Deandre Ayton
+    @ DEN Thu 7:10pm
+    17.5
+    PRA
+    DEN - G-F
+    Tim Hardaway
+    vs LAL Thu 7:10pm
+    16.5
+    PRA
+    DEN - G-F
+    Bruce Brown
+    vs LAL Thu 7:10pm
+    14.5
+    PRA
+    LAL - G
+    Luke Kennard
+    @ DEN Thu 7:10pm
+    11.5
+    PRA
+    LAL - G
+    Marcus Smart
+    @ DEN Thu 7:10pm
+    12.5
+    PRA
+    LAL - F
+    Rui Hachimura
+    @ DEN Thu 7:10pm
+    11.5
+    PRA
+    LAL - C-F
+    Jaxson Hayes
+    @ DEN Thu 7:10pm
+    9.5
+    PRA
+    NOP - F
+    Trey Murphy
+    @ SAC Thu 7:10pm
+    32.5
+    PRA
+    NOP - F
+    Zion Williamson
+    @ SAC Thu 7:10pm
+    32.5
+    PRA
+    NOP - G-F
+    Saddiq Bey
+    @ SAC Thu 7:10pm
+    30.5
+    PRA
+    SAC - C
+    Maxime Raynaud
+    vs NOP Thu 7:10pm
+    27.5
+    PRA
+    SAC - G
+    Russell Westbrook
+    vs NOP Thu 7:10pm
+    23.5
+    PRA
+    SAC - G
+    Nique Clifford
+    vs NOP Thu 7:10pm
+    24.5
+    PRA
+    SAC - F
+    Precious Achiuwa
+    vs NOP Thu 7:10pm
+    23.5
+    PRA
+    SAC - G-F
+    DeMar DeRozan
+    vs NOP Thu 7:10pm
+    21.5
+    PRA
+    NOP - F
+    Herbert Jones
+    @ SAC Thu 7:10pm
+    17.5
     PRA
 
     Privacy policy
@@ -851,405 +1154,579 @@ Enable Accessibility
 
 Invite Friends
 Get $25
-$13.15
-5.00
+$13.55
+2.00
 
-    NYK - C-F
-    Karl-Anthony Towns
-    vs OKC Wed 4:10pm
-    12.5
-    Rebounds
-    Trending45.5K
-    OKC - C-F
-    Chet Holmgren
-    @ NYK Wed 4:10pm
+    ORL - F
+    Paolo Banchero
+    vs DAL Thu 4:10pm
     8.5
     Rebounds
-    OKC - C-F
-    Isaiah Hartenstein
-    @ NYK Wed 4:10pm
-    8
+    DAL - F-C
+    Daniel Gafford
+    @ ORL Thu 4:10pm
+    6
     Rebounds
-    NYK - G
-    Josh Hart
-    vs OKC Wed 4:10pm
-    7
-    Rebounds
-    OKC - G
-    Shai Gilgeous-Alexander
-    @ NYK Wed 4:10pm
-    4
-    Rebounds
-    NYK - F-G
-    OG Anunoby
-    vs OKC Wed 4:10pm
-    5
-    Rebounds
-    OKC - G
-    Luguentz Dort
-    @ NYK Wed 4:10pm
-    2.5
-    Rebounds
-    OKC - G
-    Alex Caruso
-    @ NYK Wed 4:10pm
-    1.5
-    Rebounds
-    OKC - G
-    Cason Wallace
-    @ NYK Wed 4:10pm
-    2.5
-    Rebounds
-    NYK - G
-    Jalen Brunson
-    vs OKC Wed 4:10pm
-    2.5
-    Rebounds
-    NYK - G-F
-    Mikal Bridges
-    vs OKC Wed 4:10pm
-    2.5
-    Rebounds
-    OKC - G
-    Isaiah Joe
-    @ NYK Wed 4:10pm
-    2.5
-    Rebounds
-    OKC - G
-    Jared McCain
-    @ NYK Wed 4:10pm
-    1.5
-    Rebounds
-    NYK - G
-    Jose Alvarado
-    vs OKC Wed 4:10pm
-    1.5
-    Rebounds
-    NYK - G
-    Landry Shamet
-    vs OKC Wed 4:10pm
-    1.5
-    Rebounds
-    CHA - F
-    Moussa Diabaté
-    @ BOS Wed 4:40pm
-    9
-    Rebounds
-    BOS - C
-    Neemias Queta
-    vs CHA Wed 4:40pm
+    ORL - C-F
+    Wendell Carter
+    vs DAL Thu 4:10pm
     7.5
     Rebounds
-    BOS - C
-    Nikola Vučević
-    vs CHA Wed 4:40pm
-    6.5
-    Rebounds
-    BOS - G-F
-    Jaylen Brown
-    vs CHA Wed 4:40pm
-    6.5
-    Rebounds
-    BOS - G
-    Baylor Scheierman
-    vs CHA Wed 4:40pm
+    DAL - F
+    Naji Marshall
+    @ ORL Thu 4:10pm
     4.5
     Rebounds
-    CHA - F
-    Brandon Miller
-    @ BOS Wed 4:40pm
-    4.5
-    Rebounds
-    CHA - G-F
-    Kon Knueppel
-    @ BOS Wed 4:40pm
-    5
-    Rebounds
-    CHA - F
-    Miles Bridges
-    @ BOS Wed 4:40pm
+    DAL - F
+    P.J. Washington
+    @ ORL Thu 4:10pm
     5.5
     Rebounds
-    BOS - G
-    Derrick White
-    vs CHA Wed 4:40pm
+    DAL - F
+    Cooper Flagg
+    @ ORL Thu 4:10pm
+    5.5
+    Rebounds
+    ORL - F
+    Tristan Silva
+    vs DAL Thu 4:10pm
+    4.5
+    Rebounds
+    ORL - G
+    Desmond Bane
+    vs DAL Thu 4:10pm
     3.5
     Rebounds
-    CHA - G
-    LaMelo Ball
-    @ BOS Wed 4:40pm
-    4
-    Rebounds
-    CHA - C
-    Ryan Kalkbrenner
-    @ BOS Wed 4:40pm
+    DAL - G
+    Max Christie
+    @ ORL Thu 4:10pm
     3.5
     Rebounds
-    BOS - G
-    Payton Pritchard
-    vs CHA Wed 4:40pm
+    ORL - G
+    Anthony Black
+    vs DAL Thu 4:10pm
+    3.5
+    Rebounds
+    ORL - G
+    Jalen Suggs
+    vs DAL Thu 4:10pm
     2.5
     Rebounds
-    BOS - F
-    Sam Hauser
-    vs CHA Wed 4:40pm
+    DAL - G
+    Brandon Williams
+    @ ORL Thu 4:10pm
     2.5
-    Rebounds
-    CHA - G
-    Coby White
-    @ BOS Wed 4:40pm
-    1.5
-    Rebounds
-    PHI - C
-    Andre Drummond
-    vs UTA Wed 4:40pm
-    10.5
     Rebounds
     UTA - C
     Kyle Filipowski
-    @ PHI Wed 4:40pm
-    7.5
+    @ WAS Thu 4:10pm
+    8.5
     Rebounds
-    PHI - F
-    Adem Bona
-    vs UTA Wed 4:40pm
+    WAS - G-F
+    Justin Champagnie
+    vs UTA Thu 4:10pm
     5.5
+    Rebounds
+    WAS - F
+    Will Riley
+    vs UTA Thu 4:10pm
+    3.5
     Rebounds
     UTA - F
     Ace Bailey
-    @ PHI Wed 4:40pm
-    5
+    @ WAS Thu 4:10pm
+    4.5
     Rebounds
-    PHI - F
-    Dominick Barlow
-    vs UTA Wed 4:40pm
-    5
+    WAS - G
+    Bilal Coulibaly
+    vs UTA Thu 4:10pm
+    3.5
     Rebounds
-    PHI - G
-    Quentin Grimes
-    vs UTA Wed 4:40pm
-    4
-    Rebounds
-    PHI - G
-    Tyrese Maxey
-    vs UTA Wed 4:40pm
-    4
-    Rebounds
-    UTA - G
-    Keyonte George
-    @ PHI Wed 4:40pm
-    1.5
+    WAS - G
+    Bub Carrington
+    vs UTA Thu 4:10pm
+    3.5
     Rebounds
     UTA - F
-    Brice Sensabaugh
-    @ PHI Wed 4:40pm
+    Cody Williams
+    @ WAS Thu 4:10pm
     2.5
     Rebounds
     UTA - G
-    Isaiah Collier
-    @ PHI Wed 4:40pm
+    Keyonte George
+    @ WAS Thu 4:10pm
+    2.5
+    Rebounds
+    WAS - G
+    Tre Johnson
+    vs UTA Thu 4:10pm
     1.5
     Rebounds
-    PHI - G
-    Cameron Payne
-    vs UTA Wed 4:40pm
+    WAS - G
+    Trae Young
+    vs UTA Thu 4:10pm
     1.5
     Rebounds
-    POR - C
-    Donovan Clingan
-    @ MEM Wed 5:10pm
+    MIA - C-F
+    Bam Adebayo
+    vs BKN Thu 4:40pm
+    9.5
+    Rebounds
+    BKN - C
+    Nic Claxton
+    @ MIA Thu 4:40pm
+    6.5
+    Rebounds
+    BKN - F
+    Danny Wolf
+    @ MIA Thu 4:40pm
+    4.5
+    Rebounds
+    MIA - F
+    Andrew Wiggins
+    vs BKN Thu 4:40pm
+    3.5
+    Rebounds
+    BKN - F
+    Michael Porter
+    @ MIA Thu 4:40pm
+    4.5
+    Rebounds
+    MIA - G
+    Jaime Jaquez
+    vs BKN Thu 4:40pm
+    3.5
+    Rebounds
+    BKN - F-C
+    Noah Clowney
+    @ MIA Thu 4:40pm
+    3.5
+    Rebounds
+    MIA - G
+    Pelle Larsson
+    vs BKN Thu 4:40pm
+    2.5
+    Rebounds
+    MIA - G
+    Tyler Herro
+    vs BKN Thu 4:40pm
+    3.5
+    Rebounds
+    MIA - G
+    Davion Mitchell
+    vs BKN Thu 4:40pm
+    1.5
+    Rebounds
+    BKN - G
+    Nolan Traore
+    @ MIA Thu 4:40pm
+    1.5
+    Rebounds
+    HOU - C
+    Alperen Sengun
+    vs GSW Thu 4:40pm
+    8.5
+    Rebounds
+    HOU - G-F
+    Amen Thompson
+    vs GSW Thu 4:40pm
+    6.5
+    Rebounds
+    HOU - F
+    Jabari Smith
+    vs GSW Thu 4:40pm
+    6
+    Rebounds
+    HOU - F
+    Tari Eason
+    vs GSW Thu 4:40pm
+    5.5
+    Rebounds
+    GSW - C-F
+    Al Horford
+    @ HOU Thu 4:40pm
+    4.5
+    Rebounds
+    GSW - F
+    Draymond Green
+    @ HOU Thu 4:40pm
+    4.5
+    Rebounds
+    GSW - F
+    Gui Santos
+    @ HOU Thu 4:40pm
+    5.5
+    Rebounds
+    GSW - G
+    Brandin Podziemski
+    @ HOU Thu 4:40pm
+    5.5
+    Rebounds
+    HOU - F
+    Kevin Durant
+    vs GSW Thu 4:40pm
+    4.5
+    Rebounds
+    GSW - G
+    De'Anthony Melton
+    @ HOU Thu 4:40pm
+    2.5
+    Rebounds
+    HOU - G
+    Reed Sheppard
+    vs GSW Thu 4:40pm
+    2.5
+    Rebounds
+    HOU - F
+    Dorian Finney-Smith
+    vs GSW Thu 4:40pm
+    1.5
+    Rebounds
+    GSW - G
+    Pat Spencer
+    @ HOU Thu 4:40pm
+    2.5
+    Rebounds
+    SAS - F-C
+    Victor Wembanyama
+    vs DET Thu 5:10pm
+    11.5
+    Rebounds
+    Trending2.8K
+    DET - C
+    Jalen Duren
+    @ SAS Thu 5:10pm
+    10.5
+    Rebounds
+    DET - G-F
+    Ausar Thompson
+    @ SAS Thu 5:10pm
+    5.5
+    Rebounds
+    DET - G
+    Cade Cunningham
+    @ SAS Thu 5:10pm
+    6
+    Rebounds
+    SAS - F
+    Julian Champagnie
+    vs DET Thu 5:10pm
+    4.5
+    Rebounds
+    SAS - G
+    Stephon Castle
+    vs DET Thu 5:10pm
+    4.5
+    Rebounds
+    DET - F-C
+    Isaiah Stewart
+    @ SAS Thu 5:10pm
+    4.5
+    Rebounds
+    DET - F
+    Tobias Harris
+    @ SAS Thu 5:10pm
+    5
+    Rebounds
+    SAS - F-G
+    Keldon Johnson
+    vs DET Thu 5:10pm
+    3.5
+    Rebounds
+    SAS - C-F
+    Luke Kornet
+    vs DET Thu 5:10pm
+    4.5
+    Rebounds
+    SAS - G-F
+    Devin Vassell
+    vs DET Thu 5:10pm
+    3.5
+    Rebounds
+    DET - F
+    Ronald Holland
+    @ SAS Thu 5:10pm
+    3.5
+    Rebounds
+    SAS - G
+    De'Aaron Fox
+    vs DET Thu 5:10pm
+    2.5
+    Rebounds
+    SAS - G
+    Dylan Harper
+    vs DET Thu 5:10pm
+    2.5
+    Rebounds
+    DET - F
+    Duncan Robinson
+    @ SAS Thu 5:10pm
+    2.5
+    Rebounds
+    DET - G
+    Caris LeVert
+    @ SAS Thu 5:10pm
+    1.5
+    Rebounds
+    MIN - C
+    Rudy Gobert
+    vs TOR Thu 5:10pm
+    10.5
+    Rebounds
+    TOR - C
+    Jakob Poeltl
+    @ MIN Thu 5:10pm
+    6.5
+    Rebounds
+    MIN - F-C
+    Julius Randle
+    vs TOR Thu 5:10pm
+    5.5
+    Rebounds
+    TOR - F-G
+    Scottie Barnes
+    @ MIN Thu 5:10pm
+    7.5
+    Rebounds
+    MIN - C-F
+    Naz Reid
+    vs TOR Thu 5:10pm
+    5.5
+    Rebounds
+    TOR - F
+    Brandon Ingram
+    @ MIN Thu 5:10pm
+    4.5
+    Rebounds
+    TOR - F-G
+    RJ Barrett
+    @ MIN Thu 5:10pm
+    5.5
+    Rebounds
+    MIN - G
+    Anthony Edwards
+    vs TOR Thu 5:10pm
+    5
+    Rebounds
+    MIN - F
+    Jaden McDaniels
+    vs TOR Thu 5:10pm
+    4.5
+    Rebounds
+    MIN - G
+    Donte DiVincenzo
+    vs TOR Thu 5:10pm
+    4
+    Rebounds
+    TOR - G
+    Immanuel Quickley
+    @ MIN Thu 5:10pm
+    3.5
+    Rebounds
+    TOR - F-C
+    Sandro Mamukelashvili
+    @ MIN Thu 5:10pm
+    3.5
+    Rebounds
+    MIN - G
+    Ayo Dosunmu
+    vs TOR Thu 5:10pm
+    1.5
+    Rebounds
+    TOR - G
+    Jamal Shead
+    @ MIN Thu 5:10pm
+    3.5
+    Rebounds
+    CHI - G
+    Josh Giddey
+    @ PHX Thu 6:10pm
+    6.5
+    Rebounds
+    CHI - F
+    Guerschon Yabusele
+    @ PHX Thu 6:10pm
+    5.5
+    Rebounds
+    CHI - F
+    Matas Buzelis
+    @ PHX Thu 6:10pm
+    6.5
+    Rebounds
+    PHX - F
+    Oso Ighodaro
+    vs CHI Thu 6:10pm
+    5.5
+    Rebounds
+    PHX - G
+    Collin Gillespie
+    vs CHI Thu 6:10pm
+    3.5
+    Rebounds
+    PHX - G
+    Devin Booker
+    vs CHI Thu 6:10pm
+    3.5
+    Rebounds
+    PHX - F
+    Royce O'Neale
+    vs CHI Thu 6:10pm
+    5.5
+    Rebounds
+    PHX - F
+    Ryan Dunn
+    vs CHI Thu 6:10pm
+    3.5
+    Rebounds
+    PHX - G
+    Jalen Green
+    vs CHI Thu 6:10pm
+    3.5
+    Rebounds
+    CHI - F-G
+    Isaac Okoro
+    @ PHX Thu 6:10pm
+    2.5
+    Rebounds
+    CHI - G
+    Tre Jones
+    @ PHX Thu 6:10pm
+    2.5
+    Rebounds
+    PHX - G
+    Grayson Allen
+    vs CHI Thu 6:10pm
+    3.5
+    Rebounds
+    DEN - C
+    Nikola Jokić
+    vs LAL Thu 7:10pm
     13.5
     Rebounds
-    POR - C-F
-    Robert Williams
-    @ MEM Wed 5:10pm
+    LAL - C
+    Deandre Ayton
+    @ DEN Thu 7:10pm
     6.5
     Rebounds
-    POR - F
-    Deni Avdija
-    @ MEM Wed 5:10pm
-    6
+    LAL - F-G
+    Luka Dončić
+    @ DEN Thu 7:10pm
+    6.5
     Rebounds
-    MEM - F
-    GG Jackson
-    vs POR Wed 5:10pm
-    5.5
-    Rebounds
-    MEM - F
-    Taylor Hendricks
-    vs POR Wed 5:10pm
-    5.5
-    Rebounds
-    POR - F
-    Toumani Camara
-    @ MEM Wed 5:10pm
-    5
-    Rebounds
-    MEM - F
-    Olivier-Maxence Prosper
-    vs POR Wed 5:10pm
+    DEN - G
+    Christian Braun
+    vs LAL Thu 7:10pm
     4.5
     Rebounds
-    POR - F
-    Jerami Grant
-    @ MEM Wed 5:10pm
-    2.5
+    DEN - C
+    Jonas Valančiūnas
+    vs LAL Thu 7:10pm
+    4.5
     Rebounds
-    POR - G
-    Jrue Holiday
-    @ MEM Wed 5:10pm
+    LAL - F
+    LeBron James
+    @ DEN Thu 7:10pm
+    4.5
+    Rebounds
+    LAL - G
+    Austin Reaves
+    @ DEN Thu 7:10pm
     4
     Rebounds
-    MEM - G
-    Walter Clayton
-    vs POR Wed 5:10pm
+    DEN - G-F
+    Bruce Brown
+    vs LAL Thu 7:10pm
+    3.5
+    Rebounds
+    DEN - F
+    Cameron Johnson
+    vs LAL Thu 7:10pm
+    3.5
+    Rebounds
+    DEN - G
+    Jamal Murray
+    vs LAL Thu 7:10pm
+    3.5
+    Rebounds
+    LAL - C-F
+    Jaxson Hayes
+    @ DEN Thu 7:10pm
+    3.5
+    Rebounds
+    LAL - F
+    Jake LaRavia
+    @ DEN Thu 7:10pm
+    1.5
+    Rebounds
+    LAL - G
+    Marcus Smart
+    @ DEN Thu 7:10pm
+    1.5
+    Rebounds
+    LAL - F
+    Rui Hachimura
+    @ DEN Thu 7:10pm
     2.5
     Rebounds
-    POR - G
-    Scoot Henderson
-    @ MEM Wed 5:10pm
+    DEN - G-F
+    Tim Hardaway
+    vs LAL Thu 7:10pm
     2.5
     Rebounds
-    MEM - F
-    Jaylen Wells
-    vs POR Wed 5:10pm
-    2.5
+    DEN - G
+    Julian Strawther
+    vs LAL Thu 7:10pm
+    1.5
     Rebounds
-    MEM - G
-    Cam Spencer
-    vs POR Wed 5:10pm
-    2.5
+    LAL - G
+    Luke Kennard
+    @ DEN Thu 7:10pm
+    1.5
     Rebounds
-    ATL - F
-    Jalen Johnson
-    @ MIL Wed 6:40pm
-    10
-    Rebounds
-    Trending29.5K
-    MIL - F
-    Giannis Antetokounmpo
-    vs ATL Wed 6:40pm
+    SAC - C
+    Maxime Raynaud
+    vs NOP Thu 7:10pm
     10.5
     Rebounds
-    ATL - F-C
-    Onyeka Okongwu
-    @ MIL Wed 6:40pm
-    7
+    SAC - F
+    Precious Achiuwa
+    vs NOP Thu 7:10pm
+    8.5
     Rebounds
-    ATL - G
-    Dyson Daniels
-    @ MIL Wed 6:40pm
-    6
-    Rebounds
-    ATL - F
-    Jonathan Kuminga
-    @ MIL Wed 6:40pm
-    4.5
-    Rebounds
-    MIL - F
-    Bobby Portis
-    vs ATL Wed 6:40pm
+    SAC - G
+    Nique Clifford
+    vs NOP Thu 7:10pm
     5.5
     Rebounds
-    ATL - C
-    Jock Landale
-    @ MIL Wed 6:40pm
-    5
-    Rebounds
-    MIL - C-F
-    Myles Turner
-    vs ATL Wed 6:40pm
-    5
-    Rebounds
-    MIL - G
-    Ryan Rollins
-    vs ATL Wed 6:40pm
-    4.5
-    Rebounds
-    ATL - G
-    CJ McCollum
-    @ MIL Wed 6:40pm
-    2.5
-    Rebounds
-    ATL - G
-    Nickeil Alexander-Walker
-    @ MIL Wed 6:40pm
-    2.5
-    Rebounds
-    ATL - F
-    Zaccharie Risacher
-    @ MIL Wed 6:40pm
-    2.5
-    Rebounds
-    MIL - F
-    Ousmane Dieng
-    vs ATL Wed 6:40pm
-    2.5
-    Rebounds
-    MIL - G
-    AJ Green
-    vs ATL Wed 6:40pm
-    1.5
-    Rebounds
-    LAC - F
-    Kawhi Leonard
-    vs IND Wed 7:40pm
-    6.5
-    Rebounds
-    LAC - G-F
-    Bennedict Mathurin
-    vs IND Wed 7:40pm
-    6
-    Rebounds
-    IND - F
-    Pascal Siakam
-    @ LAC Wed 7:40pm
+    NOP - G-F
+    Saddiq Bey
+    @ SAC Thu 7:10pm
     5.5
     Rebounds
-    LAC - C
-    Brook Lopez
-    vs IND Wed 7:40pm
+    NOP - F
+    Zion Williamson
+    @ SAC Thu 7:10pm
     4.5
     Rebounds
-    IND - C
-    Jay Huff
-    @ LAC Wed 7:40pm
-    3.5
-    Rebounds
-    IND - G-F
-    Aaron Nesmith
-    @ LAC Wed 7:40pm
-    3.5
-    Rebounds
-    LAC - F
-    Derrick Jones
-    vs IND Wed 7:40pm
-    3.5
-    Rebounds
-    LAC - G
-    Kris Dunn
-    vs IND Wed 7:40pm
-    4
-    Rebounds
-    LAC - G
-    Kobe Sanders
-    vs IND Wed 7:40pm
-    2.5
-    Rebounds
-    IND - G-F
-    Andrew Nembhard
-    @ LAC Wed 7:40pm
-    1.5
-    Rebounds
-    LAC - G
-    Darius Garland
-    vs IND Wed 7:40pm
-    1.5
-    Rebounds
-    IND - G
-    T.J. McConnell
-    @ LAC Wed 7:40pm
+    NOP - F
+    Trey Murphy
+    @ SAC Thu 7:10pm
     4.5
+    Rebounds
+    NOP - F
+    Herbert Jones
+    @ SAC Thu 7:10pm
+    3.5
+    Rebounds
+    SAC - G
+    Russell Westbrook
+    vs NOP Thu 7:10pm
+    3.5
+    Rebounds
+    SAC - G-F
+    DeMar DeRozan
+    vs NOP Thu 7:10pm
+    1.5
     Rebounds
 
     Privacy policy
@@ -1270,404 +1747,552 @@ Enable Accessibility
 
 Invite Friends
 Get $25
-$13.15
-5.00
+$13.55
+2.00
 
-    OKC - G
-    Shai Gilgeous-Alexander
-    @ NYK Wed 4:10pm
+    ORL - G
+    Jalen Suggs
+    vs DAL Thu 4:10pm
     5.5
     Assists
-    NYK - G
-    Jalen Brunson
-    vs OKC Wed 4:10pm
-    6
+    ORL - F
+    Paolo Banchero
+    vs DAL Thu 4:10pm
+    4.5
     Assists
-    NYK - G
-    Josh Hart
-    vs OKC Wed 4:10pm
-    5
-    Assists
-    Trending22.9K
-    OKC - G
-    Cason Wallace
-    @ NYK Wed 4:10pm
+    ORL - G
+    Desmond Bane
+    vs DAL Thu 4:10pm
     3.5
     Assists
-    OKC - C-F
-    Isaiah Hartenstein
-    @ NYK Wed 4:10pm
+    DAL - F
+    Naji Marshall
+    @ ORL Thu 4:10pm
     2.5
     Assists
-    NYK - G
-    Jose Alvarado
-    vs OKC Wed 4:10pm
-    2.5
+    DAL - F
+    Cooper Flagg
+    @ ORL Thu 4:10pm
+    3.5
     Assists
-    NYK - G-F
-    Mikal Bridges
-    vs OKC Wed 4:10pm
-    2.5
+    DAL - G
+    Brandon Williams
+    @ ORL Thu 4:10pm
+    3.5
     Assists
-    OKC - G
-    Alex Caruso
-    @ NYK Wed 4:10pm
+    ORL - G
+    Anthony Black
+    vs DAL Thu 4:10pm
+    3.5
+    Assists
+    DAL - G
+    Max Christie
+    @ ORL Thu 4:10pm
     1.5
     Assists
-    NYK - C-F
-    Karl-Anthony Towns
-    vs OKC Wed 4:10pm
+    DAL - F
+    P.J. Washington
+    @ ORL Thu 4:10pm
     1.5
     Assists
-    NYK - F-G
-    OG Anunoby
-    vs OKC Wed 4:10pm
+    ORL - F
+    Tristan Silva
+    vs DAL Thu 4:10pm
     1.5
     Assists
-    OKC - C-F
-    Chet Holmgren
-    @ NYK Wed 4:10pm
+    ORL - C-F
+    Wendell Carter
+    vs DAL Thu 4:10pm
     1.5
     Assists
-    OKC - G
-    Isaiah Joe
-    @ NYK Wed 4:10pm
-    1.5
-    Assists
-    OKC - G
-    Jared McCain
-    @ NYK Wed 4:10pm
+    DAL - F-C
+    Daniel Gafford
+    @ ORL Thu 4:10pm
     0.5
     Assists
-    NYK - G
-    Landry Shamet
-    vs OKC Wed 4:10pm
-    1.5
+    WAS - G
+    Trae Young
+    vs UTA Thu 4:10pm
+    4.5
     Assists
-    OKC - G
-    Luguentz Dort
-    @ NYK Wed 4:10pm
-    0.5
-    Assists
-    BOS - G
-    Derrick White
-    vs CHA Wed 4:40pm
-    6
-    Assists
-    Trending20.0K
-    CHA - G
-    LaMelo Ball
-    @ BOS Wed 4:40pm
-    6
-    Assists
-    BOS - G
-    Payton Pritchard
-    vs CHA Wed 4:40pm
-    5
-    Assists
-    BOS - G-F
-    Jaylen Brown
-    vs CHA Wed 4:40pm
-    5
-    Assists
-    CHA - F
-    Brandon Miller
-    @ BOS Wed 4:40pm
-    2.5
-    Assists
-    CHA - F
-    Miles Bridges
-    @ BOS Wed 4:40pm
-    2.5
-    Assists
-    CHA - G
-    Coby White
-    @ BOS Wed 4:40pm
-    2.5
-    Assists
-    CHA - G-F
-    Kon Knueppel
-    @ BOS Wed 4:40pm
-    2.5
-    Assists
-    BOS - C
-    Nikola Vučević
-    vs CHA Wed 4:40pm
-    1.5
-    Assists
-    BOS - G
-    Baylor Scheierman
-    vs CHA Wed 4:40pm
-    1.5
-    Assists
-    BOS - F
-    Sam Hauser
-    vs CHA Wed 4:40pm
-    1.5
-    Assists
-    CHA - F
-    Moussa Diabaté
-    @ BOS Wed 4:40pm
-    1.5
-    Assists
-    BOS - C
-    Neemias Queta
-    vs CHA Wed 4:40pm
-    0.5
-    Assists
-    CHA - C
-    Ryan Kalkbrenner
-    @ BOS Wed 4:40pm
-    0.5
-    Assists
-    PHI - G
-    Tyrese Maxey
-    vs UTA Wed 4:40pm
-    6.5
-    Assists
-    UTA - G
-    Isaiah Collier
-    @ PHI Wed 4:40pm
-    7
+    WAS - G
+    Bub Carrington
+    vs UTA Thu 4:10pm
+    4.5
     Assists
     UTA - G
     Keyonte George
-    @ PHI Wed 4:40pm
+    @ WAS Thu 4:10pm
     4.5
-    Assists
-    PHI - G
-    Quentin Grimes
-    vs UTA Wed 4:40pm
-    4
     Assists
     UTA - C
     Kyle Filipowski
-    @ PHI Wed 4:40pm
+    @ WAS Thu 4:10pm
     2.5
     Assists
-    PHI - G
-    Cameron Payne
-    vs UTA Wed 4:40pm
-    2.5
+    WAS - F
+    Will Riley
+    vs UTA Thu 4:10pm
+    1.5
     Assists
     UTA - F
     Ace Bailey
-    @ PHI Wed 4:40pm
+    @ WAS Thu 4:10pm
+    1.5
+    Assists
+    WAS - G
+    Bilal Coulibaly
+    vs UTA Thu 4:10pm
+    1.5
+    Assists
+    WAS - G
+    Tre Johnson
+    vs UTA Thu 4:10pm
     1.5
     Assists
     UTA - F
-    Brice Sensabaugh
-    @ PHI Wed 4:40pm
+    Cody Williams
+    @ WAS Thu 4:10pm
     0.5
     Assists
-    PHI - C
-    Andre Drummond
-    vs UTA Wed 4:40pm
-    0.5
-    Assists
-    PHI - F
-    Dominick Barlow
-    vs UTA Wed 4:40pm
-    0.5
-    Assists
-    PHI - F
-    Adem Bona
-    vs UTA Wed 4:40pm
-    0.5
-    Assists
-    MEM - G
-    Cam Spencer
-    vs POR Wed 5:10pm
+    MIA - G
+    Davion Mitchell
+    vs BKN Thu 4:40pm
     4.5
     Assists
-    MEM - G
-    Walter Clayton
-    vs POR Wed 5:10pm
-    5.5
+    BKN - G
+    Nolan Traore
+    @ MIA Thu 4:40pm
+    4.5
     Assists
-    POR - G
-    Jrue Holiday
-    @ MEM Wed 5:10pm
-    5
-    Assists
-    POR - G
-    Scoot Henderson
-    @ MEM Wed 5:10pm
-    5
-    Assists
-    POR - F
-    Deni Avdija
-    @ MEM Wed 5:10pm
-    5
-    Assists
-    POR - C
-    Donovan Clingan
-    @ MEM Wed 5:10pm
-    2.5
-    Assists
-    POR - F
-    Toumani Camara
-    @ MEM Wed 5:10pm
-    1.5
-    Assists
-    POR - F
-    Jerami Grant
-    @ MEM Wed 5:10pm
-    1.5
-    Assists
-    MEM - F
-    Jaylen Wells
-    vs POR Wed 5:10pm
-    1.5
-    Assists
-    MEM - F
-    GG Jackson
-    vs POR Wed 5:10pm
-    1.5
-    Assists
-    MEM - F
-    Olivier-Maxence Prosper
-    vs POR Wed 5:10pm
-    1.5
-    Assists
-    POR - C-F
-    Robert Williams
-    @ MEM Wed 5:10pm
-    0.5
-    Assists
-    MEM - F
-    Taylor Hendricks
-    vs POR Wed 5:10pm
-    0.5
-    Assists
-    ATL - F
-    Jalen Johnson
-    @ MIL Wed 6:40pm
-    7
-    Assists
-    ATL - G
-    Dyson Daniels
-    @ MIL Wed 6:40pm
-    5.5
-    Assists
-    MIL - F
-    Giannis Antetokounmpo
-    vs ATL Wed 6:40pm
-    5.5
-    Assists
-    ATL - G
-    Nickeil Alexander-Walker
-    @ MIL Wed 6:40pm
-    2.5
-    Assists
-    MIL - G
-    Ryan Rollins
-    vs ATL Wed 6:40pm
-    6
-    Assists
-    ATL - G
-    CJ McCollum
-    @ MIL Wed 6:40pm
+    MIA - G
+    Jaime Jaquez
+    vs BKN Thu 4:40pm
     3.5
     Assists
-    MIL - F
-    Ousmane Dieng
-    vs ATL Wed 6:40pm
+    BKN - C
+    Nic Claxton
+    @ MIA Thu 4:40pm
+    3.5
+    Assists
+    MIA - G
+    Pelle Larsson
+    vs BKN Thu 4:40pm
+    3.5
+    Assists
+    MIA - G
+    Tyler Herro
+    vs BKN Thu 4:40pm
     2.5
     Assists
-    ATL - F-C
-    Onyeka Okongwu
-    @ MIL Wed 6:40pm
+    MIA - C-F
+    Bam Adebayo
+    vs BKN Thu 4:40pm
     2.5
     Assists
-    ATL - F
-    Jonathan Kuminga
-    @ MIL Wed 6:40pm
+    MIA - F
+    Andrew Wiggins
+    vs BKN Thu 4:40pm
     2.5
     Assists
-    MIL - G
-    AJ Green
-    vs ATL Wed 6:40pm
+    BKN - F
+    Michael Porter
+    @ MIA Thu 4:40pm
+    2.5
+    Assists
+    BKN - F
+    Danny Wolf
+    @ MIA Thu 4:40pm
+    2.5
+    Assists
+    BKN - F-C
+    Noah Clowney
+    @ MIA Thu 4:40pm
+    0.5
+    Assists
+    HOU - C
+    Alperen Sengun
+    vs GSW Thu 4:40pm
+    4.5
+    Assists
+    GSW - G
+    Brandin Podziemski
+    @ HOU Thu 4:40pm
+    4.5
+    Assists
+    GSW - F
+    Draymond Green
+    @ HOU Thu 4:40pm
+    5
+    Assists
+    HOU - F
+    Kevin Durant
+    vs GSW Thu 4:40pm
+    4.5
+    Assists
+    GSW - G
+    Pat Spencer
+    @ HOU Thu 4:40pm
+    4.5
+    Assists
+    HOU - G-F
+    Amen Thompson
+    vs GSW Thu 4:40pm
+    3.5
+    Assists
+    HOU - G
+    Reed Sheppard
+    vs GSW Thu 4:40pm
+    2.5
+    Assists
+    GSW - F
+    Gui Santos
+    @ HOU Thu 4:40pm
     1.5
     Assists
-    MIL - F
-    Bobby Portis
-    vs ATL Wed 6:40pm
+    GSW - C-F
+    Al Horford
+    @ HOU Thu 4:40pm
+    2.5
+    Assists
+    GSW - G
+    De'Anthony Melton
+    @ HOU Thu 4:40pm
+    2.5
+    Assists
+    HOU - F
+    Tari Eason
+    vs GSW Thu 4:40pm
     1.5
     Assists
-    ATL - C
-    Jock Landale
-    @ MIL Wed 6:40pm
-    0.5
+    HOU - F
+    Jabari Smith
+    vs GSW Thu 4:40pm
+    3.5
     Assists
-    MIL - C-F
-    Myles Turner
-    vs ATL Wed 6:40pm
-    0.5
+    DET - G
+    Cade Cunningham
+    @ SAS Thu 5:10pm
+    9.5
     Assists
-    ATL - F
-    Zaccharie Risacher
-    @ MIL Wed 6:40pm
-    0.5
-    Assists
-    IND - G-F
-    Andrew Nembhard
-    @ LAC Wed 7:40pm
+    SAS - G
+    De'Aaron Fox
+    vs DET Thu 5:10pm
     5.5
     Assists
-    LAC - G
-    Kris Dunn
-    vs IND Wed 7:40pm
-    5
+    SAS - G
+    Stephon Castle
+    vs DET Thu 5:10pm
+    6.5
     Assists
-    LAC - G
-    Darius Garland
-    vs IND Wed 7:40pm
-    5
+    SAS - G
+    Dylan Harper
+    vs DET Thu 5:10pm
+    3.5
     Assists
-    LAC - F
-    Kawhi Leonard
-    vs IND Wed 7:40pm
-    4
-    Assists
-    IND - G
-    T.J. McConnell
-    @ LAC Wed 7:40pm
-    4
-    Assists
-    IND - F
-    Pascal Siakam
-    @ LAC Wed 7:40pm
+    SAS - F-C
+    Victor Wembanyama
+    vs DET Thu 5:10pm
     2.5
     Assists
-    LAC - G-F
-    Bennedict Mathurin
-    vs IND Wed 7:40pm
+    DET - G-F
+    Ausar Thompson
+    @ SAS Thu 5:10pm
     2.5
     Assists
-    IND - G-F
-    Aaron Nesmith
-    @ LAC Wed 7:40pm
+    SAS - G-F
+    Devin Vassell
+    vs DET Thu 5:10pm
     1.5
     Assists
-    LAC - C
-    Brook Lopez
-    vs IND Wed 7:40pm
+    DET - F
+    Duncan Robinson
+    @ SAS Thu 5:10pm
     1.5
     Assists
-    IND - C
-    Jay Huff
-    @ LAC Wed 7:40pm
+    DET - C
+    Jalen Duren
+    @ SAS Thu 5:10pm
     1.5
     Assists
-    LAC - G
-    Kobe Sanders
-    vs IND Wed 7:40pm
+    DET - F
+    Tobias Harris
+    @ SAS Thu 5:10pm
     1.5
     Assists
-    LAC - F
-    Derrick Jones
-    vs IND Wed 7:40pm
+    DET - G
+    Caris LeVert
+    @ SAS Thu 5:10pm
+    1.5
+    Assists
+    DET - F-C
+    Isaiah Stewart
+    @ SAS Thu 5:10pm
+    0.5
+    Assists
+    SAS - F
+    Julian Champagnie
+    vs DET Thu 5:10pm
+    0.5
+    Assists
+    SAS - F-G
+    Keldon Johnson
+    vs DET Thu 5:10pm
+    2.5
+    Assists
+    SAS - C-F
+    Luke Kornet
+    vs DET Thu 5:10pm
+    0.5
+    Assists
+    DET - F
+    Ronald Holland
+    @ SAS Thu 5:10pm
+    0.5
+    Assists
+    TOR - G
+    Immanuel Quickley
+    @ MIN Thu 5:10pm
+    5.5
+    Assists
+    MIN - F-C
+    Julius Randle
+    vs TOR Thu 5:10pm
+    3.5
+    Assists
+    TOR - F-G
+    Scottie Barnes
+    @ MIN Thu 5:10pm
+    4.5
+    Assists
+    TOR - G
+    Jamal Shead
+    @ MIN Thu 5:10pm
+    3.5
+    Assists
+    MIN - G
+    Anthony Edwards
+    vs TOR Thu 5:10pm
+    3.5
+    Assists
+    TOR - F
+    Brandon Ingram
+    @ MIN Thu 5:10pm
+    3.5
+    Assists
+    MIN - G
+    Donte DiVincenzo
+    vs TOR Thu 5:10pm
+    3.5
+    Assists
+    TOR - F-G
+    RJ Barrett
+    @ MIN Thu 5:10pm
+    2.5
+    Assists
+    MIN - G
+    Ayo Dosunmu
+    vs TOR Thu 5:10pm
+    2.5
+    Assists
+    MIN - F
+    Jaden McDaniels
+    vs TOR Thu 5:10pm
+    2.5
+    Assists
+    MIN - C-F
+    Naz Reid
+    vs TOR Thu 5:10pm
+    1.5
+    Assists
+    TOR - C
+    Jakob Poeltl
+    @ MIN Thu 5:10pm
+    1.5
+    Assists
+    MIN - C
+    Rudy Gobert
+    vs TOR Thu 5:10pm
+    0.5
+    Assists
+    CHI - G
+    Josh Giddey
+    @ PHX Thu 6:10pm
+    6.5
+    Assists
+    PHX - G
+    Devin Booker
+    vs CHI Thu 6:10pm
+    5.5
+    Assists
+    CHI - G
+    Tre Jones
+    @ PHX Thu 6:10pm
+    3.5
+    Assists
+    PHX - G
+    Collin Gillespie
+    vs CHI Thu 6:10pm
+    4.5
+    Assists
+    PHX - G
+    Grayson Allen
+    vs CHI Thu 6:10pm
+    3.5
+    Assists
+    PHX - F
+    Royce O'Neale
+    vs CHI Thu 6:10pm
+    2.5
+    Assists
+    CHI - F
+    Matas Buzelis
+    @ PHX Thu 6:10pm
+    1.5
+    Assists
+    PHX - G
+    Jalen Green
+    vs CHI Thu 6:10pm
+    2.5
+    Assists
+    CHI - F
+    Guerschon Yabusele
+    @ PHX Thu 6:10pm
+    1.5
+    Assists
+    CHI - F-G
+    Isaac Okoro
+    @ PHX Thu 6:10pm
+    0.5
+    Assists
+    DEN - C
+    Nikola Jokić
+    vs LAL Thu 7:10pm
+    9.5
+    Assists
+    LAL - F-G
+    Luka Dončić
+    @ DEN Thu 7:10pm
+    7.5
+    Assists
+    DEN - G
+    Jamal Murray
+    vs LAL Thu 7:10pm
+    6.5
+    Assists
+    LAL - F
+    LeBron James
+    @ DEN Thu 7:10pm
+    5.5
+    Assists
+    LAL - G
+    Austin Reaves
+    @ DEN Thu 7:10pm
+    2.5
+    Assists
+    LAL - G
+    Marcus Smart
+    @ DEN Thu 7:10pm
+    1.5
+    Assists
+    DEN - G
+    Christian Braun
+    vs LAL Thu 7:10pm
+    1.5
+    Assists
+    DEN - G-F
+    Bruce Brown
+    vs LAL Thu 7:10pm
+    1.5
+    Assists
+    DEN - F
+    Cameron Johnson
+    vs LAL Thu 7:10pm
+    1.5
+    Assists
+    LAL - F
+    Jake LaRavia
+    @ DEN Thu 7:10pm
+    0.5
+    Assists
+    DEN - G
+    Julian Strawther
+    vs LAL Thu 7:10pm
+    0.5
+    Assists
+    LAL - G
+    Luke Kennard
+    @ DEN Thu 7:10pm
+    0.5
+    Assists
+    DEN - G-F
+    Tim Hardaway
+    vs LAL Thu 7:10pm
+    0.5
+    Assists
+    DEN - C
+    Jonas Valančiūnas
+    vs LAL Thu 7:10pm
+    2.5
+    Assists
+    LAL - C
+    Deandre Ayton
+    @ DEN Thu 7:10pm
+    0.5
+    Assists
+    LAL - C-F
+    Jaxson Hayes
+    @ DEN Thu 7:10pm
+    1.5
+    Assists
+    LAL - F
+    Rui Hachimura
+    @ DEN Thu 7:10pm
+    1.5
+    Assists
+    SAC - G
+    Russell Westbrook
+    vs NOP Thu 7:10pm
+    4.5
+    Assists
+    NOP - F
+    Trey Murphy
+    @ SAC Thu 7:10pm
+    4.5
+    Assists
+    SAC - G-F
+    DeMar DeRozan
+    vs NOP Thu 7:10pm
+    3.5
+    Assists
+    NOP - F
+    Herbert Jones
+    @ SAC Thu 7:10pm
+    2.5
+    Assists
+    NOP - F
+    Zion Williamson
+    @ SAC Thu 7:10pm
+    3.5
+    Assists
+    SAC - G
+    Nique Clifford
+    vs NOP Thu 7:10pm
+    3.5
+    Assists
+    NOP - G-F
+    Saddiq Bey
+    @ SAC Thu 7:10pm
+    2.5
+    Assists
+    SAC - C
+    Maxime Raynaud
+    vs NOP Thu 7:10pm
+    1.5
+    Assists
+    SAC - F
+    Precious Achiuwa
+    vs NOP Thu 7:10pm
     0.5
     Assists
 
@@ -1689,399 +2314,534 @@ Enable Accessibility
 
 Invite Friends
 Get $25
-$13.15
-5.00
+$13.55
+2.00
 
-    NYK - C-F
-    Karl-Anthony Towns
-    vs OKC Wed 4:10pm
+    ORL - F
+    Paolo Banchero
+    vs DAL Thu 4:10pm
     14.5
     Rebs+Asts
-    OKC - C-F
-    Isaiah Hartenstein
-    @ NYK Wed 4:10pm
-    11.5
-    Rebs+Asts
-    NYK - G
-    Josh Hart
-    vs OKC Wed 4:10pm
-    12.5
-    Rebs+Asts
-    OKC - C-F
-    Chet Holmgren
-    @ NYK Wed 4:10pm
-    8.5
-    Rebs+Asts
-    OKC - G
-    Shai Gilgeous-Alexander
-    @ NYK Wed 4:10pm
-    10.5
-    Rebs+Asts
-    NYK - G
-    Jalen Brunson
-    vs OKC Wed 4:10pm
+    ORL - G
+    Jalen Suggs
+    vs DAL Thu 4:10pm
     9
     Rebs+Asts
-    OKC - G
-    Cason Wallace
-    @ NYK Wed 4:10pm
-    6
+    ORL - C-F
+    Wendell Carter
+    vs DAL Thu 4:10pm
+    9.5
     Rebs+Asts
-    NYK - G-F
-    Mikal Bridges
-    vs OKC Wed 4:10pm
-    6.5
-    Rebs+Asts
-    NYK - F-G
-    OG Anunoby
-    vs OKC Wed 4:10pm
+    DAL - F
+    Cooper Flagg
+    @ ORL Thu 4:10pm
     7.5
     Rebs+Asts
-    OKC - G
-    Isaiah Joe
-    @ NYK Wed 4:10pm
-    4.5
-    Rebs+Asts
-    OKC - G
-    Alex Caruso
-    @ NYK Wed 4:10pm
-    5
-    Rebs+Asts
-    NYK - G
-    Jose Alvarado
-    vs OKC Wed 4:10pm
-    3.5
-    Rebs+Asts
-    OKC - G
-    Luguentz Dort
-    @ NYK Wed 4:10pm
-    3.5
-    Rebs+Asts
-    OKC - G
-    Jared McCain
-    @ NYK Wed 4:10pm
-    2.5
-    Rebs+Asts
-    NYK - G
-    Landry Shamet
-    vs OKC Wed 4:10pm
-    2.5
-    Rebs+Asts
-    CHA - F
-    Moussa Diabaté
-    @ BOS Wed 4:40pm
-    11
-    Rebs+Asts
-    BOS - G
-    Derrick White
-    vs CHA Wed 4:40pm
-    10
-    Rebs+Asts
-    Trending38.3K
-    BOS - G-F
-    Jaylen Brown
-    vs CHA Wed 4:40pm
-    11.5
-    Rebs+Asts
-    CHA - G
-    LaMelo Ball
-    @ BOS Wed 4:40pm
-    10.5
-    Rebs+Asts
-    BOS - C
-    Nikola Vučević
-    vs CHA Wed 4:40pm
-    9
-    Rebs+Asts
-    BOS - G
-    Payton Pritchard
-    vs CHA Wed 4:40pm
+    DAL - F
+    Naji Marshall
+    @ ORL Thu 4:10pm
     8.5
     Rebs+Asts
-    CHA - F
-    Miles Bridges
-    @ BOS Wed 4:40pm
-    8.5
-    Rebs+Asts
-    BOS - C
-    Neemias Queta
-    vs CHA Wed 4:40pm
-    8.5
-    Rebs+Asts
-    CHA - F
-    Brandon Miller
-    @ BOS Wed 4:40pm
+    ORL - G
+    Desmond Bane
+    vs DAL Thu 4:10pm
     7.5
     Rebs+Asts
-    CHA - G-F
-    Kon Knueppel
-    @ BOS Wed 4:40pm
+    DAL - F-C
+    Daniel Gafford
+    @ ORL Thu 4:10pm
     6.5
     Rebs+Asts
-    BOS - G
-    Baylor Scheierman
-    vs CHA Wed 4:40pm
+    DAL - F
+    P.J. Washington
+    @ ORL Thu 4:10pm
+    7.5
+    Rebs+Asts
+    ORL - F
+    Tristan Silva
+    vs DAL Thu 4:10pm
     6.5
     Rebs+Asts
-    BOS - F
-    Sam Hauser
-    vs CHA Wed 4:40pm
+    DAL - G
+    Brandon Williams
+    @ ORL Thu 4:10pm
     4.5
     Rebs+Asts
-    CHA - G
-    Coby White
-    @ BOS Wed 4:40pm
-    5
-    Rebs+Asts
-    CHA - C
-    Ryan Kalkbrenner
-    @ BOS Wed 4:40pm
+    DAL - G
+    Max Christie
+    @ ORL Thu 4:10pm
     4.5
-    Rebs+Asts
-    PHI - C
-    Andre Drummond
-    vs UTA Wed 4:40pm
-    12
     Rebs+Asts
     UTA - C
     Kyle Filipowski
-    @ PHI Wed 4:40pm
-    11.5
+    @ WAS Thu 4:10pm
+    10.5
     Rebs+Asts
-    PHI - G
-    Tyrese Maxey
-    vs UTA Wed 4:40pm
-    9.5
-    Rebs+Asts
-    UTA - G
-    Isaiah Collier
-    @ PHI Wed 4:40pm
+    WAS - G
+    Bub Carrington
+    vs UTA Thu 4:10pm
     8.5
-    Rebs+Asts
-    PHI - G
-    Quentin Grimes
-    vs UTA Wed 4:40pm
-    8
     Rebs+Asts
     UTA - G
     Keyonte George
-    @ PHI Wed 4:40pm
+    @ WAS Thu 4:10pm
     7.5
+    Rebs+Asts
+    WAS - G
+    Trae Young
+    vs UTA Thu 4:10pm
+    6.5
+    Rebs+Asts
+    WAS - F
+    Will Riley
+    vs UTA Thu 4:10pm
+    8
     Rebs+Asts
     UTA - F
     Ace Bailey
-    @ PHI Wed 4:40pm
+    @ WAS Thu 4:10pm
     6.5
     Rebs+Asts
-    PHI - F
-    Adem Bona
-    vs UTA Wed 4:40pm
-    6.5
-    Rebs+Asts
-    PHI - F
-    Dominick Barlow
-    vs UTA Wed 4:40pm
-    4.5
+    WAS - G
+    Bilal Coulibaly
+    vs UTA Thu 4:10pm
+    5.5
     Rebs+Asts
     UTA - F
-    Brice Sensabaugh
-    @ PHI Wed 4:40pm
+    Cody Williams
+    @ WAS Thu 4:10pm
     4.5
     Rebs+Asts
-    POR - C
-    Donovan Clingan
-    @ MEM Wed 5:10pm
-    16.5
-    Rebs+Asts
-    POR - F
-    Deni Avdija
-    @ MEM Wed 5:10pm
-    11.5
-    Rebs+Asts
-    POR - G
-    Jrue Holiday
-    @ MEM Wed 5:10pm
-    9.5
-    Rebs+Asts
-    MEM - G
-    Walter Clayton
-    vs POR Wed 5:10pm
-    8.5
-    Rebs+Asts
-    POR - C-F
-    Robert Williams
-    @ MEM Wed 5:10pm
-    7.5
-    Rebs+Asts
-    POR - F
-    Toumani Camara
-    @ MEM Wed 5:10pm
-    6.5
-    Rebs+Asts
-    MEM - G
-    Cam Spencer
-    vs POR Wed 5:10pm
-    8.5
-    Rebs+Asts
-    POR - G
-    Scoot Henderson
-    @ MEM Wed 5:10pm
-    7.5
-    Rebs+Asts
-    MEM - F
-    Taylor Hendricks
-    vs POR Wed 5:10pm
-    6.5
-    Rebs+Asts
-    MEM - F
-    GG Jackson
-    vs POR Wed 5:10pm
-    7.5
-    Rebs+Asts
-    MEM - F
-    Olivier-Maxence Prosper
-    vs POR Wed 5:10pm
-    6.5
-    Rebs+Asts
-    POR - F
-    Jerami Grant
-    @ MEM Wed 5:10pm
-    5.5
-    Rebs+Asts
-    MEM - F
-    Jaylen Wells
-    vs POR Wed 5:10pm
+    WAS - G
+    Tre Johnson
+    vs UTA Thu 4:10pm
     3.5
     Rebs+Asts
-    ATL - F
-    Jalen Johnson
-    @ MIL Wed 6:40pm
-    17
+    MIA - C-F
+    Bam Adebayo
+    vs BKN Thu 4:40pm
+    13
     Rebs+Asts
-    MIL - F
-    Giannis Antetokounmpo
-    vs ATL Wed 6:40pm
-    15.5
+    BKN - C
+    Nic Claxton
+    @ MIA Thu 4:40pm
+    10
     Rebs+Asts
-    ATL - G
-    Dyson Daniels
-    @ MIL Wed 6:40pm
+    MIA - F
+    Andrew Wiggins
+    vs BKN Thu 4:40pm
+    6.5
+    Rebs+Asts
+    MIA - G
+    Davion Mitchell
+    vs BKN Thu 4:40pm
+    8
+    Rebs+Asts
+    MIA - G
+    Jaime Jaquez
+    vs BKN Thu 4:40pm
+    8.5
+    Rebs+Asts
+    BKN - F
+    Michael Porter
+    @ MIA Thu 4:40pm
+    8.5
+    Rebs+Asts
+    MIA - G
+    Pelle Larsson
+    vs BKN Thu 4:40pm
+    6.5
+    Rebs+Asts
+    MIA - G
+    Tyler Herro
+    vs BKN Thu 4:40pm
+    7.5
+    Rebs+Asts
+    BKN - G
+    Nolan Traore
+    @ MIA Thu 4:40pm
+    5.5
+    Rebs+Asts
+    BKN - F
+    Danny Wolf
+    @ MIA Thu 4:40pm
+    7.5
+    Rebs+Asts
+    BKN - F-C
+    Noah Clowney
+    @ MIA Thu 4:40pm
+    4.5
+    Rebs+Asts
+    HOU - C
+    Alperen Sengun
+    vs GSW Thu 4:40pm
+    14.5
+    Rebs+Asts
+    HOU - G-F
+    Amen Thompson
+    vs GSW Thu 4:40pm
     12
     Rebs+Asts
-    ATL - F-C
-    Onyeka Okongwu
-    @ MIL Wed 6:40pm
+    HOU - F
+    Kevin Durant
+    vs GSW Thu 4:40pm
+    10
+    Rebs+Asts
+    GSW - G
+    Brandin Podziemski
+    @ HOU Thu 4:40pm
     9.5
     Rebs+Asts
-    MIL - G
-    Ryan Rollins
-    vs ATL Wed 6:40pm
+    GSW - F
+    Draymond Green
+    @ HOU Thu 4:40pm
     10.5
     Rebs+Asts
-    ATL - F
-    Jonathan Kuminga
-    @ MIL Wed 6:40pm
-    6.5
+    HOU - F
+    Jabari Smith
+    vs GSW Thu 4:40pm
+    7.5
     Rebs+Asts
-    ATL - G
-    CJ McCollum
-    @ MIL Wed 6:40pm
-    6.5
+    HOU - F
+    Tari Eason
+    vs GSW Thu 4:40pm
+    7.5
     Rebs+Asts
-    ATL - G
-    Nickeil Alexander-Walker
-    @ MIL Wed 6:40pm
-    7
-    Rebs+Asts
-    MIL - F
-    Bobby Portis
-    vs ATL Wed 6:40pm
-    6.5
-    Rebs+Asts
-    ATL - C
-    Jock Landale
-    @ MIL Wed 6:40pm
-    5.5
-    Rebs+Asts
-    MIL - C-F
-    Myles Turner
-    vs ATL Wed 6:40pm
-    6.5
-    Rebs+Asts
-    MIL - F
-    Ousmane Dieng
-    vs ATL Wed 6:40pm
-    6.5
-    Rebs+Asts
-    MIL - G
-    AJ Green
-    vs ATL Wed 6:40pm
-    3.5
-    Rebs+Asts
-    ATL - F
-    Zaccharie Risacher
-    @ MIL Wed 6:40pm
-    3.5
-    Rebs+Asts
-    LAC - F
-    Kawhi Leonard
-    vs IND Wed 7:40pm
-    10.5
-    Rebs+Asts
-    IND - G-F
-    Andrew Nembhard
-    @ LAC Wed 7:40pm
-    9
-    Rebs+Asts
-    LAC - G
-    Kris Dunn
-    vs IND Wed 7:40pm
-    9
-    Rebs+Asts
-    LAC - G-F
-    Bennedict Mathurin
-    vs IND Wed 7:40pm
+    GSW - C-F
+    Al Horford
+    @ HOU Thu 4:40pm
     8.5
     Rebs+Asts
-    IND - F
-    Pascal Siakam
-    @ LAC Wed 7:40pm
+    GSW - F
+    Gui Santos
+    @ HOU Thu 4:40pm
     8.5
     Rebs+Asts
-    LAC - C
-    Brook Lopez
-    vs IND Wed 7:40pm
+    GSW - G
+    Pat Spencer
+    @ HOU Thu 4:40pm
+    7.5
+    Rebs+Asts
+    HOU - G
+    Reed Sheppard
+    vs GSW Thu 4:40pm
     6.5
     Rebs+Asts
-    LAC - G
-    Darius Garland
-    vs IND Wed 7:40pm
+    GSW - G
+    De'Anthony Melton
+    @ HOU Thu 4:40pm
     5.5
     Rebs+Asts
-    IND - C
-    Jay Huff
-    @ LAC Wed 7:40pm
+    DET - G
+    Cade Cunningham
+    @ SAS Thu 5:10pm
+    15.5
+    Rebs+Asts
+    SAS - F-C
+    Victor Wembanyama
+    vs DET Thu 5:10pm
+    14.5
+    Rebs+Asts
+    DET - C
+    Jalen Duren
+    @ SAS Thu 5:10pm
+    12.5
+    Rebs+Asts
+    SAS - G
+    Stephon Castle
+    vs DET Thu 5:10pm
+    11.5
+    Rebs+Asts
+    SAS - G
+    De'Aaron Fox
+    vs DET Thu 5:10pm
+    8.5
+    Rebs+Asts
+    Trending2.4K
+    DET - G-F
+    Ausar Thompson
+    @ SAS Thu 5:10pm
+    8.5
+    Rebs+Asts
+    SAS - G
+    Dylan Harper
+    vs DET Thu 5:10pm
+    6.5
+    Rebs+Asts
+    DET - F
+    Tobias Harris
+    @ SAS Thu 5:10pm
+    6.5
+    Rebs+Asts
+    SAS - F
+    Julian Champagnie
+    vs DET Thu 5:10pm
+    6.5
+    Rebs+Asts
+    SAS - G-F
+    Devin Vassell
+    vs DET Thu 5:10pm
     5.5
     Rebs+Asts
-    IND - G-F
-    Aaron Nesmith
-    @ LAC Wed 7:40pm
-    5.5
-    Rebs+Asts
-    LAC - F
-    Derrick Jones
-    vs IND Wed 7:40pm
-    5
-    Rebs+Asts
-    IND - G
-    T.J. McConnell
-    @ LAC Wed 7:40pm
-    5.5
-    Rebs+Asts
-    LAC - G
-    Kobe Sanders
-    vs IND Wed 7:40pm
+    DET - F-C
+    Isaiah Stewart
+    @ SAS Thu 5:10pm
     4.5
+    Rebs+Asts
+    SAS - C-F
+    Luke Kornet
+    vs DET Thu 5:10pm
+    5.5
+    Rebs+Asts
+    DET - F
+    Ronald Holland
+    @ SAS Thu 5:10pm
+    4.5
+    Rebs+Asts
+    DET - G
+    Caris LeVert
+    @ SAS Thu 5:10pm
+    2.5
+    Rebs+Asts
+    DET - F
+    Duncan Robinson
+    @ SAS Thu 5:10pm
+    3.5
+    Rebs+Asts
+    MIN - C
+    Rudy Gobert
+    vs TOR Thu 5:10pm
+    13.5
+    Rebs+Asts
+    TOR - F-G
+    Scottie Barnes
+    @ MIN Thu 5:10pm
+    13
+    Rebs+Asts
+    MIN - F-C
+    Julius Randle
+    vs TOR Thu 5:10pm
+    10.5
+    Rebs+Asts
+    TOR - G
+    Immanuel Quickley
+    @ MIN Thu 5:10pm
+    8.5
+    Rebs+Asts
+    TOR - C
+    Jakob Poeltl
+    @ MIN Thu 5:10pm
+    9.5
+    Rebs+Asts
+    MIN - G
+    Anthony Edwards
+    vs TOR Thu 5:10pm
+    7.5
+    Rebs+Asts
+    TOR - F
+    Brandon Ingram
+    @ MIN Thu 5:10pm
+    8.5
+    Rebs+Asts
+    MIN - C-F
+    Naz Reid
+    vs TOR Thu 5:10pm
+    8.5
+    Rebs+Asts
+    TOR - F-G
+    RJ Barrett
+    @ MIN Thu 5:10pm
+    8.5
+    Rebs+Asts
+    MIN - G
+    Donte DiVincenzo
+    vs TOR Thu 5:10pm
+    7.5
+    Rebs+Asts
+    MIN - F
+    Jaden McDaniels
+    vs TOR Thu 5:10pm
+    7.5
+    Rebs+Asts
+    MIN - G
+    Ayo Dosunmu
+    vs TOR Thu 5:10pm
+    4.5
+    Rebs+Asts
+    CHI - G
+    Josh Giddey
+    @ PHX Thu 6:10pm
+    14.5
+    Rebs+Asts
+    PHX - G
+    Collin Gillespie
+    vs CHI Thu 6:10pm
+    10
+    Rebs+Asts
+    PHX - G
+    Devin Booker
+    vs CHI Thu 6:10pm
+    10.5
+    Rebs+Asts
+    PHX - F
+    Royce O'Neale
+    vs CHI Thu 6:10pm
+    7.5
+    Rebs+Asts
+    CHI - F
+    Guerschon Yabusele
+    @ PHX Thu 6:10pm
+    8.5
+    Rebs+Asts
+    CHI - F
+    Matas Buzelis
+    @ PHX Thu 6:10pm
+    8.5
+    Rebs+Asts
+    CHI - G
+    Tre Jones
+    @ PHX Thu 6:10pm
+    7.5
+    Rebs+Asts
+    PHX - G
+    Jalen Green
+    vs CHI Thu 6:10pm
+    6.5
+    Rebs+Asts
+    PHX - G
+    Grayson Allen
+    vs CHI Thu 6:10pm
+    6.5
+    Rebs+Asts
+    CHI - F-G
+    Isaac Okoro
+    @ PHX Thu 6:10pm
+    4.5
+    Rebs+Asts
+    DEN - C
+    Nikola Jokić
+    vs LAL Thu 7:10pm
+    23.5
+    Rebs+Asts
+    LAL - F-G
+    Luka Dončić
+    @ DEN Thu 7:10pm
+    14.5
+    Rebs+Asts
+    LAL - F
+    LeBron James
+    @ DEN Thu 7:10pm
+    12
+    Rebs+Asts
+    DEN - G
+    Jamal Murray
+    vs LAL Thu 7:10pm
+    11.5
+    Rebs+Asts
+    LAL - G
+    Austin Reaves
+    @ DEN Thu 7:10pm
+    8
+    Rebs+Asts
+    DEN - G
+    Christian Braun
+    vs LAL Thu 7:10pm
+    7.5
+    Rebs+Asts
+    LAL - C
+    Deandre Ayton
+    @ DEN Thu 7:10pm
+    6.5
+    Rebs+Asts
+    DEN - G-F
+    Bruce Brown
+    vs LAL Thu 7:10pm
+    5.5
+    Rebs+Asts
+    DEN - F
+    Cameron Johnson
+    vs LAL Thu 7:10pm
+    5.5
+    Rebs+Asts
+    LAL - G
+    Marcus Smart
+    @ DEN Thu 7:10pm
+    4.5
+    Rebs+Asts
+    LAL - C-F
+    Jaxson Hayes
+    @ DEN Thu 7:10pm
+    3.5
+    Rebs+Asts
+    DEN - G-F
+    Tim Hardaway
+    vs LAL Thu 7:10pm
+    2.5
+    Rebs+Asts
+    LAL - F
+    Jake LaRavia
+    @ DEN Thu 7:10pm
+    2.5
+    Rebs+Asts
+    DEN - G
+    Julian Strawther
+    vs LAL Thu 7:10pm
+    2.5
+    Rebs+Asts
+    LAL - G
+    Luke Kennard
+    @ DEN Thu 7:10pm
+    2.5
+    Rebs+Asts
+    LAL - F
+    Rui Hachimura
+    @ DEN Thu 7:10pm
+    2.5
+    Rebs+Asts
+    SAC - C
+    Maxime Raynaud
+    vs NOP Thu 7:10pm
+    11.5
+    Rebs+Asts
+    SAC - F
+    Precious Achiuwa
+    vs NOP Thu 7:10pm
+    8.5
+    Rebs+Asts
+    NOP - F
+    Trey Murphy
+    @ SAC Thu 7:10pm
+    9.5
+    Rebs+Asts
+    NOP - F
+    Zion Williamson
+    @ SAC Thu 7:10pm
+    9.5
+    Rebs+Asts
+    SAC - G
+    Nique Clifford
+    vs NOP Thu 7:10pm
+    8.5
+    Rebs+Asts
+    SAC - G
+    Russell Westbrook
+    vs NOP Thu 7:10pm
+    8.5
+    Rebs+Asts
+    NOP - G-F
+    Saddiq Bey
+    @ SAC Thu 7:10pm
+    8.5
+    Rebs+Asts
+    NOP - F
+    Herbert Jones
+    @ SAC Thu 7:10pm
+    7.5
+    Rebs+Asts
+    SAC - G-F
+    DeMar DeRozan
+    vs NOP Thu 7:10pm
+    6.5
     Rebs+Asts
 
     Privacy policy
@@ -2102,398 +2862,498 @@ Enable Accessibility
 
 Invite Friends
 Get $25
-$13.15
-5.00
+$13.55
+2.00
 
-    OKC - G
-    Shai Gilgeous-Alexander
-    @ NYK Wed 4:10pm
-    37.5
-    Pts+Asts
-    NYK - G
-    Jalen Brunson
-    vs OKC Wed 4:10pm
+    ORL - F
+    Paolo Banchero
+    vs DAL Thu 4:10pm
     30.5
     Pts+Asts
-    NYK - C-F
-    Karl-Anthony Towns
-    vs OKC Wed 4:10pm
-    19.5
-    Pts+Asts
-    OKC - C-F
-    Chet Holmgren
-    @ NYK Wed 4:10pm
-    17.5
-    Pts+Asts
-    NYK - G
-    Josh Hart
-    vs OKC Wed 4:10pm
-    16.5
-    Pts+Asts
-    NYK - G-F
-    Mikal Bridges
-    vs OKC Wed 4:10pm
-    16.5
-    Pts+Asts
-    NYK - F-G
-    OG Anunoby
-    vs OKC Wed 4:10pm
-    16.5
-    Pts+Asts
-    OKC - G
-    Cason Wallace
-    @ NYK Wed 4:10pm
-    12.5
-    Pts+Asts
-    OKC - C-F
-    Isaiah Hartenstein
-    @ NYK Wed 4:10pm
-    12.5
-    Pts+Asts
-    OKC - G
-    Isaiah Joe
-    @ NYK Wed 4:10pm
-    11.5
-    Pts+Asts
-    OKC - G
-    Jared McCain
-    @ NYK Wed 4:10pm
-    10.5
-    Pts+Asts
-    OKC - G
-    Alex Caruso
-    @ NYK Wed 4:10pm
-    8.5
-    Pts+Asts
-    NYK - G
-    Jose Alvarado
-    vs OKC Wed 4:10pm
-    7.5
-    Pts+Asts
-    NYK - G
-    Landry Shamet
-    vs OKC Wed 4:10pm
-    9.5
-    Pts+Asts
-    OKC - G
-    Luguentz Dort
-    @ NYK Wed 4:10pm
-    9.5
-    Pts+Asts
-    BOS - G-F
-    Jaylen Brown
-    vs CHA Wed 4:40pm
-    33.5
-    Pts+Asts
-    CHA - F
-    Brandon Miller
-    @ BOS Wed 4:40pm
+    DAL - F
+    Cooper Flagg
+    @ ORL Thu 4:10pm
     22.5
     Pts+Asts
-    CHA - G
-    LaMelo Ball
-    @ BOS Wed 4:40pm
-    23.5
+    ORL - G
+    Desmond Bane
+    vs DAL Thu 4:10pm
+    25.5
     Pts+Asts
-    BOS - G
-    Derrick White
-    vs CHA Wed 4:40pm
-    22.5
+    ORL - G
+    Jalen Suggs
+    vs DAL Thu 4:10pm
+    18.5
     Pts+Asts
-    BOS - G
-    Payton Pritchard
-    vs CHA Wed 4:40pm
-    22.5
-    Pts+Asts
-    CHA - G-F
-    Kon Knueppel
-    @ BOS Wed 4:40pm
+    DAL - F
+    Naji Marshall
+    @ ORL Thu 4:10pm
     20.5
     Pts+Asts
-    CHA - F
-    Miles Bridges
-    @ BOS Wed 4:40pm
+    ORL - G
+    Anthony Black
+    vs DAL Thu 4:10pm
     17.5
     Pts+Asts
-    CHA - G
-    Coby White
-    @ BOS Wed 4:40pm
-    15
+    DAL - G
+    Brandon Williams
+    @ ORL Thu 4:10pm
+    16.5
     Pts+Asts
-    BOS - C
-    Nikola Vučević
-    vs CHA Wed 4:40pm
-    13.5
+    DAL - G
+    Max Christie
+    @ ORL Thu 4:10pm
+    15.5
     Pts+Asts
-    BOS - F
-    Sam Hauser
-    vs CHA Wed 4:40pm
-    10.5
-    Pts+Asts
-    BOS - G
-    Baylor Scheierman
-    vs CHA Wed 4:40pm
-    9.5
-    Pts+Asts
-    BOS - C
-    Neemias Queta
-    vs CHA Wed 4:40pm
-    10.5
-    Pts+Asts
-    CHA - F
-    Moussa Diabaté
-    @ BOS Wed 4:40pm
+    DAL - F
+    P.J. Washington
+    @ ORL Thu 4:10pm
     14.5
     Pts+Asts
-    CHA - C
-    Ryan Kalkbrenner
-    @ BOS Wed 4:40pm
-    4.5
+    ORL - F
+    Tristan Silva
+    vs DAL Thu 4:10pm
+    11.5
     Pts+Asts
-    PHI - G
-    Tyrese Maxey
-    vs UTA Wed 4:40pm
-    40.5
+    ORL - C-F
+    Wendell Carter
+    vs DAL Thu 4:10pm
+    13.5
+    Pts+Asts
+    DAL - F-C
+    Daniel Gafford
+    @ ORL Thu 4:10pm
+    9.5
     Pts+Asts
     UTA - G
     Keyonte George
-    @ PHI Wed 4:40pm
-    27.5
+    @ WAS Thu 4:10pm
+    30.5
     Pts+Asts
-    PHI - G
-    Quentin Grimes
-    vs UTA Wed 4:40pm
-    22.5
+    WAS - F
+    Will Riley
+    vs UTA Thu 4:10pm
+    19.5
     Pts+Asts
-    UTA - G
-    Isaiah Collier
-    @ PHI Wed 4:40pm
-    20.5
+    WAS - G
+    Trae Young
+    vs UTA Thu 4:10pm
+    19.5
+    Pts+Asts
+    WAS - G
+    Bilal Coulibaly
+    vs UTA Thu 4:10pm
+    14.5
+    Pts+Asts
+    WAS - G
+    Bub Carrington
+    vs UTA Thu 4:10pm
+    15.5
     Pts+Asts
     UTA - F
     Ace Bailey
-    @ PHI Wed 4:40pm
-    17.5
+    @ WAS Thu 4:10pm
+    20.5
     Pts+Asts
     UTA - C
     Kyle Filipowski
-    @ PHI Wed 4:40pm
-    16.5
-    Pts+Asts
-    UTA - F
-    Brice Sensabaugh
-    @ PHI Wed 4:40pm
-    16.5
-    Pts+Asts
-    PHI - C
-    Andre Drummond
-    vs UTA Wed 4:40pm
-    14.5
-    Pts+Asts
-    PHI - F
-    Dominick Barlow
-    vs UTA Wed 4:40pm
-    11.5
-    Pts+Asts
-    PHI - F
-    Adem Bona
-    vs UTA Wed 4:40pm
-    6.5
-    Pts+Asts
-    POR - F
-    Deni Avdija
-    @ MEM Wed 5:10pm
-    25.5
-    Pts+Asts
-    POR - G
-    Jrue Holiday
-    @ MEM Wed 5:10pm
-    22.5
-    Pts+Asts
-    POR - F
-    Jerami Grant
-    @ MEM Wed 5:10pm
-    21.5
-    Pts+Asts
-    MEM - G
-    Cam Spencer
-    vs POR Wed 5:10pm
-    18.5
-    Pts+Asts
-    MEM - F
-    GG Jackson
-    vs POR Wed 5:10pm
+    @ WAS Thu 4:10pm
     17.5
     Pts+Asts
-    MEM - G
-    Walter Clayton
-    vs POR Wed 5:10pm
-    19.5
-    Pts+Asts
-    POR - C
-    Donovan Clingan
-    @ MEM Wed 5:10pm
-    16.5
-    Pts+Asts
-    POR - G
-    Scoot Henderson
-    @ MEM Wed 5:10pm
-    18.5
-    Pts+Asts
-    POR - F
-    Toumani Camara
-    @ MEM Wed 5:10pm
-    15.5
-    Pts+Asts
-    MEM - F
-    Jaylen Wells
-    vs POR Wed 5:10pm
-    16.5
-    Pts+Asts
-    POR - C-F
-    Robert Williams
-    @ MEM Wed 5:10pm
-    7.5
-    Pts+Asts
-    MEM - F
-    Olivier-Maxence Prosper
-    vs POR Wed 5:10pm
-    12.5
-    Pts+Asts
-    MEM - F
-    Taylor Hendricks
-    vs POR Wed 5:10pm
-    12.5
-    Pts+Asts
-    MIL - F
-    Giannis Antetokounmpo
-    vs ATL Wed 6:40pm
-    31.5
-    Pts+Asts
-    ATL - F
-    Jalen Johnson
-    @ MIL Wed 6:40pm
-    28.5
-    Pts+Asts
-    ATL - G
-    CJ McCollum
-    @ MIL Wed 6:40pm
-    21.5
-    Pts+Asts
-    ATL - G
-    Nickeil Alexander-Walker
-    @ MIL Wed 6:40pm
-    21.5
-    Pts+Asts
-    ATL - G
-    Dyson Daniels
-    @ MIL Wed 6:40pm
-    15.5
-    Pts+Asts
-    ATL - F-C
-    Onyeka Okongwu
-    @ MIL Wed 6:40pm
-    16.5
-    Pts+Asts
-    ATL - F
-    Jonathan Kuminga
-    @ MIL Wed 6:40pm
-    16.5
-    Pts+Asts
-    MIL - G
-    Ryan Rollins
-    vs ATL Wed 6:40pm
-    22.5
-    Pts+Asts
-    MIL - F
-    Bobby Portis
-    vs ATL Wed 6:40pm
+    WAS - G
+    Tre Johnson
+    vs UTA Thu 4:10pm
     14.5
     Pts+Asts
-    MIL - C-F
-    Myles Turner
-    vs ATL Wed 6:40pm
-    11.5
-    Pts+Asts
-    MIL - G
-    AJ Green
-    vs ATL Wed 6:40pm
-    12
-    Pts+Asts
-    MIL - F
-    Ousmane Dieng
-    vs ATL Wed 6:40pm
-    12.5
-    Pts+Asts
-    ATL - C
-    Jock Landale
-    @ MIL Wed 6:40pm
+    UTA - F
+    Cody Williams
+    @ WAS Thu 4:10pm
     9.5
     Pts+Asts
-    ATL - F
-    Zaccharie Risacher
-    @ MIL Wed 6:40pm
-    4.5
+    MIA - G
+    Tyler Herro
+    vs BKN Thu 4:40pm
+    25.5
     Pts+Asts
-    LAC - F
-    Kawhi Leonard
-    vs IND Wed 7:40pm
-    31.5
+    BKN - F
+    Michael Porter
+    @ MIA Thu 4:40pm
+    24.5
     Pts+Asts
-    IND - G-F
-    Andrew Nembhard
-    @ LAC Wed 7:40pm
-    22.5
-    Pts+Asts
-    IND - F
-    Pascal Siakam
-    @ LAC Wed 7:40pm
+    MIA - C-F
+    Bam Adebayo
+    vs BKN Thu 4:40pm
     23.5
     Pts+Asts
-    LAC - G-F
-    Bennedict Mathurin
-    vs IND Wed 7:40pm
+    MIA - F
+    Andrew Wiggins
+    vs BKN Thu 4:40pm
+    17.5
+    Pts+Asts
+    MIA - G
+    Pelle Larsson
+    vs BKN Thu 4:40pm
+    15.5
+    Pts+Asts
+    MIA - G
+    Jaime Jaquez
+    vs BKN Thu 4:40pm
+    18.5
+    Pts+Asts
+    MIA - G
+    Davion Mitchell
+    vs BKN Thu 4:40pm
+    13.5
+    Pts+Asts
+    BKN - C
+    Nic Claxton
+    @ MIA Thu 4:40pm
+    14.5
+    Pts+Asts
+    BKN - G
+    Nolan Traore
+    @ MIA Thu 4:40pm
+    15.5
+    Pts+Asts
+    BKN - F
+    Danny Wolf
+    @ MIA Thu 4:40pm
+    13.5
+    Pts+Asts
+    HOU - F
+    Kevin Durant
+    vs GSW Thu 4:40pm
+    30.5
+    Pts+Asts
+    HOU - C
+    Alperen Sengun
+    vs GSW Thu 4:40pm
+    25.5
+    Pts+Asts
+    HOU - G-F
+    Amen Thompson
+    vs GSW Thu 4:40pm
+    20.5
+    Pts+Asts
+    GSW - G
+    Brandin Podziemski
+    @ HOU Thu 4:40pm
+    20.5
+    Pts+Asts
+    GSW - G
+    De'Anthony Melton
+    @ HOU Thu 4:40pm
+    18.5
+    Pts+Asts
+    GSW - F
+    Gui Santos
+    @ HOU Thu 4:40pm
+    15.5
+    Pts+Asts
+    GSW - F
+    Draymond Green
+    @ HOU Thu 4:40pm
+    13.5
+    Pts+Asts
+    GSW - G
+    Pat Spencer
+    @ HOU Thu 4:40pm
+    14.5
+    Pts+Asts
+    HOU - G
+    Reed Sheppard
+    vs GSW Thu 4:40pm
+    17.5
+    Pts+Asts
+    HOU - F
+    Tari Eason
+    vs GSW Thu 4:40pm
+    14.5
+    Pts+Asts
+    GSW - C-F
+    Al Horford
+    @ HOU Thu 4:40pm
+    13.5
+    Pts+Asts
+    DET - G
+    Cade Cunningham
+    @ SAS Thu 5:10pm
+    36.5
+    Pts+Asts
+    SAS - F-C
+    Victor Wembanyama
+    vs DET Thu 5:10pm
+    26.5
+    Pts+Asts
+    SAS - G
+    De'Aaron Fox
+    vs DET Thu 5:10pm
     22.5
     Pts+Asts
-    LAC - G
-    Darius Garland
-    vs IND Wed 7:40pm
+    DET - C
+    Jalen Duren
+    @ SAS Thu 5:10pm
     19.5
     Pts+Asts
-    IND - G-F
-    Aaron Nesmith
-    @ LAC Wed 7:40pm
-    13.5
+    SAS - G
+    Stephon Castle
+    vs DET Thu 5:10pm
+    22.5
     Pts+Asts
-    LAC - F
-    Derrick Jones
-    vs IND Wed 7:40pm
-    13.5
+    DET - F
+    Tobias Harris
+    @ SAS Thu 5:10pm
+    15.5
     Pts+Asts
-    IND - C
-    Jay Huff
-    @ LAC Wed 7:40pm
-    12
+    SAS - G-F
+    Devin Vassell
+    vs DET Thu 5:10pm
+    16.5
     Pts+Asts
-    IND - G
-    T.J. McConnell
-    @ LAC Wed 7:40pm
-    9.5
+    SAS - G
+    Dylan Harper
+    vs DET Thu 5:10pm
+    14.5
     Pts+Asts
-    LAC - G
-    Kris Dunn
-    vs IND Wed 7:40pm
+    DET - G-F
+    Ausar Thompson
+    @ SAS Thu 5:10pm
     12.5
     Pts+Asts
-    LAC - C
-    Brook Lopez
-    vs IND Wed 7:40pm
+    DET - F
+    Duncan Robinson
+    @ SAS Thu 5:10pm
+    12.5
+    Pts+Asts
+    SAS - F
+    Julian Champagnie
+    vs DET Thu 5:10pm
+    10.5
+    Pts+Asts
+    DET - F-C
+    Isaiah Stewart
+    @ SAS Thu 5:10pm
+    8.5
+    Pts+Asts
+    MIN - G
+    Anthony Edwards
+    vs TOR Thu 5:10pm
+    33.5
+    Pts+Asts
+    MIN - F-C
+    Julius Randle
+    vs TOR Thu 5:10pm
+    24.5
+    Pts+Asts
+    TOR - F
+    Brandon Ingram
+    @ MIN Thu 5:10pm
+    25.5
+    Pts+Asts
+    TOR - G
+    Immanuel Quickley
+    @ MIN Thu 5:10pm
+    23.5
+    Pts+Asts
+    TOR - F-G
+    RJ Barrett
+    @ MIN Thu 5:10pm
+    21.5
+    Pts+Asts
+    TOR - F-G
+    Scottie Barnes
+    @ MIN Thu 5:10pm
+    22.5
+    Pts+Asts
+    MIN - G
+    Donte DiVincenzo
+    vs TOR Thu 5:10pm
+    15.5
+    Pts+Asts
+    MIN - F
+    Jaden McDaniels
+    vs TOR Thu 5:10pm
+    16.5
+    Pts+Asts
+    MIN - C-F
+    Naz Reid
+    vs TOR Thu 5:10pm
+    14.5
+    Pts+Asts
+    MIN - G
+    Ayo Dosunmu
+    vs TOR Thu 5:10pm
+    13.5
+    Pts+Asts
+    TOR - G
+    Jamal Shead
+    @ MIN Thu 5:10pm
+    10.5
+    Pts+Asts
+    MIN - C
+    Rudy Gobert
+    vs TOR Thu 5:10pm
     11.5
     Pts+Asts
-    LAC - G
-    Kobe Sanders
-    vs IND Wed 7:40pm
+    TOR - C
+    Jakob Poeltl
+    @ MIN Thu 5:10pm
+    10.5
+    Pts+Asts
+    PHX - G
+    Devin Booker
+    vs CHI Thu 6:10pm
+    30.5
+    Pts+Asts
+    CHI - G
+    Josh Giddey
+    @ PHX Thu 6:10pm
+    23.5
+    Pts+Asts
+    PHX - G
+    Grayson Allen
+    vs CHI Thu 6:10pm
+    22.5
+    Pts+Asts
+    PHX - G
+    Jalen Green
+    vs CHI Thu 6:10pm
+    21.5
+    Pts+Asts
+    PHX - G
+    Collin Gillespie
+    vs CHI Thu 6:10pm
+    20.5
+    Pts+Asts
+    CHI - F
+    Matas Buzelis
+    @ PHX Thu 6:10pm
+    19.5
+    Pts+Asts
+    CHI - G
+    Tre Jones
+    @ PHX Thu 6:10pm
+    19.5
+    Pts+Asts
+    PHX - F
+    Royce O'Neale
+    vs CHI Thu 6:10pm
+    12.5
+    Pts+Asts
+    CHI - F
+    Guerschon Yabusele
+    @ PHX Thu 6:10pm
+    12.5
+    Pts+Asts
+    CHI - F-G
+    Isaac Okoro
+    @ PHX Thu 6:10pm
+    12.5
+    Pts+Asts
+    LAL - F-G
+    Luka Dončić
+    @ DEN Thu 7:10pm
+    39.5
+    Pts+Asts
+    DEN - C
+    Nikola Jokić
+    vs LAL Thu 7:10pm
+    40.5
+    Pts+Asts
+    DEN - G
+    Jamal Murray
+    vs LAL Thu 7:10pm
+    32.5
+    Pts+Asts
+    LAL - F
+    LeBron James
+    @ DEN Thu 7:10pm
+    26.5
+    Pts+Asts
+    LAL - G
+    Austin Reaves
+    @ DEN Thu 7:10pm
+    23.5
+    Pts+Asts
+    DEN - F
+    Cameron Johnson
+    vs LAL Thu 7:10pm
+    13.5
+    Pts+Asts
+    DEN - G
+    Christian Braun
+    vs LAL Thu 7:10pm
+    15.5
+    Pts+Asts
+    DEN - G-F
+    Tim Hardaway
+    vs LAL Thu 7:10pm
+    14.5
+    Pts+Asts
+    LAL - G
+    Marcus Smart
+    @ DEN Thu 7:10pm
+    9.5
+    Pts+Asts
+    LAL - G
+    Luke Kennard
+    @ DEN Thu 7:10pm
+    9.5
+    Pts+Asts
+    LAL - F
+    Rui Hachimura
+    @ DEN Thu 7:10pm
     8.5
+    Pts+Asts
+    LAL - C-F
+    Jaxson Hayes
+    @ DEN Thu 7:10pm
+    5.5
+    Pts+Asts
+    NOP - F
+    Zion Williamson
+    @ SAC Thu 7:10pm
+    27.5
+    Pts+Asts
+    NOP - F
+    Trey Murphy
+    @ SAC Thu 7:10pm
+    27.5
+    Pts+Asts
+    SAC - G
+    Russell Westbrook
+    vs NOP Thu 7:10pm
+    20.5
+    Pts+Asts
+    NOP - G-F
+    Saddiq Bey
+    @ SAC Thu 7:10pm
+    25.5
+    Pts+Asts
+    SAC - G
+    Nique Clifford
+    vs NOP Thu 7:10pm
+    18.5
+    Pts+Asts
+    SAC - G-F
+    DeMar DeRozan
+    vs NOP Thu 7:10pm
+    19.5
+    Pts+Asts
+    NOP - F
+    Herbert Jones
+    @ SAC Thu 7:10pm
+    13.5
+    Pts+Asts
+    SAC - C
+    Maxime Raynaud
+    vs NOP Thu 7:10pm
+    16.5
+    Pts+Asts
+    SAC - F
+    Precious Achiuwa
+    vs NOP Thu 7:10pm
+    14.5
     Pts+Asts
 
     Privacy policy
@@ -2514,398 +3374,558 @@ Enable Accessibility
 
 Invite Friends
 Get $25
-$13.15
-5.00
+$13.55
+2.00
 
-    OKC - G
-    Shai Gilgeous-Alexander
-    @ NYK Wed 4:10pm
-    35.5
+    ORL - F
+    Paolo Banchero
+    vs DAL Thu 4:10pm
+    33.5
     Pts+Rebs
-    NYK - G
-    Jalen Brunson
-    vs OKC Wed 4:10pm
-    26.5
-    Pts+Rebs
-    NYK - C-F
-    Karl-Anthony Towns
-    vs OKC Wed 4:10pm
-    29.5
-    Pts+Rebs
-    OKC - C-F
-    Chet Holmgren
-    @ NYK Wed 4:10pm
-    23.5
-    Pts+Rebs
-    NYK - F-G
-    OG Anunoby
-    vs OKC Wed 4:10pm
-    20.5
-    Pts+Rebs
-    OKC - C-F
-    Isaiah Hartenstein
-    @ NYK Wed 4:10pm
-    16.5
-    Pts+Rebs
-    NYK - G
-    Josh Hart
-    vs OKC Wed 4:10pm
-    18.5
-    Pts+Rebs
-    NYK - G-F
-    Mikal Bridges
-    vs OKC Wed 4:10pm
-    17
-    Pts+Rebs
-    OKC - G
-    Cason Wallace
-    @ NYK Wed 4:10pm
-    12.5
-    Pts+Rebs
-    OKC - G
-    Isaiah Joe
-    @ NYK Wed 4:10pm
-    12.5
-    Pts+Rebs
-    OKC - G
-    Luguentz Dort
-    @ NYK Wed 4:10pm
-    12
-    Pts+Rebs
-    OKC - G
-    Jared McCain
-    @ NYK Wed 4:10pm
-    11.5
-    Pts+Rebs
-    OKC - G
-    Alex Caruso
-    @ NYK Wed 4:10pm
-    8.5
-    Pts+Rebs
-    NYK - G
-    Jose Alvarado
-    vs OKC Wed 4:10pm
-    7.5
-    Pts+Rebs
-    NYK - G
-    Landry Shamet
-    vs OKC Wed 4:10pm
-    14.5
-    Pts+Rebs
-    BOS - G-F
-    Jaylen Brown
-    vs CHA Wed 4:40pm
-    34.5
-    Pts+Rebs
-    CHA - F
-    Brandon Miller
-    @ BOS Wed 4:40pm
+    DAL - F
+    Cooper Flagg
+    @ ORL Thu 4:10pm
     24.5
     Pts+Rebs
-    CHA - G
-    LaMelo Ball
-    @ BOS Wed 4:40pm
+    ORL - G
+    Desmond Bane
+    vs DAL Thu 4:10pm
+    25.5
+    Pts+Rebs
+    DAL - F
+    Naji Marshall
+    @ ORL Thu 4:10pm
     21.5
     Pts+Rebs
-    CHA - G-F
-    Kon Knueppel
-    @ BOS Wed 4:40pm
-    22.5
+    DAL - F
+    P.J. Washington
+    @ ORL Thu 4:10pm
+    19.5
     Pts+Rebs
-    BOS - G
-    Derrick White
-    vs CHA Wed 4:40pm
-    20.5
+    ORL - G
+    Anthony Black
+    vs DAL Thu 4:10pm
+    18.5
     Pts+Rebs
-    BOS - G
-    Payton Pritchard
-    vs CHA Wed 4:40pm
-    20.5
+    DAL - G
+    Brandon Williams
+    @ ORL Thu 4:10pm
+    16.5
     Pts+Rebs
-    CHA - F
-    Miles Bridges
-    @ BOS Wed 4:40pm
-    20.5
+    ORL - G
+    Jalen Suggs
+    vs DAL Thu 4:10pm
+    16.5
     Pts+Rebs
-    BOS - C
-    Neemias Queta
-    vs CHA Wed 4:40pm
-    17.5
+    DAL - G
+    Max Christie
+    @ ORL Thu 4:10pm
+    16.5
     Pts+Rebs
-    BOS - C
-    Nikola Vučević
-    vs CHA Wed 4:40pm
-    17.5
+    ORL - C-F
+    Wendell Carter
+    vs DAL Thu 4:10pm
+    19.5
     Pts+Rebs
-    CHA - F
-    Moussa Diabaté
-    @ BOS Wed 4:40pm
-    17
-    Pts+Rebs
-    CHA - G
-    Coby White
-    @ BOS Wed 4:40pm
+    DAL - F-C
+    Daniel Gafford
+    @ ORL Thu 4:10pm
     14.5
     Pts+Rebs
-    BOS - G
-    Baylor Scheierman
-    vs CHA Wed 4:40pm
-    12.5
-    Pts+Rebs
-    BOS - F
-    Sam Hauser
-    vs CHA Wed 4:40pm
-    13.5
-    Pts+Rebs
-    CHA - C
-    Ryan Kalkbrenner
-    @ BOS Wed 4:40pm
+    ORL - F
+    Tristan Silva
+    vs DAL Thu 4:10pm
     14.5
-    Pts+Rebs
-    PHI - G
-    Tyrese Maxey
-    vs UTA Wed 4:40pm
-    37.5
     Pts+Rebs
     UTA - G
     Keyonte George
-    @ PHI Wed 4:40pm
-    24.5
+    @ WAS Thu 4:10pm
+    28.5
+    Pts+Rebs
+    WAS - F
+    Will Riley
+    vs UTA Thu 4:10pm
+    22
     Pts+Rebs
     UTA - F
     Ace Bailey
-    @ PHI Wed 4:40pm
-    21.5
+    @ WAS Thu 4:10pm
+    22.5
+    Pts+Rebs
+    WAS - G
+    Bilal Coulibaly
+    vs UTA Thu 4:10pm
+    16.5
     Pts+Rebs
     UTA - C
     Kyle Filipowski
-    @ PHI Wed 4:40pm
-    22.5
+    @ WAS Thu 4:10pm
+    24.5
     Pts+Rebs
-    PHI - G
-    Quentin Grimes
-    vs UTA Wed 4:40pm
-    22.5
+    WAS - G-F
+    Justin Champagnie
+    vs UTA Thu 4:10pm
+    16.5
     Pts+Rebs
-    PHI - C
-    Andre Drummond
-    vs UTA Wed 4:40pm
-    19.5
+    WAS - G
+    Bub Carrington
+    vs UTA Thu 4:10pm
+    15.5
+    Pts+Rebs
+    WAS - G
+    Tre Johnson
+    vs UTA Thu 4:10pm
+    15.5
+    Pts+Rebs
+    WAS - G
+    Trae Young
+    vs UTA Thu 4:10pm
+    16.5
     Pts+Rebs
     UTA - F
-    Brice Sensabaugh
-    @ PHI Wed 4:40pm
-    18.5
-    Pts+Rebs
-    UTA - G
-    Isaiah Collier
-    @ PHI Wed 4:40pm
-    15.5
-    Pts+Rebs
-    PHI - F
-    Dominick Barlow
-    vs UTA Wed 4:40pm
-    15.5
-    Pts+Rebs
-    PHI - F
-    Adem Bona
-    vs UTA Wed 4:40pm
-    12.5
-    Pts+Rebs
-    PHI - G
-    Cameron Payne
-    vs UTA Wed 4:40pm
-    9.5
-    Pts+Rebs
-    POR - F
-    Deni Avdija
-    @ MEM Wed 5:10pm
-    26.5
-    Pts+Rebs
-    POR - C
-    Donovan Clingan
-    @ MEM Wed 5:10pm
-    27.5
-    Pts+Rebs
-    POR - F
-    Jerami Grant
-    @ MEM Wed 5:10pm
-    22.5
-    Pts+Rebs
-    MEM - F
-    GG Jackson
-    vs POR Wed 5:10pm
-    21.5
-    Pts+Rebs
-    POR - G
-    Jrue Holiday
-    @ MEM Wed 5:10pm
-    21.5
-    Pts+Rebs
-    MEM - F
-    Jaylen Wells
-    vs POR Wed 5:10pm
-    18.5
-    Pts+Rebs
-    POR - F
-    Toumani Camara
-    @ MEM Wed 5:10pm
-    18.5
-    Pts+Rebs
-    POR - C-F
-    Robert Williams
-    @ MEM Wed 5:10pm
-    13.5
-    Pts+Rebs
-    POR - G
-    Scoot Henderson
-    @ MEM Wed 5:10pm
-    16.5
-    Pts+Rebs
-    MEM - G
-    Cam Spencer
-    vs POR Wed 5:10pm
-    16.5
-    Pts+Rebs
-    MEM - F
-    Taylor Hendricks
-    vs POR Wed 5:10pm
-    17.5
-    Pts+Rebs
-    MEM - G
-    Walter Clayton
-    vs POR Wed 5:10pm
-    16.5
-    Pts+Rebs
-    MEM - F
-    Olivier-Maxence Prosper
-    vs POR Wed 5:10pm
-    16.5
-    Pts+Rebs
-    MIL - F
-    Giannis Antetokounmpo
-    vs ATL Wed 6:40pm
-    35.5
-    Pts+Rebs
-    ATL - F
-    Jalen Johnson
-    @ MIL Wed 6:40pm
-    32.5
-    Pts+Rebs
-    ATL - G
-    CJ McCollum
-    @ MIL Wed 6:40pm
-    20.5
-    Pts+Rebs
-    ATL - G
-    Nickeil Alexander-Walker
-    @ MIL Wed 6:40pm
-    20.5
-    Pts+Rebs
-    ATL - F-C
-    Onyeka Okongwu
-    @ MIL Wed 6:40pm
-    21.5
-    Pts+Rebs
-    ATL - F
-    Jonathan Kuminga
-    @ MIL Wed 6:40pm
-    19.5
-    Pts+Rebs
-    ATL - G
-    Dyson Daniels
-    @ MIL Wed 6:40pm
-    16.5
-    Pts+Rebs
-    MIL - F
-    Bobby Portis
-    vs ATL Wed 6:40pm
-    17.5
-    Pts+Rebs
-    MIL - G
-    Ryan Rollins
-    vs ATL Wed 6:40pm
-    21.5
-    Pts+Rebs
-    MIL - C-F
-    Myles Turner
-    vs ATL Wed 6:40pm
-    15.5
-    Pts+Rebs
-    MIL - G
-    AJ Green
-    vs ATL Wed 6:40pm
-    12.5
-    Pts+Rebs
-    ATL - C
-    Jock Landale
-    @ MIL Wed 6:40pm
-    13.5
-    Pts+Rebs
-    MIL - F
-    Ousmane Dieng
-    vs ATL Wed 6:40pm
-    13
-    Pts+Rebs
-    ATL - F
-    Zaccharie Risacher
-    @ MIL Wed 6:40pm
+    Cody Williams
+    @ WAS Thu 4:10pm
     10.5
     Pts+Rebs
-    LAC - F
-    Kawhi Leonard
-    vs IND Wed 7:40pm
-    33.5
+    MIA - C-F
+    Bam Adebayo
+    vs BKN Thu 4:40pm
+    31.5
     Pts+Rebs
-    LAC - G-F
-    Bennedict Mathurin
-    vs IND Wed 7:40pm
-    26.5
+    BKN - F
+    Michael Porter
+    @ MIA Thu 4:40pm
+    28.5
     Pts+Rebs
-    IND - F
-    Pascal Siakam
-    @ LAC Wed 7:40pm
+    MIA - G
+    Tyler Herro
+    vs BKN Thu 4:40pm
     25.5
     Pts+Rebs
-    IND - G-F
-    Andrew Nembhard
-    @ LAC Wed 7:40pm
-    18.5
+    MIA - F
+    Andrew Wiggins
+    vs BKN Thu 4:40pm
+    20.5
     Pts+Rebs
-    IND - G-F
-    Aaron Nesmith
-    @ LAC Wed 7:40pm
+    MIA - G
+    Jaime Jaquez
+    vs BKN Thu 4:40pm
+    19.5
+    Pts+Rebs
+    MIA - G
+    Pelle Larsson
+    vs BKN Thu 4:40pm
     15.5
     Pts+Rebs
-    LAC - G
-    Darius Garland
-    vs IND Wed 7:40pm
+    BKN - C
+    Nic Claxton
+    @ MIA Thu 4:40pm
     16.5
     Pts+Rebs
-    LAC - F
-    Derrick Jones
-    vs IND Wed 7:40pm
+    BKN - F-C
+    Noah Clowney
+    @ MIA Thu 4:40pm
     15.5
     Pts+Rebs
-    IND - C
-    Jay Huff
-    @ LAC Wed 7:40pm
+    BKN - G
+    Nolan Traore
+    @ MIA Thu 4:40pm
+    13.5
+    Pts+Rebs
+    BKN - F
+    Danny Wolf
+    @ MIA Thu 4:40pm
     15.5
     Pts+Rebs
-    LAC - C
-    Brook Lopez
-    vs IND Wed 7:40pm
+    MIA - G
+    Davion Mitchell
+    vs BKN Thu 4:40pm
+    10.5
+    Pts+Rebs
+    HOU - F
+    Kevin Durant
+    vs GSW Thu 4:40pm
+    31.5
+    Pts+Rebs
+    HOU - C
+    Alperen Sengun
+    vs GSW Thu 4:40pm
+    28.5
+    Pts+Rebs
+    HOU - G-F
+    Amen Thompson
+    vs GSW Thu 4:40pm
+    23.5
+    Pts+Rebs
+    GSW - G
+    Brandin Podziemski
+    @ HOU Thu 4:40pm
+    21.5
+    Pts+Rebs
+    GSW - G
+    De'Anthony Melton
+    @ HOU Thu 4:40pm
+    18.5
+    Pts+Rebs
+    HOU - F
+    Jabari Smith
+    vs GSW Thu 4:40pm
+    19.5
+    Pts+Rebs
+    HOU - F
+    Tari Eason
+    vs GSW Thu 4:40pm
+    18.5
+    Pts+Rebs
+    GSW - C-F
+    Al Horford
+    @ HOU Thu 4:40pm
+    16.5
+    Pts+Rebs
+    GSW - F
+    Gui Santos
+    @ HOU Thu 4:40pm
+    18.5
+    Pts+Rebs
+    GSW - F
+    Draymond Green
+    @ HOU Thu 4:40pm
     14.5
     Pts+Rebs
-    LAC - G
-    Kris Dunn
-    vs IND Wed 7:40pm
+    GSW - G
+    Pat Spencer
+    @ HOU Thu 4:40pm
+    12.5
+    Pts+Rebs
+    HOU - G
+    Reed Sheppard
+    vs GSW Thu 4:40pm
+    16.5
+    Pts+Rebs
+    HOU - F
+    Dorian Finney-Smith
+    vs GSW Thu 4:40pm
+    6.5
+    Pts+Rebs
+    SAS - F-C
+    Victor Wembanyama
+    vs DET Thu 5:10pm
+    35.5
+    Pts+Rebs
+    DET - G
+    Cade Cunningham
+    @ SAS Thu 5:10pm
+    33.5
+    Pts+Rebs
+    DET - C
+    Jalen Duren
+    @ SAS Thu 5:10pm
+    28.5
+    Pts+Rebs
+    SAS - G
+    De'Aaron Fox
+    vs DET Thu 5:10pm
+    20
+    Pts+Rebs
+    SAS - G
+    Stephon Castle
+    vs DET Thu 5:10pm
+    20.5
+    Pts+Rebs
+    DET - G-F
+    Ausar Thompson
+    @ SAS Thu 5:10pm
+    15.5
+    Pts+Rebs
+    DET - F
+    Tobias Harris
+    @ SAS Thu 5:10pm
+    18.5
+    Pts+Rebs
+    SAS - G-F
+    Devin Vassell
+    vs DET Thu 5:10pm
+    17.5
+    Pts+Rebs
+    SAS - G
+    Dylan Harper
+    vs DET Thu 5:10pm
+    13.5
+    Pts+Rebs
+    SAS - F
+    Julian Champagnie
+    vs DET Thu 5:10pm
+    15.5
+    Pts+Rebs
+    SAS - F-G
+    Keldon Johnson
+    vs DET Thu 5:10pm
+    15.5
+    Pts+Rebs
+    DET - F
+    Duncan Robinson
+    @ SAS Thu 5:10pm
+    13.5
+    Pts+Rebs
+    DET - F-C
+    Isaiah Stewart
+    @ SAS Thu 5:10pm
+    13.5
+    Pts+Rebs
+    DET - F
+    Ronald Holland
+    @ SAS Thu 5:10pm
     11.5
     Pts+Rebs
-    LAC - G
-    Kobe Sanders
-    vs IND Wed 7:40pm
+    DET - G
+    Caris LeVert
+    @ SAS Thu 5:10pm
+    7.5
+    Pts+Rebs
+    MIN - G
+    Anthony Edwards
+    vs TOR Thu 5:10pm
+    34.5
+    Pts+Rebs
+    MIN - F-C
+    Julius Randle
+    vs TOR Thu 5:10pm
+    26.5
+    Pts+Rebs
+    TOR - F
+    Brandon Ingram
+    @ MIN Thu 5:10pm
+    26.5
+    Pts+Rebs
+    TOR - F-G
+    RJ Barrett
+    @ MIN Thu 5:10pm
+    23.5
+    Pts+Rebs
+    TOR - F-G
+    Scottie Barnes
+    @ MIN Thu 5:10pm
+    25.5
+    Pts+Rebs
+    MIN - C
+    Rudy Gobert
+    vs TOR Thu 5:10pm
+    22.5
+    Pts+Rebs
+    TOR - G
+    Immanuel Quickley
+    @ MIN Thu 5:10pm
+    21.5
+    Pts+Rebs
+    MIN - G
+    Donte DiVincenzo
+    vs TOR Thu 5:10pm
+    15.5
+    Pts+Rebs
+    MIN - F
+    Jaden McDaniels
+    vs TOR Thu 5:10pm
+    18.5
+    Pts+Rebs
+    MIN - C-F
+    Naz Reid
+    vs TOR Thu 5:10pm
+    18.5
+    Pts+Rebs
+    TOR - C
+    Jakob Poeltl
+    @ MIN Thu 5:10pm
+    17.5
+    Pts+Rebs
+    MIN - G
+    Ayo Dosunmu
+    vs TOR Thu 5:10pm
+    13.5
+    Pts+Rebs
+    PHX - G
+    Devin Booker
+    vs CHI Thu 6:10pm
+    29.5
+    Pts+Rebs
+    CHI - F
+    Matas Buzelis
+    @ PHX Thu 6:10pm
+    22.5
+    Pts+Rebs
+    PHX - F
+    Oso Ighodaro
+    vs CHI Thu 6:10pm
+    17.5
+    Pts+Rebs
+    PHX - F
+    Royce O'Neale
+    vs CHI Thu 6:10pm
+    15.5
+    Pts+Rebs
+    CHI - G
+    Josh Giddey
+    @ PHX Thu 6:10pm
+    24
+    Pts+Rebs
+    PHX - G
+    Grayson Allen
+    vs CHI Thu 6:10pm
+    22.5
+    Pts+Rebs
+    PHX - G
+    Jalen Green
+    vs CHI Thu 6:10pm
+    22.5
+    Pts+Rebs
+    PHX - G
+    Collin Gillespie
+    vs CHI Thu 6:10pm
+    20
+    Pts+Rebs
+    CHI - F
+    Guerschon Yabusele
+    @ PHX Thu 6:10pm
+    17.5
+    Pts+Rebs
+    CHI - G
+    Tre Jones
+    @ PHX Thu 6:10pm
+    17.5
+    Pts+Rebs
+    CHI - F-G
+    Isaac Okoro
+    @ PHX Thu 6:10pm
+    14.5
+    Pts+Rebs
+    PHX - F
+    Ryan Dunn
+    vs CHI Thu 6:10pm
+    11.5
+    Pts+Rebs
+    DEN - C
+    Nikola Jokić
+    vs LAL Thu 7:10pm
+    44.5
+    Pts+Rebs
+    LAL - F-G
+    Luka Dončić
+    @ DEN Thu 7:10pm
+    38.5
+    Pts+Rebs
+    DEN - G
+    Jamal Murray
+    vs LAL Thu 7:10pm
+    29.5
+    Pts+Rebs
+    LAL - F
+    LeBron James
+    @ DEN Thu 7:10pm
+    25.5
+    Pts+Rebs
+    LAL - G
+    Austin Reaves
+    @ DEN Thu 7:10pm
+    23.5
+    Pts+Rebs
+    LAL - C
+    Deandre Ayton
+    @ DEN Thu 7:10pm
+    16.5
+    Pts+Rebs
+    DEN - F
+    Cameron Johnson
+    vs LAL Thu 7:10pm
+    15.5
+    Pts+Rebs
+    DEN - G
+    Christian Braun
+    vs LAL Thu 7:10pm
+    17.5
+    Pts+Rebs
+    DEN - G-F
+    Tim Hardaway
+    vs LAL Thu 7:10pm
+    15.5
+    Pts+Rebs
+    LAL - G
+    Marcus Smart
+    @ DEN Thu 7:10pm
     9.5
+    Pts+Rebs
+    DEN - G
+    Julian Strawther
+    vs LAL Thu 7:10pm
+    11.5
+    Pts+Rebs
+    DEN - G-F
+    Bruce Brown
+    vs LAL Thu 7:10pm
+    13.5
+    Pts+Rebs
+    DEN - C
+    Jonas Valančiūnas
+    vs LAL Thu 7:10pm
+    11.5
+    Pts+Rebs
+    LAL - G
+    Luke Kennard
+    @ DEN Thu 7:10pm
+    10.5
+    Pts+Rebs
+    LAL - F
+    Rui Hachimura
+    @ DEN Thu 7:10pm
+    10.5
+    Pts+Rebs
+    LAL - C-F
+    Jaxson Hayes
+    @ DEN Thu 7:10pm
+    8.5
+    Pts+Rebs
+    NOP - F
+    Zion Williamson
+    @ SAC Thu 7:10pm
+    28.5
+    Pts+Rebs
+    SAC - C
+    Maxime Raynaud
+    vs NOP Thu 7:10pm
+    19.5
+    Pts+Rebs
+    NOP - F
+    Trey Murphy
+    @ SAC Thu 7:10pm
+    27.5
+    Pts+Rebs
+    SAC - G
+    Nique Clifford
+    vs NOP Thu 7:10pm
+    20.5
+    Pts+Rebs
+    SAC - G
+    Russell Westbrook
+    vs NOP Thu 7:10pm
+    18.5
+    Pts+Rebs
+    NOP - G-F
+    Saddiq Bey
+    @ SAC Thu 7:10pm
+    27.5
+    Pts+Rebs
+    SAC - F
+    Precious Achiuwa
+    vs NOP Thu 7:10pm
+    22.5
+    Pts+Rebs
+    NOP - F
+    Herbert Jones
+    @ SAC Thu 7:10pm
+    14.5
+    Pts+Rebs
+    SAC - G-F
+    DeMar DeRozan
+    vs NOP Thu 7:10pm
+    17.5
     Pts+Rebs
 
     Privacy policy

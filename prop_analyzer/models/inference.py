@@ -20,9 +20,6 @@ def load_artifacts(prop_cat):
     return registry.load_artifacts(prop_cat)
 
 def get_system_learning_maps(days_back=21):
-    """
-    Returns global system biases for retrospective analysis.
-    """
     graded_files = sorted(cfg.GRADED_DIR.glob("graded_*.parquet"), reverse=True)
     if not graded_files: return {}, {}
 
@@ -65,21 +62,13 @@ def get_system_learning_maps(days_back=21):
     return cat_bias_pct, cat_mae
 
 def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games, s_avg, r_avg):
-    """
-    Strictly evaluates based on Win Probability, Hit Rates, Volatility, and Edge/Delta.
-    """
     tier = 'Pass'
     
-    # Evaluate Hard Passes First
     if pick_type == 'Over':
         if cv > cfg.MAX_CV_HARD_PASS_OVER or l10_hit_rate < cfg.MIN_L10_HIT_HARD_PASS_OVER:
             return 'Pass / Too Volatile'
     else:
-        # Dynamic CV threshold based on line size for Unders
-        # Low lines (under 10) have a higher CV tolerance since small standard deviations cause huge CV spikes
         dynamic_cv_threshold = getattr(cfg, 'MAX_CV_HARD_PASS_UNDER_LOW_LINE', 0.85) if line < 10.0 else getattr(cfg, 'MAX_CV_HARD_PASS_UNDER_BASE', 0.45)
-        
-        # Removed the L10 hit rate filter for Unders to account for minutes shifts
         if cv > dynamic_cv_threshold:
             return 'Pass / Too Volatile'
 
@@ -103,7 +92,6 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
     return tier
 
 def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, vs_opp_games, s_avg, r_avg, tweedie_power=1.5):
-    """Evaluates probability of outcome based on distribution modeling."""
     if line <= 0: return None
     
     nbinom_props = ['PTS', 'REB', 'AST', 'STL', 'BLK', 'FG3M', 'PRA', 'PR', 'PA', 'RA']
@@ -149,6 +137,7 @@ def predict_props(todays_props_df):
         logging.warning(f"Could not load system learning maps: {e}")
         cat_mae = {}
 
+    # IDEA 2: Predict Minutes first to anchor all feature calculations
     predicted_mins = {}
     min_artifacts = load_artifacts('MIN')
     if min_artifacts:
@@ -187,7 +176,6 @@ def predict_props(todays_props_df):
             continue
             
         model, scaler, feature_names = artifacts['model'], artifacts['scaler'], artifacts['features']
-        tweedie_power = artifacts.get('metadata', {}).get('tweedie_variance_power', 1.5)
         
         X_raw = group.copy()
         
@@ -199,6 +187,11 @@ def predict_props(todays_props_df):
             if f in X_raw.columns: new_features[f] = X_raw[f]
             elif f in inv_map: new_features[f] = X_raw[inv_map[f]]
             else: new_features[f] = np.nan 
+
+        # IDEA 2: Inject Predicted Minutes into the Feature Engine before scaling
+        # This allows the tree models to natively scale rates against the expected playtime
+        if 'MIN' in feature_names:
+            new_features['MIN'] = pd.Series([predicted_mins.get(idx, 36.0) for idx in X_raw.index], index=X_raw.index)
             
         X_model = pd.DataFrame(new_features, index=X_raw.index)
 
@@ -237,28 +230,30 @@ def predict_props(todays_props_df):
                 line = float(row[Cols.PROP_LINE])
                 raw_val = raw_projections[idx]
                 
-                # CRITICAL FIX: The ML model natively understands minutes shifts via its features.
-                # Double-counting a manual minutes ratio causes high-variance blowups for bench players.
-                # We simply trust the tree model's prediction output directly.
                 pred_min = predicted_mins.get(orig_idx, float(row.get('MIN_SZN_AVG', 36.0)))
                 hist_mins = float(row.get('MIN_L10_AVG', pred_min))
                 
-                adjusted_raw = raw_val
+                raw_std = float(stds.iloc[idx]) if not pd.isna(stds.iloc[idx]) else 1.0
+                floor_std = max(line * 0.35, np.sqrt(line))
+                std_dev = max(raw_std, floor_std)
                 
-                # 2. Market Consensus Anchor 
-                # (If model is drastically deviating from the sportsbook, anchor it heavily toward the line)
+                # IDEA 4: Continuous Bayesian Shrinkage towards Market Anchor
                 if line > 0:
-                    gap = abs(adjusted_raw - line) / line
-                    if gap > 0.10: 
-                        adjusted_raw = (adjusted_raw * 0.35) + (line * 0.65)
+                    # Vegas variance proxy: Sharper lines have less variance. We assume ~20% CV for market lines
+                    vegas_implied_std = max(line * 0.20, 1.5)
+                    var_vegas = vegas_implied_std ** 2
+                    var_model = std_dev ** 2
+                    
+                    # Inverse-Variance Weighting (Posterior Mean calculation)
+                    weight_model = var_vegas / (var_model + var_vegas)
+                    weight_vegas = var_model / (var_model + var_vegas)
+                    
+                    adjusted_raw = (raw_val * weight_model) + (line * weight_vegas)
+                else:
+                    adjusted_raw = raw_val
                 
                 s_avg = float(szn_avgs.iloc[idx]) if not pd.isna(szn_avgs.iloc[idx]) else adjusted_raw
                 r_avg = float(l5_avgs.iloc[idx]) if not pd.isna(l5_avgs.iloc[idx]) else adjusted_raw
-                raw_std = float(stds.iloc[idx]) if not pd.isna(stds.iloc[idx]) else 1.0
-                
-                # 3. Floor the Standard Deviation to structural NBA baselines (~35% of mean)
-                floor_std = max(line * 0.35, np.sqrt(line))
-                std_dev = max(raw_std, floor_std)
                 
                 cv = float(cvs.iloc[idx]) if not pd.isna(cvs.iloc[idx]) else (std_dev / s_avg if s_avg > 0 else 0.5)
                 
@@ -289,17 +284,19 @@ def predict_props(todays_props_df):
                 }
                 
                 sample_size = int(games_played_col.iloc[idx]) if not pd.isna(games_played_col.iloc[idx]) else 15
+                
+                # IDEA 3: Combo Variance Scaling is handled smoothly here by dynamically updating correlations
                 variance = estimate_combo_variance(prop_cat, proj, std_dev, base_stds=dynamic_base_stds, correlations=dynamic_correlations, sample_size=sample_size)
                 
                 historic_mae = cat_mae.get(prop_cat, 1.0)
                 if historic_mae > 1.5:  
-                    # Cap the variance multiplier so it doesn't artificially flatten composite prop distributions
                     variance_multiplier = min(1.0 + (historic_mae * 0.15), 1.5)
                     variance = variance * variance_multiplier
 
                 delta_gap_final = abs(proj - line) / line if line > 0 else 0
                 
-                eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap_final, cv, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, vs_opp_games, s_avg, r_avg, tweedie_power=tweedie_power)
+                # Default tweedie power param fallback (since we removed tweedie from training)
+                eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap_final, cv, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, vs_opp_games, s_avg, r_avg, tweedie_power=1.5)
                 if not eval_res: continue
                 
                 if days_rest > 7.0 or min_deviation > 0.30:

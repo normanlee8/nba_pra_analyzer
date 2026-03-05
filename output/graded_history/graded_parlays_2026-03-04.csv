@@ -1,71 +1,71 @@
 Legs,Joint Prob,Payout,Picks,Result
-2,0.5859840000000001,3.0x,AJ Green Under 9.5 PTS | T.J. McConnell Under 4.5 REB,WIN
-2,0.582144,3.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS,WIN
-2,0.578354,3.0x,Andre Drummond Under 9.5 PTS | T.J. McConnell Under 4.5 REB,WIN
-2,0.572928,3.0x,AJ Green Under 9.5 PTS | Jerami Grant Under 19.5 PTS,LOSS
-2,0.572928,3.0x,AJ Green Under 9.5 PTS | Deni Avdija Under 6.0 REB,PUSH/DOWNGRADE
-2,0.569198,3.0x,Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB,LOSS
-2,0.569198,3.0x,Deni Avdija Under 6.0 REB | T.J. McConnell Under 4.5 REB,PUSH/DOWNGRADE
-2,0.566016,3.0x,AJ Green Under 9.5 PTS | Jerami Grant Under 22.5 PR,LOSS
-2,0.565468,3.0x,Andre Drummond Under 9.5 PTS | Jerami Grant Under 19.5 PTS,LOSS
-2,0.565468,3.0x,Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB,PUSH/DOWNGRADE
-3,0.444175872,6.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | T.J. McConnell Under 4.5 REB,WIN
-3,0.437144064,6.0x,AJ Green Under 9.5 PTS | Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB,LOSS
-3,0.437144064,6.0x,AJ Green Under 9.5 PTS | Deni Avdija Under 6.0 REB | T.J. McConnell Under 4.5 REB,PUSH/DOWNGRADE
-3,0.4342794239999999,6.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Jerami Grant Under 19.5 PTS,LOSS
-3,0.4342794239999999,6.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB,PUSH/DOWNGRADE
-3,0.4319232,6.0x,AJ Green Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR,LOSS
-3,0.431870208,6.0x,AJ Green Under 9.5 PTS | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB,LOSS
-3,0.4314520839999999,6.0x,Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | T.J. McConnell Under 4.5 REB,PUSH/DOWNGRADE
-3,0.4314520839999999,6.0x,Andre Drummond Under 9.5 PTS | Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB,LOSS
-3,0.43069824,6.0x,AJ Green Under 9.5 PTS | Jerami Grant Under 21.5 PA | T.J. McConnell Under 4.5 REB,LOSS
-4,0.3313552005119999,10.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB,LOSS
-4,0.3313552005119999,10.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | T.J. McConnell Under 4.5 REB,PUSH/DOWNGRADE
-4,0.3295574016,10.0x,AJ Green Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB,LOSS
-4,0.3273977856,10.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR,LOSS
-4,0.3273576176639999,10.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB,LOSS
-4,0.32646926592,10.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Jerami Grant Under 21.5 PA | T.J. McConnell Under 4.5 REB,LOSS
-4,0.3252797184,10.0x,AJ Green Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB,LOSS
-4,0.3252662896,10.0x,Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB,LOSS
-4,0.3246034943999999,10.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | T.J. McConnell Under 4.5 REB,WIN
-4,0.3240517462,10.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB,LOSS
-5,0.2498045104128,20.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB,LOSS
-5,0.2465620265472,20.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB,LOSS
-5,0.244518817536,20.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 21.5 PA | T.J. McConnell Under 4.5 REB,LOSS
-5,0.2421542068223999,20.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB,LOSS
-5,0.2421542068223999,20.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | T.J. McConnell Under 4.5 REB,PUSH/DOWNGRADE
-5,0.2417426026652,20.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB,LOSS
-5,0.2417426026652,20.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Jerami Grant Under 19.5 PTS | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB,LOSS
-5,0.2416764994559999,20.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 17.5 PRA | Andre Drummond Under 9.5 PTS | Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB,LOSS
-5,0.2416764994559999,20.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 17.5 PRA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | T.J. McConnell Under 4.5 REB,PUSH/DOWNGRADE
-5,0.24084037632,20.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB,LOSS
-6,0.1825570052505599,25.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB,LOSS
-6,0.18224670206288,25.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB,LOSS
-6,0.1821968676864,25.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 17.5 PRA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB,LOSS
-6,0.18119065939968,25.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB,LOSS
-6,0.18018739974144,25.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB,LOSS
-6,0.17988112431562,25.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 19.5 PTS | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB,LOSS
-6,0.1798319367936,25.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 17.5 PRA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB,LOSS
-6,0.17951220584448,25.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 15.5 PR | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB,LOSS
-6,0.17883878917632,25.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB,LOSS
-6,0.17879887939312,25.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | Ryan Rollins Under 21.5 PR | T.J. McConnell Under 4.5 REB,LOSS
-7,0.133185794325376,40.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB,LOSS
-7,0.13292305333944,40.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 17.5 PRA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB,LOSS
-7,0.132414038900736,40.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB,LOSS
-7,0.1321889667469279,40.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 22.5 PR | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB,LOSS
-7,0.13215282038784,40.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 17.5 PRA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB,LOSS
-7,0.131457031347824,40.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 19.5 PTS | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB,LOSS
-7,0.13119770076231,40.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 17.5 PRA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 19.5 PTS | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB,LOSS
-7,0.130964438717008,40.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 15.5 PR | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB,LOSS
-7,0.130695293374464,40.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB,LOSS
-7,0.1306661273258239,40.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | Ryan Rollins Under 21.5 PR | T.J. McConnell Under 4.5 REB,LOSS
-8,0.0966036275990656,80.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 22.5 PR | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB,LOSS
-8,0.0964130537282639,80.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 17.5 PRA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 22.5 PR | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB,LOSS
-8,0.0953497042678544,80.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 19.5 PTS | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB,LOSS
-8,0.095161604062161,80.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 17.5 PRA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 19.5 PTS | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB,LOSS
-8,0.0949924121459247,80.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 15.5 PR | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 22.5 PR | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB,LOSS
-8,0.0947760379996543,80.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 22.5 PR | Ryan Rollins Under 21.5 PR | T.J. McConnell Under 4.5 REB,LOSS
-8,0.0945890694885359,80.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 17.5 PRA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 22.5 PR | Ryan Rollins Under 21.5 PR | T.J. McConnell Under 4.5 REB,LOSS
-8,0.094559560798872,80.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 21.5 PA | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB,LOSS
-8,0.0943730193410549,80.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 17.5 PRA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 21.5 PA | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB,LOSS
-8,0.0942760370715135,80.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 22.5 PR | Ryan Rollins Under 16.5 PTS | T.J. McConnell Under 4.5 REB,LOSS
+2,0.5012629999999999,3.0x,Jared McCain Over 1.5 REB | Jose Alvarado Over 3.5 RA,LOSS
+2,0.4998449999999999,3.0x,Jose Alvarado Over 3.5 RA | Ryan Rollins Under 22.5 PA,LOSS
+2,0.4984349999999999,3.0x,Jared McCain Over 1.5 REB | Ryan Rollins Under 22.5 PA,LOSS
+2,0.4941729999999999,3.0x,Jose Alvarado Over 3.5 RA | Ryan Rollins Under 27.5 PRA,LOSS
+2,0.4934639999999999,3.0x,Jose Alvarado Over 3.5 RA | Ryan Rollins Under 21.5 PR,LOSS
+2,0.4927789999999999,3.0x,Jared McCain Over 1.5 REB | Ryan Rollins Under 27.5 PRA,LOSS
+2,0.4920719999999999,3.0x,Jared McCain Over 1.5 REB | Ryan Rollins Under 21.5 PR,LOSS
+2,0.4885369999999999,3.0x,Jared McCain Over 1.5 REB | Jose Alvarado Over 2.5 AST,LOSS
+2,0.4871549999999999,3.0x,Jose Alvarado Over 2.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+2,0.483538,3.0x,Isaiah Joe Under 1.5 AST | Jose Alvarado Over 3.5 RA,LOSS
+3,0.3637879,6.0x,Jose Alvarado Over 3.5 RA | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+3,0.3627616999999999,6.0x,Jared McCain Over 1.5 REB | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+3,0.3579741,6.0x,Jose Alvarado Over 3.5 RA | Myles Turner Under 0.5 AST | Ryan Rollins Under 27.5 PRA,LOSS
+3,0.3569643,6.0x,Jared McCain Over 1.5 REB | Myles Turner Under 0.5 AST | Ryan Rollins Under 27.5 PRA,LOSS
+3,0.3550671999999999,6.0x,Jose Alvarado Over 3.5 RA | Myles Turner Under 0.5 AST | Ryan Rollins Under 21.5 PR,LOSS
+3,0.3545521,6.0x,Jose Alvarado Over 2.5 AST | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+3,0.3540656,6.0x,Jared McCain Over 1.5 REB | Myles Turner Under 0.5 AST | Ryan Rollins Under 21.5 PR,LOSS
+3,0.3533904149999999,6.0x,Jared McCain Over 1.5 REB | Jose Alvarado Over 3.5 RA | Ryan Rollins Under 22.5 PA,LOSS
+3,0.3499342,6.0x,Isaiah Joe Under 1.5 AST | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+3,0.3493803109999999,6.0x,Jared McCain Over 1.5 REB | Jose Alvarado Over 3.5 RA | Ryan Rollins Under 27.5 PRA,LOSS
+4,0.2571980452999999,10.0x,Jared McCain Over 1.5 REB | Jose Alvarado Over 3.5 RA | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+4,0.2530876887,10.0x,Jared McCain Over 1.5 REB | Jose Alvarado Over 3.5 RA | Myles Turner Under 0.5 AST | Ryan Rollins Under 27.5 PRA,LOSS
+4,0.2510325103999999,10.0x,Jared McCain Over 1.5 REB | Jose Alvarado Over 3.5 RA | Myles Turner Under 0.5 AST | Ryan Rollins Under 21.5 PR,LOSS
+4,0.2506683347,10.0x,Jared McCain Over 1.5 REB | Jose Alvarado Over 2.5 AST | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+4,0.25034149,10.0x,Jose Alvarado Over 2.5 AST | Landry Shamet Under 1.5 AST | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+4,0.24875088,10.0x,Jose Alvarado Over 3.5 RA | Landry Shamet Under 1.5 AST | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+4,0.2481033478,10.0x,Isaiah Joe Under 1.5 AST | Jose Alvarado Over 3.5 RA | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+4,0.24757075,10.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+4,0.246677956,10.0x,Jared McCain Over 1.5 REB | Landry Shamet Under 1.5 AST | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+4,0.2466623312999999,10.0x,Jared McCain Over 1.5 REB | Jose Alvarado Over 2.5 AST | Myles Turner Under 0.5 AST | Ryan Rollins Under 27.5 PRA,LOSS
+5,0.1769914334299999,20.0x,Jared McCain Over 1.5 REB | Jose Alvarado Over 2.5 AST | Landry Shamet Under 1.5 AST | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+5,0.17586687216,20.0x,Jared McCain Over 1.5 REB | Jose Alvarado Over 3.5 RA | Landry Shamet Under 1.5 AST | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+5,0.1755276617499999,20.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jose Alvarado Over 3.5 RA | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+5,0.17416288197,20.0x,Jared McCain Over 1.5 REB | Jose Alvarado Over 2.5 AST | Landry Shamet Under 1.5 AST | Myles Turner Under 0.5 AST | Ryan Rollins Under 27.5 PRA,LOSS
+5,0.1730942844868999,20.0x,Jared McCain Over 1.5 REB | Jerami Grant Under 24.5 PRA | Jose Alvarado Over 3.5 RA | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+5,0.17305629264,20.0x,Jared McCain Over 1.5 REB | Jose Alvarado Over 3.5 RA | Landry Shamet Under 1.5 AST | Myles Turner Under 0.5 AST | Ryan Rollins Under 27.5 PRA,LOSS
+5,0.1729858613,20.0x,AJ Green Under 9.5 PTS | Jared McCain Over 1.5 REB | Jose Alvarado Over 3.5 RA | Myles Turner Under 0.5 AST | Ryan Rollins Under 27.5 PRA,LOSS
+5,0.17274860624,20.0x,Jared McCain Over 1.5 REB | Jose Alvarado Over 2.5 AST | Landry Shamet Under 1.5 AST | Myles Turner Under 0.5 AST | Ryan Rollins Under 21.5 PR,LOSS
+5,0.17274712154,20.0x,Jared McCain Over 1.5 REB | Jose Alvarado Over 3.5 RA | Landry Shamet Under 1.5 REB | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+5,0.17272250325,20.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jose Alvarado Over 3.5 RA | Myles Turner Under 0.5 AST | Ryan Rollins Under 27.5 PRA,LOSS
+6,0.12154153739,25.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jose Alvarado Over 3.5 RA | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+6,0.120789768925,25.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jose Alvarado Over 2.5 AST | Landry Shamet Under 1.5 AST | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+6,0.1200222996,25.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jose Alvarado Over 3.5 RA | Landry Shamet Under 1.5 AST | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+6,0.11959914681,25.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jose Alvarado Over 3.5 RA | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 27.5 PRA,LOSS
+6,0.11911523469839,25.0x,Jared McCain Over 1.5 REB | Jerami Grant Under 24.5 PRA | Jose Alvarado Over 2.5 AST | Landry Shamet Under 1.5 AST | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+6,0.11904062303,25.0x,AJ Green Under 9.5 PTS | Jared McCain Over 1.5 REB | Jose Alvarado Over 2.5 AST | Landry Shamet Under 1.5 AST | Myles Turner Under 0.5 AST | Ryan Rollins Under 27.5 PRA,LOSS
+6,0.118859392575,25.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jose Alvarado Over 2.5 AST | Landry Shamet Under 1.5 AST | Myles Turner Under 0.5 AST | Ryan Rollins Under 27.5 PRA,LOSS
+6,0.11876125183153,25.0x,Jared McCain Over 1.5 REB | Jerami Grant Under 21.5 PA | Jose Alvarado Over 2.5 AST | Landry Shamet Under 1.5 AST | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+6,0.11862795152,25.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jose Alvarado Over 3.5 RA | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 21.5 PR,LOSS
+6,0.1185842603981,25.0x,Jared McCain Over 1.5 REB | Jerami Grant Under 22.5 PR | Jose Alvarado Over 2.5 AST | Landry Shamet Under 1.5 AST | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+7,0.083639091809,40.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jose Alvarado Over 2.5 AST | Landry Shamet Under 1.5 AST | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+7,0.083107669008,40.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jose Alvarado Over 3.5 RA | Landry Shamet Under 1.5 AST | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+7,0.082302431211,40.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jose Alvarado Over 2.5 AST | Landry Shamet Under 1.5 AST | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 27.5 PRA,LOSS
+7,0.08179745466347,40.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jerami Grant Under 24.5 PRA | Jose Alvarado Over 3.5 RA | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+7,0.081779501232,40.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jose Alvarado Over 3.5 RA | Landry Shamet Under 1.5 AST | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 27.5 PRA,LOSS
+7,0.08174621819,40.0x,AJ Green Under 9.5 PTS | Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jose Alvarado Over 3.5 RA | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 27.5 PRA,LOSS
+7,0.081634100912,40.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jose Alvarado Over 2.5 AST | Landry Shamet Under 1.5 AST | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 21.5 PR,LOSS
+7,0.081633399302,40.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jose Alvarado Over 3.5 RA | Landry Shamet Under 1.5 REB | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+7,0.08155437158869,40.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jerami Grant Under 21.5 PA | Jose Alvarado Over 3.5 RA | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+7,0.0814328300513,40.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jerami Grant Under 22.5 PR | Jose Alvarado Over 3.5 RA | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+8,0.056289108787457,80.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jerami Grant Under 24.5 PRA | Jose Alvarado Over 2.5 AST | Landry Shamet Under 1.5 AST | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+8,0.056253850289,80.0x,AJ Green Under 9.5 PTS | Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jose Alvarado Over 2.5 AST | Landry Shamet Under 1.5 AST | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 27.5 PRA,LOSS
+8,0.056121830603839,80.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jerami Grant Under 21.5 PA | Jose Alvarado Over 2.5 AST | Landry Shamet Under 1.5 AST | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+8,0.05603819151203,80.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jerami Grant Under 22.5 PR | Jose Alvarado Over 2.5 AST | Landry Shamet Under 1.5 AST | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+8,0.055954552420221,80.0x,Andre Drummond Under 9.5 PTS | Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jose Alvarado Over 2.5 AST | Landry Shamet Under 1.5 AST | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+8,0.055931461242384,80.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jerami Grant Under 24.5 PRA | Jose Alvarado Over 3.5 RA | Landry Shamet Under 1.5 AST | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+8,0.055896426768,80.0x,AJ Green Under 9.5 PTS | Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jose Alvarado Over 3.5 RA | Landry Shamet Under 1.5 AST | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 27.5 PRA,LOSS
+8,0.055787274236603,80.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jose Alvarado Over 2.5 AST | Landry Shamet Under 1.5 AST | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB,LOSS
+8,0.055765245904368,80.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jerami Grant Under 21.5 PA | Jose Alvarado Over 3.5 RA | Landry Shamet Under 1.5 AST | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS
+8,0.05568213823536,80.0x,Isaiah Joe Under 1.5 AST | Jared McCain Over 1.5 REB | Jerami Grant Under 22.5 PR | Jose Alvarado Over 3.5 RA | Landry Shamet Under 1.5 AST | Luguentz Dort Under 8.5 PTS | Myles Turner Under 0.5 AST | Ryan Rollins Under 22.5 PA,LOSS

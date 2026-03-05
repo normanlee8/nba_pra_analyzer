@@ -1,71 +1,71 @@
 Legs,Joint Prob,Payout,Picks
-2,0.5859840000000001,3.0x,AJ Green Under 9.5 PTS | T.J. McConnell Under 4.5 REB
-2,0.582144,3.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS
-2,0.578354,3.0x,Andre Drummond Under 9.5 PTS | T.J. McConnell Under 4.5 REB
-2,0.572928,3.0x,AJ Green Under 9.5 PTS | Jerami Grant Under 19.5 PTS
-2,0.572928,3.0x,AJ Green Under 9.5 PTS | Deni Avdija Under 6.0 REB
-2,0.569198,3.0x,Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB
-2,0.569198,3.0x,Deni Avdija Under 6.0 REB | T.J. McConnell Under 4.5 REB
-2,0.566016,3.0x,AJ Green Under 9.5 PTS | Jerami Grant Under 22.5 PR
-2,0.565468,3.0x,Andre Drummond Under 9.5 PTS | Jerami Grant Under 19.5 PTS
-2,0.565468,3.0x,Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB
-3,0.444175872,6.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | T.J. McConnell Under 4.5 REB
-3,0.437144064,6.0x,AJ Green Under 9.5 PTS | Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB
-3,0.437144064,6.0x,AJ Green Under 9.5 PTS | Deni Avdija Under 6.0 REB | T.J. McConnell Under 4.5 REB
-3,0.43427942399999997,6.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Jerami Grant Under 19.5 PTS
-3,0.43427942399999997,6.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB
-3,0.4319232,6.0x,AJ Green Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR
-3,0.431870208,6.0x,AJ Green Under 9.5 PTS | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB
-3,0.43145208399999996,6.0x,Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | T.J. McConnell Under 4.5 REB
-3,0.43145208399999996,6.0x,Andre Drummond Under 9.5 PTS | Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB
-3,0.43069824,6.0x,AJ Green Under 9.5 PTS | Jerami Grant Under 21.5 PA | T.J. McConnell Under 4.5 REB
-4,0.33135520051199996,10.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB
-4,0.33135520051199996,10.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | T.J. McConnell Under 4.5 REB
-4,0.3295574016,10.0x,AJ Green Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB
-4,0.3273977856,10.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR
-4,0.32735761766399996,10.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB
-4,0.32646926592000003,10.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Jerami Grant Under 21.5 PA | T.J. McConnell Under 4.5 REB
-4,0.32527971840000003,10.0x,AJ Green Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB
-4,0.3252662896,10.0x,Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB
-4,0.32460349439999997,10.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | T.J. McConnell Under 4.5 REB
-4,0.3240517462,10.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB
-5,0.2498045104128,20.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB
-5,0.2465620265472,20.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB
-5,0.244518817536,20.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 21.5 PA | T.J. McConnell Under 4.5 REB
-5,0.24215420682239996,20.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB
-5,0.24215420682239996,20.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | T.J. McConnell Under 4.5 REB
-5,0.2417426026652,20.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB
-5,0.2417426026652,20.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Jerami Grant Under 19.5 PTS | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB
-5,0.24167649945599998,20.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 17.5 PRA | Andre Drummond Under 9.5 PTS | Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB
-5,0.24167649945599998,20.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 17.5 PRA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | T.J. McConnell Under 4.5 REB
-5,0.24084037632,20.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB
-6,0.18255700525055998,25.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB
-6,0.18224670206288002,25.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB
-6,0.1821968676864,25.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 17.5 PRA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB
-6,0.18119065939968,25.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB
-6,0.18018739974144,25.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB
-6,0.17988112431562,25.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 19.5 PTS | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB
-6,0.17983193679360002,25.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 17.5 PRA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB
-6,0.17951220584448002,25.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 15.5 PR | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB
-6,0.17883878917632,25.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB
-6,0.17879887939312,25.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | Ryan Rollins Under 21.5 PR | T.J. McConnell Under 4.5 REB
-7,0.133185794325376,40.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB
-7,0.13292305333944002,40.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 17.5 PRA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB
-7,0.132414038900736,40.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB
-7,0.13218896674692798,40.0x,AJ Green Under 9.5 PTS | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 22.5 PR | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB
-7,0.13215282038784,40.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 17.5 PRA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 22.5 PR | T.J. McConnell Under 4.5 REB
-7,0.13145703134782402,40.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 19.5 PTS | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB
-7,0.13119770076231002,40.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 17.5 PRA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 19.5 PTS | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB
-7,0.13096443871700802,40.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 15.5 PR | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB
-7,0.130695293374464,40.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 19.5 PTS | T.J. McConnell Under 4.5 REB
-7,0.13066612732582397,40.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Jerami Grant Under 22.5 PR | Ryan Rollins Under 21.5 PR | T.J. McConnell Under 4.5 REB
-8,0.0966036275990656,80.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 22.5 PR | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB
-8,0.09641305372826399,80.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 17.5 PRA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 22.5 PR | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB
-8,0.09534970426785441,80.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 19.5 PTS | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB
-8,0.095161604062161,80.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 17.5 PRA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 19.5 PTS | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB
-8,0.09499241214592478,80.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 15.5 PR | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 22.5 PR | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB
-8,0.09477603799965438,80.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 22.5 PR | Ryan Rollins Under 21.5 PR | T.J. McConnell Under 4.5 REB
-8,0.09458906948853599,80.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 17.5 PRA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 22.5 PR | Ryan Rollins Under 21.5 PR | T.J. McConnell Under 4.5 REB
-8,0.094559560798872,80.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 21.5 PA | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB
-8,0.09437301934105499,80.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 17.5 PRA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 21.5 PA | Ryan Rollins Under 22.5 PA | T.J. McConnell Under 4.5 REB
-8,0.09427603707151358,80.0x,AJ Green Under 9.5 PTS | Aaron Nesmith Under 13.5 PA | Andre Drummond Under 9.5 PTS | Deni Avdija Under 6.0 REB | Dominick Barlow Under 0.5 AST | Jerami Grant Under 22.5 PR | Ryan Rollins Under 16.5 PTS | T.J. McConnell Under 4.5 REB
+2,0.560598,3.0x,Keldon Johnson Under 2.5 AST | Max Christie Under 1.5 AST
+2,0.5573899999999999,3.0x,Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST
+2,0.552578,3.0x,Gui Santos Under 12.5 PTS | Keldon Johnson Under 2.5 AST
+2,0.552578,3.0x,Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST
+2,0.5453600000000001,3.0x,Cameron Johnson Under 15.5 PR | Keldon Johnson Under 2.5 AST
+2,0.5445580000000001,3.0x,Andrew Wiggins Over 3.5 REB | Keldon Johnson Under 2.5 AST
+2,0.5357360000000001,3.0x,Isaac Okoro Under 14.5 PR | Keldon Johnson Under 2.5 AST
+2,0.534934,3.0x,Gui Santos Under 15.5 PA | Keldon Johnson Under 2.5 AST
+2,0.5325280000000001,3.0x,Keldon Johnson Under 2.5 AST | Sandro Mamukelashvili Under 4.5 PTS
+2,0.5325280000000001,3.0x,Isaac Okoro Under 16.5 PRA | Keldon Johnson Under 2.5 AST
+3,0.4356866999999999,6.0x,Keldon Johnson Under 2.5 AST | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+3,0.43319349999999995,6.0x,Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Luke Kornet Under 9.5 PTS
+3,0.42945369999999994,6.0x,Gui Santos Under 12.5 PTS | Keldon Johnson Under 2.5 AST | Luke Kornet Under 9.5 PTS
+3,0.42945369999999994,6.0x,Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Luke Kornet Under 9.5 PTS
+3,0.423844,6.0x,Cameron Johnson Under 15.5 PR | Keldon Johnson Under 2.5 AST | Luke Kornet Under 9.5 PTS
+3,0.4232207,6.0x,Andrew Wiggins Over 3.5 REB | Keldon Johnson Under 2.5 AST | Luke Kornet Under 9.5 PTS
+3,0.4163644,6.0x,Isaac Okoro Under 14.5 PR | Keldon Johnson Under 2.5 AST | Luke Kornet Under 9.5 PTS
+3,0.4157411,6.0x,Gui Santos Under 15.5 PA | Keldon Johnson Under 2.5 AST | Luke Kornet Under 9.5 PTS
+3,0.4138712,6.0x,Isaac Okoro Under 16.5 PRA | Keldon Johnson Under 2.5 AST | Luke Kornet Under 9.5 PTS
+3,0.4138712,6.0x,Keldon Johnson Under 2.5 AST | Luke Kornet Under 9.5 PTS | Sandro Mamukelashvili Under 4.5 PTS
+4,0.30286146999999997,10.0x,Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS
+4,0.3028022564999999,10.0x,Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+4,0.30049293,10.0x,Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 24.5 PR | Luke Kornet Under 9.5 PTS
+4,0.30018813629999996,10.0x,Gui Santos Under 12.5 PTS | Keldon Johnson Under 2.5 AST | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+4,0.30018813629999996,10.0x,Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+4,0.29847032149999997,10.0x,Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Luke Kornet Under 9.5 PTS
+4,0.2984703214999999,10.0x,Gui Santos Under 12.5 PTS | Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Luke Kornet Under 9.5 PTS
+4,0.2972847,10.0x,Keldon Johnson Under 2.5 AST | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST | Victor Wembanyama Under 23.5 PTS
+4,0.29626695599999997,10.0x,Cameron Johnson Under 15.5 PR | Keldon Johnson Under 2.5 AST | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+4,0.2958935992999999,10.0x,Gui Santos Under 12.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Luke Kornet Under 9.5 PTS
+5,0.21170016752999996,20.0x,Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+5,0.21048872165,20.0x,Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS
+5,0.21004455806999997,20.0x,Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 24.5 PR | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+5,0.20884258634999997,20.0x,Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 24.5 PR | Luke Kornet Under 9.5 PTS
+5,0.20867155282999997,20.0x,Gui Santos Under 12.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS
+5,0.20863075472849996,20.0x,Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+5,0.20863075472849993,20.0x,Gui Santos Under 12.5 PTS | Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+5,0.20703962876999996,20.0x,Gui Santos Under 12.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 24.5 PR | Luke Kornet Under 9.5 PTS
+5,0.20682962591069992,20.0x,Gui Santos Under 12.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+5,0.20665327,20.0x,Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS | Victor Wembanyama Under 23.5 PTS
+6,0.14713161643335,25.0x,Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+6,0.14598096785864997,25.0x,Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 24.5 PR | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+6,0.14586141542816997,25.0x,Gui Santos Under 12.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+6,0.14502672921684995,25.0x,Gui Santos Under 12.5 PTS | Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS
+6,0.14472070051022995,25.0x,Gui Santos Under 12.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 24.5 PR | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+6,0.14445063573,25.0x,Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST | Victor Wembanyama Under 23.5 PTS
+6,0.1439561139204,25.0x,Cameron Johnson Under 15.5 PR | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+6,0.14389254199514995,25.0x,Gui Santos Under 12.5 PTS | Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 24.5 PR | Luke Kornet Under 9.5 PTS
+6,0.14374659000793644,25.0x,Gui Santos Under 12.5 PTS | Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+6,0.14374441375287,25.0x,Andrew Wiggins Over 3.5 REB | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+7,0.1013736837225781,40.0x,Gui Santos Under 12.5 PTS | Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+7,0.10058088685460981,40.0x,Gui Santos Under 12.5 PTS | Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 24.5 PR | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+7,0.10039319183234999,40.0x,Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST | Victor Wembanyama Under 23.5 PTS
+7,0.10004949917467798,40.0x,Cameron Johnson Under 15.5 PR | Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+7,0.09990236755824465,40.0x,Andrew Wiggins Over 3.5 REB | Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+7,0.09973194892338298,40.0x,Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST | Naz Reid Under 18.5 PR | Sandro Mamukelashvili Under 4.5 PTS
+7,0.09960806293964998,40.0x,Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 24.5 PR | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST | Victor Wembanyama Under 23.5 PTS
+7,0.09952648801797,40.0x,Gui Santos Under 12.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST | Victor Wembanyama Under 23.5 PTS
+7,0.09926705814388198,40.0x,Cameron Johnson Under 15.5 PR | Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 24.5 PR | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+7,0.09918576249115559,40.0x,Cameron Johnson Under 15.5 PR | Gui Santos Under 12.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+8,0.06931370450175119,80.0x,Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST | Naz Reid Under 18.5 PR | Sandro Mamukelashvili Under 4.5 PTS
+8,0.06917090917248914,80.0x,Gui Santos Under 12.5 PTS | Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST | Victor Wembanyama Under 23.5 PTS
+8,0.06893410493135313,80.0x,Cameron Johnson Under 15.5 PR | Gui Santos Under 12.5 PTS | Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+8,0.06883273124763055,80.0x,Andrew Wiggins Over 3.5 REB | Gui Santos Under 12.5 PTS | Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+8,0.06877163395821001,80.0x,Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 24.5 PR | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST | Naz Reid Under 18.5 PR | Sandro Mamukelashvili Under 4.5 PTS
+8,0.06871531280821087,80.0x,Gui Santos Under 12.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST | Naz Reid Under 18.5 PR | Sandro Mamukelashvili Under 4.5 PTS
+8,0.06862995536541883,80.0x,Gui Santos Under 12.5 PTS | Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 24.5 PR | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST | Victor Wembanyama Under 23.5 PTS
+8,0.06839500306113468,80.0x,Cameron Johnson Under 15.5 PR | Gui Santos Under 12.5 PTS | Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 24.5 PR | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST
+8,0.06832209213405802,80.0x,Gui Santos Under 12.5 PTS | Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 14.5 PTS | Luke Kornet Under 9.5 PTS | Naz Reid Under 18.5 PR | Sandro Mamukelashvili Under 4.5 PTS
+8,0.06829442217428007,80.0x,Andrew Wiggins Over 3.5 REB | Gui Santos Under 12.5 PTS | Isaac Okoro Under 11.5 PTS | Keldon Johnson Under 2.5 AST | Keyonte George Under 4.5 AST | Kyle Filipowski Under 24.5 PR | Luke Kornet Under 9.5 PTS | Max Christie Under 1.5 AST

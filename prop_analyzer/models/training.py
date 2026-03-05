@@ -10,7 +10,6 @@ import re
 from datetime import datetime
 from pathlib import Path
 
-# Upgraded to Stacking Regressor and RidgeCV
 from sklearn.ensemble import StackingRegressor
 from sklearn.linear_model import RidgeCV
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
@@ -19,7 +18,6 @@ from sklearn.model_selection import TimeSeriesSplit
 import sklearn
 sklearn.set_config(enable_metadata_routing=True)
 
-# Add project root to path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from prop_analyzer import config as cfg
@@ -29,25 +27,19 @@ from prop_analyzer.models import registry
 from prop_analyzer.utils import common
 
 class PassThroughScaler:
-    """Dummy scaler to bypass imputation/scaling. Lets tree models handle NaNs natively."""
-    def fit(self, X, y=None): 
-        return self
-    def transform(self, X): 
-        return X.values if isinstance(X, pd.DataFrame) else X
-    def fit_transform(self, X, y=None): 
-        return self.transform(X)
+    def fit(self, X, y=None): return self
+    def transform(self, X): return X.values if isinstance(X, pd.DataFrame) else X
+    def fit_transform(self, X, y=None): return self.transform(X)
 
 def get_feature_cols(prop_cat, all_columns):
     relevant = []
     allowed_prefixes = feat_defs.PROP_FEATURE_MAP.get(prop_cat, [prop_cat])
     
     for base_feat in feat_defs.BASE_FEATURE_COLS:
-        if base_feat in all_columns:
-            relevant.append(base_feat)
+        if base_feat in all_columns: relevant.append(base_feat)
         for prefix in allowed_prefixes:
             prefixed_feat = f"{prefix}_{base_feat}"
-            if prefixed_feat in all_columns:
-                relevant.append(prefixed_feat)
+            if prefixed_feat in all_columns: relevant.append(prefixed_feat)
 
     vacancy_cols = [
         'TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 'MISSING_USG_G', 'MISSING_USG_F', 
@@ -57,21 +49,20 @@ def get_feature_cols(prop_cat, all_columns):
         'OPP_FOUL_DRAW_RATE', 'EXPECTED_USG_SHIFT'
     ]
     for vc in vacancy_cols:
-        if vc in all_columns:
-            relevant.append(vc)
+        if vc in all_columns: relevant.append(vc)
 
-    consistency_keywords = ['_CV', '_HIT_RATE', '_STD_DEV', '_CORR']
+    consistency_keywords = ['_CV', '_HIT_RATE', '_STD_DEV', '_CORR', '_PER_MIN']
     for c in all_columns:
         if any(k in c for k in consistency_keywords):
             relevant.append(c)
 
     keywords = feat_defs.RELEVANT_KEYWORDS.get(prop_cat, [])
     for c in all_columns:
-        if any(x in c for x in ['_RANK', 'TEAM_', 'OPP_', 'DVP_']):
+        if any(x in c for x in ['_RANK', 'TEAM_', 'OPP_', 'DVP_', 'MARKET_']):
             if any(x in c for x in ['NAME', 'ABBREV', Cols.DATE, 'SEASON_ID', Cols.PLAYER_ID]): continue
             if c in vacancy_cols: continue
             if keywords:
-                if any(k in c for k in keywords) or 'PACE' in c or 'EFF' in c or 'DVP_' in c:
+                if any(k in c for k in keywords) or 'PACE' in c or 'EFF' in c or 'DVP_' in c or 'MARKET_' in c:
                     relevant.append(c)
             else:
                 relevant.append(c)
@@ -95,7 +86,7 @@ def backfill_missing_cols(df, cols):
     return df
 
 def train_ensemble_model(df, target_col):
-    logging.info(f"Training Probability-Optimized Meta-Ensemble for {target_col}...")
+    logging.info(f"Training Median-Optimized (MAE) Meta-Ensemble for {target_col}...")
 
     date_col = Cols.DATE if Cols.DATE in df.columns else 'GAME_DATE'
     if date_col in df.columns:
@@ -139,18 +130,15 @@ def train_ensemble_model(df, target_col):
                 'learning_rate': trial.suggest_float('learning_rate', 0.01, 0.1, log=True),
                 'max_depth': trial.suggest_int('max_depth', 3, 6),
                 'subsample': trial.suggest_float('subsample', 0.6, 1.0),
-                'colsample_bytree': trial.suggest_float('colsample_bytree', 0.6, 1.0),
-                'tweedie_variance_power': trial.suggest_float('tweedie_variance_power', 1.1, 1.9)
+                'colsample_bytree': trial.suggest_float('colsample_bytree', 0.6, 1.0)
             }
-            mod = xgb.XGBRegressor(**params, random_state=42, n_jobs=2, objective='reg:tweedie', tree_method='hist')
+            # IDEA 1: MAE/Median Optimization
+            mod = xgb.XGBRegressor(**params, random_state=42, n_jobs=2, objective='reg:absoluteerror', tree_method='hist')
             
             maes = []
             for train_idx, val_idx in tscv.split(X_proc_df):
                 fold_weights = get_fold_weights(train_idx)
-                mod.fit(
-                    X_proc_df.iloc[train_idx], y.iloc[train_idx],
-                    sample_weight=fold_weights
-                )
+                mod.fit(X_proc_df.iloc[train_idx], y.iloc[train_idx], sample_weight=fold_weights)
                 maes.append(mean_absolute_error(y.iloc[val_idx], mod.predict(X_proc_df.iloc[val_idx])))
             return np.mean(maes)
 
@@ -162,18 +150,15 @@ def train_ensemble_model(df, target_col):
                 'n_estimators': trial.suggest_int('n_estimators', 50, 150),
                 'learning_rate': trial.suggest_float('learning_rate', 0.01, 0.1, log=True),
                 'max_depth': trial.suggest_int('max_depth', 3, 6),
-                'num_leaves': trial.suggest_int('num_leaves', 20, 50),
-                'tweedie_variance_power': trial.suggest_float('tweedie_variance_power', 1.1, 1.9)
+                'num_leaves': trial.suggest_int('num_leaves', 20, 50)
             }
-            mod = lgb.LGBMRegressor(**params, random_state=42, n_jobs=2, objective='tweedie', verbose=-1)
+            # IDEA 1: MAE/Median Optimization
+            mod = lgb.LGBMRegressor(**params, random_state=42, n_jobs=2, objective='mae', verbose=-1)
             
             maes = []
             for train_idx, val_idx in tscv.split(X_proc_df):
                 fold_weights = get_fold_weights(train_idx)
-                mod.fit(
-                    X_proc_df.iloc[train_idx], y.iloc[train_idx],
-                    sample_weight=fold_weights
-                )
+                mod.fit(X_proc_df.iloc[train_idx], y.iloc[train_idx], sample_weight=fold_weights)
                 maes.append(mean_absolute_error(y.iloc[val_idx], mod.predict(X_proc_df.iloc[val_idx])))
             return np.mean(maes)
 
@@ -185,14 +170,12 @@ def train_ensemble_model(df, target_col):
     logging.info(f"[{target_col}] Running Hyperparameter Optimization (Walk-Forward CV)...")
     xgb_params, lgb_params = optimize_base_models()
 
-    xgb_best = xgb.XGBRegressor(**xgb_params, random_state=42, n_jobs=-1, objective='reg:tweedie', tree_method='hist')
-    lgb_best = lgb.LGBMRegressor(**lgb_params, random_state=42, n_jobs=-1, objective='tweedie', verbose=-1)
+    xgb_best = xgb.XGBRegressor(**xgb_params, random_state=42, n_jobs=-1, objective='reg:absoluteerror', tree_method='hist')
+    lgb_best = lgb.LGBMRegressor(**lgb_params, random_state=42, n_jobs=-1, objective='mae', verbose=-1)
     
     xgb_best.set_fit_request(sample_weight=True)
     lgb_best.set_fit_request(sample_weight=True)
 
-    # CRITICAL FIX: The final estimator inputs are the target predictions (clean floats, already scaled).
-    # We directly use RidgeCV and explicitly route sample_weight to it.
     meta_estimator = RidgeCV(alphas=[0.1, 1.0, 10.0]).set_fit_request(sample_weight=True)
 
     ensemble = StackingRegressor(
@@ -238,7 +221,7 @@ def train_ensemble_model(df, target_col):
         'target_col': target_col,
         'metrics': {'MAE': float(mae), 'RMSE': float(rmse), 'R2': float(r2)},
         'top_features': shap_importance,
-        'tweedie_variance_power': float(xgb_params.get('tweedie_variance_power', 1.5))
+        'model_type': 'median_mae'
     }
 
     artifacts = {'scaler': preprocessor, 'features': sanitized_cols, 'model': ensemble, 'metadata': metadata}
@@ -247,7 +230,7 @@ def train_ensemble_model(df, target_col):
 
 def main():
     common.setup_logging(name="train_models")
-    logging.info(">>> STARTING ADVANCED PROBABILITY MODEL TRAINING PIPELINE")
+    logging.info(">>> STARTING ADVANCED MEDIAN MODEL TRAINING PIPELINE")
 
     train_file = cfg.MASTER_TRAINING_FILE
     if not train_file.exists(): return

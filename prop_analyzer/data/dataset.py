@@ -62,10 +62,15 @@ def create_training_dataset():
     box_scores['PA_DIFF'] = box_scores.get('PTS_DIFF', np.nan) + box_scores.get('AST_DIFF', np.nan)
     box_scores['RA_DIFF'] = box_scores.get('REB_DIFF', np.nan) + box_scores.get('AST_DIFF', np.nan)
 
-    # 2. Merge Real Vegas Lines (History)
+    # 2. Generate Features (Rolling Averages, etc.) BEFORE merging lines
+    # We must do this first so we can calculate the Deltas against these averages
+    logging.info("Calculating advanced features for training set...")
+    training_df = generator.add_rolling_stats_history(box_scores.copy())
+
+    # 3. Merge Real Vegas Lines (History) & Calculate Market Deltas
     prop_hist_path = cfg.MASTER_PROP_HISTORY_FILE
     if prop_hist_path.exists():
-        logging.info("Merging real historical Vegas lines...")
+        logging.info("Merging real historical Vegas lines and calculating Market Deltas...")
         try:
             prop_hist = pd.read_parquet(prop_hist_path)
             
@@ -92,23 +97,44 @@ def create_training_dataset():
                 ]
                 
                 # Merge into box scores
-                if Cols.PLAYER_NAME in box_scores.columns:
-                    box_scores = pd.merge(
-                        box_scores,
+                if Cols.PLAYER_NAME in training_df.columns:
+                    training_df = pd.merge(
+                        training_df,
                         pivoted,
                         on=[Cols.PLAYER_NAME, Cols.DATE],
                         how='left'
                     )
-                    logging.info(f"Merged lines. Columns added: {[c for c in pivoted.columns if 'Line_' in c]}")
+                    
+                    # --- CALCULATE MARKET EXPECTATION DELTAS & RATIOS ---
+                    prop_types = [c for c in pivoted.columns if c.startswith('Line_')]
+                    for prop_col in prop_types:
+                        stat_name = prop_col.replace('Line_', '')
+                        avg_col = f'{stat_name}_{Cols.SZN_AVG}'
+                        
+                        if avg_col in training_df.columns:
+                            # CRITICAL FIX: Cast string line values to float before math
+                            training_df[prop_col] = pd.to_numeric(training_df[prop_col], errors='coerce')
+                            
+                            # Impute missing historical Vegas lines using the player's season average
+                            imputed_lines = training_df[prop_col].fillna(training_df[avg_col])
+                            training_df[prop_col] = imputed_lines
+                            
+                            # Market Delta: Positive means Vegas expects MORE than their average
+                            training_df[f'{stat_name}_MARKET_DELTA'] = training_df[prop_col] - training_df[avg_col]
+                            
+                            # Market Ratio: 1.10 means Vegas expects 10% more than their average
+                            training_df[f'{stat_name}_MARKET_RATIO'] = np.where(
+                                training_df[avg_col] > 0,
+                                training_df[prop_col] / training_df[avg_col],
+                                1.0
+                            )
+
+                    logging.info("Successfully added Vegas Line Deltas and Ratios to training set.")
                 else:
                     logging.warning("Box scores missing Player Name, cannot merge lines by name.")
                     
         except Exception as e:
             logging.warning(f"Failed to merge prop history: {e}")
-
-    # 3. Generate Features (Rolling Averages, etc.)
-    logging.info("Calculating advanced features for training set...")
-    training_df = generator.add_rolling_stats_history(box_scores.copy())
 
     # 4. Save Final Dataset
     logging.info(f"Saving training set with {training_df.shape[1]} columns...")
