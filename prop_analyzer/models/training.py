@@ -86,7 +86,7 @@ def backfill_missing_cols(df, cols):
     return df
 
 def train_ensemble_model(df, target_col):
-    logging.info(f"Training Median-Optimized (MAE) Meta-Ensemble for {target_col}...")
+    logging.info(f"Training Poisson-Optimized Meta-Ensemble for {target_col}...")
 
     date_col = Cols.DATE if Cols.DATE in df.columns else 'GAME_DATE'
     if date_col in df.columns:
@@ -132,15 +132,17 @@ def train_ensemble_model(df, target_col):
                 'subsample': trial.suggest_float('subsample', 0.6, 1.0),
                 'colsample_bytree': trial.suggest_float('colsample_bytree', 0.6, 1.0)
             }
-            # IDEA 1: MAE/Median Optimization
-            mod = xgb.XGBRegressor(**params, random_state=42, n_jobs=2, objective='reg:absoluteerror', tree_method='hist')
+            # CHANGE: Objective set to Poisson to predict the true statistical mean
+            mod = xgb.XGBRegressor(**params, random_state=42, n_jobs=2, objective='count:poisson', tree_method='hist')
             
-            maes = []
+            # CHANGE: Evaluating on RMSE so optuna selects mean-optimizing parameters
+            rmses = []
             for train_idx, val_idx in tscv.split(X_proc_df):
                 fold_weights = get_fold_weights(train_idx)
                 mod.fit(X_proc_df.iloc[train_idx], y.iloc[train_idx], sample_weight=fold_weights)
-                maes.append(mean_absolute_error(y.iloc[val_idx], mod.predict(X_proc_df.iloc[val_idx])))
-            return np.mean(maes)
+                preds = mod.predict(X_proc_df.iloc[val_idx])
+                rmses.append(np.sqrt(mean_squared_error(y.iloc[val_idx], preds)))
+            return np.mean(rmses)
 
         study_xgb = optuna.create_study(direction='minimize')
         study_xgb.optimize(xgb_objective, n_trials=15)
@@ -152,15 +154,16 @@ def train_ensemble_model(df, target_col):
                 'max_depth': trial.suggest_int('max_depth', 3, 6),
                 'num_leaves': trial.suggest_int('num_leaves', 20, 50)
             }
-            # IDEA 1: MAE/Median Optimization
-            mod = lgb.LGBMRegressor(**params, random_state=42, n_jobs=2, objective='mae', verbose=-1)
+            # CHANGE: Objective set to Poisson
+            mod = lgb.LGBMRegressor(**params, random_state=42, n_jobs=2, objective='poisson', verbose=-1)
             
-            maes = []
+            rmses = []
             for train_idx, val_idx in tscv.split(X_proc_df):
                 fold_weights = get_fold_weights(train_idx)
                 mod.fit(X_proc_df.iloc[train_idx], y.iloc[train_idx], sample_weight=fold_weights)
-                maes.append(mean_absolute_error(y.iloc[val_idx], mod.predict(X_proc_df.iloc[val_idx])))
-            return np.mean(maes)
+                preds = mod.predict(X_proc_df.iloc[val_idx])
+                rmses.append(np.sqrt(mean_squared_error(y.iloc[val_idx], preds)))
+            return np.mean(rmses)
 
         study_lgb = optuna.create_study(direction='minimize')
         study_lgb.optimize(lgb_objective, n_trials=15)
@@ -170,8 +173,9 @@ def train_ensemble_model(df, target_col):
     logging.info(f"[{target_col}] Running Hyperparameter Optimization (Walk-Forward CV)...")
     xgb_params, lgb_params = optimize_base_models()
 
-    xgb_best = xgb.XGBRegressor(**xgb_params, random_state=42, n_jobs=-1, objective='reg:absoluteerror', tree_method='hist')
-    lgb_best = lgb.LGBMRegressor(**lgb_params, random_state=42, n_jobs=-1, objective='mae', verbose=-1)
+    # CHANGE: Apply final Poisson objectives
+    xgb_best = xgb.XGBRegressor(**xgb_params, random_state=42, n_jobs=-1, objective='count:poisson', tree_method='hist')
+    lgb_best = lgb.LGBMRegressor(**lgb_params, random_state=42, n_jobs=-1, objective='poisson', verbose=-1)
     
     xgb_best.set_fit_request(sample_weight=True)
     lgb_best.set_fit_request(sample_weight=True)
@@ -184,7 +188,7 @@ def train_ensemble_model(df, target_col):
         n_jobs=-1
     )
 
-    logging.info(f"[{target_col}] Fitting Final Stacking Ensemble on full training data...")
+    logging.info(f"[{target_col}] Fitting Final Poisson Stacking Ensemble on full training data...")
     try:
         max_date_global = df[date_col].max()
         final_sample_weights = np.exp(-(max_date_global - df[date_col]).dt.days / 45)
@@ -221,7 +225,7 @@ def train_ensemble_model(df, target_col):
         'target_col': target_col,
         'metrics': {'MAE': float(mae), 'RMSE': float(rmse), 'R2': float(r2)},
         'top_features': shap_importance,
-        'model_type': 'median_mae'
+        'model_type': 'poisson'
     }
 
     artifacts = {'scaler': preprocessor, 'features': sanitized_cols, 'model': ensemble, 'metadata': metadata}
@@ -230,7 +234,7 @@ def train_ensemble_model(df, target_col):
 
 def main():
     common.setup_logging(name="train_models")
-    logging.info(">>> STARTING ADVANCED MEDIAN MODEL TRAINING PIPELINE")
+    logging.info(">>> STARTING ADVANCED POISSON MODEL TRAINING PIPELINE")
 
     train_file = cfg.MASTER_TRAINING_FILE
     if not train_file.exists(): return

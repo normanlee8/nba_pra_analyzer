@@ -61,22 +61,32 @@ def get_system_learning_maps(days_back=21):
 
     return cat_bias_pct, cat_mae
 
-def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games, s_avg, r_avg):
+def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games, s_avg, r_avg, is_minutes_spike=False):
     tier = 'Pass'
     
+    # CHANGE: Handle L10 Over bypass if we detect a minutes spike
     if pick_type == 'Over':
-        if cv > cfg.MAX_CV_HARD_PASS_OVER or l10_hit_rate < cfg.MIN_L10_HIT_HARD_PASS_OVER:
-            return 'Pass / Too Volatile'
+        if is_minutes_spike:
+            # Bypass L10 hit rate requirements for breakout spots, give slight leniency on CV
+            if cv > (cfg.MAX_CV_HARD_PASS_OVER * 1.25):
+                return 'Pass / Too Volatile'
+        else:
+            if cv > cfg.MAX_CV_HARD_PASS_OVER or l10_hit_rate < cfg.MIN_L10_HIT_HARD_PASS_OVER:
+                return 'Pass / Too Volatile'
     else:
         dynamic_cv_threshold = getattr(cfg, 'MAX_CV_HARD_PASS_UNDER_LOW_LINE', 0.85) if line < 10.0 else getattr(cfg, 'MAX_CV_HARD_PASS_UNDER_BASE', 0.45)
         if cv > dynamic_cv_threshold:
             return 'Pass / Too Volatile'
 
-    if win_prob >= cfg.MIN_PROB_FOR_S_TIER and cv < cfg.MAX_CV_FOR_S_TIER and (pick_type != 'Over' or l10_hit_rate >= cfg.MIN_L10_HIT_FOR_S_TIER): 
-        if abs_diff >= (line * 0.08):
-            tier = 'S Tier'
+    if win_prob >= cfg.MIN_PROB_FOR_S_TIER and cv < cfg.MAX_CV_FOR_S_TIER: 
+        # Punish S-Tier if it's an Over, lacks historical hitting, AND isn't a projected spike
+        if pick_type == 'Over' and not is_minutes_spike and l10_hit_rate < cfg.MIN_L10_HIT_FOR_S_TIER:
+            tier = 'A Tier'
         else:
-            tier = 'A Tier' 
+            if abs_diff >= (line * 0.08):
+                tier = 'S Tier'
+            else:
+                tier = 'A Tier' 
     elif win_prob >= cfg.MIN_PROB_FOR_A_TIER and cv < cfg.MAX_CV_FOR_A_TIER: 
         if abs_diff >= (line * 0.04):
             tier = 'A Tier'
@@ -91,7 +101,7 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
     
     return tier
 
-def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, vs_opp_games, s_avg, r_avg, tweedie_power=1.5):
+def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, vs_opp_games, s_avg, r_avg, is_minutes_spike=False, tweedie_power=1.5):
     if line <= 0: return None
     
     nbinom_props = ['PTS', 'REB', 'AST', 'STL', 'BLK', 'FG3M', 'PRA', 'PR', 'PA', 'RA']
@@ -110,7 +120,9 @@ def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_over_rate,
         active_vs_opp_hit_rate = vs_opp_under_rate 
         
     abs_diff = abs(proj - line)
-    tier = determine_confidence_tier(win_prob, pick, delta_gap, line, abs_diff, cv, active_hit_rate, active_vs_opp_hit_rate, vs_opp_games, s_avg, r_avg)
+    
+    # Pass minutes spike boolean down to bypass L10 checks if needed
+    tier = determine_confidence_tier(win_prob, pick, delta_gap, line, abs_diff, cv, active_hit_rate, active_vs_opp_hit_rate, vs_opp_games, s_avg, r_avg, is_minutes_spike)
         
     return {
         'Pick': pick,
@@ -137,7 +149,6 @@ def predict_props(todays_props_df):
         logging.warning(f"Could not load system learning maps: {e}")
         cat_mae = {}
 
-    # IDEA 2: Predict Minutes first to anchor all feature calculations
     predicted_mins = {}
     min_artifacts = load_artifacts('MIN')
     if min_artifacts:
@@ -188,8 +199,6 @@ def predict_props(todays_props_df):
             elif f in inv_map: new_features[f] = X_raw[inv_map[f]]
             else: new_features[f] = np.nan 
 
-        # IDEA 2: Inject Predicted Minutes into the Feature Engine before scaling
-        # This allows the tree models to natively scale rates against the expected playtime
         if 'MIN' in feature_names:
             new_features['MIN'] = pd.Series([predicted_mins.get(idx, 36.0) for idx in X_raw.index], index=X_raw.index)
             
@@ -233,18 +242,18 @@ def predict_props(todays_props_df):
                 pred_min = predicted_mins.get(orig_idx, float(row.get('MIN_SZN_AVG', 36.0)))
                 hist_mins = float(row.get('MIN_L10_AVG', pred_min))
                 
+                # CHANGE: Flag if this player is projected to see a 15%+ increase in playtime
+                is_minutes_spike = (pred_min / hist_mins) > 1.15 if hist_mins > 0 else False
+                
                 raw_std = float(stds.iloc[idx]) if not pd.isna(stds.iloc[idx]) else 1.0
                 floor_std = max(line * 0.35, np.sqrt(line))
                 std_dev = max(raw_std, floor_std)
                 
-                # IDEA 4: Continuous Bayesian Shrinkage towards Market Anchor
                 if line > 0:
-                    # Vegas variance proxy: Sharper lines have less variance. We assume ~20% CV for market lines
                     vegas_implied_std = max(line * 0.20, 1.5)
                     var_vegas = vegas_implied_std ** 2
                     var_model = std_dev ** 2
                     
-                    # Inverse-Variance Weighting (Posterior Mean calculation)
                     weight_model = var_vegas / (var_model + var_vegas)
                     weight_vegas = var_model / (var_model + var_vegas)
                     
@@ -285,18 +294,14 @@ def predict_props(todays_props_df):
                 
                 sample_size = int(games_played_col.iloc[idx]) if not pd.isna(games_played_col.iloc[idx]) else 15
                 
-                # IDEA 3: Combo Variance Scaling is handled smoothly here by dynamically updating correlations
                 variance = estimate_combo_variance(prop_cat, proj, std_dev, base_stds=dynamic_base_stds, correlations=dynamic_correlations, sample_size=sample_size)
                 
-                historic_mae = cat_mae.get(prop_cat, 1.0)
-                if historic_mae > 1.5:  
-                    variance_multiplier = min(1.0 + (historic_mae * 0.15), 1.5)
-                    variance = variance * variance_multiplier
+                # CHANGE: Removed arbitrary MAE variance inflation multiplier to prevent Under bias 
 
                 delta_gap_final = abs(proj - line) / line if line > 0 else 0
                 
-                # Default tweedie power param fallback (since we removed tweedie from training)
-                eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap_final, cv, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, vs_opp_games, s_avg, r_avg, tweedie_power=1.5)
+                # CHANGE: Pass is_minutes_spike flag down into the evaluation logic
+                eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap_final, cv, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, vs_opp_games, s_avg, r_avg, is_minutes_spike=is_minutes_spike, tweedie_power=1.5)
                 if not eval_res: continue
                 
                 if days_rest > 7.0 or min_deviation > 0.30:
