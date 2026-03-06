@@ -1,71 +1,71 @@
 Legs,Joint Prob,Payout,Picks,Result
-2,0.976119,3.0x,Cameron Johnson Under 11.5 PTS | Jayson Tatum Over 7.5 RA,PUSH/DOWNGRADE
-2,0.974153,3.0x,Cameron Johnson Under 11.5 PTS | Jayson Tatum Over 2.5 AST,PUSH/DOWNGRADE
-2,0.971154,3.0x,Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA,LOSS
-2,0.969198,3.0x,Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST,LOSS
-2,0.961374,3.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS,LOSS
-2,0.961374,3.0x,Cameron Johnson Under 11.5 PTS | Jayson Tatum Over 3.5 REB,PUSH/DOWNGRADE
-2,0.956484,3.0x,Dylan Harper Over 10.5 PTS | Jayson Tatum Over 3.5 REB,LOSS
-3,0.954644382,6.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA,LOSS
-3,0.952721634,6.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST,LOSS
-2,0.951294,3.0x,Cameron Johnson Under 14.0 PA | Jayson Tatum Over 7.5 RA,PUSH/DOWNGRADE
-2,0.949378,3.0x,Cameron Johnson Under 14.0 PA | Jayson Tatum Over 2.5 AST,PUSH/DOWNGRADE
-2,0.948315,3.0x,Dylan Harper Over 14.5 PA | Jayson Tatum Over 7.5 RA,LOSS
-3,0.940223772,6.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 3.5 REB,LOSS
-3,0.932193645,6.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 14.5 PA | Jayson Tatum Over 7.5 RA,LOSS
-3,0.930365532,6.0x,Cameron Johnson Under 14.0 PA | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA,LOSS
-3,0.930316115,6.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 14.5 PA | Jayson Tatum Over 2.5 AST,LOSS
-3,0.928491684,6.0x,Cameron Johnson Under 14.0 PA | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST,LOSS
-3,0.9269655,6.0x,Cameron Johnson Under 11.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA,PUSH/DOWNGRADE
-3,0.9250985,6.0x,Cameron Johnson Under 11.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST,PUSH/DOWNGRADE
-3,0.921625146,6.0x,Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA,LOSS
-4,0.906572259,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA,LOSS
-4,0.904746333,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST,LOSS
-4,0.9002296522259999,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jayson Tatum Over 7.5 RA,LOSS
-4,0.898416500862,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jayson Tatum Over 2.5 AST,LOSS
-4,0.8983203634619998,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST,LOSS
-4,0.8973657190799998,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Pelle Larsson Under 11.5 PTS,LOSS
-4,0.8973657190799998,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Naz Reid Under 12.5 PTS,LOSS
-4,0.896511057594,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST,LOSS
-4,0.8955583359599999,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Naz Reid Under 12.5 PTS,LOSS
-4,0.8955583359599999,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Pelle Larsson Under 11.5 PTS,LOSS
-5,0.8548976402369999,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA,LOSS
-5,0.853175792019,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST,LOSS
-5,0.8530844957189999,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST,LOSS
-5,0.8521779234599999,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Naz Reid Under 12.5 PTS,LOSS
-5,0.8521779234599999,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Pelle Larsson Under 11.5 PTS,LOSS
-5,0.8513662993529999,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST,LOSS
-5,0.8504615530199999,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Naz Reid Under 12.5 PTS,LOSS
-5,0.8504615530199999,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Pelle Larsson Under 11.5 PTS,LOSS
-5,0.849458206683,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Reed Sheppard Over 1.5 REB,LOSS
-5,0.848788596,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Rui Hachimura Under 8.0 PTS,LOSS
-6,0.8044586794630169,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST,LOSS
-6,0.8037669648294,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 11.5 PTS,LOSS
-6,0.8036037818227798,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Naz Reid Under 12.5 PTS,LOSS
-6,0.8036037818227798,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Pelle Larsson Under 11.5 PTS,LOSS
-6,0.802838420289879,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST,LOSS
-6,0.8021480988378,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 11.5 PTS,LOSS
-6,0.8019852444978599,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Naz Reid Under 12.5 PTS,LOSS
-6,0.8019852444978599,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Pelle Larsson Under 11.5 PTS,LOSS
-6,0.8018994259758598,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Naz Reid Under 12.5 PTS,LOSS
-6,0.8010472480523998,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Naz Reid Under 12.5 PTS | Pelle Larsson Under 11.5 PTS,LOSS
-7,0.7579522478341242,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 11.5 PTS,LOSS
-7,0.7564256572040454,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 11.5 PTS,LOSS
-7,0.7561911586952358,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Naz Reid Under 12.5 PTS,LOSS
-7,0.755540946939636,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Naz Reid Under 12.5 PTS | Pelle Larsson Under 11.5 PTS,LOSS
-7,0.755387554913413,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Naz Reid Under 12.5 PTS | Pelle Larsson Under 11.5 PTS,LOSS
-7,0.7546681150724862,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Naz Reid Under 12.5 PTS,LOSS
-7,0.7540192129075319,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Naz Reid Under 12.5 PTS | Pelle Larsson Under 11.5 PTS,LOSS
-7,0.7538661298279883,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Naz Reid Under 12.5 PTS | Pelle Larsson Under 11.5 PTS,LOSS
-7,0.7537777826568468,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Reed Sheppard Over 1.5 REB,LOSS
-7,0.7531835949123479,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Rui Hachimura Under 8.0 PTS,LOSS
-8,0.7124751129640767,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Naz Reid Under 12.5 PTS | Pelle Larsson Under 11.5 PTS,LOSS
-8,0.7110401177718026,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Naz Reid Under 12.5 PTS | Pelle Larsson Under 11.5 PTS,LOSS
-8,0.7102012562205744,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 11.5 PTS | Reed Sheppard Over 1.5 REB,LOSS
-8,0.7096414189684248,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 11.5 PTS | Rui Hachimura Under 8.0 PTS,LOSS
-8,0.7087708408001906,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 11.5 PTS | Reed Sheppard Over 1.5 REB,LOSS
-8,0.708551115697436,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Naz Reid Under 12.5 PTS | Reed Sheppard Over 1.5 REB,LOSS
-8,0.7082121311155175,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 11.5 PTS | Rui Hachimura Under 8.0 PTS,LOSS
-8,0.7079925792176069,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Naz Reid Under 12.5 PTS | Rui Hachimura Under 8.0 PTS,LOSS
-8,0.707941867282439,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Naz Reid Under 12.5 PTS | Pelle Larsson Under 11.5 PTS | Reed Sheppard Over 1.5 REB,LOSS
-8,0.707798138953868,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Naz Reid Under 12.5 PTS | Pelle Larsson Under 11.5 PTS | Reed Sheppard Over 1.5 REB,LOSS
+2,0.60517,3.0x,Cameron Johnson Under 15.5 PR | Jayson Tatum Over 2.5 AST,PUSH/DOWNGRADE
+2,0.6043409999999999,3.0x,Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST,PUSH/DOWNGRADE
+2,0.59688,3.0x,Gui Santos Under 12.5 PTS | Jayson Tatum Over 2.5 AST,LOSS
+2,0.594393,3.0x,Jayson Tatum Over 2.5 AST | Rui Hachimura Under 8.5 PA,LOSS
+2,0.594393,3.0x,Cameron Johnson Under 18.5 PRA | Jayson Tatum Over 2.5 AST,PUSH/DOWNGRADE
+2,0.5913,3.0x,Cameron Johnson Under 15.5 PR | Jayson Tatum Over 7.5 RA,PUSH/DOWNGRADE
+2,0.591077,3.0x,Derik Queen Under 8.5 PTS | Jayson Tatum Over 2.5 AST,LOSS
+2,0.5904900000000001,3.0x,Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST,PUSH/DOWNGRADE
+2,0.590248,3.0x,Jayson Tatum Over 2.5 AST | Pelle Larsson Under 19.5 PRA,LOSS
+2,0.590248,3.0x,Isaac Okoro Under 11.0 PTS | Jayson Tatum Over 2.5 AST,PUSH/DOWNGRADE
+3,0.4560329,6.0x,Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA,LOSS
+3,0.4498982999999999,6.0x,Cameron Johnson Under 15.5 PR | Jayson Tatum Over 2.5 AST | Rui Hachimura Under 8.5 PA,LOSS
+3,0.4479087,6.0x,Cameron Johnson Under 15.5 PR | Jayson Tatum Over 2.5 AST | Rui Hachimura Under 8.0 PTS,LOSS
+3,0.4464993999999999,6.0x,Cameron Johnson Under 18.5 PRA | Jayson Tatum Over 2.5 AST | Rui Hachimura Under 8.0 PTS,LOSS
+3,0.445581,6.0x,Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA,LOSS
+3,0.4441782,6.0x,Cameron Johnson Under 18.5 PRA | Jayson Tatum Over 2.5 AST | Rui Hachimura Under 8.5 PA,LOSS
+3,0.4411689299999999,6.0x,Cameron Johnson Under 15.5 PR | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST,PUSH/DOWNGRADE
+3,0.439587,6.0x,Cameron Johnson Under 15.5 PR | Jayson Tatum Over 7.5 RA | Rui Hachimura Under 8.5 PA,LOSS
+3,0.437643,6.0x,Cameron Johnson Under 15.5 PR | Jayson Tatum Over 7.5 RA | Rui Hachimura Under 8.0 PTS,LOSS
+3,0.4375462,6.0x,Bruce Brown Under 8.5 PTS | Jayson Tatum Over 2.5 AST | Rui Hachimura Under 8.5 PA,LOSS
+4,0.332904017,10.0x,Cameron Johnson Under 15.5 PR | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA,LOSS
+4,0.328343688,10.0x,Gui Santos Under 12.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA,LOSS
+4,0.3279758606999999,10.0x,Cameron Johnson Under 15.5 PR | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Rui Hachimura Under 8.5 PA,LOSS
+4,0.3269755893,10.0x,Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA,LOSS
+4,0.3269755893,10.0x,Cameron Johnson Under 18.5 PRA | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA,LOSS
+4,0.3265254422999999,10.0x,Cameron Johnson Under 15.5 PR | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Rui Hachimura Under 8.0 PTS,LOSS
+4,0.3254980625999999,10.0x,Cameron Johnson Under 18.5 PRA | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Rui Hachimura Under 8.0 PTS,LOSS
+4,0.32527413,10.0x,Cameron Johnson Under 15.5 PR | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA,LOSS
+4,0.3251514577,10.0x,Derik Queen Under 8.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA,LOSS
+4,0.3246954248,10.0x,Isaac Okoro Under 11.0 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA,LOSS
+5,0.2474890548299999,20.0x,Cameron Johnson Under 15.5 PR | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA,LOSS
+5,0.24639457587,20.0x,Cameron Johnson Under 15.5 PR | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.0 PTS,LOSS
+5,0.2456193199399999,20.0x,Cameron Johnson Under 18.5 PRA | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.0 PTS,LOSS
+5,0.24434242782,20.0x,Cameron Johnson Under 18.5 PRA | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA,LOSS
+5,0.2418168087,20.0x,Cameron Johnson Under 15.5 PR | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA,LOSS
+5,0.2407474143,20.0x,Cameron Johnson Under 15.5 PR | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.0 PTS,LOSS
+5,0.24069416462,20.0x,Bruce Brown Under 8.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA,LOSS
+5,0.2399899266,20.0x,Cameron Johnson Under 18.5 PRA | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.0 PTS,LOSS
+5,0.2396908922399999,20.0x,Cameron Johnson Under 15.5 PR | Gui Santos Under 12.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA,LOSS
+5,0.2387422998,20.0x,Cameron Johnson Under 18.5 PRA | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA,LOSS
+6,0.17858248364,25.0x,Bruce Brown Under 8.5 PTS | Cameron Johnson Under 18.5 PRA | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA,LOSS
+6,0.1781921194776,25.0x,Cameron Johnson Under 15.5 PR | Gui Santos Under 12.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA,LOSS
+6,0.17767041784,25.0x,Bruce Brown Under 8.5 PTS | Cameron Johnson Under 15.5 PR | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA,LOSS
+6,0.1774040946264,25.0x,Cameron Johnson Under 15.5 PR | Gui Santos Under 12.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.0 PTS,LOSS
+6,0.17721438494,25.0x,Bruce Brown Under 8.5 PTS | Cameron Johnson Under 15.5 PR | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.0 PTS,LOSS
+6,0.17707757507,25.0x,Bruce Brown Under 8.5 PTS | Cameron Johnson Under 18.5 PRA | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.0 PTS,LOSS
+6,0.1768459103567999,25.0x,Cameron Johnson Under 18.5 PRA | Gui Santos Under 12.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.0 PTS,LOSS
+6,0.1764596960937899,25.0x,Cameron Johnson Under 15.5 PR | Derik Queen Under 8.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA,LOSS
+6,0.1762122070389599,25.0x,Cameron Johnson Under 15.5 PR | Isaac Okoro Under 11.0 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA,LOSS
+6,0.1759265480304,25.0x,Cameron Johnson Under 18.5 PRA | Gui Santos Under 12.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA,LOSS
+7,0.1292882822431919,40.0x,Cameron Johnson Under 15.5 PR | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Keldon Johnson Under 0.5 AST | Luke Kornet Under 4.5 PTS | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA,LOSS
+7,0.128716526434488,40.0x,Cameron Johnson Under 15.5 PR | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Keldon Johnson Under 0.5 AST | Luke Kornet Under 4.5 PTS | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.0 PTS,LOSS
+7,0.1285793882208,40.0x,Bruce Brown Under 8.5 PTS | Cameron Johnson Under 18.5 PRA | Gui Santos Under 12.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA,LOSS
+7,0.1283115327366559,40.0x,Cameron Johnson Under 18.5 PRA | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Keldon Johnson Under 0.5 AST | Luke Kornet Under 4.5 PTS | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.0 PTS,LOSS
+7,0.1281003347800079,40.0x,Bilal Coulibaly Under 12.5 PTS | Cameron Johnson Under 15.5 PR | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA | Tre Johnson Under 3.5 AST,LOSS
+7,0.1279227008448,40.0x,Bruce Brown Under 8.5 PTS | Cameron Johnson Under 15.5 PR | Gui Santos Under 12.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA,LOSS
+7,0.127644484293168,40.0x,Cameron Johnson Under 18.5 PRA | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Keldon Johnson Under 0.5 AST | Luke Kornet Under 4.5 PTS | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA,LOSS
+7,0.1276053566703479,40.0x,Cameron Johnson Under 15.5 PR | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Naz Reid Under 21.5 PRA | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA | Sandro Mamukelashvili Under 8.0 PTS,LOSS
+7,0.1275943571567999,40.0x,Bruce Brown Under 8.5 PTS | Cameron Johnson Under 15.5 PR | Gui Santos Under 12.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.0 PTS,LOSS
+7,0.127533832470312,40.0x,Bilal Coulibaly Under 12.5 PTS | Cameron Johnson Under 15.5 PR | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.0 PTS | Tre Johnson Under 3.5 AST,LOSS
+8,0.093291489453536,80.0x,Bruce Brown Under 8.5 PTS | Cameron Johnson Under 18.5 PRA | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Keldon Johnson Under 0.5 AST | Luke Kornet Under 4.5 PTS | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA,LOSS
+8,0.0930875632150982,80.0x,Cameron Johnson Under 15.5 PR | Gui Santos Under 12.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Keldon Johnson Under 0.5 AST | Luke Kornet Under 4.5 PTS | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA,LOSS
+8,0.092815026279616,80.0x,Bruce Brown Under 8.5 PTS | Cameron Johnson Under 15.5 PR | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Keldon Johnson Under 0.5 AST | Luke Kornet Under 4.5 PTS | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA,LOSS
+8,0.0926758990328313,80.0x,Cameron Johnson Under 15.5 PR | Gui Santos Under 12.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Keldon Johnson Under 0.5 AST | Luke Kornet Under 4.5 PTS | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.0 PTS,LOSS
+8,0.0925767946926559,80.0x,Bruce Brown Under 8.5 PTS | Cameron Johnson Under 15.5 PR | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Keldon Johnson Under 0.5 AST | Luke Kornet Under 4.5 PTS | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.0 PTS,LOSS
+8,0.0925053252165679,80.0x,Bruce Brown Under 8.5 PTS | Cameron Johnson Under 18.5 PRA | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Keldon Johnson Under 0.5 AST | Luke Kornet Under 4.5 PTS | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.0 PTS,LOSS
+8,0.0924342935320639,80.0x,Bilal Coulibaly Under 12.5 PTS | Bruce Brown Under 8.5 PTS | Cameron Johnson Under 18.5 PRA | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA | Tre Johnson Under 3.5 AST,LOSS
+8,0.0923843035703923,80.0x,Cameron Johnson Under 18.5 PRA | Gui Santos Under 12.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Keldon Johnson Under 0.5 AST | Luke Kornet Under 4.5 PTS | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.0 PTS,LOSS
+8,0.0922322410416057,80.0x,Bilal Coulibaly Under 12.5 PTS | Cameron Johnson Under 15.5 PR | Gui Santos Under 12.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA | Tre Johnson Under 3.5 AST,LOSS
+8,0.0921825452393958,80.0x,Cameron Johnson Under 15.5 PR | Derik Queen Under 8.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Keldon Johnson Under 0.5 AST | Luke Kornet Under 4.5 PTS | Pelle Larsson Under 19.5 PRA | Rui Hachimura Under 8.5 PA,LOSS

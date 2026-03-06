@@ -99,58 +99,82 @@ def calculate_bayesian_std(series, method='neg_binomial', shrinkage_param=10.0, 
     
     return final_std
 
+def smooth_projection(raw_proj, season_avg, recent_avg, volatility):
+    if pd.isna(raw_proj): raw_proj = season_avg
+    if pd.isna(recent_avg): recent_avg = season_avg
+    if pd.isna(volatility) or volatility <= 0: volatility = 1.0
+    
+    trust_recent = 1.0 / (1.0 + (volatility / 5.0))
+    # Trust the ML model heavily (90%). Only use averages as a 10% smoothing anchor to prevent extreme edge cases.
+    final_proj = (0.90 * raw_proj) + (0.10 * trust_recent * recent_avg) + (0.10 * (1 - trust_recent) * season_avg)
+    return final_proj
 
 # ====================================================================
 # PROBABILISTIC / BETTING FUNCTIONS
 # ====================================================================
 
 def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None, correlations=None, sample_size=15):
-    """Estimates variance for Combo Props using accurate covariance matrices and statistical diversification."""
+    """Estimates variance for Combo Props using baseline historical covariance matrices and dynamic correlations."""
     
-    recent_variance = std_dev ** 2 if not pd.isna(std_dev) and std_dev > 0 else (proj * 0.35) ** 2
-
-    structural_variance = recent_variance  # Default fallback
-
-    # Exact Covariance Matrix Math for Combos
-    if prop_type in ['PRA', 'PR', 'PA', 'RA'] and base_stds and correlations:
-        std_p = base_stds.get('PTS', proj * 0.4)
-        std_r = base_stds.get('REB', proj * 0.3)
-        std_a = base_stds.get('AST', proj * 0.3)
+    # FIX: Structural NBA Variances are naturally high. 
+    # Use 35% to 45% of the projected mean as the absolute minimum standard deviation.
+    if prop_type in ['PRA', 'PR', 'PA']:
+        base_variance = (proj * 0.40) ** 2
+    elif prop_type in ['PTS', 'REB', 'AST', 'RA']:
+        base_variance = (proj * 0.45) ** 2
+    else:
+        base_variance = (max(proj * 0.35, 1.0)) ** 2
         
-        var_p = std_p ** 2
-        var_r = std_r ** 2
-        var_a = std_a ** 2
+    # Force minimal overdispersion scaling
+    base_variance = max(base_variance, proj * 1.05)
+    
+    if not correlations:
+        correlations = {'PTS_REB': 0.25, 'PTS_AST': 0.25, 'REB_AST': 0.25}
         
-        cov_pr = correlations.get('PTS_REB', 0.15) * std_p * std_r
-        cov_pa = correlations.get('PTS_AST', 0.15) * std_p * std_a
-        cov_ra = correlations.get('REB_AST', 0.05) * std_r * std_a
+    # Calculate Structural Covariance
+    if prop_type in ['PRA', 'PR', 'PA', 'RA'] and base_stds:
+        var_pts = base_stds.get('PTS', proj*0.2)**2
+        var_reb = base_stds.get('REB', proj*0.1)**2
+        var_ast = base_stds.get('AST', proj*0.1)**2
+        
+        cov_pr = correlations.get('PTS_REB', 0.25) * math.sqrt(var_pts * var_reb)
+        cov_pa = correlations.get('PTS_AST', 0.25) * math.sqrt(var_pts * var_ast)
+        cov_ra = correlations.get('REB_AST', 0.25) * math.sqrt(var_reb * var_ast)
         
         if prop_type == 'PRA':
-            structural_variance = var_p + var_r + var_a + 2*cov_pr + 2*cov_pa + 2*cov_ra
+            base_variance = max(base_variance, var_pts + var_reb + var_ast + 2*cov_pr + 2*cov_pa + 2*cov_ra)
         elif prop_type == 'PR':
-            structural_variance = var_p + var_r + 2*cov_pr
+            base_variance = max(base_variance, var_pts + var_reb + 2*cov_pr)
         elif prop_type == 'PA':
-            structural_variance = var_p + var_a + 2*cov_pa
+            base_variance = max(base_variance, var_pts + var_ast + 2*cov_pa)
         elif prop_type == 'RA':
-            structural_variance = var_r + var_a + 2*cov_ra
-
-    # Bayesian Shrinkage (Blend recent observed variance with theoretical structural variance)
-    # We require ~30 games to fully trust the player's recent variance over the math model
-    weight_recent = min(sample_size / 30.0, 0.80) 
+            base_variance = max(base_variance, var_reb + var_ast + 2*cov_ra)
+            
+    recent_variance = std_dev ** 2 if not pd.isna(std_dev) and std_dev > 0 else base_variance
     
-    final_variance = (recent_variance * weight_recent) + (structural_variance * (1.0 - weight_recent))
+    # Bayesian Shrinkage
+    weight = min(sample_size / 20.0, 0.90)  
+    
+    final_variance = (base_variance * (1.0 - weight)) + (recent_variance * weight)
         
-    # Ensure strict mathematical overdispersion for discrete modeling (NB requires variance > mean)
+    # FIX: Ensure mathematical overdispersion for discrete modeling
     return max(final_variance, proj * 1.05)
 
-def get_discrete_probabilities(proj, line, variance, dist_type='normal', tweedie_power=None):
-    """Calculates probabilities directly from exact variance mapping to Negative Binomial parameters."""
+def get_discrete_probabilities(proj, line, historical_variance, dist_type='normal', tweedie_power=1.5):
+    """Calculates probabilities accurately accounting for Tweedie dispersion and whole/half point lines."""
+    if proj > 0 and historical_variance > 0:
+        phi = historical_variance / (proj ** tweedie_power)
+    else:
+        phi = 1.0
+        
+    dynamic_variance = phi * (proj ** tweedie_power)
     
-    # Force strict overdispersion so Negative Binomial mathematically functions without collapsing
-    variance = max(variance, proj * 1.05)
+    # FIX: Force strict overdispersion so Negative Binomial mathematically functions without collapsing
+    variance = max(dynamic_variance, proj * 1.05)
+    
     std_dev = math.sqrt(variance)
-    
     is_whole_line = (line % 1 == 0)
+    
     loss_threshold = math.floor(line - 0.01)
     
     if proj <= 0: return {'win': 0.0, 'push': 0.0, 'loss': 1.0}
@@ -162,13 +186,11 @@ def get_discrete_probabilities(proj, line, variance, dist_type='normal', tweedie
                 p_loss_strict = poisson.cdf(loss_threshold, proj)
                 p_push = poisson.pmf(int(line), proj) if is_whole_line else 0.0
             else:
-                # Exact mapping to Negative Binomial distribution
                 p = proj / variance
                 n = (proj ** 2) / (variance - proj)
                 p_loss_strict = nbinom.cdf(loss_threshold, n, p)
                 p_push = nbinom.pmf(int(line), n, p) if is_whole_line else 0.0
         else:
-            # Continuous Normal approximation for non-count stats (e.g., fractional fantasy points)
             p_loss_strict = norm.cdf(line - 0.5, loc=proj, scale=std_dev) if is_whole_line else norm.cdf(line, loc=proj, scale=std_dev)
             if is_whole_line:
                 p_push = norm.cdf(line + 0.5, loc=proj, scale=std_dev) - norm.cdf(line - 0.5, loc=proj, scale=std_dev)

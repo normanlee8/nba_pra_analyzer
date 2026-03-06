@@ -75,7 +75,28 @@ class Cols:
     def get_required_input_cols(cls):
         return [cls.PLAYER_NAME, cls.TEAM, cls.OPPONENT, cls.MATCHUP, cls.PROP_TYPE, cls.PROP_LINE, cls.DATE]
 
-# --- GENERAL THRESHOLDS & SETTINGS ---
+# --- THRESHOLDS & TIERING LOGIC ---
+MIN_PROB_FOR_S_TIER = 0.70  
+MAX_CV_FOR_S_TIER = 0.25
+MIN_L10_HIT_FOR_S_TIER = 0.70
+
+MIN_PROB_FOR_A_TIER = 0.64
+MAX_CV_FOR_A_TIER = 0.30
+
+MIN_PROB_FOR_B_TIER = 0.58
+MAX_CV_FOR_B_TIER = 0.35
+
+MIN_PROB_FOR_C_TIER = 0.54
+
+MAX_CV_HARD_PASS_OVER = 0.40
+MIN_L10_HIT_HARD_PASS_OVER = 0.40
+
+# NEW: Volatility checks for Unders (Prevents High-Variance Ceiling Risk)
+# We now use dynamic CV handling for Unders based on line size, and we drop the L10 hit rate 
+# filter for Unders entirely to capitalize on situations where minutes are projected to drop.
+MAX_CV_HARD_PASS_UNDER_BASE = 0.45  
+MAX_CV_HARD_PASS_UNDER_LOW_LINE = 0.85
+
 LIVE_MIN_PROB_THRESHOLD = 0.65
 LIVE_BLOWOUT_THRESHOLD = 20
 BAYESIAN_PRIOR_WEIGHT = 6.0  
@@ -89,6 +110,12 @@ OPTUNA_N_TRIALS_XGB = 20
 OPTUNA_N_TRIALS_LGB = 20  
 OPTUNA_N_TRIALS_RF = 10
 
+# --- PRIORS ---
+BAYESIAN_PRIORS = {
+    'PTS': 12.0, 'REB': 4.0, 'AST': 3.0, 'PRA': 18.0,
+    'PR': 16.0, 'PA': 15.0, 'RA': 7.0
+}
+
 # --- PROP MAPPING ---
 MASTER_PROP_MAP = {
     # Standard / Underdog
@@ -100,7 +127,7 @@ MASTER_PROP_MAP = {
     'Points + Rebounds': 'PR', 'pr': 'PR',
     'Points + Assists': 'PA', 'pa': 'PA',
     
-    # PrizePicks Specific
+    # NEW: PrizePicks Specific
     'Pts+Rebs': 'PR',
     'Pts+Asts': 'PA',
     'Rebs+Asts': 'RA',

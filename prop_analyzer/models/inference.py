@@ -12,13 +12,17 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 from prop_analyzer import config as cfg
 from prop_analyzer.config import Cols
 from prop_analyzer.models import registry
-from prop_analyzer.features.calculator import (get_discrete_probabilities, 
+from prop_analyzer.features.calculator import (smooth_projection, 
+                                               get_discrete_probabilities, 
                                                estimate_combo_variance)
 
 def load_artifacts(prop_cat):
     return registry.load_artifacts(prop_cat)
 
 def get_system_learning_maps(days_back=21):
+    """
+    Returns global system biases for retrospective analysis.
+    """
     graded_files = sorted(cfg.GRADED_DIR.glob("graded_*.parquet"), reverse=True)
     if not graded_files: return {}, {}
 
@@ -60,56 +64,65 @@ def get_system_learning_maps(days_back=21):
 
     return cat_bias_pct, cat_mae
 
-def determine_confidence_tier(win_prob, cv, active_hit_rate, edge_pct, edge_diff):
+def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games, s_avg, r_avg):
     """
-    Tiering based on Win Probability, Volatility, Recent Form, and Market Reality.
+    Strictly evaluates based on Win Probability, Hit Rates, Volatility, and Edge/Delta.
     """
-    # 1. Market Information Disconnect (The "Too Good to be True" filter)
-    # Requires both a high percentage disconnect AND a meaningful absolute volume disconnect
-    if edge_pct > 0.35 and edge_diff >= 2.5:
-        return 'Trap / Info Disconnect'
-        
-    # 2. Volatility Check
-    if cv > 0.42:  
-        return 'Trap / High Variance'
-        
-    # 3. Dynamic Tiering requiring Form Alignment
-    if win_prob >= 0.65 and active_hit_rate >= 0.60:
-        return 'S Tier'
-    elif win_prob >= 0.60 and active_hit_rate >= 0.50:
-        return 'A Tier'
-    elif win_prob >= 0.56:
-        return 'B Tier'
-    elif win_prob >= 0.53:
-        return 'C Tier'
+    tier = 'Pass'
+    
+    # Evaluate Hard Passes First
+    if pick_type == 'Over':
+        if cv > cfg.MAX_CV_HARD_PASS_OVER or l10_hit_rate < cfg.MIN_L10_HIT_HARD_PASS_OVER:
+            return 'Pass / Too Volatile'
     else:
-        return 'Pass'
+        # Dynamic CV threshold based on line size for Unders
+        # Low lines (under 10) have a higher CV tolerance since small standard deviations cause huge CV spikes
+        dynamic_cv_threshold = getattr(cfg, 'MAX_CV_HARD_PASS_UNDER_LOW_LINE', 0.85) if line < 10.0 else getattr(cfg, 'MAX_CV_HARD_PASS_UNDER_BASE', 0.45)
+        
+        # Removed the L10 hit rate filter for Unders to account for minutes shifts
+        if cv > dynamic_cv_threshold:
+            return 'Pass / Too Volatile'
 
-def evaluate_prop(proj, line, variance, prop_type, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, cv):
+    if win_prob >= cfg.MIN_PROB_FOR_S_TIER and cv < cfg.MAX_CV_FOR_S_TIER and (pick_type != 'Over' or l10_hit_rate >= cfg.MIN_L10_HIT_FOR_S_TIER): 
+        if abs_diff >= (line * 0.08):
+            tier = 'S Tier'
+        else:
+            tier = 'A Tier' 
+    elif win_prob >= cfg.MIN_PROB_FOR_A_TIER and cv < cfg.MAX_CV_FOR_A_TIER: 
+        if abs_diff >= (line * 0.04):
+            tier = 'A Tier'
+        else:
+            tier = 'B Tier'
+    elif win_prob >= cfg.MIN_PROB_FOR_B_TIER and cv < cfg.MAX_CV_FOR_B_TIER: 
+        tier = 'B Tier'
+    elif win_prob >= cfg.MIN_PROB_FOR_C_TIER: 
+        tier = 'C Tier'
+    else: 
+        tier = 'Pass'
+    
+    return tier
+
+def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, vs_opp_games, s_avg, r_avg, tweedie_power=1.5):
+    """Evaluates probability of outcome based on distribution modeling."""
     if line <= 0: return None
     
     nbinom_props = ['PTS', 'REB', 'AST', 'STL', 'BLK', 'FG3M', 'PRA', 'PR', 'PA', 'RA']
     dist_type = 'nbinom' if prop_type in nbinom_props else 'normal'
     
-    probs_over = get_discrete_probabilities(proj, line, variance, dist_type=dist_type)
+    probs_over = get_discrete_probabilities(proj, line, variance, dist_type=dist_type, tweedie_power=tweedie_power)
     probs_under = {'win': probs_over['loss'], 'loss': probs_over['win'], 'push': probs_over['push']}
     
     if probs_over['win'] >= probs_under['win']:
-        pick = 'Over'
-        win_prob = probs_over['win']  # NO ARTIFICIAL CAP
+        pick, win_prob = 'Over', probs_over['win']
         active_hit_rate = l10_over_rate
         active_vs_opp_hit_rate = vs_opp_over_rate
     else:
-        pick = 'Under'
-        win_prob = probs_under['win'] # NO ARTIFICIAL CAP
+        pick, win_prob = 'Under', probs_under['win']
         active_hit_rate = l10_under_rate
         active_vs_opp_hit_rate = vs_opp_under_rate 
         
-    # Calculate the percentage and absolute difference between the projection and the market line
-    edge_diff = abs(proj - line)
-    edge_pct = edge_diff / line if line > 0 else 0.0
-        
-    tier = determine_confidence_tier(win_prob, cv, active_hit_rate, edge_pct, edge_diff)
+    abs_diff = abs(proj - line)
+    tier = determine_confidence_tier(win_prob, pick, delta_gap, line, abs_diff, cv, active_hit_rate, active_vs_opp_hit_rate, vs_opp_games, s_avg, r_avg)
         
     return {
         'Pick': pick,
@@ -119,12 +132,7 @@ def evaluate_prop(proj, line, variance, prop_type, l10_over_rate, l10_under_rate
         'Active_VS_Opp_Hit_Rate': active_vs_opp_hit_rate
     }
 
-def get_col_safe(df, prop_cat, base_name, strict_prefix=False):
-    if strict_prefix:
-        col_name = f"{prop_cat}_{base_name}"
-        if col_name in df.columns: return df[col_name]
-        return pd.Series(np.nan, index=df.index)
-        
+def get_col_safe(df, prop_cat, base_name):
     if base_name in df.columns: return df[base_name]
     if f"{prop_cat}_{base_name}" in df.columns: return df[f"{prop_cat}_{base_name}"]
     return pd.Series(np.nan, index=df.index)
@@ -179,6 +187,7 @@ def predict_props(todays_props_df):
             continue
             
         model, scaler, feature_names = artifacts['model'], artifacts['scaler'], artifacts['features']
+        tweedie_power = artifacts.get('metadata', {}).get('tweedie_variance_power', 1.5)
         
         X_raw = group.copy()
         
@@ -190,26 +199,6 @@ def predict_props(todays_props_df):
             if f in X_raw.columns: new_features[f] = X_raw[f]
             elif f in inv_map: new_features[f] = X_raw[inv_map[f]]
             else: new_features[f] = np.nan 
-
-        if 'MIN' in feature_names:
-            l10_mins = get_col_safe(X_raw, prop_cat, 'L10_MIN')
-            szn_mins = get_col_safe(X_raw, prop_cat, 'SZN_MIN')
-            
-            assigned_mins = []
-            for i, idx in enumerate(X_raw.index):
-                if idx in predicted_mins and not pd.isna(predicted_mins[idx]):
-                    assigned_mins.append(predicted_mins[idx])
-                else:
-                    l10 = float(l10_mins.iloc[i]) if not pd.isna(l10_mins.iloc[i]) else 0.0
-                    szn = float(szn_mins.iloc[i]) if not pd.isna(szn_mins.iloc[i]) else 0.0
-                    fallback = l10 if l10 > 0 else szn
-                    
-                    if fallback > 0:
-                        assigned_mins.append(fallback)
-                    else:
-                        assigned_mins.append(-1.0) # Mark as invalid to skip/pass later
-            
-            new_features['MIN'] = pd.Series(assigned_mins, index=X_raw.index)
             
         X_model = pd.DataFrame(new_features, index=X_raw.index)
 
@@ -219,9 +208,8 @@ def predict_props(todays_props_df):
             
             raw_projections = model.predict(X_scaled_df)
             
-            mae_val = cat_mae.get(cfg.MASTER_PROP_MAP.get(prop_cat, prop_cat), 0.0)
-            ml_implied_std = mae_val * 1.2533  
-            
+            szn_avgs = get_col_safe(X_raw, prop_cat, 'SZN_AVG')
+            l5_avgs = get_col_safe(X_raw, prop_cat, 'L5_AVG')
             stds = get_col_safe(X_raw, prop_cat, 'L10_STD_DEV')
             cvs = get_col_safe(X_raw, prop_cat, 'L10_CV')
             games_played_col = get_col_safe(X_raw, prop_cat, 'SEASON_G')
@@ -240,26 +228,39 @@ def predict_props(todays_props_df):
             corr_ra = get_col_safe(X_raw, prop_cat, 'REB_AST_CORR')
             
             base_stds = {
-                'PTS': get_col_safe(X_raw, 'PTS', 'L10_STD_DEV', strict_prefix=True),
-                'REB': get_col_safe(X_raw, 'REB', 'L10_STD_DEV', strict_prefix=True),
-                'AST': get_col_safe(X_raw, 'AST', 'L10_STD_DEV', strict_prefix=True)
+                'PTS': get_col_safe(X_raw, 'PTS', 'L10_STD_DEV'),
+                'REB': get_col_safe(X_raw, 'REB', 'L10_STD_DEV'),
+                'AST': get_col_safe(X_raw, 'AST', 'L10_STD_DEV')
             }
             
             for idx, (orig_idx, row) in enumerate(group.iterrows()):
-                
-                if 'MIN' in feature_names and float(new_features['MIN'].iloc[idx]) < 0:
-                    continue
-                    
                 line = float(row[Cols.PROP_LINE])
-                proj = float(raw_projections[idx])  
+                raw_val = raw_projections[idx]
                 
+                # CRITICAL FIX: The ML model natively understands minutes shifts via its features.
+                # Double-counting a manual minutes ratio causes high-variance blowups for bench players.
+                # We simply trust the tree model's prediction output directly.
+                pred_min = predicted_mins.get(orig_idx, float(row.get('MIN_SZN_AVG', 36.0)))
+                hist_mins = float(row.get('MIN_L10_AVG', pred_min))
+                
+                adjusted_raw = raw_val
+                
+                # 2. Market Consensus Anchor 
+                # (If model is drastically deviating from the sportsbook, anchor it heavily toward the line)
+                if line > 0:
+                    gap = abs(adjusted_raw - line) / line
+                    if gap > 0.10: 
+                        adjusted_raw = (adjusted_raw * 0.35) + (line * 0.65)
+                
+                s_avg = float(szn_avgs.iloc[idx]) if not pd.isna(szn_avgs.iloc[idx]) else adjusted_raw
+                r_avg = float(l5_avgs.iloc[idx]) if not pd.isna(l5_avgs.iloc[idx]) else adjusted_raw
                 raw_std = float(stds.iloc[idx]) if not pd.isna(stds.iloc[idx]) else 1.0
-                floor_std = max(line * 0.25, np.sqrt(line)) 
                 
-                std_dev = max(raw_std, floor_std, ml_implied_std)
+                # 3. Floor the Standard Deviation to structural NBA baselines (~35% of mean)
+                floor_std = max(line * 0.35, np.sqrt(line))
+                std_dev = max(raw_std, floor_std)
                 
-                safe_denom = max(line, proj) if line > 0 else proj
-                cv = float(cvs.iloc[idx]) if not pd.isna(cvs.iloc[idx]) else (std_dev / safe_denom if safe_denom > 0 else 0.5)
+                cv = float(cvs.iloc[idx]) if not pd.isna(cvs.iloc[idx]) else (std_dev / s_avg if s_avg > 0 else 0.5)
                 
                 l10_hit_legacy = float(hit_rates_legacy.iloc[idx]) if not pd.isna(hit_rates_legacy.iloc[idx]) else 0.50
                 l10_over_rate = float(hit_rates_over.iloc[idx]) if not pd.isna(hit_rates_over.iloc[idx]) else l10_hit_legacy
@@ -269,6 +270,11 @@ def predict_props(todays_props_df):
                 vs_opp_over_rate = float(vs_opp_over_rates.iloc[idx]) if not pd.isna(vs_opp_over_rates.iloc[idx]) else vs_opp_legacy
                 vs_opp_under_rate = float(vs_opp_under_rates.iloc[idx]) if not pd.isna(vs_opp_under_rates.iloc[idx]) else (1.0 - vs_opp_legacy)
                 vs_opp_games = int(vs_opp_games_counts.iloc[idx]) if not pd.isna(vs_opp_games_counts.iloc[idx]) else 0
+
+                days_rest = float(row.get(Cols.DAYS_REST, 2.0))
+                min_deviation = abs(pred_min - hist_mins) / hist_mins if hist_mins > 0 else 0
+
+                proj = smooth_projection(adjusted_raw, s_avg, r_avg, std_dev)
                 
                 dynamic_correlations = {
                     'PTS_REB': float(corr_pr.iloc[idx]) if not pd.isna(corr_pr.iloc[idx]) else 0.25,
@@ -283,11 +289,25 @@ def predict_props(todays_props_df):
                 }
                 
                 sample_size = int(games_played_col.iloc[idx]) if not pd.isna(games_played_col.iloc[idx]) else 15
-                
                 variance = estimate_combo_variance(prop_cat, proj, std_dev, base_stds=dynamic_base_stds, correlations=dynamic_correlations, sample_size=sample_size)
                 
-                eval_res = evaluate_prop(proj, line, variance, prop_cat, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, cv)
+                historic_mae = cat_mae.get(prop_cat, 1.0)
+                if historic_mae > 1.5:  
+                    # Cap the variance multiplier so it doesn't artificially flatten composite prop distributions
+                    variance_multiplier = min(1.0 + (historic_mae * 0.15), 1.5)
+                    variance = variance * variance_multiplier
+
+                delta_gap_final = abs(proj - line) / line if line > 0 else 0
+                
+                eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap_final, cv, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, vs_opp_games, s_avg, r_avg, tweedie_power=tweedie_power)
                 if not eval_res: continue
+                
+                if days_rest > 7.0 or min_deviation > 0.30:
+                    tier_ladder = ['S Tier', 'A Tier', 'B Tier', 'C Tier', 'Pass']
+                    if eval_res['Tier'] in tier_ladder:
+                        current_idx = tier_ladder.index(eval_res['Tier'])
+                        if current_idx < len(tier_ladder) - 2: 
+                            eval_res['Tier'] = tier_ladder[current_idx + 1]
                 
                 position = row.get('POSITION', row.get('PLAYER_POSITION', row.get('Position', 'UNK')))
 

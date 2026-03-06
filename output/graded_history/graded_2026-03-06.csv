@@ -1,0 +1,735 @@
+Player Name,Team,Opponent,Prop Category,Prop Line,Model_Pred,Model_Conf,Edge_Type,Consistency_CV,Active_Hit%,Tier,GAME_DATE,Match_Date,Actual Value,Result,Mapped_Prop
+Keldon Johnson,SA,LAC,AST,0.5,0.58,0.708,Under,0.0,70.0,S Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Jayson Tatum,BOS,DAL,RA,7.0,10.92,0.791,Over,0.178,70.0,A Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Jarred Vanderbilt,LAL,IND,AST,0.5,0.51,0.71,Under,0.0,70.0,A Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Mitchell Robinson,NY,DEN,AST,0.5,0.58,0.691,Under,0.0,70.0,A Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Scoot Henderson,POR,HOU,PA,18.5,15.94,0.675,Under,0.243,60.0,A Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Austin Reaves,LAL,IND,PTS,24.5,21.39,0.666,Under,0.288,90.0,A Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Baylor Scheierman,BOS,DAL,PA,8.5,10.5,0.664,Over,0.257,100.0,A Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Austin Reaves,LAL,IND,PA,29.5,26.07,0.659,Under,0.217,90.0,A Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Scoot Henderson,POR,HOU,PRA,20.5,18.11,0.657,Under,0.267,60.0,A Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Austin Reaves,LAL,IND,PRA,35.5,31.59,0.654,Under,0.229,90.0,A Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Dylan Harper,SA,LAC,PA,15.5,18.65,0.646,Over,0.267,80.0,A Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Baylor Scheierman,BOS,DAL,PTS,6.5,8.09,0.642,Over,0.2,100.0,A Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Jayson Tatum,BOS,DAL,AST,1.5,4.29,0.891,Over,0.296,70.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Jayson Tatum,BOS,DAL,PRA,18.5,24.0,0.7,Over,0.171,40.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Sam Hauser,BOS,DAL,PR,13.5,11.34,0.688,Under,0.344,40.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Scoot Henderson,POR,HOU,PR,16.5,14.23,0.674,Under,0.338,70.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Christian Braun,DEN,NYK,REB,4.5,6.0,0.674,Over,0.312,60.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Scoot Henderson,POR,HOU,PTS,13.5,11.63,0.67,Under,0.326,70.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Aaron Gordon,DEN,NYK,REB,3.5,4.81,0.665,Over,0.297,80.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Luke Kennard,LAL,IND,PTS,14.5,12.64,0.664,Under,0.312,20.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Aaron Gordon,DEN,NYK,PRA,14.5,17.71,0.663,Over,0.144,80.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Derrick White,BOS,DAL,PTS,16.5,20.25,0.644,Over,0.343,60.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Austin Reaves,LAL,IND,PR,28.5,25.8,0.64,Under,0.288,90.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Brandon Williams,DAL,BOS,PTS,11.5,13.71,0.634,Over,0.251,90.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Kon Knueppel,CHA,MIA,RA,8.5,7.65,0.633,Under,0.326,50.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Ben Sheppard,IND,LAL,PRA,10.5,9.55,0.629,Under,0.274,10.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Derrick White,BOS,DAL,PR,20.5,24.31,0.628,Over,0.341,40.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Jay Huff,IND,LAL,PRA,14.5,17.38,0.628,Over,0.322,90.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Bennedict Mathurin,LAC,SAS,REB,5.5,6.71,0.625,Over,0.285,50.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Naz Reid,MIN,ORL,REB,4.5,5.63,0.625,Over,0.297,50.0,B Tier,2026-03-07,2026-03-07,None,Pending / Not Found,REB
+Karl-Anthony Towns,NY,DEN,PR,29.5,27.34,0.621,Under,0.33,80.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Rudy Gobert,MIN,ORL,PR,22.5,20.87,0.619,Under,0.303,50.0,B Tier,2026-03-07,2026-03-07,None,Pending / Not Found,PR
+Royce O'Neale,PHX,NOP,PRA,16.5,15.29,0.617,Under,0.349,60.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Toumani Camara,POR,HOU,PRA,20.5,19.1,0.614,Under,0.316,40.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+LaMelo Ball,CHA,MIA,PRA,33.0,30.45,0.612,Under,0.279,90.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Brandon Miller,CHA,MIA,PA,24.5,22.94,0.611,Under,0.209,40.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Devin Vassell,SA,LAC,PR,16.5,20.03,0.611,Over,0.345,60.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Brandon Williams,DAL,BOS,PR,14.5,16.87,0.61,Over,0.256,90.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+T.J. McConnell,IND,LAL,PRA,13.5,12.6,0.609,Under,0.271,70.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Donte DiVincenzo,MIN,ORL,PRA,18.5,17.33,0.609,Under,0.322,60.0,B Tier,2026-03-07,2026-03-07,None,Pending / Not Found,PRA
+LaMelo Ball,CHA,MIA,RA,12.5,11.67,0.608,Under,0.214,70.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Devin Vassell,SA,LAC,PRA,19.5,23.19,0.607,Over,0.296,60.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Brandon Miller,CHA,MIA,PTS,14.5,17.23,0.607,Over,0.255,60.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+LaMelo Ball,CHA,MIA,PA,27.5,25.93,0.606,Under,0.296,80.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Paolo Banchero,ORL,MIN,PA,27.5,31.96,0.605,Over,0.315,50.0,B Tier,2026-03-07,2026-03-07,None,Pending / Not Found,PA
+Rudy Gobert,MIN,ORL,PRA,23.5,22.18,0.604,Under,0.28,40.0,B Tier,2026-03-07,2026-03-07,None,Pending / Not Found,PRA
+Paolo Banchero,ORL,MIN,PTS,22.5,26.28,0.601,Over,0.347,40.0,B Tier,2026-03-07,2026-03-07,None,Pending / Not Found,PTS
+LaMelo Ball,CHA,MIA,AST,7.5,7.01,0.599,Under,0.235,70.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+T.J. McConnell,IND,LAL,PTS,7.5,7.03,0.599,Under,0.291,80.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Paolo Banchero,ORL,MIN,PR,30.5,35.18,0.596,Over,0.271,50.0,B Tier,2026-03-07,2026-03-07,None,Pending / Not Found,PR
+Davion Mitchell,MIA,CHA,PA,14.5,13.8,0.593,Under,0.298,60.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Derrick White,BOS,DAL,PA,22.5,25.79,0.591,Over,0.229,60.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Anthony Black,ORL,MIN,RA,6.5,6.14,0.59,Under,0.287,40.0,B Tier,2026-03-07,2026-03-07,None,Pending / Not Found,RA
+Donte DiVincenzo,MIN,ORL,RA,6.5,7.53,0.586,Over,0.324,50.0,B Tier,2026-03-07,2026-03-07,None,Pending / Not Found,RA
+Davion Mitchell,MIA,CHA,PRA,16.5,15.86,0.586,Under,0.288,50.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Dylan Harper,SA,LAC,PRA,19.5,22.22,0.585,Over,0.249,80.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Josh Hart,NY,DEN,PA,16.5,15.87,0.585,Under,0.296,80.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Kris Dunn,LAC,SAS,AST,4.5,5.3,0.583,Over,0.277,90.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Kris Dunn,LAC,SAS,PA,12.5,12.08,0.582,Under,0.311,20.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Brandon Miller,CHA,MIA,PRA,30.0,28.63,0.581,Under,0.236,50.0,B Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Herbert Jones,NO,PHX,PTS,8.5,6.15,0.742,Under,0.674,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Sam Hauser,BOS,DAL,PTS,9.5,7.17,0.727,Under,0.527,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Dorian Finney-Smith,HOU,POR,AST,2.5,1.81,0.723,Under,0.789,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Derik Queen,NO,PHX,PTS,8.5,6.66,0.713,Under,0.622,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Aaron Nesmith,IND,LAL,PR,13.5,10.66,0.71,Under,0.4,40.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Andrew Nembhard,IND,LAL,PTS,14.5,11.6,0.705,Under,0.407,40.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Jordan Miller,LAC,SAS,PTS,9.5,7.56,0.704,Under,0.59,30.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Pelle Larsson,MIA,CHA,PRA,18.5,14.93,0.703,Under,0.424,20.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Cameron Johnson,DEN,NYK,PR,13.5,11.03,0.7,Under,0.367,90.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Andrew Nembhard,IND,LAL,PA,21.5,17.54,0.698,Under,0.4,40.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Luke Kornet,SA,LAC,PTS,4.5,3.61,0.692,Under,0.506,90.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Anthony Black,ORL,MIN,PA,17.5,14.63,0.692,Under,0.426,50.0,C Tier,2026-03-07,2026-03-07,None,Pending / Not Found,PA
+Bruce Brown,DEN,NYK,PTS,7.5,6.19,0.692,Under,0.786,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Naz Reid,MIN,ORL,PR,17.5,14.69,0.691,Under,0.367,80.0,C Tier,2026-03-07,2026-03-07,None,Pending / Not Found,PR
+Keldon Johnson,SA,LAC,RA,8.5,7.1,0.69,Under,0.603,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Max Christie,DAL,BOS,AST,1.5,1.31,0.689,Under,0.692,40.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Aaron Nesmith,IND,LAL,PRA,15.0,12.1,0.686,Under,0.396,40.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Jake LaRavia,LAL,IND,PTS,8.5,7.03,0.685,Under,0.625,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Victor Wembanyama,SA,LAC,PTS,23.5,19.99,0.685,Under,0.358,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Victor Wembanyama,SA,LAC,PR,35.5,30.3,0.685,Under,0.388,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Mitchell Robinson,NY,DEN,PTS,4.5,3.88,0.684,Under,0.686,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Cameron Johnson,DEN,NYK,PRA,15.5,13.18,0.681,Under,0.359,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Dylan Harper,SA,LAC,PTS,11.5,14.73,0.676,Over,0.363,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Neemias Queta,BOS,DAL,RA,8.5,7.29,0.675,Under,0.814,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Andrew Nembhard,IND,LAL,PRA,23.5,20.09,0.674,Under,0.394,40.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Naz Reid,MIN,ORL,PRA,19.5,16.85,0.673,Under,0.37,80.0,C Tier,2026-03-07,2026-03-07,None,Pending / Not Found,PRA
+Derik Queen,NO,PHX,PRA,17.5,15.01,0.673,Under,0.39,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Victor Wembanyama,SA,LAC,PA,26.5,22.99,0.672,Under,0.354,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Devin Booker,PHX,NOP,AST,5.5,4.62,0.671,Under,0.635,90.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Ryan Dunn,PHX,NOP,AST,2.5,2.05,0.669,Under,0.816,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Andrew Nembhard,IND,LAL,PR,17.0,14.27,0.669,Under,0.399,40.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Naz Reid,MIN,ORL,AST,3.5,2.9,0.668,Under,0.568,60.0,C Tier,2026-03-07,2026-03-07,None,Pending / Not Found,AST
+Jay Huff,IND,LAL,AST,0.5,0.68,0.668,Under,0.82,10.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Donovan Clingan,POR,HOU,PTS,12.5,10.73,0.668,Under,0.411,30.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Luke Kornet,SA,LAC,PRA,11.5,9.93,0.665,Under,0.394,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Victor Wembanyama,SA,LAC,PRA,38.5,33.79,0.665,Under,0.368,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Anthony Black,ORL,MIN,PRA,20.5,17.94,0.664,Under,0.362,40.0,C Tier,2026-03-07,2026-03-07,None,Pending / Not Found,PRA
+Donovan Clingan,POR,HOU,PA,13.5,11.77,0.663,Under,0.427,30.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Derik Queen,NO,PHX,PR,14.5,12.59,0.663,Under,0.411,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Landry Shamet,NY,DEN,AST,3.5,2.93,0.663,Under,0.762,20.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Donovan Clingan,POR,HOU,PR,24.5,21.45,0.662,Under,0.376,30.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Anthony Black,ORL,MIN,PR,16.5,14.38,0.662,Under,0.422,40.0,C Tier,2026-03-07,2026-03-07,None,Pending / Not Found,PR
+Jarred Vanderbilt,LAL,IND,RA,4.5,3.93,0.659,Under,0.842,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Jalen Brunson,NY,DEN,PTS,26.5,23.44,0.657,Under,0.447,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Kobe Sanders,LAC,SAS,RA,4.5,3.89,0.655,Under,0.747,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Jay Huff,IND,LAL,PA,9.5,12.51,0.655,Over,0.358,90.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Austin Reaves,LAL,IND,AST,5.5,4.76,0.653,Under,0.745,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Bruce Brown,DEN,NYK,PA,9.5,8.62,0.651,Under,0.751,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Sam Hauser,BOS,DAL,PRA,14.5,12.88,0.649,Under,0.381,30.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Donovan Clingan,POR,HOU,PRA,26.5,23.74,0.646,Under,0.385,30.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Jalen Brunson,NY,DEN,PR,29.5,26.53,0.645,Under,0.441,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Jordan Miller,LAC,SAS,REB,5.5,4.83,0.642,Under,0.522,40.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Jamal Murray,DEN,NYK,AST,6.5,5.76,0.641,Under,0.481,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Ben Sheppard,IND,LAL,AST,1.5,1.35,0.64,Under,0.658,30.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Miles Bridges,CHA,MIA,PR,21.0,18.51,0.64,Under,0.43,90.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Jordan Miller,LAC,SAS,PR,9.5,8.71,0.637,Under,0.526,40.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Jaxson Hayes,LAL,IND,PR,16.5,14.95,0.635,Under,0.43,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Dorian Finney-Smith,HOU,POR,REB,5.5,4.88,0.635,Under,0.589,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Royce O'Neale,PHX,NOP,PTS,8.5,7.71,0.633,Under,0.467,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Devin Booker,PHX,NOP,PRA,34.5,31.57,0.632,Under,0.443,90.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Marcus Smart,LAL,IND,AST,5.5,4.9,0.632,Under,0.734,30.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Brook Lopez,LAC,SAS,AST,3.5,3.09,0.632,Under,0.438,20.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Jalen Brunson,NY,DEN,PA,33.5,30.71,0.63,Under,0.388,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Luke Kornet,SA,LAC,RA,6.5,5.84,0.629,Under,0.394,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+OG Anunoby,NY,DEN,PRA,23.5,21.53,0.629,Under,0.382,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Landry Shamet,NY,DEN,REB,3.5,3.12,0.627,Under,0.706,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Kobe Brown,IND,LAL,PRA,13.5,12.37,0.626,Under,0.449,0.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Miles Bridges,CHA,MIA,PA,18.0,16.11,0.624,Under,0.449,90.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Mikal Bridges,NY,DEN,PA,17.5,16.1,0.624,Under,0.396,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Pascal Siakam,IND,LAL,AST,2.5,2.26,0.624,Under,0.681,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Aaron Gordon,DEN,NYK,PA,12.5,14.71,0.624,Over,0.204,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Jayson Tatum,BOS,DAL,PA,15.5,18.89,0.622,Over,0.203,40.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Mikal Bridges,NY,DEN,PRA,21.5,19.87,0.622,Under,0.368,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Austin Reaves,LAL,IND,RA,10.0,8.7,0.62,Under,0.357,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+LaMelo Ball,CHA,MIA,PTS,19.5,18.04,0.62,Under,0.396,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Jalen Green,PHX,NOP,PRA,25.5,23.65,0.62,Under,0.441,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Klay Thompson,DAL,BOS,PTS,9.5,8.83,0.62,Under,0.534,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Dorian Finney-Smith,HOU,POR,PRA,9.5,8.72,0.619,Under,0.522,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Jrue Holiday,POR,HOU,PR,22.5,27.52,0.617,Over,0.392,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Royce O'Neale,PHX,NOP,PR,13.5,12.5,0.617,Under,0.384,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Royce O'Neale,PHX,NOP,PA,11.5,10.66,0.617,Under,0.389,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Mitchell Robinson,NY,DEN,RA,8.5,7.89,0.616,Under,0.69,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Donovan Clingan,POR,HOU,RA,14.0,12.57,0.615,Under,0.445,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Max Christie,DAL,BOS,PA,13.5,12.58,0.615,Under,0.4,30.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Kobe Sanders,LAC,SAS,PA,9.5,8.91,0.614,Under,0.556,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Jeremiah Fears,NO,PHX,PA,13.5,12.98,0.614,Under,0.434,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Brook Lopez,LAC,SAS,PA,11.5,14.04,0.613,Over,0.385,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Jaylen Brown,BOS,DAL,PR,34.5,32.38,0.613,Under,0.437,40.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Jalen Suggs,ORL,MIN,PRA,21.5,20.12,0.613,Under,0.413,60.0,C Tier,2026-03-07,2026-03-07,None,Pending / Not Found,PRA
+Jrue Holiday,POR,HOU,PA,24.5,29.3,0.612,Over,0.37,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Miles Bridges,CHA,MIA,REB,5.5,5.05,0.611,Under,0.365,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Jalen Green,PHX,NOP,RA,6.5,5.99,0.61,Under,0.517,90.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Stephon Castle,SA,LAC,AST,6.5,6.04,0.61,Under,0.662,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Mikal Bridges,NY,DEN,AST,3.5,3.27,0.61,Under,0.647,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Toumani Camara,POR,HOU,PA,14.5,13.64,0.608,Under,0.43,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Miles Bridges,CHA,MIA,PRA,24.0,22.11,0.607,Under,0.412,90.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Cooper Flagg,DAL,BOS,AST,5.5,5.07,0.607,Under,0.489,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Jalen Brunson,NY,DEN,PRA,37.0,34.51,0.605,Under,0.374,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Donovan Clingan,POR,HOU,AST,1.5,1.68,0.602,Under,0.644,20.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+De'Aaron Fox,SA,LAC,PRA,26.0,24.19,0.602,Under,0.438,100.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Collin Gillespie,PHX,NOP,AST,4.5,4.24,0.601,Under,0.743,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Jayson Tatum,BOS,DAL,PR,16.5,19.71,0.6,Over,0.216,40.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Kawhi Leonard,LAC,SAS,RA,9.5,8.98,0.6,Under,0.487,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Brook Lopez,LAC,SAS,PRA,15.5,18.56,0.595,Over,0.396,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Zion Williamson,NO,PHX,RA,8.5,8.11,0.594,Under,0.604,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Andrew Nembhard,IND,LAL,AST,6.5,6.16,0.594,Under,0.421,40.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Donovan Clingan,POR,HOU,REB,11.5,10.94,0.592,Under,0.404,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Jrue Holiday,POR,HOU,AST,5.5,5.19,0.591,Under,0.422,40.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Toumani Camara,POR,HOU,PR,17.5,16.76,0.591,Under,0.372,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Jrue Holiday,POR,HOU,PRA,28.5,33.1,0.591,Over,0.353,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Aaron Gordon,DEN,NYK,PR,14.5,16.58,0.591,Over,0.175,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Cooper Flagg,DAL,BOS,RA,6.5,8.44,0.59,Over,0.38,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Clint Capela,HOU,POR,REB,5.5,5.19,0.59,Under,0.614,90.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Christian Braun,DEN,NYK,RA,6.5,7.77,0.589,Over,0.397,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Pascal Siakam,IND,LAL,RA,7.5,7.12,0.588,Under,0.383,90.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Collin Gillespie,PHX,NOP,RA,9.0,8.14,0.587,Under,0.487,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Jalen Suggs,ORL,MIN,PR,16.5,15.92,0.587,Under,0.435,70.0,C Tier,2026-03-07,2026-03-07,None,Pending / Not Found,PR
+LaMelo Ball,CHA,MIA,PR,24.5,23.6,0.586,Under,0.364,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Donte DiVincenzo,MIN,ORL,PR,14.5,13.99,0.586,Under,0.408,60.0,C Tier,2026-03-07,2026-03-07,None,Pending / Not Found,PR
+OG Anunoby,NY,DEN,PA,18.5,17.83,0.586,Under,0.438,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Jalen Suggs,ORL,MIN,PA,18.5,17.92,0.585,Under,0.415,70.0,C Tier,2026-03-07,2026-03-07,None,Pending / Not Found,PA
+Baylor Scheierman,BOS,DAL,REB,4.5,4.62,0.584,Under,0.784,10.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Devin Vassell,SA,LAC,PA,15.5,18.47,0.582,Over,0.361,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Jay Huff,IND,LAL,PR,13.5,15.94,0.582,Over,0.365,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Karl-Anthony Towns,NY,DEN,PA,20.5,19.91,0.582,Under,0.441,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Kon Knueppel,CHA,MIA,PA,22.5,21.83,0.579,Under,0.321,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Alperen Sengun,HOU,POR,AST,6.0,5.38,0.579,Under,0.569,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Dylan Harper,SA,LAC,PR,15.5,17.53,0.578,Over,0.272,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Brandon Williams,DAL,BOS,PA,14.5,16.67,0.578,Over,0.285,90.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Quenton Jackson,IND,LAL,PTS,7.5,8.52,0.578,Under,0.602,20.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Ben Sheppard,IND,LAL,PTS,4.5,4.6,0.577,Under,0.291,10.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Karl-Anthony Towns,NY,DEN,PRA,31.5,30.75,0.577,Under,0.353,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Derik Queen,NO,PHX,AST,2.5,2.43,0.576,Under,0.745,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Dwight Powell,DAL,BOS,AST,0.5,1.0,0.574,Over,0.0,40.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Jeremiah Fears,NO,PHX,AST,2.5,3.12,0.573,Over,0.366,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Devin Booker,PHX,NOP,RA,10.0,9.2,0.573,Under,0.423,90.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Karl-Anthony Towns,NY,DEN,PTS,18.0,17.19,0.572,Under,0.402,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Aaron Gordon,DEN,NYK,PTS,10.5,12.26,0.572,Over,0.293,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Josh Green,CHA,MIA,PTS,3.5,4.38,0.572,Under,0.72,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+T.J. McConnell,IND,LAL,PA,11.5,11.19,0.57,Under,0.27,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Ryan Kalkbrenner,CHA,MIA,PRA,9.5,10.22,0.57,Under,0.634,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Klay Thompson,DAL,BOS,PR,12.0,11.36,0.569,Under,0.444,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Jalen Suggs,ORL,MIN,RA,8.5,8.82,0.569,Under,0.48,30.0,C Tier,2026-03-07,2026-03-07,None,Pending / Not Found,RA
+Jeremiah Fears,NO,PHX,RA,5.5,6.21,0.568,Under,0.672,30.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Brandon Williams,DAL,BOS,PRA,17.5,19.65,0.568,Over,0.269,90.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Ryan Kalkbrenner,CHA,MIA,PTS,3.5,4.27,0.567,Under,0.667,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Kon Knueppel,CHA,MIA,AST,2.5,2.47,0.567,Under,0.627,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+OG Anunoby,NY,DEN,PTS,16.5,16.26,0.567,Under,0.397,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Aaron Nesmith,IND,LAL,RA,3.5,3.85,0.566,Under,0.55,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Isaiah Jackson,LAC,SAS,RA,6.5,6.68,0.566,Under,0.728,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+P.J. Washington,DAL,BOS,RA,7.5,7.37,0.564,Under,0.456,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Baylor Scheierman,BOS,DAL,PRA,13.5,15.39,0.564,Over,0.317,100.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Kel'el Ware,MIA,CHA,PTS,12.5,12.41,0.563,Under,0.427,30.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Jalen Suggs,ORL,MIN,AST,5.5,5.61,0.563,Under,0.589,30.0,C Tier,2026-03-07,2026-03-07,None,Pending / Not Found,AST
+Scoot Henderson,POR,HOU,AST,4.5,4.4,0.562,Under,0.381,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Max Christie,DAL,BOS,RA,4.5,5.24,0.562,Over,0.304,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Coby White,CHA,MIA,PTS,13.5,15.28,0.561,Over,0.32,40.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Miles Bridges,CHA,MIA,RA,9.0,8.35,0.559,Under,0.361,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Jarace Walker,IND,LAL,PA,15.5,17.21,0.559,Over,0.271,100.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Ryan Kalkbrenner,CHA,MIA,RA,4.5,4.98,0.558,Under,0.524,40.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Paolo Banchero,ORL,MIN,PRA,36.5,40.7,0.558,Over,0.268,60.0,C Tier,2026-03-07,2026-03-07,None,Pending / Not Found,PRA
+Saddiq Bey,NO,PHX,REB,5.5,6.19,0.556,Over,0.326,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+OG Anunoby,NY,DEN,PR,20.5,20.38,0.556,Under,0.349,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Brandon Miller,CHA,MIA,RA,7.5,8.3,0.555,Over,0.243,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Mikal Bridges,NY,DEN,PR,18.0,17.66,0.554,Under,0.412,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Isaiah Jackson,LAC,SAS,REB,5.5,5.67,0.553,Under,0.748,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Kris Dunn,LAC,SAS,PTS,7.5,7.94,0.553,Under,0.523,30.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+T.J. McConnell,IND,LAL,RA,6.0,5.5,0.552,Under,0.429,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Kobe Sanders,LAC,SAS,PTS,6.5,7.12,0.552,Under,0.682,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Klay Thompson,DAL,BOS,PRA,13.0,12.6,0.552,Under,0.438,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+T.J. McConnell,IND,LAL,PR,9.5,9.41,0.551,Under,0.269,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Ben Sheppard,IND,LAL,RA,3.5,3.8,0.551,Under,0.525,30.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Anthony Black,ORL,MIN,AST,3.5,3.51,0.55,Under,0.344,60.0,C Tier,2026-03-07,2026-03-07,None,Pending / Not Found,AST
+Tyler Herro,MIA,CHA,PR,25.5,25.59,0.549,Under,0.178,90.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Christian Braun,DEN,NYK,PRA,17.5,19.41,0.548,Over,0.277,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Josh Hart,NY,DEN,PR,18.5,18.53,0.548,Under,0.285,80.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Kon Knueppel,CHA,MIA,PRA,27.5,27.62,0.548,Under,0.277,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Jarace Walker,IND,LAL,PRA,20.5,22.58,0.548,Over,0.235,100.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Baylor Scheierman,BOS,DAL,RA,6.5,7.02,0.548,Under,0.672,0.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Derrick White,BOS,DAL,PRA,26.5,29.17,0.546,Over,0.221,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Mitchell Robinson,NY,DEN,REB,7.5,7.69,0.546,Under,0.662,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Micah Potter,IND,LAL,PTS,8.5,9.53,0.545,Under,0.587,10.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Tyler Herro,MIA,CHA,PRA,28.5,28.77,0.544,Under,0.163,90.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Bruce Brown,DEN,NYK,REB,3.5,4.04,0.544,Over,0.276,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Rudy Gobert,MIN,ORL,AST,1.5,1.62,0.543,Under,0.798,50.0,C Tier,2026-03-07,2026-03-07,None,Pending / Not Found,AST
+Collin Gillespie,PHX,NOP,PA,18.5,20.27,0.543,Over,0.379,70.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Kel'el Ware,MIA,CHA,REB,9.0,10.48,0.542,Over,0.329,60.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+P.J. Washington,DAL,BOS,PR,18.5,20.25,0.542,Over,0.309,50.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Quenton Jackson,IND,LAL,PA,9.5,11.03,0.54,Under,0.49,20.0,C Tier,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+OG Anunoby,NY,DEN,REB,5.0,4.7,0.539,Under,0.771,80.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Tyler Herro,MIA,CHA,PA,25.0,24.89,0.538,Under,0.151,90.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Jarace Walker,IND,LAL,PTS,13.0,14.66,0.538,Over,0.296,90.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Amen Thompson,HOU,POR,PRA,29.0,32.21,0.538,Over,0.321,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Austin Reaves,LAL,IND,REB,4.5,4.69,0.538,Under,0.76,60.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Kel'el Ware,MIA,CHA,PRA,19.5,22.02,0.538,Over,0.343,70.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Collin Gillespie,PHX,NOP,PR,17.5,19.07,0.537,Over,0.36,50.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Landry Shamet,NY,DEN,PRA,13.5,14.67,0.537,Over,0.277,90.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Rudy Gobert,MIN,ORL,REB,10.5,11.53,0.535,Over,0.352,70.0,Pass,2026-03-07,2026-03-07,None,Pending / Not Found,REB
+Dylan Harper,SA,LAC,RA,7.5,7.73,0.534,Under,0.394,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Ayo Dosunmu,MIN,ORL,PR,13.5,14.75,0.534,Over,0.374,40.0,Pass,2026-03-07,2026-03-07,None,Pending / Not Found,PR
+Julian Strawther,DEN,NYK,RA,2.5,3.19,0.534,Under,0.692,50.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+OG Anunoby,NY,DEN,RA,5.5,5.97,0.534,Under,0.653,80.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Sam Hauser,BOS,DAL,RA,4.5,5.05,0.534,Over,0.348,90.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Jarace Walker,IND,LAL,PR,18.5,20.09,0.533,Over,0.206,100.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Miles Bridges,CHA,MIA,AST,2.5,2.63,0.532,Under,0.832,60.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Max Christie,DAL,BOS,PRA,16.5,17.86,0.531,Over,0.245,80.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Pelle Larsson,MIA,CHA,AST,3.5,3.94,0.531,Over,0.354,90.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Dorian Finney-Smith,HOU,POR,PTS,5.0,4.66,0.531,Under,0.704,90.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Dylan Harper,SA,LAC,AST,3.5,3.72,0.53,Under,0.46,30.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Micah Potter,IND,LAL,RA,5.5,6.17,0.529,Over,0.389,80.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+P.J. Washington,DAL,BOS,REB,6.0,5.78,0.529,Under,0.614,70.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Naji Marshall,DAL,BOS,RA,7.5,7.86,0.528,Under,0.472,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Saddiq Bey,NO,PHX,PR,22.5,23.39,0.527,Under,0.385,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Pascal Siakam,IND,LAL,PR,27.5,30.29,0.527,Over,0.397,50.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Josh Hart,NY,DEN,PTS,11.0,10.74,0.527,Under,0.34,90.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Marcus Smart,LAL,IND,PRA,15.5,16.21,0.527,Under,0.426,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Kris Dunn,LAC,SAS,PRA,16.5,17.78,0.526,Over,0.231,100.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Kobe Brown,IND,LAL,PTS,4.5,5.15,0.526,Under,0.554,0.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Bennedict Mathurin,LAC,SAS,AST,1.5,1.8,0.525,Under,0.456,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Landry Shamet,NY,DEN,PTS,9.5,10.72,0.525,Over,0.337,80.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Luke Kennard,LAL,IND,PR,11.5,12.33,0.525,Over,0.29,50.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Ben Sheppard,IND,LAL,REB,2.5,2.79,0.525,Under,0.653,30.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Kel'el Ware,MIA,CHA,PR,22.5,23.25,0.525,Under,0.337,30.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Bennedict Mathurin,LAC,SAS,RA,7.5,8.03,0.524,Over,0.217,70.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Josh Hart,NY,DEN,RA,12.5,13.38,0.524,Over,0.311,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Ryan Kalkbrenner,CHA,MIA,REB,3.5,4.26,0.524,Under,0.779,60.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Quenton Jackson,IND,LAL,PR,9.5,11.34,0.524,Under,0.474,20.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+P.J. Washington,DAL,BOS,PA,13.5,14.48,0.523,Over,0.301,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Josh Green,CHA,MIA,PRA,7.5,8.78,0.523,Under,0.553,50.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Collin Gillespie,PHX,NOP,PRA,22.5,24.23,0.523,Over,0.305,60.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Reed Sheppard,HOU,POR,PA,20.5,21.09,0.523,Under,0.258,0.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Zion Williamson,NO,PHX,PTS,19.5,21.3,0.523,Over,0.34,50.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Kawhi Leonard,LAC,SAS,PA,30.5,31.57,0.522,Under,0.402,50.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Christian Braun,DEN,NYK,PR,15.5,16.96,0.522,Over,0.32,50.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Jaden McDaniels,MIN,ORL,PRA,21.5,22.83,0.521,Under,0.414,40.0,Pass,2026-03-07,2026-03-07,None,Pending / Not Found,PRA
+Grayson Allen,PHX,NOP,RA,7.0,8.0,0.521,Over,0.219,80.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Grayson Allen,PHX,NOP,PR,21.5,22.21,0.519,Under,0.213,0.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Reed Sheppard,HOU,POR,RA,7.5,7.85,0.519,Under,0.49,0.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Oso Ighodaro,PHX,NOP,PA,12.5,13.33,0.518,Over,0.384,90.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Jordan Miller,LAC,SAS,RA,4.5,4.95,0.518,Over,0.368,90.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Jaxson Hayes,LAL,IND,RA,6.5,6.75,0.518,Under,0.517,50.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Kon Knueppel,CHA,MIA,PTS,19.5,20.31,0.517,Under,0.362,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Naz Reid,MIN,ORL,RA,7.5,7.69,0.516,Under,0.29,60.0,Pass,2026-03-07,2026-03-07,None,Pending / Not Found,RA
+Kon Knueppel,CHA,MIA,PR,24.5,25.41,0.516,Under,0.298,60.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Reed Sheppard,HOU,POR,PTS,15.5,16.05,0.516,Under,0.304,0.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Landry Shamet,NY,DEN,PR,11.5,12.49,0.515,Over,0.335,80.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Jamal Murray,DEN,NYK,RA,9.5,10.17,0.514,Under,0.505,60.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Kawhi Leonard,LAC,SAS,PR,33.5,34.95,0.514,Under,0.383,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Christian Braun,DEN,NYK,PA,12.5,13.67,0.514,Over,0.32,50.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Christian Braun,DEN,NYK,PTS,10.5,11.43,0.514,Under,0.445,60.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Quenton Jackson,IND,LAL,PRA,11.5,13.47,0.514,Under,0.438,20.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Desmond Bane,ORL,MIN,PRA,28.5,29.66,0.513,Under,0.204,50.0,Pass,2026-03-07,2026-03-07,None,Pending / Not Found,PRA
+Kobe Brown,IND,LAL,REB,4.5,5.1,0.513,Under,0.792,30.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Desmond Bane,ORL,MIN,PR,24.5,25.49,0.513,Under,0.227,30.0,Pass,2026-03-07,2026-03-07,None,Pending / Not Found,PR
+De'Aaron Fox,SA,LAC,RA,9.5,10.21,0.513,Under,0.69,70.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Jaden McDaniels,MIN,ORL,PR,18.5,20.07,0.513,Under,0.42,30.0,Pass,2026-03-07,2026-03-07,None,Pending / Not Found,PR
+Max Christie,DAL,BOS,PR,14.5,15.04,0.512,Under,0.225,20.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Zion Williamson,NO,PHX,PA,23.5,24.47,0.512,Under,0.277,50.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Davion Mitchell,MIA,CHA,PTS,8.0,7.91,0.511,Under,0.41,60.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Payton Pritchard,BOS,DAL,RA,7.5,8.03,0.511,Under,0.396,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Neemias Queta,BOS,DAL,AST,0.5,0.77,0.511,Under,0.789,80.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Reed Sheppard,HOU,POR,PRA,23.5,24.5,0.51,Under,0.259,0.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Desmond Bane,ORL,MIN,PTS,20.5,21.4,0.51,Under,0.237,20.0,Pass,2026-03-07,2026-03-07,None,Pending / Not Found,PTS
+Grayson Allen,PHX,NOP,PRA,25.5,26.62,0.51,Under,0.191,10.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Tyler Herro,MIA,CHA,PTS,21.5,22.51,0.509,Under,0.181,80.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Kris Dunn,LAC,SAS,PR,12.0,12.03,0.509,Under,0.322,20.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Derrick White,BOS,DAL,RA,9.5,10.1,0.509,Over,0.322,70.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+P.J. Washington,DAL,BOS,PRA,20.5,21.75,0.508,Over,0.291,50.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Donte DiVincenzo,MIN,ORL,REB,3.5,3.75,0.508,Under,0.334,80.0,Pass,2026-03-07,2026-03-07,None,Pending / Not Found,REB
+Khris Middleton,DAL,BOS,RA,5.5,6.23,0.507,Under,0.557,60.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Kawhi Leonard,LAC,SAS,PTS,26.5,28.11,0.507,Under,0.442,60.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Rudy Gobert,MIN,ORL,RA,13.5,14.34,0.507,Over,0.366,70.0,Pass,2026-03-07,2026-03-07,None,Pending / Not Found,RA
+Grayson Allen,PHX,NOP,PTS,18.5,19.62,0.506,Over,0.245,90.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Julius Randle,MIN,ORL,PA,23.5,24.87,0.506,Under,0.438,60.0,Pass,2026-03-07,2026-03-07,None,Pending / Not Found,PA
+Kawhi Leonard,LAC,SAS,PRA,38.0,39.41,0.506,Under,0.37,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Brandon Williams,DAL,BOS,AST,2.5,3.16,0.506,Under,0.669,30.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Kawhi Leonard,LAC,SAS,AST,3.5,3.74,0.505,Under,0.554,60.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Desmond Bane,ORL,MIN,RA,7.5,7.78,0.505,Under,0.301,80.0,Pass,2026-03-07,2026-03-07,None,Pending / Not Found,RA
+Brandon Miller,CHA,MIA,PR,26.5,27.79,0.505,Under,0.282,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Julius Randle,MIN,ORL,PRA,29.5,31.43,0.505,Over,0.383,40.0,Pass,2026-03-07,2026-03-07,None,Pending / Not Found,PRA
+Max Christie,DAL,BOS,PTS,10.5,11.27,0.504,Under,0.35,30.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Saddiq Bey,NO,PHX,PRA,25.5,27.39,0.504,Under,0.416,30.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Grayson Allen,PHX,NOP,PA,22.5,23.79,0.504,Over,0.234,90.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Pascal Siakam,IND,LAL,PRA,31.5,33.61,0.504,Over,0.389,50.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Ayo Dosunmu,MIN,ORL,PRA,16.5,17.42,0.504,Under,0.394,60.0,Pass,2026-03-07,2026-03-07,None,Pending / Not Found,PRA
+Paolo Banchero,ORL,MIN,RA,13.5,14.18,0.503,Over,0.361,50.0,Pass,2026-03-07,2026-03-07,None,Pending / Not Found,RA
+Mikal Bridges,NY,DEN,RA,7.0,6.82,0.503,Under,0.41,70.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Micah Potter,IND,LAL,PR,14.5,15.9,0.503,Under,0.367,10.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Devin Vassell,SA,LAC,RA,6.5,6.86,0.503,Under,0.471,60.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Jake LaRavia,LAL,IND,AST,0.5,0.78,0.503,Under,0.843,90.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Cameron Johnson,DEN,NYK,REB,3.5,3.78,0.503,Under,0.387,80.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Baylor Scheierman,BOS,DAL,PR,11.5,12.21,0.503,Under,0.337,0.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Davion Mitchell,MIA,CHA,PR,10.5,10.96,0.503,Under,0.326,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Reed Sheppard,HOU,POR,PR,19.5,20.57,0.503,Over,0.29,100.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Grant Williams,CHA,MIA,PR,9.5,11.41,0.503,Under,0.507,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Bam Adebayo,MIA,CHA,PR,29.0,30.03,0.503,Under,0.248,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Bam Adebayo,MIA,CHA,PRA,31.5,33.15,0.502,Under,0.224,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Collin Gillespie,PHX,NOP,REB,4.0,3.78,0.502,Under,0.494,50.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Anthony Edwards,MIN,ORL,PRA,37.5,39.75,0.502,Under,0.406,50.0,Pass,2026-03-07,2026-03-07,None,Pending / Not Found,PRA
+Pascal Siakam,IND,LAL,PA,25.5,27.21,0.502,Under,0.403,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Jaden McDaniels,MIN,ORL,RA,6.5,7.16,0.502,Under,0.45,30.0,Pass,2026-03-07,2026-03-07,None,Pending / Not Found,RA
+Bam Adebayo,MIA,CHA,PTS,18.5,19.53,0.502,Over,0.225,60.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Dejounte Murray,NO,PHX,PR,18.5,20.11,0.502,Over,0.392,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Dejounte Murray,NO,PHX,PRA,24.5,26.44,0.501,Under,0.376,50.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Josh Hart,NY,DEN,PRA,24.0,24.78,0.501,Under,0.266,90.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Desmond Bane,ORL,MIN,PA,24.5,25.84,0.501,Over,0.209,70.0,Pass,2026-03-07,2026-03-07,None,Pending / Not Found,PA
+Dejounte Murray,NO,PHX,PA,20.0,21.18,0.501,Under,0.414,50.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Micah Potter,IND,LAL,PRA,15.5,16.64,0.5,Over,0.312,100.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Bam Adebayo,MIA,CHA,PA,22.5,23.68,0.5,Under,0.208,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Marcus Smart,LAL,IND,PTS,9.0,9.81,0.5,Under,0.613,60.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Jamal Murray,DEN,NYK,REB,4.0,4.15,0.497,Under,0.813,50.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Kawhi Leonard,LAC,SAS,REB,6.0,6.11,0.497,Under,0.735,60.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Davion Mitchell,MIA,CHA,RA,8.0,8.02,0.492,Under,0.425,70.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Jalen Brunson,NY,DEN,AST,7.0,7.44,0.486,Under,0.654,50.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Dejounte Murray,NO,PHX,RA,10.0,10.53,0.484,Under,0.403,70.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Payton Pritchard,BOS,DAL,AST,5.0,5.03,0.482,Under,0.445,30.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Tari Eason,HOU,POR,RA,9.0,9.78,0.478,Under,0.588,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Jarace Walker,IND,LAL,RA,8.0,9.15,0.472,Under,0.533,10.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+P.J. Washington,DAL,BOS,PTS,12.0,12.64,0.469,Under,0.354,70.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Bam Adebayo,MIA,CHA,REB,9.0,9.53,0.468,Over,0.306,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Jrue Holiday,POR,HOU,RA,10.0,10.4,0.466,Under,0.382,30.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Devin Booker,PHX,NOP,REB,4.0,4.58,0.466,Over,0.392,50.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Stephon Castle,SA,LAC,REB,4.0,4.56,0.465,Under,0.818,80.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+De'Aaron Fox,SA,LAC,AST,6.0,6.21,0.463,Under,0.542,70.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Saddiq Bey,NO,PHX,RA,8.0,8.29,0.456,Under,0.36,50.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Derik Queen,NO,PHX,REB,6.0,6.44,0.453,Over,0.331,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Kris Dunn,LAC,SAS,RA,9.0,9.43,0.453,Over,0.348,90.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Amen Thompson,HOU,POR,AST,5.0,5.08,0.45,Under,0.486,70.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Derrick White,BOS,DAL,REB,4.0,4.21,0.449,Under,0.518,50.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Derrick White,BOS,DAL,AST,6.0,6.39,0.448,Over,0.301,70.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Carter Bryant,SA,LAC,REB,4.0,4.39,0.442,Under,0.751,40.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Pelle Larsson,MIA,CHA,RA,7.0,7.32,0.439,Over,0.25,100.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Kon Knueppel,CHA,MIA,REB,5.0,5.24,0.431,Under,0.351,50.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+LaMelo Ball,CHA,MIA,REB,5.0,5.26,0.428,Under,0.483,60.0,Pass,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Cameron Johnson,DEN,NYK,AST,0.5,1.84,0.8,Over,0.454,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Payton Pritchard,BOS,DAL,PTS,16.0,10.46,0.772,Under,0.813,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Payton Pritchard,BOS,DAL,PR,19.5,13.55,0.76,Under,0.717,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Rui Hachimura,LAL,IND,PTS,12.5,8.76,0.759,Under,0.706,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Payton Pritchard,BOS,DAL,PA,21.5,15.23,0.754,Under,0.715,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Rui Hachimura,LAL,IND,PR,16.5,12.17,0.748,Under,0.702,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Pelle Larsson,MIA,CHA,PTS,11.5,8.27,0.746,Under,0.681,20.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Rui Hachimura,LAL,IND,PA,12.5,9.07,0.745,Under,0.709,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Payton Pritchard,BOS,DAL,PRA,25.5,19.01,0.736,Under,0.668,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Ryan Dunn,PHX,NOP,PTS,6.5,4.81,0.731,Under,1.328,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Neemias Queta,BOS,DAL,PTS,8.5,6.63,0.729,Under,0.854,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Jarred Vanderbilt,LAL,IND,PTS,4.5,3.43,0.729,Under,1.478,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Cameron Johnson,DEN,NYK,RA,3.5,5.38,0.728,Over,0.263,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Naz Reid,MIN,ORL,PTS,11.5,8.84,0.725,Under,0.551,80.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,PTS
+Neemias Queta,BOS,DAL,PA,10.5,8.16,0.725,Under,0.822,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Aaron Nesmith,IND,LAL,PA,11.5,8.82,0.724,Under,0.487,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Rui Hachimura,LAL,IND,PRA,14.5,11.15,0.723,Under,0.655,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Devin Vassell,SA,LAC,REB,2.5,4.05,0.723,Over,0.478,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Cameron Johnson,DEN,NYK,PA,11.5,8.87,0.721,Under,0.506,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Aaron Nesmith,IND,LAL,PTS,10.0,7.41,0.718,Under,0.523,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Cameron Johnson,DEN,NYK,PTS,10.0,7.33,0.718,Under,0.548,90.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Naji Marshall,DAL,BOS,PTS,13.5,10.92,0.716,Under,0.62,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Neemias Queta,BOS,DAL,PR,16.5,13.14,0.713,Under,0.816,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Naz Reid,MIN,ORL,PA,12.5,9.95,0.707,Under,0.537,80.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,PA
+Pelle Larsson,MIA,CHA,PR,15.0,11.55,0.707,Under,0.484,20.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Naji Marshall,DAL,BOS,PA,16.5,13.58,0.702,Under,0.555,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Jarred Vanderbilt,LAL,IND,PRA,10.5,8.48,0.701,Under,1.092,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Neemias Queta,BOS,DAL,PRA,18.5,15.11,0.701,Under,0.801,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Jordan Miller,LAC,SAS,PA,12.5,10.13,0.698,Under,0.591,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Sam Hauser,BOS,DAL,PA,10.5,8.52,0.698,Under,0.557,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Pelle Larsson,MIA,CHA,PA,15.0,11.83,0.696,Under,0.524,20.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Derik Queen,NO,PHX,PA,11.5,9.39,0.694,Under,0.588,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Jake LaRavia,LAL,IND,PA,10.5,8.59,0.692,Under,0.567,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Ryan Dunn,PHX,NOP,PRA,13.5,11.18,0.692,Under,0.597,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Bam Adebayo,MIA,CHA,AST,1.5,2.59,0.691,Over,0.448,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Rudy Gobert,MIN,ORL,PTS,10.5,8.68,0.688,Under,0.6,60.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,PTS
+Naji Marshall,DAL,BOS,PR,18.5,15.79,0.685,Under,0.62,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Naji Marshall,DAL,BOS,PRA,21.5,18.42,0.679,Under,0.554,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Anthony Black,ORL,MIN,PTS,13.5,11.39,0.678,Under,0.524,50.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,PTS
+Herbert Jones,NO,PHX,REB,2.5,3.82,0.678,Over,0.52,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Jordan Miller,LAC,SAS,PRA,15.5,13.17,0.676,Under,0.485,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Devin Booker,PHX,NOP,PTS,24.5,20.94,0.675,Under,0.586,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Jake LaRavia,LAL,IND,PR,13.5,11.5,0.674,Under,0.485,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Jaxson Hayes,LAL,IND,PTS,10.5,8.95,0.672,Under,0.619,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Luke Kennard,LAL,IND,AST,1.5,1.43,0.669,Under,1.886,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Jerami Grant,POR,HOU,REB,2.5,3.88,0.668,Over,0.643,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Karl-Anthony Towns,NY,DEN,AST,1.5,1.43,0.667,Under,1.874,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Max Christie,DAL,BOS,REB,2.5,3.82,0.666,Over,0.728,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Devin Booker,PHX,NOP,PR,28.5,24.84,0.666,Under,0.502,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Herbert Jones,NO,PHX,PA,11.5,9.96,0.665,Under,0.622,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Khris Middleton,DAL,BOS,REB,2.5,4.05,0.665,Over,0.506,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Jaxson Hayes,LAL,IND,PA,11.5,9.92,0.665,Under,0.728,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Devin Booker,PHX,NOP,PA,30.5,26.81,0.66,Under,0.498,90.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Quenton Jackson,IND,LAL,REB,1.5,2.69,0.659,Over,0.773,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Herbert Jones,NO,PHX,PR,12.0,10.04,0.658,Under,0.563,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+De'Aaron Fox,SA,LAC,PTS,16.5,14.48,0.657,Under,0.638,100.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Jake LaRavia,LAL,IND,PRA,14.5,12.72,0.656,Under,0.478,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Dwight Powell,DAL,BOS,PTS,3.5,6.9,0.655,Over,2.55,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Jalen Green,PHX,NOP,AST,2.5,2.11,0.654,Under,1.491,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Toumani Camara,POR,HOU,PTS,12.5,11.02,0.654,Under,0.551,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Carter Bryant,SA,LAC,AST,2.5,2.12,0.653,Under,1.197,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Mikal Bridges,NY,DEN,REB,2.5,3.6,0.653,Over,0.487,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Tyler Herro,MIA,CHA,AST,2.5,3.54,0.651,Over,0.567,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Kobe Brown,IND,LAL,AST,2.5,2.14,0.648,Under,1.337,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Jayson Tatum,BOS,DAL,REB,4.0,6.35,0.648,Over,0.426,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Ayo Dosunmu,MIN,ORL,REB,1.5,2.41,0.646,Over,0.699,20.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,REB
+Bruce Brown,DEN,NYK,RA,4.5,5.87,0.645,Over,0.414,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Davion Mitchell,MIA,CHA,REB,1.5,2.43,0.642,Over,0.818,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Micah Potter,IND,LAL,AST,0.5,0.85,0.641,Under,1.033,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Bruce Brown,DEN,NYK,PR,11.5,10.36,0.64,Under,0.56,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Royce O'Neale,PHX,NOP,AST,1.5,2.43,0.639,Over,0.685,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Sam Hauser,BOS,DAL,REB,2.5,3.52,0.639,Over,0.435,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Brook Lopez,LAC,SAS,PTS,9.5,12.29,0.639,Over,0.422,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Scoot Henderson,POR,HOU,REB,1.5,2.39,0.638,Over,0.655,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+P.J. Washington,DAL,BOS,AST,0.5,1.16,0.637,Over,0.369,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Ryan Kalkbrenner,CHA,MIA,AST,0.5,0.74,0.637,Under,1.265,20.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Naji Marshall,DAL,BOS,AST,1.5,2.46,0.637,Over,0.589,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Josh Green,CHA,MIA,REB,1.5,2.41,0.636,Over,0.549,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Bruce Brown,DEN,NYK,PRA,12.5,11.44,0.636,Under,0.573,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Khris Middleton,DAL,BOS,AST,1.5,2.44,0.636,Over,0.7,20.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Kobe Sanders,LAC,SAS,PRA,12.5,11.29,0.636,Under,0.504,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Neemias Queta,BOS,DAL,REB,7.5,6.91,0.635,Under,0.853,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Desmond Bane,ORL,MIN,REB,2.5,3.49,0.635,Over,0.466,10.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,REB
+Oso Ighodaro,PHX,NOP,REB,8.5,7.67,0.634,Under,1.102,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Amen Thompson,HOU,POR,REB,7.0,8.94,0.634,Over,0.423,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Miles Bridges,CHA,MIA,PTS,15.0,13.15,0.634,Under,0.481,90.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Oso Ighodaro,PHX,NOP,RA,11.5,10.43,0.631,Under,0.625,20.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Jeremiah Fears,NO,PHX,PTS,10.5,10.11,0.631,Under,0.628,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Kobe Sanders,LAC,SAS,REB,2.5,2.26,0.63,Under,0.876,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Ryan Dunn,PHX,NOP,REB,3.5,4.57,0.629,Over,0.52,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Donte DiVincenzo,MIN,ORL,PTS,10.5,9.81,0.627,Under,0.657,70.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,PTS
+Tari Eason,HOU,POR,PA,14.5,13.35,0.626,Under,0.512,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Grant Williams,CHA,MIA,AST,3.5,3.13,0.626,Under,0.95,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Jaxson Hayes,LAL,IND,PRA,17.5,16.06,0.626,Under,0.5,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Rui Hachimura,LAL,IND,RA,3.5,3.33,0.626,Under,0.892,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Jarred Vanderbilt,LAL,IND,REB,4.5,4.09,0.625,Under,0.864,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+De'Aaron Fox,SA,LAC,PA,22.5,20.73,0.624,Under,0.478,100.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Klay Thompson,DAL,BOS,AST,0.5,1.12,0.624,Over,0.876,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Herbert Jones,NO,PHX,AST,2.5,3.55,0.624,Over,0.54,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Jaylen Brown,BOS,DAL,PTS,27.5,25.41,0.624,Under,0.463,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Tari Eason,HOU,POR,PR,19.5,18.06,0.621,Under,0.535,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Jeremiah Fears,NO,PHX,PR,13.5,13.22,0.621,Under,0.564,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Ayo Dosunmu,MIN,ORL,AST,2.5,3.45,0.62,Over,0.575,50.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,AST
+Herbert Jones,NO,PHX,PRA,14.5,13.5,0.62,Under,0.492,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Jaylen Brown,BOS,DAL,PA,31.5,29.39,0.619,Under,0.506,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Marcus Smart,LAL,IND,REB,1.5,2.28,0.619,Over,0.506,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Kobe Sanders,LAC,SAS,PR,10.5,9.74,0.619,Under,0.642,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Tari Eason,HOU,POR,PTS,12.0,10.85,0.618,Under,0.681,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Mikal Bridges,NY,DEN,PTS,14.5,13.46,0.617,Under,0.464,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Reed Sheppard,HOU,POR,REB,2.5,3.39,0.616,Over,0.463,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Jaden McDaniels,MIN,ORL,REB,4.5,5.67,0.615,Over,0.434,60.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,REB
+Reed Sheppard,HOU,POR,AST,3.5,4.47,0.614,Over,0.556,90.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Kobe Brown,IND,LAL,PR,11.5,10.77,0.612,Under,0.512,0.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Victor Wembanyama,SA,LAC,RA,14.5,13.52,0.612,Under,0.452,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Mitchell Robinson,NY,DEN,PR,12.5,11.88,0.612,Under,0.533,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Victor Wembanyama,SA,LAC,AST,2.5,3.39,0.611,Over,0.497,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Jaxson Hayes,LAL,IND,AST,0.5,0.81,0.611,Under,1.317,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Mitchell Robinson,NY,DEN,PRA,13.5,12.76,0.61,Under,0.521,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Devin Vassell,SA,LAC,PTS,13.5,16.85,0.61,Over,0.433,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Jeremiah Fears,NO,PHX,PRA,16.5,16.1,0.61,Under,0.453,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Bruce Brown,DEN,NYK,AST,3.5,3.23,0.608,Under,1.006,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Stephon Castle,SA,LAC,PR,19.5,19.3,0.607,Under,0.648,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Aaron Nesmith,IND,LAL,AST,1.5,1.57,0.606,Under,1.109,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Jalen Suggs,ORL,MIN,PTS,12.5,11.78,0.605,Under,0.482,70.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,PTS
+Jordan Miller,LAC,SAS,AST,2.5,2.54,0.605,Under,1.203,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Khris Middleton,DAL,BOS,PTS,10.5,10.21,0.604,Under,0.575,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Stephon Castle,SA,LAC,RA,11.0,10.04,0.603,Under,0.686,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Stephon Castle,SA,LAC,PRA,26.5,25.8,0.602,Under,0.567,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+OG Anunoby,NY,DEN,AST,1.5,1.47,0.602,Under,0.903,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Saddiq Bey,NO,PHX,AST,1.5,2.5,0.601,Over,0.689,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Julian Champagnie,SA,LAC,AST,2.5,2.33,0.601,Under,0.932,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Paolo Banchero,ORL,MIN,REB,7.5,8.79,0.6,Over,0.43,40.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,REB
+Khris Middleton,DAL,BOS,PA,13.5,13.2,0.599,Under,0.567,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Rui Hachimura,LAL,IND,AST,0.5,0.65,0.599,Under,1.838,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Coby White,CHA,MIA,PRA,18.5,21.37,0.595,Over,0.279,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Victor Wembanyama,SA,LAC,REB,11.5,10.9,0.594,Under,0.52,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Paolo Banchero,ORL,MIN,AST,4.5,5.46,0.594,Over,0.425,60.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,AST
+Jalen Green,PHX,NOP,PA,21.5,20.54,0.593,Under,0.472,90.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Desmond Bane,ORL,MIN,AST,3.5,4.29,0.591,Over,0.468,30.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,AST
+Jaden McDaniels,MIN,ORL,AST,2.5,2.42,0.59,Under,0.888,60.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,AST
+Grayson Allen,PHX,NOP,REB,2.5,3.33,0.59,Over,0.663,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+De'Aaron Fox,SA,LAC,PR,20.0,18.75,0.59,Under,0.492,100.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Coby White,CHA,MIA,AST,2.5,3.37,0.588,Over,0.43,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Stephon Castle,SA,LAC,PTS,15.5,15.74,0.586,Under,0.637,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Jay Huff,IND,LAL,PTS,9.5,11.84,0.586,Over,0.429,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Tari Eason,HOU,POR,PRA,21.0,19.93,0.586,Under,0.497,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Jerami Grant,POR,HOU,PR,22.5,26.69,0.584,Over,0.467,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Coby White,CHA,MIA,PA,16.5,18.76,0.584,Over,0.254,20.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Jake LaRavia,LAL,IND,REB,3.5,4.28,0.584,Over,0.613,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Zion Williamson,NO,PHX,AST,2.5,2.89,0.583,Under,1.21,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Klay Thompson,DAL,BOS,REB,1.5,2.12,0.582,Over,0.537,20.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Julian Champagnie,SA,LAC,PTS,9.5,10.12,0.579,Under,0.921,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Jerami Grant,POR,HOU,PRA,24.5,28.81,0.579,Over,0.476,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Tari Eason,HOU,POR,AST,1.5,2.18,0.579,Over,0.659,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Luke Kennard,LAL,IND,REB,1.5,2.28,0.579,Over,0.89,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Anthony Edwards,MIN,ORL,REB,4.5,5.3,0.578,Over,0.516,30.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,REB
+Dwight Powell,DAL,BOS,REB,5.5,5.58,0.577,Under,1.897,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Isaiah Jackson,LAC,SAS,PTS,4.5,6.43,0.577,Over,1.395,20.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Pelle Larsson,MIA,CHA,REB,2.5,3.18,0.577,Over,0.457,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Dylan Harper,SA,LAC,REB,2.5,3.16,0.574,Over,0.473,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Jrue Holiday,POR,HOU,PTS,18.0,22.14,0.574,Over,0.43,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Donte DiVincenzo,MIN,ORL,PA,14.5,14.39,0.574,Under,0.454,60.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,PA
+Isaiah Jackson,LAC,SAS,AST,0.5,1.14,0.574,Over,2.573,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Quenton Jackson,IND,LAL,AST,1.5,2.2,0.573,Over,0.576,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Dwight Powell,DAL,BOS,PA,6.5,9.29,0.572,Over,2.972,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Aaron Nesmith,IND,LAL,REB,3.5,3.54,0.572,Under,0.962,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Brandon Miller,CHA,MIA,AST,2.5,3.12,0.572,Over,0.502,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Kris Dunn,LAC,SAS,REB,4.0,5.26,0.57,Over,0.474,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Jarace Walker,IND,LAL,AST,1.5,2.53,0.57,Over,0.666,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Brook Lopez,LAC,SAS,RA,4.5,5.78,0.569,Over,0.454,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Stephon Castle,SA,LAC,PA,22.5,22.85,0.569,Under,0.534,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Donte DiVincenzo,MIN,ORL,AST,3.5,4.17,0.568,Over,0.471,70.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,AST
+T.J. McConnell,IND,LAL,REB,1.5,2.06,0.567,Over,0.568,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Oso Ighodaro,PHX,NOP,PR,17.5,17.4,0.567,Under,0.627,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Julius Randle,MIN,ORL,REB,6.5,7.42,0.564,Over,0.403,70.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,REB
+Dwight Powell,DAL,BOS,RA,7.5,7.69,0.564,Under,2.217,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Jalen Brunson,NY,DEN,REB,2.5,3.24,0.564,Over,0.689,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Julian Strawther,DEN,NYK,PR,14.5,15.18,0.562,Under,0.6,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Julian Champagnie,SA,LAC,PA,10.5,11.5,0.562,Under,0.741,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Coby White,CHA,MIA,REB,1.5,2.75,0.561,Over,0.905,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Tyler Herro,MIA,CHA,RA,6.5,7.35,0.561,Over,0.458,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Saddiq Bey,NO,PHX,PTS,17.5,17.92,0.56,Under,0.473,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Brook Lopez,LAC,SAS,PR,14.5,16.82,0.56,Over,0.446,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Marcus Smart,LAL,IND,PA,12.5,12.74,0.56,Under,0.468,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Alperen Sengun,HOU,POR,PTS,19.5,23.04,0.56,Over,0.605,20.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Royce O'Neale,PHX,NOP,RA,7.5,8.5,0.558,Over,0.436,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Kevin Durant,HOU,POR,AST,4.5,4.86,0.558,Under,1.245,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Julius Randle,MIN,ORL,PTS,18.5,19.07,0.558,Under,0.555,70.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,PTS
+Julius Randle,MIN,ORL,AST,4.5,5.25,0.556,Over,0.525,50.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,AST
+Toumani Camara,POR,HOU,AST,1.5,1.98,0.555,Over,0.58,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Oso Ighodaro,PHX,NOP,PTS,9.5,10.57,0.554,Over,0.444,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Tari Eason,HOU,POR,REB,6.5,7.62,0.553,Over,0.526,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Derik Queen,NO,PHX,RA,7.5,8.26,0.551,Over,0.32,20.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Amen Thompson,HOU,POR,PTS,17.5,19.37,0.551,Over,0.433,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Aaron Gordon,DEN,NYK,RA,4.5,6.05,0.55,Over,0.451,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Rui Hachimura,LAL,IND,REB,2.5,2.71,0.55,Under,1.022,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Jeremiah Fears,NO,PHX,REB,2.5,3.41,0.549,Under,1.054,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Jaylen Brown,BOS,DAL,PRA,38.5,39.63,0.548,Under,0.472,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Khris Middleton,DAL,BOS,PRA,17.5,18.28,0.548,Under,0.512,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Micah Potter,IND,LAL,REB,5.5,6.31,0.547,Over,0.493,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Keldon Johnson,SA,LAC,PTS,11.5,12.02,0.547,Under,0.731,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Julian Champagnie,SA,LAC,PR,14.5,15.2,0.546,Under,0.589,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Jamal Murray,DEN,NYK,PA,30.5,35.94,0.545,Over,0.568,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Marcus Smart,LAL,IND,PR,11.5,12.04,0.545,Under,0.489,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Coby White,CHA,MIA,PR,15.5,17.55,0.545,Over,0.359,20.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Jerami Grant,POR,HOU,RA,5.5,6.42,0.544,Over,0.627,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Amen Thompson,HOU,POR,PR,24.5,26.92,0.544,Over,0.369,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Luke Kennard,LAL,IND,RA,3.5,3.85,0.544,Under,0.878,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Payton Pritchard,BOS,DAL,REB,2.5,3.07,0.543,Over,0.543,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Saddiq Bey,NO,PHX,PA,19.5,20.67,0.543,Under,0.499,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Jerami Grant,POR,HOU,PA,21.5,24.25,0.542,Over,0.452,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Luke Kornet,SA,LAC,AST,0.5,0.95,0.542,Over,0.537,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Herbert Jones,NO,PHX,RA,5.5,6.55,0.542,Over,0.488,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Alperen Sengun,HOU,POR,PA,25.5,28.9,0.542,Over,0.525,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Naji Marshall,DAL,BOS,REB,4.5,5.23,0.542,Over,0.602,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Carter Bryant,SA,LAC,PR,11.5,12.51,0.542,Under,0.909,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Devin Vassell,SA,LAC,AST,1.5,2.06,0.541,Over,0.665,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Kevin Durant,HOU,POR,PA,32.5,33.89,0.541,Under,0.506,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Jerami Grant,POR,HOU,PTS,19.0,22.11,0.54,Over,0.445,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Brandon Williams,DAL,BOS,REB,2.5,3.19,0.54,Over,0.728,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Grant Williams,CHA,MIA,PRA,11.5,14.1,0.54,Over,0.467,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Cooper Flagg,DAL,BOS,PA,20.5,25.22,0.539,Over,0.513,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Kevin Durant,HOU,POR,REB,5.5,6.18,0.538,Over,0.559,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Dejounte Murray,NO,PHX,REB,4.5,5.04,0.538,Over,0.424,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Landry Shamet,NY,DEN,RA,3.5,4.05,0.538,Over,0.562,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Jake LaRavia,LAL,IND,RA,4.5,5.07,0.536,Over,0.43,20.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Kevin Durant,HOU,POR,PTS,27.5,29.09,0.536,Under,0.545,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Quenton Jackson,IND,LAL,RA,3.5,4.55,0.536,Over,0.503,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Brandon Williams,DAL,BOS,RA,5.5,6.33,0.536,Over,0.426,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Clint Capela,HOU,POR,PTS,3.5,3.77,0.535,Under,0.908,90.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Kevin Durant,HOU,POR,PRA,37.5,39.46,0.535,Under,0.495,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Ayo Dosunmu,MIN,ORL,PTS,10.5,11.76,0.535,Over,0.387,30.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,PTS
+Grant Williams,CHA,MIA,RA,4.5,5.44,0.535,Over,0.473,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Keldon Johnson,SA,LAC,PR,15.5,16.23,0.535,Under,0.592,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Alperen Sengun,HOU,POR,PR,29.0,33.31,0.534,Over,0.609,20.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Jamal Murray,DEN,NYK,PRA,34.5,39.84,0.532,Over,0.511,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Jrue Holiday,POR,HOU,REB,4.0,5.0,0.532,Over,0.411,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Jerami Grant,POR,HOU,AST,1.5,1.9,0.532,Over,0.58,10.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Julian Champagnie,SA,LAC,PRA,16.5,17.45,0.532,Under,0.544,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Oso Ighodaro,PHX,NOP,PRA,19.5,20.04,0.532,Under,0.523,20.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Khris Middleton,DAL,BOS,PR,14.5,15.56,0.532,Under,0.51,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Julius Randle,MIN,ORL,PR,25.5,26.54,0.532,Under,0.46,60.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,PR
+Isaiah Jackson,LAC,SAS,PR,12.5,13.36,0.532,Under,1.112,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Josh Green,CHA,MIA,RA,3.5,4.01,0.532,Over,0.474,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Cooper Flagg,DAL,BOS,PR,22.5,27.68,0.531,Over,0.475,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Jaylen Brown,BOS,DAL,AST,4.5,5.78,0.53,Over,0.762,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Grant Williams,CHA,MIA,PTS,4.5,6.86,0.53,Over,0.574,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Kevin Durant,HOU,POR,PR,33.5,35.63,0.53,Under,0.543,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Jalen Green,PHX,NOP,PR,22.5,23.09,0.53,Under,0.457,90.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Keldon Johnson,SA,LAC,PA,12.5,13.21,0.53,Under,0.717,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Marcus Smart,LAL,IND,RA,5.5,6.05,0.529,Over,0.417,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Jalen Suggs,ORL,MIN,REB,2.5,3.25,0.529,Under,1.024,70.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,REB
+Jaden McDaniels,MIN,ORL,PA,16.5,17.74,0.529,Under,0.464,40.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,PA
+Julian Strawther,DEN,NYK,AST,0.5,1.04,0.529,Over,0.843,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Dejounte Murray,NO,PHX,PTS,14.5,15.36,0.528,Under,0.458,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Alperen Sengun,HOU,POR,RA,15.5,15.95,0.528,Under,0.529,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Tyler Herro,MIA,CHA,REB,3.5,3.95,0.528,Over,0.681,20.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Alperen Sengun,HOU,POR,PRA,35.5,39.39,0.528,Over,0.544,20.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Bennedict Mathurin,LAC,SAS,PR,23.5,25.71,0.528,Over,0.412,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Cooper Flagg,DAL,BOS,REB,5.0,6.33,0.527,Over,0.485,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Jamal Murray,DEN,NYK,PR,28.5,33.33,0.527,Over,0.566,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Grant Williams,CHA,MIA,REB,3.5,4.04,0.526,Over,0.568,20.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Anthony Edwards,MIN,ORL,RA,8.5,9.07,0.526,Over,0.366,10.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,RA
+Anthony Black,ORL,MIN,REB,2.5,2.92,0.526,Over,0.54,40.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,REB
+Anthony Edwards,MIN,ORL,PA,32.5,35.67,0.525,Over,0.445,40.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,PA
+Dwight Powell,DAL,BOS,PR,11.5,13.39,0.524,Under,2.451,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Cooper Flagg,DAL,BOS,PRA,26.5,31.26,0.523,Over,0.466,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Andrew Nembhard,IND,LAL,REB,2.5,2.9,0.523,Over,0.685,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Zion Williamson,NO,PHX,PRA,28.5,30.72,0.523,Over,0.261,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Oso Ighodaro,PHX,NOP,AST,2.5,2.88,0.523,Over,0.516,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Julian Strawther,DEN,NYK,PA,8.5,11.22,0.522,Over,0.517,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Micah Potter,IND,LAL,PA,10.5,11.49,0.522,Under,0.455,10.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Jamal Murray,DEN,NYK,PTS,23.5,27.82,0.521,Over,0.662,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Carter Bryant,SA,LAC,PRA,12.5,14.09,0.521,Under,0.948,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Klay Thompson,DAL,BOS,RA,2.5,2.93,0.521,Over,0.316,0.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Ayo Dosunmu,MIN,ORL,RA,4.5,5.31,0.519,Over,0.612,20.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,RA
+Grant Williams,CHA,MIA,PA,7.5,9.56,0.519,Over,0.511,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+De'Aaron Fox,SA,LAC,REB,2.5,3.1,0.518,Over,1.111,20.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Davion Mitchell,MIA,CHA,AST,5.5,5.89,0.518,Over,0.474,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Coby White,CHA,MIA,RA,5.5,6.13,0.518,Over,0.409,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Bennedict Mathurin,LAC,SAS,PA,20.5,21.91,0.518,Under,0.521,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Jaden McDaniels,MIN,ORL,PTS,13.5,15.05,0.517,Under,0.483,40.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,PTS
+Carter Bryant,SA,LAC,PTS,4.5,6.47,0.517,Over,1.178,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Karl-Anthony Towns,NY,DEN,RA,13.5,14.82,0.517,Over,0.453,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Julian Strawther,DEN,NYK,PRA,10.5,13.55,0.517,Over,0.572,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Julian Champagnie,SA,LAC,RA,6.5,6.97,0.516,Over,0.451,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Josh Green,CHA,MIA,AST,0.5,0.83,0.516,Over,0.789,20.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Anthony Edwards,MIN,ORL,AST,3.5,3.86,0.516,Over,0.949,20.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,AST
+Jaylen Brown,BOS,DAL,RA,11.5,13.33,0.515,Under,0.58,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Amen Thompson,HOU,POR,RA,12.0,13.21,0.515,Over,0.342,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Cooper Flagg,DAL,BOS,PTS,17.5,21.35,0.514,Over,0.53,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Aaron Gordon,DEN,NYK,AST,1.5,2.54,0.513,Over,0.802,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Bennedict Mathurin,LAC,SAS,PTS,17.5,19.65,0.512,Over,0.544,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Anthony Edwards,MIN,ORL,PR,33.5,36.31,0.511,Over,0.465,50.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,PR
+Keldon Johnson,SA,LAC,REB,4.5,4.91,0.511,Over,0.599,20.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Christian Braun,DEN,NYK,AST,1.5,2.03,0.511,Under,0.985,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Andrew Nembhard,IND,LAL,RA,7.5,8.32,0.51,Over,0.416,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Dwight Powell,DAL,BOS,PRA,12.5,15.3,0.51,Over,2.666,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Jayson Tatum,BOS,DAL,PTS,14.5,15.72,0.51,Over,0.234,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Luke Kornet,SA,LAC,REB,4.5,4.85,0.509,Over,0.466,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Jaxson Hayes,LAL,IND,REB,5.5,5.85,0.509,Over,0.445,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Zion Williamson,NO,PHX,PR,25.5,27.1,0.509,Over,0.301,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PR
+Julian Strawther,DEN,NYK,REB,1.5,2.21,0.508,Under,1.132,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Jay Huff,IND,LAL,REB,4.5,4.86,0.508,Over,0.577,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Jalen Green,PHX,NOP,PTS,18.5,19.54,0.508,Under,0.501,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Jay Huff,IND,LAL,RA,5.5,5.88,0.508,Over,0.444,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Baylor Scheierman,BOS,DAL,AST,1.5,2.09,0.508,Under,1.034,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Zion Williamson,NO,PHX,REB,5.5,5.84,0.506,Over,0.399,0.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Collin Gillespie,PHX,NOP,PTS,13.5,14.71,0.506,Over,0.469,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Toumani Camara,POR,HOU,RA,7.5,8.11,0.506,Over,0.414,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Scoot Henderson,POR,HOU,RA,6.5,6.93,0.505,Over,0.382,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Julian Strawther,DEN,NYK,PTS,7.5,9.89,0.505,Over,0.545,70.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Anthony Edwards,MIN,ORL,PTS,28.5,31.01,0.505,Over,0.503,50.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,PTS
+Dejounte Murray,NO,PHX,AST,5.5,5.9,0.505,Over,0.481,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Julius Randle,MIN,ORL,RA,11.5,12.29,0.504,Over,0.418,50.0,Pass / Too Volatile,2026-03-07,2026-03-07,None,Pending / Not Found,RA
+Keldon Johnson,SA,LAC,PRA,17.5,18.65,0.504,Under,0.577,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Amen Thompson,HOU,POR,PA,22.5,23.77,0.503,Over,0.298,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PA
+Kobe Sanders,LAC,SAS,AST,1.5,1.78,0.501,Over,0.527,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Clint Capela,HOU,POR,PRA,10.5,11.08,0.501,Over,0.669,0.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Sam Hauser,BOS,DAL,AST,0.5,1.1,0.5,Over,0.745,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Josh Hart,NY,DEN,REB,7.0,7.81,0.499,Over,0.411,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Bennedict Mathurin,LAC,SAS,PRA,26.0,27.97,0.497,Over,0.411,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PRA
+Kevin Durant,HOU,POR,RA,10.0,10.58,0.497,Under,0.588,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Brandon Miller,CHA,MIA,REB,5.0,5.77,0.496,Over,0.44,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Julian Champagnie,SA,LAC,REB,5.0,5.76,0.495,Over,0.483,40.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Karl-Anthony Towns,NY,DEN,REB,11.0,12.17,0.492,Over,0.47,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Pascal Siakam,IND,LAL,PTS,22.0,23.99,0.491,Over,0.42,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,PTS
+Royce O'Neale,PHX,NOP,REB,5.0,5.9,0.488,Over,0.614,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Toumani Camara,POR,HOU,REB,5.0,5.82,0.475,Over,0.564,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Jalen Brunson,NY,DEN,RA,10.0,11.02,0.474,Over,0.476,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Jaylen Brown,BOS,DAL,REB,7.0,8.11,0.473,Over,0.624,60.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Jarace Walker,IND,LAL,REB,5.0,5.88,0.468,Over,0.535,90.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Alperen Sengun,HOU,POR,REB,9.0,9.73,0.468,Over,0.687,20.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Bam Adebayo,MIA,CHA,RA,12.0,12.57,0.464,Over,0.25,30.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,RA
+Jalen Green,PHX,NOP,REB,4.0,4.48,0.449,Over,0.568,10.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Pascal Siakam,IND,LAL,REB,6.0,6.41,0.449,Over,0.447,10.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Brook Lopez,LAC,SAS,REB,4.0,4.72,0.447,Over,0.618,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,REB
+Josh Hart,NY,DEN,AST,5.0,5.36,0.435,Over,0.457,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+T.J. McConnell,IND,LAL,AST,4.0,4.33,0.427,Over,0.422,50.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST
+Grayson Allen,PHX,NOP,AST,4.0,4.29,0.42,Over,0.412,80.0,Pass / Too Volatile,2026-03-06,2026-03-06,None,Pending / Not Found,AST

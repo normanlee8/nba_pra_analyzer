@@ -12,6 +12,7 @@ from prop_analyzer.features.calculator import (
 )
 
 def add_rolling_stats_history(df, stats_to_roll=None):
+    """Calculates historical rolling features, including new CV and Volatility metrics for consistency."""
     if Cols.PLAYER_ID not in df.columns or Cols.DATE not in df.columns:
         logging.error(f"Missing ID/Date columns. Cols found: {df.columns}")
         return df
@@ -70,10 +71,6 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         
         form_out = np.ones_like(l5_mean)
         new_cols[f'{col}_FORM_RATIO'] = np.divide(l5_mean, szn_avg, out=form_out, where=(szn_avg > 0))
-        
-        if col != 'MIN':
-            min_l10 = grouped['MIN'].rolling(window=10, min_periods=1).mean().values
-            new_cols[f'{col}_PER_MIN_L10_AVG'] = np.divide(l10_avg, min_l10, out=np.zeros_like(l10_avg), where=(min_l10 > 0))
 
     new_cols['PTS_REB_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['REB']), include_groups=False).reset_index(level=0, drop=True).values
     new_cols['PTS_AST_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['AST']), include_groups=False).reset_index(level=0, drop=True).values
@@ -151,15 +148,18 @@ def build_feature_set(props_df):
         latest_folder = season_folders[-1]
         szn_id = latest_folder.name
         
+        # 1. FOUL TROUBLE & ROTATION TRUST (From PBPStats Totals)
         pbp_tot_file = cfg.DATA_DIR / f"master_pbp_player_totals_{szn_id}.parquet"
         if pbp_tot_file.exists():
             pt_df = pd.read_parquet(pbp_tot_file)
             
+            # Foul Trouble Risk
             if 'PersonalFouls' in pt_df.columns and 'OffPoss' in pt_df.columns:
                 pt_df['FOUL_RISK_PER_100'] = np.where(pt_df['OffPoss'] > 0, (pt_df['PersonalFouls'] / pt_df['OffPoss']) * 100, 0.0)
             else:
                 pt_df['FOUL_RISK_PER_100'] = 0.0
             
+            # Coach Trust metric (PBP Minutes / Games Played matching)
             if 'Minutes' in pt_df.columns and 'GamesPlayed' in pt_df.columns:
                 pt_df['COACH_TRUST_MINS'] = np.where(pt_df['GamesPlayed'] > 0, pt_df['Minutes'] / pt_df['GamesPlayed'], 0.0)
             else:
@@ -169,6 +169,7 @@ def build_feature_set(props_df):
             if len(merge_cols) > 1:
                 features_df = pd.merge(features_df, pt_df[merge_cols].drop_duplicates(subset=[Cols.PLAYER_ID]), on=Cols.PLAYER_ID, how='left')
 
+        # 2. ASSIST NETWORK & WITH/WITHOUT YOU (WOWY) DYNAMIC INJURY LOGIC
         ast_file = cfg.DATA_DIR / f"master_assist_networks_{szn_id}.parquet"
         inj_file = latest_folder / "daily_injuries.parquet"
         lu_file = cfg.DATA_DIR / f"master_pbp_lineups_{szn_id}.parquet"
@@ -179,6 +180,7 @@ def build_feature_set(props_df):
             out_players = inj_df[inj_df['Status_Clean'].isin(['OUT', 'GTD'])].copy()
             out_players['Name_Clean'] = out_players['Player'].apply(lambda x: unidecode(str(x)).lower().replace(" ", ""))
             
+            # -> ASSIST NETWORK DISRUPTION (Point-In-Time Merge)
             if ast_file.exists() and not out_players.empty:
                 ast_df = pd.read_parquet(ast_file)
                 if 'SHOOTER_ID' in ast_df.columns:
@@ -207,6 +209,7 @@ def build_feature_set(props_df):
             else:
                 features_df['LOST_AST_SHARE'] = 0.0
                 
+            # -> WOWY TEAM EFFICIENCY IMPACT (Filtering Lineups per Date)
             if lu_file.exists() and pbp_tot_file.exists() and not out_players.empty:
                 lu_df = pd.read_parquet(lu_file)
                 pt_df = pd.read_parquet(pbp_tot_file)
@@ -221,6 +224,7 @@ def build_feature_set(props_df):
                     if 'LineupId' in lu_df.columns and 'TeamAbbreviation' in lu_df.columns:
                         def is_lineup_wowy(lineup_id_str):
                             ids_in_lineup = str(lineup_id_str).split('-')
+                            # Exact string ID match to prevent substring bugs
                             return not any(out_id in ids_in_lineup for out_id in out_ids)
                         
                         wowy_lineups = lu_df[lu_df['LineupId'].apply(is_lineup_wowy)]
@@ -383,6 +387,7 @@ def build_feature_set(props_df):
     if 'OPP_GAME_PACE' in features_df.columns and 'Primary_Pos' in features_df.columns:
         features_df['PACE_PG_INTERACTION'] = np.where(features_df['Primary_Pos'] == 'PG', features_df['OPP_GAME_PACE'], 0.0)
 
+    # TIME SERIES FIX: Merge Vacancy point-in-time
     vacancy_path = cfg.DATA_DIR / "master_daily_vacancy.parquet"
     if vacancy_path.exists():
         vacancy_df = pd.read_parquet(vacancy_path)
@@ -393,6 +398,7 @@ def build_feature_set(props_df):
             features_df = features_df.sort_values(Cols.DATE)
             vacancy_df = vacancy_df.sort_values('Date')
             
+            # Remove any overlapping older columns to prevent _x, _y duplication
             drop_cols = [c for c in vacancy_df.columns if c in features_df.columns and c not in ['TEAM_ABBREVIATION', 'Date']]
             features_df.drop(columns=drop_cols, inplace=True, errors='ignore')
             
@@ -459,6 +465,7 @@ def build_feature_set(props_df):
             median_val = features_df[col].median()
             features_df[col] = features_df[col].fillna(median_val if not pd.isna(median_val) else np.nan)
 
+    # 1. Blowout Potential (Net Rating Mismatch) - NON-LINEAR SCALING
     has_eff = all(c in features_df.columns for c in [
         'TEAM_Offensive Efficiency', 'TEAM_Defensive Efficiency', 
         'OPP_Offensive Efficiency', 'OPP_Defensive Efficiency'
@@ -468,19 +475,23 @@ def build_feature_set(props_df):
         opp_net = pd.to_numeric(features_df['OPP_Offensive Efficiency'], errors='coerce') - pd.to_numeric(features_df['OPP_Defensive Efficiency'], errors='coerce')
         net_diff = abs(team_net - opp_net).fillna(0.0)
         
+        # Override with pure WOWY efficiency differential if available (meaning a star is injured)
         if 'WOWY_OFF_EFF' in features_df.columns and 'WOWY_DEF_EFF' in features_df.columns:
             wowy_net = features_df['WOWY_OFF_EFF'].fillna(team_net) - features_df['WOWY_DEF_EFF'].fillna(team_net)
+            # Find the shift the injury caused in the blowout dynamic
             net_diff = abs(wowy_net - opp_net).fillna(0.0)
             
-        features_df['BLOWOUT_POTENTIAL'] = net_diff
+        features_df['BLOWOUT_POTENTIAL'] = np.where(net_diff > 10.0, net_diff ** 2, 0.0)
     else:
         features_df['BLOWOUT_POTENTIAL'] = np.nan
 
+    # 2. Foul Trouble Risk (Now properly driven by PBPStats play-by-play ratios)
     if 'OPP_Opponent Personal Fouls per Game' in features_df.columns:
         features_df['OPP_FOUL_DRAW_RATE'] = pd.to_numeric(features_df['OPP_Opponent Personal Fouls per Game'], errors='coerce').fillna(np.nan)
     else:
         features_df['OPP_FOUL_DRAW_RATE'] = np.nan
 
+    # 3. Conditioned Usage Proxy (Proportional Distribution)
     usg_col = f'USG_PROXY_{Cols.SZN_AVG}'
     if 'TEAM_MISSING_USG' in features_df.columns and usg_col in features_df.columns:
         missing_usg = pd.to_numeric(features_df['TEAM_MISSING_USG'], errors='coerce').fillna(0.0)
