@@ -60,24 +60,25 @@ def get_system_learning_maps(days_back=21):
 
     return cat_bias_pct, cat_mae
 
-def determine_confidence_tier(win_prob):
+def determine_confidence_tier(win_prob, cv=0.0):
     """
-    Tiering based strictly on calibrated Win Probability distributions. 
-    Accuracy/Winning focused. High variance drops win probability naturally, 
-    so we don't need artificial CV filters here.
+    Tiering based strictly on calibrated Win Probability distributions and Volatility (CV). 
     """
-    if win_prob >= 0.65:
+    if cv > 0.42:  
+        return 'Trap / High Variance'
+        
+    if win_prob >= 0.69:
         return 'S Tier'
-    elif win_prob >= 0.60:
+    elif win_prob >= 0.63:
         return 'A Tier'
-    elif win_prob >= 0.56:
+    elif win_prob >= 0.58:
         return 'B Tier'
-    elif win_prob >= 0.53:
+    elif win_prob >= 0.54:
         return 'C Tier'
     else:
         return 'Pass'
 
-def evaluate_prop(proj, line, variance, prop_type, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate):
+def evaluate_prop(proj, line, variance, prop_type, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, cv):
     if line <= 0: return None
     
     nbinom_props = ['PTS', 'REB', 'AST', 'STL', 'BLK', 'FG3M', 'PRA', 'PR', 'PA', 'RA']
@@ -95,7 +96,7 @@ def evaluate_prop(proj, line, variance, prop_type, l10_over_rate, l10_under_rate
         active_hit_rate = l10_under_rate
         active_vs_opp_hit_rate = vs_opp_under_rate 
         
-    tier = determine_confidence_tier(win_prob)
+    tier = determine_confidence_tier(win_prob, cv)
         
     return {
         'Pick': pick,
@@ -105,7 +106,12 @@ def evaluate_prop(proj, line, variance, prop_type, l10_over_rate, l10_under_rate
         'Active_VS_Opp_Hit_Rate': active_vs_opp_hit_rate
     }
 
-def get_col_safe(df, prop_cat, base_name):
+def get_col_safe(df, prop_cat, base_name, strict_prefix=False):
+    if strict_prefix:
+        col_name = f"{prop_cat}_{base_name}"
+        if col_name in df.columns: return df[col_name]
+        return pd.Series(np.nan, index=df.index)
+        
     if base_name in df.columns: return df[base_name]
     if f"{prop_cat}_{base_name}" in df.columns: return df[f"{prop_cat}_{base_name}"]
     return pd.Series(np.nan, index=df.index)
@@ -184,6 +190,10 @@ def predict_props(todays_props_df):
             # The ML Model is the ultimate source of truth. No manual average smoothing.
             raw_projections = model.predict(X_scaled_df)
             
+            # Calculate ML historical error standard deviation for this prop category
+            mae_val = cat_mae.get(cfg.MASTER_PROP_MAP.get(prop_cat, prop_cat), 0.0)
+            ml_implied_std = mae_val * 1.2533  # Convert Mean Absolute Error to Expected Std Dev
+            
             stds = get_col_safe(X_raw, prop_cat, 'L10_STD_DEV')
             cvs = get_col_safe(X_raw, prop_cat, 'L10_CV')
             games_played_col = get_col_safe(X_raw, prop_cat, 'SEASON_G')
@@ -201,10 +211,11 @@ def predict_props(todays_props_df):
             corr_pa = get_col_safe(X_raw, prop_cat, 'PTS_AST_CORR')
             corr_ra = get_col_safe(X_raw, prop_cat, 'REB_AST_CORR')
             
+            # Use strict_prefix=True to stop Combo Props from stealing their own Std Devs recursively
             base_stds = {
-                'PTS': get_col_safe(X_raw, 'PTS', 'L10_STD_DEV'),
-                'REB': get_col_safe(X_raw, 'REB', 'L10_STD_DEV'),
-                'AST': get_col_safe(X_raw, 'AST', 'L10_STD_DEV')
+                'PTS': get_col_safe(X_raw, 'PTS', 'L10_STD_DEV', strict_prefix=True),
+                'REB': get_col_safe(X_raw, 'REB', 'L10_STD_DEV', strict_prefix=True),
+                'AST': get_col_safe(X_raw, 'AST', 'L10_STD_DEV', strict_prefix=True)
             }
             
             for idx, (orig_idx, row) in enumerate(group.iterrows()):
@@ -213,7 +224,9 @@ def predict_props(todays_props_df):
                 
                 raw_std = float(stds.iloc[idx]) if not pd.isna(stds.iloc[idx]) else 1.0
                 floor_std = max(line * 0.25, np.sqrt(line)) # Minimal sanity floor
-                std_dev = max(raw_std, floor_std)
+                
+                # Force std_dev to respect the ML Model's historical failure rate
+                std_dev = max(raw_std, floor_std, ml_implied_std)
                 
                 cv = float(cvs.iloc[idx]) if not pd.isna(cvs.iloc[idx]) else (std_dev / proj if proj > 0 else 0.5)
                 
@@ -242,7 +255,8 @@ def predict_props(todays_props_df):
                 
                 variance = estimate_combo_variance(prop_cat, proj, std_dev, base_stds=dynamic_base_stds, correlations=dynamic_correlations, sample_size=sample_size)
                 
-                eval_res = evaluate_prop(proj, line, variance, prop_cat, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate)
+                # Update evaluate_prop to take the CV
+                eval_res = evaluate_prop(proj, line, variance, prop_cat, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, cv)
                 if not eval_res: continue
                 
                 position = row.get('POSITION', row.get('PLAYER_POSITION', row.get('Position', 'UNK')))
