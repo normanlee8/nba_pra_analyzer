@@ -12,8 +12,9 @@ from pathlib import Path
 
 from sklearn.ensemble import StackingRegressor
 from sklearn.linear_model import RidgeCV
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score, mean_poisson_deviance
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import TimeSeriesSplit
+from sklearn.preprocessing import StandardScaler
 
 import sklearn
 sklearn.set_config(enable_metadata_routing=True)
@@ -25,11 +26,6 @@ from prop_analyzer.config import Cols
 from prop_analyzer.features import definitions as feat_defs
 from prop_analyzer.models import registry
 from prop_analyzer.utils import common
-
-class PassThroughScaler:
-    def fit(self, X, y=None): return self
-    def transform(self, X): return X.values if isinstance(X, pd.DataFrame) else X
-    def fit_transform(self, X, y=None): return self.transform(X)
 
 def get_feature_cols(prop_cat, all_columns):
     relevant = []
@@ -86,7 +82,7 @@ def backfill_missing_cols(df, cols):
     return df
 
 def train_ensemble_model(df, target_col):
-    logging.info(f"Training Tweedie/Poisson-Optimized Meta-Ensemble for {target_col}...")
+    logging.info(f"Training MAE-Optimized Meta-Ensemble for {target_col}...")
 
     date_col = Cols.DATE if Cols.DATE in df.columns else 'GAME_DATE'
     if date_col in df.columns:
@@ -109,7 +105,8 @@ def train_ensemble_model(df, target_col):
     X.columns = sanitized_cols
     y = df[target_col]
     
-    preprocessor = PassThroughScaler()
+    # Swapped to StandardScaler to ensure RidgeCV meta-estimator receives properly scaled base features
+    preprocessor = StandardScaler()
     X_proc = preprocessor.fit_transform(X)
     X_proc_df = pd.DataFrame(X_proc, columns=sanitized_cols)
 
@@ -133,22 +130,18 @@ def train_ensemble_model(df, target_col):
                 'subsample': trial.suggest_float('subsample', 0.6, 1.0),
                 'colsample_bytree': trial.suggest_float('colsample_bytree', 0.6, 1.0)
             }
-            # Tweedie regression naturally handles variance > mean (overdispersion)
-            mod = xgb.XGBRegressor(**params, random_state=42, n_jobs=2, objective='reg:tweedie', tweedie_variance_power=1.5, tree_method='hist')
+            # Optimize strictly for MAE (Absolute Error) to target the median
+            mod = xgb.XGBRegressor(**params, random_state=42, n_jobs=2, objective='reg:absoluteerror', tree_method='hist')
             
-            deviance_scores = []
+            mae_scores = []
             for train_idx, val_idx in tscv.split(X_proc_df):
                 fold_weights = get_fold_weights(train_idx, decay_days)
                 mod.fit(X_proc_df.iloc[train_idx], y.iloc[train_idx], sample_weight=fold_weights)
                 preds = mod.predict(X_proc_df.iloc[val_idx])
-                # Clip predictions strictly above 0 to allow Poisson Deviance calculation safely
-                preds = np.maximum(preds, 1e-4)
-                # Evaluate on Poisson Deviance (shape optimization) rather than RMSE (mean optimization)
-                deviance_scores.append(mean_poisson_deviance(y.iloc[val_idx], preds))
+                mae_scores.append(mean_absolute_error(y.iloc[val_idx], preds))
             
-            # Store decay_days in user attributes to fetch later
             trial.set_user_attr("decay_days", decay_days)
-            return np.mean(deviance_scores)
+            return np.mean(mae_scores)
 
         study_xgb = optuna.create_study(direction='minimize')
         study_xgb.optimize(xgb_objective, n_trials=15)
@@ -161,18 +154,18 @@ def train_ensemble_model(df, target_col):
                 'max_depth': trial.suggest_int('max_depth', 3, 6),
                 'num_leaves': trial.suggest_int('num_leaves', 20, 50)
             }
-            mod = lgb.LGBMRegressor(**params, random_state=42, n_jobs=2, objective='tweedie', tweedie_variance_power=1.5, verbose=-1)
+            # regression_l1 is the LightGBM equivalent for Absolute Error (MAE)
+            mod = lgb.LGBMRegressor(**params, random_state=42, n_jobs=2, objective='regression_l1', verbose=-1)
             
-            deviance_scores = []
+            mae_scores = []
             for train_idx, val_idx in tscv.split(X_proc_df):
                 fold_weights = get_fold_weights(train_idx, decay_days)
                 mod.fit(X_proc_df.iloc[train_idx], y.iloc[train_idx], sample_weight=fold_weights)
                 preds = mod.predict(X_proc_df.iloc[val_idx])
-                preds = np.maximum(preds, 1e-4)
-                deviance_scores.append(mean_poisson_deviance(y.iloc[val_idx], preds))
+                mae_scores.append(mean_absolute_error(y.iloc[val_idx], preds))
                 
             trial.set_user_attr("decay_days", decay_days)
-            return np.mean(deviance_scores)
+            return np.mean(mae_scores)
 
         study_lgb = optuna.create_study(direction='minimize')
         study_lgb.optimize(lgb_objective, n_trials=15)
@@ -190,9 +183,9 @@ def train_ensemble_model(df, target_col):
     lgb_decay = study_lgb.best_trial.user_attrs["decay_days"]
     lgb_params.pop('decay_days', None)
 
-    # Apply final Tweedie objectives
-    xgb_best = xgb.XGBRegressor(**xgb_params, random_state=42, n_jobs=-1, objective='reg:tweedie', tweedie_variance_power=1.5, tree_method='hist')
-    lgb_best = lgb.LGBMRegressor(**lgb_params, random_state=42, n_jobs=-1, objective='tweedie', tweedie_variance_power=1.5, verbose=-1)
+    # Apply final objectives
+    xgb_best = xgb.XGBRegressor(**xgb_params, random_state=42, n_jobs=-1, objective='reg:absoluteerror', tree_method='hist')
+    lgb_best = lgb.LGBMRegressor(**lgb_params, random_state=42, n_jobs=-1, objective='regression_l1', verbose=-1)
     
     xgb_best.set_fit_request(sample_weight=True)
     lgb_best.set_fit_request(sample_weight=True)
@@ -208,7 +201,6 @@ def train_ensemble_model(df, target_col):
     logging.info(f"[{target_col}] Fitting Final Stacking Ensemble on full training data...")
     try:
         max_date_global = df[date_col].max()
-        # Blend the optimal decay factors from the two models for the meta-fit
         final_decay = (xgb_decay + lgb_decay) / 2.0
         final_sample_weights = np.exp(-(max_date_global - df[date_col]).dt.days / final_decay)
         ensemble.fit(X_proc_df, y, sample_weight=final_sample_weights)
@@ -220,13 +212,12 @@ def train_ensemble_model(df, target_col):
     X_val, y_val = X_proc_df.iloc[split_idx:], y.iloc[split_idx:]
     val_preds = ensemble.predict(X_val)
 
+    # Replaced deviance metrics with MAE/RMSE calculation
     mae = mean_absolute_error(y_val, val_preds)
     rmse = np.sqrt(mean_squared_error(y_val, val_preds))
     r2 = r2_score(y_val, val_preds)
-    val_preds_safe = np.maximum(val_preds, 1e-4)
-    dev = mean_poisson_deviance(y_val, val_preds_safe)
     
-    logging.info(f"[{target_col}] Holdout Metrics - MAE: {mae:.2f}, Deviance: {dev:.2f}, R2: {r2:.2f}")
+    logging.info(f"[{target_col}] Holdout Metrics - MAE: {mae:.2f}, RMSE: {rmse:.2f}, R2: {r2:.2f}")
 
     logging.info(f"[{target_col}] Calculating SHAP Feature Importance...")
     shap_importance = []
@@ -245,9 +236,9 @@ def train_ensemble_model(df, target_col):
     metadata = {
         'training_date': datetime.now().isoformat(),
         'target_col': target_col,
-        'metrics': {'MAE': float(mae), 'RMSE': float(rmse), 'Deviance': float(dev), 'R2': float(r2)},
+        'metrics': {'MAE': float(mae), 'RMSE': float(rmse), 'R2': float(r2)},
         'top_features': shap_importance,
-        'model_type': 'tweedie',
+        'model_type': 'mae_optimized',
         'optimal_decay_days': float((xgb_decay + lgb_decay) / 2.0)
     }
 

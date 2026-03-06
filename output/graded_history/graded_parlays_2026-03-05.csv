@@ -1,0 +1,71 @@
+Legs,Joint Prob,Payout,Picks,Result
+2,0.989028,3.0x,Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA,LOSS
+2,0.987036,3.0x,Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST,LOSS
+2,0.979098,3.0x,Dylan Harper Over 14.5 PA | Jayson Tatum Over 7.5 RA,LOSS
+2,0.977126,3.0x,Dylan Harper Over 14.5 PA | Jayson Tatum Over 2.5 AST,LOSS
+2,0.977076,3.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS,LOSS
+2,0.974133,3.0x,Cameron Johnson Under 11.5 PTS | Jayson Tatum Over 7.5 RA,PUSH/DOWNGRADE
+2,0.974088,3.0x,Dylan Harper Over 10.5 PTS | Jayson Tatum Over 3.5 REB,LOSS
+2,0.972171,3.0x,Cameron Johnson Under 11.5 PTS | Jayson Tatum Over 2.5 AST,PUSH/DOWNGRADE
+3,0.970236468,6.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA,LOSS
+3,0.968282316,6.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST,LOSS
+2,0.967266,3.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 14.5 PA,LOSS
+2,0.965196,3.0x,Dylan Harper Over 13.5 PR | Jayson Tatum Over 7.5 RA,LOSS
+3,0.960495138,6.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 14.5 PA | Jayson Tatum Over 7.5 RA,LOSS
+3,0.958560606,6.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 14.5 PA | Jayson Tatum Over 2.5 AST,LOSS
+3,0.955580328,6.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 3.5 REB,LOSS
+3,0.950455908,6.0x,Cameron Johnson Under 14.0 PA | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA,LOSS
+3,0.948541596,6.0x,Cameron Johnson Under 14.0 PA | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST,LOSS
+3,0.946857276,6.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 17.5 PRA | Jayson Tatum Over 7.5 RA,LOSS
+3,0.946857276,6.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 13.5 PR | Jayson Tatum Over 7.5 RA,LOSS
+3,0.945986148,6.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 14.5 PA | Jayson Tatum Over 3.5 REB,LOSS
+4,0.9253289367,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Luke Kornet Under 14.5 PR,LOSS
+4,0.924635354004,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Reed Sheppard Over 1.5 REB,LOSS
+4,0.924246666,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA,LOSS
+4,0.923665117536,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jayson Tatum Over 7.5 RA,LOSS
+4,0.9234652329,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Luke Kornet Under 14.5 PR,LOSS
+4,0.922773047148,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Reed Sheppard Over 1.5 REB,LOSS
+4,0.922385142,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST,LOSS
+4,0.921804764832,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jayson Tatum Over 2.5 AST,LOSS
+4,0.919784171664,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Naz Reid Under 12.5 PTS,LOSS
+4,0.9179316355679998,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Naz Reid Under 12.5 PTS,LOSS
+5,0.8818384766750998,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Luke Kornet Under 14.5 PR | Reed Sheppard Over 1.5 REB,LOSS
+5,0.88146777915,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Luke Kornet Under 14.5 PR,LOSS
+5,0.8809131477383999,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jayson Tatum Over 7.5 RA | Luke Kornet Under 14.5 PR,LOSS
+5,0.8808070726979998,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Reed Sheppard Over 1.5 REB,LOSS
+5,0.8802528570118079,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jayson Tatum Over 7.5 RA | Reed Sheppard Over 1.5 REB,LOSS
+5,0.8800623669536999,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Luke Kornet Under 14.5 PR | Reed Sheppard Over 1.5 REB,LOSS
+5,0.8798828260319999,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA,LOSS
+5,0.8796924160499999,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Luke Kornet Under 14.5 PR,LOSS
+5,0.8791389017207999,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jayson Tatum Over 2.5 AST | Luke Kornet Under 14.5 PR,LOSS
+5,0.8790330403259999,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Reed Sheppard Over 1.5 REB,LOSS
+6,0.8400387935299499,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Luke Kornet Under 14.5 PR | Reed Sheppard Over 1.5 REB,LOSS
+6,0.839510229794695,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jayson Tatum Over 7.5 RA | Luke Kornet Under 14.5 PR | Reed Sheppard Over 1.5 REB,LOSS
+6,0.8391573257507999,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Luke Kornet Under 14.5 PR,LOSS
+6,0.8385283332084958,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Reed Sheppard Over 1.5 REB,LOSS
+6,0.8383468724956499,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Luke Kornet Under 14.5 PR | Reed Sheppard Over 1.5 REB,LOSS
+6,0.8378193733399223,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jayson Tatum Over 2.5 AST | Luke Kornet Under 14.5 PR | Reed Sheppard Over 1.5 REB,LOSS
+6,0.8374671800795999,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Luke Kornet Under 14.5 PR,LOSS
+6,0.8368394543903519,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Reed Sheppard Over 1.5 REB,LOSS
+6,0.83603469430845,25.0x,Amen Thompson Over 15.5 PTS | Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Luke Kornet Under 14.5 PR | Reed Sheppard Over 1.5 REB,LOSS
+6,0.8359828758879947,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Luke Kornet Under 14.5 PR | Naz Reid Under 12.5 PTS | Reed Sheppard Over 1.5 REB,LOSS
+7,0.7997169314405123,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Luke Kornet Under 14.5 PR | Reed Sheppard Over 1.5 REB,LOSS
+7,0.7981062226158586,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Luke Kornet Under 14.5 PR | Reed Sheppard Over 1.5 REB,LOSS
+7,0.7964061384620249,40.0x,Amen Thompson Over 15.5 PTS | Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Luke Kornet Under 14.5 PR | Reed Sheppard Over 1.5 REB,LOSS
+7,0.7963567762663926,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Luke Kornet Under 14.5 PR | Naz Reid Under 12.5 PTS | Reed Sheppard Over 1.5 REB,LOSS
+7,0.7959050289816444,40.0x,Amen Thompson Over 15.5 PTS | Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jayson Tatum Over 7.5 RA | Luke Kornet Under 14.5 PR | Reed Sheppard Over 1.5 REB,LOSS
+7,0.7958556978453709,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jayson Tatum Over 7.5 RA | Luke Kornet Under 14.5 PR | Naz Reid Under 12.5 PTS | Reed Sheppard Over 1.5 REB,LOSS
+7,0.7955211448117583,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Luke Kornet Under 14.5 PR | Naz Reid Under 12.5 PTS,LOSS
+7,0.794974133319912,40.0x,Amen Thompson Over 15.5 PTS | Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Reed Sheppard Over 1.5 REB,LOSS
+7,0.7949248598816541,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Naz Reid Under 12.5 PTS | Reed Sheppard Over 1.5 REB,LOSS
+7,0.794802097901175,40.0x,Amen Thompson Over 15.5 PTS | Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Luke Kornet Under 14.5 PR | Reed Sheppard Over 1.5 REB,LOSS
+8,0.7581786438158478,80.0x,Amen Thompson Over 15.5 PTS | Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Luke Kornet Under 14.5 PR | Reed Sheppard Over 1.5 REB,LOSS
+8,0.7581316510056056,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Luke Kornet Under 14.5 PR | Naz Reid Under 12.5 PTS | Reed Sheppard Over 1.5 REB,LOSS
+8,0.7566515972019185,80.0x,Amen Thompson Over 15.5 PTS | Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Luke Kornet Under 14.5 PR | Reed Sheppard Over 1.5 REB,LOSS
+8,0.756604699039834,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Luke Kornet Under 14.5 PR | Naz Reid Under 12.5 PTS | Reed Sheppard Over 1.5 REB,LOSS
+8,0.7549930192619996,80.0x,Amen Thompson Over 15.5 PTS | Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Luke Kornet Under 14.5 PR | Naz Reid Under 12.5 PTS | Reed Sheppard Over 1.5 REB,LOSS
+8,0.7545179674745989,80.0x,Amen Thompson Over 15.5 PTS | Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jayson Tatum Over 7.5 RA | Luke Kornet Under 14.5 PR | Naz Reid Under 12.5 PTS | Reed Sheppard Over 1.5 REB,LOSS
+8,0.754133066348403,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Isaiah Stewart Under 14.5 PA | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Luke Kornet Under 14.5 PR | Reed Sheppard Over 1.5 REB,LOSS
+8,0.754133066348403,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Luke Kornet Under 14.5 PR | Naz Reid Under 14.5 PA | Reed Sheppard Over 1.5 REB,LOSS
+8,0.7536354783872765,80.0x,Amen Thompson Over 15.5 PTS | Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Isaiah Stewart Under 14.5 PA | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Naz Reid Under 12.5 PTS | Reed Sheppard Over 1.5 REB,LOSS
+8,0.7534723888103139,80.0x,Amen Thompson Over 15.5 PTS | Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Luke Kornet Under 14.5 PR | Naz Reid Under 12.5 PTS | Reed Sheppard Over 1.5 REB,LOSS
