@@ -60,20 +60,27 @@ def get_system_learning_maps(days_back=21):
 
     return cat_bias_pct, cat_mae
 
-def determine_confidence_tier(win_prob, cv=0.0):
+def determine_confidence_tier(win_prob, cv, active_hit_rate, edge_pct, edge_diff):
     """
-    Tiering based strictly on calibrated Win Probability distributions and Volatility (CV). 
+    Tiering based on Win Probability, Volatility, Recent Form, and Market Reality.
     """
+    # 1. Market Information Disconnect (The "Too Good to be True" filter)
+    # Requires both a high percentage disconnect AND a meaningful absolute volume disconnect
+    if edge_pct > 0.35 and edge_diff >= 2.5:
+        return 'Trap / Info Disconnect'
+        
+    # 2. Volatility Check
     if cv > 0.42:  
         return 'Trap / High Variance'
         
-    if win_prob >= 0.69:
+    # 3. Dynamic Tiering requiring Form Alignment
+    if win_prob >= 0.65 and active_hit_rate >= 0.60:
         return 'S Tier'
-    elif win_prob >= 0.63:
+    elif win_prob >= 0.60 and active_hit_rate >= 0.50:
         return 'A Tier'
-    elif win_prob >= 0.58:
+    elif win_prob >= 0.56:
         return 'B Tier'
-    elif win_prob >= 0.54:
+    elif win_prob >= 0.53:
         return 'C Tier'
     else:
         return 'Pass'
@@ -88,15 +95,21 @@ def evaluate_prop(proj, line, variance, prop_type, l10_over_rate, l10_under_rate
     probs_under = {'win': probs_over['loss'], 'loss': probs_over['win'], 'push': probs_over['push']}
     
     if probs_over['win'] >= probs_under['win']:
-        pick, win_prob = 'Over', probs_over['win']
+        pick = 'Over'
+        win_prob = probs_over['win']  # NO ARTIFICIAL CAP
         active_hit_rate = l10_over_rate
         active_vs_opp_hit_rate = vs_opp_over_rate
     else:
-        pick, win_prob = 'Under', probs_under['win']
+        pick = 'Under'
+        win_prob = probs_under['win'] # NO ARTIFICIAL CAP
         active_hit_rate = l10_under_rate
         active_vs_opp_hit_rate = vs_opp_under_rate 
         
-    tier = determine_confidence_tier(win_prob, cv)
+    # Calculate the percentage and absolute difference between the projection and the market line
+    edge_diff = abs(proj - line)
+    edge_pct = edge_diff / line if line > 0 else 0.0
+        
+    tier = determine_confidence_tier(win_prob, cv, active_hit_rate, edge_pct, edge_diff)
         
     return {
         'Pick': pick,
@@ -179,7 +192,24 @@ def predict_props(todays_props_df):
             else: new_features[f] = np.nan 
 
         if 'MIN' in feature_names:
-            new_features['MIN'] = pd.Series([predicted_mins.get(idx, 36.0) for idx in X_raw.index], index=X_raw.index)
+            l10_mins = get_col_safe(X_raw, prop_cat, 'L10_MIN')
+            szn_mins = get_col_safe(X_raw, prop_cat, 'SZN_MIN')
+            
+            assigned_mins = []
+            for i, idx in enumerate(X_raw.index):
+                if idx in predicted_mins and not pd.isna(predicted_mins[idx]):
+                    assigned_mins.append(predicted_mins[idx])
+                else:
+                    l10 = float(l10_mins.iloc[i]) if not pd.isna(l10_mins.iloc[i]) else 0.0
+                    szn = float(szn_mins.iloc[i]) if not pd.isna(szn_mins.iloc[i]) else 0.0
+                    fallback = l10 if l10 > 0 else szn
+                    
+                    if fallback > 0:
+                        assigned_mins.append(fallback)
+                    else:
+                        assigned_mins.append(-1.0) # Mark as invalid to skip/pass later
+            
+            new_features['MIN'] = pd.Series(assigned_mins, index=X_raw.index)
             
         X_model = pd.DataFrame(new_features, index=X_raw.index)
 
@@ -187,12 +217,10 @@ def predict_props(todays_props_df):
             X_scaled = scaler.transform(X_model)
             X_scaled_df = pd.DataFrame(X_scaled, columns=X_model.columns, index=X_model.index)
             
-            # The ML Model is the ultimate source of truth. No manual average smoothing.
             raw_projections = model.predict(X_scaled_df)
             
-            # Calculate ML historical error standard deviation for this prop category
             mae_val = cat_mae.get(cfg.MASTER_PROP_MAP.get(prop_cat, prop_cat), 0.0)
-            ml_implied_std = mae_val * 1.2533  # Convert Mean Absolute Error to Expected Std Dev
+            ml_implied_std = mae_val * 1.2533  
             
             stds = get_col_safe(X_raw, prop_cat, 'L10_STD_DEV')
             cvs = get_col_safe(X_raw, prop_cat, 'L10_CV')
@@ -211,7 +239,6 @@ def predict_props(todays_props_df):
             corr_pa = get_col_safe(X_raw, prop_cat, 'PTS_AST_CORR')
             corr_ra = get_col_safe(X_raw, prop_cat, 'REB_AST_CORR')
             
-            # Use strict_prefix=True to stop Combo Props from stealing their own Std Devs recursively
             base_stds = {
                 'PTS': get_col_safe(X_raw, 'PTS', 'L10_STD_DEV', strict_prefix=True),
                 'REB': get_col_safe(X_raw, 'REB', 'L10_STD_DEV', strict_prefix=True),
@@ -219,16 +246,20 @@ def predict_props(todays_props_df):
             }
             
             for idx, (orig_idx, row) in enumerate(group.iterrows()):
+                
+                if 'MIN' in feature_names and float(new_features['MIN'].iloc[idx]) < 0:
+                    continue
+                    
                 line = float(row[Cols.PROP_LINE])
-                proj = float(raw_projections[idx])  # Strict reliance on Stacking Ensemble
+                proj = float(raw_projections[idx])  
                 
                 raw_std = float(stds.iloc[idx]) if not pd.isna(stds.iloc[idx]) else 1.0
-                floor_std = max(line * 0.25, np.sqrt(line)) # Minimal sanity floor
+                floor_std = max(line * 0.25, np.sqrt(line)) 
                 
-                # Force std_dev to respect the ML Model's historical failure rate
                 std_dev = max(raw_std, floor_std, ml_implied_std)
                 
-                cv = float(cvs.iloc[idx]) if not pd.isna(cvs.iloc[idx]) else (std_dev / proj if proj > 0 else 0.5)
+                safe_denom = max(line, proj) if line > 0 else proj
+                cv = float(cvs.iloc[idx]) if not pd.isna(cvs.iloc[idx]) else (std_dev / safe_denom if safe_denom > 0 else 0.5)
                 
                 l10_hit_legacy = float(hit_rates_legacy.iloc[idx]) if not pd.isna(hit_rates_legacy.iloc[idx]) else 0.50
                 l10_over_rate = float(hit_rates_over.iloc[idx]) if not pd.isna(hit_rates_over.iloc[idx]) else l10_hit_legacy
@@ -255,7 +286,6 @@ def predict_props(todays_props_df):
                 
                 variance = estimate_combo_variance(prop_cat, proj, std_dev, base_stds=dynamic_base_stds, correlations=dynamic_correlations, sample_size=sample_size)
                 
-                # Update evaluate_prop to take the CV
                 eval_res = evaluate_prop(proj, line, variance, prop_cat, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, cv)
                 if not eval_res: continue
                 

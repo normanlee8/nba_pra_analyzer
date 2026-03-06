@@ -1,71 +1,71 @@
 Legs,Joint Prob,Payout,Picks
+2,0.976119,3.0x,Cameron Johnson Under 11.5 PTS | Jayson Tatum Over 7.5 RA
+2,0.9741529999999999,3.0x,Cameron Johnson Under 11.5 PTS | Jayson Tatum Over 2.5 AST
 2,0.971154,3.0x,Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA
 2,0.969198,3.0x,Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST
+2,0.961374,3.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS
+2,0.961374,3.0x,Cameron Johnson Under 11.5 PTS | Jayson Tatum Over 3.5 REB
+2,0.956484,3.0x,Dylan Harper Over 10.5 PTS | Jayson Tatum Over 3.5 REB
+3,0.9546443819999999,6.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA
+3,0.952721634,6.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST
+2,0.951294,3.0x,Cameron Johnson Under 14.0 PA | Jayson Tatum Over 7.5 RA
+2,0.9493779999999999,3.0x,Cameron Johnson Under 14.0 PA | Jayson Tatum Over 2.5 AST
 2,0.9483149999999999,3.0x,Dylan Harper Over 14.5 PA | Jayson Tatum Over 7.5 RA
-2,0.9464049999999999,3.0x,Dylan Harper Over 14.5 PA | Jayson Tatum Over 2.5 AST
-2,0.9344129999999999,3.0x,Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST
-2,0.9325309999999999,3.0x,Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST
-2,0.924483,3.0x,Jayson Tatum Over 7.5 RA | Victor Wembanyama Under 35.5 PR
-2,0.922621,3.0x,Jayson Tatum Over 2.5 AST | Victor Wembanyama Under 35.5 PR
-2,0.920298,3.0x,Dylan Harper Over 10.5 PTS | Kel'el Ware Under 1.5 AST
-2,0.918525,3.0x,Cameron Johnson Under 15.5 PR | Jayson Tatum Over 7.5 RA
-3,0.9138559139999999,6.0x,Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST
-3,0.9120153179999999,6.0x,Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST
-3,0.9039279,6.0x,Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Victor Wembanyama Under 35.5 PR
-3,0.9021073,6.0x,Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Victor Wembanyama Under 35.5 PR
-3,0.8983174500000001,6.0x,Cameron Johnson Under 15.5 PR | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA
-3,0.8977713,6.0x,Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Victor Wembanyama Under 23.5 PTS
-3,0.897346296,6.0x,Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA
-3,0.8965081500000001,6.0x,Cameron Johnson Under 15.5 PR | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST
-3,0.896375142,6.0x,Cameron Johnson Under 18.5 PRA | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA
-3,0.8959631,6.0x,Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Victor Wembanyama Under 23.5 PTS
-4,0.8505961539,10.0x,Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Victor Wembanyama Under 35.5 PR
-4,0.8488829693,10.0x,Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Victor Wembanyama Under 35.5 PR
-4,0.8453167204500001,10.0x,Cameron Johnson Under 15.5 PR | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST
-4,0.8448027933,10.0x,Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Victor Wembanyama Under 23.5 PTS
-4,0.844402864536,10.0x,Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST
-4,0.84361416915,10.0x,Cameron Johnson Under 15.5 PR | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST
-4,0.8434890086219999,10.0x,Cameron Johnson Under 18.5 PRA | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST
-4,0.8431012770999999,10.0x,Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Victor Wembanyama Under 23.5 PTS
-4,0.842702153832,10.0x,Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST
-4,0.8417901385139999,10.0x,Cameron Johnson Under 18.5 PRA | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST
-5,0.7868014423574999,20.0x,Cameron Johnson Under 15.5 PR | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Victor Wembanyama Under 35.5 PR
-5,0.7859508462035999,20.0x,Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Victor Wembanyama Under 35.5 PR
-5,0.7852167466025,20.0x,Cameron Johnson Under 15.5 PR | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Victor Wembanyama Under 35.5 PR
-5,0.7851002500497,20.0x,Cameron Johnson Under 18.5 PRA | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Victor Wembanyama Under 35.5 PR
-5,0.7843678636331999,20.0x,Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Victor Wembanyama Under 35.5 PR
-5,0.7835189806639,20.0x,Cameron Johnson Under 18.5 PRA | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Victor Wembanyama Under 35.5 PR
-5,0.7833990577419,20.0x,Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 35.5 PR
-5,0.7818212147253,20.0x,Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 35.5 PR
-5,0.7814425838025001,20.0x,Cameron Johnson Under 15.5 PR | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Victor Wembanyama Under 23.5 PTS
-5,0.7810726496958,20.0x,Cameron Johnson Under 15.5 PR | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST
-6,0.7270045327383301,25.0x,Cameron Johnson Under 15.5 PR | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Victor Wembanyama Under 35.5 PR
-6,0.7255402738607102,25.0x,Cameron Johnson Under 15.5 PR | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Victor Wembanyama Under 35.5 PR
-6,0.7254326310459228,25.0x,Cameron Johnson Under 18.5 PRA | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Victor Wembanyama Under 35.5 PR
-6,0.7246441284112575,25.0x,Cameron Johnson Under 15.5 PR | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 35.5 PR
-6,0.7239715381334435,25.0x,Cameron Johnson Under 18.5 PRA | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Victor Wembanyama Under 35.5 PR
-6,0.7238607293535155,25.0x,Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 35.5 PR
-6,0.7231846236209025,25.0x,Cameron Johnson Under 15.5 PR | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 35.5 PR
-6,0.7230773302957737,25.0x,Cameron Johnson Under 18.5 PRA | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 35.5 PR
-6,0.7224028024061772,25.0x,Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 35.5 PR
-6,0.7222837240841851,25.0x,Amen Thompson Over 28.5 PRA | Cameron Johnson Under 15.5 PR | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Victor Wembanyama Under 35.5 PR
-7,0.669571174652002,40.0x,Cameron Johnson Under 15.5 PR | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 35.5 PR
-7,0.6682225922257141,40.0x,Cameron Johnson Under 15.5 PR | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 35.5 PR
-7,0.6681234531932949,40.0x,Cameron Johnson Under 18.5 PRA | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 35.5 PR
-7,0.6673901610537869,40.0x,Amen Thompson Over 28.5 PRA | Cameron Johnson Under 15.5 PR | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Victor Wembanyama Under 35.5 PR
-7,0.6667777866209015,40.0x,Cameron Johnson Under 18.5 PRA | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 35.5 PR
-7,0.6660459714041318,40.0x,Amen Thompson Over 28.5 PRA | Cameron Johnson Under 15.5 PR | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Victor Wembanyama Under 35.5 PR
-7,0.6659471553001571,40.0x,Amen Thompson Over 28.5 PRA | Cameron Johnson Under 18.5 PRA | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Victor Wembanyama Under 35.5 PR
-7,0.6652233098815344,40.0x,Amen Thompson Over 28.5 PRA | Cameron Johnson Under 15.5 PR | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 35.5 PR
-7,0.6650107645862628,40.0x,Cameron Johnson Under 15.5 PR | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 23.5 PTS
-7,0.6646058720065013,40.0x,Amen Thompson Over 28.5 PRA | Cameron Johnson Under 18.5 PRA | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Victor Wembanyama Under 35.5 PR
-8,0.6146663383305377,80.0x,Amen Thompson Over 28.5 PRA | Cameron Johnson Under 15.5 PR | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 35.5 PR
-8,0.6134283396632054,80.0x,Amen Thompson Over 28.5 PRA | Cameron Johnson Under 15.5 PR | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 35.5 PR
-8,0.6133373300314447,80.0x,Amen Thompson Over 28.5 PRA | Cameron Johnson Under 18.5 PRA | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 35.5 PR
-8,0.6121020081179878,80.0x,Amen Thompson Over 28.5 PRA | Cameron Johnson Under 18.5 PRA | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 35.5 PR
-8,0.6104798818901892,80.0x,Amen Thompson Over 28.5 PRA | Cameron Johnson Under 15.5 PR | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 23.5 PTS
-8,0.6099793401079738,80.0x,Cameron Johnson Under 15.5 PR | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Naz Reid Under 21.5 PRA | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 35.5 PR
-8,0.6093097689333219,80.0x,Cameron Johnson Under 15.5 PR | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Naz Reid Under 18.5 PR | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 35.5 PR
-8,0.6092503151592925,80.0x,Amen Thompson Over 28.5 PRA | Cameron Johnson Under 15.5 PR | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 23.5 PTS
-8,0.609159925388805,80.0x,Amen Thompson Over 28.5 PRA | Cameron Johnson Under 18.5 PRA | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 23.5 PTS
-8,0.6087507815176255,80.0x,Cameron Johnson Under 15.5 PR | Caris LeVert Under 4.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Naz Reid Under 21.5 PRA | Paolo Banchero Over 29.5 PA | Victor Wembanyama Under 35.5 PR
+3,0.940223772,6.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 3.5 REB
+3,0.9321936449999999,6.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 14.5 PA | Jayson Tatum Over 7.5 RA
+3,0.9303655319999999,6.0x,Cameron Johnson Under 14.0 PA | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA
+3,0.930316115,6.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 14.5 PA | Jayson Tatum Over 2.5 AST
+3,0.9284916839999999,6.0x,Cameron Johnson Under 14.0 PA | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST
+3,0.9269655,6.0x,Cameron Johnson Under 11.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA
+3,0.9250984999999999,6.0x,Cameron Johnson Under 11.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST
+3,0.9216251459999999,6.0x,Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA
+4,0.9065722589999999,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA
+4,0.904746333,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST
+4,0.9002296522259999,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jayson Tatum Over 7.5 RA
+4,0.898416500862,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jayson Tatum Over 2.5 AST
+4,0.8983203634619998,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST
+4,0.8973657190799998,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Pelle Larsson Under 11.5 PTS
+4,0.8973657190799998,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 7.5 RA | Naz Reid Under 12.5 PTS
+4,0.896511057594,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST
+4,0.8955583359599999,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Naz Reid Under 12.5 PTS
+4,0.8955583359599999,10.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jayson Tatum Over 2.5 AST | Pelle Larsson Under 11.5 PTS
+5,0.8548976402369999,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA
+5,0.853175792019,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST
+5,0.8530844957189999,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST
+5,0.8521779234599999,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Naz Reid Under 12.5 PTS
+5,0.8521779234599999,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Pelle Larsson Under 11.5 PTS
+5,0.8513662993529999,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST
+5,0.8504615530199999,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Naz Reid Under 12.5 PTS
+5,0.8504615530199999,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Pelle Larsson Under 11.5 PTS
+5,0.849458206683,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Reed Sheppard Over 1.5 REB
+5,0.848788596,20.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Rui Hachimura Under 8.0 PTS
+6,0.8044586794630169,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST
+6,0.8037669648294,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 11.5 PTS
+6,0.8036037818227798,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Naz Reid Under 12.5 PTS
+6,0.8036037818227798,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Pelle Larsson Under 11.5 PTS
+6,0.802838420289879,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST
+6,0.8021480988378,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 11.5 PTS
+6,0.8019852444978599,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Naz Reid Under 12.5 PTS
+6,0.8019852444978599,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Pelle Larsson Under 11.5 PTS
+6,0.8018994259758598,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Naz Reid Under 12.5 PTS
+6,0.8010472480523998,25.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Naz Reid Under 12.5 PTS | Pelle Larsson Under 11.5 PTS
+7,0.7579522478341242,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 11.5 PTS
+7,0.7564256572040454,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 11.5 PTS
+7,0.7561911586952358,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Naz Reid Under 12.5 PTS
+7,0.755540946939636,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Naz Reid Under 12.5 PTS | Pelle Larsson Under 11.5 PTS
+7,0.755387554913413,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Naz Reid Under 12.5 PTS | Pelle Larsson Under 11.5 PTS
+7,0.7546681150724862,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Naz Reid Under 12.5 PTS
+7,0.7540192129075319,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Naz Reid Under 12.5 PTS | Pelle Larsson Under 11.5 PTS
+7,0.7538661298279883,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Naz Reid Under 12.5 PTS | Pelle Larsson Under 11.5 PTS
+7,0.7537777826568468,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Reed Sheppard Over 1.5 REB
+7,0.7531835949123479,40.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Rui Hachimura Under 8.0 PTS
+8,0.7124751129640767,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Naz Reid Under 12.5 PTS | Pelle Larsson Under 11.5 PTS
+8,0.7110401177718026,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Naz Reid Under 12.5 PTS | Pelle Larsson Under 11.5 PTS
+8,0.7102012562205744,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 11.5 PTS | Reed Sheppard Over 1.5 REB
+8,0.7096414189684248,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 11.5 PTS | Rui Hachimura Under 8.0 PTS
+8,0.7087708408001906,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 11.5 PTS | Reed Sheppard Over 1.5 REB
+8,0.708551115697436,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Naz Reid Under 12.5 PTS | Reed Sheppard Over 1.5 REB
+8,0.7082121311155175,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 2.5 AST | Kel'el Ware Under 1.5 AST | Pelle Larsson Under 11.5 PTS | Rui Hachimura Under 8.0 PTS
+8,0.7079925792176069,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Naz Reid Under 12.5 PTS | Rui Hachimura Under 8.0 PTS
+8,0.707941867282439,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Kel'el Ware Under 1.5 AST | Naz Reid Under 12.5 PTS | Pelle Larsson Under 11.5 PTS | Reed Sheppard Over 1.5 REB
+8,0.707798138953868,80.0x,Cameron Johnson Under 11.5 PTS | Dylan Harper Over 10.5 PTS | Herbert Jones Under 10.0 PTS | Jaxson Hayes Over 2.5 REB | Jayson Tatum Over 7.5 RA | Naz Reid Under 12.5 PTS | Pelle Larsson Under 11.5 PTS | Reed Sheppard Over 1.5 REB
