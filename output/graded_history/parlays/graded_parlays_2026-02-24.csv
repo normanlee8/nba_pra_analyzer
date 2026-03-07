@@ -1,0 +1,71 @@
+Legs,Joint Prob,Payout,Picks,Result
+2,0.6762,3.0x,Jose Alvarado Under 8.5 RA | Mitchell Robinson Under 1.5 AST,WIN
+2,0.66,3.0x,Derrick White Over 8.5 RA | Payton Pritchard Over 8.5 RA,WIN
+2,0.6583,3.0x,Anthony Black Under 4.0 AST | Desmond Bane Under 4.0 REB,PUSH/DOWNGRADE
+2,0.6469,3.0x,Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST,WIN
+2,0.6445,3.0x,Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB,WIN
+2,0.6389,3.0x,James Harden Over 5.5 AST | Jarrett Allen Over 9.5 RA,LOSS
+3,0.6361,6.0x,Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST,WIN
+2,0.6323,3.0x,James Harden Over 5.5 AST | Jarrett Allen Over 8.5 REB,LOSS
+2,0.6296,3.0x,AJ Green Over 3.5 RA | Myles Turner Over 5.5 RA,LOSS
+2,0.6275,3.0x,AJ Green Over 3.5 RA | Ryan Rollins Over 18.5 PTS,WIN
+2,0.6238,3.0x,Derrick White Over 5.5 AST | Payton Pritchard Over 8.5 RA,WIN
+3,0.6175,6.0x,AJ Green Over 3.5 RA | Myles Turner Over 5.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+3,0.51678,6.0x,Derrick White Over 8.5 RA | Mitchell Robinson Under 1.5 AST | Payton Pritchard Over 8.5 RA,WIN
+3,0.5164,6.0x,Derrick White Over 8.5 RA | Grayson Allen Over 14.5 PTS | Payton Pritchard Over 8.5 RA,LOSS
+3,0.5154489,6.0x,Anthony Black Under 4.0 AST | Desmond Bane Under 4.0 REB | Mitchell Robinson Under 1.5 AST,PUSH/DOWNGRADE
+3,0.5002587000000001,6.0x,James Harden Over 5.5 AST | Jarrett Allen Over 9.5 RA | Mitchell Robinson Under 1.5 AST,LOSS
+3,0.4950909,6.0x,James Harden Over 5.5 AST | Jarrett Allen Over 8.5 REB | Mitchell Robinson Under 1.5 AST,LOSS
+3,0.4929768,6.0x,AJ Green Over 3.5 RA | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA,LOSS
+3,0.4913324999999999,6.0x,AJ Green Over 3.5 RA | Mitchell Robinson Under 1.5 AST | Ryan Rollins Over 18.5 PTS,WIN
+3,0.4895688,6.0x,Coby White Over 4.5 RA | Jose Alvarado Under 8.5 RA | Mitchell Robinson Under 1.5 AST,WIN
+4,0.4835025,10.0x,AJ Green Over 3.5 RA | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+4,0.4605363999999999,10.0x,Coby White Over 4.5 RA | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST,WIN
+4,0.4503587999999999,10.0x,James Harden Over 5.5 AST | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST,LOSS
+4,0.4503587999999999,10.0x,Collin Murray-Boyles Under 5.5 REB | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST,WIN
+4,0.44707,10.0x,AJ Green Over 3.5 RA | Coby White Over 4.5 RA | Myles Turner Over 5.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+4,0.446292,10.0x,Derrick White Over 8.5 RA | Jose Alvarado Under 8.5 RA | Mitchell Robinson Under 1.5 AST | Payton Pritchard Over 8.5 RA,WIN
+4,0.4459060999999999,10.0x,AJ Green Over 3.5 RA | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST,WIN
+4,0.44514246,10.0x,Anthony Black Under 4.0 AST | Desmond Bane Under 4.0 REB | Jose Alvarado Under 8.5 RA | Mitchell Robinson Under 1.5 AST,PUSH/DOWNGRADE
+4,0.4433616999999999,10.0x,Derrick White Over 8.5 RA | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST,WIN
+4,0.4395450999999999,10.0x,Jake LaRavia Over 2.5 RA | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST,LOSS
+5,0.419826,20.0x,Derrick White Over 8.5 RA | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST | Payton Pritchard Over 8.5 RA,WIN
+5,0.41874463,20.0x,Anthony Black Under 4.0 AST | Desmond Bane Under 4.0 REB | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST,PUSH/DOWNGRADE
+5,0.4175535,20.0x,AJ Green Over 3.5 RA | Jose Alvarado Under 8.5 RA | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+5,0.4075500000000001,20.0x,AJ Green Over 3.5 RA | Derrick White Over 8.5 RA | Myles Turner Over 5.5 RA | Payton Pritchard Over 8.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+5,0.40650025,20.0x,AJ Green Over 3.5 RA | Anthony Black Under 4.0 AST | Desmond Bane Under 4.0 REB | Myles Turner Over 5.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+5,0.40640429,20.0x,James Harden Over 5.5 AST | Jarrett Allen Over 9.5 RA | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST,LOSS
+5,0.40220603,20.0x,James Harden Over 5.5 AST | Jarrett Allen Over 8.5 REB | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST,LOSS
+5,0.40048856,20.0x,AJ Green Over 3.5 RA | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA,LOSS
+5,0.39946075,20.0x,AJ Green Over 3.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+5,0.3991527499999999,20.0x,AJ Green Over 3.5 RA | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST | Ryan Rollins Over 18.5 PTS,WIN
+6,0.39279175,25.0x,AJ Green Over 3.5 RA | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+6,0.32848204,25.0x,Derrick White Over 8.5 RA | Grayson Allen Over 14.5 PTS | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST | Payton Pritchard Over 8.5 RA,LOSS
+6,0.3191116500000001,25.0x,AJ Green Over 3.5 RA | Derrick White Over 8.5 RA | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Payton Pritchard Over 8.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+6,0.318877,25.0x,AJ Green Over 3.5 RA | Derrick White Over 8.5 RA | Grayson Allen Over 14.5 PTS | Myles Turner Over 5.5 RA | Payton Pritchard Over 8.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+6,0.31828969575,25.0x,AJ Green Over 3.5 RA | Anthony Black Under 4.0 AST | Desmond Bane Under 4.0 REB | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+6,0.30890974725,25.0x,AJ Green Over 3.5 RA | James Harden Over 5.5 AST | Jarrett Allen Over 9.5 RA | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+6,0.30571863075,25.0x,AJ Green Over 3.5 RA | James Harden Over 5.5 AST | Jarrett Allen Over 8.5 REB | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+6,0.303954024,25.0x,Coby White Over 4.5 RA | Derrick White Over 8.5 RA | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST | Payton Pritchard Over 8.5 RA,WIN
+6,0.30317111212,25.0x,Anthony Black Under 4.0 AST | Coby White Over 4.5 RA | Desmond Bane Under 4.0 REB | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST,PUSH/DOWNGRADE
+6,0.302308734,25.0x,AJ Green Over 3.5 RA | Coby White Over 4.5 RA | Jose Alvarado Under 8.5 RA | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+7,0.284381227,40.0x,AJ Green Over 3.5 RA | Coby White Over 4.5 RA | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+7,0.278096559,40.0x,AJ Green Over 3.5 RA | James Harden Over 5.5 AST | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+7,0.278096559,40.0x,AJ Green Over 3.5 RA | Collin Murray-Boyles Under 5.5 REB | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+7,0.2763714558,40.0x,Anthony Black Under 4.0 AST | Derrick White Over 8.5 RA | Desmond Bane Under 4.0 REB | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST | Payton Pritchard Over 8.5 RA,PUSH/DOWNGRADE
+7,0.2755853100000001,40.0x,AJ Green Over 3.5 RA | Derrick White Over 8.5 RA | Jose Alvarado Under 8.5 RA | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Payton Pritchard Over 8.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+7,0.27487546905,40.0x,AJ Green Over 3.5 RA | Anthony Black Under 4.0 AST | Desmond Bane Under 4.0 REB | Jose Alvarado Under 8.5 RA | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+7,0.2737758497499999,40.0x,AJ Green Over 3.5 RA | Derrick White Over 8.5 RA | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+7,0.2714190992499999,40.0x,AJ Green Over 3.5 RA | Jake LaRavia Over 2.5 RA | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+7,0.268290165,40.0x,AJ Green Over 3.5 RA | Anthony Black Under 4.0 AST | Derrick White Over 8.5 RA | Desmond Bane Under 4.0 REB | Myles Turner Over 5.5 RA | Payton Pritchard Over 8.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+7,0.2682268314,40.0x,Derrick White Over 8.5 RA | James Harden Over 5.5 AST | Jarrett Allen Over 9.5 RA | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST | Payton Pritchard Over 8.5 RA,LOSS
+8,0.259242555,80.0x,AJ Green Over 3.5 RA | Derrick White Over 8.5 RA | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Payton Pritchard Over 8.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+8,0.258574809025,80.0x,AJ Green Over 3.5 RA | Anthony Black Under 4.0 AST | Desmond Bane Under 4.0 REB | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+8,0.250954649075,80.0x,AJ Green Over 3.5 RA | James Harden Over 5.5 AST | Jarrett Allen Over 9.5 RA | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+8,0.248362223525,80.0x,AJ Green Over 3.5 RA | James Harden Over 5.5 AST | Jarrett Allen Over 8.5 REB | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+8,0.24502349365,80.0x,AJ Green Over 3.5 RA | Derrick White Over 5.5 AST | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Payton Pritchard Over 8.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+8,0.2162397269319999,80.0x,Anthony Black Under 4.0 AST | Derrick White Over 8.5 RA | Desmond Bane Under 4.0 REB | Grayson Allen Over 14.5 PTS | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST | Payton Pritchard Over 8.5 RA,LOSS
+8,0.2156246274,80.0x,AJ Green Over 3.5 RA | Derrick White Over 8.5 RA | Grayson Allen Over 14.5 PTS | Jose Alvarado Under 8.5 RA | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Payton Pritchard Over 8.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+8,0.2103792613,80.0x,AJ Green Over 3.5 RA | Collin Murray-Boyles Under 5.5 REB | Isaiah Hartenstein Under 9.0 REB | Jose Alvarado Under 8.5 RA | Josh Hart Under 7.0 REB | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+8,0.210071199195,80.0x,AJ Green Over 3.5 RA | Anthony Black Under 4.0 AST | Derrick White Over 8.5 RA | Desmond Bane Under 4.0 REB | Mitchell Robinson Under 1.5 AST | Myles Turner Over 5.5 RA | Payton Pritchard Over 8.5 RA | Ryan Rollins Over 18.5 PTS,LOSS
+8,0.2099167291,80.0x,AJ Green Over 3.5 RA | Anthony Black Under 4.0 AST | Derrick White Over 8.5 RA | Desmond Bane Under 4.0 REB | Grayson Allen Over 14.5 PTS | Myles Turner Over 5.5 RA | Payton Pritchard Over 8.5 RA | Ryan Rollins Over 18.5 PTS,LOSS

@@ -1,0 +1,71 @@
+Legs,Joint Prob,Ticket EV%,Payout,Picks,Result
+2,0.7436,1.2308000000000003,3.0x,Jaylen Brown Under 4.5 AST | Nikola Vucevic Under 2.5 AST,LOSS
+3,0.7382,3.4292,6.0x,Anthony Edwards Under 3.5 AST | Joan Beringer Under 5.5 REB | Tyrese Maxey Under 6.5 AST,LOSS
+2,0.7381,1.2142999999999995,3.0x,Joan Beringer Under 5.5 REB | Tyrese Maxey Under 6.5 AST,LOSS
+2,0.7365,1.2095000000000002,3.0x,Anthony Edwards Under 3.5 AST | Tyrese Maxey Under 6.5 AST,LOSS
+2,0.7353,1.2058999999999995,3.0x,Draymond Green Under 4.5 AST | Kristaps Porzingis Under 1.5 AST,PUSH/DOWNGRADE
+2,0.7348,1.2044,3.0x,Anthony Edwards Under 3.5 AST | Joan Beringer Under 5.5 REB,WIN
+2,0.7317,1.1951,3.0x,Jared McCain Under 2.5 AST | Jaylon Tyson Under 1.5 AST,WIN
+2,0.7231,1.1692999999999998,3.0x,Ayo Dosunmu Under 3.5 REB | Tyrese Maxey Under 6.5 AST,LOSS
+3,0.7209,3.3254,6.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Tyrese Maxey Under 6.5 AST,LOSS
+2,0.7196,1.1588000000000005,3.0x,Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB,LOSS
+3,0.7183,3.3098,6.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB,LOSS
+3,0.7179,3.3073999999999995,6.0x,Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB | Tyrese Maxey Under 6.5 AST,LOSS
+2,0.7162,1.1486,3.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB,LOSS
+3,0.714,3.284,6.0x,Aaron Wiggins Under 2.5 AST | Jared McCain Under 2.5 AST | Jaylon Tyson Under 1.5 AST,LOSS
+4,0.7129,6.129,10.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB | Tyrese Maxey Under 6.5 AST,LOSS
+2,0.7103,1.1309,3.0x,Aaron Wiggins Under 2.5 AST | Jaylon Tyson Under 1.5 AST,LOSS
+3,0.6939,3.1633999999999993,6.0x,CJ McCollum Under 3.5 REB | Jalen Johnson Under 7.5 AST | Jock Landale Under 1.5 AST,LOSS
+3,0.6868,3.1208,6.0x,Dyson Daniels Under 5.5 AST | Jalen Johnson Under 7.5 AST | Jock Landale Under 1.5 AST,LOSS
+3,0.6854,3.1124,6.0x,CJ McCollum Under 3.5 REB | Dyson Daniels Under 5.5 AST | Jock Landale Under 1.5 AST,LOSS
+4,0.6849,5.848999999999999,10.0x,CJ McCollum Under 3.5 REB | Dyson Daniels Under 5.5 AST | Jalen Johnson Under 7.5 AST | Jock Landale Under 1.5 AST,LOSS
+3,0.684,3.104,6.0x,CJ McCollum Under 3.5 REB | Dyson Daniels Under 5.5 AST | Jalen Johnson Under 7.5 AST,LOSS
+3,0.6809,3.0854,6.0x,Grant Williams Under 2.5 AST | LaMelo Ball Under 7.5 AST | Ryan Kalkbrenner Under 7.5 REB,LOSS
+4,0.6701,5.7010000000000005,10.0x,Brandon Ingram Under 3.5 AST | Collin Murray-Boyles Under 2.5 AST | Immanuel Quickley Under 4.5 REB | RJ Barrett Under 27.5 PRA,LOSS
+4,0.6672,5.672000000000001,10.0x,Collin Murray-Boyles Under 2.5 AST | Immanuel Quickley Under 4.5 REB | Kyle Kuzma Under 2.5 AST | RJ Barrett Under 27.5 PRA,WIN
+5,0.6669,12.338,20.0x,Brandon Ingram Under 3.5 AST | Collin Murray-Boyles Under 2.5 AST | Immanuel Quickley Under 4.5 REB | Kyle Kuzma Under 2.5 AST | RJ Barrett Under 27.5 PRA,LOSS
+4,0.6651,5.651,10.0x,Brandon Ingram Under 3.5 AST | Collin Murray-Boyles Under 2.5 AST | Immanuel Quickley Under 4.5 REB | Kyle Kuzma Under 2.5 AST,LOSS
+4,0.6626,5.6259999999999994,10.0x,Brandon Ingram Under 3.5 AST | Immanuel Quickley Under 4.5 REB | Kyle Kuzma Under 2.5 AST | RJ Barrett Under 27.5 PRA,LOSS
+4,0.6537,5.536999999999999,10.0x,Brandon Ingram Under 3.5 AST | Collin Murray-Boyles Under 2.5 AST | Kyle Kuzma Under 2.5 AST | RJ Barrett Under 27.5 PRA,LOSS
+4,0.6326373999999999,5.3263739999999995,10.0x,Anthony Edwards Under 3.5 AST | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Tyrese Maxey Under 6.5 AST,LOSS
+4,0.6178113,5.178113,10.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Jonas Valanciunas Under 1.5 AST | Tyrese Maxey Under 6.5 AST,LOSS
+4,0.6155831,5.155831000000001,10.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST,LOSS
+5,0.6109553,11.219106,20.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB | Jonas Valanciunas Under 1.5 AST | Tyrese Maxey Under 6.5 AST,LOSS
+5,0.5869593,10.739186,20.0x,CJ McCollum Under 3.5 REB | Dyson Daniels Under 5.5 AST | Jalen Johnson Under 7.5 AST | Jock Landale Under 1.5 AST | Jonas Valanciunas Under 1.5 AST,LOSS
+5,0.5760232000000001,10.520464,20.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Joan Beringer Under 5.5 REB | Tyrese Maxey Under 6.5 AST | Tyus Jones Under 1.5 REB,LOSS
+5,0.5742757000000001,10.485514000000002,20.0x,Brandon Ingram Under 3.5 AST | Collin Murray-Boyles Under 2.5 AST | Immanuel Quickley Under 4.5 REB | Jonas Valanciunas Under 1.5 AST | RJ Barrett Under 27.5 PRA,LOSS
+5,0.5717904,10.435808000000002,20.0x,Collin Murray-Boyles Under 2.5 AST | Immanuel Quickley Under 4.5 REB | Jonas Valanciunas Under 1.5 AST | Kyle Kuzma Under 2.5 AST | RJ Barrett Under 27.5 PRA,LOSS
+6,0.5715333,13.2883325,25.0x,Brandon Ingram Under 3.5 AST | Collin Murray-Boyles Under 2.5 AST | Immanuel Quickley Under 4.5 REB | Jonas Valanciunas Under 1.5 AST | Kyle Kuzma Under 2.5 AST | RJ Barrett Under 27.5 PRA,LOSS
+5,0.5699907,10.399814,20.0x,Brandon Ingram Under 3.5 AST | Collin Murray-Boyles Under 2.5 AST | Immanuel Quickley Under 4.5 REB | Jonas Valanciunas Under 1.5 AST | Kyle Kuzma Under 2.5 AST,LOSS
+5,0.5678481999999999,10.356963999999998,20.0x,Brandon Ingram Under 3.5 AST | Immanuel Quickley Under 4.5 REB | Jonas Valanciunas Under 1.5 AST | Kyle Kuzma Under 2.5 AST | RJ Barrett Under 27.5 PRA,LOSS
+5,0.5602208999999999,10.204418,20.0x,Brandon Ingram Under 3.5 AST | Collin Murray-Boyles Under 2.5 AST | Jonas Valanciunas Under 1.5 AST | Kyle Kuzma Under 2.5 AST | RJ Barrett Under 27.5 PRA,LOSS
+5,0.5533992,10.067984,20.0x,CJ McCollum Under 3.5 REB | Dyson Daniels Under 5.5 AST | Jalen Johnson Under 7.5 AST | Jock Landale Under 1.5 AST | Tyus Jones Under 1.5 REB,LOSS
+6,0.5388552000000001,12.471380000000002,25.0x,Brandon Ingram Under 3.5 AST | Collin Murray-Boyles Under 2.5 AST | Immanuel Quickley Under 4.5 REB | Kyle Kuzma Under 2.5 AST | RJ Barrett Under 27.5 PRA | Tyus Jones Under 1.5 REB,LOSS
+6,0.53011244,12.252811,25.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Jaylen Brown Under 4.5 AST | Joan Beringer Under 5.5 REB | Nikola Vucevic Under 2.5 AST | Tyrese Maxey Under 6.5 AST,LOSS
+6,0.5270748,12.17687,25.0x,Aaron Wiggins Under 2.5 AST | Anthony Edwards Under 3.5 AST | Jared McCain Under 2.5 AST | Jaylon Tyson Under 1.5 AST | Joan Beringer Under 5.5 REB | Tyrese Maxey Under 6.5 AST,LOSS
+6,0.5241953699999999,12.104884249999998,25.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Draymond Green Under 4.5 AST | Joan Beringer Under 5.5 REB | Kristaps Porzingis Under 1.5 AST | Tyrese Maxey Under 6.5 AST,LOSS
+6,0.52162893,12.04072325,25.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Jared McCain Under 2.5 AST | Jaylon Tyson Under 1.5 AST | Joan Beringer Under 5.5 REB | Tyrese Maxey Under 6.5 AST,LOSS
+6,0.5168475,11.9211875,25.0x,Brandon Ingram Under 3.5 AST | Collin Murray-Boyles Under 2.5 AST | Immanuel Quickley Under 4.5 REB | Kyle Kuzma Under 2.5 AST | Nikola Vucevic Under 2.5 AST | RJ Barrett Under 27.5 PRA,LOSS
+6,0.5147225999999999,11.868064999999998,25.0x,Aaron Wiggins Under 2.5 AST | Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Jared McCain Under 2.5 AST | Jaylon Tyson Under 1.5 AST | Tyrese Maxey Under 6.5 AST,LOSS
+6,0.5128662,11.821655000000002,25.0x,Aaron Wiggins Under 2.5 AST | Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Jared McCain Under 2.5 AST | Jaylon Tyson Under 1.5 AST | Joan Beringer Under 5.5 REB,LOSS
+6,0.5125805999999999,11.814514999999998,25.0x,Aaron Wiggins Under 2.5 AST | Ayo Dosunmu Under 3.5 REB | Jared McCain Under 2.5 AST | Jaylon Tyson Under 1.5 AST | Joan Beringer Under 5.5 REB | Tyrese Maxey Under 6.5 AST,LOSS
+7,0.5090106,19.360424,40.0x,Aaron Wiggins Under 2.5 AST | Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Jared McCain Under 2.5 AST | Jaylon Tyson Under 1.5 AST | Joan Beringer Under 5.5 REB | Tyrese Maxey Under 6.5 AST,LOSS
+7,0.50559318,19.2237272,40.0x,Anthony Edwards Under 3.5 AST | CJ McCollum Under 3.5 REB | Dyson Daniels Under 5.5 AST | Jalen Johnson Under 7.5 AST | Joan Beringer Under 5.5 REB | Jock Landale Under 1.5 AST | Tyrese Maxey Under 6.5 AST,LOSS
+7,0.49590684,18.8362736,40.0x,Brandon Ingram Under 3.5 AST | Collin Murray-Boyles Under 2.5 AST | Immanuel Quickley Under 4.5 REB | Jaylen Brown Under 4.5 AST | Kyle Kuzma Under 2.5 AST | Nikola Vucevic Under 2.5 AST | RJ Barrett Under 27.5 PRA,LOSS
+7,0.4946813099999999,18.787252399999996,40.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | CJ McCollum Under 3.5 REB | Jalen Johnson Under 7.5 AST | Joan Beringer Under 5.5 REB | Jock Landale Under 1.5 AST | Tyrese Maxey Under 6.5 AST,LOSS
+7,0.49466782,18.7867128,40.0x,Anthony Edwards Under 3.5 AST | Brandon Ingram Under 3.5 AST | Collin Murray-Boyles Under 2.5 AST | Immanuel Quickley Under 4.5 REB | Joan Beringer Under 5.5 REB | RJ Barrett Under 27.5 PRA | Tyrese Maxey Under 6.5 AST,LOSS
+7,0.4937444099999999,18.7497764,40.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | CJ McCollum Under 3.5 REB | Dyson Daniels Under 5.5 AST | Jalen Johnson Under 7.5 AST | Jock Landale Under 1.5 AST | Tyrese Maxey Under 6.5 AST,LOSS
+7,0.4925270399999999,18.7010816,40.0x,Anthony Edwards Under 3.5 AST | Collin Murray-Boyles Under 2.5 AST | Immanuel Quickley Under 4.5 REB | Joan Beringer Under 5.5 REB | Kyle Kuzma Under 2.5 AST | RJ Barrett Under 27.5 PRA | Tyrese Maxey Under 6.5 AST,LOSS
+8,0.49230558,38.3844464,80.0x,Anthony Edwards Under 3.5 AST | Brandon Ingram Under 3.5 AST | Collin Murray-Boyles Under 2.5 AST | Immanuel Quickley Under 4.5 REB | Joan Beringer Under 5.5 REB | Kyle Kuzma Under 2.5 AST | RJ Barrett Under 27.5 PRA | Tyrese Maxey Under 6.5 AST,LOSS
+7,0.49223889,18.6895556,40.0x,Brandon Ingram Under 3.5 AST | Collin Murray-Boyles Under 2.5 AST | Immanuel Quickley Under 4.5 REB | Joan Beringer Under 5.5 REB | Kyle Kuzma Under 2.5 AST | RJ Barrett Under 27.5 PRA | Tyrese Maxey Under 6.5 AST,LOSS
+7,0.49196367,18.6785468,40.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | CJ McCollum Under 3.5 REB | Dyson Daniels Under 5.5 AST | Jalen Johnson Under 7.5 AST | Joan Beringer Under 5.5 REB | Jock Landale Under 1.5 AST,LOSS
+7,0.4916897099999999,18.6675884,40.0x,Ayo Dosunmu Under 3.5 REB | CJ McCollum Under 3.5 REB | Dyson Daniels Under 5.5 AST | Jalen Johnson Under 7.5 AST | Joan Beringer Under 5.5 REB | Jock Landale Under 1.5 AST | Tyrese Maxey Under 6.5 AST,LOSS
+8,0.4882652099999999,38.0612168,80.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | CJ McCollum Under 3.5 REB | Dyson Daniels Under 5.5 AST | Jalen Johnson Under 7.5 AST | Joan Beringer Under 5.5 REB | Jock Landale Under 1.5 AST | Tyrese Maxey Under 6.5 AST,LOSS
+8,0.48076821,37.4614568,80.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Brandon Ingram Under 3.5 AST | Collin Murray-Boyles Under 2.5 AST | Immanuel Quickley Under 4.5 REB | Kyle Kuzma Under 2.5 AST | RJ Barrett Under 27.5 PRA | Tyrese Maxey Under 6.5 AST,LOSS
+8,0.4790342700000001,37.32274160000001,80.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Brandon Ingram Under 3.5 AST | Collin Murray-Boyles Under 2.5 AST | Immanuel Quickley Under 4.5 REB | Joan Beringer Under 5.5 REB | Kyle Kuzma Under 2.5 AST | RJ Barrett Under 27.5 PRA,LOSS
+8,0.47876751,37.3014008,80.0x,Ayo Dosunmu Under 3.5 REB | Brandon Ingram Under 3.5 AST | Collin Murray-Boyles Under 2.5 AST | Immanuel Quickley Under 4.5 REB | Joan Beringer Under 5.5 REB | Kyle Kuzma Under 2.5 AST | RJ Barrett Under 27.5 PRA | Tyrese Maxey Under 6.5 AST,LOSS
+8,0.47771429,37.217143199999995,80.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Brandon Ingram Under 3.5 AST | Collin Murray-Boyles Under 2.5 AST | Immanuel Quickley Under 4.5 REB | Joan Beringer Under 5.5 REB | RJ Barrett Under 27.5 PRA | Tyrese Maxey Under 6.5 AST,LOSS
+8,0.4761666,37.093328,80.0x,Aaron Wiggins Under 2.5 AST | Brandon Ingram Under 3.5 AST | Collin Murray-Boyles Under 2.5 AST | Immanuel Quickley Under 4.5 REB | Jared McCain Under 2.5 AST | Jaylon Tyson Under 1.5 AST | Kyle Kuzma Under 2.5 AST | RJ Barrett Under 27.5 PRA,LOSS
+8,0.47564688,37.0517504,80.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Collin Murray-Boyles Under 2.5 AST | Immanuel Quickley Under 4.5 REB | Joan Beringer Under 5.5 REB | Kyle Kuzma Under 2.5 AST | RJ Barrett Under 27.5 PRA | Tyrese Maxey Under 6.5 AST,LOSS
+8,0.47414979,36.931983200000005,80.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Brandon Ingram Under 3.5 AST | Collin Murray-Boyles Under 2.5 AST | Immanuel Quickley Under 4.5 REB | Joan Beringer Under 5.5 REB | Kyle Kuzma Under 2.5 AST | Tyrese Maxey Under 6.5 AST,LOSS
+8,0.47236754,36.789403199999995,80.0x,Anthony Edwards Under 3.5 AST | Ayo Dosunmu Under 3.5 REB | Brandon Ingram Under 3.5 AST | Immanuel Quickley Under 4.5 REB | Joan Beringer Under 5.5 REB | Kyle Kuzma Under 2.5 AST | RJ Barrett Under 27.5 PRA | Tyrese Maxey Under 6.5 AST,LOSS

@@ -105,7 +105,7 @@ def grade_predictions():
         else:
             game_date_str = pd.Timestamp.now().strftime('%Y-%m-%d')
             
-        save_path = cfg.GRADED_DIR / f"graded_props_{game_date_str}.parquet"
+        save_path = cfg.GRADED_PROPS_PARQUET_DIR / f"graded_props_{game_date_str}.parquet"
         df_merged.to_parquet(save_path, index=False)
         logging.info(f"Graded results saved to {save_path.name}")
     except Exception as e:

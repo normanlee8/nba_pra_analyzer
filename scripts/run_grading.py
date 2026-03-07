@@ -70,10 +70,8 @@ def save_user_scorecard(df, date_str):
 
     clean_df = df[list(final_rename.keys())].rename(columns=final_rename).copy()
     
-    scorecard_dir = cfg.GRADED_DIR / "user_scorecards"
-    scorecard_dir.mkdir(parents=True, exist_ok=True)
-    
-    scorecard_path = scorecard_dir / f"{date_str}.xlsx"
+    # Updated to use the new Excel directory
+    scorecard_path = cfg.GRADED_PROPS_EXCEL_DIR / f"{date_str}.xlsx"
     
     try:
         def color_result(val):
@@ -304,8 +302,8 @@ def grade_predictions():
     logging.info("-" * 40)
     
     # 8. Save Outputs
-    parquet_path = cfg.GRADED_DIR / f"graded_props_{game_date_str}.parquet"
-    csv_path = cfg.GRADED_DIR / f"graded_{game_date_str}.csv"
+    parquet_path = cfg.GRADED_PROPS_PARQUET_DIR / f"graded_props_{game_date_str}.parquet"
+    csv_path = cfg.GRADED_PROPS_CSV_DIR / f"graded_{game_date_str}.csv"
     
     try:
         # Convert objects to string for saving
@@ -420,8 +418,8 @@ def grade_parlays(graded_props_df, game_date_str):
     else:
         logging.info("No parlays fully completed yet.")
     
-    # Save graded parlays using the game date instead of system date
-    parlays_df.to_csv(cfg.GRADED_DIR / f"graded_parlays_{game_date_str}.csv", index=False)
+    # Save graded parlays using the game date into the new parlay directory
+    parlays_df.to_csv(cfg.GRADED_PARLAYS_DIR / f"graded_parlays_{game_date_str}.csv", index=False)
 
 def main():
     common.setup_logging(name="grading")
@@ -445,7 +443,8 @@ def main():
         except Exception:
             fallback_date_str = datetime.now().strftime("%Y-%m-%d")
 
-        parquet_path = cfg.GRADED_DIR / f"graded_props_{fallback_date_str}.parquet"
+        # Fallback check uses the new PARQUET directory
+        parquet_path = cfg.GRADED_PROPS_PARQUET_DIR / f"graded_props_{fallback_date_str}.parquet"
         
         if parquet_path.exists():
             graded_df = pd.read_parquet(parquet_path)

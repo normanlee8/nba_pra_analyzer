@@ -8,7 +8,13 @@ DATA_DIR = BASE_DIR / "prop_data"
 MODEL_DIR = BASE_DIR / "prop_models"
 INPUT_DIR = BASE_DIR / "input"
 OUTPUT_DIR = BASE_DIR / "output"
+
+# Graded Output Directories
 GRADED_DIR = OUTPUT_DIR / "graded_history"
+GRADED_PROPS_CSV_DIR = GRADED_DIR / "props_csv"
+GRADED_PROPS_PARQUET_DIR = GRADED_DIR / "props_parquet"
+GRADED_PROPS_EXCEL_DIR = GRADED_DIR / "props_excel"
+GRADED_PARLAYS_DIR = GRADED_DIR / "parlays"
 
 # Advanced Modeling Directories
 MODEL_VERSIONS_DIR = MODEL_DIR / "versions"
@@ -16,6 +22,8 @@ MODEL_METADATA_DIR = MODEL_DIR / "metadata"
 
 # Ensure key directories exist
 for d in [DATA_DIR, MODEL_DIR, INPUT_DIR, OUTPUT_DIR, GRADED_DIR, 
+          GRADED_PROPS_CSV_DIR, GRADED_PROPS_PARQUET_DIR, 
+          GRADED_PROPS_EXCEL_DIR, GRADED_PARLAYS_DIR,
           INPUT_DIR / "records", MODEL_VERSIONS_DIR, MODEL_METADATA_DIR]:
     d.mkdir(parents=True, exist_ok=True)
 

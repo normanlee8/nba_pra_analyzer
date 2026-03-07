@@ -1,0 +1,71 @@
+Legs,Joint Prob,Payout,Picks,Result
+2,0.6664680000000001,3.0x,Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST,LOSS
+2,0.644193,3.0x,Dorian Finney-Smith Under 2.5 AST | Jayson Tatum Over 1.5 AST,WIN
+2,0.640629,3.0x,Jayson Tatum Over 1.5 AST | Naz Reid Under 3.5 AST,PUSH/DOWNGRADE
+2,0.636174,3.0x,Davion Mitchell Under 14.5 PA | Jayson Tatum Over 1.5 AST,LOSS
+2,0.636174,3.0x,Jayson Tatum Over 1.5 AST | Royce O'Neale Under 8.5 PTS,LOSS
+2,0.633501,3.0x,Davion Mitchell Under 8.0 PTS | Jayson Tatum Over 1.5 AST,LOSS
+2,0.63261,3.0x,Aaron Nesmith Under 13.5 PR | Jayson Tatum Over 1.5 AST,WIN
+2,0.629937,3.0x,Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+2,0.628155,3.0x,Andrew Nembhard Under 14.5 PTS | Jayson Tatum Over 1.5 AST,LOSS
+2,0.6272639999999999,3.0x,Jayson Tatum Over 1.5 AST | Jordan Miller Under 9.5 PTS,LOSS
+3,0.4930794,6.0x,Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+3,0.4880897999999999,6.0x,Austin Reaves Under 24.5 PTS | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST,LOSS
+3,0.481856364,6.0x,Dorian Finney-Smith Under 2.5 AST | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST,LOSS
+3,0.4809617999999999,6.0x,Austin Reaves Under 29.5 PA | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST,LOSS
+3,0.479190492,6.0x,Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Naz Reid Under 3.5 AST,LOSS
+3,0.475858152,6.0x,Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Royce O'Neale Under 8.5 PTS,LOSS
+3,0.475858152,6.0x,Davion Mitchell Under 14.5 PA | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST,LOSS
+3,0.4745312,6.0x,Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Sam Hauser Under 9.5 PTS,LOSS
+3,0.473858748,6.0x,Davion Mitchell Under 8.0 PTS | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST,LOSS
+3,0.4715172,6.0x,Devin Booker Under 5.5 AST | Jayson Tatum Over 1.5 AST | Royce O'Neale Under 8.5 PTS,LOSS
+4,0.3682503,10.0x,Aaron Nesmith Under 13.5 PR | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+4,0.3668247,10.0x,Andrew Nembhard Under 14.5 PTS | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+4,0.3666465,10.0x,Andrew Nembhard Under 21.5 PA | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+4,0.3582711,10.0x,Aaron Nesmith Under 13.5 PR | Austin Reaves Under 24.5 PTS | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST,LOSS
+4,0.3575583,10.0x,Aaron Nesmith Under 13.5 PR | Austin Reaves Under 29.5 PA | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST,LOSS
+4,0.3574692,10.0x,Aaron Nesmith Under 15.0 PRA | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+4,0.3565782,10.0x,Andrew Nembhard Under 21.5 PA | Austin Reaves Under 24.5 PTS | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST,LOSS
+4,0.3564964062,10.0x,Dorian Finney-Smith Under 2.5 AST | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+4,0.3547962,10.0x,Austin Reaves Under 24.5 PTS | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+4,0.3545240886,10.0x,Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS | Naz Reid Under 3.5 AST,LOSS
+5,0.2736261,20.0x,Aaron Nesmith Under 13.5 PR | Austin Reaves Under 29.5 PA | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+5,0.2727351,20.0x,Andrew Nembhard Under 14.5 PTS | Austin Reaves Under 24.5 PTS | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+5,0.2720223,20.0x,Aaron Nesmith Under 13.5 PR | Austin Reaves Under 24.5 PTS | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+5,0.2697948,20.0x,Andrew Nembhard Under 21.5 PA | Austin Reaves Under 24.5 PTS | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+5,0.2689038,20.0x,Aaron Nesmith Under 15.0 PRA | Austin Reaves Under 29.5 PA | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+5,0.2673,20.0x,Andrew Nembhard Under 14.5 PTS | Austin Reaves Under 29.5 PA | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+5,0.2669436,20.0x,Aaron Nesmith Under 15.0 PRA | Austin Reaves Under 24.5 PTS | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+5,0.2662449669,20.0x,Aaron Nesmith Under 13.5 PR | Dorian Finney-Smith Under 2.5 AST | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+5,0.2652142581,20.0x,Andrew Nembhard Under 14.5 PTS | Dorian Finney-Smith Under 2.5 AST | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+5,0.2650854195,20.0x,Andrew Nembhard Under 21.5 PA | Dorian Finney-Smith Under 2.5 AST | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+6,0.2097414,25.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 29.5 PA | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+6,0.2064446999999999,25.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 24.5 PTS | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+6,0.2026134,25.0x,Aaron Nesmith Under 15.0 PRA | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 29.5 PA | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+6,0.1982475,25.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 14.5 PTS | Austin Reaves Under 29.5 PA | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+6,0.1979802,25.0x,Aaron Nesmith Under 15.0 PRA | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 24.5 PTS | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+6,0.1978316702999999,25.0x,Aaron Nesmith Under 13.5 PR | Austin Reaves Under 29.5 PA | Dorian Finney-Smith Under 2.5 AST | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+6,0.1971874773,25.0x,Andrew Nembhard Under 14.5 PTS | Austin Reaves Under 24.5 PTS | Dorian Finney-Smith Under 2.5 AST | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+6,0.1967371658999999,25.0x,Aaron Nesmith Under 13.5 PR | Austin Reaves Under 29.5 PA | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS | Naz Reid Under 3.5 AST,LOSS
+6,0.1966721229,25.0x,Aaron Nesmith Under 13.5 PR | Austin Reaves Under 24.5 PTS | Dorian Finney-Smith Under 2.5 AST | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+6,0.1962873,25.0x,Aaron Nesmith Under 15.0 PRA | Andrew Nembhard Under 14.5 PTS | Austin Reaves Under 24.5 PTS | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+7,0.1516430322,40.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 29.5 PA | Dorian Finney-Smith Under 2.5 AST | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+7,0.1508040665999999,40.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 29.5 PA | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS | Naz Reid Under 3.5 AST,LOSS
+7,0.1497553596,40.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 29.5 PA | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS | Royce O'Neale Under 8.5 PTS,LOSS
+7,0.1497553596,40.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 29.5 PA | Davion Mitchell Under 14.5 PA | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+7,0.1493377599999999,40.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 29.5 PA | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS | Sam Hauser Under 9.5 PTS,LOSS
+7,0.1492595181,40.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 24.5 PTS | Dorian Finney-Smith Under 2.5 AST | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+7,0.1491261354,40.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 29.5 PA | Davion Mitchell Under 8.0 PTS | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+7,0.1484337392999999,40.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 24.5 PTS | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS | Naz Reid Under 3.5 AST,LOSS
+7,0.1476579455999999,40.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 29.5 PA | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Jordan Miller Under 9.5 PTS | Luke Kennard Under 14.5 PTS,LOSS
+7,0.1476579455999999,40.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 29.5 PA | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS | Luke Kornet Under 4.5 PTS,LOSS
+8,0.11099514888,80.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 29.5 PA | Devin Booker Under 5.5 AST | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS | Royce O'Neale Under 8.5 PTS,LOSS
+8,0.10925053524,80.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 24.5 PTS | Devin Booker Under 5.5 AST | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS | Royce O'Neale Under 8.5 PTS,LOSS
+8,0.1090313401518,80.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 29.5 PA | Dorian Finney-Smith Under 2.5 AST | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS | Naz Reid Under 3.5 AST,LOSS
+8,0.10841532966,80.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 29.5 PA | Collin Gillespie Under 17.5 PR | Devin Booker Under 5.5 AST | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+8,0.1082731249908,80.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 29.5 PA | Dorian Finney-Smith Under 2.5 AST | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS | Royce O'Neale Under 8.5 PTS,LOSS
+8,0.1082731249907999,80.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 29.5 PA | Davion Mitchell Under 14.5 PA | Dorian Finney-Smith Under 2.5 AST | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+8,0.1079712004799999,80.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 29.5 PA | Dorian Finney-Smith Under 2.5 AST | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS | Sam Hauser Under 9.5 PTS,LOSS
+8,0.1078181958942,80.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 29.5 PA | Davion Mitchell Under 8.0 PTS | Dorian Finney-Smith Under 2.5 AST | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS,LOSS
+8,0.1076741035524,80.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 29.5 PA | Davion Mitchell Under 14.5 PA | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS | Naz Reid Under 3.5 AST,LOSS
+8,0.1076741035523999,80.0x,Aaron Nesmith Under 13.5 PR | Andrew Nembhard Under 21.5 PA | Austin Reaves Under 29.5 PA | Jarred Vanderbilt Under 0.5 AST | Jayson Tatum Over 1.5 AST | Luke Kennard Under 14.5 PTS | Naz Reid Under 3.5 AST | Royce O'Neale Under 8.5 PTS,LOSS

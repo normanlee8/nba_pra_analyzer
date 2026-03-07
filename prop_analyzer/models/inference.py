@@ -23,7 +23,8 @@ def get_system_learning_maps(days_back=21):
     """
     Returns global system biases for retrospective analysis.
     """
-    graded_files = sorted(cfg.GRADED_DIR.glob("graded_*.parquet"), reverse=True)
+    # UPDATED: Now points to the specific Parquet subdirectory to load historical performance
+    graded_files = sorted(cfg.GRADED_PROPS_PARQUET_DIR.glob("graded_props_*.parquet"), reverse=True)
     if not graded_files: return {}, {}
 
     recent_dfs = []

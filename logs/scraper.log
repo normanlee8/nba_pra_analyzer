@@ -2182,3 +2182,17 @@
 2026-03-06 14:23:55 [INFO] root: Successfully saved NBA Team Opponent Fastbreak Points per Game.parquet
 2026-03-06 14:23:56 [INFO] root: ========= NBA DATA SCRAPER FINISHED in 0:23 minutes =========
 2026-03-06 14:23:56 [INFO] root: <<< SCRAPER COMPLETE >>>
+2026-03-06 22:01:30 [INFO] root: Logging initialized. Writing to logs/scraper.log
+2026-03-06 22:01:30 [INFO] root: >>> STARTING DATA SCRAPER <<<
+2026-03-06 22:01:30 [INFO] root: ========= STARTING NBA DATA SCRAPER (FAST CONCURRENT MODE) =========
+2026-03-06 22:01:30 [INFO] root: --- Processing Season: 2024-25 (Live: False) ---
+2026-03-06 22:01:31 [INFO] root: --- Processing Season: 2025-26 (Live: True) ---
+2026-03-06 22:01:31 [INFO] root: --- Scraping Daily Injury Report (CBS Sports) ---
+2026-03-06 22:01:32 [INFO] root: Successfully saved daily_injuries.parquet
+2026-03-06 22:01:32 [INFO] root: --- Gap Detection: ESPN Box Scores for 2025-26 ---
+2026-03-06 22:01:32 [INFO] root: Identified 9 missing days to fetch concurrently.
+2026-03-06 22:01:32 [INFO] root:   Fetches complete: 9/9
+2026-03-06 22:01:32 [INFO] root: Successfully saved NBA Player Box Scores.parquet
+2026-03-06 22:01:32 [INFO] root: Updated aggregated box scores. Added 155 rows. Total rows: 20521
+2026-03-06 22:01:34 [INFO] root: ========= NBA DATA SCRAPER FINISHED in 0:04 minutes =========
+2026-03-06 22:01:34 [INFO] root: <<< SCRAPER COMPLETE >>>
