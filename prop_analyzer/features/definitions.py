@@ -28,6 +28,10 @@ BASE_FEATURE_COLS = [
     'DVP_PRA_MULTIPLIER', 'DVP_PR_MULTIPLIER', 'DVP_PA_MULTIPLIER', 'DVP_RA_MULTIPLIER',
     'OPP_DEF_EFF', 'GAME_PACE', 'OPP_GAME_PACE', 'OPP_DAYS_REST', 'OPP_IS_B2B',
     
+    # ---> NEW: Schedule Density & Travel Fatigue <---
+    'FLIGHT_MILES', 'TZ_SHIFT', 'TEAM_GAMES_L4', 'TEAM_GAMES_L6', 'TEAM_GAMES_L7', 
+    'IS_3_IN_4', 'IS_4_IN_6', 'IS_TZ_SHOCK',
+    
     # Vacancy (Missing Usage/Minutes/Rates on Team)
     'TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 
     'MISSING_USG_G', 'MISSING_USG_F', 'MISSING_USG_C',

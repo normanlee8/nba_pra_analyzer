@@ -10,6 +10,7 @@ from prop_analyzer.data import loader
 from prop_analyzer.features.calculator import (
     winsorize_series, calculate_dynamic_hit_rates
 )
+from prop_analyzer.features.geography import NBA_LOCATIONS, haversine_distance
 
 def add_rolling_stats_history(df, stats_to_roll=None):
     """Calculates historical rolling features, including new CV and Volatility metrics for consistency."""
@@ -91,6 +92,61 @@ def add_rolling_stats_history(df, stats_to_roll=None):
 
     return df
 
+def add_team_fatigue_and_travel(df):
+    """Calculates schedule density, flight miles, and time zone shifts."""
+    if 'IS_HOME' not in df.columns:
+        df['IS_HOME'] = np.where(df['MATCHUP'].str.contains('@'), 0, 1)
+        
+    df['GAME_LOCATION_TEAM'] = np.where(df['IS_HOME'] == 1, df['TEAM_ABBREVIATION'], df[Cols.OPPONENT])
+    
+    # 1. Extract unique team games to calculate schedule metrics without player duplicates
+    team_games = df[['TEAM_ABBREVIATION', Cols.DATE, 'GAME_LOCATION_TEAM']].drop_duplicates().sort_values(['TEAM_ABBREVIATION', Cols.DATE])
+    
+    # 2. Calculate Travel & Timezone Shifts
+    team_games['PREV_LOCATION'] = team_games.groupby('TEAM_ABBREVIATION')['GAME_LOCATION_TEAM'].shift(1)
+    
+    def calculate_travel(row):
+        loc1 = row['PREV_LOCATION']
+        loc2 = row['GAME_LOCATION_TEAM']
+        if pd.isna(loc1) or loc1 not in NBA_LOCATIONS or loc2 not in NBA_LOCATIONS:
+            return pd.Series([0.0, 0.0])
+            
+        c1, c2 = NBA_LOCATIONS[loc1], NBA_LOCATIONS[loc2]
+        dist = haversine_distance(c1['lat'], c1['lon'], c2['lat'], c2['lon'])
+        tz_shift = c2['tz'] - c1['tz']  # Positive means traveling East (lose sleep), Negative means West
+        return pd.Series([dist, tz_shift])
+        
+    team_games[['FLIGHT_MILES', 'TZ_SHIFT']] = team_games.apply(calculate_travel, axis=1)
+    
+    # 3. Calculate rolling schedule density (3-in-4, 4-in-6)
+    team_games = team_games.set_index(Cols.DATE)
+    grouped = team_games.groupby('TEAM_ABBREVIATION')
+    
+    # How many games were played in the trailing 4, 6, and 7 days (including today)
+    team_games['TEAM_GAMES_L4'] = grouped['TEAM_ABBREVIATION'].rolling('4D').count().values
+    team_games['TEAM_GAMES_L6'] = grouped['TEAM_ABBREVIATION'].rolling('6D').count().values
+    team_games['TEAM_GAMES_L7'] = grouped['TEAM_ABBREVIATION'].rolling('7D').count().values
+    
+    # Binary fatigue flags
+    team_games['IS_3_IN_4'] = np.where(team_games['TEAM_GAMES_L4'] >= 3, 1, 0)
+    team_games['IS_4_IN_6'] = np.where(team_games['TEAM_GAMES_L6'] >= 4, 1, 0)
+    
+    # Flag severe scenarios: Playing on a back-to-back AND changing time zones Eastward
+    team_games['IS_TZ_SHOCK'] = np.where((team_games['TEAM_GAMES_L4'] >= 2) & (team_games['TZ_SHIFT'] > 0), 1, 0)
+    
+    team_games = team_games.reset_index()
+    
+    # 4. Merge back to main DataFrame
+    merge_cols = ['TEAM_ABBREVIATION', Cols.DATE]
+    fatigue_features = ['FLIGHT_MILES', 'TZ_SHIFT', 'TEAM_GAMES_L4', 'TEAM_GAMES_L6', 'TEAM_GAMES_L7', 'IS_3_IN_4', 'IS_4_IN_6', 'IS_TZ_SHOCK']
+    
+    df = pd.merge(df, team_games[merge_cols + fatigue_features], on=merge_cols, how='left')
+    
+    # Fill NAs for first games of season
+    for col in fatigue_features:
+        df[col] = df[col].fillna(0)
+        
+    return df
 
 def build_feature_set(props_df):
     logging.info("Building Probability-Optimized feature set...")
@@ -521,6 +577,12 @@ def build_feature_set(props_df):
         features_df['SYNERGY_PAINT_EDGE'] = 0.0
         features_df['SYNERGY_3PT_EDGE'] = 0.0
         features_df['SCHEME_SYNERGY_SCORE'] = 0.0
+
+    # ========================================================================
+    # INJECT NEW: SCHEDULE DENSITY AND TRAVEL FATIGUE ENGINE
+    # ========================================================================
+    logging.info("Calculating Schedule Density and Travel Fatigue...")
+    features_df = add_team_fatigue_and_travel(features_df)
 
     # 1. Blowout Potential (Net Rating Mismatch) - NON-LINEAR SCALING
     has_eff = all(c in features_df.columns for c in [
