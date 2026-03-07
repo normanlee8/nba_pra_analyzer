@@ -192,6 +192,9 @@ def predict_props(todays_props_df):
         model, scaler, feature_names = artifacts['model'], artifacts['scaler'], artifacts['features']
         tweedie_power = artifacts.get('metadata', {}).get('tweedie_variance_power', 1.5)
         
+        # Load our new Segmented SHAP logic metadata
+        neutral_feats_map = artifacts.get('metadata', {}).get('segmented_neutral_features', {})
+        
         X_raw = group.copy()
         
         sanitized_map = {c: re.sub(r'[^\w\s]', '_', str(c)).replace(' ', '_') for c in X_raw.columns}
@@ -204,6 +207,18 @@ def predict_props(todays_props_df):
             else: new_features[f] = np.nan 
             
         X_model = pd.DataFrame(new_features, index=X_raw.index)
+
+        # === DYNAMIC FEATURE NEUTRALIZATION ===
+        # If a feature is noise for a specific position, we set it to np.nan so the XGB/LGBM model ignores it
+        if neutral_feats_map:
+            for idx_label in X_model.index:
+                row_data = X_raw.loc[idx_label]
+                pos = row_data.get('POSITION', row_data.get('PLAYER_POSITION', row_data.get('Position', 'UNK')))
+                
+                if pos in neutral_feats_map:
+                    feats_to_null = [f for f in neutral_feats_map[pos] if f in X_model.columns]
+                    if feats_to_null:
+                        X_model.loc[idx_label, feats_to_null] = np.nan
 
         try:
             X_scaled = scaler.transform(X_model)
@@ -331,7 +346,6 @@ def predict_props(todays_props_df):
                     
                     meta_input = pd.DataFrame([meta_input_dict])
                     
-                    # FIX: Use np.nan instead of 0.0 for missing features so XGBoost routes them via default node logic
                     for f in meta_features:
                         if f not in meta_input.columns:
                             meta_input[f] = np.nan
@@ -340,7 +354,6 @@ def predict_props(todays_props_df):
                     try:
                         meta_prob = meta_model.predict_proba(meta_input)[0][1]
                         
-                        # DYNAMIC TIER ADJUSTMENTS based on Meta-Model Risk Profiles
                         if base_tier in ['S Tier', 'A Tier'] and meta_prob < 0.45:
                             final_tier = 'Trap / Fade'
                         elif base_tier == 'Pass' and meta_prob > 0.65:

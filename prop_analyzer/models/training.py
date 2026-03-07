@@ -7,6 +7,7 @@ import lightgbm as lgb
 import optuna
 import shap
 import re
+import time
 from datetime import datetime
 from pathlib import Path
 
@@ -191,8 +192,6 @@ def train_ensemble_model(df, target_col):
     xgb_best.set_fit_request(sample_weight=True)
     lgb_best.set_fit_request(sample_weight=True)
 
-    # CRITICAL FIX: The final estimator inputs are the target predictions (clean floats, already scaled).
-    # We directly use RidgeCV and explicitly route sample_weight to it.
     meta_estimator = RidgeCV(alphas=[0.1, 1.0, 10.0]).set_fit_request(sample_weight=True)
 
     ensemble = StackingRegressor(
@@ -219,18 +218,51 @@ def train_ensemble_model(df, target_col):
     r2 = r2_score(y_val, val_preds)
     logging.info(f"[{target_col}] Holdout Metrics - MAE: {mae:.2f}, RMSE: {rmse:.2f}, R2: {r2:.2f}")
 
-    logging.info(f"[{target_col}] Calculating SHAP Feature Importance...")
+    logging.info(f"[{target_col}] Calculating Global and Segmented SHAP Feature Importance...")
     shap_importance = []
+    segmented_shap_importance = {}
+    segmented_neutral_features = {}
+    
     try:
         explainer = shap.TreeExplainer(ensemble.named_estimators_['xgb'])
-        X_sample = X_proc_df.sample(n=min(1500, len(X_proc_df)), random_state=42)
-        shap_values = explainer.shap_values(X_sample)
-        if isinstance(shap_values, list): shap_values = shap_values[0]
         
-        vals = np.abs(shap_values).mean(0)
-        feat_imp_df = pd.DataFrame({'Feature': sanitized_cols, 'Importance': vals}).sort_values(by='Importance', ascending=False)
-        shap_importance = feat_imp_df.head(20).to_dict(orient='records')
-        logging.info(f"[{target_col}] Top 10 SHAP Features: {[f['Feature'] for f in shap_importance[:10]]}")
+        # 1. GLOBAL SHAP
+        X_sample = X_proc_df.sample(n=min(1500, len(X_proc_df)), random_state=42)
+        shap_values_global = explainer.shap_values(X_sample)
+        if isinstance(shap_values_global, list): shap_values_global = shap_values_global[0]
+        
+        vals_global = np.abs(shap_values_global).mean(0)
+        feat_imp_df_global = pd.DataFrame({'Feature': sanitized_cols, 'Importance': vals_global}).sort_values(by='Importance', ascending=False)
+        shap_importance = feat_imp_df_global.head(20).to_dict(orient='records')
+        logging.info(f"[{target_col}] Global Top 10 Features: {[f['Feature'] for f in shap_importance[:10]]}")
+
+        # 2. SEGMENTED SHAP (By Position)
+        pos_cols = [c for c in df.columns if c.upper() in ['POSITION', 'PLAYER_POSITION']]
+        if pos_cols:
+            pos_col = pos_cols[0]
+            unique_positions = df[pos_col].dropna().unique()
+            for pos in unique_positions:
+                pos_indices = df[df[pos_col] == pos].index
+                X_pos = X_proc_df.loc[pos_indices]
+                
+                if len(X_pos) > 50: 
+                    X_pos_sample = X_pos.sample(n=min(500, len(X_pos)), random_state=42)
+                    shap_values_pos = explainer.shap_values(X_pos_sample)
+                    if isinstance(shap_values_pos, list): shap_values_pos = shap_values_pos[0]
+                    
+                    vals_pos = np.abs(shap_values_pos).mean(0)
+                    feat_imp_df_pos = pd.DataFrame({'Feature': sanitized_cols, 'Importance': vals_pos}).sort_values(by='Importance', ascending=False)
+                    segmented_shap_importance[pos] = feat_imp_df_pos.head(10).to_dict(orient='records')
+                    
+                    noise_threshold = vals_pos.max() * 0.01  
+                    noise_feats = feat_imp_df_pos[feat_imp_df_pos['Importance'] <= noise_threshold]['Feature'].tolist()
+                    segmented_neutral_features[pos] = noise_feats
+
+                    logging.info(f"[{target_col}] {pos} Top 5 Features: {[f['Feature'] for f in segmented_shap_importance[pos][:5]]}")
+                    logging.info(f"[{target_col}] {pos} Neutralized {len(noise_feats)} noise features.")
+        else:
+            logging.warning(f"Segmented SHAP skipped: 'POSITION' column not found in dataframe.")
+
     except Exception as e:
         logging.warning(f"SHAP extraction failed: {e}")
 
@@ -239,6 +271,8 @@ def train_ensemble_model(df, target_col):
         'target_col': target_col,
         'metrics': {'MAE': float(mae), 'RMSE': float(rmse), 'R2': float(r2)},
         'top_features': shap_importance,
+        'segmented_top_features': segmented_shap_importance,
+        'segmented_neutral_features': segmented_neutral_features,
         'tweedie_variance_power': float(xgb_params.get('tweedie_variance_power', 1.5))
     }
 
@@ -247,6 +281,7 @@ def train_ensemble_model(df, target_col):
     logging.info(f"[{target_col}] Successfully trained and saved.")
 
 def main():
+    start_time = time.time()  # Start the timer
     common.setup_logging(name="train_models")
     logging.info(">>> STARTING ADVANCED PROBABILITY MODEL TRAINING PIPELINE")
 
@@ -263,7 +298,8 @@ def main():
             logging.info(f"--- Training Engine: {prop} ---")
             train_ensemble_model(df, target_col=prop)
 
-    logging.info("<<< TRAINING COMPLETE.")
+    elapsed = time.time() - start_time  # Stop the timer
+    logging.info(f"========= ADVANCED PROBABILITY MODEL TRAINING FINISHED in {int(elapsed // 60)}:{int(elapsed % 60):02d} minutes =========")
 
 if __name__ == "__main__":
     main()

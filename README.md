@@ -1,1 +1,2 @@
-TODO: Figure out the most important stat that determines a win and loss: recent games, player vs team, home vs away, etc, etc
+TODO: Dynamic tweedie variance power
+TODO: Foul trouble correlation
