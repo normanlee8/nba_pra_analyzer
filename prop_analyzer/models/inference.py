@@ -331,10 +331,10 @@ def predict_props(todays_props_df):
                     
                     meta_input = pd.DataFrame([meta_input_dict])
                     
-                    # Ensure features perfectly align
+                    # FIX: Use np.nan instead of 0.0 for missing features so XGBoost routes them via default node logic
                     for f in meta_features:
                         if f not in meta_input.columns:
-                            meta_input[f] = 0.0
+                            meta_input[f] = np.nan
                     meta_input = meta_input[meta_features]
                     
                     try:
