@@ -8,6 +8,9 @@ BASE_FEATURE_COLS = [
     # Form vs Baseline
     'FORM_RATIO', 
     
+    # Model Residual Features (NEW)
+    'PLAYER_HISTORIC_MODEL_BIAS', 'PLAYER_HISTORIC_MODEL_MAE',
+    
     # Volatility & Distribution Metrics (Crucial for EV Math)
     'L10_STD_DEV', 'L10_CV',
     'L10_HitRate_10', 'L10_HitRate_15', 'L10_HitRate_20', 'L10_HitRate_25', 'L10_HitRate_30',

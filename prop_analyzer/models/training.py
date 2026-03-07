@@ -230,6 +230,7 @@ def train_ensemble_model(df, target_col):
         vals = np.abs(shap_values).mean(0)
         feat_imp_df = pd.DataFrame({'Feature': sanitized_cols, 'Importance': vals}).sort_values(by='Importance', ascending=False)
         shap_importance = feat_imp_df.head(20).to_dict(orient='records')
+        logging.info(f"[{target_col}] Top 10 SHAP Features: {[f['Feature'] for f in shap_importance[:10]]}")
     except Exception as e:
         logging.warning(f"SHAP extraction failed: {e}")
 

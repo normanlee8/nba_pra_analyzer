@@ -501,5 +501,66 @@ def build_feature_set(props_df):
     else:
         features_df['EXPECTED_USG_SHIFT'] = 0.0
 
+    # ========================================================================
+    # 4. PLAYER-SPECIFIC HISTORICAL MODEL ERROR (BIAS & MAE)
+    # ========================================================================
+    try:
+        # Load all graded history files
+        graded_files_dir = cfg.GRADED_PROPS_PARQUET_DIR
+        if graded_files_dir.exists():
+            graded_files = sorted(graded_files_dir.glob("graded_props_*.parquet"))
+            
+            if graded_files:
+                hist_dfs = [pd.read_parquet(f) for f in graded_files]
+                graded_history = pd.concat(hist_dfs, ignore_index=True)
+                
+                req_cols = [Cols.DATE, Cols.PLAYER_ID, Cols.PROP_TYPE, Cols.PREDICTION, Cols.ACTUAL_VAL]
+                if all(c in graded_history.columns for c in req_cols):
+                    graded_history[Cols.DATE] = pd.to_datetime(graded_history[Cols.DATE])
+                    graded_history[Cols.ACTUAL_VAL] = pd.to_numeric(graded_history[Cols.ACTUAL_VAL], errors='coerce')
+                    graded_history[Cols.PREDICTION] = pd.to_numeric(graded_history[Cols.PREDICTION], errors='coerce')
+                    
+                    # Drop rows missing actual results or predictions
+                    graded_history = graded_history.dropna(subset=[Cols.ACTUAL_VAL, Cols.PREDICTION])
+                    
+                    # Calculate Error: Positive = Model Over-predicted, Negative = Model Under-predicted
+                    graded_history['MODEL_ERROR'] = graded_history[Cols.PREDICTION] - graded_history[Cols.ACTUAL_VAL]
+                    graded_history['MODEL_ABS_ERROR'] = graded_history['MODEL_ERROR'].abs()
+                    
+                    graded_history = graded_history.sort_values(Cols.DATE)
+                    
+                    # Group by Player and Prop Type
+                    grp = graded_history.groupby([Cols.PLAYER_ID, Cols.PROP_TYPE])
+                    
+                    # Calculate 10-game rolling MAE and Bias.
+                    # CRITICAL: .shift(1) prevents lookahead leakage (do not use today's error to predict today)
+                    graded_history['PLAYER_HISTORIC_MODEL_BIAS'] = grp['MODEL_ERROR'].transform(lambda x: x.rolling(10, min_periods=1).mean().shift(1))
+                    graded_history['PLAYER_HISTORIC_MODEL_MAE'] = grp['MODEL_ABS_ERROR'].transform(lambda x: x.rolling(10, min_periods=1).mean().shift(1))
+                    
+                    # Pivot so we can merge safely into features_df (which may have multiple stats per row during training)
+                    pivot_history = graded_history.pivot_table(
+                        index=[Cols.DATE, Cols.PLAYER_ID],
+                        columns=Cols.PROP_TYPE,
+                        values=['PLAYER_HISTORIC_MODEL_BIAS', 'PLAYER_HISTORIC_MODEL_MAE']
+                    ).reset_index()
+                    
+                    # Flatten MultiIndex columns -> Creates 'PTS_PLAYER_HISTORIC_MODEL_BIAS', etc.
+                    pivot_history.columns = [f"{col[1]}_{col[0]}" if col[1] else col[0] for col in pivot_history.columns]
+                    
+                    # Merge point-in-time into the main features_df
+                    pivot_history[Cols.DATE] = pd.to_datetime(pivot_history[Cols.DATE])
+                    pivot_history = pivot_history.sort_values(Cols.DATE)
+                    
+                    features_df = pd.merge_asof(
+                        features_df.sort_values(Cols.DATE),
+                        pivot_history,
+                        on=Cols.DATE,
+                        by=Cols.PLAYER_ID,
+                        direction='backward'
+                    )
+                    logging.info("Successfully merged Player-Specific Model Error (Bias & MAE).")
+    except Exception as e:
+        logging.warning(f"Failed to process historical model bias: {e}")
+
     logging.info(f"Feature set built. Final Shape: {features_df.shape}")
     return features_df
