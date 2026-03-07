@@ -23,7 +23,6 @@ def get_system_learning_maps(days_back=21):
     """
     Returns global system biases for retrospective analysis.
     """
-    # UPDATED: Now points to the specific Parquet subdirectory to load historical performance
     graded_files = sorted(cfg.GRADED_PROPS_PARQUET_DIR.glob("graded_props_*.parquet"), reverse=True)
     if not graded_files: return {}, {}
 
@@ -76,11 +75,7 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
         if cv > cfg.MAX_CV_HARD_PASS_OVER or l10_hit_rate < cfg.MIN_L10_HIT_HARD_PASS_OVER:
             return 'Pass / Too Volatile'
     else:
-        # Dynamic CV threshold based on line size for Unders
-        # Low lines (under 10) have a higher CV tolerance since small standard deviations cause huge CV spikes
         dynamic_cv_threshold = getattr(cfg, 'MAX_CV_HARD_PASS_UNDER_LOW_LINE', 0.85) if line < 10.0 else getattr(cfg, 'MAX_CV_HARD_PASS_UNDER_BASE', 0.45)
-        
-        # Removed the L10 hit rate filter for Unders to account for minutes shifts
         if cv > dynamic_cv_threshold:
             return 'Pass / Too Volatile'
 
@@ -144,6 +139,13 @@ def predict_props(todays_props_df):
     
     if Cols.PROP_TYPE not in todays_props_df.columns: return pd.DataFrame()
     
+    # Attempt to load Meta-Model Calibrator
+    meta_artifacts = load_artifacts('META_CALIBRATOR')
+    meta_model = meta_artifacts['model'] if meta_artifacts else None
+    meta_features = meta_artifacts['features'] if meta_artifacts else []
+    if meta_model:
+        logging.info(f"Loaded Meta-Calibrator successfully. {len(meta_features)} features.")
+    
     try: 
         _, cat_mae = get_system_learning_maps(days_back=21)
     except Exception as e: 
@@ -155,7 +157,7 @@ def predict_props(todays_props_df):
     if min_artifacts:
         logging.info("Standalone Minutes model found. Predicting minutes...")
         min_model = min_artifacts['model']
-        min_features = min_artifacts['features']
+        min_features_raw = min_artifacts['features']
         min_scaler = min_artifacts['scaler']
         
         X_raw_mins = todays_props_df.copy()
@@ -163,7 +165,7 @@ def predict_props(todays_props_df):
         inv_map_mins = {v: k for k, v in sanitized_map_mins.items()}
         
         new_features_mins = {}
-        for f in min_features:
+        for f in min_features_raw:
             if f in X_raw_mins.columns: new_features_mins[f] = X_raw_mins[f]
             elif f in inv_map_mins: new_features_mins[f] = X_raw_mins[inv_map_mins[f]]
             else: new_features_mins[f] = np.nan 
@@ -238,16 +240,11 @@ def predict_props(todays_props_df):
                 line = float(row[Cols.PROP_LINE])
                 raw_val = raw_projections[idx]
                 
-                # CRITICAL FIX: The ML model natively understands minutes shifts via its features.
-                # Double-counting a manual minutes ratio causes high-variance blowups for bench players.
-                # We simply trust the tree model's prediction output directly.
                 pred_min = predicted_mins.get(orig_idx, float(row.get('MIN_SZN_AVG', 36.0)))
                 hist_mins = float(row.get('MIN_L10_AVG', pred_min))
                 
                 adjusted_raw = raw_val
                 
-                # 2. Market Consensus Anchor 
-                # (If model is drastically deviating from the sportsbook, anchor it heavily toward the line)
                 if line > 0:
                     gap = abs(adjusted_raw - line) / line
                     if gap > 0.10: 
@@ -257,7 +254,6 @@ def predict_props(todays_props_df):
                 r_avg = float(l5_avgs.iloc[idx]) if not pd.isna(l5_avgs.iloc[idx]) else adjusted_raw
                 raw_std = float(stds.iloc[idx]) if not pd.isna(stds.iloc[idx]) else 1.0
                 
-                # 3. Floor the Standard Deviation to structural NBA baselines (~35% of mean)
                 floor_std = max(line * 0.35, np.sqrt(line))
                 std_dev = max(raw_std, floor_std)
                 
@@ -294,7 +290,6 @@ def predict_props(todays_props_df):
                 
                 historic_mae = cat_mae.get(prop_cat, 1.0)
                 if historic_mae > 1.5:  
-                    # Cap the variance multiplier so it doesn't artificially flatten composite prop distributions
                     variance_multiplier = min(1.0 + (historic_mae * 0.15), 1.5)
                     variance = variance * variance_multiplier
 
@@ -303,13 +298,60 @@ def predict_props(todays_props_df):
                 eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap_final, cv, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, vs_opp_games, s_avg, r_avg, tweedie_power=tweedie_power)
                 if not eval_res: continue
                 
+                base_tier = eval_res['Tier']
+                
                 if days_rest > 7.0 or min_deviation > 0.30:
                     tier_ladder = ['S Tier', 'A Tier', 'B Tier', 'C Tier', 'Pass']
-                    if eval_res['Tier'] in tier_ladder:
-                        current_idx = tier_ladder.index(eval_res['Tier'])
+                    if base_tier in tier_ladder:
+                        current_idx = tier_ladder.index(base_tier)
                         if current_idx < len(tier_ladder) - 2: 
-                            eval_res['Tier'] = tier_ladder[current_idx + 1]
+                            base_tier = tier_ladder[current_idx + 1]
+                            eval_res['Tier'] = base_tier
                 
+                final_tier = base_tier
+                meta_prob = None
+
+                # === APPLY META-MODEL CALIBRATION ===
+                if meta_model is not None and len(meta_features) > 0:
+                    blowout_pot = float(row.get('BLOWOUT_POTENTIAL', 0.0))
+                    if pd.isna(blowout_pot): blowout_pot = 0.0
+                    
+                    matchup_hit_pct = eval_res['Active_VS_Opp_Hit_Rate'] * 100.0 if vs_opp_games > 0 else eval_res['Active_Hit_Rate'] * 100.0
+                    
+                    meta_input_dict = {
+                        'Prob': eval_res['Win_Prob'],
+                        'Consistency_CV': cv,
+                        'Proj': proj,
+                        Cols.PROP_LINE: line,
+                        'Active_Hit%': eval_res['Active_Hit_Rate'] * 100.0,
+                        'Matchup_Hit%': matchup_hit_pct,
+                        'BLOWOUT_POTENTIAL': blowout_pot,
+                        'Delta_Gap_Pct': delta_gap_final
+                    }
+                    
+                    meta_input = pd.DataFrame([meta_input_dict])
+                    
+                    # Ensure features perfectly align
+                    for f in meta_features:
+                        if f not in meta_input.columns:
+                            meta_input[f] = 0.0
+                    meta_input = meta_input[meta_features]
+                    
+                    try:
+                        meta_prob = meta_model.predict_proba(meta_input)[0][1]
+                        
+                        # DYNAMIC TIER ADJUSTMENTS based on Meta-Model Risk Profiles
+                        if base_tier in ['S Tier', 'A Tier'] and meta_prob < 0.45:
+                            final_tier = 'Trap / Fade'
+                        elif base_tier == 'Pass' and meta_prob > 0.65:
+                            final_tier = 'B Tier (Meta Edge)'
+                        elif base_tier == 'A Tier' and meta_prob > 0.70:
+                            final_tier = 'S Tier (Meta Conf)'
+                        elif base_tier == 'B Tier' and meta_prob < 0.50:
+                            final_tier = 'Pass (Meta Low)'
+                    except Exception as e:
+                        logging.warning(f"Meta-model prediction failed for {row.get(Cols.PLAYER_NAME)}: {e}")
+
                 position = row.get('POSITION', row.get('PLAYER_POSITION', row.get('Position', 'UNK')))
 
                 res_dict = {
@@ -326,8 +368,11 @@ def predict_props(todays_props_df):
                     'Consistency_CV': round(cv, 3), 
                     'Active_Hit%': round(eval_res['Active_Hit_Rate'] * 100.0, 1), 
                     'Matchup_Hit%': round(eval_res['Active_VS_Opp_Hit_Rate'] * 100.0, 1) if vs_opp_games > 0 else 'N/A',
-                    'Tier': eval_res['Tier'],
-                    '_Sort_Diff': eval_res['Win_Prob'] 
+                    'Tier': final_tier,
+                    'Base_Tier': base_tier,
+                    'Meta_Prob': round(meta_prob, 3) if meta_prob is not None else 'N/A',
+                    'BLOWOUT_POTENTIAL': round(float(row.get('BLOWOUT_POTENTIAL', 0.0)), 2),
+                    '_Sort_Diff': meta_prob if meta_prob is not None else eval_res['Win_Prob'] 
                 }
                 results.append(res_dict)
 
