@@ -151,6 +151,7 @@ def train_meta_classifier():
     # Save artifacts
     artifacts = {
         'model': meta_model,
+        'scaler': None,
         'features': feature_names,
         'metadata': {'type': 'meta_classifier', 'auc': float(auc)}
     }
