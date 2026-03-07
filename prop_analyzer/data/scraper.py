@@ -129,6 +129,7 @@ TEAMRANKINGS_SLUG_MAP = {
 MASTER_FILE_MAP = {
     "NBA Player Per Game Averages.csv": ("bball_ref", ("https://www.basketball-reference.com/leagues/NBA_{YEAR}_per_game.html", "per_game_stats")),
     "NBA Player Advanced Stats.csv": ("bball_ref", ("https://www.basketball-reference.com/leagues/NBA_{YEAR}_advanced.html", "advanced")),
+    "NBA Player Shooting Stats.csv": ("bball_ref", ("https://www.basketball-reference.com/leagues/NBA_{YEAR}_shooting.html", "shooting")),
 }
 
 def create_robust_session():

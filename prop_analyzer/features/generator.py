@@ -465,6 +465,63 @@ def build_feature_set(props_df):
             median_val = features_df[col].median()
             features_df[col] = features_df[col].fillna(median_val if not pd.isna(median_val) else np.nan)
 
+    # ========================================================================
+    # NEW: SCHEME SYNERGY MATCHUP LOGIC (SHOT LOCATION ENGINE)
+    # ========================================================================
+    logging.info("Merging Shot Location Synergy Stats...")
+    if season_folders:
+        latest_folder = season_folders[-1]
+        szn_id = latest_folder.name
+        shooting_stats_path = cfg.DATA_DIR / f"{szn_id}/NBA Player Shooting Stats.parquet"
+        
+        if shooting_stats_path.exists():
+            shoot_df = pd.read_parquet(shooting_stats_path)
+            
+            shoot_cols = {
+                Cols.PLAYER_ID: Cols.PLAYER_ID, 
+                '0-3': 'FREQ_PAINT',
+                '3P': 'FREQ_3PT'
+            }
+            
+            cols_to_keep = [c for c in shoot_cols.keys() if c in shoot_df.columns]
+            
+            if Cols.PLAYER_ID not in cols_to_keep and 'clean_name' in features_df.columns:
+                if 'Player' in shoot_df.columns:
+                    shoot_df['clean_name'] = shoot_df['Player'].apply(lambda x: str(x).lower().strip())
+                    features_df = pd.merge(features_df, shoot_df[['clean_name'] + [c for c in cols_to_keep if c != Cols.PLAYER_ID]].rename(columns=shoot_cols), on='clean_name', how='left')
+            else:
+                features_df = pd.merge(features_df, shoot_df[cols_to_keep].rename(columns=shoot_cols), on=Cols.PLAYER_ID, how='left')
+                
+            features_df['FREQ_PAINT'] = pd.to_numeric(features_df.get('FREQ_PAINT', 0), errors='coerce').fillna(0.0)
+            features_df['FREQ_3PT'] = pd.to_numeric(features_df.get('FREQ_3PT', 0), errors='coerce').fillna(0.0)
+
+            # 1. Paint Synergy (Player drives vs Team allows Paint Points)
+            if 'OPP_Opponent Points in Paint per Game' in features_df.columns:
+                opp_paint_pts = pd.to_numeric(features_df['OPP_Opponent Points in Paint per Game'], errors='coerce').fillna(45.0)
+                paint_def_multiplier = opp_paint_pts / opp_paint_pts.median() 
+                features_df['SYNERGY_PAINT_EDGE'] = features_df['FREQ_PAINT'] * paint_def_multiplier
+            else:
+                features_df['SYNERGY_PAINT_EDGE'] = 0.0
+
+            # 2. 3PT Synergy (Player shoots 3s vs Team allows 3s)
+            if 'OPP_Opponent Three Pointers Attempted per Game' in features_df.columns:
+                opp_3pa = pd.to_numeric(features_df['OPP_Opponent Three Pointers Attempted per Game'], errors='coerce').fillna(35.0)
+                perimeter_def_multiplier = opp_3pa / opp_3pa.median()
+                features_df['SYNERGY_3PT_EDGE'] = features_df['FREQ_3PT'] * perimeter_def_multiplier
+            else:
+                features_df['SYNERGY_3PT_EDGE'] = 0.0
+                
+            # 3. Overall Scheme Fit
+            features_df['SCHEME_SYNERGY_SCORE'] = features_df['SYNERGY_PAINT_EDGE'] + features_df['SYNERGY_3PT_EDGE']
+        else:
+            features_df['SYNERGY_PAINT_EDGE'] = 0.0
+            features_df['SYNERGY_3PT_EDGE'] = 0.0
+            features_df['SCHEME_SYNERGY_SCORE'] = 0.0
+    else:
+        features_df['SYNERGY_PAINT_EDGE'] = 0.0
+        features_df['SYNERGY_3PT_EDGE'] = 0.0
+        features_df['SCHEME_SYNERGY_SCORE'] = 0.0
+
     # 1. Blowout Potential (Net Rating Mismatch) - NON-LINEAR SCALING
     has_eff = all(c in features_df.columns for c in [
         'TEAM_Offensive Efficiency', 'TEAM_Defensive Efficiency', 
