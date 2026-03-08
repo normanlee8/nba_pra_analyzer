@@ -38,6 +38,32 @@ class PassThroughScaler:
     def fit_transform(self, X, y=None): 
         return self.transform(X)
 
+def get_tweedie_bounds(target_col):
+    """
+    Returns (min, max) bounds for Tweedie variance power based on the prop category.
+    Tailors the search space to the statistical distribution of the specific stat.
+    """
+    target = target_col.upper()
+    
+    # 1. Highly discrete, rare events (Poisson-like)
+    if any(stat in target for stat in ['STL', 'BLK', '3PM', 'TOV']):
+        return 1.01, 1.15
+        
+    # 2. High-volume, closer to Normal distribution
+    elif 'PTS' in target and not any(c in target for c in ['PRA', 'PR', 'PA']):
+        return 1.15, 1.35
+        
+    # 3. Standard counting stats with moderate variance
+    elif any(stat in target for stat in ['REB', 'AST']) and not any(c in target for c in ['PRA', 'RA']):
+        return 1.15, 1.45
+        
+    # 4. Combos (Over-dispersed, compound Poisson-Gamma distributions)
+    elif any(combo in target for combo in ['PRA', 'PR', 'PA', 'RA']):
+        return 1.4, 1.9
+        
+    # Default fallback just in case (e.g., 'MIN')
+    return 1.1, 1.9
+
 def get_feature_cols(prop_cat, all_columns):
     relevant = []
     allowed_prefixes = feat_defs.PROP_FEATURE_MAP.get(prop_cat, [prop_cat])
@@ -134,6 +160,10 @@ def train_ensemble_model(df, target_col):
     def optimize_base_models():
         optuna.logging.set_verbosity(optuna.logging.INFO)
         
+        # Determine specific bounds based on prop category
+        tweedie_min, tweedie_max = get_tweedie_bounds(target_col)
+        logging.info(f"[{target_col}] Setting Tweedie Variance Power bounds to ({tweedie_min}, {tweedie_max})")
+        
         def xgb_objective(trial):
             params = {
                 'n_estimators': trial.suggest_int('n_estimators', 50, 150),
@@ -141,7 +171,7 @@ def train_ensemble_model(df, target_col):
                 'max_depth': trial.suggest_int('max_depth', 3, 6),
                 'subsample': trial.suggest_float('subsample', 0.6, 1.0),
                 'colsample_bytree': trial.suggest_float('colsample_bytree', 0.6, 1.0),
-                'tweedie_variance_power': trial.suggest_float('tweedie_variance_power', 1.1, 1.9)
+                'tweedie_variance_power': trial.suggest_float('tweedie_variance_power', tweedie_min, tweedie_max)
             }
             mod = xgb.XGBRegressor(**params, random_state=42, n_jobs=2, objective='reg:tweedie', tree_method='hist')
             
@@ -164,7 +194,7 @@ def train_ensemble_model(df, target_col):
                 'learning_rate': trial.suggest_float('learning_rate', 0.01, 0.1, log=True),
                 'max_depth': trial.suggest_int('max_depth', 3, 6),
                 'num_leaves': trial.suggest_int('num_leaves', 20, 50),
-                'tweedie_variance_power': trial.suggest_float('tweedie_variance_power', 1.1, 1.9)
+                'tweedie_variance_power': trial.suggest_float('tweedie_variance_power', tweedie_min, tweedie_max)
             }
             mod = lgb.LGBMRegressor(**params, random_state=42, n_jobs=2, objective='tweedie', verbose=-1)
             
