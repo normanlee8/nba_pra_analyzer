@@ -284,8 +284,22 @@ def grade_predictions():
     print_accuracy_report(finished, "Total Props")
     
     if Cols.TIER in finished.columns:
-        # Include our newly established tier 'Trap / High Variance' if any fell into it
-        for tier in ['S Tier', 'A Tier', 'B Tier', 'Trap / High Variance']:
+        # Define a logical order to print the tiers in the console report
+        defined_order = [
+            'S Tier', 'S Tier (Meta Conf)', 
+            'A Tier', 
+            'B Tier', 'B Tier (Meta Edge)', 
+            'C Tier', 
+            'Pass', 'Pass (Meta Low)', 'Pass / Too Volatile', 
+            'Trap / Fade', 'Trap / High Variance'
+        ]
+        
+        present_tiers = finished[Cols.TIER].unique()
+        
+        # Order them based on defined_order, appending any unexpected ones at the end
+        ordered_tiers = [t for t in defined_order if t in present_tiers] + [t for t in present_tiers if t not in defined_order]
+        
+        for tier in ordered_tiers:
             tier_df = finished[finished[Cols.TIER] == tier]
             if not tier_df.empty:
                 print_accuracy_report(tier_df, f"{tier} Props")

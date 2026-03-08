@@ -1434,3 +1434,41 @@ PRA   -0.800000
 PTS   -0.389892
 RA     0.276463
 REB    0.307849
+2026-03-07 20:52:00 [INFO] root: Logging initialized. Writing to logs/grading.log
+2026-03-07 20:52:00 [INFO] root: Loading historical data for grading...
+2026-03-07 20:52:00 [INFO] root: Grading 548 predictions...
+2026-03-07 20:52:05 [INFO] root: ----------------------------------------
+2026-03-07 20:52:05 [INFO] root: >>> GRADING REPORT <<<
+2026-03-07 20:52:05 [INFO] root: Total Props: 54.8% (289/527) [Pushes: 2]
+2026-03-07 20:52:05 [INFO] root: B Tier Props: 81.0% (17/21) [Pushes: 1]
+2026-03-07 20:52:05 [INFO] root: C Tier Props: 48.8% (20/41) [Pushes: 0]
+2026-03-07 20:52:05 [INFO] root: Pass Props: 58.6% (34/58) [Pushes: 0]
+2026-03-07 20:52:05 [INFO] root: Pass / Too Volatile Props: 53.6% (218/407) [Pushes: 1]
+2026-03-07 20:52:05 [INFO] root: >>> CATEGORY HIT RATES <<<
+2026-03-07 20:52:05 [INFO] root: PTS Props: 47.3% (44/93) [Pushes: 0]
+2026-03-07 20:52:05 [INFO] root: REB Props: 63.4% (59/93) [Pushes: 0]
+2026-03-07 20:52:05 [INFO] root: PRA Props: 55.8% (48/86) [Pushes: 0]
+2026-03-07 20:52:05 [INFO] root: PR Props: 47.3% (43/91) [Pushes: 2]
+2026-03-07 20:52:05 [INFO] root: PA Props: 61.0% (50/82) [Pushes: 0]
+2026-03-07 20:52:05 [INFO] root: RA Props: 54.9% (45/82) [Pushes: 0]
+2026-03-07 20:52:05 [INFO] root: ----------------------------------------
+2026-03-07 20:52:05 [INFO] root: Saved graded results for game date: 2026-03-07
+2026-03-07 20:52:05 [INFO] root: >>> GRADING PARLAYS <<<
+2026-03-07 20:52:05 [INFO] root: Parlay Win Rate: 19.1% (13/68)
+2026-03-07 20:52:05 [INFO] root: Parlay ROI: 2.86% (Units Wagered: 70, Units Won: 72.00)
+2026-03-07 20:52:05 [INFO] root: >>> POST-MORTEM SYSTEM ANALYSIS <<<
+2026-03-07 20:52:05 [INFO] root: 
+Highest Average Error by Stat Type:
+Prop Category
+PRA    6.424419
+PR     5.548280
+PA     5.292683
+2026-03-07 20:52:05 [INFO] root: 
+Systematic Bias (Positive = Under-projecting, Negative = Over-projecting):
+Prop Category
+PA    -1.091707
+PR    -0.268280
+PRA   -0.800000
+PTS   -0.389892
+RA     0.276463
+REB    0.307849
