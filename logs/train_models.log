@@ -3188,3 +3188,214 @@
 2026-03-07 16:08:59 [INFO] root: Saved versioned artifacts for PTS to model_PTS_latest.pkl
 2026-03-07 16:08:59 [INFO] root: [PTS] Successfully trained and saved.
 2026-03-07 16:08:59 [INFO] root: ========= ADVANCED PROBABILITY MODEL TRAINING FINISHED in 10:28 minutes =========
+2026-03-07 16:18:21 [INFO] root: Logging initialized. Writing to logs/train_models.log
+2026-03-07 16:18:21 [INFO] root: >>> STARTING ADVANCED PROBABILITY MODEL TRAINING PIPELINE
+2026-03-07 16:18:21 [INFO] root: --- Training Engine: PA ---
+2026-03-07 16:18:21 [INFO] root: Training Probability-Optimized Meta-Ensemble for PA...
+2026-03-07 16:18:22 [INFO] root: [PA] Running Hyperparameter Optimization (Walk-Forward CV)...
+2026-03-07 16:18:22 [INFO] root: [PA] Setting Tweedie Variance Power bounds to (1.4, 1.9)
+2026-03-07 16:19:33 [INFO] root: [PA] Fitting Final Stacking Ensemble on full training data...
+2026-03-07 16:19:43 [INFO] root: [PA] Holdout Metrics - MAE: 1.23, RMSE: 1.72, R2: 0.97
+2026-03-07 16:19:43 [INFO] root: [PA] Calculating Global and Segmented SHAP Feature Importance...
+2026-03-07 16:19:43 [INFO] root: [PA] Global Top 10 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PA_L5_AVG', 'PA_L10_AVG', 'AST_L5_AVG', 'AST_REST_SPLIT_AVG', 'AST_FORM_RATIO', 'PA_L5_STD_DEV', 'AST_L5_STD_DEV']
+2026-03-07 16:19:43 [INFO] root: [PA] SF Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PA_L5_AVG', 'AST_REST_SPLIT_AVG']
+2026-03-07 16:19:43 [INFO] root: [PA] SF Neutralized 76 noise features.
+2026-03-07 16:19:43 [INFO] root: [PA] SG Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PA_L5_AVG', 'PA_L10_AVG']
+2026-03-07 16:19:43 [INFO] root: [PA] SG Neutralized 77 noise features.
+2026-03-07 16:19:43 [INFO] root: [PA] C Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PA_L5_AVG', 'PA_L10_AVG']
+2026-03-07 16:19:43 [INFO] root: [PA] C Neutralized 73 noise features.
+2026-03-07 16:19:43 [INFO] root: [PA] PG Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PA_L5_AVG', 'PA_L10_AVG']
+2026-03-07 16:19:43 [INFO] root: [PA] PG Neutralized 72 noise features.
+2026-03-07 16:19:43 [INFO] root: [PA] PF Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PA_L5_AVG', 'PA_L10_AVG']
+2026-03-07 16:19:43 [INFO] root: [PA] PF Neutralized 77 noise features.
+2026-03-07 16:19:43 [INFO] root: [PA] nan Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PA_L5_AVG', 'PA_L10_AVG']
+2026-03-07 16:19:43 [INFO] root: [PA] nan Neutralized 74 noise features.
+2026-03-07 16:19:43 [INFO] root: [PA] F Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PA_L5_AVG', 'PA_L10_AVG']
+2026-03-07 16:19:43 [INFO] root: [PA] F Neutralized 77 noise features.
+2026-03-07 16:19:43 [INFO] root: [PA] G Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PA_L5_AVG', 'PA_L10_AVG']
+2026-03-07 16:19:43 [INFO] root: [PA] G Neutralized 74 noise features.
+2026-03-07 16:19:43 [INFO] root: Saved versioned artifacts for PA to model_PA_latest.pkl
+2026-03-07 16:19:43 [INFO] root: [PA] Successfully trained and saved.
+2026-03-07 16:19:43 [INFO] root: --- Training Engine: PR ---
+2026-03-07 16:19:43 [INFO] root: Training Probability-Optimized Meta-Ensemble for PR...
+2026-03-07 16:19:43 [INFO] root: [PR] Running Hyperparameter Optimization (Walk-Forward CV)...
+2026-03-07 16:19:43 [INFO] root: [PR] Setting Tweedie Variance Power bounds to (1.4, 1.9)
+2026-03-07 16:20:44 [INFO] root: [PR] Fitting Final Stacking Ensemble on full training data...
+2026-03-07 16:20:51 [INFO] root: [PR] Holdout Metrics - MAE: 1.54, RMSE: 2.08, R2: 0.96
+2026-03-07 16:20:51 [INFO] root: [PR] Calculating Global and Segmented SHAP Feature Importance...
+2026-03-07 16:20:51 [INFO] root: [PR] Global Top 10 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PR_L5_AVG', 'REB_L5_AVG', 'PR_L10_AVG', 'REB_REST_SPLIT_AVG', 'REB_FORM_RATIO', 'PR_L5_STD_DEV', 'REB_L10_AVG']
+2026-03-07 16:20:51 [INFO] root: [PR] SF Top 5 Features: ['TS_PCT', 'USG_PROXY_PER36', 'USG_PROXY', 'PR_L5_AVG', 'REB_L5_AVG']
+2026-03-07 16:20:51 [INFO] root: [PR] SF Neutralized 72 noise features.
+2026-03-07 16:20:51 [INFO] root: [PR] SG Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PR_L5_AVG', 'REB_L5_AVG']
+2026-03-07 16:20:51 [INFO] root: [PR] SG Neutralized 74 noise features.
+2026-03-07 16:20:51 [INFO] root: [PR] C Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PR_L5_AVG', 'REB_L5_AVG']
+2026-03-07 16:20:51 [INFO] root: [PR] C Neutralized 67 noise features.
+2026-03-07 16:20:51 [INFO] root: [PR] PG Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PR_L5_AVG', 'REB_L5_AVG']
+2026-03-07 16:20:51 [INFO] root: [PR] PG Neutralized 73 noise features.
+2026-03-07 16:20:51 [INFO] root: [PR] PF Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PR_L5_AVG', 'REB_L5_AVG']
+2026-03-07 16:20:51 [INFO] root: [PR] PF Neutralized 73 noise features.
+2026-03-07 16:20:52 [INFO] root: [PR] nan Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PR_L5_AVG', 'REB_L5_AVG']
+2026-03-07 16:20:52 [INFO] root: [PR] nan Neutralized 73 noise features.
+2026-03-07 16:20:52 [INFO] root: [PR] F Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PR_L5_AVG', 'REB_L5_AVG']
+2026-03-07 16:20:52 [INFO] root: [PR] F Neutralized 73 noise features.
+2026-03-07 16:20:52 [INFO] root: [PR] G Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PR_L5_AVG', 'REB_L5_AVG']
+2026-03-07 16:20:52 [INFO] root: [PR] G Neutralized 72 noise features.
+2026-03-07 16:20:52 [INFO] root: Saved versioned artifacts for PR to model_PR_latest.pkl
+2026-03-07 16:20:52 [INFO] root: [PR] Successfully trained and saved.
+2026-03-07 16:20:52 [INFO] root: --- Training Engine: REB ---
+2026-03-07 16:20:52 [INFO] root: Training Probability-Optimized Meta-Ensemble for REB...
+2026-03-07 16:20:52 [INFO] root: [REB] Running Hyperparameter Optimization (Walk-Forward CV)...
+2026-03-07 16:20:52 [INFO] root: [REB] Setting Tweedie Variance Power bounds to (1.15, 1.45)
+2026-03-07 16:21:57 [INFO] root: [REB] Fitting Final Stacking Ensemble on full training data...
+2026-03-07 16:22:06 [INFO] root: [REB] Holdout Metrics - MAE: 1.07, RMSE: 1.45, R2: 0.81
+2026-03-07 16:22:06 [INFO] root: [REB] Calculating Global and Segmented SHAP Feature Importance...
+2026-03-07 16:22:06 [INFO] root: [REB] Global Top 10 Features: ['REB_L5_AVG', 'USG_PROXY_PER36', 'REB_REST_SPLIT_AVG', 'USG_PROXY', 'REB_FORM_RATIO', 'REB_L5_STD_DEV', 'TS_PCT', 'REB_L10_AVG', 'MIN_L5_CV', 'REB_L5_CV']
+2026-03-07 16:22:06 [INFO] root: [REB] SF Top 5 Features: ['REB_L5_AVG', 'USG_PROXY_PER36', 'REB_REST_SPLIT_AVG', 'USG_PROXY', 'REB_FORM_RATIO']
+2026-03-07 16:22:06 [INFO] root: [REB] SF Neutralized 49 noise features.
+2026-03-07 16:22:06 [INFO] root: [REB] SG Top 5 Features: ['REB_L5_AVG', 'USG_PROXY_PER36', 'REB_REST_SPLIT_AVG', 'USG_PROXY', 'REB_FORM_RATIO']
+2026-03-07 16:22:06 [INFO] root: [REB] SG Neutralized 51 noise features.
+2026-03-07 16:22:06 [INFO] root: [REB] C Top 5 Features: ['REB_L5_AVG', 'USG_PROXY_PER36', 'REB_REST_SPLIT_AVG', 'USG_PROXY', 'REB_FORM_RATIO']
+2026-03-07 16:22:06 [INFO] root: [REB] C Neutralized 58 noise features.
+2026-03-07 16:22:06 [INFO] root: [REB] PG Top 5 Features: ['REB_L5_AVG', 'REB_REST_SPLIT_AVG', 'USG_PROXY_PER36', 'USG_PROXY', 'REB_FORM_RATIO']
+2026-03-07 16:22:06 [INFO] root: [REB] PG Neutralized 50 noise features.
+2026-03-07 16:22:06 [INFO] root: [REB] PF Top 5 Features: ['REB_L5_AVG', 'USG_PROXY_PER36', 'REB_REST_SPLIT_AVG', 'USG_PROXY', 'REB_FORM_RATIO']
+2026-03-07 16:22:06 [INFO] root: [REB] PF Neutralized 53 noise features.
+2026-03-07 16:22:06 [INFO] root: [REB] nan Top 5 Features: ['REB_L5_AVG', 'USG_PROXY_PER36', 'REB_REST_SPLIT_AVG', 'USG_PROXY', 'REB_FORM_RATIO']
+2026-03-07 16:22:06 [INFO] root: [REB] nan Neutralized 51 noise features.
+2026-03-07 16:22:06 [INFO] root: [REB] F Top 5 Features: ['REB_L5_AVG', 'USG_PROXY_PER36', 'REB_REST_SPLIT_AVG', 'USG_PROXY', 'REB_FORM_RATIO']
+2026-03-07 16:22:06 [INFO] root: [REB] F Neutralized 48 noise features.
+2026-03-07 16:22:07 [INFO] root: [REB] G Top 5 Features: ['REB_L5_AVG', 'USG_PROXY_PER36', 'REB_REST_SPLIT_AVG', 'REB_FORM_RATIO', 'USG_PROXY']
+2026-03-07 16:22:07 [INFO] root: [REB] G Neutralized 51 noise features.
+2026-03-07 16:22:07 [INFO] root: Saved versioned artifacts for REB to model_REB_latest.pkl
+2026-03-07 16:22:07 [INFO] root: [REB] Successfully trained and saved.
+2026-03-07 16:22:07 [INFO] root: --- Training Engine: PTS ---
+2026-03-07 16:22:07 [INFO] root: Training Probability-Optimized Meta-Ensemble for PTS...
+2026-03-07 16:22:07 [INFO] root: [PTS] Running Hyperparameter Optimization (Walk-Forward CV)...
+2026-03-07 16:22:07 [INFO] root: [PTS] Setting Tweedie Variance Power bounds to (1.15, 1.35)
+2026-03-07 16:23:17 [INFO] root: [PTS] Fitting Final Stacking Ensemble on full training data...
+2026-03-07 16:23:26 [INFO] root: [PTS] Holdout Metrics - MAE: 0.89, RMSE: 1.28, R2: 0.98
+2026-03-07 16:23:26 [INFO] root: [PTS] Calculating Global and Segmented SHAP Feature Importance...
+2026-03-07 16:23:26 [INFO] root: [PTS] Global Top 10 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PTS_L5_AVG', 'PTS_L10_AVG', 'PTS_L5_STD_DEV', 'PA_L5_AVG', 'PRA_L5_AVG', 'PTS_REST_SPLIT_AVG', 'PR_L5_AVG']
+2026-03-07 16:23:26 [INFO] root: [PTS] SF Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PTS_L5_AVG', 'PTS_L10_AVG']
+2026-03-07 16:23:26 [INFO] root: [PTS] SF Neutralized 100 noise features.
+2026-03-07 16:23:26 [INFO] root: [PTS] SG Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PTS_L5_AVG', 'PTS_L10_AVG']
+2026-03-07 16:23:26 [INFO] root: [PTS] SG Neutralized 99 noise features.
+2026-03-07 16:23:26 [INFO] root: [PTS] C Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PTS_L5_AVG', 'PTS_L10_AVG']
+2026-03-07 16:23:26 [INFO] root: [PTS] C Neutralized 98 noise features.
+2026-03-07 16:23:26 [INFO] root: [PTS] PG Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PTS_L5_AVG', 'PTS_L10_AVG']
+2026-03-07 16:23:26 [INFO] root: [PTS] PG Neutralized 100 noise features.
+2026-03-07 16:23:26 [INFO] root: [PTS] PF Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PTS_L5_AVG', 'PTS_L10_AVG']
+2026-03-07 16:23:26 [INFO] root: [PTS] PF Neutralized 100 noise features.
+2026-03-07 16:23:26 [INFO] root: [PTS] nan Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PTS_L5_AVG', 'PTS_L10_AVG']
+2026-03-07 16:23:26 [INFO] root: [PTS] nan Neutralized 99 noise features.
+2026-03-07 16:23:26 [INFO] root: [PTS] F Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PTS_L5_AVG', 'PTS_L10_AVG']
+2026-03-07 16:23:26 [INFO] root: [PTS] F Neutralized 99 noise features.
+2026-03-07 16:23:26 [INFO] root: [PTS] G Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PTS_L5_AVG', 'PTS_L10_AVG']
+2026-03-07 16:23:26 [INFO] root: [PTS] G Neutralized 100 noise features.
+2026-03-07 16:23:26 [INFO] root: Saved versioned artifacts for PTS to model_PTS_latest.pkl
+2026-03-07 16:23:26 [INFO] root: [PTS] Successfully trained and saved.
+2026-03-07 16:23:26 [INFO] root: --- Training Engine: MIN ---
+2026-03-07 16:23:26 [INFO] root: Training Probability-Optimized Meta-Ensemble for MIN...
+2026-03-07 16:23:26 [INFO] root: [MIN] Running Hyperparameter Optimization (Walk-Forward CV)...
+2026-03-07 16:23:26 [INFO] root: [MIN] Setting Tweedie Variance Power bounds to (1.1, 1.9)
+2026-03-07 16:24:26 [INFO] root: [MIN] Fitting Final Stacking Ensemble on full training data...
+2026-03-07 16:24:32 [INFO] root: [MIN] Holdout Metrics - MAE: 0.64, RMSE: 0.91, R2: 0.99
+2026-03-07 16:24:32 [INFO] root: [MIN] Calculating Global and Segmented SHAP Feature Importance...
+2026-03-07 16:24:32 [INFO] root: [MIN] Global Top 10 Features: ['USG_PROXY_PER36', 'USG_PROXY', 'MIN_L5_AVG', 'TS_PCT', 'MIN_L5_CV', 'MIN_L10_CV', 'MIN_L10_AVG', 'MIN_L5_STD_DEV', 'MIN_REST_SPLIT_AVG', 'USG_PROXY_L20_STD_DEV']
+2026-03-07 16:24:32 [INFO] root: [MIN] SF Top 5 Features: ['USG_PROXY_PER36', 'MIN_L5_AVG', 'USG_PROXY', 'TS_PCT', 'MIN_L5_CV']
+2026-03-07 16:24:32 [INFO] root: [MIN] SF Neutralized 74 noise features.
+2026-03-07 16:24:32 [INFO] root: [MIN] SG Top 5 Features: ['USG_PROXY_PER36', 'USG_PROXY', 'MIN_L5_AVG', 'TS_PCT', 'MIN_L5_CV']
+2026-03-07 16:24:32 [INFO] root: [MIN] SG Neutralized 75 noise features.
+2026-03-07 16:24:32 [INFO] root: [MIN] C Top 5 Features: ['USG_PROXY_PER36', 'USG_PROXY', 'MIN_L5_AVG', 'MIN_L5_CV', 'TS_PCT']
+2026-03-07 16:24:32 [INFO] root: [MIN] C Neutralized 75 noise features.
+2026-03-07 16:24:32 [INFO] root: [MIN] PG Top 5 Features: ['USG_PROXY_PER36', 'USG_PROXY', 'MIN_L5_AVG', 'TS_PCT', 'MIN_L5_CV']
+2026-03-07 16:24:32 [INFO] root: [MIN] PG Neutralized 74 noise features.
+2026-03-07 16:24:33 [INFO] root: [MIN] PF Top 5 Features: ['USG_PROXY_PER36', 'USG_PROXY', 'MIN_L5_AVG', 'TS_PCT', 'MIN_L5_CV']
+2026-03-07 16:24:33 [INFO] root: [MIN] PF Neutralized 74 noise features.
+2026-03-07 16:24:33 [INFO] root: [MIN] nan Top 5 Features: ['USG_PROXY_PER36', 'USG_PROXY', 'MIN_L5_AVG', 'TS_PCT', 'MIN_L5_CV']
+2026-03-07 16:24:33 [INFO] root: [MIN] nan Neutralized 75 noise features.
+2026-03-07 16:24:33 [INFO] root: [MIN] F Top 5 Features: ['USG_PROXY_PER36', 'USG_PROXY', 'MIN_L5_AVG', 'TS_PCT', 'MIN_L5_CV']
+2026-03-07 16:24:33 [INFO] root: [MIN] F Neutralized 75 noise features.
+2026-03-07 16:24:33 [INFO] root: [MIN] G Top 5 Features: ['USG_PROXY_PER36', 'USG_PROXY', 'MIN_L5_AVG', 'TS_PCT', 'MIN_L5_CV']
+2026-03-07 16:24:33 [INFO] root: [MIN] G Neutralized 76 noise features.
+2026-03-07 16:24:33 [INFO] root: Saved versioned artifacts for MIN to model_MIN_latest.pkl
+2026-03-07 16:24:33 [INFO] root: [MIN] Successfully trained and saved.
+2026-03-07 16:24:33 [INFO] root: --- Training Engine: RA ---
+2026-03-07 16:24:33 [INFO] root: Training Probability-Optimized Meta-Ensemble for RA...
+2026-03-07 16:24:33 [INFO] root: [RA] Running Hyperparameter Optimization (Walk-Forward CV)...
+2026-03-07 16:24:33 [INFO] root: [RA] Setting Tweedie Variance Power bounds to (1.4, 1.9)
+2026-03-07 16:25:41 [INFO] root: [RA] Fitting Final Stacking Ensemble on full training data...
+2026-03-07 16:25:48 [INFO] root: [RA] Holdout Metrics - MAE: 1.46, RMSE: 1.99, R2: 0.81
+2026-03-07 16:25:48 [INFO] root: [RA] Calculating Global and Segmented SHAP Feature Importance...
+2026-03-07 16:25:49 [INFO] root: [RA] Global Top 10 Features: ['RA_L5_AVG', 'USG_PROXY_PER36', 'USG_PROXY', 'REB_REST_SPLIT_AVG', 'TS_PCT', 'RA_FORM_RATIO', 'RA_L5_STD_DEV', 'AST_REST_SPLIT_AVG', 'MIN_L5_CV', 'RA_L20_AVG']
+2026-03-07 16:25:49 [INFO] root: [RA] SF Top 5 Features: ['RA_L5_AVG', 'USG_PROXY_PER36', 'USG_PROXY', 'REB_REST_SPLIT_AVG', 'TS_PCT']
+2026-03-07 16:25:49 [INFO] root: [RA] SF Neutralized 51 noise features.
+2026-03-07 16:25:49 [INFO] root: [RA] SG Top 5 Features: ['RA_L5_AVG', 'USG_PROXY_PER36', 'USG_PROXY', 'REB_REST_SPLIT_AVG', 'TS_PCT']
+2026-03-07 16:25:49 [INFO] root: [RA] SG Neutralized 53 noise features.
+2026-03-07 16:25:49 [INFO] root: [RA] C Top 5 Features: ['RA_L5_AVG', 'USG_PROXY_PER36', 'USG_PROXY', 'REB_REST_SPLIT_AVG', 'TS_PCT']
+2026-03-07 16:25:49 [INFO] root: [RA] C Neutralized 50 noise features.
+2026-03-07 16:25:49 [INFO] root: [RA] PG Top 5 Features: ['RA_L5_AVG', 'USG_PROXY_PER36', 'USG_PROXY', 'REB_REST_SPLIT_AVG', 'TS_PCT']
+2026-03-07 16:25:49 [INFO] root: [RA] PG Neutralized 55 noise features.
+2026-03-07 16:25:49 [INFO] root: [RA] PF Top 5 Features: ['RA_L5_AVG', 'USG_PROXY_PER36', 'USG_PROXY', 'REB_REST_SPLIT_AVG', 'TS_PCT']
+2026-03-07 16:25:49 [INFO] root: [RA] PF Neutralized 50 noise features.
+2026-03-07 16:25:49 [INFO] root: [RA] nan Top 5 Features: ['RA_L5_AVG', 'USG_PROXY_PER36', 'USG_PROXY', 'REB_REST_SPLIT_AVG', 'TS_PCT']
+2026-03-07 16:25:49 [INFO] root: [RA] nan Neutralized 54 noise features.
+2026-03-07 16:25:49 [INFO] root: [RA] F Top 5 Features: ['RA_L5_AVG', 'USG_PROXY_PER36', 'USG_PROXY', 'REB_REST_SPLIT_AVG', 'RA_FORM_RATIO']
+2026-03-07 16:25:49 [INFO] root: [RA] F Neutralized 49 noise features.
+2026-03-07 16:25:49 [INFO] root: [RA] G Top 5 Features: ['RA_L5_AVG', 'USG_PROXY_PER36', 'USG_PROXY', 'REB_REST_SPLIT_AVG', 'RA_FORM_RATIO']
+2026-03-07 16:25:49 [INFO] root: [RA] G Neutralized 51 noise features.
+2026-03-07 16:25:49 [INFO] root: Saved versioned artifacts for RA to model_RA_latest.pkl
+2026-03-07 16:25:49 [INFO] root: [RA] Successfully trained and saved.
+2026-03-07 16:25:49 [INFO] root: --- Training Engine: PRA ---
+2026-03-07 16:25:49 [INFO] root: Training Probability-Optimized Meta-Ensemble for PRA...
+2026-03-07 16:25:49 [INFO] root: [PRA] Running Hyperparameter Optimization (Walk-Forward CV)...
+2026-03-07 16:25:49 [INFO] root: [PRA] Setting Tweedie Variance Power bounds to (1.4, 1.9)
+2026-03-07 16:27:05 [INFO] root: [PRA] Fitting Final Stacking Ensemble on full training data...
+2026-03-07 16:27:14 [INFO] root: [PRA] Holdout Metrics - MAE: 1.62, RMSE: 2.18, R2: 0.96
+2026-03-07 16:27:14 [INFO] root: [PRA] Calculating Global and Segmented SHAP Feature Importance...
+2026-03-07 16:27:14 [INFO] root: [PRA] Global Top 10 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PRA_L5_AVG', 'RA_L5_AVG', 'PRA_L10_AVG', 'PA_L5_AVG', 'REB_REST_SPLIT_AVG', 'RA_FORM_RATIO', 'PRA_L5_STD_DEV']
+2026-03-07 16:27:14 [INFO] root: [PRA] SF Top 5 Features: ['TS_PCT', 'USG_PROXY_PER36', 'USG_PROXY', 'PRA_L5_AVG', 'RA_L5_AVG']
+2026-03-07 16:27:14 [INFO] root: [PRA] SF Neutralized 79 noise features.
+2026-03-07 16:27:14 [INFO] root: [PRA] SG Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PRA_L5_AVG', 'RA_L5_AVG']
+2026-03-07 16:27:14 [INFO] root: [PRA] SG Neutralized 82 noise features.
+2026-03-07 16:27:14 [INFO] root: [PRA] C Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PRA_L5_AVG', 'RA_L5_AVG']
+2026-03-07 16:27:14 [INFO] root: [PRA] C Neutralized 73 noise features.
+2026-03-07 16:27:14 [INFO] root: [PRA] PG Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PRA_L5_AVG', 'RA_L5_AVG']
+2026-03-07 16:27:14 [INFO] root: [PRA] PG Neutralized 83 noise features.
+2026-03-07 16:27:14 [INFO] root: [PRA] PF Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PRA_L5_AVG', 'RA_L5_AVG']
+2026-03-07 16:27:14 [INFO] root: [PRA] PF Neutralized 77 noise features.
+2026-03-07 16:27:14 [INFO] root: [PRA] nan Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PRA_L5_AVG', 'RA_L5_AVG']
+2026-03-07 16:27:14 [INFO] root: [PRA] nan Neutralized 81 noise features.
+2026-03-07 16:27:14 [INFO] root: [PRA] F Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PRA_L5_AVG', 'RA_L5_AVG']
+2026-03-07 16:27:14 [INFO] root: [PRA] F Neutralized 81 noise features.
+2026-03-07 16:27:14 [INFO] root: [PRA] G Top 5 Features: ['TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 'PRA_L5_AVG', 'RA_L5_AVG']
+2026-03-07 16:27:14 [INFO] root: [PRA] G Neutralized 81 noise features.
+2026-03-07 16:27:14 [INFO] root: Saved versioned artifacts for PRA to model_PRA_latest.pkl
+2026-03-07 16:27:14 [INFO] root: [PRA] Successfully trained and saved.
+2026-03-07 16:27:14 [INFO] root: --- Training Engine: AST ---
+2026-03-07 16:27:14 [INFO] root: Training Probability-Optimized Meta-Ensemble for AST...
+2026-03-07 16:27:14 [INFO] root: [AST] Running Hyperparameter Optimization (Walk-Forward CV)...
+2026-03-07 16:27:14 [INFO] root: [AST] Setting Tweedie Variance Power bounds to (1.15, 1.45)
+2026-03-07 16:28:19 [INFO] root: [AST] Fitting Final Stacking Ensemble on full training data...
+2026-03-07 16:28:25 [INFO] root: [AST] Holdout Metrics - MAE: 0.87, RMSE: 1.20, R2: 0.77
+2026-03-07 16:28:25 [INFO] root: [AST] Calculating Global and Segmented SHAP Feature Importance...
+2026-03-07 16:28:26 [INFO] root: [AST] Global Top 10 Features: ['AST_L5_AVG', 'AST_REST_SPLIT_AVG', 'USG_PROXY_PER36', 'AST_FORM_RATIO', 'AST_L10_AVG', 'AST_L5_STD_DEV', 'USG_PROXY', 'TS_PCT', 'AST_L10_STD_DEV', 'AST_L5_CV']
+2026-03-07 16:28:26 [INFO] root: [AST] SF Top 5 Features: ['AST_REST_SPLIT_AVG', 'AST_L5_AVG', 'USG_PROXY_PER36', 'AST_L5_STD_DEV', 'AST_FORM_RATIO']
+2026-03-07 16:28:26 [INFO] root: [AST] SF Neutralized 62 noise features.
+2026-03-07 16:28:26 [INFO] root: [AST] SG Top 5 Features: ['AST_REST_SPLIT_AVG', 'AST_L5_AVG', 'USG_PROXY_PER36', 'AST_FORM_RATIO', 'AST_L10_AVG']
+2026-03-07 16:28:26 [INFO] root: [AST] SG Neutralized 49 noise features.
+2026-03-07 16:28:26 [INFO] root: [AST] C Top 5 Features: ['AST_REST_SPLIT_AVG', 'AST_L5_AVG', 'USG_PROXY_PER36', 'AST_FORM_RATIO', 'AST_L10_AVG']
+2026-03-07 16:28:26 [INFO] root: [AST] C Neutralized 58 noise features.
+2026-03-07 16:28:26 [INFO] root: [AST] PG Top 5 Features: ['AST_L5_AVG', 'AST_REST_SPLIT_AVG', 'USG_PROXY_PER36', 'AST_L10_AVG', 'AST_L5_STD_DEV']
+2026-03-07 16:28:26 [INFO] root: [AST] PG Neutralized 55 noise features.
+2026-03-07 16:28:26 [INFO] root: [AST] PF Top 5 Features: ['AST_REST_SPLIT_AVG', 'AST_L5_AVG', 'USG_PROXY_PER36', 'AST_FORM_RATIO', 'AST_L10_AVG']
+2026-03-07 16:28:26 [INFO] root: [AST] PF Neutralized 61 noise features.
+2026-03-07 16:28:26 [INFO] root: [AST] nan Top 5 Features: ['AST_L5_AVG', 'AST_REST_SPLIT_AVG', 'USG_PROXY_PER36', 'AST_FORM_RATIO', 'AST_L5_STD_DEV']
+2026-03-07 16:28:26 [INFO] root: [AST] nan Neutralized 53 noise features.
+2026-03-07 16:28:26 [INFO] root: [AST] F Top 5 Features: ['AST_L5_AVG', 'AST_REST_SPLIT_AVG', 'USG_PROXY_PER36', 'AST_FORM_RATIO', 'AST_L10_AVG']
+2026-03-07 16:28:26 [INFO] root: [AST] F Neutralized 50 noise features.
+2026-03-07 16:28:26 [INFO] root: [AST] G Top 5 Features: ['AST_L5_AVG', 'USG_PROXY_PER36', 'AST_REST_SPLIT_AVG', 'AST_FORM_RATIO', 'AST_L10_AVG']
+2026-03-07 16:28:26 [INFO] root: [AST] G Neutralized 56 noise features.
+2026-03-07 16:28:26 [INFO] root: Saved versioned artifacts for AST to model_AST_latest.pkl
+2026-03-07 16:28:26 [INFO] root: [AST] Successfully trained and saved.
+2026-03-07 16:28:26 [INFO] root: ========= ADVANCED PROBABILITY MODEL TRAINING FINISHED in 10:04 minutes =========

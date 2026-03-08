@@ -36,6 +36,9 @@ BASE_FEATURE_COLS = [
     'TEAM_MISSING_USG', 'TEAM_MISSING_MIN', 
     'MISSING_USG_G', 'MISSING_USG_F', 'MISSING_USG_C',
     'TEAM_MISSING_AST_PCT', 'TEAM_MISSING_REB_PCT',
+    
+    # ---> NEW: Foul Trouble Engine <---
+    'FOUL_RISK_PER_100', 'OPP_FOUL_DRAW_RATE', 'FOUL_TROUBLE_VULNERABILITY',
 
     # --- ADVANCED SCRAPED STATS ---
     # Rebounding Context
@@ -77,7 +80,7 @@ HIST_FEATURES = [
 # --- MAPPINGS ---
 PROP_FEATURE_MAP = {
     'PTS': ['PTS', 'PRA', 'PR', 'PA', 'USG_PROXY', 'TS_PCT', 'GAME_PACE', 'OPP_GAME_PACE',
-            'PTS_SPLIT_AVG', 'PTS_DIFF', 'MIN_SPLIT_AVG',
+            'PTS_SPLIT_AVG', 'PTS_DIFF', 'MIN_SPLIT_AVG', 'FOUL_TROUBLE_VULNERABILITY',
             'OPP_Opponent Points in Paint per Game', 'OPP_Opponent Percent of Points from 3 Pointers',
             'OPP_Opponent Personal Fouls per Game', 'OPP_Opponent Fastbreak Points per Game',
             'TEAM_Extra Scoring Chances per Game', 'OPP_Extra Scoring Chances per Game',
@@ -85,7 +88,7 @@ PROP_FEATURE_MAP = {
             'SCHEME_SYNERGY_SCORE', 'SYNERGY_PAINT_EDGE', 'SYNERGY_3PT_EDGE'], 
             
     'REB': ['REB', 'PRA', 'PR', 'RA', 'GAME_PACE', 'OPP_GAME_PACE',
-            'REB_SPLIT_AVG', 'REB_DIFF', 'MIN_SPLIT_AVG',
+            'REB_SPLIT_AVG', 'REB_DIFF', 'MIN_SPLIT_AVG', 'FOUL_TROUBLE_VULNERABILITY',
             'OPP_Opponent Effective Field Goal %', 'OPP_Opponent True Shooting %',
             'TEAM_Field Goals Attempted per Game', 'OPP_Field Goals Attempted per Game',
             'TEAM_Three Pointers Attempted per Game', 'OPP_Three Pointers Attempted per Game',
@@ -94,13 +97,13 @@ PROP_FEATURE_MAP = {
             'FREQ_PAINT'], 
             
     'AST': ['AST', 'PRA', 'PA', 'RA', 'GAME_PACE', 'OPP_GAME_PACE',
-            'AST_SPLIT_AVG', 'AST_DIFF', 'MIN_SPLIT_AVG',
+            'AST_SPLIT_AVG', 'AST_DIFF', 'MIN_SPLIT_AVG', 'FOUL_TROUBLE_VULNERABILITY',
             'TEAM_Assists per FGM', 'OPP_Opponent Assists per FGM', 'TEAM_Assist to Turnover Ratio',
             'TEAM_Points per Game', 'OPP_Opponent Points per Game',
             'FREQ_PAINT'], 
             
     'PRA': ['PRA', 'PTS', 'REB', 'AST', 'PR', 'PA', 'RA', 'GAME_PACE', 'OPP_GAME_PACE',
-            'PRA_SPLIT_AVG', 'PRA_DIFF', 'MIN_SPLIT_AVG',
+            'PRA_SPLIT_AVG', 'PRA_DIFF', 'MIN_SPLIT_AVG', 'FOUL_TROUBLE_VULNERABILITY',
             'TEAM_Extra Scoring Chances per Game', 'OPP_Extra Scoring Chances per Game',
             'OPP_Opponent Points + Rebounds + Assists per Game',
             'TEAM_Points per Game', 'OPP_Opponent Points per Game',
@@ -108,7 +111,7 @@ PROP_FEATURE_MAP = {
             'SCHEME_SYNERGY_SCORE', 'SYNERGY_PAINT_EDGE', 'SYNERGY_3PT_EDGE'],
             
     'PR':  ['PR', 'PTS', 'REB', 'PRA', 'GAME_PACE', 'OPP_GAME_PACE',
-            'PR_SPLIT_AVG', 'PR_DIFF', 'MIN_SPLIT_AVG',
+            'PR_SPLIT_AVG', 'PR_DIFF', 'MIN_SPLIT_AVG', 'FOUL_TROUBLE_VULNERABILITY',
             'OPP_Opponent Points in Paint per Game', 'OPP_Opponent Effective Field Goal %',
             'TEAM_Extra Scoring Chances per Game',
             'TEAM_Points per Game', 'OPP_Opponent Points per Game',
@@ -116,14 +119,14 @@ PROP_FEATURE_MAP = {
             'SCHEME_SYNERGY_SCORE', 'SYNERGY_PAINT_EDGE', 'SYNERGY_3PT_EDGE'],
             
     'PA':  ['PA', 'PTS', 'AST', 'PRA', 'GAME_PACE', 'OPP_GAME_PACE',
-            'PA_SPLIT_AVG', 'PA_DIFF', 'MIN_SPLIT_AVG',
+            'PA_SPLIT_AVG', 'PA_DIFF', 'MIN_SPLIT_AVG', 'FOUL_TROUBLE_VULNERABILITY',
             'OPP_Opponent Points + Assists per Game', 'OPP_Opponent Assists per FGM',
             'TEAM_Extra Scoring Chances per Game',
             'TEAM_Points per Game', 'OPP_Opponent Points per Game',
             'SCHEME_SYNERGY_SCORE', 'SYNERGY_PAINT_EDGE', 'SYNERGY_3PT_EDGE'],
             
     'RA':  ['RA', 'REB', 'AST', 'PRA', 'GAME_PACE', 'OPP_GAME_PACE',
-            'RA_SPLIT_AVG', 'RA_DIFF', 'MIN_SPLIT_AVG',
+            'RA_SPLIT_AVG', 'RA_DIFF', 'MIN_SPLIT_AVG', 'FOUL_TROUBLE_VULNERABILITY',
             'OPP_Opponent Effective Field Goal %', 'OPP_Opponent Assists per FGM',
             'TEAM_Total Rebounds per Game', 'OPP_Opponent Total Rebounds per Game',
             'FREQ_PAINT'],

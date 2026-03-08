@@ -604,11 +604,26 @@ def build_feature_set(props_df):
     else:
         features_df['BLOWOUT_POTENTIAL'] = np.nan
 
-    # 2. Foul Trouble Risk (Now properly driven by PBPStats play-by-play ratios)
+    # 2. Foul Trouble Risk & Matchup Interaction
     if 'OPP_Opponent Personal Fouls per Game' in features_df.columns:
         features_df['OPP_FOUL_DRAW_RATE'] = pd.to_numeric(features_df['OPP_Opponent Personal Fouls per Game'], errors='coerce').fillna(np.nan)
     else:
         features_df['OPP_FOUL_DRAW_RATE'] = np.nan
+
+    # ---> NEW: Explicit Foul Matchup Vulnerability Term <---
+    if 'FOUL_RISK_PER_100' in features_df.columns and 'OPP_FOUL_DRAW_RATE' in features_df.columns:
+        # Calculate the median foul draw rate to create a baseline multiplier
+        median_foul_draw = features_df['OPP_FOUL_DRAW_RATE'].median()
+        if pd.isna(median_foul_draw) or median_foul_draw <= 0:
+            median_foul_draw = 20.0 # Standard NBA fallback average
+            
+        # Create an opponent multiplier (e.g., Embiid's 76ers might be 1.15, a passive team 0.85)
+        foul_draw_multiplier = features_df['OPP_FOUL_DRAW_RATE'] / median_foul_draw
+        
+        # Interaction Term: Player's inherent foul risk scaled by the opponent's whistle tendency
+        features_df['FOUL_TROUBLE_VULNERABILITY'] = features_df['FOUL_RISK_PER_100'].fillna(0.0) * foul_draw_multiplier.fillna(1.0)
+    else:
+        features_df['FOUL_TROUBLE_VULNERABILITY'] = 0.0
 
     # 3. Conditioned Usage Proxy (Proportional Distribution)
     usg_col = f'USG_PROXY_{Cols.SZN_AVG}'
