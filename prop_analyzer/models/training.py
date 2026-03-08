@@ -69,8 +69,7 @@ def get_feature_cols(prop_cat, all_columns):
     allowed_prefixes = feat_defs.PROP_FEATURE_MAP.get(prop_cat, [prop_cat])
     
     for base_feat in feat_defs.BASE_FEATURE_COLS:
-        if base_feat in all_columns:
-            relevant.append(base_feat)
+        # TARGET LEAKAGE FIX: Do NOT append raw base_feat (prevents current-game counting stats from leaking)
         for prefix in allowed_prefixes:
             prefixed_feat = f"{prefix}_{base_feat}"
             if prefixed_feat in all_columns:
@@ -114,7 +113,14 @@ def get_feature_cols(prop_cat, all_columns):
         if f == 'HIST_VS_OPP_GAMES' and f in all_columns: final_features.add(f)
         elif any(f.startswith(f"HIST_VS_OPP_{s}_") for s in allowed_prefixes) and f in all_columns: final_features.add(f)
             
-    return [c for c in list(final_features) if c in all_columns]
+    # TARGET LEAKAGE FIX: Explicit blacklist to block any point-in-time boxscore stats leaking into features
+    raw_leakage_blacklist = {
+        'PTS', 'REB', 'AST', 'PRA', 'PR', 'PA', 'RA', 'MIN', 'FGA', 'FTA', 
+        'TOV', 'STL', 'BLK', 'TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 
+        'PTS_PER36', 'REB_PER36', 'AST_PER36', 'PRA_PER36'
+    }
+            
+    return [c for c in list(final_features) if c in all_columns and c not in raw_leakage_blacklist]
 
 def backfill_missing_cols(df, cols):
     for col in cols:

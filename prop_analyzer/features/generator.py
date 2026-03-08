@@ -43,10 +43,14 @@ def add_rolling_stats_history(df, stats_to_roll=None):
     new_cols = {}
 
     for col in stats_to_roll:
-        winsorized = grouped[col].transform(lambda x: winsorize_series(x, limit=0.10))
+        # TARGET LEAKAGE FIX: Shift the series by 1 so we only use past games
+        shifted_col = grouped[col].shift(1)
+        shifted_grouped = shifted_col.groupby(df[Cols.PLAYER_ID])
+
+        winsorized = shifted_grouped.transform(lambda x: winsorize_series(x, limit=0.10))
         grouped_winsor = winsorized.groupby(df[Cols.PLAYER_ID])
         
-        szn_avg = grouped[col].expanding().mean().values
+        szn_avg = shifted_grouped.expanding().mean().values
         l5_mean = grouped_winsor.rolling(window=5, min_periods=1).mean().values
         
         l1_avg = grouped_winsor.rolling(window=1, min_periods=1).mean().values
@@ -62,10 +66,10 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         new_cols[f'{col}_L10_AVG'] = l10_avg
         new_cols[f'{col}_L20_AVG'] = l20_avg
         
-        l3_std = grouped[col].rolling(window=3, min_periods=2).std().values
-        l5_std = grouped[col].rolling(window=5, min_periods=2).std().values
-        l10_std = grouped[col].rolling(window=10, min_periods=3).std().values
-        l20_std = grouped[col].rolling(window=20, min_periods=5).std().values
+        l3_std = shifted_grouped.rolling(window=3, min_periods=2).std().values
+        l5_std = shifted_grouped.rolling(window=5, min_periods=2).std().values
+        l10_std = shifted_grouped.rolling(window=10, min_periods=3).std().values
+        l20_std = shifted_grouped.rolling(window=20, min_periods=5).std().values
 
         new_cols[f'{col}_L3_STD_DEV'] = l3_std
         new_cols[f'{col}_L5_STD_DEV'] = l5_std
@@ -93,9 +97,10 @@ def add_rolling_stats_history(df, stats_to_roll=None):
                 base_per_min = np.divide(new_cols[f'{col}_L5_AVG'], min_l5, out=np.zeros_like(min_l5), where=(min_l5 > 0))
                 new_cols[f'{col}_L5_PER36'] = base_per_min * 36.0
 
-    new_cols['PTS_REB_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['REB']), include_groups=False).reset_index(level=0, drop=True).values
-    new_cols['PTS_AST_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['AST']), include_groups=False).reset_index(level=0, drop=True).values
-    new_cols['REB_AST_CORR'] = grouped.apply(lambda x: x['REB'].rolling(50, min_periods=5).corr(x['AST']), include_groups=False).reset_index(level=0, drop=True).values
+    # TARGET LEAKAGE FIX: Shift values for correlations as well
+    new_cols['PTS_REB_CORR'] = grouped.apply(lambda x: x['PTS'].shift(1).rolling(50, min_periods=5).corr(x['REB'].shift(1)), include_groups=False).reset_index(level=0, drop=True).values
+    new_cols['PTS_AST_CORR'] = grouped.apply(lambda x: x['PTS'].shift(1).rolling(50, min_periods=5).corr(x['AST'].shift(1)), include_groups=False).reset_index(level=0, drop=True).values
+    new_cols['REB_AST_CORR'] = grouped.apply(lambda x: x['REB'].shift(1).rolling(50, min_periods=5).corr(x['AST'].shift(1)), include_groups=False).reset_index(level=0, drop=True).values
 
     df = pd.concat([df, pd.DataFrame(new_cols, index=df.index)], axis=1)
 
@@ -104,7 +109,8 @@ def add_rolling_stats_history(df, stats_to_roll=None):
     if 'Rest_Category' in df.columns:
         for col in split_targets:
             if col in df.columns:
-                val = df.groupby([Cols.PLAYER_ID, 'Rest_Category'])[col].transform(lambda x: x.expanding().mean())
+                # TARGET LEAKAGE FIX: Shift for Expanding Splits
+                val = df.groupby([Cols.PLAYER_ID, 'Rest_Category'])[col].transform(lambda x: x.shift(1).expanding().mean())
                 new_split_cols[f'{col}_REST_SPLIT_AVG'] = val.fillna(df[f'{col}_{Cols.SZN_AVG}'])
 
     if new_split_cols:
