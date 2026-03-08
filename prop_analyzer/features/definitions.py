@@ -2,33 +2,35 @@
 
 # Core Base Features (Advanced ETL Output)
 BASE_FEATURE_COLS = [
-    # General Averages
-    'SZN_AVG', 'L5_AVG', 'L10_AVG', 'L20_AVG',
+    # General Averages (Now including Micro-Windows)
+    'SZN_AVG', 'L1_AVG', 'L3_AVG', 'L5_AVG', 'L10_AVG', 'L20_AVG',
     
     # Form vs Baseline
     'FORM_RATIO', 
     
-    # Model Residual Features (NEW)
+    # Model Residual Features
     'PLAYER_HISTORIC_MODEL_BIAS', 'PLAYER_HISTORIC_MODEL_MAE',
     
     # Volatility & Distribution Metrics (Crucial for EV Math)
-    'L10_STD_DEV', 'L10_CV',
+    'L3_STD_DEV', 'L5_STD_DEV', 'L10_STD_DEV', 
+    'L3_CV', 'L5_CV', 'L10_CV',
     'L10_HitRate_10', 'L10_HitRate_15', 'L10_HitRate_20', 'L10_HitRate_25', 'L10_HitRate_30',
     'VS_OPP_HIT_RATE', 'VS_OPP_GAMES_COUNT', 
     
     # Contextual Splits
     'REST_SPLIT_AVG', 'IS_HOME', 'Days_Rest',
     
-    # Rate & Advanced
+    # Rate, Rotation & Advanced
     'USG_PROXY_PER36', 'TS_PCT', 'USG_PROXY', 
     'L5_USG_PROXY', 'SZN_USG_PROXY',
+    'L5_PER36', 'MIN_L3_DELTA', # <--- NEW Per 36 and Minute Rotation Delta
     
     # Opponent & Game Context (Pace Scaling)
     'DVP_PTS_MULTIPLIER', 'DVP_REB_MULTIPLIER', 'DVP_AST_MULTIPLIER', 
     'DVP_PRA_MULTIPLIER', 'DVP_PR_MULTIPLIER', 'DVP_PA_MULTIPLIER', 'DVP_RA_MULTIPLIER',
     'OPP_DEF_EFF', 'GAME_PACE', 'OPP_GAME_PACE', 'OPP_DAYS_REST', 'OPP_IS_B2B',
     
-    # ---> NEW: Schedule Density & Travel Fatigue <---
+    # Schedule Density & Travel Fatigue
     'FLIGHT_MILES', 'TZ_SHIFT', 'TEAM_GAMES_L4', 'TEAM_GAMES_L6', 'TEAM_GAMES_L7', 
     'IS_3_IN_4', 'IS_4_IN_6', 'IS_TZ_SHOCK',
     
@@ -37,7 +39,7 @@ BASE_FEATURE_COLS = [
     'MISSING_USG_G', 'MISSING_USG_F', 'MISSING_USG_C',
     'TEAM_MISSING_AST_PCT', 'TEAM_MISSING_REB_PCT',
     
-    # ---> NEW: Foul Trouble Engine <---
+    # Foul Trouble Engine
     'FOUL_RISK_PER_100', 'OPP_FOUL_DRAW_RATE', 'FOUL_TROUBLE_VULNERABILITY',
 
     # --- ADVANCED SCRAPED STATS ---

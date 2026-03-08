@@ -13,7 +13,7 @@ from prop_analyzer.features.calculator import (
 from prop_analyzer.features.geography import NBA_LOCATIONS, haversine_distance
 
 def add_rolling_stats_history(df, stats_to_roll=None):
-    """Calculates historical rolling features, including new CV and Volatility metrics for consistency."""
+    """Calculates historical rolling features, including new CV, Volatility, L1/L3, and Per-36 metrics."""
     if Cols.PLAYER_ID not in df.columns or Cols.DATE not in df.columns:
         logging.error(f"Missing ID/Date columns. Cols found: {df.columns}")
         return df
@@ -49,29 +49,49 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         szn_avg = grouped[col].expanding().mean().values
         l5_mean = grouped_winsor.rolling(window=5, min_periods=1).mean().values
         
+        l1_avg = grouped_winsor.rolling(window=1, min_periods=1).mean().values
+        l3_avg = grouped_winsor.rolling(window=3, min_periods=1).median().values
         l5_avg = grouped_winsor.rolling(window=5, min_periods=1).median().values
         l10_avg = grouped_winsor.rolling(window=10, min_periods=1).median().values
         l20_avg = grouped_winsor.rolling(window=20, min_periods=1).median().values
         
         new_cols[f'{col}_{Cols.SZN_AVG}'] = szn_avg
+        new_cols[f'{col}_L1_AVG'] = l1_avg
+        new_cols[f'{col}_L3_AVG'] = l3_avg
         new_cols[f'{col}_L5_AVG'] = l5_avg
         new_cols[f'{col}_L10_AVG'] = l10_avg
         new_cols[f'{col}_L20_AVG'] = l20_avg
         
+        l3_std = grouped[col].rolling(window=3, min_periods=2).std().values
         l5_std = grouped[col].rolling(window=5, min_periods=2).std().values
         l10_std = grouped[col].rolling(window=10, min_periods=3).std().values
         l20_std = grouped[col].rolling(window=20, min_periods=5).std().values
 
+        new_cols[f'{col}_L3_STD_DEV'] = l3_std
         new_cols[f'{col}_L5_STD_DEV'] = l5_std
         new_cols[f'{col}_L10_STD_DEV'] = l10_std
         new_cols[f'{col}_L20_STD_DEV'] = l20_std
 
+        new_cols[f'{col}_L3_CV'] = np.divide(l3_std, l3_avg, out=np.zeros_like(l3_std), where=(l3_avg > 0))
         new_cols[f'{col}_L5_CV'] = np.divide(l5_std, l5_avg, out=np.zeros_like(l5_std), where=(l5_avg > 0))
         new_cols[f'{col}_L10_CV'] = np.divide(l10_std, l10_avg, out=np.zeros_like(l10_std), where=(l10_avg > 0))
         new_cols[f'{col}_L20_CV'] = np.divide(l20_std, l20_avg, out=np.zeros_like(l20_std), where=(l20_avg > 0))
         
         form_out = np.ones_like(l5_mean)
         new_cols[f'{col}_FORM_RATIO'] = np.divide(l5_mean, szn_avg, out=form_out, where=(szn_avg > 0))
+
+    # Calculate L3 Minute Deltas (Leading indicator for role increase)
+    if f'MIN_L3_AVG' in new_cols and f'MIN_{Cols.SZN_AVG}' in new_cols:
+        new_cols['MIN_L3_DELTA'] = new_cols['MIN_L3_AVG'] - new_cols[f'MIN_{Cols.SZN_AVG}']
+        
+    # Calculate Minute-Normalized Per 36 L5 Stats
+    if 'MIN_L5_AVG' in new_cols:
+        min_l5 = new_cols['MIN_L5_AVG']
+        for col in stats_to_roll:
+            if col not in ['MIN', 'USG_PROXY', 'TS_PCT']:
+                # SAFE DIVISION: Use np.divide to prevent division by zero evaluation
+                base_per_min = np.divide(new_cols[f'{col}_L5_AVG'], min_l5, out=np.zeros_like(min_l5), where=(min_l5 > 0))
+                new_cols[f'{col}_L5_PER36'] = base_per_min * 36.0
 
     new_cols['PTS_REB_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['REB']), include_groups=False).reset_index(level=0, drop=True).values
     new_cols['PTS_AST_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['AST']), include_groups=False).reset_index(level=0, drop=True).values
@@ -522,7 +542,7 @@ def build_feature_set(props_df):
             features_df[col] = features_df[col].fillna(median_val if not pd.isna(median_val) else np.nan)
 
     # ========================================================================
-    # NEW: SCHEME SYNERGY MATCHUP LOGIC (SHOT LOCATION ENGINE)
+    # SCHEME SYNERGY MATCHUP LOGIC (SHOT LOCATION ENGINE)
     # ========================================================================
     logging.info("Merging Shot Location Synergy Stats...")
     if season_folders:
@@ -579,7 +599,7 @@ def build_feature_set(props_df):
         features_df['SCHEME_SYNERGY_SCORE'] = 0.0
 
     # ========================================================================
-    # INJECT NEW: SCHEDULE DENSITY AND TRAVEL FATIGUE ENGINE
+    # SCHEDULE DENSITY AND TRAVEL FATIGUE ENGINE
     # ========================================================================
     logging.info("Calculating Schedule Density and Travel Fatigue...")
     features_df = add_team_fatigue_and_travel(features_df)
@@ -610,7 +630,6 @@ def build_feature_set(props_df):
     else:
         features_df['OPP_FOUL_DRAW_RATE'] = np.nan
 
-    # ---> NEW: Explicit Foul Matchup Vulnerability Term <---
     if 'FOUL_RISK_PER_100' in features_df.columns and 'OPP_FOUL_DRAW_RATE' in features_df.columns:
         # Calculate the median foul draw rate to create a baseline multiplier
         median_foul_draw = features_df['OPP_FOUL_DRAW_RATE'].median()
