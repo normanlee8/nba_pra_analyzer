@@ -11,7 +11,6 @@ import time
 from datetime import datetime
 from pathlib import Path
 
-# Upgraded to Stacking Regressor and RidgeCV
 from sklearn.ensemble import StackingRegressor
 from sklearn.linear_model import RidgeCV
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
@@ -69,7 +68,6 @@ def get_feature_cols(prop_cat, all_columns):
     allowed_prefixes = feat_defs.PROP_FEATURE_MAP.get(prop_cat, [prop_cat])
     
     for base_feat in feat_defs.BASE_FEATURE_COLS:
-        # TARGET LEAKAGE FIX: Do NOT append raw base_feat (prevents current-game counting stats from leaking)
         for prefix in allowed_prefixes:
             prefixed_feat = f"{prefix}_{base_feat}"
             if prefixed_feat in all_columns:
@@ -113,7 +111,6 @@ def get_feature_cols(prop_cat, all_columns):
         if f == 'HIST_VS_OPP_GAMES' and f in all_columns: final_features.add(f)
         elif any(f.startswith(f"HIST_VS_OPP_{s}_") for s in allowed_prefixes) and f in all_columns: final_features.add(f)
             
-    # TARGET LEAKAGE FIX: Explicit blacklist to block any point-in-time boxscore stats leaking into features
     raw_leakage_blacklist = {
         'PTS', 'REB', 'AST', 'PRA', 'PR', 'PA', 'RA', 'MIN', 'FGA', 'FTA', 
         'TOV', 'STL', 'BLK', 'TS_PCT', 'USG_PROXY', 'USG_PROXY_PER36', 
@@ -166,7 +163,6 @@ def train_ensemble_model(df, target_col):
     def optimize_base_models():
         optuna.logging.set_verbosity(optuna.logging.INFO)
         
-        # Determine specific bounds based on prop category
         tweedie_min, tweedie_max = get_tweedie_bounds(target_col)
         logging.info(f"[{target_col}] Setting Tweedie Variance Power bounds to ({tweedie_min}, {tweedie_max})")
         
@@ -257,7 +253,6 @@ def train_ensemble_model(df, target_col):
     logging.info(f"[{target_col}] Calculating Global and Segmented SHAP Feature Importance...")
     shap_importance = []
     segmented_shap_importance = {}
-    segmented_neutral_features = {}
     
     try:
         explainer = shap.TreeExplainer(ensemble.named_estimators_['xgb'])
@@ -272,7 +267,7 @@ def train_ensemble_model(df, target_col):
         shap_importance = feat_imp_df_global.head(20).to_dict(orient='records')
         logging.info(f"[{target_col}] Global Top 10 Features: {[f['Feature'] for f in shap_importance[:10]]}")
 
-        # 2. SEGMENTED SHAP (By Position)
+        # 2. SEGMENTED SHAP (By Position - strictly for insights, removing NaN injection mechanism)
         pos_cols = [c for c in df.columns if c.upper() in ['POSITION', 'PLAYER_POSITION']]
         if pos_cols:
             pos_col = pos_cols[0]
@@ -290,12 +285,7 @@ def train_ensemble_model(df, target_col):
                     feat_imp_df_pos = pd.DataFrame({'Feature': sanitized_cols, 'Importance': vals_pos}).sort_values(by='Importance', ascending=False)
                     segmented_shap_importance[pos] = feat_imp_df_pos.head(10).to_dict(orient='records')
                     
-                    noise_threshold = vals_pos.max() * 0.01  
-                    noise_feats = feat_imp_df_pos[feat_imp_df_pos['Importance'] <= noise_threshold]['Feature'].tolist()
-                    segmented_neutral_features[pos] = noise_feats
-
                     logging.info(f"[{target_col}] {pos} Top 5 Features: {[f['Feature'] for f in segmented_shap_importance[pos][:5]]}")
-                    logging.info(f"[{target_col}] {pos} Neutralized {len(noise_feats)} noise features.")
         else:
             logging.warning(f"Segmented SHAP skipped: 'POSITION' column not found in dataframe.")
 
@@ -308,7 +298,7 @@ def train_ensemble_model(df, target_col):
         'metrics': {'MAE': float(mae), 'RMSE': float(rmse), 'R2': float(r2)},
         'top_features': shap_importance,
         'segmented_top_features': segmented_shap_importance,
-        'segmented_neutral_features': segmented_neutral_features,
+        # FIXED: Removed 'segmented_neutral_features' export to prevent corrupted inference behavior
         'tweedie_variance_power': float(xgb_params.get('tweedie_variance_power', 1.5))
     }
 
@@ -317,7 +307,7 @@ def train_ensemble_model(df, target_col):
     logging.info(f"[{target_col}] Successfully trained and saved.")
 
 def main():
-    start_time = time.time()  # Start the timer
+    start_time = time.time()  
     common.setup_logging(name="train_models")
     logging.info(">>> STARTING ADVANCED PROBABILITY MODEL TRAINING PIPELINE")
 
@@ -334,7 +324,7 @@ def main():
             logging.info(f"--- Training Engine: {prop} ---")
             train_ensemble_model(df, target_col=prop)
 
-    elapsed = time.time() - start_time  # Stop the timer
+    elapsed = time.time() - start_time  
     logging.info(f"========= ADVANCED PROBABILITY MODEL TRAINING FINISHED in {int(elapsed // 60)}:{int(elapsed % 60):02d} minutes =========")
 
 if __name__ == "__main__":

@@ -237,6 +237,15 @@ def build_feature_set(props_df):
             features_df['Position'] = 'UNK'
             
     features_df['Position'] = features_df['Position'].astype(str).apply(lambda x: x.split('-')[0] if '-' in x else x)
+    
+    def normalize_pos(pos):
+        if not isinstance(pos, str): return 'UNKNOWN'
+        p = pos.split('-')[0].upper().strip()
+        if p == 'G': return 'SG'
+        if p == 'F': return 'PF'
+        return p
+        
+    features_df['Primary_Pos'] = features_df['Position'].apply(normalize_pos)
 
     # =============== PLAY-BY-PLAY (PBPStats) DATA INTEGRATION ===============
     season_folders = sorted([f for f in cfg.DATA_DIR.iterdir() if f.is_dir() and re.match(r'\d{4}-\d{2}', f.name)])
@@ -431,15 +440,6 @@ def build_feature_set(props_df):
     if dvp_df is not None and not dvp_df.empty:
         logging.info("Merging Defense vs Position (DvP) Stats safely to avoid leakage...")
         features_df['OPPONENT_ABBREV'] = features_df.get(Cols.OPPONENT, 'UNK')
-        
-        def normalize_pos(pos):
-            if not isinstance(pos, str): return 'UNKNOWN'
-            p = pos.split('-')[0].upper().strip()
-            if p == 'G': return 'SG'
-            if p == 'F': return 'PF'
-            return p
-            
-        features_df['Primary_Pos'] = features_df['Position'].apply(normalize_pos)
         
         if Cols.DATE in dvp_df.columns and Cols.DATE in features_df.columns:
             dvp_df[Cols.DATE] = pd.to_datetime(dvp_df[Cols.DATE])
@@ -664,18 +664,32 @@ def build_feature_set(props_df):
     else:
         features_df['FOUL_TROUBLE_VULNERABILITY'] = 0.0
 
-    # 3. Conditioned Usage Proxy (Proportional Distribution)
+    # ========================================================================
+    # 3. Conditioned Usage Proxy (FIXED: Uses Positional Overlap Hierarchy)
+    # ========================================================================
     usg_col = f'USG_PROXY_{Cols.SZN_AVG}'
     if 'TEAM_MISSING_USG' in features_df.columns and usg_col in features_df.columns:
         missing_usg = pd.to_numeric(features_df['TEAM_MISSING_USG'], errors='coerce').fillna(0.0)
         team_active_usg = np.maximum(100.0 - missing_usg, 20.0)
+        
+        # Base absorption proportion
         absorption_rate = features_df[usg_col] / team_active_usg
-        features_df['EXPECTED_USG_SHIFT'] = absorption_rate * missing_usg
+        
+        # Determine positional alignment for missing usage
+        missing_usg_g = pd.to_numeric(features_df.get('MISSING_USG_G', 0.0), errors='coerce').fillna(0.0)
+        missing_usg_f = pd.to_numeric(features_df.get('MISSING_USG_F', 0.0), errors='coerce').fillna(0.0)
+        pos = features_df.get('Primary_Pos', features_df.get('Position', 'UNK')).astype(str)
+        
+        # Boost absorption if the usage missing aligns with the player's position group
+        pos_multiplier = np.where(pos.str.contains('G'), 1.0 + (missing_usg_g / (missing_usg + 1.0)),
+                         np.where(pos.str.contains('F|C'), 1.0 + (missing_usg_f / (missing_usg + 1.0)), 1.0))
+                         
+        features_df['EXPECTED_USG_SHIFT'] = absorption_rate * pos_multiplier * missing_usg
     else:
         features_df['EXPECTED_USG_SHIFT'] = 0.0
 
     # ========================================================================
-    # 4. PLAYER-SPECIFIC HISTORICAL MODEL ERROR (BIAS & MAE)
+    # 4. PLAYER-SPECIFIC HISTORICAL MODEL ERROR (FIXED: Winsorized Double Counting)
     # ========================================================================
     try:
         # Load all graded history files
@@ -698,17 +712,20 @@ def build_feature_set(props_df):
                     
                     # Calculate Error: Positive = Model Over-predicted, Negative = Model Under-predicted
                     graded_history['MODEL_ERROR'] = graded_history[Cols.PREDICTION] - graded_history[Cols.ACTUAL_VAL]
-                    graded_history['MODEL_ABS_ERROR'] = graded_history['MODEL_ERROR'].abs()
+                    
+                    # WINSORIZE error to prevent ejections/injuries from poisoning the MAE features
+                    graded_history['MODEL_ERROR_CLEAN'] = graded_history['MODEL_ERROR'].clip(lower=-10.0, upper=10.0)
+                    graded_history['MODEL_ABS_ERROR_CLEAN'] = graded_history['MODEL_ERROR_CLEAN'].abs()
                     
                     graded_history = graded_history.sort_values(Cols.DATE)
                     
                     # Group by Player and Prop Type
                     grp = graded_history.groupby([Cols.PLAYER_ID, Cols.PROP_TYPE])
                     
-                    # Calculate 10-game rolling MAE and Bias.
-                    # CRITICAL: .shift(1) prevents lookahead leakage (do not use today's error to predict today)
-                    graded_history['PLAYER_HISTORIC_MODEL_BIAS'] = grp['MODEL_ERROR'].transform(lambda x: x.rolling(10, min_periods=1).mean().shift(1))
-                    graded_history['PLAYER_HISTORIC_MODEL_MAE'] = grp['MODEL_ABS_ERROR'].transform(lambda x: x.rolling(10, min_periods=1).mean().shift(1))
+                    # Calculate 10-game rolling MAE and Bias strictly on the clean error.
+                    # CRITICAL: .shift(1) prevents lookahead leakage 
+                    graded_history['PLAYER_HISTORIC_MODEL_BIAS'] = grp['MODEL_ERROR_CLEAN'].transform(lambda x: x.rolling(10, min_periods=1).mean().shift(1))
+                    graded_history['PLAYER_HISTORIC_MODEL_MAE'] = grp['MODEL_ABS_ERROR_CLEAN'].transform(lambda x: x.rolling(10, min_periods=1).mean().shift(1))
                     
                     # Pivot so we can merge safely into features_df (which may have multiple stats per row during training)
                     pivot_history = graded_history.pivot_table(

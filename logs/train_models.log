@@ -4064,3 +4064,150 @@
 2026-03-07 18:10:55 [INFO] root: Saved versioned artifacts for PRA to model_PRA_latest.pkl
 2026-03-07 18:10:55 [INFO] root: [PRA] Successfully trained and saved.
 2026-03-07 18:10:55 [INFO] root: ========= ADVANCED PROBABILITY MODEL TRAINING FINISHED in 11:10 minutes =========
+2026-03-07 20:21:20 [INFO] root: Logging initialized. Writing to logs/train_models.log
+2026-03-07 20:21:20 [INFO] root: >>> STARTING ADVANCED PROBABILITY MODEL TRAINING PIPELINE
+2026-03-07 20:21:20 [INFO] root: --- Training Engine: PTS ---
+2026-03-07 20:21:20 [INFO] root: Training Probability-Optimized Meta-Ensemble for PTS...
+2026-03-07 20:21:20 [INFO] root: [PTS] Running Hyperparameter Optimization (Walk-Forward CV)...
+2026-03-07 20:21:20 [INFO] root: [PTS] Setting Tweedie Variance Power bounds to (1.15, 1.35)
+2026-03-07 20:22:59 [INFO] root: [PTS] Fitting Final Stacking Ensemble on full training data...
+2026-03-07 20:23:10 [INFO] root: [PTS] Holdout Metrics - MAE: 4.40, RMSE: 5.70, R2: 0.53
+2026-03-07 20:23:10 [INFO] root: [PTS] Calculating Global and Segmented SHAP Feature Importance...
+2026-03-07 20:23:10 [INFO] root: [PTS] Global Top 10 Features: ['PTS_L20_AVG', 'PTS_L10_AVG', 'PA_L5_AVG', 'PRA_L5_AVG', 'PA_L3_AVG', 'PA_L10_AVG', 'PTS_L20_STD_DEV', 'PRA_L1_AVG', 'DAYS_REST', 'PR_L20_AVG']
+2026-03-07 20:23:10 [INFO] root: [PTS] SF Top 5 Features: ['PTS_L20_AVG', 'PTS_L10_AVG', 'PA_L5_AVG', 'PRA_L5_AVG', 'PA_L3_AVG']
+2026-03-07 20:23:10 [INFO] root: [PTS] SG Top 5 Features: ['PTS_L20_AVG', 'PTS_L10_AVG', 'PA_L5_AVG', 'PRA_L5_AVG', 'PA_L3_AVG']
+2026-03-07 20:23:10 [INFO] root: [PTS] C Top 5 Features: ['PTS_L20_AVG', 'PTS_L10_AVG', 'PA_L5_AVG', 'PRA_L5_AVG', 'PA_L3_AVG']
+2026-03-07 20:23:10 [INFO] root: [PTS] PG Top 5 Features: ['PTS_L20_AVG', 'PTS_L10_AVG', 'PA_L5_AVG', 'PRA_L5_AVG', 'PA_L10_AVG']
+2026-03-07 20:23:10 [INFO] root: [PTS] PF Top 5 Features: ['PTS_L20_AVG', 'PTS_L10_AVG', 'PA_L5_AVG', 'PRA_L5_AVG', 'PA_L3_AVG']
+2026-03-07 20:23:10 [INFO] root: [PTS] nan Top 5 Features: ['PTS_L20_AVG', 'PTS_L10_AVG', 'PA_L5_AVG', 'PRA_L5_AVG', 'PA_L3_AVG']
+2026-03-07 20:23:10 [INFO] root: [PTS] F Top 5 Features: ['PTS_L20_AVG', 'PTS_L10_AVG', 'PA_L5_AVG', 'PRA_L5_AVG', 'PA_L3_AVG']
+2026-03-07 20:23:10 [INFO] root: [PTS] G Top 5 Features: ['PTS_L20_AVG', 'PTS_L10_AVG', 'PA_L5_AVG', 'PRA_L5_AVG', 'PA_L3_AVG']
+2026-03-07 20:23:10 [INFO] root: Saved versioned artifacts for PTS to model_PTS_latest.pkl
+2026-03-07 20:23:10 [INFO] root: [PTS] Successfully trained and saved.
+2026-03-07 20:23:10 [INFO] root: --- Training Engine: RA ---
+2026-03-07 20:23:10 [INFO] root: Training Probability-Optimized Meta-Ensemble for RA...
+2026-03-07 20:23:10 [INFO] root: [RA] Running Hyperparameter Optimization (Walk-Forward CV)...
+2026-03-07 20:23:10 [INFO] root: [RA] Setting Tweedie Variance Power bounds to (1.4, 1.9)
+2026-03-07 20:24:30 [INFO] root: [RA] Fitting Final Stacking Ensemble on full training data...
+2026-03-07 20:24:36 [INFO] root: [RA] Holdout Metrics - MAE: 2.57, RMSE: 3.32, R2: 0.48
+2026-03-07 20:24:36 [INFO] root: [RA] Calculating Global and Segmented SHAP Feature Importance...
+2026-03-07 20:24:36 [INFO] root: [RA] Global Top 10 Features: ['RA_L10_AVG', 'RA_L20_AVG', 'RA_L5_AVG', 'RA_L3_AVG', 'PRA_L3_AVG', 'PRA_L1_AVG', 'RA_SZN_AVG', 'RA_L1_AVG', 'DAYS_REST', 'REB_SZN_AVG']
+2026-03-07 20:24:36 [INFO] root: [RA] SF Top 5 Features: ['RA_L10_AVG', 'RA_L20_AVG', 'RA_L5_AVG', 'RA_L3_AVG', 'PRA_L3_AVG']
+2026-03-07 20:24:36 [INFO] root: [RA] SG Top 5 Features: ['RA_L10_AVG', 'RA_L20_AVG', 'RA_L5_AVG', 'RA_L3_AVG', 'PRA_L3_AVG']
+2026-03-07 20:24:36 [INFO] root: [RA] C Top 5 Features: ['RA_L10_AVG', 'RA_L20_AVG', 'RA_L5_AVG', 'RA_L3_AVG', 'PRA_L3_AVG']
+2026-03-07 20:24:36 [INFO] root: [RA] PG Top 5 Features: ['RA_L10_AVG', 'RA_L20_AVG', 'RA_L5_AVG', 'RA_L3_AVG', 'PRA_L3_AVG']
+2026-03-07 20:24:36 [INFO] root: [RA] PF Top 5 Features: ['RA_L10_AVG', 'RA_L20_AVG', 'RA_L5_AVG', 'RA_L3_AVG', 'PRA_L3_AVG']
+2026-03-07 20:24:36 [INFO] root: [RA] nan Top 5 Features: ['RA_L10_AVG', 'RA_L20_AVG', 'RA_L5_AVG', 'RA_L3_AVG', 'PRA_L3_AVG']
+2026-03-07 20:24:36 [INFO] root: [RA] F Top 5 Features: ['RA_L10_AVG', 'RA_L20_AVG', 'RA_L5_AVG', 'RA_L3_AVG', 'PRA_L3_AVG']
+2026-03-07 20:24:36 [INFO] root: [RA] G Top 5 Features: ['RA_L10_AVG', 'RA_L20_AVG', 'RA_L5_AVG', 'RA_L3_AVG', 'PRA_L3_AVG']
+2026-03-07 20:24:36 [INFO] root: Saved versioned artifacts for RA to model_RA_latest.pkl
+2026-03-07 20:24:36 [INFO] root: [RA] Successfully trained and saved.
+2026-03-07 20:24:36 [INFO] root: --- Training Engine: MIN ---
+2026-03-07 20:24:36 [INFO] root: Training Probability-Optimized Meta-Ensemble for MIN...
+2026-03-07 20:24:37 [INFO] root: [MIN] Running Hyperparameter Optimization (Walk-Forward CV)...
+2026-03-07 20:24:37 [INFO] root: [MIN] Setting Tweedie Variance Power bounds to (1.1, 1.9)
+2026-03-07 20:25:46 [INFO] root: [MIN] Fitting Final Stacking Ensemble on full training data...
+2026-03-07 20:25:52 [INFO] root: [MIN] Holdout Metrics - MAE: 4.66, RMSE: 6.04, R2: 0.64
+2026-03-07 20:25:52 [INFO] root: [MIN] Calculating Global and Segmented SHAP Feature Importance...
+2026-03-07 20:25:52 [INFO] root: [MIN] Global Top 10 Features: ['MIN_L5_AVG', 'MIN_L3_AVG', 'MIN_L1_AVG', 'MIN_L10_AVG', 'MIN_L20_AVG', 'DAYS_REST', 'MIN_L20_CV', 'TS_PCT_L5_CV', 'PTS_REB_CORR', 'PTS_L20_STD_DEV']
+2026-03-07 20:25:52 [INFO] root: [MIN] SF Top 5 Features: ['MIN_L5_AVG', 'MIN_L3_AVG', 'MIN_L1_AVG', 'MIN_L10_AVG', 'MIN_L20_AVG']
+2026-03-07 20:25:52 [INFO] root: [MIN] SG Top 5 Features: ['MIN_L5_AVG', 'MIN_L3_AVG', 'MIN_L1_AVG', 'MIN_L10_AVG', 'MIN_L20_AVG']
+2026-03-07 20:25:52 [INFO] root: [MIN] C Top 5 Features: ['MIN_L5_AVG', 'MIN_L3_AVG', 'MIN_L1_AVG', 'MIN_L10_AVG', 'MIN_L20_AVG']
+2026-03-07 20:25:52 [INFO] root: [MIN] PG Top 5 Features: ['MIN_L5_AVG', 'MIN_L3_AVG', 'MIN_L1_AVG', 'MIN_L10_AVG', 'MIN_L20_AVG']
+2026-03-07 20:25:52 [INFO] root: [MIN] PF Top 5 Features: ['MIN_L5_AVG', 'MIN_L3_AVG', 'MIN_L1_AVG', 'MIN_L20_AVG', 'MIN_L10_AVG']
+2026-03-07 20:25:52 [INFO] root: [MIN] nan Top 5 Features: ['MIN_L5_AVG', 'MIN_L3_AVG', 'MIN_L1_AVG', 'MIN_L20_AVG', 'MIN_L10_AVG']
+2026-03-07 20:25:52 [INFO] root: [MIN] F Top 5 Features: ['MIN_L5_AVG', 'MIN_L3_AVG', 'MIN_L1_AVG', 'MIN_L10_AVG', 'MIN_L20_AVG']
+2026-03-07 20:25:52 [INFO] root: [MIN] G Top 5 Features: ['MIN_L5_AVG', 'MIN_L3_AVG', 'MIN_L1_AVG', 'MIN_L20_AVG', 'MIN_L10_AVG']
+2026-03-07 20:25:52 [INFO] root: Saved versioned artifacts for MIN to model_MIN_latest.pkl
+2026-03-07 20:25:52 [INFO] root: [MIN] Successfully trained and saved.
+2026-03-07 20:25:52 [INFO] root: --- Training Engine: PR ---
+2026-03-07 20:25:52 [INFO] root: Training Probability-Optimized Meta-Ensemble for PR...
+2026-03-07 20:25:52 [INFO] root: [PR] Running Hyperparameter Optimization (Walk-Forward CV)...
+2026-03-07 20:25:52 [INFO] root: [PR] Setting Tweedie Variance Power bounds to (1.4, 1.9)
+2026-03-07 20:27:16 [INFO] root: [PR] Fitting Final Stacking Ensemble on full training data...
+2026-03-07 20:27:21 [INFO] root: [PR] Holdout Metrics - MAE: 5.36, RMSE: 6.87, R2: 0.54
+2026-03-07 20:27:21 [INFO] root: [PR] Calculating Global and Segmented SHAP Feature Importance...
+2026-03-07 20:27:21 [INFO] root: [PR] Global Top 10 Features: ['PR_L20_AVG', 'PR_L10_AVG', 'PRA_L5_AVG', 'PR_L3_AVG', 'PRA_L3_AVG', 'PRA_L20_AVG', 'PRA_L1_AVG', 'DAYS_REST', 'PR_L5_AVG', 'REB_L20_AVG']
+2026-03-07 20:27:21 [INFO] root: [PR] SF Top 5 Features: ['PR_L10_AVG', 'PR_L20_AVG', 'PRA_L5_AVG', 'PR_L3_AVG', 'PRA_L3_AVG']
+2026-03-07 20:27:21 [INFO] root: [PR] SG Top 5 Features: ['PR_L20_AVG', 'PR_L10_AVG', 'PRA_L5_AVG', 'PR_L3_AVG', 'PRA_L3_AVG']
+2026-03-07 20:27:21 [INFO] root: [PR] C Top 5 Features: ['PR_L20_AVG', 'PR_L10_AVG', 'PRA_L5_AVG', 'PR_L3_AVG', 'PRA_L3_AVG']
+2026-03-07 20:27:21 [INFO] root: [PR] PG Top 5 Features: ['PR_L20_AVG', 'PR_L10_AVG', 'PRA_L5_AVG', 'PR_L3_AVG', 'PRA_L3_AVG']
+2026-03-07 20:27:21 [INFO] root: [PR] PF Top 5 Features: ['PR_L20_AVG', 'PR_L10_AVG', 'PRA_L5_AVG', 'PR_L3_AVG', 'PRA_L3_AVG']
+2026-03-07 20:27:21 [INFO] root: [PR] nan Top 5 Features: ['PR_L20_AVG', 'PR_L10_AVG', 'PRA_L5_AVG', 'PR_L3_AVG', 'PRA_L3_AVG']
+2026-03-07 20:27:21 [INFO] root: [PR] F Top 5 Features: ['PR_L20_AVG', 'PR_L10_AVG', 'PRA_L5_AVG', 'PR_L3_AVG', 'PRA_L3_AVG']
+2026-03-07 20:27:21 [INFO] root: [PR] G Top 5 Features: ['PR_L20_AVG', 'PR_L10_AVG', 'PRA_L5_AVG', 'PR_L3_AVG', 'PRA_L3_AVG']
+2026-03-07 20:27:21 [INFO] root: Saved versioned artifacts for PR to model_PR_latest.pkl
+2026-03-07 20:27:21 [INFO] root: [PR] Successfully trained and saved.
+2026-03-07 20:27:21 [INFO] root: --- Training Engine: AST ---
+2026-03-07 20:27:21 [INFO] root: Training Probability-Optimized Meta-Ensemble for AST...
+2026-03-07 20:27:21 [INFO] root: [AST] Running Hyperparameter Optimization (Walk-Forward CV)...
+2026-03-07 20:27:21 [INFO] root: [AST] Setting Tweedie Variance Power bounds to (1.15, 1.45)
+2026-03-07 20:28:34 [INFO] root: [AST] Fitting Final Stacking Ensemble on full training data...
+2026-03-07 20:28:40 [INFO] root: [AST] Holdout Metrics - MAE: 1.24, RMSE: 1.67, R2: 0.55
+2026-03-07 20:28:40 [INFO] root: [AST] Calculating Global and Segmented SHAP Feature Importance...
+2026-03-07 20:28:40 [INFO] root: [AST] Global Top 10 Features: ['AST_L10_AVG', 'AST_L20_AVG', 'AST_SZN_AVG', 'AST_L5_AVG', 'AST_REST_SPLIT_AVG', 'AST_L20_STD_DEV', 'PA_L3_AVG', 'AST_L10_STD_DEV', 'AST_L3_AVG', 'PA_L5_AVG']
+2026-03-07 20:28:40 [INFO] root: [AST] SF Top 5 Features: ['AST_L10_AVG', 'AST_L20_AVG', 'AST_SZN_AVG', 'AST_L5_AVG', 'AST_REST_SPLIT_AVG']
+2026-03-07 20:28:40 [INFO] root: [AST] SG Top 5 Features: ['AST_L10_AVG', 'AST_L20_AVG', 'AST_SZN_AVG', 'AST_L5_AVG', 'AST_REST_SPLIT_AVG']
+2026-03-07 20:28:40 [INFO] root: [AST] C Top 5 Features: ['AST_L10_AVG', 'AST_L20_AVG', 'AST_SZN_AVG', 'AST_L5_AVG', 'AST_REST_SPLIT_AVG']
+2026-03-07 20:28:40 [INFO] root: [AST] PG Top 5 Features: ['AST_L10_AVG', 'AST_L20_AVG', 'AST_SZN_AVG', 'AST_L5_AVG', 'AST_REST_SPLIT_AVG']
+2026-03-07 20:28:40 [INFO] root: [AST] PF Top 5 Features: ['AST_L10_AVG', 'AST_L20_AVG', 'AST_SZN_AVG', 'AST_L5_AVG', 'AST_REST_SPLIT_AVG']
+2026-03-07 20:28:40 [INFO] root: [AST] nan Top 5 Features: ['AST_L10_AVG', 'AST_L20_AVG', 'AST_SZN_AVG', 'AST_L5_AVG', 'AST_REST_SPLIT_AVG']
+2026-03-07 20:28:40 [INFO] root: [AST] F Top 5 Features: ['AST_L10_AVG', 'AST_L20_AVG', 'AST_SZN_AVG', 'AST_L5_AVG', 'AST_REST_SPLIT_AVG']
+2026-03-07 20:28:40 [INFO] root: [AST] G Top 5 Features: ['AST_L10_AVG', 'AST_L20_AVG', 'AST_L5_AVG', 'AST_SZN_AVG', 'AST_REST_SPLIT_AVG']
+2026-03-07 20:28:40 [INFO] root: Saved versioned artifacts for AST to model_AST_latest.pkl
+2026-03-07 20:28:40 [INFO] root: [AST] Successfully trained and saved.
+2026-03-07 20:28:40 [INFO] root: --- Training Engine: PA ---
+2026-03-07 20:28:40 [INFO] root: Training Probability-Optimized Meta-Ensemble for PA...
+2026-03-07 20:28:41 [INFO] root: [PA] Running Hyperparameter Optimization (Walk-Forward CV)...
+2026-03-07 20:28:41 [INFO] root: [PA] Setting Tweedie Variance Power bounds to (1.4, 1.9)
+2026-03-07 20:30:01 [INFO] root: [PA] Fitting Final Stacking Ensemble on full training data...
+2026-03-07 20:30:09 [INFO] root: [PA] Holdout Metrics - MAE: 4.59, RMSE: 5.96, R2: 0.62
+2026-03-07 20:30:09 [INFO] root: [PA] Calculating Global and Segmented SHAP Feature Importance...
+2026-03-07 20:30:09 [INFO] root: [PA] Global Top 10 Features: ['PA_L10_AVG', 'PA_L20_AVG', 'PA_L5_AVG', 'PA_L3_AVG', 'PTS_L20_AVG', 'DAYS_REST', 'PRA_L5_AVG', 'PRA_L3_AVG', 'PTS_L10_AVG', 'PA_L20_STD_DEV']
+2026-03-07 20:30:09 [INFO] root: [PA] SF Top 5 Features: ['PA_L10_AVG', 'PA_L20_AVG', 'PA_L5_AVG', 'PA_L3_AVG', 'PRA_L5_AVG']
+2026-03-07 20:30:09 [INFO] root: [PA] SG Top 5 Features: ['PA_L10_AVG', 'PA_L20_AVG', 'PA_L5_AVG', 'PA_L3_AVG', 'PRA_L5_AVG']
+2026-03-07 20:30:09 [INFO] root: [PA] C Top 5 Features: ['PA_L10_AVG', 'PA_L20_AVG', 'PA_L5_AVG', 'PA_L3_AVG', 'PRA_L5_AVG']
+2026-03-07 20:30:09 [INFO] root: [PA] PG Top 5 Features: ['PA_L10_AVG', 'PA_L20_AVG', 'PA_L5_AVG', 'PA_L3_AVG', 'DAYS_REST']
+2026-03-07 20:30:09 [INFO] root: [PA] PF Top 5 Features: ['PA_L10_AVG', 'PA_L20_AVG', 'PA_L5_AVG', 'PA_L3_AVG', 'PRA_L5_AVG']
+2026-03-07 20:30:09 [INFO] root: [PA] nan Top 5 Features: ['PA_L10_AVG', 'PA_L20_AVG', 'PA_L5_AVG', 'PA_L3_AVG', 'DAYS_REST']
+2026-03-07 20:30:09 [INFO] root: [PA] F Top 5 Features: ['PA_L20_AVG', 'PA_L10_AVG', 'PA_L5_AVG', 'PA_L3_AVG', 'PRA_L5_AVG']
+2026-03-07 20:30:09 [INFO] root: [PA] G Top 5 Features: ['PA_L20_AVG', 'PA_L10_AVG', 'PA_L5_AVG', 'PA_L3_AVG', 'DAYS_REST']
+2026-03-07 20:30:09 [INFO] root: Saved versioned artifacts for PA to model_PA_latest.pkl
+2026-03-07 20:30:09 [INFO] root: [PA] Successfully trained and saved.
+2026-03-07 20:30:09 [INFO] root: --- Training Engine: REB ---
+2026-03-07 20:30:09 [INFO] root: Training Probability-Optimized Meta-Ensemble for REB...
+2026-03-07 20:30:09 [INFO] root: [REB] Running Hyperparameter Optimization (Walk-Forward CV)...
+2026-03-07 20:30:09 [INFO] root: [REB] Setting Tweedie Variance Power bounds to (1.15, 1.45)
+2026-03-07 20:31:25 [INFO] root: [REB] Fitting Final Stacking Ensemble on full training data...
+2026-03-07 20:31:31 [INFO] root: [REB] Holdout Metrics - MAE: 1.83, RMSE: 2.39, R2: 0.48
+2026-03-07 20:31:31 [INFO] root: [REB] Calculating Global and Segmented SHAP Feature Importance...
+2026-03-07 20:31:31 [INFO] root: [REB] Global Top 10 Features: ['REB_L20_AVG', 'REB_L10_AVG', 'REB_L5_AVG', 'REB_REST_SPLIT_AVG', 'REB_SZN_AVG', 'REB_L1_AVG', 'PRA_L1_AVG', 'REB_L20_STD_DEV', 'PRA_FORM_RATIO', 'REB_L10_STD_DEV']
+2026-03-07 20:31:31 [INFO] root: [REB] SF Top 5 Features: ['REB_L20_AVG', 'REB_L10_AVG', 'REB_L5_AVG', 'REB_REST_SPLIT_AVG', 'REB_SZN_AVG']
+2026-03-07 20:31:31 [INFO] root: [REB] SG Top 5 Features: ['REB_L20_AVG', 'REB_L10_AVG', 'REB_L5_AVG', 'REB_SZN_AVG', 'REB_REST_SPLIT_AVG']
+2026-03-07 20:31:31 [INFO] root: [REB] C Top 5 Features: ['REB_L20_AVG', 'REB_L10_AVG', 'REB_L5_AVG', 'REB_REST_SPLIT_AVG', 'REB_SZN_AVG']
+2026-03-07 20:31:31 [INFO] root: [REB] PG Top 5 Features: ['REB_L20_AVG', 'REB_L10_AVG', 'REB_L5_AVG', 'REB_REST_SPLIT_AVG', 'REB_SZN_AVG']
+2026-03-07 20:31:31 [INFO] root: [REB] PF Top 5 Features: ['REB_L20_AVG', 'REB_L10_AVG', 'REB_L5_AVG', 'REB_REST_SPLIT_AVG', 'REB_SZN_AVG']
+2026-03-07 20:31:31 [INFO] root: [REB] nan Top 5 Features: ['REB_L20_AVG', 'REB_L10_AVG', 'REB_L5_AVG', 'REB_REST_SPLIT_AVG', 'REB_SZN_AVG']
+2026-03-07 20:31:31 [INFO] root: [REB] F Top 5 Features: ['REB_L20_AVG', 'REB_L10_AVG', 'REB_L5_AVG', 'REB_REST_SPLIT_AVG', 'REB_SZN_AVG']
+2026-03-07 20:31:31 [INFO] root: [REB] G Top 5 Features: ['REB_L20_AVG', 'REB_L10_AVG', 'REB_L5_AVG', 'REB_SZN_AVG', 'REB_REST_SPLIT_AVG']
+2026-03-07 20:31:31 [INFO] root: Saved versioned artifacts for REB to model_REB_latest.pkl
+2026-03-07 20:31:31 [INFO] root: [REB] Successfully trained and saved.
+2026-03-07 20:31:31 [INFO] root: --- Training Engine: PRA ---
+2026-03-07 20:31:31 [INFO] root: Training Probability-Optimized Meta-Ensemble for PRA...
+2026-03-07 20:31:31 [INFO] root: [PRA] Running Hyperparameter Optimization (Walk-Forward CV)...
+2026-03-07 20:31:31 [INFO] root: [PRA] Setting Tweedie Variance Power bounds to (1.4, 1.9)
+2026-03-07 20:33:03 [INFO] root: [PRA] Fitting Final Stacking Ensemble on full training data...
+2026-03-07 20:33:11 [INFO] root: [PRA] Holdout Metrics - MAE: 5.69, RMSE: 7.33, R2: 0.59
+2026-03-07 20:33:11 [INFO] root: [PRA] Calculating Global and Segmented SHAP Feature Importance...
+2026-03-07 20:33:11 [INFO] root: [PRA] Global Top 10 Features: ['PRA_L20_AVG', 'PRA_L10_AVG', 'PRA_L5_AVG', 'PRA_L3_AVG', 'PR_L20_AVG', 'PA_L5_AVG', 'DAYS_REST', 'PA_L3_AVG', 'TS_PCT_L20_STD_DEV', 'RA_L1_AVG']
+2026-03-07 20:33:11 [INFO] root: [PRA] SF Top 5 Features: ['PRA_L5_AVG', 'PRA_L10_AVG', 'PRA_L20_AVG', 'PRA_L3_AVG', 'PR_L20_AVG']
+2026-03-07 20:33:11 [INFO] root: [PRA] SG Top 5 Features: ['PRA_L20_AVG', 'PRA_L10_AVG', 'PRA_L5_AVG', 'PRA_L3_AVG', 'PR_L20_AVG']
+2026-03-07 20:33:11 [INFO] root: [PRA] C Top 5 Features: ['PRA_L20_AVG', 'PRA_L5_AVG', 'PRA_L10_AVG', 'PR_L20_AVG', 'PRA_L3_AVG']
+2026-03-07 20:33:11 [INFO] root: [PRA] PG Top 5 Features: ['PRA_L20_AVG', 'PRA_L5_AVG', 'PRA_L10_AVG', 'PRA_L3_AVG', 'PR_L20_AVG']
+2026-03-07 20:33:11 [INFO] root: [PRA] PF Top 5 Features: ['PRA_L10_AVG', 'PRA_L20_AVG', 'PRA_L5_AVG', 'PR_L20_AVG', 'PRA_L3_AVG']
+2026-03-07 20:33:11 [INFO] root: [PRA] nan Top 5 Features: ['PRA_L20_AVG', 'PRA_L10_AVG', 'PRA_L5_AVG', 'PRA_L3_AVG', 'PR_L20_AVG']
+2026-03-07 20:33:11 [INFO] root: [PRA] F Top 5 Features: ['PRA_L20_AVG', 'PRA_L5_AVG', 'PRA_L10_AVG', 'PRA_L3_AVG', 'PR_L20_AVG']
+2026-03-07 20:33:11 [INFO] root: [PRA] G Top 5 Features: ['PRA_L20_AVG', 'PRA_L10_AVG', 'PRA_L5_AVG', 'PRA_L3_AVG', 'PR_L20_AVG']
+2026-03-07 20:33:11 [INFO] root: Saved versioned artifacts for PRA to model_PRA_latest.pkl
+2026-03-07 20:33:11 [INFO] root: [PRA] Successfully trained and saved.
+2026-03-07 20:33:11 [INFO] root: ========= ADVANCED PROBABILITY MODEL TRAINING FINISHED in 11:51 minutes =========

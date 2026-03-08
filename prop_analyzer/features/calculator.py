@@ -113,7 +113,7 @@ def smooth_projection(raw_proj, season_avg, recent_avg, volatility):
 # PROBABILISTIC / BETTING FUNCTIONS
 # ====================================================================
 
-def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None, correlations=None, sample_size=15):
+def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None, correlations=None, sample_size=15, base_projs=None):
     """Estimates variance for Combo Props using baseline historical covariance matrices and dynamic correlations."""
     
     # FIX: Structural NBA Variances are naturally high. 
@@ -133,9 +133,14 @@ def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None, correlatio
         
     # Calculate Structural Covariance
     if prop_type in ['PRA', 'PR', 'PA', 'RA'] and base_stds:
-        var_pts = base_stds.get('PTS', proj*0.2)**2
-        var_reb = base_stds.get('REB', proj*0.1)**2
-        var_ast = base_stds.get('AST', proj*0.1)**2
+        # FIXED: Use actual proportion ratios derived from base_projs, otherwise fallback to standard basketball averages 
+        pts_mean = base_projs.get('PTS', proj * 0.55) if base_projs else proj * 0.55
+        reb_mean = base_projs.get('REB', proj * 0.25) if base_projs else proj * 0.25
+        ast_mean = base_projs.get('AST', proj * 0.20) if base_projs else proj * 0.20
+
+        var_pts = base_stds.get('PTS', pts_mean * 0.45)**2
+        var_reb = base_stds.get('REB', reb_mean * 0.45)**2
+        var_ast = base_stds.get('AST', ast_mean * 0.45)**2
         
         cov_pr = correlations.get('PTS_REB', 0.25) * math.sqrt(var_pts * var_reb)
         cov_pa = correlations.get('PTS_AST', 0.25) * math.sqrt(var_pts * var_ast)
@@ -157,7 +162,7 @@ def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None, correlatio
     
     final_variance = (base_variance * (1.0 - weight)) + (recent_variance * weight)
         
-    # FIX: Ensure mathematical overdispersion for discrete modeling
+    # Ensure mathematical overdispersion for discrete modeling
     return max(final_variance, proj * 1.05)
 
 def get_discrete_probabilities(proj, line, historical_variance, dist_type='normal', tweedie_power=1.5):
@@ -169,7 +174,7 @@ def get_discrete_probabilities(proj, line, historical_variance, dist_type='norma
         
     dynamic_variance = phi * (proj ** tweedie_power)
     
-    # FIX: Force strict overdispersion so Negative Binomial mathematically functions without collapsing
+    # Force strict overdispersion so Negative Binomial mathematically functions without collapsing
     variance = max(dynamic_variance, proj * 1.05)
     
     std_dev = math.sqrt(variance)

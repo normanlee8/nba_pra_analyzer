@@ -1,0 +1,71 @@
+Legs,Joint Prob,Payout,Picks,Result
+2,0.4568399999999999,3.0x,Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB,WIN
+2,0.4568399999999999,3.0x,Brice Sensabaugh Under 21.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+2,0.4490849999999999,3.0x,Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB,WIN
+2,0.444855,3.0x,Darius Garland Over 14.5 PTS | Tobias Harris Over 3.5 REB,WIN
+2,0.44415,3.0x,Giannis Antetokounmpo Under 42.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+2,0.44415,3.0x,Kawhi Leonard Under 38.5 PRA | Tobias Harris Over 3.5 REB,WIN
+2,0.443445,3.0x,Shai Gilgeous-Alexander Under 35.5 PR | Tobias Harris Over 3.5 REB,WIN
+2,0.4427399999999999,3.0x,De'Anthony Melton Under 22.5 PRA | Tobias Harris Over 3.5 REB,PUSH/DOWNGRADE
+2,0.43992,3.0x,Giannis Antetokounmpo Under 32.5 PA | Tobias Harris Over 3.5 REB,LOSS
+2,0.4356899999999999,3.0x,Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB,WIN
+3,0.3030795,6.0x,Darius Garland Over 14.5 PTS | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB,WIN
+3,0.296664,6.0x,Darius Garland Over 14.5 PTS | Kawhi Leonard Under 38.5 PRA | Tobias Harris Over 3.5 REB,WIN
+3,0.2960323199999999,6.0x,Brice Sensabaugh Under 21.5 PRA | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB,LOSS
+3,0.293421,6.0x,Giannis Antetokounmpo Under 42.5 PRA | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+3,0.29100708,6.0x,Kawhi Leonard Under 34.5 PR | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB,WIN
+3,0.29100708,6.0x,Brice Sensabaugh Under 21.5 PRA | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+3,0.2885565,6.0x,GG Jackson Over 6.5 RA | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB,WIN
+3,0.28826604,6.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Tobias Harris Over 3.5 REB,LOSS
+3,0.2878092,6.0x,Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB,LOSS
+3,0.2878092,6.0x,Brice Sensabaugh Under 21.5 PRA | Giannis Antetokounmpo Under 42.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+4,0.196395516,10.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB,LOSS
+4,0.1930616415,10.0x,Darius Garland Over 14.5 PTS | Kawhi Leonard Under 34.5 PR | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB,WIN
+4,0.192238272,10.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Kawhi Leonard Under 38.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+4,0.1909400849999999,10.0x,Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB,LOSS
+4,0.190773,10.0x,Darius Garland Over 14.5 PTS | GG Jackson Over 6.5 RA | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB,WIN
+4,0.1906370054999999,10.0x,Darius Garland Over 14.5 PTS | Kawhi Leonard Under 34.5 PR | Shai Gilgeous-Alexander Under 35.5 PR | Tobias Harris Over 3.5 REB,WIN
+4,0.190333926,10.0x,Darius Garland Over 14.5 PTS | De'Anthony Melton Under 22.5 PRA | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB,PUSH/DOWNGRADE
+4,0.190136808,10.0x,Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+4,0.190136808,10.0x,Brice Sensabaugh Under 21.5 PRA | Giannis Antetokounmpo Under 42.5 PRA | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+4,0.1891216079999999,10.0x,Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 32.5 PA | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB,LOSS
+5,0.1261416879,20.0x,Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+5,0.125103943692,20.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Kawhi Leonard Under 34.5 PR | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+5,0.12372917508,20.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB,LOSS
+5,0.1236209039999999,20.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | GG Jackson Over 6.5 RA | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB,LOSS
+5,0.123532779564,20.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Kawhi Leonard Under 34.5 PR | Shai Gilgeous-Alexander Under 35.5 PR | Tobias Harris Over 3.5 REB,LOSS
+5,0.1234715567999999,20.0x,Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 38.5 PRA | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+5,0.123336384048,20.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | De'Anthony Melton Under 22.5 PRA | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB,LOSS
+5,0.123208651584,20.0x,Brice Sensabaugh Under 21.5 PRA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+5,0.1226259656999999,20.0x,Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 14.5 PR | Tobias Harris Over 3.5 REB,LOSS
+5,0.12259565775,20.0x,Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 32.5 PA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 14.5 PR | Tobias Harris Over 3.5 REB,LOSS
+6,0.0817398137592,25.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+6,0.0803522551923,25.0x,Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+6,0.0800095688063999,25.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 38.5 PRA | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+6,0.0794616257736,25.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 14.5 PR | Tobias Harris Over 3.5 REB,LOSS
+6,0.079441986222,25.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 32.5 PA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 14.5 PR | Tobias Harris Over 3.5 REB,LOSS
+6,0.0793997226,25.0x,Darius Garland Over 14.5 PTS | GG Jackson Over 6.5 RA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+6,0.0793431216891,25.0x,Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 35.5 PR | Tobias Harris Over 3.5 REB,LOSS
+6,0.0792169800012,25.0x,Darius Garland Over 14.5 PTS | De'Anthony Melton Under 22.5 PRA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+6,0.078852799674,25.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 36.0 PR | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+6,0.07881548452596,25.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+7,0.0520682613646104,40.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+7,0.0514510202448,40.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | GG Jackson Over 6.5 RA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+7,0.0514143428545368,40.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 35.5 PR | Tobias Harris Over 3.5 REB,LOSS
+7,0.0513326030407775,40.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | De'Anthony Melton Under 22.5 PRA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+7,0.0509660953296767,40.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 38.5 PRA | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+7,0.0506170556177832,40.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 14.5 PR | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+7,0.050604545223414,40.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 32.5 PA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 14.5 PR | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+7,0.0505776232962,40.0x,Darius Garland Over 14.5 PTS | GG Jackson Over 6.5 RA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+7,0.0504612162607644,40.0x,Darius Garland Over 14.5 PTS | De'Anthony Melton Under 22.5 PRA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+7,0.0503260187792255,40.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 38.5 PRA | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 35.5 PR | Tobias Harris Over 3.5 REB,LOSS
+8,0.0327742998959375,80.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | GG Jackson Over 6.5 RA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+8,0.0326988681369753,80.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | De'Anthony Melton Under 22.5 PRA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+8,0.0323626917339792,80.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | GG Jackson Over 6.5 RA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 35.5 PR | Tobias Harris Over 3.5 REB,LOSS
+8,0.0323112407137344,80.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | De'Anthony Melton Under 22.5 PRA | GG Jackson Over 6.5 RA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+8,0.0322882073126491,80.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | De'Anthony Melton Under 22.5 PRA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 35.5 PR | Tobias Harris Over 3.5 REB,LOSS
+8,0.032006707867037,80.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | De'Anthony Melton Under 22.5 PRA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 38.5 PRA | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+8,0.0318608403121008,80.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | GG Jackson Over 6.5 RA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 14.5 PR | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+8,0.031852965660516,80.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | GG Jackson Over 6.5 RA | Giannis Antetokounmpo Under 32.5 PA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 14.5 PR | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+8,0.0318294834778324,80.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Jared McCain Over 1.5 REB | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 11.5 RA | Tobias Harris Over 3.5 REB,LOSS
+8,0.0318137076937769,80.0x,Anthony Black Under 16.5 PA | Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB,LOSS

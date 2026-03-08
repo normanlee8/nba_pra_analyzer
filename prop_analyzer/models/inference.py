@@ -70,13 +70,11 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
     """
     tier = 'Pass'
     
-    # Evaluate Hard Passes First (Now with Symmetric Tiering)
     if pick_type == 'Over':
         if cv > cfg.MAX_CV_HARD_PASS_OVER or l10_hit_rate < cfg.MIN_L10_HIT_HARD_PASS_OVER:
             return 'Pass / Too Volatile'
     else:
-        dynamic_cv_threshold = getattr(cfg, 'MAX_CV_HARD_PASS_UNDER_LOW_LINE', 0.85) if line < 10.0 else getattr(cfg, 'MAX_CV_HARD_PASS_UNDER_BASE', 0.45)
-        # Assuming a default safe minimum threshold for Unders if not configured
+        dynamic_cv_threshold = getattr(cfg, 'MAX_CV_HARD_PASS_UNDER_LOW_LINE', 0.35) if line < 10.0 else getattr(cfg, 'MAX_CV_HARD_PASS_UNDER_BASE', 0.45)
         min_l10_hit_under = getattr(cfg, 'MIN_L10_HIT_HARD_PASS_UNDER', 0.40) 
         if cv > dynamic_cv_threshold or l10_hit_rate < min_l10_hit_under:
             return 'Pass / Too Volatile'
@@ -178,6 +176,23 @@ def predict_props(todays_props_df):
             X_min_scaled_df = pd.DataFrame(X_min_scaled, columns=X_min_model.columns, index=X_min_model.index)
             X_raw_mins['PRED_MIN'] = min_model.predict(X_min_scaled_df)
             predicted_mins = X_raw_mins['PRED_MIN'].to_dict()
+            
+            # FIXED: MINUTES DISCONNECT. Feed PRED_MIN back into the feature set to dynamically scale PER36 stats.
+            # This ensures backups getting spot starts are projected using their starter-level minute workload.
+            for orig_idx, pred_min in predicted_mins.items():
+                if pred_min <= 0 or pd.isna(pred_min): continue
+                
+                # Scale up baseline features to match expected game script
+                for stat in ['PTS', 'REB', 'AST', 'PRA', 'PR', 'PA', 'RA', 'USG_PROXY']:
+                    per36_col = f'{stat}_L5_PER36'
+                    if per36_col in todays_props_df.columns:
+                        val_per36 = todays_props_df.at[orig_idx, per36_col]
+                        if not pd.isna(val_per36) and val_per36 > 0:
+                            todays_props_df.at[orig_idx, f'{stat}_L5_AVG'] = val_per36 * (pred_min / 36.0)
+                            
+                # Align Minute Averages to the new predicted reality
+                todays_props_df.at[orig_idx, 'MIN_L5_AVG'] = pred_min
+
         except Exception as e:
             logging.warning(f"Failed to predict standalone minutes: {e}")
 
@@ -194,9 +209,6 @@ def predict_props(todays_props_df):
         model, scaler, feature_names = artifacts['model'], artifacts['scaler'], artifacts['features']
         tweedie_power = artifacts.get('metadata', {}).get('tweedie_variance_power', 1.5)
         
-        # Load our new Segmented SHAP logic metadata
-        neutral_feats_map = artifacts.get('metadata', {}).get('segmented_neutral_features', {})
-        
         X_raw = group.copy()
         
         sanitized_map = {c: re.sub(r'[^\w\s]', '_', str(c)).replace(' ', '_') for c in X_raw.columns}
@@ -210,17 +222,9 @@ def predict_props(todays_props_df):
             
         X_model = pd.DataFrame(new_features, index=X_raw.index)
 
-        # === DYNAMIC FEATURE NEUTRALIZATION ===
-        # If a feature is noise for a specific position, we set it to np.nan so the XGB/LGBM model ignores it
-        if neutral_feats_map:
-            for idx_label in X_model.index:
-                row_data = X_raw.loc[idx_label]
-                pos = row_data.get('POSITION', row_data.get('PLAYER_POSITION', row_data.get('Position', 'UNK')))
-                
-                if pos in neutral_feats_map:
-                    feats_to_null = [f for f in neutral_feats_map[pos] if f in X_model.columns]
-                    if feats_to_null:
-                        X_model.loc[idx_label, feats_to_null] = np.nan
+        # FIXED: SHAP FLAW. Removed the logic that injected np.nan into X_model.
+        # Tree-based models natively ignore uninformative features. Injecting NaNs into a 
+        # trained model forces incorrect tree pathing and ruins the mathematical output.
 
         try:
             X_scaled = scaler.transform(X_model)
@@ -253,6 +257,12 @@ def predict_props(todays_props_df):
                 'AST': get_col_safe(X_raw, 'AST', 'L10_STD_DEV')
             }
             
+            base_projs_dict = {
+                'PTS': get_col_safe(X_raw, 'PTS', 'L5_AVG'),
+                'REB': get_col_safe(X_raw, 'REB', 'L5_AVG'),
+                'AST': get_col_safe(X_raw, 'AST', 'L5_AVG')
+            }
+            
             for idx, (orig_idx, row) in enumerate(group.iterrows()):
                 line = float(row[Cols.PROP_LINE])
                 raw_val = raw_projections[idx]
@@ -262,7 +272,7 @@ def predict_props(todays_props_df):
                 
                 adjusted_raw = raw_val
                 
-                # Loose Line Regression Implementation
+                # Loose Line Regression Implementation (Kept intact based on instructions)
                 if line > 0:
                     gap = abs(adjusted_raw - line) / line
                     if gap > 0.10: 
@@ -303,8 +313,14 @@ def predict_props(todays_props_df):
                     'AST': float(base_stds['AST'].iloc[idx]) if not pd.isna(base_stds['AST'].iloc[idx]) else (proj*0.1)
                 }
                 
+                dynamic_base_projs = {
+                    'PTS': float(base_projs_dict['PTS'].iloc[idx]) if not pd.isna(base_projs_dict['PTS'].iloc[idx]) else (proj*0.55),
+                    'REB': float(base_projs_dict['REB'].iloc[idx]) if not pd.isna(base_projs_dict['REB'].iloc[idx]) else (proj*0.25),
+                    'AST': float(base_projs_dict['AST'].iloc[idx]) if not pd.isna(base_projs_dict['AST'].iloc[idx]) else (proj*0.20)
+                }
+                
                 sample_size = int(games_played_col.iloc[idx]) if not pd.isna(games_played_col.iloc[idx]) else 15
-                variance = estimate_combo_variance(prop_cat, proj, std_dev, base_stds=dynamic_base_stds, correlations=dynamic_correlations, sample_size=sample_size)
+                variance = estimate_combo_variance(prop_cat, proj, std_dev, base_stds=dynamic_base_stds, correlations=dynamic_correlations, sample_size=sample_size, base_projs=dynamic_base_projs)
                 
                 historic_mae = cat_mae.get(prop_cat, 1.0)
                 if historic_mae > 1.5:  
