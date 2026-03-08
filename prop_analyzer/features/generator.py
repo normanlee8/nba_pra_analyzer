@@ -53,18 +53,32 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         szn_avg = shifted_grouped.expanding().mean().values
         l5_mean = grouped_winsor.rolling(window=5, min_periods=1).mean().values
         
+        # Calculate Mean (For mathematical Expected Value)
         l1_avg = grouped_winsor.rolling(window=1, min_periods=1).mean().values
-        l3_avg = grouped_winsor.rolling(window=3, min_periods=1).median().values
-        l5_avg = grouped_winsor.rolling(window=5, min_periods=1).median().values
-        l10_avg = grouped_winsor.rolling(window=10, min_periods=1).median().values
-        l20_avg = grouped_winsor.rolling(window=20, min_periods=1).median().values
+        l3_avg = grouped_winsor.rolling(window=3, min_periods=1).mean().values
+        l5_avg = l5_mean  # Already calculated above
+        l10_avg = grouped_winsor.rolling(window=10, min_periods=1).mean().values
+        l20_avg = grouped_winsor.rolling(window=20, min_periods=1).mean().values
+
+        # Calculate Median (For modeling typical consistency)
+        l3_med = grouped_winsor.rolling(window=3, min_periods=1).median().values
+        l5_med = grouped_winsor.rolling(window=5, min_periods=1).median().values
+        l10_med = grouped_winsor.rolling(window=10, min_periods=1).median().values
+        l20_med = grouped_winsor.rolling(window=20, min_periods=1).median().values
         
+        # Assign Mean Averages
         new_cols[f'{col}_{Cols.SZN_AVG}'] = szn_avg
         new_cols[f'{col}_L1_AVG'] = l1_avg
         new_cols[f'{col}_L3_AVG'] = l3_avg
         new_cols[f'{col}_L5_AVG'] = l5_avg
         new_cols[f'{col}_L10_AVG'] = l10_avg
         new_cols[f'{col}_L20_AVG'] = l20_avg
+        
+        # Assign Median Features
+        new_cols[f'{col}_L3_MEDIAN'] = l3_med
+        new_cols[f'{col}_L5_MEDIAN'] = l5_med
+        new_cols[f'{col}_L10_MEDIAN'] = l10_med
+        new_cols[f'{col}_L20_MEDIAN'] = l20_med
         
         l3_std = shifted_grouped.rolling(window=3, min_periods=2).std().values
         l5_std = shifted_grouped.rolling(window=5, min_periods=2).std().values

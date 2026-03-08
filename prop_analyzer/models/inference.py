@@ -70,13 +70,15 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
     """
     tier = 'Pass'
     
-    # Evaluate Hard Passes First
+    # Evaluate Hard Passes First (Now with Symmetric Tiering)
     if pick_type == 'Over':
         if cv > cfg.MAX_CV_HARD_PASS_OVER or l10_hit_rate < cfg.MIN_L10_HIT_HARD_PASS_OVER:
             return 'Pass / Too Volatile'
     else:
         dynamic_cv_threshold = getattr(cfg, 'MAX_CV_HARD_PASS_UNDER_LOW_LINE', 0.85) if line < 10.0 else getattr(cfg, 'MAX_CV_HARD_PASS_UNDER_BASE', 0.45)
-        if cv > dynamic_cv_threshold:
+        # Assuming a default safe minimum threshold for Unders if not configured
+        min_l10_hit_under = getattr(cfg, 'MIN_L10_HIT_HARD_PASS_UNDER', 0.40) 
+        if cv > dynamic_cv_threshold or l10_hit_rate < min_l10_hit_under:
             return 'Pass / Too Volatile'
 
     if win_prob >= cfg.MIN_PROB_FOR_S_TIER and cv < cfg.MAX_CV_FOR_S_TIER and (pick_type != 'Over' or l10_hit_rate >= cfg.MIN_L10_HIT_FOR_S_TIER): 
@@ -260,10 +262,11 @@ def predict_props(todays_props_df):
                 
                 adjusted_raw = raw_val
                 
+                # Loose Line Regression Implementation
                 if line > 0:
                     gap = abs(adjusted_raw - line) / line
                     if gap > 0.10: 
-                        adjusted_raw = (adjusted_raw * 0.35) + (line * 0.65)
+                        adjusted_raw = (adjusted_raw * 0.70) + (line * 0.30)
                 
                 s_avg = float(szn_avgs.iloc[idx]) if not pd.isna(szn_avgs.iloc[idx]) else adjusted_raw
                 r_avg = float(l5_avgs.iloc[idx]) if not pd.isna(l5_avgs.iloc[idx]) else adjusted_raw
