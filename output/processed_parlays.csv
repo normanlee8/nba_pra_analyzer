@@ -1,71 +1,71 @@
 Legs,Joint Prob,Payout,Picks
-2,0.45683999999999997,3.0x,Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB
-2,0.45683999999999997,3.0x,Brice Sensabaugh Under 21.5 PRA | Tobias Harris Over 3.5 REB
-2,0.44908499999999996,3.0x,Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB
-2,0.444855,3.0x,Darius Garland Over 14.5 PTS | Tobias Harris Over 3.5 REB
-2,0.44415,3.0x,Giannis Antetokounmpo Under 42.5 PRA | Tobias Harris Over 3.5 REB
-2,0.44415,3.0x,Kawhi Leonard Under 38.5 PRA | Tobias Harris Over 3.5 REB
-2,0.443445,3.0x,Shai Gilgeous-Alexander Under 35.5 PR | Tobias Harris Over 3.5 REB
-2,0.44273999999999997,3.0x,De'Anthony Melton Under 22.5 PRA | Tobias Harris Over 3.5 REB
-2,0.43992,3.0x,Giannis Antetokounmpo Under 32.5 PA | Tobias Harris Over 3.5 REB
-2,0.43568999999999997,3.0x,Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB
-3,0.3030795,6.0x,Darius Garland Over 14.5 PTS | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB
-3,0.296664,6.0x,Darius Garland Over 14.5 PTS | Kawhi Leonard Under 38.5 PRA | Tobias Harris Over 3.5 REB
-3,0.29603231999999996,6.0x,Brice Sensabaugh Under 21.5 PRA | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB
-3,0.293421,6.0x,Giannis Antetokounmpo Under 42.5 PRA | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB
-3,0.29100708000000003,6.0x,Kawhi Leonard Under 34.5 PR | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB
-3,0.29100708000000003,6.0x,Brice Sensabaugh Under 21.5 PRA | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB
-3,0.2885565,6.0x,GG Jackson Over 6.5 RA | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB
-3,0.28826604,6.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Tobias Harris Over 3.5 REB
-3,0.2878092,6.0x,Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB
-3,0.2878092,6.0x,Brice Sensabaugh Under 21.5 PRA | Giannis Antetokounmpo Under 42.5 PRA | Tobias Harris Over 3.5 REB
-4,0.196395516,10.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB
-4,0.1930616415,10.0x,Darius Garland Over 14.5 PTS | Kawhi Leonard Under 34.5 PR | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB
-4,0.192238272,10.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Kawhi Leonard Under 38.5 PRA | Tobias Harris Over 3.5 REB
-4,0.19094008499999998,10.0x,Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB
-4,0.190773,10.0x,Darius Garland Over 14.5 PTS | GG Jackson Over 6.5 RA | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB
-4,0.19063700549999998,10.0x,Darius Garland Over 14.5 PTS | Kawhi Leonard Under 34.5 PR | Shai Gilgeous-Alexander Under 35.5 PR | Tobias Harris Over 3.5 REB
-4,0.19033392600000001,10.0x,Darius Garland Over 14.5 PTS | De'Anthony Melton Under 22.5 PRA | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB
-4,0.19013680800000002,10.0x,Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB
-4,0.19013680800000002,10.0x,Brice Sensabaugh Under 21.5 PRA | Giannis Antetokounmpo Under 42.5 PRA | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB
-4,0.18912160799999997,10.0x,Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 32.5 PA | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB
-5,0.12614168790000002,20.0x,Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB
-5,0.125103943692,20.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Kawhi Leonard Under 34.5 PR | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB
-5,0.12372917508,20.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB
-5,0.12362090399999999,20.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | GG Jackson Over 6.5 RA | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB
-5,0.12353277956400001,20.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Kawhi Leonard Under 34.5 PR | Shai Gilgeous-Alexander Under 35.5 PR | Tobias Harris Over 3.5 REB
-5,0.12347155679999999,20.0x,Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 38.5 PRA | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB
-5,0.123336384048,20.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | De'Anthony Melton Under 22.5 PRA | Kawhi Leonard Under 34.5 PR | Tobias Harris Over 3.5 REB
-5,0.123208651584,20.0x,Brice Sensabaugh Under 21.5 PRA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB
-5,0.12262596569999999,20.0x,Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 14.5 PR | Tobias Harris Over 3.5 REB
-5,0.12259565775,20.0x,Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 32.5 PA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 14.5 PR | Tobias Harris Over 3.5 REB
-6,0.0817398137592,25.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB
-6,0.0803522551923,25.0x,Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB
-6,0.08000956880639999,25.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 38.5 PRA | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB
-6,0.07946162577360001,25.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 14.5 PR | Tobias Harris Over 3.5 REB
-6,0.07944198622200001,25.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 32.5 PA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 14.5 PR | Tobias Harris Over 3.5 REB
-6,0.0793997226,25.0x,Darius Garland Over 14.5 PTS | GG Jackson Over 6.5 RA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB
-6,0.0793431216891,25.0x,Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 35.5 PR | Tobias Harris Over 3.5 REB
-6,0.0792169800012,25.0x,Darius Garland Over 14.5 PTS | De'Anthony Melton Under 22.5 PRA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB
-6,0.07885279967400001,25.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 36.0 PR | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB
-6,0.07881548452596,25.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB
-7,0.05206826136461041,40.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB
-7,0.0514510202448,40.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | GG Jackson Over 6.5 RA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB
-7,0.051414342854536804,40.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 35.5 PR | Tobias Harris Over 3.5 REB
-7,0.051332603040777594,40.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | De'Anthony Melton Under 22.5 PRA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB
-7,0.05096609532967679,40.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 38.5 PRA | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB
-7,0.05061705561778321,40.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 14.5 PR | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB
-7,0.05060454522341401,40.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 32.5 PA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 14.5 PR | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB
-7,0.050577623296200004,40.0x,Darius Garland Over 14.5 PTS | GG Jackson Over 6.5 RA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB
-7,0.050461216260764406,40.0x,Darius Garland Over 14.5 PTS | De'Anthony Melton Under 22.5 PRA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB
-7,0.050326018779225594,40.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 38.5 PRA | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 35.5 PR | Tobias Harris Over 3.5 REB
-8,0.032774299895937595,80.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | GG Jackson Over 6.5 RA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB
-8,0.032698868136975326,80.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | De'Anthony Melton Under 22.5 PRA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB
-8,0.0323626917339792,80.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | GG Jackson Over 6.5 RA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 35.5 PR | Tobias Harris Over 3.5 REB
-8,0.0323112407137344,80.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | De'Anthony Melton Under 22.5 PRA | GG Jackson Over 6.5 RA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Tobias Harris Over 3.5 REB
-8,0.03228820731264911,80.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | De'Anthony Melton Under 22.5 PRA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 35.5 PR | Tobias Harris Over 3.5 REB
-8,0.03200670786703703,80.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | De'Anthony Melton Under 22.5 PRA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 38.5 PRA | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB
-8,0.0318608403121008,80.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | GG Jackson Over 6.5 RA | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 14.5 PR | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB
-8,0.031852965660516,80.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | GG Jackson Over 6.5 RA | Giannis Antetokounmpo Under 32.5 PA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 14.5 PR | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB
-8,0.03182948347783249,80.0x,Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Jared McCain Over 1.5 REB | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 11.5 RA | Tobias Harris Over 3.5 REB
-8,0.03181370769377695,80.0x,Anthony Black Under 16.5 PA | Brice Sensabaugh Under 21.5 PRA | Darius Garland Over 14.5 PTS | Giannis Antetokounmpo Under 42.5 PRA | Kawhi Leonard Under 34.5 PR | Kyle Kuzma Over 16.5 PRA | Shai Gilgeous-Alexander Under 43.5 PRA | Tobias Harris Over 3.5 REB
+2,0.524181,3.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA
+2,0.514262,3.0x,Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA
+2,0.507395,3.0x,Bennedict Mathurin Over 3.5 REB | Cam Spencer Under 12.5 RA
+2,0.49823900000000004,3.0x,Cam Spencer Under 12.5 RA | Shai Gilgeous-Alexander Under 39.5 PA
+2,0.49595,3.0x,Cam Spencer Under 12.5 RA | Kris Dunn Over 14.0 PRA
+2,0.49137200000000003,3.0x,Cam Spencer Under 12.5 RA | Kris Dunn Over 6.5 RA
+2,0.490609,3.0x,Cam Spencer Under 12.5 RA | VJ Edgecombe Under 22.5 PA
+2,0.4905,3.0x,Cam Spencer Under 12.5 RA | Nolan Traore Under 13.5 PTS
+2,0.487557,3.0x,Cam Spencer Under 12.5 RA | Jalen Brunson Under 32.5 PA
+2,0.4869,3.0x,Cam Spencer Under 12.5 RA | Nic Claxton Under 24.5 PRA
+3,0.353297994,6.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA
+3,0.342290193,6.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | Shai Gilgeous-Alexander Under 39.5 PA
+3,0.34198423000000006,6.0x,Bennedict Mathurin Over 3.5 REB | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA
+3,0.3419766,6.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | Kris Dunn Over 14.0 PRA
+3,0.337048383,6.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | VJ Edgecombe Under 22.5 PA
+3,0.33697350000000004,6.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | Nolan Traore Under 13.5 PTS
+3,0.33581308600000004,6.0x,Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Shai Gilgeous-Alexander Under 39.5 PA
+3,0.334951659,6.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | Jalen Brunson Under 32.5 PA
+3,0.33450030000000003,6.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | Nic Claxton Under 24.5 PRA
+3,0.3342703,6.0x,Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 14.0 PRA
+4,0.230703590082,10.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Shai Gilgeous-Alexander Under 39.5 PA
+4,0.23049222840000003,10.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 14.0 PRA
+4,0.22717061014200002,10.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | VJ Edgecombe Under 22.5 PA
+4,0.22712013900000003,10.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Nolan Traore Under 13.5 PTS
+4,0.225757418166,10.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA
+4,0.22545320220000004,10.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Nic Claxton Under 24.5 PRA
+4,0.22434422619,10.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 28.5 PR
+4,0.223990928196,10.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Shai Gilgeous-Alexander Under 36.5 PR
+4,0.223637630202,10.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Shai Gilgeous-Alexander Under 44.5 PRA
+4,0.22331570219000005,10.0x,Bennedict Mathurin Over 3.5 REB | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Shai Gilgeous-Alexander Under 39.5 PA
+5,0.15051142514520002,20.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 14.0 PRA | Shai Gilgeous-Alexander Under 39.5 PA
+5,0.148342408422726,20.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA
+5,0.14830945076700003,20.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA
+5,0.14820650286120002,20.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 14.0 PRA | VJ Edgecombe Under 22.5 PA
+5,0.1481735754,20.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 14.0 PRA | Nolan Traore Under 13.5 PTS
+5,0.14741959406239802,20.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Shai Gilgeous-Alexander Under 39.5 PA
+5,0.14728453394760002,20.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Kris Dunn Over 14.0 PRA
+5,0.14722094103660002,20.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Nic Claxton Under 24.5 PRA | Shai Gilgeous-Alexander Under 39.5 PA
+5,0.14708606292,20.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 14.0 PRA | Nic Claxton Under 24.5 PRA
+5,0.1468732272,20.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kawhi Leonard Under 36.5 PRA | Kris Dunn Over 14.0 PRA
+6,0.09677884636836362,25.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 14.0 PRA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA
+6,0.09675734473620001,25.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 14.0 PRA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA
+6,0.09617680066778282,25.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Kris Dunn Over 14.0 PRA | Shai Gilgeous-Alexander Under 39.5 PA
+6,0.09604719908676002,25.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 14.0 PRA | Nic Claxton Under 24.5 PRA | Shai Gilgeous-Alexander Under 39.5 PA
+6,0.09590821736160002,25.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kawhi Leonard Under 36.5 PRA | Kris Dunn Over 14.0 PRA | Shai Gilgeous-Alexander Under 39.5 PA
+6,0.09557475496720202,25.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 28.5 PR | Kris Dunn Over 14.0 PRA | Shai Gilgeous-Alexander Under 39.5 PA
+6,0.09536297684318103,25.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA
+6,0.09527560898220001,25.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 14.0 PRA | Nolan Traore Under 13.5 PTS | VJ Edgecombe Under 22.5 PA
+6,0.09496794072080002,25.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kawhi Leonard Under 36.5 PRA | Kris Dunn Over 10.0 PR | Shai Gilgeous-Alexander Under 39.5 PA
+6,0.09482219784147601,25.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Karl-Anthony Towns Under 12.5 REB | Kris Dunn Over 14.0 PRA | Shai Gilgeous-Alexander Under 39.5 PA
+7,0.06221497266537661,40.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 14.0 PRA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA
+7,0.061841682829384355,40.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Kris Dunn Over 14.0 PRA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA
+7,0.061827943286431805,40.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Kris Dunn Over 14.0 PRA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA
+7,0.06175834901278669,40.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 14.0 PRA | Nic Claxton Under 24.5 PRA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA
+7,0.061668983763508815,40.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kawhi Leonard Under 36.5 PRA | Kris Dunn Over 14.0 PRA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA
+7,0.06165528258960001,40.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kawhi Leonard Under 36.5 PRA | Kris Dunn Over 14.0 PRA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA
+7,0.0614545674439109,40.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 28.5 PR | Kris Dunn Over 14.0 PRA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA
+7,0.061440913907487,40.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 28.5 PR | Kris Dunn Over 14.0 PRA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA
+7,0.06137416021643965,40.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Kris Dunn Over 14.0 PRA | Nic Claxton Under 24.5 PRA | Shai Gilgeous-Alexander Under 39.5 PA
+7,0.06128535089406241,40.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Kawhi Leonard Under 36.5 PRA | Kris Dunn Over 14.0 PRA | Shai Gilgeous-Alexander Under 39.5 PA
+8,0.03975536753317565,80.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Kris Dunn Over 14.0 PRA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA
+8,0.03964434670511281,80.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kawhi Leonard Under 36.5 PRA | Kris Dunn Over 14.0 PRA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA
+8,0.03950650764251414,80.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 28.5 PR | Kris Dunn Over 14.0 PRA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA
+8,0.039463585019170695,80.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Kris Dunn Over 14.0 PRA | Nic Claxton Under 24.5 PRA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA
+8,0.03940648062488213,80.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Kawhi Leonard Under 36.5 PRA | Kris Dunn Over 14.0 PRA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA
+8,0.03939772557475441,80.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Kawhi Leonard Under 36.5 PRA | Kris Dunn Over 14.0 PRA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA
+8,0.03935337902287345,80.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kawhi Leonard Under 36.5 PRA | Kris Dunn Over 14.0 PRA | Nic Claxton Under 24.5 PRA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA
+8,0.03929221162555563,80.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Kris Dunn Over 14.0 PRA | Landry Shamet Over 10.5 PR | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA
+8,0.0392834819628972,80.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Kris Dunn Over 14.0 PRA | Landry Shamet Over 10.5 PR | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA
+8,0.039255676639376395,80.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kawhi Leonard Under 36.5 PRA | Kris Dunn Over 10.0 PR | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA

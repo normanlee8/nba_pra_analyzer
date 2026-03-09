@@ -1,0 +1,71 @@
+Legs,Joint Prob,Payout,Picks,Result
+2,0.534936,3.0x,Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,WIN
+2,0.5230319999999999,3.0x,Dejounte Murray Over 3.5 REB | Sam Hauser Over 9.5 PRA,WIN
+2,0.5163359999999999,3.0x,Grayson Allen Over 5.5 RA | Sam Hauser Over 9.5 PRA,PUSH/DOWNGRADE
+2,0.514104,3.0x,Daniel Gafford Over 5.5 RA | Sam Hauser Over 9.5 PRA,WIN
+2,0.512647,3.0x,Derrick White Over 3.5 AST | Pascal Siakam Under 12.5 RA,WIN
+2,0.508152,3.0x,Jamal Shead Over 9.5 PRA | Sam Hauser Over 9.5 PRA,LOSS
+2,0.506664,3.0x,Isaac Okoro Under 11.5 PTS | Sam Hauser Over 9.5 PRA,WIN
+2,0.5054569999999999,3.0x,Dejounte Murray Over 3.5 REB | Pascal Siakam Under 12.5 RA,WIN
+2,0.5054569999999999,3.0x,Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA,LOSS
+2,0.501239,3.0x,Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST,WIN
+3,0.399764,6.0x,Derrick White Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,WIN
+3,0.3948029,6.0x,Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+3,0.390868,6.0x,Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Sam Hauser Over 9.5 PRA,WIN
+3,0.3860173,6.0x,Dejounte Murray Over 3.5 REB | Jayson Tatum Over 3.5 AST | Sam Hauser Over 9.5 PRA,LOSS
+3,0.385864,6.0x,Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Sam Hauser Over 9.5 PRA,PUSH/DOWNGRADE
+3,0.384196,6.0x,Daniel Gafford Over 5.5 RA | Derrick White Over 3.5 AST | Sam Hauser Over 9.5 PRA,WIN
+3,0.3810754,6.0x,Grayson Allen Over 5.5 RA | Jayson Tatum Over 3.5 AST | Sam Hauser Over 9.5 PRA,LOSS
+3,0.3797480000000001,6.0x,Derrick White Over 3.5 AST | Jamal Shead Over 9.5 PRA | Sam Hauser Over 9.5 PRA,LOSS
+3,0.3794281,6.0x,Daniel Gafford Over 5.5 RA | Jayson Tatum Over 3.5 AST | Sam Hauser Over 9.5 PRA,LOSS
+3,0.3786360000000001,6.0x,Derrick White Over 3.5 AST | Isaac Okoro Under 11.5 PTS | Sam Hauser Over 9.5 PRA,WIN
+4,0.2881033,10.0x,Derrick White Over 3.5 AST | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+4,0.2816921,10.0x,Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Jayson Tatum Over 3.5 AST | Sam Hauser Over 9.5 PRA,LOSS
+4,0.2810340919999999,10.0x,Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,WIN
+4,0.2780858,10.0x,Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Jayson Tatum Over 3.5 AST | Sam Hauser Over 9.5 PRA,LOSS
+4,0.2775464387,10.0x,Dejounte Murray Over 3.5 REB | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+4,0.2774362159999999,10.0x,Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,PUSH/DOWNGRADE
+4,0.2768836999999999,10.0x,Daniel Gafford Over 5.5 RA | Derrick White Over 3.5 AST | Jayson Tatum Over 3.5 AST | Sam Hauser Over 9.5 PRA,LOSS
+4,0.276236924,10.0x,Daniel Gafford Over 5.5 RA | Derrick White Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,WIN
+4,0.2739932126,10.0x,Grayson Allen Over 5.5 RA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+4,0.2736781,10.0x,Derrick White Over 3.5 AST | Jamal Shead Over 9.5 PRA | Jayson Tatum Over 3.5 AST | Sam Hauser Over 9.5 PRA,LOSS
+5,0.2025366199,20.0x,Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+5,0.1999436902,20.0x,Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+5,0.1990793802999999,20.0x,Daniel Gafford Over 5.5 RA | Derrick White Over 3.5 AST | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+5,0.1967745539,20.0x,Derrick White Over 3.5 AST | Jamal Shead Over 9.5 PRA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+5,0.1961983473,20.0x,Derrick White Over 3.5 AST | Isaac Okoro Under 11.5 PTS | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+5,0.1954943173999999,20.0x,Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Jayson Tatum Over 3.5 AST | Sam Hauser Over 9.5 PRA,LOSS
+5,0.1950376598479999,20.0x,Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,PUSH/DOWNGRADE
+5,0.1946492410999999,20.0x,Daniel Gafford Over 5.5 RA | Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Jayson Tatum Over 3.5 AST | Sam Hauser Over 9.5 PRA,LOSS
+5,0.194194557572,20.0x,Daniel Gafford Over 5.5 RA | Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,WIN
+5,0.1926172284577999,20.0x,Dejounte Murray Over 3.5 REB | Grayson Allen Over 5.5 RA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+6,0.1405604142105999,25.0x,Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+6,0.1399528043509,25.0x,Daniel Gafford Over 5.5 RA | Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+6,0.1383325113917,25.0x,Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Jamal Shead Over 9.5 PRA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+6,0.1381610899281999,25.0x,Daniel Gafford Over 5.5 RA | Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+6,0.1379274381519,25.0x,Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Isaac Okoro Under 11.5 PTS | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+6,0.1365615404066,25.0x,Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Jamal Shead Over 9.5 PRA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+6,0.1361616530262,25.0x,Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Isaac Okoro Under 11.5 PTS | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+6,0.1355730579842999,25.0x,Daniel Gafford Over 5.5 RA | Derrick White Over 3.5 AST | Isaac Okoro Under 11.5 PTS | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+6,0.1350865733234,25.0x,Daniel Gafford Over 5.5 RA | Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Jayson Tatum Over 3.5 AST | Sam Hauser Over 9.5 PRA,LOSS
+6,0.13486115473,25.0x,Derrick White Over 3.5 AST | Jamal Shead Over 9.5 PRA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | RJ Barrett Under 19.5 PTS | Sam Hauser Over 9.5 PRA,LOSS
+7,0.0971272462195246,40.0x,Daniel Gafford Over 5.5 RA | Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+7,0.0960027629058398,40.0x,Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Jamal Shead Over 9.5 PRA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+7,0.0957216420774186,40.0x,Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Isaac Okoro Under 11.5 PTS | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+7,0.0953078597629629,40.0x,Daniel Gafford Over 5.5 RA | Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Isaac Okoro Under 11.5 PTS | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+7,0.09524695098,40.0x,Daniel Gafford Over 5.5 RA | Derrick White Over 3.5 AST | Jamal Shead Over 9.5 PRA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | RJ Barrett Under 25.5 PR | Sam Hauser Over 9.5 PRA,LOSS
+7,0.0948073917751899,40.0x,Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Jamal Shead Over 9.5 PRA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | RJ Barrett Under 19.5 PTS | Sam Hauser Over 9.5 PRA,LOSS
+7,0.0942044402577477,40.0x,Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Isaac Okoro Under 11.5 PTS | Jamal Shead Over 9.5 PRA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+7,0.0940877022411041,40.0x,Daniel Gafford Over 5.5 RA | Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Isaac Okoro Under 11.5 PTS | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+7,0.09389597698564,40.0x,Daniel Gafford Over 5.5 RA | Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Jamal Shead Over 9.5 PRA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+7,0.09359364138262,40.0x,Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Jamal Shead Over 9.5 PRA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | RJ Barrett Under 19.5 PTS | Sam Hauser Over 9.5 PRA,LOSS
+8,0.06695860653894,80.0x,Daniel Gafford Over 5.5 RA | Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Jamal Shead Over 9.5 PRA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | RJ Barrett Under 25.5 PR | Sam Hauser Over 9.5 PRA,LOSS
+8,0.0661436546754962,80.0x,Daniel Gafford Over 5.5 RA | Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Isaac Okoro Under 11.5 PTS | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+8,0.06610138398012,80.0x,Daniel Gafford Over 5.5 RA | Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Jamal Shead Over 9.5 PRA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | RJ Barrett Under 25.5 PR | Sam Hauser Over 9.5 PRA,LOSS
+8,0.0657963298919818,80.0x,Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Jamal Shead Over 9.5 PRA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | RJ Barrett Under 19.5 PTS | Sam Hauser Over 9.5 PRA,LOSS
+8,0.0653778815388769,80.0x,Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Isaac Okoro Under 11.5 PTS | Jamal Shead Over 9.5 PRA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+8,0.0651638080280341,80.0x,Daniel Gafford Over 5.5 RA | Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Jamal Shead Over 9.5 PRA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | Sam Hauser Over 9.5 PRA,LOSS
+8,0.0649248553238761,80.0x,Daniel Gafford Over 5.5 RA | Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | RJ Barrett Under 19.5 PTS | Sam Hauser Over 9.5 PRA,LOSS
+8,0.06486317361738,80.0x,Daniel Gafford Over 5.5 RA | Derrick White Over 3.5 AST | Isaac Okoro Under 11.5 PTS | Jamal Shead Over 9.5 PRA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | RJ Barrett Under 25.5 PR | Sam Hauser Over 9.5 PRA,LOSS
+8,0.06463042133244,80.0x,Daniel Gafford Over 5.5 RA | Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Grayson Allen Over 5.5 RA | Jamal Shead Over 9.5 PRA | Jayson Tatum Over 3.5 AST | RJ Barrett Under 25.5 PR | Sam Hauser Over 9.5 PRA,LOSS
+8,0.0645638337989044,80.0x,Dejounte Murray Over 3.5 REB | Derrick White Over 3.5 AST | Isaac Okoro Under 11.5 PTS | Jamal Shead Over 9.5 PRA | Jayson Tatum Over 3.5 AST | Pascal Siakam Under 12.5 RA | RJ Barrett Under 19.5 PTS | Sam Hauser Over 9.5 PRA,LOSS

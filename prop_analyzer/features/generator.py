@@ -456,7 +456,7 @@ def build_feature_set(props_df):
                 allow_exact_matches=False
             )
         else:
-            features_df = pd.merge(features_df, dvp_df, on=['OPPONENT_ABBREV', 'Primary_Pos'], how='left')
+            features_df = pd.merge(features_df, dvp_df.drop_duplicates(subset=['OPPONENT_ABBREV', 'Primary_Pos'], keep='last'), on=['OPPONENT_ABBREV', 'Primary_Pos'], how='left')
         
         dvp_cols = [c for c in features_df.columns if c.startswith('DVP_') and 'MULTIPLIER' in c]
         for c in dvp_cols:
@@ -465,7 +465,7 @@ def build_feature_set(props_df):
     if vs_opp_df is not None and not vs_opp_df.empty:
         logging.info("Merging historical VS Opponent stats...")
         if Cols.OPPONENT in features_df.columns and Cols.OPPONENT in vs_opp_df.columns:
-            features_df = pd.merge(features_df, vs_opp_df, on=[Cols.PLAYER_ID, Cols.OPPONENT], how='left')
+            features_df = pd.merge(features_df, vs_opp_df.drop_duplicates(subset=[Cols.PLAYER_ID, Cols.OPPONENT], keep='last'), on=[Cols.PLAYER_ID, Cols.OPPONENT], how='left')
 
     if 'MATCHUP' in features_df.columns and 'IS_HOME' not in features_df.columns:
         features_df['IS_HOME'] = np.where(features_df['MATCHUP'].str.contains('@'), 0, 1)
@@ -526,7 +526,7 @@ def build_feature_set(props_df):
             latest_szn = splits_df['SEASON_ID'].max()
             splits_df = splits_df[splits_df['SEASON_ID'] == latest_szn].drop(columns=['SEASON_ID', Cols.PLAYER_NAME], errors='ignore')
             
-        features_df = pd.merge(features_df, splits_df, on=Cols.PLAYER_ID, how='left')
+        features_df = pd.merge(features_df, splits_df.drop_duplicates(subset=[Cols.PLAYER_ID], keep='last'), on=Cols.PLAYER_ID, how='left')
         
         stat_cols = ['PTS', 'REB', 'AST', 'PRA', 'MIN']
         for col in stat_cols:
@@ -584,9 +584,9 @@ def build_feature_set(props_df):
             if Cols.PLAYER_ID not in cols_to_keep and 'clean_name' in features_df.columns:
                 if 'Player' in shoot_df.columns:
                     shoot_df['clean_name'] = shoot_df['Player'].apply(lambda x: str(x).lower().strip())
-                    features_df = pd.merge(features_df, shoot_df[['clean_name'] + [c for c in cols_to_keep if c != Cols.PLAYER_ID]].rename(columns=shoot_cols), on='clean_name', how='left')
+                    features_df = pd.merge(features_df, shoot_df[['clean_name'] + [c for c in cols_to_keep if c != Cols.PLAYER_ID]].drop_duplicates(subset=['clean_name'], keep='last').rename(columns=shoot_cols), on='clean_name', how='left')
             else:
-                features_df = pd.merge(features_df, shoot_df[cols_to_keep].rename(columns=shoot_cols), on=Cols.PLAYER_ID, how='left')
+                features_df = pd.merge(features_df, shoot_df[cols_to_keep].drop_duplicates(subset=[Cols.PLAYER_ID], keep='last').rename(columns=shoot_cols), on=Cols.PLAYER_ID, how='left')
                 
             features_df['FREQ_PAINT'] = pd.to_numeric(features_df.get('FREQ_PAINT', 0), errors='coerce').fillna(0.0)
             features_df['FREQ_3PT'] = pd.to_numeric(features_df.get('FREQ_3PT', 0), errors='coerce').fillna(0.0)
@@ -751,6 +751,13 @@ def build_feature_set(props_df):
                     logging.info("Successfully merged Player-Specific Model Error (Bias & MAE).")
     except Exception as e:
         logging.warning(f"Failed to process historical model bias: {e}")
+
+    # Safety catch: Remove any accidental cartesian duplicates 
+    # based on Player, Date, Prop Type, and Prop Line before returning
+    if not features_df.empty:
+        subset_cols = [c for c in [Cols.PLAYER_ID, Cols.DATE, Cols.PROP_TYPE, Cols.PROP_LINE] if c in features_df.columns]
+        if subset_cols:
+            features_df = features_df.drop_duplicates(subset=subset_cols, keep='last').reset_index(drop=True)
 
     logging.info(f"Feature set built. Final Shape: {features_df.shape}")
     return features_df

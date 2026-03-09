@@ -77,3 +77,18 @@ weighted avg       0.26      0.51      0.34      1378
 
 2026-03-07 16:30:23 [INFO] root: Saved versioned artifacts for META_CALIBRATOR to model_META_CALIBRATOR_latest.pkl
 2026-03-07 16:30:23 [INFO] root: Meta-model saved successfully.
+2026-03-08 22:07:43 [INFO] root: Logging initialized. Writing to logs/run_meta_training_script.log
+2026-03-08 22:07:43 [INFO] root: Training Error-Prediction Meta-Model...
+2026-03-08 22:07:44 [INFO] root: Meta-Model AUC: 0.529
+2026-03-08 22:07:44 [INFO] root: 
+              precision    recall  f1-score   support
+
+           0       0.53      0.08      0.15       746
+           1       0.54      0.94      0.69       872
+
+    accuracy                           0.54      1618
+   macro avg       0.54      0.51      0.42      1618
+weighted avg       0.54      0.54      0.44      1618
+
+2026-03-08 22:07:44 [INFO] root: Saved versioned artifacts for META_CALIBRATOR to model_META_CALIBRATOR_latest.pkl
+2026-03-08 22:07:44 [INFO] root: Meta-model saved successfully.

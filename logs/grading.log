@@ -1472,3 +1472,44 @@ PRA   -0.800000
 PTS   -0.389892
 RA     0.276463
 REB    0.307849
+2026-03-08 22:06:43 [INFO] root: Logging initialized. Writing to logs/grading.log
+2026-03-08 22:06:43 [INFO] root: Loading historical data for grading...
+2026-03-08 22:06:43 [INFO] root: Grading 697 predictions...
+2026-03-08 22:06:49 [INFO] root: ----------------------------------------
+2026-03-08 22:06:49 [INFO] root: >>> GRADING REPORT <<<
+2026-03-08 22:06:49 [INFO] root: Total Props: 53.0% (357/674) [Pushes: 2]
+2026-03-08 22:06:49 [INFO] root: A Tier Props: 0.0% (0/1) [Pushes: 0]
+2026-03-08 22:06:49 [INFO] root: B Tier Props: 45.7% (16/35) [Pushes: 0]
+2026-03-08 22:06:49 [INFO] root: C Tier Props: 56.0% (42/75) [Pushes: 0]
+2026-03-08 22:06:49 [INFO] root: Pass Props: 41.0% (25/61) [Pushes: 2]
+2026-03-08 22:06:49 [INFO] root: Pass / Too Volatile Props: 54.6% (274/502) [Pushes: 0]
+2026-03-08 22:06:49 [INFO] root: >>> CATEGORY HIT RATES <<<
+2026-03-08 22:06:49 [INFO] root: PTS Props: 55.0% (55/100) [Pushes: 0]
+2026-03-08 22:06:49 [INFO] root: REB Props: 59.2% (58/98) [Pushes: 1]
+2026-03-08 22:06:49 [INFO] root: AST Props: 58.2% (57/98) [Pushes: 0]
+2026-03-08 22:06:49 [INFO] root: PRA Props: 44.8% (43/96) [Pushes: 0]
+2026-03-08 22:06:49 [INFO] root: PR Props: 51.5% (50/97) [Pushes: 0]
+2026-03-08 22:06:49 [INFO] root: PA Props: 49.4% (44/89) [Pushes: 0]
+2026-03-08 22:06:49 [INFO] root: RA Props: 52.1% (50/96) [Pushes: 1]
+2026-03-08 22:06:49 [INFO] root: ----------------------------------------
+2026-03-08 22:06:50 [INFO] root: Saved graded results for game date: 2026-03-08
+2026-03-08 22:06:50 [INFO] root: >>> GRADING PARLAYS <<<
+2026-03-08 22:06:50 [INFO] root: Parlay Win Rate: 21.2% (14/66)
+2026-03-08 22:06:50 [INFO] root: Parlay ROI: 21.43% (Units Wagered: 70, Units Won: 85.00)
+2026-03-08 22:06:50 [INFO] root: >>> POST-MORTEM SYSTEM ANALYSIS <<<
+2026-03-08 22:06:50 [INFO] root: 
+Highest Average Error by Stat Type:
+Prop Category
+PRA    5.998125
+PR     5.683196
+PA     5.364944
+2026-03-08 22:06:50 [INFO] root: 
+Systematic Bias (Positive = Under-projecting, Negative = Over-projecting):
+Prop Category
+AST    0.199184
+PA    -0.927191
+PR    -0.824845
+PRA   -0.818958
+PTS   -0.615600
+RA     0.034021
+REB    0.098384
