@@ -23,12 +23,16 @@ BASE_FEATURE_COLS = [
     # Rate, Rotation & Advanced
     'USG_PROXY_PER36', 'TS_PCT', 'USG_PROXY', 
     'L5_USG_PROXY', 'SZN_USG_PROXY',
-    'L5_PER36', 'MIN_L3_DELTA', # <--- NEW Per 36 and Minute Rotation Delta
+    'L5_PER36', 'MIN_L3_DELTA', 
     
-    # Opponent & Game Context (Pace Scaling)
+    # True WOWY Metrics (Player-Level Substitution Impact)
+    'WOWY_PLAYER_PER36', 'WOWY_PLAYER_USG',
+    
+    # Opponent & Game Context (Positional Pace Scaling)
     'DVP_PTS_MULTIPLIER', 'DVP_REB_MULTIPLIER', 'DVP_AST_MULTIPLIER', 
     'DVP_PRA_MULTIPLIER', 'DVP_PR_MULTIPLIER', 'DVP_PA_MULTIPLIER', 'DVP_RA_MULTIPLIER',
     'OPP_DEF_EFF', 'GAME_PACE', 'OPP_GAME_PACE', 'OPP_DAYS_REST', 'OPP_IS_B2B',
+    'PACE_G_PTS_INTERACTION', 'PACE_F_PTS_INTERACTION', 'PACE_C_REB_INTERACTION',
     
     # Schedule Density & Travel Fatigue
     'FLIGHT_MILES', 'TZ_SHIFT', 'TEAM_GAMES_L4', 'TEAM_GAMES_L6', 'TEAM_GAMES_L7', 
@@ -62,9 +66,9 @@ BASE_FEATURE_COLS = [
     'TEAM_Extra Scoring Chances per Game', 'OPP_Extra Scoring Chances per Game',
     'OPP_Opponent Points + Rebounds + Assists per Game', 'OPP_Opponent Points + Assists per Game',
 
-    # Tactical & Scheme Matchup (Shot Location Engine)
+    # Tactical & Scheme Matchup (Shot Location & Scheme Engine)
     'FREQ_PAINT', 'FREQ_3PT',
-    'SYNERGY_PAINT_EDGE', 'SYNERGY_3PT_EDGE', 'SCHEME_SYNERGY_SCORE'
+    'SYNERGY_PAINT_EDGE', 'SYNERGY_3PT_EDGE', 'SYNERGY_REB_EDGE', 'SCHEME_SYNERGY_SCORE'
 ]
 
 VS_OPP_FEATURES = [
@@ -82,6 +86,7 @@ HIST_FEATURES = [
 # --- MAPPINGS ---
 PROP_FEATURE_MAP = {
     'PTS': ['PTS', 'PRA', 'PR', 'PA', 'USG_PROXY', 'TS_PCT', 'GAME_PACE', 'OPP_GAME_PACE',
+            'WOWY_PLAYER_PER36', 'WOWY_PLAYER_USG', 'PACE_G_PTS_INTERACTION', 'PACE_F_PTS_INTERACTION',
             'PTS_SPLIT_AVG', 'PTS_DIFF', 'MIN_SPLIT_AVG', 'FOUL_TROUBLE_VULNERABILITY',
             'OPP_Opponent Points in Paint per Game', 'OPP_Opponent Percent of Points from 3 Pointers',
             'OPP_Opponent Personal Fouls per Game', 'OPP_Opponent Fastbreak Points per Game',
@@ -90,37 +95,42 @@ PROP_FEATURE_MAP = {
             'SCHEME_SYNERGY_SCORE', 'SYNERGY_PAINT_EDGE', 'SYNERGY_3PT_EDGE'], 
             
     'REB': ['REB', 'PRA', 'PR', 'RA', 'GAME_PACE', 'OPP_GAME_PACE',
+            'WOWY_PLAYER_PER36', 'PACE_C_REB_INTERACTION',
             'REB_SPLIT_AVG', 'REB_DIFF', 'MIN_SPLIT_AVG', 'FOUL_TROUBLE_VULNERABILITY',
             'OPP_Opponent Effective Field Goal %', 'OPP_Opponent True Shooting %',
             'TEAM_Field Goals Attempted per Game', 'OPP_Field Goals Attempted per Game',
             'TEAM_Three Pointers Attempted per Game', 'OPP_Three Pointers Attempted per Game',
             'OPP_Opponent Offensive Rebounding %',
             'TEAM_Total Rebounds per Game', 'OPP_Opponent Total Rebounds per Game',
-            'FREQ_PAINT'], 
+            'FREQ_PAINT', 'SYNERGY_REB_EDGE'], 
             
     'AST': ['AST', 'PRA', 'PA', 'RA', 'GAME_PACE', 'OPP_GAME_PACE',
+            'WOWY_PLAYER_PER36', 
             'AST_SPLIT_AVG', 'AST_DIFF', 'MIN_SPLIT_AVG', 'FOUL_TROUBLE_VULNERABILITY',
             'TEAM_Assists per FGM', 'OPP_Opponent Assists per FGM', 'TEAM_Assist to Turnover Ratio',
             'TEAM_Points per Game', 'OPP_Opponent Points per Game',
             'FREQ_PAINT'], 
             
     'PRA': ['PRA', 'PTS', 'REB', 'AST', 'PR', 'PA', 'RA', 'GAME_PACE', 'OPP_GAME_PACE',
+            'WOWY_PLAYER_PER36', 'WOWY_PLAYER_USG',
             'PRA_SPLIT_AVG', 'PRA_DIFF', 'MIN_SPLIT_AVG', 'FOUL_TROUBLE_VULNERABILITY',
             'TEAM_Extra Scoring Chances per Game', 'OPP_Extra Scoring Chances per Game',
             'OPP_Opponent Points + Rebounds + Assists per Game',
             'TEAM_Points per Game', 'OPP_Opponent Points per Game',
             'TEAM_Total Rebounds per Game', 'OPP_Opponent Total Rebounds per Game',
-            'SCHEME_SYNERGY_SCORE', 'SYNERGY_PAINT_EDGE', 'SYNERGY_3PT_EDGE'],
+            'SCHEME_SYNERGY_SCORE', 'SYNERGY_PAINT_EDGE', 'SYNERGY_3PT_EDGE', 'SYNERGY_REB_EDGE'],
             
     'PR':  ['PR', 'PTS', 'REB', 'PRA', 'GAME_PACE', 'OPP_GAME_PACE',
+            'WOWY_PLAYER_PER36', 'WOWY_PLAYER_USG',
             'PR_SPLIT_AVG', 'PR_DIFF', 'MIN_SPLIT_AVG', 'FOUL_TROUBLE_VULNERABILITY',
             'OPP_Opponent Points in Paint per Game', 'OPP_Opponent Effective Field Goal %',
             'TEAM_Extra Scoring Chances per Game',
             'TEAM_Points per Game', 'OPP_Opponent Points per Game',
             'TEAM_Total Rebounds per Game', 'OPP_Opponent Total Rebounds per Game',
-            'SCHEME_SYNERGY_SCORE', 'SYNERGY_PAINT_EDGE', 'SYNERGY_3PT_EDGE'],
+            'SCHEME_SYNERGY_SCORE', 'SYNERGY_PAINT_EDGE', 'SYNERGY_3PT_EDGE', 'SYNERGY_REB_EDGE'],
             
     'PA':  ['PA', 'PTS', 'AST', 'PRA', 'GAME_PACE', 'OPP_GAME_PACE',
+            'WOWY_PLAYER_PER36', 'WOWY_PLAYER_USG',
             'PA_SPLIT_AVG', 'PA_DIFF', 'MIN_SPLIT_AVG', 'FOUL_TROUBLE_VULNERABILITY',
             'OPP_Opponent Points + Assists per Game', 'OPP_Opponent Assists per FGM',
             'TEAM_Extra Scoring Chances per Game',
@@ -128,10 +138,11 @@ PROP_FEATURE_MAP = {
             'SCHEME_SYNERGY_SCORE', 'SYNERGY_PAINT_EDGE', 'SYNERGY_3PT_EDGE'],
             
     'RA':  ['RA', 'REB', 'AST', 'PRA', 'GAME_PACE', 'OPP_GAME_PACE',
+            'WOWY_PLAYER_PER36',
             'RA_SPLIT_AVG', 'RA_DIFF', 'MIN_SPLIT_AVG', 'FOUL_TROUBLE_VULNERABILITY',
             'OPP_Opponent Effective Field Goal %', 'OPP_Opponent Assists per FGM',
             'TEAM_Total Rebounds per Game', 'OPP_Opponent Total Rebounds per Game',
-            'FREQ_PAINT'],
+            'FREQ_PAINT', 'SYNERGY_REB_EDGE'],
 }
 
 RELEVANT_KEYWORDS = {

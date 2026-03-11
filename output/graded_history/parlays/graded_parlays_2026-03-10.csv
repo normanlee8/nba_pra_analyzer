@@ -1,0 +1,71 @@
+Legs,Joint Prob,Payout,Picks,Result
+2,0.596744,3.0x,Baylor Scheierman Over 9.5 PRA | Oso Ighodaro Over 7.5 PA,WIN
+2,0.5936400000000001,3.0x,Baylor Scheierman Over 9.5 PRA | Nic Claxton Under 9.5 REB,WIN
+2,0.5882850000000001,3.0x,Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA,WIN
+2,0.5546,3.0x,Nic Claxton Under 9.5 REB | Tobias Harris Over 3.5 REB,LOSS
+2,0.548632,3.0x,Baylor Scheierman Over 9.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+2,0.543683,3.0x,Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+2,0.53544,3.0x,Baylor Scheierman Over 9.5 PRA | Grant Williams Over 4.5 RA,LOSS
+2,0.53061,3.0x,Grant Williams Over 4.5 RA | Oso Ighodaro Over 7.5 PA,LOSS
+2,0.529072,3.0x,Derrick White Over 3.5 AST | Oso Ighodaro Over 7.5 PA,WIN
+2,0.5278499999999999,3.0x,Grant Williams Over 4.5 RA | Nic Claxton Under 9.5 REB,LOSS
+3,0.4565091600000001,6.0x,Baylor Scheierman Over 9.5 PRA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA,WIN
+3,0.4360999,6.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Oso Ighodaro Over 7.5 PA,WIN
+3,0.4338315,6.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Nic Claxton Under 9.5 REB,WIN
+3,0.4303696,6.0x,Baylor Scheierman Over 9.5 PRA | Nic Claxton Under 9.5 REB | Tobias Harris Over 3.5 REB,LOSS
+3,0.4264874,6.0x,Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+3,0.421898008,6.0x,Baylor Scheierman Over 9.5 PRA | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+3,0.41175336,6.0x,Baylor Scheierman Over 9.5 PRA | Grant Williams Over 4.5 RA | Oso Ighodaro Over 7.5 PA,LOSS
+3,0.4096116,6.0x,Baylor Scheierman Over 9.5 PRA | Grant Williams Over 4.5 RA | Nic Claxton Under 9.5 REB,LOSS
+3,0.4080208000000001,6.0x,Baylor Scheierman Over 9.5 PRA | Jalen Green Under 22.5 PA | Oso Ighodaro Over 7.5 PA,LOSS
+3,0.4059166499999999,6.0x,Grant Williams Over 4.5 RA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA,LOSS
+4,0.3336164235,10.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA,WIN
+4,0.3309542224,10.0x,Baylor Scheierman Over 9.5 PRA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+4,0.3149913204,10.0x,Baylor Scheierman Over 9.5 PRA | Grant Williams Over 4.5 RA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA,LOSS
+4,0.31451366,10.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Nic Claxton Under 9.5 REB | Tobias Harris Over 3.5 REB,LOSS
+4,0.312135912,10.0x,Baylor Scheierman Over 9.5 PRA | Jalen Green Under 22.5 PA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA,LOSS
+4,0.3083226293,10.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+4,0.3063176463600001,10.0x,Baylor Scheierman Over 9.5 PRA | Julian Champagnie Over 5.5 RA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA,LOSS
+4,0.30175255476,10.0x,Amen Thompson Under 19.5 PTS | Baylor Scheierman Over 9.5 PRA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA,LOSS
+4,0.301319577,10.0x,Baylor Scheierman Over 9.5 PRA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Sam Hauser Over 2.5 REB,WIN
+4,0.300908931,10.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Grant Williams Over 4.5 RA | Oso Ighodaro Over 7.5 PA,LOSS
+5,0.24186100454,20.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+5,0.230195332215,20.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Grant Williams Over 4.5 RA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA,LOSS
+5,0.228358413456,20.0x,Baylor Scheierman Over 9.5 PRA | Grant Williams Over 4.5 RA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+5,0.2281086027,20.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Jalen Green Under 22.5 PA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA,LOSS
+5,0.22628833568,20.0x,Baylor Scheierman Over 9.5 PRA | Jalen Green Under 22.5 PA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+5,0.2238566201685,20.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Julian Champagnie Over 5.5 RA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA,LOSS
+5,0.2220702832304,20.0x,Baylor Scheierman Over 9.5 PRA | Julian Champagnie Over 5.5 RA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+5,0.2205204559335,20.0x,Amen Thompson Under 19.5 PTS | Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA,LOSS
+5,0.2187607410064,20.0x,Amen Thompson Under 19.5 PTS | Baylor Scheierman Over 9.5 PRA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+5,0.2184775434,20.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Jalen Green Under 26.5 PRA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA,LOSS
+6,0.1668840931326,25.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Grant Williams Over 4.5 RA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+6,0.165371282428,25.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Jalen Green Under 22.5 PA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+6,0.16228873404634,25.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Julian Champagnie Over 5.5 RA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+6,0.15987012400094,25.0x,Amen Thompson Under 19.5 PTS | Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+6,0.158389079176,25.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Jalen Green Under 26.5 PRA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+6,0.15804311415,25.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Jalen Green Under 19.5 PTS | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+6,0.1579802114179999,25.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Jalen Green Under 23.5 PR | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+6,0.157394935863,25.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Grant Williams Over 4.5 RA | Jalen Green Under 22.5 PA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA,LOSS
+6,0.15696779194646,25.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+6,0.15626498336,25.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Jayson Tatum Over 5.5 REB | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+7,0.11410618487532,40.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Grant Williams Over 4.5 RA | Jalen Green Under 22.5 PA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+7,0.1119792264919746,40.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Grant Williams Over 4.5 RA | Julian Champagnie Over 5.5 RA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+7,0.110964130509188,40.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Jalen Green Under 22.5 PA | Julian Champagnie Over 5.5 RA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+7,0.1103103855606486,40.0x,Amen Thompson Under 19.5 PTS | Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Grant Williams Over 4.5 RA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+7,0.109310417684908,40.0x,Amen Thompson Under 19.5 PTS | Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Jalen Green Under 22.5 PA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+7,0.10928846463144,40.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Grant Williams Over 4.5 RA | Jalen Green Under 26.5 PRA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+7,0.1090497487634999,40.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Grant Williams Over 4.5 RA | Jalen Green Under 19.5 PTS | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+7,0.10900634587842,40.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Grant Williams Over 4.5 RA | Jalen Green Under 23.5 PR | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+7,0.1083077764430573,40.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Grant Williams Over 4.5 RA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+7,0.108087682928926,40.0x,Amen Thompson Under 19.5 PTS | Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Scottie Barnes Under 28.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+8,0.0765652500513397,80.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Grant Williams Over 4.5 RA | Jalen Green Under 22.5 PA | Julian Champagnie Over 5.5 RA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+8,0.0754241882025865,80.0x,Amen Thompson Under 19.5 PTS | Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Grant Williams Over 4.5 RA | Jalen Green Under 22.5 PA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+8,0.0745805012209589,80.0x,Amen Thompson Under 19.5 PTS | Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Grant Williams Over 4.5 RA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Scottie Barnes Under 28.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+8,0.0740549139840826,80.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Grant Williams Over 4.5 RA | Jalen Green Under 22.5 PA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+8,0.0740182687111952,80.0x,Amen Thompson Under 19.5 PTS | Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Grant Williams Over 4.5 RA | Julian Champagnie Over 5.5 RA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+8,0.0739044261170732,80.0x,Amen Thompson Under 19.5 PTS | Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Jalen Green Under 22.5 PA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Scottie Barnes Under 28.5 PRA | Tobias Harris Over 3.5 REB,LOSS
+8,0.0737233400428799,80.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Grant Williams Over 4.5 RA | Jalen Green Under 22.5 PA | Jayson Tatum Over 5.5 REB | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS
+8,0.0737125954294567,80.0x,Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Grant Williams Over 4.5 RA | Jalen Green Under 22.5 PA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB | Tyler Herro Under 25.5 PTS,LOSS
+8,0.0733622473410909,80.0x,Amen Thompson Under 19.5 PTS | Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Grant Williams Over 4.5 RA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Scottie Barnes Under 23.5 PR | Tobias Harris Over 3.5 REB,LOSS
+8,0.0733472902665732,80.0x,Amen Thompson Under 19.5 PTS | Baylor Scheierman Over 9.5 PRA | Derrick White Over 3.5 AST | Jalen Green Under 22.5 PA | Julian Champagnie Over 5.5 RA | Nic Claxton Under 9.5 REB | Oso Ighodaro Over 7.5 PA | Tobias Harris Over 3.5 REB,LOSS

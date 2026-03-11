@@ -2378,3 +2378,114 @@
 2026-03-08 22:32:05 [INFO] root: No new games found in the requested dates.
 2026-03-08 22:32:07 [INFO] root: ========= NBA DATA SCRAPER FINISHED in 0:04 minutes =========
 2026-03-08 22:32:07 [INFO] root: <<< SCRAPER COMPLETE >>>
+2026-03-09 22:34:49 [INFO] root: Logging initialized. Writing to logs/scraper.log
+2026-03-09 22:34:49 [INFO] root: >>> STARTING DATA SCRAPER <<<
+2026-03-09 22:34:49 [INFO] root: ========= STARTING NBA DATA SCRAPER (FAST CONCURRENT MODE) =========
+2026-03-09 22:34:49 [INFO] root: --- Processing Season: 2024-25 (Live: False) ---
+2026-03-09 22:34:51 [INFO] root: --- Processing Season: 2025-26 (Live: True) ---
+2026-03-09 22:34:51 [INFO] root: --- Scraping Daily Injury Report (CBS Sports) ---
+2026-03-09 22:34:51 [INFO] root: Successfully saved daily_injuries.parquet
+2026-03-09 22:34:54 [INFO] root: Successfully saved NBA Player Advanced Stats.parquet
+2026-03-09 22:34:54 [INFO] root: Successfully saved NBA Player Per Game Averages.parquet
+2026-03-09 22:34:54 [INFO] root: Successfully saved NBA Player Shooting Stats.parquet
+2026-03-09 22:34:55 [INFO] root: --- Gap Detection: ESPN Box Scores for 2025-26 ---
+2026-03-09 22:34:55 [INFO] root: Identified 9 missing days to fetch concurrently.
+2026-03-09 22:34:56 [INFO] root:   Fetches complete: 9/9
+2026-03-09 22:34:56 [INFO] root: Successfully saved NBA Player Box Scores.parquet
+2026-03-09 22:34:56 [INFO] root: Updated aggregated box scores. Added 106 rows. Total rows: 20980
+2026-03-09 22:34:56 [INFO] root: --- Scraping PBPStats Assist Networks for 2025-26 ---
+2026-03-09 22:35:01 [INFO] root: Successfully saved PBPStats Assist Networks.parquet
+2026-03-09 22:35:01 [INFO] root: --- Scraping PBPStats Player Totals for 2025-26 ---
+2026-03-09 22:35:04 [INFO] root: Successfully saved PBPStats Player Totals.parquet
+2026-03-09 22:35:04 [INFO] root: --- Scraping PBPStats Lineup Totals for 2025-26 ---
+2026-03-09 22:35:07 [INFO] root: Successfully saved PBPStats Lineup Totals.parquet
+2026-03-09 22:35:07 [INFO] root: Successfully saved NBA Team Offensive Efficiency.parquet
+2026-03-09 22:35:08 [INFO] root: Successfully saved NBA Team Points per Game.parquet
+2026-03-09 22:35:08 [INFO] root: Successfully saved NBA Team Defensive Efficiency.parquet
+2026-03-09 22:35:08 [INFO] root: Successfully saved NBA Team Shooting %.parquet
+2026-03-09 22:35:08 [INFO] root: Successfully saved NBA Team Effective Field Goal %.parquet
+2026-03-09 22:35:09 [INFO] root: Successfully saved NBA Team True Shooting %.parquet
+2026-03-09 22:35:09 [INFO] root: Successfully saved NBA Team Total Rebounds per Game.parquet
+2026-03-09 22:35:09 [INFO] root: Successfully saved NBA Team Assists per Game.parquet
+2026-03-09 22:35:09 [INFO] root: Successfully saved NBA Team Opponent Points per Game.parquet
+2026-03-09 22:35:09 [INFO] root: Successfully saved NBA Team Opponent Total Rebounds per Game.parquet
+2026-03-09 22:35:10 [INFO] root: Successfully saved NBA Team Opponent Assists per Game.parquet
+2026-03-09 22:35:10 [INFO] root: Successfully saved NBA Team Possessions per Game.parquet
+2026-03-09 22:35:10 [INFO] root: Successfully saved NBA Team Opponent Effective Field Goal %.parquet
+2026-03-09 22:35:10 [INFO] root: Successfully saved NBA Team Opponent True Shooting %.parquet
+2026-03-09 22:35:10 [INFO] root: Successfully saved NBA Team Field Goals Attempted per Game.parquet
+2026-03-09 22:35:10 [INFO] root: Successfully saved NBA Team Three Pointers Attempted per Game.parquet
+2026-03-09 22:35:11 [INFO] root: Successfully saved NBA Team Opponent Field Goals Attempted per Game.parquet
+2026-03-09 22:35:11 [INFO] root: Successfully saved NBA Team Opponent Three Pointers Attempted per Game.parquet
+2026-03-09 22:35:11 [INFO] root: Successfully saved NBA Team Opponent Offensive Rebounding %.parquet
+2026-03-09 22:35:11 [INFO] root: Successfully saved NBA Team Assists per FGM.parquet
+2026-03-09 22:35:11 [INFO] root: Successfully saved NBA Team Opponent Assists per FGM.parquet
+2026-03-09 22:35:12 [INFO] root: Successfully saved NBA Team Opponent Points in Paint per Game.parquet
+2026-03-09 22:35:12 [INFO] root: Successfully saved NBA Team Opponent Percent of Points from 3 Pointers.parquet
+2026-03-09 22:35:12 [INFO] root: Successfully saved NBA Team Opponent Personal Fouls per Game.parquet
+2026-03-09 22:35:12 [INFO] root: Successfully saved NBA Team Opponent Fastbreak Points per Game.parquet
+2026-03-09 22:35:13 [INFO] root: ========= NBA DATA SCRAPER FINISHED in 0:24 minutes =========
+2026-03-09 22:35:13 [INFO] root: <<< SCRAPER COMPLETE >>>
+2026-03-10 15:51:12 [INFO] root: Logging initialized. Writing to logs/scraper.log
+2026-03-10 15:51:12 [INFO] root: >>> STARTING DATA SCRAPER <<<
+2026-03-10 15:51:12 [INFO] root: ========= STARTING NBA DATA SCRAPER (FAST CONCURRENT MODE) =========
+2026-03-10 15:51:12 [INFO] root: --- Processing Season: 2024-25 (Live: False) ---
+2026-03-10 15:51:14 [INFO] root: --- Processing Season: 2025-26 (Live: True) ---
+2026-03-10 15:51:14 [INFO] root: --- Scraping Daily Injury Report (CBS Sports) ---
+2026-03-10 15:51:14 [INFO] root: Successfully saved daily_injuries.parquet
+2026-03-10 15:51:17 [INFO] root: Successfully saved NBA Player Shooting Stats.parquet
+2026-03-10 15:51:17 [INFO] root: Successfully saved NBA Player Per Game Averages.parquet
+2026-03-10 15:51:17 [INFO] root: Successfully saved NBA Player Advanced Stats.parquet
+2026-03-10 15:51:18 [INFO] root: --- Gap Detection: ESPN Box Scores for 2025-26 ---
+2026-03-10 15:51:18 [INFO] root: Identified 9 missing days to fetch concurrently.
+2026-03-10 15:51:18 [WARNING] urllib3.connectionpool: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("HTTPSConnection(host='site.api.espn.com', port=443): Failed to resolve 'site.api.espn.com' ([Errno 8] nodename nor servname provided, or not known)")': /apis/site/v2/sports/basketball/nba/scoreboard?dates=20251020
+2026-03-10 15:51:18 [WARNING] urllib3.connectionpool: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("HTTPSConnection(host='site.api.espn.com', port=443): Failed to resolve 'site.api.espn.com' ([Errno 8] nodename nor servname provided, or not known)")': /apis/site/v2/sports/basketball/nba/scoreboard?dates=20251127
+2026-03-10 15:51:18 [INFO] root:   Fetches complete: 9/9
+2026-03-10 15:51:18 [INFO] root: No new games found in the requested dates.
+2026-03-10 15:51:18 [INFO] root: --- Scraping PBPStats Assist Networks for 2025-26 ---
+2026-03-10 15:51:22 [INFO] root: Successfully saved PBPStats Assist Networks.parquet
+2026-03-10 15:51:22 [INFO] root: --- Scraping PBPStats Player Totals for 2025-26 ---
+2026-03-10 15:51:25 [INFO] root: Successfully saved PBPStats Player Totals.parquet
+2026-03-10 15:51:25 [INFO] root: --- Scraping PBPStats Lineup Totals for 2025-26 ---
+2026-03-10 15:51:34 [INFO] root: Successfully saved PBPStats Lineup Totals.parquet
+2026-03-10 15:51:34 [INFO] root: Successfully saved NBA Team Shooting %.parquet
+2026-03-10 15:51:34 [INFO] root: Successfully saved NBA Team Offensive Efficiency.parquet
+2026-03-10 15:51:35 [INFO] root: Successfully saved NBA Team Points per Game.parquet
+2026-03-10 15:51:35 [INFO] root: Successfully saved NBA Team Defensive Efficiency.parquet
+2026-03-10 15:51:35 [INFO] root: Successfully saved NBA Team Effective Field Goal %.parquet
+2026-03-10 15:51:35 [INFO] root: Successfully saved NBA Team True Shooting %.parquet
+2026-03-10 15:51:35 [INFO] root: Successfully saved NBA Team Total Rebounds per Game.parquet
+2026-03-10 15:51:35 [INFO] root: Successfully saved NBA Team Assists per Game.parquet
+2026-03-10 15:51:36 [INFO] root: Successfully saved NBA Team Opponent Points per Game.parquet
+2026-03-10 15:51:36 [INFO] root: Successfully saved NBA Team Opponent Total Rebounds per Game.parquet
+2026-03-10 15:51:36 [INFO] root: Successfully saved NBA Team Opponent Assists per Game.parquet
+2026-03-10 15:51:36 [INFO] root: Successfully saved NBA Team Possessions per Game.parquet
+2026-03-10 15:51:36 [INFO] root: Successfully saved NBA Team Opponent Effective Field Goal %.parquet
+2026-03-10 15:51:36 [INFO] root: Successfully saved NBA Team Opponent True Shooting %.parquet
+2026-03-10 15:51:37 [INFO] root: Successfully saved NBA Team Field Goals Attempted per Game.parquet
+2026-03-10 15:51:37 [INFO] root: Successfully saved NBA Team Opponent Field Goals Attempted per Game.parquet
+2026-03-10 15:51:37 [INFO] root: Successfully saved NBA Team Three Pointers Attempted per Game.parquet
+2026-03-10 15:51:37 [INFO] root: Successfully saved NBA Team Opponent Three Pointers Attempted per Game.parquet
+2026-03-10 15:51:37 [INFO] root: Successfully saved NBA Team Opponent Offensive Rebounding %.parquet
+2026-03-10 15:51:38 [INFO] root: Successfully saved NBA Team Assists per FGM.parquet
+2026-03-10 15:51:38 [INFO] root: Successfully saved NBA Team Opponent Assists per FGM.parquet
+2026-03-10 15:51:38 [INFO] root: Successfully saved NBA Team Opponent Points in Paint per Game.parquet
+2026-03-10 15:51:38 [INFO] root: Successfully saved NBA Team Opponent Percent of Points from 3 Pointers.parquet
+2026-03-10 15:51:39 [INFO] root: Successfully saved NBA Team Opponent Personal Fouls per Game.parquet
+2026-03-10 15:51:39 [INFO] root: Successfully saved NBA Team Opponent Fastbreak Points per Game.parquet
+2026-03-10 15:51:40 [INFO] root: ========= NBA DATA SCRAPER FINISHED in 0:27 minutes =========
+2026-03-10 15:51:40 [INFO] root: <<< SCRAPER COMPLETE >>>
+2026-03-10 22:37:42 [INFO] root: Logging initialized. Writing to logs/scraper.log
+2026-03-10 22:37:42 [INFO] root: >>> STARTING DATA SCRAPER <<<
+2026-03-10 22:37:42 [INFO] root: ========= STARTING NBA DATA SCRAPER (FAST CONCURRENT MODE) =========
+2026-03-10 22:37:42 [INFO] root: --- Processing Season: 2024-25 (Live: False) ---
+2026-03-10 22:37:44 [INFO] root: --- Processing Season: 2025-26 (Live: True) ---
+2026-03-10 22:37:44 [INFO] root: --- Scraping Daily Injury Report (CBS Sports) ---
+2026-03-10 22:37:44 [INFO] root: Successfully saved daily_injuries.parquet
+2026-03-10 22:37:44 [INFO] root: --- Gap Detection: ESPN Box Scores for 2025-26 ---
+2026-03-10 22:37:44 [INFO] root: Identified 9 missing days to fetch concurrently.
+2026-03-10 22:37:45 [INFO] root:   Fetches complete: 9/9
+2026-03-10 22:37:45 [INFO] root: Successfully saved NBA Player Box Scores.parquet
+2026-03-10 22:37:45 [INFO] root: Updated aggregated box scores. Added 241 rows. Total rows: 21221
+2026-03-10 22:37:46 [INFO] root: ========= NBA DATA SCRAPER FINISHED in 0:04 minutes =========
+2026-03-10 22:37:46 [INFO] root: <<< SCRAPER COMPLETE >>>

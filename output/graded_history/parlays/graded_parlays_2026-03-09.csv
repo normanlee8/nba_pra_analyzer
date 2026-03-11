@@ -1,0 +1,71 @@
+Legs,Joint Prob,Payout,Picks,Result
+2,0.524181,3.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA,WIN
+2,0.514262,3.0x,Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA,LOSS
+2,0.507395,3.0x,Bennedict Mathurin Over 3.5 REB | Cam Spencer Under 12.5 RA,WIN
+2,0.498239,3.0x,Cam Spencer Under 12.5 RA | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+2,0.49595,3.0x,Cam Spencer Under 12.5 RA | Kris Dunn Over 14.0 PRA,WIN
+2,0.491372,3.0x,Cam Spencer Under 12.5 RA | Kris Dunn Over 6.5 RA,WIN
+2,0.490609,3.0x,Cam Spencer Under 12.5 RA | VJ Edgecombe Under 22.5 PA,PUSH/DOWNGRADE
+2,0.4906,3.0x,Cam Spencer Under 12.5 RA | Nolan Traore Under 13.5 PTS,LOSS
+2,0.487557,3.0x,Cam Spencer Under 12.5 RA | Jalen Brunson Under 32.5 PA,LOSS
+2,0.484505,3.0x,Cam Spencer Under 12.5 RA | Jalen Brunson Under 28.5 PR,LOSS
+3,0.353297994,6.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA,LOSS
+3,0.342290193,6.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+3,0.34198423,6.0x,Bennedict Mathurin Over 3.5 REB | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA,LOSS
+3,0.3412136,6.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | Kris Dunn Over 14.0 PRA,WIN
+3,0.337048383,6.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | VJ Edgecombe Under 22.5 PA,PUSH/DOWNGRADE
+3,0.3370422,6.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | Nolan Traore Under 13.5 PTS,LOSS
+3,0.335813086,6.0x,Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+3,0.334951659,6.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | Jalen Brunson Under 32.5 PA,LOSS
+3,0.3342703,6.0x,Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 14.0 PRA,LOSS
+3,0.333431,6.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | Kris Dunn Over 3.5 AST,LOSS
+4,0.230703590082,10.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+4,0.2299779664,10.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 14.0 PRA,LOSS
+4,0.227170610142,10.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | VJ Edgecombe Under 22.5 PA,LOSS
+4,0.2271664428,10.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Nolan Traore Under 13.5 PTS,LOSS
+4,0.225757418166,10.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA,LOSS
+4,0.224732494,10.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 3.5 AST,LOSS
+4,0.22434422619,10.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 28.5 PR,LOSS
+4,0.223990928196,10.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Shai Gilgeous-Alexander Under 36.5 PR,LOSS
+4,0.223637630202,10.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Shai Gilgeous-Alexander Under 44.5 PRA,LOSS
+4,0.22331570219,10.0x,Bennedict Mathurin Over 3.5 REB | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+5,0.1501756120592,20.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 14.0 PRA | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+5,0.148342408422726,20.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA,LOSS
+5,0.1483396871484,20.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+5,0.1478758323952,20.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 14.0 PRA | VJ Edgecombe Under 22.5 PA,LOSS
+5,0.14787311968,20.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 14.0 PRA | Nolan Traore Under 13.5 PTS,LOSS
+5,0.147419594062398,20.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+5,0.1469559205296,20.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Kris Dunn Over 14.0 PRA,LOSS
+5,0.146750318582,20.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 3.5 AST | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+5,0.14649677970207,20.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 28.5 PR | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+5,0.1461532604,20.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kawhi Leonard Under 36.5 PRA | Kris Dunn Over 10.0 PR,LOSS
+6,0.0965629185540656,25.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 14.0 PRA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA,LOSS
+6,0.09656114715104,25.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 14.0 PRA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+6,0.0959622161058288,25.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Kris Dunn Over 14.0 PRA | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+6,0.0954380790412,25.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kawhi Leonard Under 36.5 PRA | Kris Dunn Over 10.0 PR | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+6,0.0953824188364212,25.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA,LOSS
+6,0.095361513657592,25.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 28.5 PR | Kris Dunn Over 14.0 PRA | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+6,0.0952701724982,25.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kawhi Leonard Under 33.0 PR | Kris Dunn Over 14.0 PRA | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+6,0.09508241595424,25.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 14.0 PRA | Nolan Traore Under 13.5 PTS | VJ Edgecombe Under 22.5 PA,LOSS
+6,0.0947907989821219,25.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA,LOSS
+6,0.0947890600878276,25.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+7,0.0620888176181187,40.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kris Dunn Over 14.0 PRA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA,LOSS
+7,0.0617037049560479,40.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Kris Dunn Over 14.0 PRA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA,LOSS
+7,0.0617025730295145,40.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Kris Dunn Over 14.0 PRA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+7,0.0613666848234916,40.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kawhi Leonard Under 36.5 PRA | Kris Dunn Over 10.0 PR | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA,LOSS
+7,0.06136555907944,40.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kawhi Leonard Under 36.5 PRA | Kris Dunn Over 10.0 PR | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+7,0.0613174532818316,40.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 28.5 PR | Kris Dunn Over 14.0 PRA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA,LOSS
+7,0.0613163284409104,40.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 28.5 PR | Kris Dunn Over 14.0 PRA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+7,0.0612587209163426,40.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kawhi Leonard Under 33.0 PR | Kris Dunn Over 14.0 PRA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA,LOSS
+7,0.06125759715284,40.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kawhi Leonard Under 33.0 PR | Kris Dunn Over 14.0 PRA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+7,0.0611214741080944,40.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Kris Dunn Over 14.0 PRA | Landry Shamet Over 10.5 PR | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+8,0.0396747544579778,80.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Kris Dunn Over 14.0 PRA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA,LOSS
+8,0.0394580544880799,80.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kawhi Leonard Under 36.5 PRA | Kris Dunn Over 10.0 PR | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA,LOSS
+8,0.0394263991875053,80.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 28.5 PR | Kris Dunn Over 14.0 PRA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA,LOSS
+8,0.0393886349692761,80.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Kawhi Leonard Under 33.0 PR | Kris Dunn Over 14.0 PRA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA,LOSS
+8,0.0393011078515046,80.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Kris Dunn Over 14.0 PRA | Landry Shamet Over 10.5 PR | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA,LOSS
+8,0.0393011078515046,80.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 28.5 PR | Karl-Anthony Towns Under 12.5 REB | Kris Dunn Over 14.0 PRA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA,LOSS
+8,0.0393011078515046,80.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 35.5 PRA | Kris Dunn Over 14.0 PRA | Landry Shamet Over 10.5 PR | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 22.5 PA,LOSS
+8,0.0393003868904732,80.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 32.5 PA | Kris Dunn Over 14.0 PRA | Landry Shamet Over 10.5 PR | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+8,0.0393003868904732,80.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 28.5 PR | Karl-Anthony Towns Under 12.5 REB | Kris Dunn Over 14.0 PRA | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+8,0.0393003868904732,80.0x,Bennedict Mathurin Over 5.5 RA | Cam Spencer Under 12.5 RA | De'Anthony Melton Under 24.5 PRA | Jalen Brunson Under 35.5 PRA | Kris Dunn Over 14.0 PRA | Landry Shamet Over 10.5 PR | Nolan Traore Under 13.5 PTS | Shai Gilgeous-Alexander Under 39.5 PA,LOSS

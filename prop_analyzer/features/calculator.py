@@ -114,10 +114,9 @@ def smooth_projection(raw_proj, season_avg, recent_avg, volatility):
 # ====================================================================
 
 def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None, correlations=None, sample_size=15, base_projs=None):
-    """Estimates variance for Combo Props using baseline historical covariance matrices and dynamic correlations."""
+    """Estimates variance for Combo Props utilizing dynamic rolling correlations natively."""
     
-    # FIX: Structural NBA Variances are naturally high. 
-    # Use 35% to 45% of the projected mean as the absolute minimum standard deviation.
+    # Minimum Standard Deviations (Structural)
     if prop_type in ['PRA', 'PR', 'PA']:
         base_variance = (proj * 0.40) ** 2
     elif prop_type in ['PTS', 'REB', 'AST', 'RA']:
@@ -125,15 +124,10 @@ def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None, correlatio
     else:
         base_variance = (max(proj * 0.35, 1.0)) ** 2
         
-    # Force minimal overdispersion scaling
     base_variance = max(base_variance, proj * 1.05)
     
-    if not correlations:
-        correlations = {'PTS_REB': 0.25, 'PTS_AST': 0.25, 'REB_AST': 0.25}
-        
     # Calculate Structural Covariance
     if prop_type in ['PRA', 'PR', 'PA', 'RA'] and base_stds:
-        # FIXED: Use actual proportion ratios derived from base_projs, otherwise fallback to standard basketball averages 
         pts_mean = base_projs.get('PTS', proj * 0.55) if base_projs else proj * 0.55
         reb_mean = base_projs.get('REB', proj * 0.25) if base_projs else proj * 0.25
         ast_mean = base_projs.get('AST', proj * 0.20) if base_projs else proj * 0.20
@@ -142,9 +136,14 @@ def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None, correlatio
         var_reb = base_stds.get('REB', reb_mean * 0.45)**2
         var_ast = base_stds.get('AST', ast_mean * 0.45)**2
         
-        cov_pr = correlations.get('PTS_REB', 0.25) * math.sqrt(var_pts * var_reb)
-        cov_pa = correlations.get('PTS_AST', 0.25) * math.sqrt(var_pts * var_ast)
-        cov_ra = correlations.get('REB_AST', 0.25) * math.sqrt(var_reb * var_ast)
+        # FIX: Utilize dynamic passed-in correlations. Only fallback to 0.25 if completely missing.
+        corr_pr = correlations.get('PTS_REB_CORR', 0.25) if correlations else 0.25
+        corr_pa = correlations.get('PTS_AST_CORR', 0.25) if correlations else 0.25
+        corr_ra = correlations.get('REB_AST_CORR', 0.25) if correlations else 0.25
+        
+        cov_pr = corr_pr * math.sqrt(var_pts * var_reb)
+        cov_pa = corr_pa * math.sqrt(var_pts * var_ast)
+        cov_ra = corr_ra * math.sqrt(var_reb * var_ast)
         
         if prop_type == 'PRA':
             base_variance = max(base_variance, var_pts + var_reb + var_ast + 2*cov_pr + 2*cov_pa + 2*cov_ra)
@@ -159,14 +158,15 @@ def estimate_combo_variance(prop_type, proj, std_dev, base_stds=None, correlatio
     
     # Bayesian Shrinkage
     weight = min(sample_size / 20.0, 0.90)  
-    
     final_variance = (base_variance * (1.0 - weight)) + (recent_variance * weight)
         
-    # Ensure mathematical overdispersion for discrete modeling
     return max(final_variance, proj * 1.05)
 
-def get_discrete_probabilities(proj, line, historical_variance, dist_type='normal', tweedie_power=1.5):
-    """Calculates probabilities accurately accounting for Tweedie dispersion and whole/half point lines."""
+def get_discrete_probabilities(proj, line, historical_variance, dist_type='normal', tweedie_power=2.0):
+    """
+    Calculates probabilities accurately accounting for overdispersion and discrete lines.
+    FIX: tweedie_power upgraded to 2.0 to accurately represent Negative Binomial variance.
+    """
     if proj > 0 and historical_variance > 0:
         phi = historical_variance / (proj ** tweedie_power)
     else:
@@ -176,10 +176,8 @@ def get_discrete_probabilities(proj, line, historical_variance, dist_type='norma
     
     # Force strict overdispersion so Negative Binomial mathematically functions without collapsing
     variance = max(dynamic_variance, proj * 1.05)
-    
     std_dev = math.sqrt(variance)
     is_whole_line = (line % 1 == 0)
-    
     loss_threshold = math.floor(line - 0.01)
     
     if proj <= 0: return {'win': 0.0, 'push': 0.0, 'loss': 1.0}

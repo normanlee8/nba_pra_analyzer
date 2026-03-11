@@ -10,7 +10,7 @@ from prop_analyzer.data import loader
 from prop_analyzer.features.calculator import (
     winsorize_series, calculate_dynamic_hit_rates
 )
-from prop_analyzer.features.geography import NBA_LOCATIONS, haversine_distance
+from prop_analyzer.features.geography import NBA_LOCATIONS, haversine_distance, get_tz_shift
 
 def add_rolling_stats_history(df, stats_to_roll=None):
     """Calculates historical rolling features, including new CV, Volatility, L1/L3, and Per-36 metrics."""
@@ -18,6 +18,7 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         logging.error(f"Missing ID/Date columns. Cols found: {df.columns}")
         return df
 
+    # Explicitly sort by time to prevent any Target Leakage before grouping
     sort_cols = [Cols.PLAYER_ID, Cols.DATE]
     if Cols.GAME_ID in df.columns:
         sort_cols.append(Cols.GAME_ID)
@@ -95,8 +96,10 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         new_cols[f'{col}_L10_CV'] = np.divide(l10_std, l10_avg, out=np.zeros_like(l10_std), where=(l10_avg > 0))
         new_cols[f'{col}_L20_CV'] = np.divide(l20_std, l20_avg, out=np.zeros_like(l20_std), where=(l20_avg > 0))
         
-        form_out = np.ones_like(l5_mean)
-        new_cols[f'{col}_FORM_RATIO'] = np.divide(l5_mean, szn_avg, out=form_out, where=(szn_avg > 0))
+        # FORM RATIO W/ BAYESIAN REGULARIZATION (Prior = 2.0)
+        # Prevents early season / low-minute players from experiencing 500%+ explosions
+        prior = 2.0
+        new_cols[f'{col}_FORM_RATIO'] = (l5_mean + prior) / (szn_avg + prior)
 
     # Calculate L3 Minute Deltas (Leading indicator for role increase)
     if f'MIN_L3_AVG' in new_cols and f'MIN_{Cols.SZN_AVG}' in new_cols:
@@ -133,7 +136,7 @@ def add_rolling_stats_history(df, stats_to_roll=None):
     return df
 
 def add_team_fatigue_and_travel(df):
-    """Calculates schedule density, flight miles, and time zone shifts."""
+    """Calculates schedule density, flight miles, and accurate time zone shifts (DST Supported)."""
     if 'IS_HOME' not in df.columns:
         df['IS_HOME'] = np.where(df['MATCHUP'].str.contains('@'), 0, 1)
         
@@ -142,18 +145,22 @@ def add_team_fatigue_and_travel(df):
     # 1. Extract unique team games to calculate schedule metrics without player duplicates
     team_games = df[['TEAM_ABBREVIATION', Cols.DATE, 'GAME_LOCATION_TEAM']].drop_duplicates().sort_values(['TEAM_ABBREVIATION', Cols.DATE])
     
-    # 2. Calculate Travel & Timezone Shifts
+    # 2. Calculate Travel & Dynamic Timezone Shifts
     team_games['PREV_LOCATION'] = team_games.groupby('TEAM_ABBREVIATION')['GAME_LOCATION_TEAM'].shift(1)
     
     def calculate_travel(row):
         loc1 = row['PREV_LOCATION']
         loc2 = row['GAME_LOCATION_TEAM']
+        date = row[Cols.DATE]
         if pd.isna(loc1) or loc1 not in NBA_LOCATIONS or loc2 not in NBA_LOCATIONS:
             return pd.Series([0.0, 0.0])
             
         c1, c2 = NBA_LOCATIONS[loc1], NBA_LOCATIONS[loc2]
         dist = haversine_distance(c1['lat'], c1['lon'], c2['lat'], c2['lon'])
-        tz_shift = c2['tz'] - c1['tz']  # Positive means traveling East (lose sleep), Negative means West
+        
+        # Natively handles Daylight Saving Time via pytz in geography.py
+        tz_shift = get_tz_shift(loc1, loc2, date) 
+        
         return pd.Series([dist, tz_shift])
         
     team_games[['FLIGHT_MILES', 'TZ_SHIFT']] = team_games.apply(calculate_travel, axis=1)
@@ -475,13 +482,20 @@ def build_feature_set(props_df):
     if Cols.OPPONENT in features_df.columns:
         features_df['IS_ALTITUDE'] = np.where(features_df[Cols.OPPONENT].isin(['DEN', 'UTA']), 1.0, 0.0)
 
+    # ========================================================================
+    # POSITIONAL PACE SCALING ENGINE
+    # ========================================================================
     if 'TEAM_Possessions per Game' in features_df.columns:
         features_df['GAME_PACE'] = features_df['TEAM_Possessions per Game']
     if 'OPP_Possessions per Game' in features_df.columns:
         features_df['OPP_GAME_PACE'] = features_df['OPP_Possessions per Game']
         
     if 'OPP_GAME_PACE' in features_df.columns and 'Primary_Pos' in features_df.columns:
-        features_df['PACE_PG_INTERACTION'] = np.where(features_df['Primary_Pos'] == 'PG', features_df['OPP_GAME_PACE'], 0.0)
+        # High pace = More missed shots = Higher ceiling for Big Men Rebounds
+        features_df['PACE_C_REB_INTERACTION'] = np.where(features_df['Primary_Pos'].isin(['C', 'PF']), features_df['OPP_GAME_PACE'], 0.0)
+        # High pace = More transition opportunities for Guards and Wings
+        features_df['PACE_G_PTS_INTERACTION'] = np.where(features_df['Primary_Pos'].isin(['PG', 'SG']), features_df['OPP_GAME_PACE'], 0.0)
+        features_df['PACE_F_PTS_INTERACTION'] = np.where(features_df['Primary_Pos'] == 'SF', features_df['OPP_GAME_PACE'], 0.0)
 
     # TIME SERIES FIX: Merge Vacancy point-in-time
     vacancy_path = cfg.DATA_DIR / "master_daily_vacancy.parquet"
@@ -550,7 +564,8 @@ def build_feature_set(props_df):
         'OPP_Opponent Points in Paint per Game', 'OPP_Opponent Percent of Points from 3 Pointers',
         'OPP_Opponent Personal Fouls per Game', 'OPP_Opponent Fastbreak Points per Game',
         'TEAM_Extra Scoring Chances per Game', 'OPP_Extra Scoring Chances per Game',
-        'OPP_Opponent Points + Rebounds + Assists per Game', 'OPP_Opponent Points + Assists per Game'
+        'OPP_Opponent Points + Rebounds + Assists per Game', 'OPP_Opponent Points + Assists per Game',
+        'OPP_Opponent Total Rebounds per Game', 'TEAM_Total Rebounds per Game'
     ]
     
     for col in advanced_stats:
@@ -562,9 +577,9 @@ def build_feature_set(props_df):
             features_df[col] = features_df[col].fillna(median_val if not pd.isna(median_val) else np.nan)
 
     # ========================================================================
-    # SCHEME SYNERGY MATCHUP LOGIC (SHOT LOCATION ENGINE)
+    # SCHEME SYNERGY MATCHUP LOGIC (SHOT LOCATION & REBOUND ENGINE)
     # ========================================================================
-    logging.info("Merging Shot Location Synergy Stats...")
+    logging.info("Merging Scheme Synergy Stats...")
     if season_folders:
         latest_folder = season_folders[-1]
         szn_id = latest_folder.name
@@ -607,23 +622,28 @@ def build_feature_set(props_df):
             else:
                 features_df['SYNERGY_3PT_EDGE'] = 0.0
                 
-            # 3. Overall Scheme Fit
-            features_df['SCHEME_SYNERGY_SCORE'] = features_df['SYNERGY_PAINT_EDGE'] + features_df['SYNERGY_3PT_EDGE']
+            # 3. Rebounding Synergy (Player rebounding baseline vs Team allowed Rebounds)
+            if 'OPP_Opponent Total Rebounds per Game' in features_df.columns:
+                opp_reb_allowed = pd.to_numeric(features_df['OPP_Opponent Total Rebounds per Game'], errors='coerce').fillna(43.0)
+                reb_def_multiplier = opp_reb_allowed / opp_reb_allowed.median()
+                features_df['SYNERGY_REB_EDGE'] = features_df.get(f'REB_{Cols.SZN_AVG}', 5.0) * reb_def_multiplier
+            else:
+                features_df['SYNERGY_REB_EDGE'] = 0.0
+                
+            # 4. Overall Scheme Fit Score
+            features_df['SCHEME_SYNERGY_SCORE'] = features_df['SYNERGY_PAINT_EDGE'] + features_df['SYNERGY_3PT_EDGE'] + (features_df['SYNERGY_REB_EDGE'] * 0.5)
         else:
             features_df['SYNERGY_PAINT_EDGE'] = 0.0
             features_df['SYNERGY_3PT_EDGE'] = 0.0
+            features_df['SYNERGY_REB_EDGE'] = 0.0
             features_df['SCHEME_SYNERGY_SCORE'] = 0.0
     else:
         features_df['SYNERGY_PAINT_EDGE'] = 0.0
         features_df['SYNERGY_3PT_EDGE'] = 0.0
+        features_df['SYNERGY_REB_EDGE'] = 0.0
         features_df['SCHEME_SYNERGY_SCORE'] = 0.0
 
     # ========================================================================
-    # SCHEDULE DENSITY AND TRAVEL FATIGUE ENGINE
-    # ========================================================================
-    logging.info("Calculating Schedule Density and Travel Fatigue...")
-    features_df = add_team_fatigue_and_travel(features_df)
-
     # 1. Blowout Potential (Net Rating Mismatch) - NON-LINEAR SCALING
     has_eff = all(c in features_df.columns for c in [
         'TEAM_Offensive Efficiency', 'TEAM_Defensive Efficiency', 
@@ -644,6 +664,7 @@ def build_feature_set(props_df):
     else:
         features_df['BLOWOUT_POTENTIAL'] = np.nan
 
+    # ========================================================================
     # 2. Foul Trouble Risk & Matchup Interaction
     if 'OPP_Opponent Personal Fouls per Game' in features_df.columns:
         features_df['OPP_FOUL_DRAW_RATE'] = pd.to_numeric(features_df['OPP_Opponent Personal Fouls per Game'], errors='coerce').fillna(np.nan)
@@ -665,14 +686,14 @@ def build_feature_set(props_df):
         features_df['FOUL_TROUBLE_VULNERABILITY'] = 0.0
 
     # ========================================================================
-    # 3. Conditioned Usage Proxy (FIXED: Uses Positional Overlap Hierarchy)
+    # 3. PLAYER-LEVEL TRUE WOWY / USAGE PROXY (Sub-Level Vacancy Interaction)
     # ========================================================================
     usg_col = f'USG_PROXY_{Cols.SZN_AVG}'
     if 'TEAM_MISSING_USG' in features_df.columns and usg_col in features_df.columns:
         missing_usg = pd.to_numeric(features_df['TEAM_MISSING_USG'], errors='coerce').fillna(0.0)
         team_active_usg = np.maximum(100.0 - missing_usg, 20.0)
         
-        # Base absorption proportion
+        # Base absorption proportion based on player's current hierarchy
         absorption_rate = features_df[usg_col] / team_active_usg
         
         # Determine positional alignment for missing usage
@@ -680,13 +701,26 @@ def build_feature_set(props_df):
         missing_usg_f = pd.to_numeric(features_df.get('MISSING_USG_F', 0.0), errors='coerce').fillna(0.0)
         pos = features_df.get('Primary_Pos', features_df.get('Position', 'UNK')).astype(str)
         
-        # Boost absorption if the usage missing aligns with the player's position group
+        # Boost absorption heavily if the usage missing aligns directly with the player's position group
         pos_multiplier = np.where(pos.str.contains('G'), 1.0 + (missing_usg_g / (missing_usg + 1.0)),
                          np.where(pos.str.contains('F|C'), 1.0 + (missing_usg_f / (missing_usg + 1.0)), 1.0))
                          
-        features_df['EXPECTED_USG_SHIFT'] = absorption_rate * pos_multiplier * missing_usg
+        expected_usg_shift = absorption_rate * pos_multiplier * missing_usg
+        
+        # Create the dynamic expected Usage metric
+        features_df['WOWY_PLAYER_USG'] = features_df[usg_col] + expected_usg_shift
+        
+        # Project Player-Level True WOWY PER 36 
+        # Calculate how much their usage ballooned vs standard, then scale their base Per 36 stats
+        usg_ratio = np.where(features_df[usg_col] > 0, features_df['WOWY_PLAYER_USG'] / features_df[usg_col], 1.0)
+        
+        pts_per36 = features_df.get('PTS_L5_PER36', features_df.get(f'PTS_{Cols.SZN_AVG}', 15.0) / 36.0)
+        # Scale Per-Minute Points perfectly linearly with Usage Bumps
+        features_df['WOWY_PLAYER_PER36'] = pts_per36 * usg_ratio
+
     else:
-        features_df['EXPECTED_USG_SHIFT'] = 0.0
+        features_df['WOWY_PLAYER_USG'] = features_df.get(usg_col, 20.0)
+        features_df['WOWY_PLAYER_PER36'] = features_df.get('PTS_L5_PER36', 15.0)
 
     # ========================================================================
     # 4. PLAYER-SPECIFIC HISTORICAL MODEL ERROR (FIXED: Winsorized Double Counting)
