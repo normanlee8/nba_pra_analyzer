@@ -1,0 +1,71 @@
+Legs,Joint Prob,Payout,Picks,Result
+2,0.6279840000000001,3.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR,WIN
+2,0.59274,3.0x,Caris LeVert Under 14.5 PR | Luguentz Dort Over 3.5 RA,LOSS
+2,0.590337,3.0x,Caris LeVert Under 14.5 PR | Julius Randle Under 23.5 PTS,LOSS
+2,0.58016,3.0x,Adem Bona Over 4.5 PA | Luguentz Dort Over 3.5 RA,LOSS
+2,0.577808,3.0x,Adem Bona Over 4.5 PA | Julius Randle Under 23.5 PTS,LOSS
+2,0.574317,3.0x,Caris LeVert Under 14.5 PR | Julius Randle Under 27.5 PA,LOSS
+2,0.566307,3.0x,Caris LeVert Under 14.5 PR | Julius Randle Under 30.5 PR,LOSS
+2,0.565506,3.0x,Caris LeVert Under 14.5 PR | Kel'el Ware Under 11.5 REB,WIN
+2,0.563103,3.0x,Caris LeVert Under 14.5 PR | Julius Randle Under 35.5 PRA,LOSS
+2,0.562128,3.0x,Adem Bona Over 4.5 PA | Julius Randle Under 27.5 PA,LOSS
+3,0.4647081600000001,6.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Luguentz Dort Over 3.5 RA,LOSS
+3,0.462824208,6.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Julius Randle Under 23.5 PTS,LOSS
+3,0.450264528,6.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Julius Randle Under 27.5 PA,LOSS
+3,0.443984688,6.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Julius Randle Under 30.5 PR,LOSS
+3,0.443356704,6.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Kel'el Ware Under 11.5 REB,WIN
+3,0.441472752,6.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Julius Randle Under 35.5 PRA,LOSS
+3,0.440216784,6.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Luguentz Dort Over 2.5 REB,LOSS
+3,0.437704848,6.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA,WIN
+3,0.437704848,6.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Desmond Bane Over 14.5 PTS,WIN
+3,0.43684938,6.0x,Caris LeVert Under 14.5 PR | Julius Randle Under 23.5 PTS | Luguentz Dort Over 3.5 RA,LOSS
+4,0.34248991392,10.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Julius Randle Under 23.5 PTS | Luguentz Dort Over 3.5 RA,LOSS
+4,0.3340246896000001,10.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS,LOSS
+4,0.33319575072,10.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Julius Randle Under 27.5 PA | Luguentz Dort Over 3.5 RA,LOSS
+4,0.32854866912,10.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Julius Randle Under 30.5 PR | Luguentz Dort Over 3.5 RA,LOSS
+4,0.32808396096,10.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Kel'el Ware Under 11.5 REB | Luguentz Dort Over 3.5 RA,LOSS
+4,0.3269284704,10.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 30.5 PR,LOSS
+4,0.326753890848,10.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Julius Randle Under 23.5 PTS | Kel'el Ware Under 11.5 REB,LOSS
+4,0.32668983648,10.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Julius Randle Under 35.5 PRA | Luguentz Dort Over 3.5 RA,LOSS
+4,0.324439769808,10.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Julius Randle Under 23.5 PTS | Luguentz Dort Over 2.5 REB,LOSS
+4,0.3241025424,10.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 27.5 PA,LOSS
+5,0.247178270304,20.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS | Luguentz Dort Over 3.5 RA,LOSS
+5,0.241927068096,20.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 30.5 PR | Luguentz Dort Over 3.5 RA,LOSS
+5,0.24179787922752,20.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Julius Randle Under 23.5 PTS | Kel'el Ware Under 11.5 REB | Luguentz Dort Over 3.5 RA,LOSS
+5,0.2405806704,20.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS,LOSS
+5,0.239835881376,20.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 27.5 PA | Luguentz Dort Over 3.5 RA,LOSS
+5,0.239742939744,20.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA | Jordan Goodwin Under 14.5 PA | Luguentz Dort Over 3.5 RA,LOSS
+5,0.237691944,20.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA | Jordan Goodwin Under 14.5 PA | Julius Randle Under 30.5 PR,LOSS
+5,0.237558811392,20.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 35.5 PRA | Luguentz Dort Over 3.5 RA,LOSS
+5,0.237377952,20.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 18.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS,LOSS
+5,0.23607174528,20.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Jalen Green Under 27.5 PR | Julius Randle Under 23.5 PTS | Luguentz Dort Over 3.5 RA,LOSS
+6,0.178029696096,25.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS | Luguentz Dort Over 3.5 RA,LOSS
+6,0.17589203856,25.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA | Jordan Goodwin Under 14.5 PA | Julius Randle Under 30.5 PR | Luguentz Dort Over 3.5 RA,LOSS
+6,0.17565968448,25.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 18.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS | Luguentz Dort Over 3.5 RA,LOSS
+6,0.174507858834624,25.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS | Kel'el Ware Under 11.5 REB | Luguentz Dort Over 3.5 RA,LOSS
+6,0.1743911568,25.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA | Jalen Green Under 29.5 PRA | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS,LOSS
+6,0.174358501632,25.0x,Adem Bona Over 4.5 PA | Ayo Dosunmu Under 23.5 PRA | Caris LeVert Under 14.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS | Luguentz Dort Over 3.5 RA,LOSS
+6,0.17426556,25.0x,Adem Bona Over 4.5 PA | Ayo Dosunmu Under 15.5 PTS | Caris LeVert Under 14.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS | Luguentz Dort Over 3.5 RA,LOSS
+6,0.173429085312,25.0x,Adem Bona Over 4.5 PA | Ayo Dosunmu Under 19.5 PA | Caris LeVert Under 14.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS | Luguentz Dort Over 3.5 RA,LOSS
+6,0.1731037896,25.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA | Jalen Green Under 29.5 PRA | Julius Randle Under 23.5 PTS | Luguentz Dort Over 3.5 RA,LOSS
+6,0.172964377152,25.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA | Jordan Goodwin Under 14.5 PA | Julius Randle Under 27.5 PA | Luguentz Dort Over 3.5 RA,LOSS
+7,0.129049456032,40.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA | Jalen Green Under 29.5 PRA | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS | Luguentz Dort Over 3.5 RA,LOSS
+7,0.126818856864,40.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA | Jalen Green Under 27.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 27.5 PA | Luguentz Dort Over 3.5 RA,LOSS
+7,0.125688965443776,40.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS | Kel'el Ware Under 11.5 REB | Luguentz Dort Over 3.5 RA,LOSS
+7,0.125610615648,40.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA | Jalen Green Under 27.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS | Luguentz Dort Over 3.5 RA,LOSS
+7,0.125378261568,40.0x,Adem Bona Over 4.5 PA | Ayo Dosunmu Under 23.5 PRA | Caris LeVert Under 14.5 PR | Jalen Green Under 27.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS | Luguentz Dort Over 3.5 RA,LOSS
+7,0.12417977922336,40.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA | Jordan Goodwin Under 14.5 PA | Julius Randle Under 30.5 PR | Kel'el Ware Under 11.5 REB | Luguentz Dort Over 3.5 RA,LOSS
+7,0.12401573724288,40.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 18.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS | Kel'el Ware Under 11.5 REB | Luguentz Dort Over 3.5 RA,LOSS
+7,0.123287074848,40.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 18.5 PR | Jalen Green Under 29.5 PRA | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS | Luguentz Dort Over 3.5 RA,LOSS
+7,0.1231201567008,40.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA | Jalen Green Under 29.5 PRA | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS | Kel'el Ware Under 11.5 REB,LOSS
+7,0.123097102152192,40.0x,Adem Bona Over 4.5 PA | Ayo Dosunmu Under 23.5 PRA | Caris LeVert Under 14.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS | Kel'el Ware Under 11.5 REB | Luguentz Dort Over 3.5 RA,LOSS
+8,0.091108915958592,80.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA | Jalen Green Under 29.5 PRA | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS | Kel'el Ware Under 11.5 REB | Luguentz Dort Over 3.5 RA,LOSS
+8,0.09085044528,80.0x,Adem Bona Over 4.5 PA | Ayo Dosunmu Under 23.5 PRA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 18.5 PR | Jalen Green Under 29.5 PRA | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS | Luguentz Dort Over 3.5 RA,LOSS
+8,0.08992102896,80.0x,Adem Bona Over 4.5 PA | Ayo Dosunmu Under 23.5 PRA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA | Jalen Green Under 27.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 27.5 PA | Luguentz Dort Over 3.5 RA,LOSS
+8,0.089874558144,80.0x,Adem Bona Over 4.5 PA | Ayo Dosunmu Under 19.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA | Jalen Green Under 29.5 PRA | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS | Luguentz Dort Over 3.5 RA,LOSS
+8,0.089534112945984,80.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA | Jalen Green Under 27.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 27.5 PA | Kel'el Ware Under 11.5 REB | Luguentz Dort Over 3.5 RA,LOSS
+8,0.088681094647488,80.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA | Jalen Green Under 27.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS | Kel'el Ware Under 11.5 REB | Luguentz Dort Over 3.5 RA,LOSS
+8,0.088666316928,80.0x,Adem Bona Over 4.5 PA | Ayo Dosunmu Under 23.5 PRA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA | Jalen Green Under 27.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS | Luguentz Dort Over 3.5 RA,LOSS
+8,0.088656976293984,80.0x,Adem Bona Over 4.5 PA | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA | Jalen Green Under 29.5 PRA | Jordan Goodwin Under 14.5 PA | Josh Hart Under 14.5 RA | Julius Randle Under 23.5 PTS | Luguentz Dort Over 3.5 RA,LOSS
+8,0.088573375296,80.0x,Adem Bona Over 4.5 PA | Ayo Dosunmu Under 15.5 PTS | Caris LeVert Under 14.5 PR | Donte DiVincenzo Under 23.5 PRA | Jalen Green Under 29.5 PRA | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS | Luguentz Dort Over 3.5 RA,LOSS
+8,0.0885170526670079,80.0x,Adem Bona Over 4.5 PA | Ayo Dosunmu Under 23.5 PRA | Caris LeVert Under 14.5 PR | Jalen Green Under 27.5 PR | Jordan Goodwin Under 14.5 PA | Julius Randle Under 23.5 PTS | Kel'el Ware Under 11.5 REB | Luguentz Dort Over 3.5 RA,LOSS

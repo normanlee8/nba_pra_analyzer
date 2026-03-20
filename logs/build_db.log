@@ -2191,3 +2191,300 @@ AttributeError: 'str' object has no attribute 'astype'
 2026-03-10 22:37:59 [INFO] root: Saving training set with 271 columns...
 2026-03-10 22:37:59 [INFO] root: Saved to prop_data/master_training_dataset.parquet
 2026-03-10 22:37:59 [INFO] root: <<< DATABASE BUILD COMPLETE >>>
+2026-03-11 23:52:38 [INFO] root: Logging initialized. Writing to logs/build_db.log
+2026-03-11 23:52:38 [INFO] root: >>> STARTING ETL PIPELINE (Parquet Optimized) <<<
+2026-03-11 23:52:38 [INFO] root: Step 1: Aggregating Master Files from Season Folders...
+2026-03-11 23:52:38 [INFO] root: Found Seasons: ['2024-25', '2025-26']
+2026-03-11 23:52:38 [INFO] root: Creating Player ID Map from ESPN Box Scores...
+2026-03-11 23:52:38 [INFO] root: --- Starting: process_master_player_stats (BBref & ID Sync) ---
+2026-03-11 23:52:38 [INFO] root: Saved master_player_stats_2024-25.parquet
+2026-03-11 23:52:39 [INFO] root: Saved master_player_stats_2025-26.parquet
+2026-03-11 23:52:39 [INFO] root: --- Starting: process_master_team_stats ---
+2026-03-11 23:52:39 [INFO] root: Saved master_team_stats_2024-25.parquet
+2026-03-11 23:52:39 [INFO] root: Saved master_team_stats_2025-26.parquet
+2026-03-11 23:52:39 [INFO] root: --- Starting: process_master_box_scores (Advanced Features) ---
+2026-03-11 23:52:39 [INFO] root: Saved master_box_scores_2024-25.parquet (26754 rows)
+2026-03-11 23:52:39 [INFO] root: Saved master_box_scores_2025-26.parquet (21355 rows)
+2026-03-11 23:52:39 [INFO] root: --- Starting: process_vs_opponent_stats ---
+2026-03-11 23:52:39 [INFO] root: Saved master_vs_opponent.parquet
+2026-03-11 23:52:39 [INFO] root: --- Starting: process_dvp_stats (Advanced Composite - Fixed Target Leakage) ---
+2026-03-11 23:52:40 [INFO] root: Saved master_dvp_stats.parquet (Multi-Season Time-Series: 12553 rows)
+2026-03-11 23:52:40 [INFO] root: --- Starting: process_home_away_splits ---
+2026-03-11 23:52:40 [INFO] root: Saved master_home_away_splits.parquet (1128 rows)
+2026-03-11 23:52:40 [INFO] root: Processing Time-Series Vacancy and PBP/WOWY Data...
+2026-03-11 23:52:40 [INFO] root: --- Starting: process_daily_vacancy (Time-Series) ---
+2026-03-11 23:52:40 [INFO] root: Saved time-series master_daily_vacancy.parquet with 165 records.
+2026-03-11 23:52:40 [INFO] root: --- Starting: process_pbpstats_data (Mapping Assist Networks, Foul Risk & WOWY Data) ---
+2026-03-11 23:52:40 [INFO] root: Step 2: Building Final Training Dataset...
+2026-03-11 23:52:40 [INFO] root: --- Building Final Training Dataset ---
+2026-03-11 23:52:40 [INFO] root: Calculating historical point-in-time Home/Away differentials...
+2026-03-11 23:52:40 [INFO] root: Merging real historical Vegas lines...
+2026-03-11 23:52:40 [INFO] root: Merged lines. Columns added: ['Line_AST', 'Line_PA', 'Line_PR', 'Line_PRA', 'Line_PTS', 'Line_RA', 'Line_REB']
+2026-03-11 23:52:40 [INFO] root: Calculating advanced features for training set...
+2026-03-11 23:52:46 [INFO] root: Saving training set with 271 columns...
+2026-03-11 23:52:46 [INFO] root: Saved to prop_data/master_training_dataset.parquet
+2026-03-11 23:52:46 [INFO] root: <<< DATABASE BUILD COMPLETE >>>
+2026-03-13 04:07:43 [INFO] root: Logging initialized. Writing to logs/build_db.log
+2026-03-13 04:07:43 [INFO] root: >>> STARTING ETL PIPELINE (Parquet Optimized) <<<
+2026-03-13 04:07:43 [INFO] root: Step 1: Aggregating Master Files from Season Folders...
+2026-03-13 04:07:43 [INFO] root: Found Seasons: ['2024-25', '2025-26']
+2026-03-13 04:07:43 [INFO] root: Creating Player ID Map from ESPN Box Scores...
+2026-03-13 04:07:43 [INFO] root: --- Starting: process_master_player_stats (BBref & ID Sync) ---
+2026-03-13 04:07:43 [INFO] root: Saved master_player_stats_2024-25.parquet
+2026-03-13 04:07:44 [INFO] root: Saved master_player_stats_2025-26.parquet
+2026-03-13 04:07:44 [INFO] root: --- Starting: process_master_team_stats ---
+2026-03-13 04:07:44 [INFO] root: Saved master_team_stats_2024-25.parquet
+2026-03-13 04:07:44 [INFO] root: Saved master_team_stats_2025-26.parquet
+2026-03-13 04:07:44 [INFO] root: --- Starting: process_master_box_scores (Advanced Features) ---
+2026-03-13 04:07:44 [INFO] root: Saved master_box_scores_2024-25.parquet (26754 rows)
+2026-03-13 04:07:44 [INFO] root: Saved master_box_scores_2025-26.parquet (21542 rows)
+2026-03-13 04:07:44 [INFO] root: --- Starting: process_vs_opponent_stats ---
+2026-03-13 04:07:44 [INFO] root: Saved master_vs_opponent.parquet
+2026-03-13 04:07:44 [INFO] root: --- Starting: process_dvp_stats (Advanced Composite - Fixed Target Leakage) ---
+2026-03-13 04:07:45 [INFO] root: Saved master_dvp_stats.parquet (Multi-Season Time-Series: 12605 rows)
+2026-03-13 04:07:45 [INFO] root: --- Starting: process_home_away_splits ---
+2026-03-13 04:07:45 [INFO] root: Saved master_home_away_splits.parquet (1129 rows)
+2026-03-13 04:07:45 [INFO] root: Processing Time-Series Vacancy and PBP/WOWY Data...
+2026-03-13 04:07:45 [INFO] root: --- Starting: process_daily_vacancy (Time-Series) ---
+2026-03-13 04:07:45 [INFO] root: Saved time-series master_daily_vacancy.parquet with 189 records.
+2026-03-13 04:07:45 [INFO] root: --- Starting: process_pbpstats_data (Mapping Assist Networks, Foul Risk & WOWY Data) ---
+2026-03-13 04:07:45 [INFO] root: Step 2: Building Final Training Dataset...
+2026-03-13 04:07:45 [INFO] root: --- Building Final Training Dataset ---
+2026-03-13 04:07:45 [INFO] root: Calculating historical point-in-time Home/Away differentials...
+2026-03-13 04:07:46 [INFO] root: Merging real historical Vegas lines...
+2026-03-13 04:07:46 [INFO] root: Merged lines. Columns added: ['Line_AST', 'Line_PA', 'Line_PR', 'Line_PRA', 'Line_PTS', 'Line_RA', 'Line_REB']
+2026-03-13 04:07:46 [INFO] root: Calculating advanced features for training set...
+2026-03-13 04:07:51 [INFO] root: Saving training set with 271 columns...
+2026-03-13 04:07:51 [INFO] root: Saved to prop_data/master_training_dataset.parquet
+2026-03-13 04:07:51 [INFO] root: <<< DATABASE BUILD COMPLETE >>>
+2026-03-13 23:45:07 [INFO] root: Logging initialized. Writing to logs/build_db.log
+2026-03-13 23:45:07 [INFO] root: >>> STARTING ETL PIPELINE (Parquet Optimized) <<<
+2026-03-13 23:45:07 [INFO] root: Step 1: Aggregating Master Files from Season Folders...
+2026-03-13 23:45:07 [INFO] root: Found Seasons: ['2024-25', '2025-26']
+2026-03-13 23:45:07 [INFO] root: Creating Player ID Map from ESPN Box Scores...
+2026-03-13 23:45:07 [INFO] root: --- Starting: process_master_player_stats (BBref & ID Sync) ---
+2026-03-13 23:45:07 [INFO] root: Saved master_player_stats_2024-25.parquet
+2026-03-13 23:45:08 [INFO] root: Saved master_player_stats_2025-26.parquet
+2026-03-13 23:45:08 [INFO] root: --- Starting: process_master_team_stats ---
+2026-03-13 23:45:08 [INFO] root: Saved master_team_stats_2024-25.parquet
+2026-03-13 23:45:08 [INFO] root: Saved master_team_stats_2025-26.parquet
+2026-03-13 23:45:08 [INFO] root: --- Starting: process_master_box_scores (Advanced Features) ---
+2026-03-13 23:45:08 [INFO] root: Saved master_box_scores_2024-25.parquet (26754 rows)
+2026-03-13 23:45:08 [INFO] root: Saved master_box_scores_2025-26.parquet (21708 rows)
+2026-03-13 23:45:08 [INFO] root: --- Starting: process_vs_opponent_stats ---
+2026-03-13 23:45:08 [INFO] root: Saved master_vs_opponent.parquet
+2026-03-13 23:45:08 [INFO] root: --- Starting: process_dvp_stats (Advanced Composite - Fixed Target Leakage) ---
+2026-03-13 23:45:09 [INFO] root: Saved master_dvp_stats.parquet (Multi-Season Time-Series: 12651 rows)
+2026-03-13 23:45:09 [INFO] root: --- Starting: process_home_away_splits ---
+2026-03-13 23:45:09 [INFO] root: Saved master_home_away_splits.parquet (1133 rows)
+2026-03-13 23:45:09 [INFO] root: Processing Time-Series Vacancy and PBP/WOWY Data...
+2026-03-13 23:45:09 [INFO] root: --- Starting: process_daily_vacancy (Time-Series) ---
+2026-03-13 23:45:09 [INFO] root: Saved time-series master_daily_vacancy.parquet with 187 records.
+2026-03-13 23:45:09 [INFO] root: --- Starting: process_pbpstats_data (Mapping Assist Networks, Foul Risk & WOWY Data) ---
+2026-03-13 23:45:09 [INFO] root: Step 2: Building Final Training Dataset...
+2026-03-13 23:45:09 [INFO] root: --- Building Final Training Dataset ---
+2026-03-13 23:45:09 [INFO] root: Calculating historical point-in-time Home/Away differentials...
+2026-03-13 23:45:10 [INFO] root: Merging real historical Vegas lines...
+2026-03-13 23:45:10 [INFO] root: Merged lines. Columns added: ['Line_AST', 'Line_PA', 'Line_PR', 'Line_PRA', 'Line_PTS', 'Line_RA', 'Line_REB']
+2026-03-13 23:45:10 [INFO] root: Calculating advanced features for training set...
+2026-03-13 23:45:15 [INFO] root: Saving training set with 271 columns...
+2026-03-13 23:45:16 [INFO] root: Saved to prop_data/master_training_dataset.parquet
+2026-03-13 23:45:16 [INFO] root: <<< DATABASE BUILD COMPLETE >>>
+2026-03-14 22:24:32 [INFO] root: Logging initialized. Writing to logs/build_db.log
+2026-03-14 22:24:32 [INFO] root: >>> STARTING ETL PIPELINE (Parquet Optimized) <<<
+2026-03-14 22:24:32 [INFO] root: Step 1: Aggregating Master Files from Season Folders...
+2026-03-14 22:24:32 [INFO] root: Found Seasons: ['2024-25', '2025-26']
+2026-03-14 22:24:32 [INFO] root: Creating Player ID Map from ESPN Box Scores...
+2026-03-14 22:24:32 [INFO] root: --- Starting: process_master_player_stats (BBref & ID Sync) ---
+2026-03-14 22:24:33 [INFO] root: Saved master_player_stats_2024-25.parquet
+2026-03-14 22:24:33 [INFO] root: Saved master_player_stats_2025-26.parquet
+2026-03-14 22:24:33 [INFO] root: --- Starting: process_master_team_stats ---
+2026-03-14 22:24:33 [INFO] root: Saved master_team_stats_2024-25.parquet
+2026-03-14 22:24:33 [INFO] root: Saved master_team_stats_2025-26.parquet
+2026-03-14 22:24:33 [INFO] root: --- Starting: process_master_box_scores (Advanced Features) ---
+2026-03-14 22:24:33 [INFO] root: Saved master_box_scores_2024-25.parquet (26754 rows)
+2026-03-14 22:24:33 [INFO] root: Saved master_box_scores_2025-26.parquet (21854 rows)
+2026-03-14 22:24:33 [INFO] root: --- Starting: process_vs_opponent_stats ---
+2026-03-14 22:24:33 [INFO] root: Saved master_vs_opponent.parquet
+2026-03-14 22:24:33 [INFO] root: --- Starting: process_dvp_stats (Advanced Composite - Fixed Target Leakage) ---
+2026-03-14 22:24:34 [INFO] root: Saved master_dvp_stats.parquet (Multi-Season Time-Series: 12693 rows)
+2026-03-14 22:24:34 [INFO] root: --- Starting: process_home_away_splits ---
+2026-03-14 22:24:34 [INFO] root: Saved master_home_away_splits.parquet (1134 rows)
+2026-03-14 22:24:34 [INFO] root: Processing Time-Series Vacancy and PBP/WOWY Data...
+2026-03-14 22:24:34 [INFO] root: --- Starting: process_daily_vacancy (Time-Series) ---
+2026-03-14 22:24:34 [INFO] root: Saved time-series master_daily_vacancy.parquet with 208 records.
+2026-03-14 22:24:34 [INFO] root: --- Starting: process_pbpstats_data (Mapping Assist Networks, Foul Risk & WOWY Data) ---
+2026-03-14 22:24:34 [INFO] root: Step 2: Building Final Training Dataset...
+2026-03-14 22:24:34 [INFO] root: --- Building Final Training Dataset ---
+2026-03-14 22:24:34 [INFO] root: Calculating historical point-in-time Home/Away differentials...
+2026-03-14 22:24:35 [INFO] root: Merging real historical Vegas lines...
+2026-03-14 22:24:35 [INFO] root: Merged lines. Columns added: ['Line_AST', 'Line_PA', 'Line_PR', 'Line_PRA', 'Line_PTS', 'Line_RA', 'Line_REB']
+2026-03-14 22:24:35 [INFO] root: Calculating advanced features for training set...
+2026-03-14 22:24:40 [INFO] root: Saving training set with 271 columns...
+2026-03-14 22:24:40 [INFO] root: Saved to prop_data/master_training_dataset.parquet
+2026-03-14 22:24:40 [INFO] root: <<< DATABASE BUILD COMPLETE >>>
+2026-03-15 22:31:28 [INFO] root: Logging initialized. Writing to logs/build_db.log
+2026-03-15 22:31:28 [INFO] root: >>> STARTING ETL PIPELINE (Parquet Optimized) <<<
+2026-03-15 22:31:28 [INFO] root: Step 1: Aggregating Master Files from Season Folders...
+2026-03-15 22:31:28 [INFO] root: Found Seasons: ['2024-25', '2025-26']
+2026-03-15 22:31:28 [INFO] root: Creating Player ID Map from ESPN Box Scores...
+2026-03-15 22:31:28 [INFO] root: --- Starting: process_master_player_stats (BBref & ID Sync) ---
+2026-03-15 22:31:29 [INFO] root: Saved master_player_stats_2024-25.parquet
+2026-03-15 22:31:29 [INFO] root: Saved master_player_stats_2025-26.parquet
+2026-03-15 22:31:29 [INFO] root: --- Starting: process_master_team_stats ---
+2026-03-15 22:31:29 [INFO] root: Saved master_team_stats_2024-25.parquet
+2026-03-15 22:31:29 [INFO] root: Saved master_team_stats_2025-26.parquet
+2026-03-15 22:31:29 [INFO] root: --- Starting: process_master_box_scores (Advanced Features) ---
+2026-03-15 22:31:29 [INFO] root: Saved master_box_scores_2024-25.parquet (26754 rows)
+2026-03-15 22:31:30 [INFO] root: Saved master_box_scores_2025-26.parquet (22000 rows)
+2026-03-15 22:31:30 [INFO] root: --- Starting: process_vs_opponent_stats ---
+2026-03-15 22:31:30 [INFO] root: Saved master_vs_opponent.parquet
+2026-03-15 22:31:30 [INFO] root: --- Starting: process_dvp_stats (Advanced Composite - Fixed Target Leakage) ---
+2026-03-15 22:31:30 [INFO] root: Saved master_dvp_stats.parquet (Multi-Season Time-Series: 12735 rows)
+2026-03-15 22:31:30 [INFO] root: --- Starting: process_home_away_splits ---
+2026-03-15 22:31:30 [INFO] root: Saved master_home_away_splits.parquet (1136 rows)
+2026-03-15 22:31:30 [INFO] root: Processing Time-Series Vacancy and PBP/WOWY Data...
+2026-03-15 22:31:30 [INFO] root: --- Starting: process_daily_vacancy (Time-Series) ---
+2026-03-15 22:31:30 [INFO] root: Saved time-series master_daily_vacancy.parquet with 231 records.
+2026-03-15 22:31:30 [INFO] root: --- Starting: process_pbpstats_data (Mapping Assist Networks, Foul Risk & WOWY Data) ---
+2026-03-15 22:31:30 [INFO] root: Step 2: Building Final Training Dataset...
+2026-03-15 22:31:30 [INFO] root: --- Building Final Training Dataset ---
+2026-03-15 22:31:30 [INFO] root: Calculating historical point-in-time Home/Away differentials...
+2026-03-15 22:31:31 [INFO] root: Merging real historical Vegas lines...
+2026-03-15 22:31:31 [INFO] root: Merged lines. Columns added: ['Line_AST', 'Line_PA', 'Line_PR', 'Line_PRA', 'Line_PTS', 'Line_RA', 'Line_REB']
+2026-03-15 22:31:31 [INFO] root: Calculating advanced features for training set...
+2026-03-15 22:31:36 [INFO] root: Saving training set with 271 columns...
+2026-03-15 22:31:37 [INFO] root: Saved to prop_data/master_training_dataset.parquet
+2026-03-15 22:31:37 [INFO] root: <<< DATABASE BUILD COMPLETE >>>
+2026-03-17 13:24:00 [INFO] root: Logging initialized. Writing to logs/build_db.log
+2026-03-17 13:24:00 [INFO] root: >>> STARTING ETL PIPELINE (Parquet Optimized) <<<
+2026-03-17 13:24:00 [INFO] root: Step 1: Aggregating Master Files from Season Folders...
+2026-03-17 13:24:00 [INFO] root: Found Seasons: ['2024-25', '2025-26']
+2026-03-17 13:24:00 [INFO] root: Creating Player ID Map from ESPN Box Scores...
+2026-03-17 13:24:01 [INFO] root: --- Starting: process_master_player_stats (BBref & ID Sync) ---
+2026-03-17 13:24:01 [INFO] root: Saved master_player_stats_2024-25.parquet
+2026-03-17 13:24:01 [INFO] root: Saved master_player_stats_2025-26.parquet
+2026-03-17 13:24:01 [INFO] root: --- Starting: process_master_team_stats ---
+2026-03-17 13:24:01 [INFO] root: Saved master_team_stats_2024-25.parquet
+2026-03-17 13:24:01 [INFO] root: Saved master_team_stats_2025-26.parquet
+2026-03-17 13:24:01 [INFO] root: --- Starting: process_master_box_scores (Advanced Features) ---
+2026-03-17 13:24:01 [INFO] root: Saved master_box_scores_2024-25.parquet (26754 rows)
+2026-03-17 13:24:02 [INFO] root: Saved master_box_scores_2025-26.parquet (22170 rows)
+2026-03-17 13:24:02 [INFO] root: --- Starting: process_vs_opponent_stats ---
+2026-03-17 13:24:02 [INFO] root: Saved master_vs_opponent.parquet
+2026-03-17 13:24:02 [INFO] root: --- Starting: process_dvp_stats (Advanced Composite - Fixed Target Leakage) ---
+2026-03-17 13:24:02 [INFO] root: Saved master_dvp_stats.parquet (Multi-Season Time-Series: 12780 rows)
+2026-03-17 13:24:02 [INFO] root: --- Starting: process_home_away_splits ---
+2026-03-17 13:24:02 [INFO] root: Saved master_home_away_splits.parquet (1137 rows)
+2026-03-17 13:24:02 [INFO] root: Processing Time-Series Vacancy and PBP/WOWY Data...
+2026-03-17 13:24:02 [INFO] root: --- Starting: process_daily_vacancy (Time-Series) ---
+2026-03-17 13:24:02 [INFO] root: Saved time-series master_daily_vacancy.parquet with 254 records.
+2026-03-17 13:24:02 [INFO] root: --- Starting: process_pbpstats_data (Mapping Assist Networks, Foul Risk & WOWY Data) ---
+2026-03-17 13:24:02 [INFO] root: Step 2: Building Final Training Dataset...
+2026-03-17 13:24:02 [INFO] root: --- Building Final Training Dataset ---
+2026-03-17 13:24:02 [INFO] root: Calculating historical point-in-time Home/Away differentials...
+2026-03-17 13:24:03 [INFO] root: Merging real historical Vegas lines...
+2026-03-17 13:24:03 [INFO] root: Merged lines. Columns added: ['Line_AST', 'Line_PA', 'Line_PR', 'Line_PRA', 'Line_PTS', 'Line_RA', 'Line_REB']
+2026-03-17 13:24:03 [INFO] root: Calculating advanced features for training set...
+2026-03-17 13:24:08 [INFO] root: Saving training set with 271 columns...
+2026-03-17 13:24:09 [INFO] root: Saved to prop_data/master_training_dataset.parquet
+2026-03-17 13:24:09 [INFO] root: <<< DATABASE BUILD COMPLETE >>>
+2026-03-17 23:50:40 [INFO] root: Logging initialized. Writing to logs/build_db.log
+2026-03-17 23:50:40 [INFO] root: >>> STARTING ETL PIPELINE (Parquet Optimized) <<<
+2026-03-17 23:50:40 [INFO] root: Step 1: Aggregating Master Files from Season Folders...
+2026-03-17 23:50:40 [INFO] root: Found Seasons: ['2024-25', '2025-26']
+2026-03-17 23:50:40 [INFO] root: Creating Player ID Map from ESPN Box Scores...
+2026-03-17 23:50:40 [INFO] root: --- Starting: process_master_player_stats (BBref & ID Sync) ---
+2026-03-17 23:50:40 [INFO] root: Saved master_player_stats_2024-25.parquet
+2026-03-17 23:50:40 [INFO] root: Saved master_player_stats_2025-26.parquet
+2026-03-17 23:50:40 [INFO] root: --- Starting: process_master_team_stats ---
+2026-03-17 23:50:40 [INFO] root: Saved master_team_stats_2024-25.parquet
+2026-03-17 23:50:40 [INFO] root: Saved master_team_stats_2025-26.parquet
+2026-03-17 23:50:40 [INFO] root: --- Starting: process_master_box_scores (Advanced Features) ---
+2026-03-17 23:50:40 [INFO] root: Saved master_box_scores_2024-25.parquet (26754 rows)
+2026-03-17 23:50:41 [INFO] root: Saved master_box_scores_2025-26.parquet (22348 rows)
+2026-03-17 23:50:41 [INFO] root: --- Starting: process_vs_opponent_stats ---
+2026-03-17 23:50:41 [INFO] root: Saved master_vs_opponent.parquet
+2026-03-17 23:50:41 [INFO] root: --- Starting: process_dvp_stats (Advanced Composite - Fixed Target Leakage) ---
+2026-03-17 23:50:41 [INFO] root: Saved master_dvp_stats.parquet (Multi-Season Time-Series: 12828 rows)
+2026-03-17 23:50:41 [INFO] root: --- Starting: process_home_away_splits ---
+2026-03-17 23:50:41 [INFO] root: Saved master_home_away_splits.parquet (1137 rows)
+2026-03-17 23:50:41 [INFO] root: Processing Time-Series Vacancy and PBP/WOWY Data...
+2026-03-17 23:50:41 [INFO] root: --- Starting: process_daily_vacancy (Time-Series) ---
+2026-03-17 23:50:41 [INFO] root: Saved time-series master_daily_vacancy.parquet with 254 records.
+2026-03-17 23:50:41 [INFO] root: --- Starting: process_pbpstats_data (Mapping Assist Networks, Foul Risk & WOWY Data) ---
+2026-03-17 23:50:41 [INFO] root: Step 2: Building Final Training Dataset...
+2026-03-17 23:50:41 [INFO] root: --- Building Final Training Dataset ---
+2026-03-17 23:50:41 [INFO] root: Calculating historical point-in-time Home/Away differentials...
+2026-03-17 23:50:42 [INFO] root: Merging real historical Vegas lines...
+2026-03-17 23:50:42 [INFO] root: Merged lines. Columns added: ['Line_AST', 'Line_PA', 'Line_PR', 'Line_PRA', 'Line_PTS', 'Line_RA', 'Line_REB']
+2026-03-17 23:50:42 [INFO] root: Calculating advanced features for training set...
+2026-03-17 23:50:48 [INFO] root: Saving training set with 271 columns...
+2026-03-17 23:50:48 [INFO] root: Saved to prop_data/master_training_dataset.parquet
+2026-03-17 23:50:48 [INFO] root: <<< DATABASE BUILD COMPLETE >>>
+2026-03-19 00:48:33 [INFO] root: Logging initialized. Writing to logs/build_db.log
+2026-03-19 00:48:33 [INFO] root: >>> STARTING ETL PIPELINE (Parquet Optimized) <<<
+2026-03-19 00:48:33 [INFO] root: Step 1: Aggregating Master Files from Season Folders...
+2026-03-19 00:48:33 [INFO] root: Found Seasons: ['2024-25', '2025-26']
+2026-03-19 00:48:33 [INFO] root: Creating Player ID Map from ESPN Box Scores...
+2026-03-19 00:48:33 [INFO] root: --- Starting: process_master_player_stats (BBref & ID Sync) ---
+2026-03-19 00:48:33 [INFO] root: Saved master_player_stats_2024-25.parquet
+2026-03-19 00:48:33 [INFO] root: Saved master_player_stats_2025-26.parquet
+2026-03-19 00:48:33 [INFO] root: --- Starting: process_master_team_stats ---
+2026-03-19 00:48:33 [INFO] root: Saved master_team_stats_2024-25.parquet
+2026-03-19 00:48:33 [INFO] root: Saved master_team_stats_2025-26.parquet
+2026-03-19 00:48:33 [INFO] root: --- Starting: process_master_box_scores (Advanced Features) ---
+2026-03-19 00:48:34 [INFO] root: Saved master_box_scores_2024-25.parquet (26754 rows)
+2026-03-19 00:48:34 [INFO] root: Saved master_box_scores_2025-26.parquet (22552 rows)
+2026-03-19 00:48:34 [INFO] root: --- Starting: process_vs_opponent_stats ---
+2026-03-19 00:48:34 [INFO] root: Saved master_vs_opponent.parquet
+2026-03-19 00:48:34 [INFO] root: --- Starting: process_dvp_stats (Advanced Composite - Fixed Target Leakage) ---
+2026-03-19 00:48:34 [INFO] root: Saved master_dvp_stats.parquet (Multi-Season Time-Series: 12880 rows)
+2026-03-19 00:48:34 [INFO] root: --- Starting: process_home_away_splits ---
+2026-03-19 00:48:34 [INFO] root: Saved master_home_away_splits.parquet (1139 rows)
+2026-03-19 00:48:34 [INFO] root: Processing Time-Series Vacancy and PBP/WOWY Data...
+2026-03-19 00:48:34 [INFO] root: --- Starting: process_daily_vacancy (Time-Series) ---
+2026-03-19 00:48:34 [INFO] root: Saved time-series master_daily_vacancy.parquet with 280 records.
+2026-03-19 00:48:34 [INFO] root: --- Starting: process_pbpstats_data (Mapping Assist Networks, Foul Risk & WOWY Data) ---
+2026-03-19 00:48:35 [INFO] root: Step 2: Building Final Training Dataset...
+2026-03-19 00:48:35 [INFO] root: --- Building Final Training Dataset ---
+2026-03-19 00:48:35 [INFO] root: Calculating historical point-in-time Home/Away differentials...
+2026-03-19 00:48:35 [INFO] root: Merging real historical Vegas lines...
+2026-03-19 00:48:35 [INFO] root: Merged lines. Columns added: ['Line_AST', 'Line_PA', 'Line_PR', 'Line_PRA', 'Line_PTS', 'Line_RA', 'Line_REB']
+2026-03-19 00:48:35 [INFO] root: Calculating advanced features for training set...
+2026-03-19 00:48:41 [INFO] root: Saving training set with 271 columns...
+2026-03-19 00:48:41 [INFO] root: Saved to prop_data/master_training_dataset.parquet
+2026-03-19 00:48:41 [INFO] root: <<< DATABASE BUILD COMPLETE >>>
+2026-03-19 21:53:44 [INFO] root: Logging initialized. Writing to logs/build_db.log
+2026-03-19 21:53:44 [INFO] root: >>> STARTING ETL PIPELINE (Parquet Optimized) <<<
+2026-03-19 21:53:44 [INFO] root: Step 1: Aggregating Master Files from Season Folders...
+2026-03-19 21:53:44 [INFO] root: Found Seasons: ['2024-25', '2025-26']
+2026-03-19 21:53:44 [INFO] root: Creating Player ID Map from ESPN Box Scores...
+2026-03-19 21:53:44 [INFO] root: --- Starting: process_master_player_stats (BBref & ID Sync) ---
+2026-03-19 21:53:44 [INFO] root: Saved master_player_stats_2024-25.parquet
+2026-03-19 21:53:44 [INFO] root: Saved master_player_stats_2025-26.parquet
+2026-03-19 21:53:44 [INFO] root: --- Starting: process_master_team_stats ---
+2026-03-19 21:53:44 [INFO] root: Saved master_team_stats_2024-25.parquet
+2026-03-19 21:53:44 [INFO] root: Saved master_team_stats_2025-26.parquet
+2026-03-19 21:53:44 [INFO] root: --- Starting: process_master_box_scores (Advanced Features) ---
+2026-03-19 21:53:44 [INFO] root: Saved master_box_scores_2024-25.parquet (26754 rows)
+2026-03-19 21:53:45 [INFO] root: Saved master_box_scores_2025-26.parquet (22719 rows)
+2026-03-19 21:53:45 [INFO] root: --- Starting: process_vs_opponent_stats ---
+2026-03-19 21:53:45 [INFO] root: Saved master_vs_opponent.parquet
+2026-03-19 21:53:45 [INFO] root: --- Starting: process_dvp_stats (Advanced Composite - Fixed Target Leakage) ---
+2026-03-19 21:53:45 [INFO] root: Saved master_dvp_stats.parquet (Multi-Season Time-Series: 12929 rows)
+2026-03-19 21:53:45 [INFO] root: --- Starting: process_home_away_splits ---
+2026-03-19 21:53:45 [INFO] root: Saved master_home_away_splits.parquet (1142 rows)
+2026-03-19 21:53:45 [INFO] root: Processing Time-Series Vacancy and PBP/WOWY Data...
+2026-03-19 21:53:45 [INFO] root: --- Starting: process_daily_vacancy (Time-Series) ---
+2026-03-19 21:53:45 [INFO] root: Saved time-series master_daily_vacancy.parquet with 279 records.
+2026-03-19 21:53:45 [INFO] root: --- Starting: process_pbpstats_data (Mapping Assist Networks, Foul Risk & WOWY Data) ---
+2026-03-19 21:53:45 [INFO] root: Step 2: Building Final Training Dataset...
+2026-03-19 21:53:45 [INFO] root: --- Building Final Training Dataset ---
+2026-03-19 21:53:45 [INFO] root: Calculating historical point-in-time Home/Away differentials...
+2026-03-19 21:53:46 [INFO] root: Merging real historical Vegas lines...
+2026-03-19 21:53:46 [INFO] root: Merged lines. Columns added: ['Line_AST', 'Line_PA', 'Line_PR', 'Line_PRA', 'Line_PTS', 'Line_RA', 'Line_REB']
+2026-03-19 21:53:46 [INFO] root: Calculating advanced features for training set...
+2026-03-19 21:53:51 [INFO] root: Saving training set with 271 columns...
+2026-03-19 21:53:51 [INFO] root: Saved to prop_data/master_training_dataset.parquet
+2026-03-19 21:53:51 [INFO] root: <<< DATABASE BUILD COMPLETE >>>

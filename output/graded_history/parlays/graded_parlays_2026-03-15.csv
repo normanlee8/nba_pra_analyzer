@@ -1,0 +1,71 @@
+Legs,Joint Prob,Payout,Picks,Result
+2,0.474026,3.0x,Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA,WIN
+2,0.4646,3.0x,Brandon Ingram Under 27.5 PR | Duncan Robinson Under 21.5 PRA,LOSS
+2,0.464422,3.0x,Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB,WIN
+2,0.46297,3.0x,Duncan Robinson Under 21.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+2,0.4596200000000001,3.0x,Isaiah Collier Under 12.5 RA | VJ Edgecombe Under 26.0 PR,LOSS
+2,0.4596,3.0x,Brandon Ingram Under 31.5 PRA | Duncan Robinson Under 21.5 PRA,LOSS
+2,0.458133,3.0x,DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA,LOSS
+2,0.4571,3.0x,Brandon Ingram Under 25.5 PA | Duncan Robinson Under 21.5 PRA,LOSS
+2,0.4563,3.0x,Brandon Ingram Under 21.5 PTS | Duncan Robinson Under 21.5 PRA,LOSS
+2,0.4553689999999999,3.0x,Duncan Robinson Under 21.5 PRA | Giannis Antetokounmpo Under 38.5 PR,LOSS
+3,0.3187156,6.0x,Brandon Ingram Under 27.5 PR | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA,LOSS
+3,0.3180982,6.0x,Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB,WIN
+3,0.31759742,6.0x,Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | VJ Edgecombe Under 26.0 PR,LOSS
+3,0.3152856,6.0x,Brandon Ingram Under 31.5 PRA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA,LOSS
+3,0.314279238,6.0x,DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA,LOSS
+3,0.3135706,6.0x,Brandon Ingram Under 25.5 PA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA,LOSS
+3,0.3130218,6.0x,Brandon Ingram Under 21.5 PTS | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA,LOSS
+3,0.312383134,6.0x,Duncan Robinson Under 21.5 PRA | Giannis Antetokounmpo Under 38.5 PR | Isaiah Collier Under 12.5 RA,LOSS
+3,0.311282,6.0x,Brandon Ingram Under 27.5 PR | Duncan Robinson Under 21.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+3,0.31116274,6.0x,Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | VJ Edgecombe Under 26.0 PR,LOSS
+4,0.213539452,10.0x,Brandon Ingram Under 27.5 PR | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | VJ Edgecombe Under 26.0 PR,LOSS
+4,0.213125794,10.0x,Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | VJ Edgecombe Under 26.0 PR,LOSS
+4,0.2125914,10.0x,Brandon Ingram Under 25.5 PA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB,LOSS
+4,0.2113084428,10.0x,Brandon Ingram Under 27.5 PR | DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA,LOSS
+4,0.211241352,10.0x,Brandon Ingram Under 31.5 PRA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | VJ Edgecombe Under 26.0 PR,LOSS
+4,0.2108991066,10.0x,DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB,LOSS
+4,0.21056708946,10.0x,DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | VJ Edgecombe Under 26.0 PR,LOSS
+4,0.210092302,10.0x,Brandon Ingram Under 25.5 PA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | VJ Edgecombe Under 26.0 PR,LOSS
+4,0.2100335804,10.0x,Brandon Ingram Under 27.5 PR | Duncan Robinson Under 21.5 PRA | Giannis Antetokounmpo Under 38.5 PR | Isaiah Collier Under 12.5 RA,LOSS
+4,0.209724606,10.0x,Brandon Ingram Under 21.5 PTS | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | VJ Edgecombe Under 26.0 PR,LOSS
+5,0.142436238,20.0x,Brandon Ingram Under 25.5 PA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | VJ Edgecombe Under 26.0 PR,LOSS
+5,0.141576656676,20.0x,Brandon Ingram Under 27.5 PR | DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | VJ Edgecombe Under 26.0 PR,LOSS
+5,0.141302401422,20.0x,DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | VJ Edgecombe Under 26.0 PR,LOSS
+5,0.1409480982,20.0x,Brandon Ingram Under 25.5 PA | DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB,LOSS
+5,0.140722498868,20.0x,Brandon Ingram Under 27.5 PR | Duncan Robinson Under 21.5 PRA | Giannis Antetokounmpo Under 38.5 PR | Isaiah Collier Under 12.5 RA | VJ Edgecombe Under 26.0 PR,LOSS
+5,0.140449898246,20.0x,Duncan Robinson Under 21.5 PRA | Giannis Antetokounmpo Under 38.5 PR | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | VJ Edgecombe Under 26.0 PR,LOSS
+5,0.1400977326,20.0x,Brandon Ingram Under 25.5 PA | Duncan Robinson Under 21.5 PRA | Giannis Antetokounmpo Under 38.5 PR | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB,LOSS
+5,0.140081880512,20.0x,Brandon Ingram Under 27.5 PR | Cooper Flagg Over 3.5 AST | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | VJ Edgecombe Under 26.0 PR,LOSS
+5,0.140053016376,20.0x,Brandon Ingram Under 31.5 PRA | DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | VJ Edgecombe Under 26.0 PR,LOSS
+5,0.139810520864,20.0x,Cooper Flagg Over 3.5 AST | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | VJ Edgecombe Under 26.0 PR,LOSS
+6,0.094435225794,25.0x,Brandon Ingram Under 25.5 PA | DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | VJ Edgecombe Under 26.0 PR,LOSS
+6,0.093865480842,25.0x,Brandon Ingram Under 25.5 PA | Duncan Robinson Under 21.5 PRA | Giannis Antetokounmpo Under 38.5 PR | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | VJ Edgecombe Under 26.0 PR,LOSS
+6,0.093438172128,25.0x,Brandon Ingram Under 25.5 PA | Cooper Flagg Over 3.5 AST | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | VJ Edgecombe Under 26.0 PR,LOSS
+6,0.09342351025,25.0x,Brandon Ingram Under 27.5 PR | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Julius Randle Under 22.5 PA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+6,0.093299016749484,25.0x,Brandon Ingram Under 27.5 PR | DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Giannis Antetokounmpo Under 38.5 PR | Isaiah Collier Under 12.5 RA | VJ Edgecombe Under 26.0 PR,LOSS
+6,0.093242534875,25.0x,Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | Julius Randle Under 22.5 PA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+6,0.093118282537098,25.0x,DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Giannis Antetokounmpo Under 38.5 PR | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | VJ Edgecombe Under 26.0 PR,LOSS
+6,0.0930087375,25.0x,Brandon Ingram Under 25.5 PA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | Julius Randle Under 22.5 PA | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+6,0.0928847967138,25.0x,Brandon Ingram Under 25.5 PA | DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Giannis Antetokounmpo Under 38.5 PR | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB,LOSS
+6,0.092874286779456,25.0x,Brandon Ingram Under 27.5 PR | Cooper Flagg Over 3.5 AST | DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | VJ Edgecombe Under 26.0 PR,LOSS
+7,0.062315854125,40.0x,Brandon Ingram Under 25.5 PA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | Julius Randle Under 22.5 PA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+7,0.062232813798246,40.0x,Brandon Ingram Under 25.5 PA | DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Giannis Antetokounmpo Under 38.5 PR | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | VJ Edgecombe Under 26.0 PR,LOSS
+7,0.061949508120864,40.0x,Brandon Ingram Under 25.5 PA | Cooper Flagg Over 3.5 AST | DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | VJ Edgecombe Under 26.0 PR,LOSS
+7,0.06193978729575,40.0x,Brandon Ingram Under 27.5 PR | DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Julius Randle Under 22.5 PA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+7,0.061819800622125,40.0x,DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | Julius Randle Under 22.5 PA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+7,0.0616647929625,40.0x,Brandon Ingram Under 25.5 PA | DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | Julius Randle Under 22.5 PA | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+7,0.0616464038064,40.0x,Brandon Ingram Under 25.5 PA | Duncan Robinson Under 21.5 PRA | Giannis Antetokounmpo Under 38.5 PR | Isaiah Collier Under 12.5 RA | Ivica Zubac Under 16.5 PA | Jalen Duren Under 11.5 REB | VJ Edgecombe Under 26.0 PR,LOSS
+7,0.061575755432352,40.0x,Brandon Ingram Under 25.5 PA | Cooper Flagg Over 3.5 AST | Duncan Robinson Under 21.5 PRA | Giannis Antetokounmpo Under 38.5 PR | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | VJ Edgecombe Under 26.0 PR,LOSS
+7,0.06156609325475,40.0x,Brandon Ingram Under 27.5 PR | Duncan Robinson Under 21.5 PRA | Giannis Antetokounmpo Under 38.5 PR | Isaiah Collier Under 12.5 RA | Julius Randle Under 22.5 PA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+7,0.061477331991894,40.0x,Brandon Ingram Under 25.5 PA | DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | Shai Gilgeous-Alexander Under 33.0 PTS | VJ Edgecombe Under 26.0 PR,LOSS
+8,0.041315411284875,80.0x,Brandon Ingram Under 25.5 PA | DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | Julius Randle Under 22.5 PA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+8,0.041066147868375,80.0x,Brandon Ingram Under 25.5 PA | Duncan Robinson Under 21.5 PRA | Giannis Antetokounmpo Under 38.5 PR | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | Julius Randle Under 22.5 PA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+8,0.040879200306,80.0x,Brandon Ingram Under 25.5 PA | Cooper Flagg Over 3.5 AST | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | Julius Randle Under 22.5 PA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+8,0.0408715657236432,80.0x,Brandon Ingram Under 25.5 PA | DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Giannis Antetokounmpo Under 38.5 PR | Isaiah Collier Under 12.5 RA | Ivica Zubac Under 16.5 PA | Jalen Duren Under 11.5 REB | VJ Edgecombe Under 26.0 PR,LOSS
+8,0.0408247258516493,80.0x,Brandon Ingram Under 25.5 PA | Cooper Flagg Over 3.5 AST | DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Giannis Antetokounmpo Under 38.5 PR | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | VJ Edgecombe Under 26.0 PR,LOSS
+8,0.0408183198278992,80.0x,Brandon Ingram Under 27.5 PR | DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Giannis Antetokounmpo Under 38.5 PR | Isaiah Collier Under 12.5 RA | Julius Randle Under 22.5 PA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+8,0.0407392486099803,80.0x,DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Giannis Antetokounmpo Under 38.5 PR | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | Julius Randle Under 22.5 PA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+8,0.0406370985622875,80.0x,Brandon Ingram Under 25.5 PA | DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Giannis Antetokounmpo Under 38.5 PR | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | Julius Randle Under 22.5 PA | Shai Gilgeous-Alexander Under 39.5 PA,LOSS
+8,0.040632500466012,80.0x,Brandon Ingram Under 27.5 PR | Cooper Flagg Over 3.5 AST | DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Julius Randle Under 22.5 PA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+8,0.040553789208114,80.0x,Cooper Flagg Over 3.5 AST | DeMar DeRozan Under 28.5 PRA | Duncan Robinson Under 21.5 PRA | Isaiah Collier Under 12.5 RA | Jalen Duren Under 11.5 REB | Julius Randle Under 22.5 PA | Shai Gilgeous-Alexander Under 39.5 PA | VJ Edgecombe Under 26.0 PR,LOSS

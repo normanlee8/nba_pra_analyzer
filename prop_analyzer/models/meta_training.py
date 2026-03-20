@@ -135,10 +135,14 @@ def train_meta_classifier():
     )
 
     # PROBABILITY CALIBRATION: Fixes uncalibrated tree probabilities
-    # We use cv='prefit' or standard cross-validation to map outputs to true hit rates
-    meta_model = CalibratedClassifierCV(estimator=base_model, method='isotonic', cv=3)
+    # Dynamic switch: 'isotonic' is strictly better for large data, 'sigmoid' prevents small-sample overfitting
+    calib_method = 'isotonic' if len(X_train) >= 1000 else 'sigmoid'
+    
+    # Increased cv to 5 for better generalization on small 45-day windows
+    meta_model = CalibratedClassifierCV(estimator=base_model, method=calib_method, cv=5)
     
     meta_model.fit(X_train, y_train)
+    logging.info(f"Calibrating probabilities using method: {calib_method} (Training size: {len(X_train)})")
 
     # Evaluate
     y_pred_proba = meta_model.predict_proba(X_test)[:, 1]

@@ -1,0 +1,71 @@
+Legs,Joint Prob,Payout,Picks,Result
+2,0.5143439999999999,3.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB,WIN
+2,0.508432,3.0x,Aaron Gordon Over 3.5 REB | VJ Edgecombe Under 24.5 PA,WIN
+2,0.5062,3.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA,LOSS
+2,0.501781,3.0x,Aaron Gordon Over 3.5 REB | VJ Edgecombe Under 19.5 PTS,WIN
+2,0.496608,3.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA,LOSS
+2,0.492913,3.0x,Aaron Gordon Over 3.5 REB | Brandon Miller Under 11.5 RA,WIN
+2,0.487001,3.0x,Aaron Gordon Over 3.5 REB | Jalen Suggs Under 21.5 PA,WIN
+2,0.483306,3.0x,Aaron Gordon Over 3.5 REB | VJ Edgecombe Under 25.5 PR,WIN
+2,0.481828,3.0x,Aaron Gordon Over 3.5 REB | Sam Hauser Under 19.5 PRA,LOSS
+2,0.4814,3.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 25.5 PR,LOSS
+3,0.3538686719999999,6.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | VJ Edgecombe Under 24.5 PA,WIN
+3,0.3523151999999999,6.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB,LOSS
+3,0.3492395759999999,6.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | VJ Edgecombe Under 19.5 PTS,WIN
+3,0.3482655999999999,6.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | VJ Edgecombe Under 24.5 PA,LOSS
+3,0.345639168,6.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Bennedict Mathurin Over 3.5 REB,LOSS
+3,0.3437098,6.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | VJ Edgecombe Under 19.5 PTS,LOSS
+3,0.3430674479999999,6.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Brandon Miller Under 11.5 RA,WIN
+3,0.3419,6.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Cameron Johnson Over 4.5 RA,LOSS
+3,0.341666304,6.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | VJ Edgecombe Under 24.5 PA,LOSS
+3,0.3401664,6.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA,LOSS
+4,0.2423928575999999,10.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | VJ Edgecombe Under 24.5 PA,LOSS
+4,0.2392220207999999,10.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | VJ Edgecombe Under 19.5 PTS,LOSS
+4,0.2379623999999999,10.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Cameron Johnson Over 4.5 RA,LOSS
+4,0.2377997475839999,10.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Bennedict Mathurin Over 3.5 REB | VJ Edgecombe Under 24.5 PA,LOSS
+4,0.2367558144,10.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB,LOSS
+4,0.2360304042239999,10.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Brandon Miller Under 11.5 RA | VJ Edgecombe Under 24.5 PA,WIN
+4,0.2352271999999999,10.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Cameron Johnson Over 4.5 RA | VJ Edgecombe Under 24.5 PA,LOSS
+4,0.2349942383999999,10.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Brandon Miller Under 11.5 RA,LOSS
+4,0.234688995072,10.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Bennedict Mathurin Over 3.5 REB | VJ Edgecombe Under 19.5 PTS,LOSS
+4,0.2340344832,10.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA | VJ Edgecombe Under 24.5 PA,LOSS
+5,0.1637181311999999,20.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Cameron Johnson Over 4.5 RA | VJ Edgecombe Under 24.5 PA,LOSS
+5,0.1628880003072,20.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | VJ Edgecombe Under 24.5 PA,LOSS
+5,0.1616760360191999,20.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Brandon Miller Under 11.5 RA | VJ Edgecombe Under 24.5 PA,LOSS
+5,0.1615764696,20.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Cameron Johnson Over 4.5 RA | VJ Edgecombe Under 19.5 PTS,LOSS
+5,0.1607571979776,20.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | VJ Edgecombe Under 19.5 PTS,LOSS
+5,0.1599107327999999,20.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Cameron Johnson Over 4.5 RA,LOSS
+5,0.1597368931583999,20.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Jalen Suggs Under 21.5 PA | VJ Edgecombe Under 24.5 PA,LOSS
+5,0.1595610878736,20.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Brandon Miller Under 11.5 RA | VJ Edgecombe Under 19.5 PTS,LOSS
+5,0.1587209207999999,20.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Brandon Miller Under 11.5 RA | Cameron Johnson Over 4.5 RA,LOSS
+5,0.1586124316385279,20.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Bennedict Mathurin Over 3.5 REB | Brandon Miller Under 11.5 RA | VJ Edgecombe Under 24.5 PA,LOSS
+6,0.1100185841663999,25.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Cameron Johnson Over 4.5 RA | VJ Edgecombe Under 24.5 PA,LOSS
+6,0.1091999935103999,25.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Brandon Miller Under 11.5 RA | Cameron Johnson Over 4.5 RA | VJ Edgecombe Under 24.5 PA,LOSS
+6,0.1086462962049024,25.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Brandon Miller Under 11.5 RA | VJ Edgecombe Under 24.5 PA,LOSS
+6,0.1085793875711999,25.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Cameron Johnson Over 4.5 RA | VJ Edgecombe Under 19.5 PTS,LOSS
+6,0.1078902484607999,25.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Cameron Johnson Over 4.5 RA | Jalen Suggs Under 21.5 PA | VJ Edgecombe Under 24.5 PA,LOSS
+6,0.1077715052231999,25.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Brandon Miller Under 11.5 RA | Cameron Johnson Over 4.5 RA | VJ Edgecombe Under 19.5 PTS,LOSS
+6,0.1076466680601599,25.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Devin Vassell Over 1.5 AST | Dylan Harper Over 12.5 PR | VJ Edgecombe Under 24.5 PA,LOSS
+6,0.1073431922024448,25.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Jalen Suggs Under 21.5 PA | VJ Edgecombe Under 24.5 PA,LOSS
+6,0.1072250510510592,25.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Brandon Miller Under 11.5 RA | VJ Edgecombe Under 19.5 PTS,LOSS
+6,0.1071861216307199,25.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Jalen Suggs Under 21.5 PA | Tyler Herro Under 23.5 PTS | VJ Edgecombe Under 24.5 PA,LOSS
+7,0.0733823956389888,40.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Brandon Miller Under 11.5 RA | Cameron Johnson Over 4.5 RA | VJ Edgecombe Under 24.5 PA,LOSS
+7,0.0727072220659199,40.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Cameron Johnson Over 4.5 RA | Devin Vassell Over 1.5 AST | Dylan Harper Over 12.5 PR | VJ Edgecombe Under 24.5 PA,LOSS
+7,0.0725022469656575,40.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Cameron Johnson Over 4.5 RA | Jalen Suggs Under 21.5 PA | VJ Edgecombe Under 24.5 PA,LOSS
+7,0.0724224515099904,40.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Brandon Miller Under 11.5 RA | Cameron Johnson Over 4.5 RA | VJ Edgecombe Under 19.5 PTS,LOSS
+7,0.0723961576166399,40.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Cameron Johnson Over 4.5 RA | Jalen Suggs Under 21.5 PA | Tyler Herro Under 23.5 PTS | VJ Edgecombe Under 24.5 PA,LOSS
+7,0.0723385609364275,40.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Devin Vassell Over 1.5 AST | Dylan Harper Over 12.5 PR | VJ Edgecombe Under 24.5 PA,LOSS
+7,0.0720290737358438,40.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Jalen Suggs Under 21.5 PA | Tyler Herro Under 23.5 PTS | VJ Edgecombe Under 24.5 PA,LOSS
+7,0.0719627957233535,40.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Brandon Miller Under 11.5 RA | Cameron Johnson Over 4.5 RA | Jalen Suggs Under 21.5 PA | VJ Edgecombe Under 24.5 PA,LOSS
+7,0.0718003275961267,40.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Brandon Miller Under 11.5 RA | Devin Vassell Over 1.5 AST | Dylan Harper Over 12.5 PR | VJ Edgecombe Under 24.5 PA,LOSS
+7,0.07175611014936,40.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Cameron Johnson Over 4.5 RA | Devin Vassell Over 1.5 AST | Dylan Harper Over 12.5 PR | VJ Edgecombe Under 19.5 PTS,LOSS
+8,0.0488592532282982,80.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Cameron Johnson Over 4.5 RA | Devin Vassell Over 1.5 AST | Dylan Harper Over 12.5 PR | VJ Edgecombe Under 24.5 PA,LOSS
+8,0.048650217918382,80.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Cameron Johnson Over 4.5 RA | Jalen Suggs Under 21.5 PA | Tyler Herro Under 23.5 PTS | VJ Edgecombe Under 24.5 PA,LOSS
+8,0.0484957171179686,80.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Brandon Miller Under 11.5 RA | Cameron Johnson Over 4.5 RA | Devin Vassell Over 1.5 AST | Dylan Harper Over 12.5 PR | VJ Edgecombe Under 24.5 PA,LOSS
+8,0.0483589987260936,80.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Brandon Miller Under 11.5 RA | Cameron Johnson Over 4.5 RA | Jalen Suggs Under 21.5 PA | VJ Edgecombe Under 24.5 PA,LOSS
+8,0.0482882371302988,80.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Brandon Miller Under 11.5 RA | Cameron Johnson Over 4.5 RA | Jalen Suggs Under 21.5 PA | Tyler Herro Under 23.5 PTS | VJ Edgecombe Under 24.5 PA,LOSS
+8,0.0482498201445971,80.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Brandon Miller Under 11.5 RA | Devin Vassell Over 1.5 AST | Dylan Harper Over 12.5 PR | VJ Edgecombe Under 24.5 PA,LOSS
+8,0.0482201060203699,80.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Cameron Johnson Over 4.5 RA | Devin Vassell Over 1.5 AST | Dylan Harper Over 12.5 PR | VJ Edgecombe Under 19.5 PTS,LOSS
+8,0.0480433921818078,80.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Brandon Miller Under 11.5 RA | Jalen Suggs Under 21.5 PA | Tyler Herro Under 23.5 PTS | VJ Edgecombe Under 24.5 PA,LOSS
+8,0.0480138051839846,80.0x,Aaron Gordon Over 3.5 REB | Alex Sarr Over 18.5 PRA | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Cameron Johnson Over 4.5 RA | Jalen Suggs Under 21.5 PA | Tyler Herro Under 23.5 PTS | VJ Edgecombe Under 19.5 PTS,LOSS
+8,0.0479140593414412,80.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 11.5 RA | Bennedict Mathurin Over 3.5 REB | Cameron Johnson Over 4.5 RA | Devin Vassell Over 1.5 AST | Dylan Harper Over 12.5 PR | Jalen Suggs Under 21.5 PA | VJ Edgecombe Under 24.5 PA,LOSS

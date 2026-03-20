@@ -1,0 +1,71 @@
+Legs,Joint Prob,Payout,Picks,Result
+2,0.5047379999999999,3.0x,Brice Sensabaugh Under 23.5 PR | Kobe Sanders Under 14.5 PRA,LOSS
+2,0.4997049999999999,3.0x,Brice Sensabaugh Under 23.5 PR | Tari Eason Under 14.5 PA,LOSS
+2,0.490358,3.0x,Brice Sensabaugh Under 23.5 PR | Royce O'Neale Over 5.5 RA,LOSS
+2,0.489639,3.0x,Brice Sensabaugh Under 23.5 PR | Grayson Allen Over 5.5 RA,LOSS
+2,0.4878899999999999,3.0x,Kobe Sanders Under 14.5 PRA | Tari Eason Under 14.5 PA,LOSS
+2,0.487482,3.0x,Brice Sensabaugh Under 23.5 PR | James Harden Under 8.5 AST,LOSS
+2,0.4864859999999999,3.0x,Brice Sensabaugh Under 20.5 PA | Kobe Sanders Under 14.5 PRA,LOSS
+2,0.4864,3.0x,Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA,LOSS
+2,0.4816349999999999,3.0x,Brice Sensabaugh Under 20.5 PA | Tari Eason Under 14.5 PA,LOSS
+2,0.481011,3.0x,Brice Sensabaugh Under 23.5 PR | Kobe Sanders Under 10.5 PA,LOSS
+3,0.3507929099999999,6.0x,Brice Sensabaugh Under 23.5 PR | Kobe Sanders Under 14.5 PRA | Tari Eason Under 14.5 PA,LOSS
+3,0.3497215999999999,6.0x,Brice Sensabaugh Under 23.5 PR | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA,LOSS
+3,0.3442313159999999,6.0x,Brice Sensabaugh Under 23.5 PR | Kobe Sanders Under 14.5 PRA | Royce O'Neale Over 5.5 RA,LOSS
+3,0.3437265779999999,6.0x,Brice Sensabaugh Under 23.5 PR | Grayson Allen Over 5.5 RA | Kobe Sanders Under 14.5 PRA,LOSS
+3,0.342212364,6.0x,Brice Sensabaugh Under 23.5 PR | James Harden Under 8.5 AST | Kobe Sanders Under 14.5 PRA,LOSS
+3,0.34079881,6.0x,Brice Sensabaugh Under 23.5 PR | Royce O'Neale Over 5.5 RA | Tari Eason Under 14.5 PA,LOSS
+3,0.340299105,6.0x,Brice Sensabaugh Under 23.5 PR | Grayson Allen Over 5.5 RA | Tari Eason Under 14.5 PA,LOSS
+3,0.33879999,6.0x,Brice Sensabaugh Under 23.5 PR | James Harden Under 8.5 AST | Tari Eason Under 14.5 PA,LOSS
+3,0.3387928,6.0x,Brice Sensabaugh Under 23.5 PR | Josh Giddey Under 28.5 PA | Kobe Sanders Under 10.5 PA,LOSS
+3,0.3381077699999999,6.0x,Brice Sensabaugh Under 20.5 PA | Kobe Sanders Under 14.5 PRA | Tari Eason Under 14.5 PA,LOSS
+4,0.2430565119999999,10.0x,Brice Sensabaugh Under 23.5 PR | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Tari Eason Under 14.5 PA,LOSS
+4,0.2392407646199999,10.0x,Brice Sensabaugh Under 23.5 PR | Kobe Sanders Under 14.5 PRA | Royce O'Neale Over 5.5 RA | Tari Eason Under 14.5 PA,LOSS
+4,0.2388899717099999,10.0x,Brice Sensabaugh Under 23.5 PR | Grayson Allen Over 5.5 RA | Kobe Sanders Under 14.5 PRA | Tari Eason Under 14.5 PA,LOSS
+4,0.2385101312,10.0x,Brice Sensabaugh Under 23.5 PR | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Royce O'Neale Over 5.5 RA,LOSS
+4,0.2381604095999999,10.0x,Brice Sensabaugh Under 23.5 PR | Grayson Allen Over 5.5 RA | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA,LOSS
+4,0.2378375929799999,10.0x,Brice Sensabaugh Under 23.5 PR | James Harden Under 8.5 AST | Kobe Sanders Under 14.5 PRA | Tari Eason Under 14.5 PA,LOSS
+4,0.2371112448,10.0x,Brice Sensabaugh Under 23.5 PR | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA,LOSS
+4,0.2354609959999999,10.0x,Brice Sensabaugh Under 23.5 PR | Josh Giddey Under 28.5 PA | Kobe Sanders Under 10.5 PA | Tari Eason Under 14.5 PA,LOSS
+4,0.2342672639999999,10.0x,Brice Sensabaugh Under 20.5 PA | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Tari Eason Under 14.5 PA,LOSS
+4,0.2338955891999999,10.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 27.5 PR | James Harden Under 8.5 AST | Kobe Sanders Under 14.5 PRA,LOSS
+5,0.165764541184,20.0x,Brice Sensabaugh Under 23.5 PR | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Royce O'Neale Over 5.5 RA | Tari Eason Under 14.5 PA,LOSS
+5,0.1655214846719999,20.0x,Brice Sensabaugh Under 23.5 PR | Grayson Allen Over 5.5 RA | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Tari Eason Under 14.5 PA,LOSS
+5,0.1647923151359999,20.0x,Brice Sensabaugh Under 23.5 PR | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Tari Eason Under 14.5 PA,LOSS
+5,0.1625574344939999,20.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 27.5 PR | James Harden Under 8.5 AST | Kobe Sanders Under 14.5 PRA | Tari Eason Under 14.5 PA,LOSS
+5,0.1622052384123599,20.0x,Brice Sensabaugh Under 23.5 PR | James Harden Under 8.5 AST | Kobe Sanders Under 14.5 PRA | Royce O'Neale Over 5.5 RA | Tari Eason Under 14.5 PA,LOSS
+5,0.16206098944,20.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 27.5 PR | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA,LOSS
+5,0.16196740081938,20.0x,Brice Sensabaugh Under 23.5 PR | Grayson Allen Over 5.5 RA | James Harden Under 8.5 AST | Kobe Sanders Under 14.5 PRA | Tari Eason Under 14.5 PA,LOSS
+5,0.1617098689536,20.0x,Brice Sensabaugh Under 23.5 PR | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Royce O'Neale Over 5.5 RA,LOSS
+5,0.1614727577088,20.0x,Brice Sensabaugh Under 23.5 PR | Grayson Allen Over 5.5 RA | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA,LOSS
+5,0.1611548624999999,20.0x,Brice Sensabaugh Under 23.5 PR | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Matas Buzelis Over 4.5 REB | Tari Eason Under 14.5 PA,LOSS
+6,0.1126323876607999,25.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 27.5 PR | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Tari Eason Under 14.5 PA,LOSS
+6,0.112388358922752,25.0x,Brice Sensabaugh Under 23.5 PR | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Royce O'Neale Over 5.5 RA | Tari Eason Under 14.5 PA,LOSS
+6,0.112223566607616,25.0x,Brice Sensabaugh Under 23.5 PR | Grayson Allen Over 5.5 RA | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Tari Eason Under 14.5 PA,LOSS
+6,0.1108641703249079,25.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 27.5 PR | James Harden Under 8.5 AST | Kobe Sanders Under 14.5 PRA | Royce O'Neale Over 5.5 RA | Tari Eason Under 14.5 PA,LOSS
+6,0.110701612890414,25.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 27.5 PR | Grayson Allen Over 5.5 RA | James Harden Under 8.5 AST | Kobe Sanders Under 14.5 PRA | Tari Eason Under 14.5 PA,LOSS
+6,0.1106150186111999,25.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 29.5 PRA | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Tari Eason Under 14.5 PA,LOSS
+6,0.11052559479808,25.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 27.5 PR | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Royce O'Neale Over 5.5 RA,LOSS
+6,0.11036353380864,25.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 27.5 PR | Grayson Allen Over 5.5 RA | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA,LOSS
+6,0.109907616225,25.0x,Brice Sensabaugh Under 23.5 PR | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Matas Buzelis Over 4.5 REB | Royce O'Neale Over 5.5 RA | Tari Eason Under 14.5 PA,LOSS
+6,0.1097464613624999,25.0x,Brice Sensabaugh Under 23.5 PR | Grayson Allen Over 5.5 RA | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Matas Buzelis Over 4.5 REB | Tari Eason Under 14.5 PA,LOSS
+7,0.0768152883846656,40.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 27.5 PR | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Royce O'Neale Over 5.5 RA | Tari Eason Under 14.5 PA,LOSS
+7,0.0767026559970048,40.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 27.5 PR | Grayson Allen Over 5.5 RA | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Tari Eason Under 14.5 PA,LOSS
+7,0.0754394426928384,40.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 29.5 PRA | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Royce O'Neale Over 5.5 RA | Tari Eason Under 14.5 PA,LOSS
+7,0.0753288276742272,40.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 29.5 PRA | Grayson Allen Over 5.5 RA | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Tari Eason Under 14.5 PA,LOSS
+7,0.0747641830911999,40.0x,Brice Sensabaugh Under 23.5 PR | Grayson Allen Over 5.5 RA | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | RJ Barrett Under 9.5 RA | Royce O'Neale Over 5.5 RA | Tari Eason Under 14.5 PA,LOSS
+7,0.0746791632825,40.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 27.5 PR | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Matas Buzelis Over 4.5 REB | Tari Eason Under 14.5 PA,LOSS
+7,0.07451736380055,40.0x,Brice Sensabaugh Under 23.5 PR | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Matas Buzelis Over 4.5 REB | Royce O'Neale Over 5.5 RA | Tari Eason Under 14.5 PA,LOSS
+7,0.0744148106226448,40.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 27.5 PR | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 10.5 PA | Royce O'Neale Over 5.5 RA | Tari Eason Under 14.5 PA,LOSS
+7,0.074408100803775,40.0x,Brice Sensabaugh Under 23.5 PR | Grayson Allen Over 5.5 RA | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Matas Buzelis Over 4.5 REB | Tari Eason Under 14.5 PA,LOSS
+7,0.0743056979970984,40.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 27.5 PR | Grayson Allen Over 5.5 RA | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 10.5 PA | Tari Eason Under 14.5 PA,LOSS
+8,0.0509311893586649,80.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 27.5 PR | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Matas Buzelis Over 4.5 REB | Royce O'Neale Over 5.5 RA | Tari Eason Under 14.5 PA,LOSS
+8,0.0508565101953825,80.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 27.5 PR | Grayson Allen Over 5.5 RA | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Matas Buzelis Over 4.5 REB | Tari Eason Under 14.5 PA,LOSS
+8,0.0507859435962547,80.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 27.5 PR | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | RJ Barrett Under 30.5 PRA | Royce O'Neale Over 5.5 RA | Tari Eason Under 14.5 PA,LOSS
+8,0.0506901161358335,80.0x,Brice Sensabaugh Under 23.5 PR | Grayson Allen Over 5.5 RA | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | RJ Barrett Under 9.5 RA | Royce O'Neale Over 5.5 RA | Tari Eason Under 14.5 PA,LOSS
+8,0.0505995444047015,80.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 27.5 PR | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kawhi Leonard Under 29.5 PTS | Kobe Sanders Under 14.5 PRA | Royce O'Neale Over 5.5 RA | Tari Eason Under 14.5 PA,LOSS
+8,0.0505253515243428,80.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 27.5 PR | Grayson Allen Over 5.5 RA | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kawhi Leonard Under 29.5 PTS | Kobe Sanders Under 14.5 PRA | Tari Eason Under 14.5 PA,LOSS
+8,0.0504593096720384,80.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 27.5 PR | Grayson Allen Over 5.5 RA | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | RJ Barrett Under 30.5 PRA | Tari Eason Under 14.5 PA,LOSS
+8,0.050414256716974,80.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 27.5 PR | Grayson Allen Over 5.5 RA | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Royce O'Neale Over 5.5 RA | Tari Eason Under 14.5 PA,LOSS
+8,0.0503140138919559,80.0x,Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 27.5 PR | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Naz Reid Over 4.5 REB | Royce O'Neale Over 5.5 RA | Tari Eason Under 14.5 PA,LOSS
+8,0.0502723917786999,80.0x,Bennedict Mathurin Under 29.5 PRA | Brice Sensabaugh Under 23.5 PR | Evan Mobley Under 27.5 PR | James Harden Under 8.5 AST | Josh Giddey Under 28.5 PA | Kobe Sanders Under 14.5 PRA | Matas Buzelis Over 4.5 REB | Tari Eason Under 14.5 PA,LOSS

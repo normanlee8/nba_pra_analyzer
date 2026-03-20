@@ -1,0 +1,71 @@
+Legs,Joint Prob,Payout,Picks,Result
+2,0.5011829999999999,3.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB,LOSS
+2,0.4961639999999999,3.0x,Bennedict Mathurin Over 3.5 REB | Kevin Durant Over 3.5 REB,LOSS
+2,0.488994,3.0x,Amen Thompson Over 5.5 REB | Bennedict Mathurin Over 3.5 REB,LOSS
+2,0.478956,3.0x,Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR,LOSS
+2,0.477522,3.0x,Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 26.5 PTS,LOSS
+2,0.477522,3.0x,Bennedict Mathurin Over 3.5 REB | Scottie Barnes Under 30.5 PRA,LOSS
+2,0.476088,3.0x,Bennedict Mathurin Over 3.5 REB | James Harden Over 9.5 RA,LOSS
+2,0.468201,3.0x,Bennedict Mathurin Over 3.5 REB | Scottie Barnes Under 24.5 PR,LOSS
+2,0.466932,3.0x,Aaron Gordon Over 3.5 REB | Jalen Brunson Under 30.5 PR,LOSS
+2,0.465534,3.0x,Aaron Gordon Over 3.5 REB | Jalen Brunson Under 26.5 PTS,LOSS
+3,0.3347902439999999,6.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR,LOSS
+3,0.333787878,6.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 26.5 PTS,LOSS
+3,0.333787878,6.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Scottie Barnes Under 30.5 PRA,LOSS
+3,0.3327855119999999,6.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | James Harden Over 9.5 RA,LOSS
+3,0.3321861,6.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Kevin Durant Over 3.5 REB,LOSS
+3,0.3314375519999999,6.0x,Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | Kevin Durant Over 3.5 REB,LOSS
+3,0.3308955,6.0x,Aaron Gordon Over 3.5 REB | Amen Thompson Over 5.5 REB | Bennedict Mathurin Over 3.5 REB,LOSS
+3,0.330445224,6.0x,Bennedict Mathurin Over 3.5 REB | Kevin Durant Over 3.5 REB | Scottie Barnes Under 30.5 PRA,LOSS
+3,0.330445224,6.0x,Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 26.5 PTS | Kevin Durant Over 3.5 REB,LOSS
+3,0.329452896,6.0x,Bennedict Mathurin Over 3.5 REB | James Harden Over 9.5 RA | Kevin Durant Over 3.5 REB,LOSS
+4,0.222970302504,10.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | Scottie Barnes Under 30.5 PRA,LOSS
+4,0.222302726748,10.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 26.5 PTS | Scottie Barnes Under 30.5 PRA,LOSS
+4,0.2223007220159999,10.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | James Harden Over 9.5 RA,LOSS
+4,0.2219003148,10.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | Kevin Durant Over 3.5 REB,LOSS
+4,0.221635150992,10.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 26.5 PTS | James Harden Over 9.5 RA,LOSS
+4,0.2216351509919999,10.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | James Harden Over 9.5 RA | Scottie Barnes Under 30.5 PRA,LOSS
+4,0.2212359426,10.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 26.5 PTS | Kevin Durant Over 3.5 REB,LOSS
+4,0.2212359426,10.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Kevin Durant Over 3.5 REB | Scottie Barnes Under 30.5 PRA,LOSS
+4,0.221038194,10.0x,Aaron Gordon Over 3.5 REB | Amen Thompson Over 5.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR,LOSS
+4,0.220737409632,10.0x,Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | Kevin Durant Over 3.5 REB | Scottie Barnes Under 30.5 PRA,LOSS
+5,0.148052280862656,20.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | James Harden Over 9.5 RA | Scottie Barnes Under 30.5 PRA,LOSS
+5,0.1477856096568,20.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | Kevin Durant Over 3.5 REB | Scottie Barnes Under 30.5 PRA,LOSS
+5,0.147609010560672,20.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 26.5 PTS | James Harden Over 9.5 RA | Scottie Barnes Under 30.5 PRA,LOSS
+5,0.1473431377716,20.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 26.5 PTS | Kevin Durant Over 3.5 REB | Scottie Barnes Under 30.5 PRA,LOSS
+5,0.1473418090272,20.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | James Harden Over 9.5 RA | Kevin Durant Over 3.5 REB,LOSS
+5,0.147211437204,20.0x,Aaron Gordon Over 3.5 REB | Amen Thompson Over 5.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | Scottie Barnes Under 30.5 PRA,LOSS
+5,0.1469006658864,20.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 26.5 PTS | James Harden Over 9.5 RA | Kevin Durant Over 3.5 REB,LOSS
+5,0.1469006658864,20.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | James Harden Over 9.5 RA | Kevin Durant Over 3.5 REB | Scottie Barnes Under 30.5 PRA,LOSS
+5,0.146770684398,20.0x,Aaron Gordon Over 3.5 REB | Amen Thompson Over 5.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 26.5 PTS | Scottie Barnes Under 30.5 PRA,LOSS
+5,0.146769360816,20.0x,Aaron Gordon Over 3.5 REB | Amen Thompson Over 5.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | James Harden Over 9.5 RA,LOSS
+6,0.0981296448121152,25.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | James Harden Over 9.5 RA | Kevin Durant Over 3.5 REB | Scottie Barnes Under 30.5 PRA,LOSS
+6,0.0978358434803424,25.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 26.5 PTS | James Harden Over 9.5 RA | Kevin Durant Over 3.5 REB | Scottie Barnes Under 30.5 PRA,LOSS
+6,0.097748394303456,25.0x,Aaron Gordon Over 3.5 REB | Amen Thompson Over 5.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | James Harden Over 9.5 RA | Scottie Barnes Under 30.5 PRA,LOSS
+6,0.097455734440272,25.0x,Aaron Gordon Over 3.5 REB | Amen Thompson Over 5.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 26.5 PTS | James Harden Over 9.5 RA | Scottie Barnes Under 30.5 PRA,LOSS
+6,0.0962142012947616,25.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | James Harden Over 9.5 RA | Kevin Durant Over 3.5 REB | Scottie Barnes Under 24.5 PR,LOSS
+6,0.0959261348238192,25.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 26.5 PTS | James Harden Over 9.5 RA | Kevin Durant Over 3.5 REB | Scottie Barnes Under 24.5 PR,LOSS
+6,0.095840392612848,25.0x,Aaron Gordon Over 3.5 REB | Amen Thompson Over 5.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | James Harden Over 9.5 RA | Scottie Barnes Under 24.5 PR,LOSS
+6,0.0957434478952176,25.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | Jalen Suggs Under 24.5 PRA | James Harden Over 9.5 RA | Scottie Barnes Under 30.5 PRA,LOSS
+6,0.095553445329576,25.0x,Aaron Gordon Over 3.5 REB | Amen Thompson Over 5.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 26.5 PTS | James Harden Over 9.5 RA | Scottie Barnes Under 24.5 PR,LOSS
+6,0.0954567908655912,25.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 26.5 PTS | Jalen Suggs Under 24.5 PRA | James Harden Over 9.5 RA | Scottie Barnes Under 30.5 PRA,LOSS
+7,0.0634591407866299,40.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | Jalen Suggs Under 24.5 PRA | James Harden Over 9.5 RA | Kevin Durant Over 3.5 REB | Scottie Barnes Under 30.5 PRA,LOSS
+7,0.063269143359125,40.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 26.5 PTS | Jalen Suggs Under 24.5 PRA | James Harden Over 9.5 RA | Kevin Durant Over 3.5 REB | Scottie Barnes Under 30.5 PRA,LOSS
+7,0.0632125911353976,40.0x,Aaron Gordon Over 3.5 REB | Amen Thompson Over 5.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | Jalen Suggs Under 24.5 PRA | James Harden Over 9.5 RA | Scottie Barnes Under 30.5 PRA,LOSS
+7,0.0630233318805012,40.0x,Aaron Gordon Over 3.5 REB | Amen Thompson Over 5.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 26.5 PTS | Jalen Suggs Under 24.5 PRA | James Harden Over 9.5 RA | Scottie Barnes Under 30.5 PRA,LOSS
+7,0.0624985343238607,40.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | Jalen Suggs Under 20.5 PA | James Harden Over 9.5 RA | Kevin Durant Over 3.5 REB | Scottie Barnes Under 30.5 PRA,LOSS
+7,0.0623114129636096,40.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 26.5 PTS | Jalen Suggs Under 20.5 PA | James Harden Over 9.5 RA | Kevin Durant Over 3.5 REB | Scottie Barnes Under 30.5 PRA,LOSS
+7,0.0622557167935716,40.0x,Aaron Gordon Over 3.5 REB | Amen Thompson Over 5.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | Jalen Suggs Under 20.5 PA | James Harden Over 9.5 RA | Scottie Barnes Under 30.5 PRA,LOSS
+7,0.0622497358305216,40.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | James Harden Over 9.5 RA | Kevin Durant Over 3.5 REB | Scottie Barnes Under 30.5 PRA | Tari Eason Under 16.5 PR,LOSS
+7,0.0622204488493533,40.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | Jalen Suggs Under 24.5 PRA | James Harden Over 9.5 RA | Kevin Durant Over 3.5 REB | Scottie Barnes Under 24.5 PR,LOSS
+7,0.0620693224319142,40.0x,Aaron Gordon Over 3.5 REB | Amen Thompson Over 5.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 26.5 PTS | Jalen Suggs Under 20.5 PA | James Harden Over 9.5 RA | Scottie Barnes Under 30.5 PRA,LOSS
+8,0.0402560791650993,80.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | Jalen Suggs Under 24.5 PRA | James Harden Over 9.5 RA | Kevin Durant Over 3.5 REB | Scottie Barnes Under 30.5 PRA | Tari Eason Under 16.5 PR,LOSS
+8,0.0401355519819703,80.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 26.5 PTS | Jalen Suggs Under 24.5 PRA | James Harden Over 9.5 RA | Kevin Durant Over 3.5 REB | Scottie Barnes Under 30.5 PRA | Tari Eason Under 16.5 PR,LOSS
+8,0.0399157995547902,80.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | Jalen Suggs Under 24.5 PRA | James Harden Over 9.5 RA | Kevin Durant Over 3.5 REB | Scottie Barnes Under 30.5 PRA | Zion Williamson Under 21.5 PTS,LOSS
+8,0.0397962911728896,80.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 26.5 PTS | Jalen Suggs Under 24.5 PRA | James Harden Over 9.5 RA | Kevin Durant Over 3.5 REB | Scottie Barnes Under 30.5 PRA | Zion Williamson Under 21.5 PTS,LOSS
+8,0.0397607198241651,80.0x,Aaron Gordon Over 3.5 REB | Amen Thompson Over 5.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | Jalen Suggs Under 24.5 PRA | James Harden Over 9.5 RA | Scottie Barnes Under 30.5 PRA | Zion Williamson Under 21.5 PTS,LOSS
+8,0.0396467067510957,80.0x,Aaron Gordon Over 3.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | Jalen Suggs Under 20.5 PA | James Harden Over 9.5 RA | Kevin Durant Over 3.5 REB | Scottie Barnes Under 30.5 PRA | Tari Eason Under 16.5 PR,LOSS
+8,0.0396416757528352,80.0x,Aaron Gordon Over 3.5 REB | Amen Thompson Over 5.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 26.5 PTS | Jalen Suggs Under 24.5 PRA | James Harden Over 9.5 RA | Scottie Barnes Under 30.5 PRA | Zion Williamson Under 21.5 PTS,LOSS
+8,0.039612310631326,80.0x,Aaron Gordon Under 15.5 PTS | Amen Thompson Over 5.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | Jalen Suggs Under 24.5 PRA | James Harden Over 9.5 RA | Kevin Durant Over 3.5 REB | Scottie Barnes Under 30.5 PRA,LOSS
+8,0.0395986134284798,80.0x,Aaron Gordon Over 3.5 REB | Amen Thompson Over 5.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | Jalen Suggs Under 24.5 PRA | James Harden Over 9.5 RA | Scottie Barnes Under 30.5 PRA | Tari Eason Under 16.5 PR,LOSS
+8,0.0395301274142486,80.0x,Aaron Gordon Over 3.5 REB | Amen Thompson Over 5.5 REB | Bennedict Mathurin Over 3.5 REB | Jalen Brunson Under 30.5 PR | Jalen Suggs Under 24.5 PRA | James Harden Over 9.5 RA | Kevin Durant Over 3.5 REB | Scottie Barnes Under 30.5 PRA,LOSS

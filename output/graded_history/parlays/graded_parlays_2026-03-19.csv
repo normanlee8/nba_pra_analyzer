@@ -1,0 +1,71 @@
+Legs,Joint Prob,Payout,Picks,Result
+2,0.479514,3.0x,Ace Bailey Under 23.5 PRA | Jevon Carter Over 2.5 RA,LOSS
+2,0.478815,3.0x,Jevon Carter Over 2.5 RA | Trendon Watford Under 17.5 PRA,WIN
+2,0.47532,3.0x,Ace Bailey Under 21.5 PR | Jevon Carter Over 2.5 RA,LOSS
+2,0.46991,3.0x,Ace Bailey Under 23.5 PRA | Trendon Watford Under 17.5 PRA,LOSS
+2,0.46833,3.0x,Jevon Carter Over 2.5 RA | Trendon Watford Under 13.5 PA,WIN
+2,0.4658,3.0x,Ace Bailey Under 21.5 PR | Trendon Watford Under 17.5 PRA,LOSS
+2,0.462039,3.0x,Jevon Carter Over 2.5 RA | VJ Edgecombe Under 26.0 PR,LOSS
+2,0.462039,3.0x,Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA,WIN
+2,0.4607,3.0x,Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA,WIN
+2,0.459942,3.0x,Jalen Duren Under 13.5 RA | Jevon Carter Over 2.5 RA,WIN
+3,0.32846709,6.0x,Ace Bailey Under 23.5 PRA | Jevon Carter Over 2.5 RA | Trendon Watford Under 17.5 PRA,LOSS
+3,0.3255942,6.0x,Ace Bailey Under 21.5 PR | Jevon Carter Over 2.5 RA | Trendon Watford Under 17.5 PRA,LOSS
+3,0.3220292999999999,6.0x,Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA,WIN
+3,0.32127438,6.0x,Ace Bailey Under 23.5 PRA | Jevon Carter Over 2.5 RA | Trendon Watford Under 13.5 PA,LOSS
+3,0.3184644,6.0x,Ace Bailey Under 21.5 PR | Jevon Carter Over 2.5 RA | Trendon Watford Under 13.5 PA,LOSS
+3,0.316958754,6.0x,Ace Bailey Under 23.5 PRA | Jevon Carter Over 2.5 RA | VJ Edgecombe Under 26.0 PR,LOSS
+3,0.316958754,6.0x,Ace Bailey Under 23.5 PRA | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA,LOSS
+3,0.316496715,6.0x,Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Trendon Watford Under 17.5 PRA,WIN
+3,0.3160402,6.0x,Ace Bailey Under 23.5 PRA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA,LOSS
+3,0.315520212,6.0x,Ace Bailey Under 23.5 PRA | Jalen Duren Under 13.5 RA | Jevon Carter Over 2.5 RA,LOSS
+4,0.2209120997999999,10.0x,Ace Bailey Under 23.5 PRA | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA,LOSS
+4,0.218979924,10.0x,Ace Bailey Under 21.5 PR | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA,LOSS
+4,0.21711674649,10.0x,Ace Bailey Under 23.5 PRA | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Trendon Watford Under 17.5 PRA,LOSS
+4,0.21613134522,10.0x,Ace Bailey Under 23.5 PRA | Jalen Duren Under 13.5 RA | Jevon Carter Over 2.5 RA | Trendon Watford Under 17.5 PRA,LOSS
+4,0.2152177662,10.0x,Ace Bailey Under 21.5 PR | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Trendon Watford Under 17.5 PRA,LOSS
+4,0.2142409836,10.0x,Ace Bailey Under 21.5 PR | Jalen Duren Under 13.5 RA | Jevon Carter Over 2.5 RA | Trendon Watford Under 17.5 PRA,LOSS
+4,0.2133348,10.0x,Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 13.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+4,0.2130960216,10.0x,Ace Bailey Under 23.5 PRA | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 13.5 PA,LOSS
+4,0.2128613673,10.0x,Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA,WIN
+4,0.212424702,10.0x,Ace Bailey Under 23.5 PRA | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+5,0.1463476728,20.0x,Ace Bailey Under 23.5 PRA | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 13.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+5,0.1460228979678,20.0x,Ace Bailey Under 23.5 PRA | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA,LOSS
+5,0.1453601616684,20.0x,Ace Bailey Under 23.5 PRA | Jalen Duren Under 13.5 RA | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA,LOSS
+5,0.145292742,20.0x,Ace Bailey Under 23.5 PRA | Jevon Carter Over 2.5 RA | Russell Westbrook Under 23.0 PR | Trendon Watford Under 17.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+5,0.1451968392,20.0x,Ace Bailey Under 23.5 PRA | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+5,0.145067664,20.0x,Ace Bailey Under 21.5 PR | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 13.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+5,0.144745729764,20.0x,Ace Bailey Under 21.5 PR | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA,LOSS
+5,0.144088789992,20.0x,Ace Bailey Under 21.5 PR | Jalen Duren Under 13.5 RA | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA,LOSS
+5,0.14402196,20.0x,Ace Bailey Under 21.5 PR | Jevon Carter Over 2.5 RA | Russell Westbrook Under 23.0 PR | Trendon Watford Under 17.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+5,0.143926896,20.0x,Ace Bailey Under 21.5 PR | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+6,0.0967358117208,25.0x,Ace Bailey Under 23.5 PRA | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 13.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+6,0.0962967687024,25.0x,Ace Bailey Under 23.5 PRA | Jalen Duren Under 13.5 RA | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 13.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+6,0.096038502462,25.0x,Ace Bailey Under 23.5 PRA | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Russell Westbrook Under 23.0 PR | Trendon Watford Under 17.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+6,0.0959751107112,25.0x,Ace Bailey Under 23.5 PRA | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+6,0.095889725904,25.0x,Ace Bailey Under 21.5 PR | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 13.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+6,0.095602624236,25.0x,Ace Bailey Under 23.5 PRA | Jalen Duren Under 13.5 RA | Jevon Carter Over 2.5 RA | Russell Westbrook Under 23.0 PR | Trendon Watford Under 17.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+6,0.0955395201936,25.0x,Ace Bailey Under 23.5 PRA | Jalen Duren Under 13.5 RA | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+6,0.095454522912,25.0x,Ace Bailey Under 21.5 PR | Jalen Duren Under 13.5 RA | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 13.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+6,0.09519851556,25.0x,Ace Bailey Under 21.5 PR | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Russell Westbrook Under 23.0 PR | Trendon Watford Under 17.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+6,0.095135678256,25.0x,Ace Bailey Under 21.5 PR | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+7,0.0624725704134,40.0x,Ace Bailey Under 23.5 PRA | Adem Bona Under 13.5 PR | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+7,0.062394598559916,40.0x,Ace Bailey Under 23.5 PRA | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Kawhi Leonard Under 10.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 13.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+7,0.0621890337852,40.0x,Ace Bailey Under 23.5 PRA | Adem Bona Under 13.5 PR | Jalen Duren Under 13.5 RA | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+7,0.062111415813048,40.0x,Ace Bailey Under 23.5 PRA | Jalen Duren Under 13.5 RA | Jevon Carter Over 2.5 RA | Kawhi Leonard Under 10.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 13.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+7,0.06194483408799,40.0x,Ace Bailey Under 23.5 PRA | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Kawhi Leonard Under 10.5 RA | Russell Westbrook Under 23.0 PR | Trendon Watford Under 17.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+7,0.061926163092,40.0x,Ace Bailey Under 21.5 PR | Adem Bona Under 13.5 PR | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+7,0.061903946408724,40.0x,Ace Bailey Under 23.5 PRA | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Kawhi Leonard Under 10.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+7,0.06184887320808,40.0x,Ace Bailey Under 21.5 PR | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Kawhi Leonard Under 10.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 13.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+7,0.06174408315432,40.0x,Ace Bailey Under 23.5 PRA | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Tobias Harris Under 22.5 PRA | Trendon Watford Under 13.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+7,0.06166369263222,40.0x,Ace Bailey Under 23.5 PRA | Jalen Duren Under 13.5 RA | Jevon Carter Over 2.5 RA | Kawhi Leonard Under 10.5 RA | Russell Westbrook Under 23.0 PR | Trendon Watford Under 17.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+8,0.040294807916643,80.0x,Ace Bailey Under 23.5 PRA | Adem Bona Under 13.5 PR | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Kawhi Leonard Under 10.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+8,0.0401840561888203,80.0x,Ace Bailey Under 23.5 PRA | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Kawhi Leonard Under 10.5 RA | Kris Dunn Under 16.5 PRA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 13.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+8,0.040111926791454,80.0x,Ace Bailey Under 23.5 PRA | Adem Bona Under 13.5 PR | Jalen Duren Under 13.5 RA | Jevon Carter Over 2.5 RA | Kawhi Leonard Under 10.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+8,0.0400486260524112,80.0x,Ace Bailey Under 23.5 PRA | Alex Sarr Over 18.5 PRA | Bub Carrington Under 18.5 PRA | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 13.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+8,0.0400016777189769,80.0x,Ace Bailey Under 23.5 PRA | Jalen Duren Under 13.5 RA | Jevon Carter Over 2.5 RA | Kawhi Leonard Under 10.5 RA | Kris Dunn Under 16.5 PRA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 13.5 PA | VJ Edgecombe Under 26.0 PR,LOSS
+8,0.03994237519434,80.0x,Ace Bailey Under 21.5 PR | Adem Bona Under 13.5 PR | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Kawhi Leonard Under 10.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+8,0.0398943939227147,80.0x,Ace Bailey Under 23.5 PRA | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Kawhi Leonard Under 10.5 RA | Kris Dunn Under 16.5 PRA | Russell Westbrook Under 23.0 PR | Trendon Watford Under 17.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+8,0.03987470114586,80.0x,Ace Bailey Under 23.5 PRA | Adem Bona Under 13.5 PR | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Tobias Harris Under 22.5 PRA | Trendon Watford Under 17.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+8,0.0398680609894324,80.0x,Ace Bailey Under 23.5 PRA | Jalen Duren Under 11.5 REB | Jevon Carter Over 2.5 RA | Kawhi Leonard Under 10.5 RA | Kris Dunn Under 16.5 PRA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 17.5 PRA | VJ Edgecombe Under 26.0 PR,LOSS
+8,0.0398668622427936,80.0x,Ace Bailey Under 23.5 PRA | Alex Sarr Over 18.5 PRA | Bub Carrington Under 18.5 PRA | Jalen Duren Under 13.5 RA | Jevon Carter Over 2.5 RA | Russell Westbrook Under 31.0 PRA | Trendon Watford Under 13.5 PA | VJ Edgecombe Under 26.0 PR,LOSS

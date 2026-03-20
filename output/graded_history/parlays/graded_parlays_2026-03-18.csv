@@ -1,0 +1,71 @@
+Legs,Joint Prob,Payout,Picks,Result
+2,0.51744,3.0x,Ayo Dosunmu Under 18.5 PTS | Jonathan Kuminga Over 5.5 RA,LOSS
+2,0.508288,3.0x,Ayo Dosunmu Under 22.5 PA | Jonathan Kuminga Over 5.5 RA,LOSS
+2,0.5078849999999999,3.0x,Ayo Dosunmu Under 18.5 PTS | Kevin Durant Over 3.5 REB,LOSS
+2,0.4989019999999999,3.0x,Ayo Dosunmu Under 22.5 PA | Kevin Durant Over 3.5 REB,LOSS
+2,0.4984319999999999,3.0x,Ayo Dosunmu Under 26.5 PRA | Jonathan Kuminga Over 5.5 RA,LOSS
+2,0.496125,3.0x,Ayo Dosunmu Under 18.5 PTS | De'Anthony Melton Over 4.5 RA,LOSS
+2,0.4920959999999999,3.0x,Ayo Dosunmu Under 22.5 PR | Jonathan Kuminga Over 5.5 RA,LOSS
+2,0.4913919999999999,3.0x,Jonathan Kuminga Over 5.5 RA | Naz Reid Under 24.5 PRA,PUSH/DOWNGRADE
+2,0.4899839999999999,3.0x,Jonathan Kuminga Over 5.5 RA | Naz Reid Under 18.5 PA,PUSH/DOWNGRADE
+2,0.4892279999999999,3.0x,Ayo Dosunmu Under 26.5 PRA | Kevin Durant Over 3.5 REB,LOSS
+3,0.35755104,6.0x,Ayo Dosunmu Under 18.5 PTS | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB,LOSS
+3,0.3525795,6.0x,Ayo Dosunmu Under 18.5 PTS | Jonathan Kuminga Over 5.5 RA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+3,0.3522111999999999,6.0x,Ayo Dosunmu Under 18.5 PTS | Jonathan Kuminga Over 5.5 RA | Naz Reid Under 24.5 PRA,LOSS
+3,0.3512270079999999,6.0x,Ayo Dosunmu Under 22.5 PA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB,LOSS
+3,0.349272,6.0x,Ayo Dosunmu Under 18.5 PTS | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA,LOSS
+3,0.3480575999999999,6.0x,Ayo Dosunmu Under 18.5 PTS | Jonathan Kuminga Over 5.5 RA | Naz Reid Under 18.5 PA,LOSS
+3,0.3463434,6.0x,Ayo Dosunmu Under 22.5 PA | Jonathan Kuminga Over 5.5 RA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+3,0.3457072999999999,6.0x,Ayo Dosunmu Under 18.5 PTS | Kevin Durant Over 3.5 REB | Naz Reid Under 24.5 PRA,LOSS
+3,0.3444165119999999,6.0x,Ayo Dosunmu Under 26.5 PRA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB,LOSS
+3,0.3441856,6.0x,Ayo Dosunmu Under 22.5 PA | Jonathan Kuminga Over 5.5 RA | Naz Reid Under 24.5 PRA,LOSS
+4,0.2436324344999999,10.0x,Ayo Dosunmu Under 18.5 PTS | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+4,0.2433779391999999,10.0x,Ayo Dosunmu Under 18.5 PTS | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 24.5 PRA,LOSS
+4,0.241346952,10.0x,Ayo Dosunmu Under 18.5 PTS | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB,LOSS
+4,0.2405078015999999,10.0x,Ayo Dosunmu Under 18.5 PTS | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 18.5 PA,LOSS
+4,0.23999391,10.0x,Ayo Dosunmu Under 18.5 PTS | Jonathan Kuminga Over 5.5 RA | Naz Reid Under 24.5 PRA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+4,0.2393232894,10.0x,Ayo Dosunmu Under 22.5 PA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+4,0.2379911625,10.0x,Ayo Dosunmu Under 18.5 PTS | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+4,0.2378322495999999,10.0x,Ayo Dosunmu Under 22.5 PA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 24.5 PRA,LOSS
+4,0.23774256,10.0x,Ayo Dosunmu Under 18.5 PTS | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Naz Reid Under 24.5 PRA,LOSS
+4,0.23716368,10.0x,Ayo Dosunmu Under 18.5 PTS | Jonathan Kuminga Over 5.5 RA | Naz Reid Under 18.5 PA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+5,0.16583579181,20.0x,Ayo Dosunmu Under 18.5 PTS | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 24.5 PRA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+5,0.1644518932875,20.0x,Ayo Dosunmu Under 18.5 PTS | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+5,0.1642801089599999,20.0x,Ayo Dosunmu Under 18.5 PTS | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 24.5 PRA,LOSS
+5,0.16388010288,20.0x,Ayo Dosunmu Under 18.5 PTS | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 18.5 PA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+5,0.1623427660799999,20.0x,Ayo Dosunmu Under 18.5 PTS | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 18.5 PA,LOSS
+5,0.1620570030299999,20.0x,Ayo Dosunmu Under 22.5 PA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 24.5 PRA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+5,0.16199588925,20.0x,Ayo Dosunmu Under 18.5 PTS | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Naz Reid Under 24.5 PRA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+5,0.161543220345,20.0x,Ayo Dosunmu Under 22.5 PA | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+5,0.1607974067699999,20.0x,Ayo Dosunmu Under 22.5 PA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 18.5 PA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+5,0.1605367684799999,20.0x,Ayo Dosunmu Under 22.5 PA | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 24.5 PRA,LOSS
+6,0.11193915947175,25.0x,Ayo Dosunmu Under 18.5 PTS | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 24.5 PRA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+6,0.1106190694439999,25.0x,Ayo Dosunmu Under 18.5 PTS | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 18.5 PA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+6,0.10938847704525,25.0x,Ayo Dosunmu Under 22.5 PA | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 24.5 PRA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+6,0.108885236967,25.0x,Austin Reaves Over 3.5 AST | Ayo Dosunmu Under 18.5 PTS | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 24.5 PRA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+6,0.10853824956975,25.0x,Ayo Dosunmu Under 22.5 PA | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 18.5 PA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+6,0.10797659042625,25.0x,Austin Reaves Over 3.5 AST | Ayo Dosunmu Under 18.5 PTS | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+6,0.107863799472,25.0x,Austin Reaves Over 3.5 AST | Ayo Dosunmu Under 18.5 PTS | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 24.5 PRA,LOSS
+6,0.10772726635125,25.0x,Austin Reaves Over 3.5 AST | Ayo Dosunmu Under 18.5 PTS | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Naz Reid Under 24.5 PRA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+6,0.107601161616,25.0x,Austin Reaves Over 3.5 AST | Ayo Dosunmu Under 18.5 PTS | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 18.5 PA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+6,0.1069944154695,25.0x,Ayo Dosunmu Under 26.5 PRA | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 24.5 PRA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+7,0.073497534952725,40.0x,Austin Reaves Over 3.5 AST | Ayo Dosunmu Under 18.5 PTS | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 24.5 PRA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+7,0.0726307840908,40.0x,Austin Reaves Over 3.5 AST | Ayo Dosunmu Under 18.5 PTS | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 18.5 PA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+7,0.0721551530165309,40.0x,Ayo Dosunmu Under 18.5 PTS | Brandon Ingram Under 29.5 PR | Jonathan Kuminga Over 5.5 RA | Josh Giddey Under 39.5 PRA | Kevin Durant Over 3.5 REB | Naz Reid Under 24.5 PRA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+7,0.071956093716,40.0x,Ayo Dosunmu Under 18.5 PTS | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 18.5 PA | Nickeil Alexander-Walker Under 7.5 RA | Rudy Gobert Under 14.5 RA,LOSS
+7,0.0718649403808635,40.0x,Ayo Dosunmu Under 18.5 PTS | Brandon Ingram Under 29.5 PR | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 24.5 PRA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+7,0.0718649403808635,40.0x,Ayo Dosunmu Under 18.5 PTS | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Josh Giddey Under 39.5 PRA | Kevin Durant Over 3.5 REB | Naz Reid Under 24.5 PRA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+7,0.071856648591273,40.0x,Ayo Dosunmu Under 18.5 PTS | Brandon Ingram Under 23.5 PTS | Jonathan Kuminga Over 5.5 RA | Josh Giddey Under 39.5 PRA | Kevin Durant Over 3.5 REB | Naz Reid Under 24.5 PRA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+7,0.071822795999175,40.0x,Austin Reaves Over 3.5 AST | Ayo Dosunmu Under 22.5 PA | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Naz Reid Under 24.5 PRA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+7,0.07164106206192,40.0x,Ayo Dosunmu Under 18.5 PTS | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Kevin Durant Over 3.5 REB | Matas Buzelis Over 6.5 RA | Naz Reid Under 24.5 PRA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+7,0.0715530187693912,40.0x,Ayo Dosunmu Under 18.5 PTS | Brandon Ingram Under 29.5 PR | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Josh Giddey Under 39.5 PRA | Kevin Durant Over 3.5 REB | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+8,0.0487047282861584,80.0x,Ayo Dosunmu Under 18.5 PTS | Brandon Ingram Under 29.5 PR | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Josh Giddey Under 39.5 PRA | Kevin Durant Over 3.5 REB | Naz Reid Under 24.5 PRA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+8,0.0485733034211489,80.0x,Ayo Dosunmu Under 18.5 PTS | Brandon Ingram Under 29.5 PR | Jonathan Kuminga Over 5.5 RA | Josh Giddey Under 39.5 PRA | Kevin Durant Over 3.5 REB | Matas Buzelis Over 6.5 RA | Naz Reid Under 24.5 PRA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+8,0.0485032377991092,80.0x,Ayo Dosunmu Under 18.5 PTS | Brandon Ingram Under 23.5 PTS | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Josh Giddey Under 39.5 PRA | Kevin Durant Over 3.5 REB | Naz Reid Under 24.5 PRA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+8,0.0481679595439087,80.0x,Ayo Dosunmu Under 18.5 PTS | Brandon Ingram Under 29.5 PR | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Josh Giddey Under 39.5 PRA | Kevin Durant Over 3.5 REB | Matas Buzelis Over 6.5 RA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+8,0.0481303571150843,80.0x,Ayo Dosunmu Under 18.5 PTS | Brandon Ingram Under 29.5 PR | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Josh Giddey Under 39.5 PRA | Kevin Durant Over 3.5 REB | Naz Reid Under 18.5 PA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+8,0.0481176439143839,80.0x,Ayo Dosunmu Under 18.5 PTS | Brandon Ingram Under 29.5 PR | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Josh Giddey Under 39.5 PRA | Kevin Durant Over 3.5 REB | Matas Buzelis Over 6.5 RA | Naz Reid Under 24.5 PRA,LOSS
+8,0.048000482133552,80.0x,Ayo Dosunmu Under 18.5 PTS | Brandon Ingram Under 29.5 PR | Jonathan Kuminga Over 5.5 RA | Josh Giddey Under 39.5 PRA | Kevin Durant Over 3.5 REB | Matas Buzelis Over 6.5 RA | Naz Reid Under 18.5 PA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+8,0.0479312427900852,80.0x,Ayo Dosunmu Under 18.5 PTS | Brandon Ingram Under 23.5 PTS | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Josh Giddey Under 39.5 PRA | Kevin Durant Over 3.5 REB | Naz Reid Under 18.5 PA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+8,0.0475949263623882,80.0x,Ayo Dosunmu Under 22.5 PA | Brandon Ingram Under 29.5 PR | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Josh Giddey Under 39.5 PRA | Kevin Durant Over 3.5 REB | Naz Reid Under 24.5 PRA | Nickeil Alexander-Walker Under 7.5 RA,LOSS
+8,0.0475853366914409,80.0x,Ayo Dosunmu Under 18.5 PTS | Brandon Ingram Under 28.0 PA | De'Anthony Melton Over 4.5 RA | Jonathan Kuminga Over 5.5 RA | Josh Giddey Under 39.5 PRA | Kevin Durant Over 3.5 REB | Naz Reid Under 24.5 PRA | Nickeil Alexander-Walker Under 7.5 RA,LOSS

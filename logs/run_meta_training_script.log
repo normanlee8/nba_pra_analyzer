@@ -137,3 +137,124 @@ weighted avg       0.30      0.55      0.39      1807
 
 2026-03-10 22:42:29 [INFO] root: Saved versioned artifacts for META_CALIBRATOR to model_META_CALIBRATOR_latest.pkl
 2026-03-10 22:42:29 [INFO] root: Meta-model saved successfully.
+2026-03-11 23:54:22 [INFO] root: Logging initialized. Writing to logs/run_meta_training_script.log
+2026-03-11 23:54:22 [INFO] root: Training Error-Prediction Meta-Model...
+2026-03-11 23:54:22 [INFO] root: Meta-Model AUC: 0.533
+2026-03-11 23:54:22 [INFO] root: 
+              precision    recall  f1-score   support
+
+           0       1.00      0.01      0.01       838
+           1       0.55      1.00      0.71      1019
+
+    accuracy                           0.55      1857
+   macro avg       0.78      0.50      0.36      1857
+weighted avg       0.75      0.55      0.39      1857
+
+2026-03-11 23:54:22 [INFO] root: Saved versioned artifacts for META_CALIBRATOR to model_META_CALIBRATOR_latest.pkl
+2026-03-11 23:54:22 [INFO] root: Meta-model saved successfully.
+2026-03-13 04:10:19 [INFO] root: Logging initialized. Writing to logs/run_meta_training_script.log
+2026-03-13 04:10:19 [INFO] root: Training Error-Prediction Meta-Model...
+2026-03-13 04:10:20 [INFO] root: Meta-Model AUC: 0.547
+2026-03-13 04:10:20 [INFO] root: 
+              precision    recall  f1-score   support
+
+           0       0.83      0.01      0.02       884
+           1       0.55      1.00      0.71      1080
+
+    accuracy                           0.55      1964
+   macro avg       0.69      0.50      0.37      1964
+weighted avg       0.68      0.55      0.40      1964
+
+2026-03-13 04:10:20 [INFO] root: Saved versioned artifacts for META_CALIBRATOR to model_META_CALIBRATOR_latest.pkl
+2026-03-13 04:10:20 [INFO] root: Meta-model saved successfully.
+2026-03-13 23:47:10 [INFO] root: Logging initialized. Writing to logs/run_meta_training_script.log
+2026-03-13 23:47:10 [INFO] root: Training Error-Prediction Meta-Model...
+2026-03-13 23:47:11 [INFO] root: Meta-Model AUC: 0.560
+2026-03-13 23:47:11 [INFO] root: 
+              precision    recall  f1-score   support
+
+           0       0.50      0.01      0.02       978
+           1       0.53      0.99      0.69      1088
+
+    accuracy                           0.53      2066
+   macro avg       0.51      0.50      0.35      2066
+weighted avg       0.51      0.53      0.37      2066
+
+2026-03-13 23:47:11 [INFO] root: Saved versioned artifacts for META_CALIBRATOR to model_META_CALIBRATOR_latest.pkl
+2026-03-13 23:47:11 [INFO] root: Meta-model saved successfully.
+2026-03-17 13:26:35 [INFO] root: Logging initialized. Writing to logs/run_meta_training_script.log
+2026-03-17 13:26:35 [INFO] root: Training Error-Prediction Meta-Model...
+2026-03-17 13:26:36 [INFO] root: Meta-Model AUC: 0.555
+2026-03-17 13:26:36 [INFO] root: 
+              precision    recall  f1-score   support
+
+           0       0.47      0.04      0.08      1132
+           1       0.52      0.96      0.67      1213
+
+    accuracy                           0.52      2345
+   macro avg       0.50      0.50      0.37      2345
+weighted avg       0.50      0.52      0.38      2345
+
+2026-03-17 13:26:36 [INFO] root: Saved versioned artifacts for META_CALIBRATOR to model_META_CALIBRATOR_latest.pkl
+2026-03-17 13:26:36 [INFO] root: Meta-model saved successfully.
+2026-03-17 23:51:49 [INFO] root: Logging initialized. Writing to logs/run_meta_training_script.log
+2026-03-17 23:51:49 [INFO] root: Training Error-Prediction Meta-Model...
+2026-03-17 23:51:50 [INFO] root: Meta-Model AUC: 0.562
+2026-03-17 23:51:50 [INFO] root: 
+              precision    recall  f1-score   support
+
+           0       0.53      0.03      0.06      1193
+           1       0.52      0.97      0.68      1274
+
+    accuracy                           0.52      2467
+   macro avg       0.53      0.50      0.37      2467
+weighted avg       0.53      0.52      0.38      2467
+
+2026-03-17 23:51:50 [INFO] root: Saved versioned artifacts for META_CALIBRATOR to model_META_CALIBRATOR_latest.pkl
+2026-03-17 23:51:50 [INFO] root: Meta-model saved successfully.
+2026-03-19 00:50:54 [INFO] root: Logging initialized. Writing to logs/run_meta_training_script.log
+2026-03-19 00:50:54 [INFO] root: Training Error-Prediction Meta-Model...
+2026-03-19 00:50:55 [INFO] root: Meta-Model AUC: 0.543
+2026-03-19 00:50:55 [INFO] root: 
+              precision    recall  f1-score   support
+
+           0       0.58      0.04      0.08      1178
+           1       0.55      0.97      0.70      1406
+
+    accuracy                           0.55      2584
+   macro avg       0.57      0.51      0.39      2584
+weighted avg       0.56      0.55      0.42      2584
+
+2026-03-19 00:50:55 [INFO] root: Saved versioned artifacts for META_CALIBRATOR to model_META_CALIBRATOR_latest.pkl
+2026-03-19 00:50:55 [INFO] root: Meta-model saved successfully.
+2026-03-19 21:55:22 [INFO] root: Logging initialized. Writing to logs/run_meta_training_script.log
+2026-03-19 21:55:22 [INFO] root: Training Error-Prediction Meta-Model...
+2026-03-19 21:55:23 [INFO] root: Meta-Model AUC: 0.527
+2026-03-19 21:55:23 [INFO] root: 
+              precision    recall  f1-score   support
+
+           0       0.58      0.04      0.07      1224
+           1       0.55      0.98      0.70      1470
+
+    accuracy                           0.55      2694
+   macro avg       0.57      0.51      0.39      2694
+weighted avg       0.57      0.55      0.42      2694
+
+2026-03-19 21:55:23 [INFO] root: Saved versioned artifacts for META_CALIBRATOR to model_META_CALIBRATOR_latest.pkl
+2026-03-19 21:55:23 [INFO] root: Meta-model saved successfully.
+2026-03-19 22:07:06 [INFO] root: Logging initialized. Writing to logs/run_meta_training_script.log
+2026-03-19 22:07:06 [INFO] root: Training Error-Prediction Meta-Model...
+2026-03-19 22:07:07 [INFO] root: Calibrating probabilities using method: isotonic (Training size: 10772)
+2026-03-19 22:07:07 [INFO] root: Meta-Model AUC: 0.524
+2026-03-19 22:07:07 [INFO] root: 
+              precision    recall  f1-score   support
+
+           0       0.54      0.06      0.11      1224
+           1       0.55      0.96      0.70      1470
+
+    accuracy                           0.55      2694
+   macro avg       0.54      0.51      0.40      2694
+weighted avg       0.54      0.55      0.43      2694
+
+2026-03-19 22:07:07 [INFO] root: Saved versioned artifacts for META_CALIBRATOR to model_META_CALIBRATOR_latest.pkl
+2026-03-19 22:07:07 [INFO] root: Meta-model saved successfully.

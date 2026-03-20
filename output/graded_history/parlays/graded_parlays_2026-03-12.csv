@@ -1,0 +1,71 @@
+Legs,Joint Prob,Payout,Picks,Result
+2,0.535775,3.0x,Aaron Gordon Over 3.5 REB | VJ Edgecombe Under 23.5 PA,PUSH/DOWNGRADE
+2,0.513605,3.0x,Aaron Gordon Over 3.5 REB | Julian Champagnie Over 3.5 REB,PUSH/DOWNGRADE
+2,0.50991,3.0x,Aaron Gordon Over 3.5 REB | VJ Edgecombe Under 19.0 PTS,PUSH/DOWNGRADE
+2,0.503875,3.0x,Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,WIN
+2,0.497347,3.0x,Aaron Gordon Over 3.5 REB | Devin Vassell Over 1.5 AST,PUSH/DOWNGRADE
+2,0.492913,3.0x,Aaron Gordon Over 3.5 REB | VJ Edgecombe Under 28.5 PRA,PUSH/DOWNGRADE
+2,0.4924,3.0x,Cade Cunningham Under 40.5 PRA | VJ Edgecombe Under 23.5 PA,WIN
+2,0.489957,3.0x,Aaron Gordon Over 3.5 REB | VJ Edgecombe Under 24.5 PR,PUSH/DOWNGRADE
+2,0.487925,3.0x,Devin Vassell Over 1.5 AST | VJ Edgecombe Under 23.5 PA,WIN
+2,0.4856,3.0x,Cade Cunningham Under 34.5 PA | VJ Edgecombe Under 23.5 PA,WIN
+3,0.372363625,6.0x,Aaron Gordon Over 3.5 REB | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,PUSH/DOWNGRADE
+3,0.3638836,6.0x,Aaron Gordon Over 3.5 REB | Cade Cunningham Under 40.5 PRA | VJ Edgecombe Under 23.5 PA,PUSH/DOWNGRADE
+3,0.360576575,6.0x,Aaron Gordon Over 3.5 REB | Devin Vassell Over 1.5 AST | VJ Edgecombe Under 23.5 PA,PUSH/DOWNGRADE
+3,0.3588583999999999,6.0x,Aaron Gordon Over 3.5 REB | Cade Cunningham Under 34.5 PA | VJ Edgecombe Under 23.5 PA,PUSH/DOWNGRADE
+3,0.3543874499999999,6.0x,Aaron Gordon Over 3.5 REB | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 19.0 PTS,PUSH/DOWNGRADE
+3,0.352004175,6.0x,Aaron Gordon Over 3.5 REB | Davion Mitchell Under 18.5 PRA | VJ Edgecombe Under 23.5 PA,LOSS
+3,0.350932625,6.0x,Aaron Gordon Over 3.5 REB | Jalen Green Under 23.5 PA | VJ Edgecombe Under 23.5 PA,LOSS
+3,0.35039685,6.0x,Aaron Gordon Over 3.5 REB | Jalen Green Under 25.5 PR | VJ Edgecombe Under 23.5 PA,LOSS
+3,0.349861075,6.0x,Aaron Gordon Over 3.5 REB | Jalen Green Under 28.0 PRA | VJ Edgecombe Under 23.5 PA,LOSS
+3,0.347717975,6.0x,Aaron Gordon Over 3.5 REB | Bam Adebayo Under 33.5 PR | VJ Edgecombe Under 23.5 PA,PUSH/DOWNGRADE
+4,0.252899102,10.0x,Aaron Gordon Over 3.5 REB | Cade Cunningham Under 40.5 PRA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,PUSH/DOWNGRADE
+4,0.2497783049999999,10.0x,Aaron Gordon Over 3.5 REB | Devin Vassell Over 1.5 AST | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,PUSH/DOWNGRADE
+4,0.2494065879999999,10.0x,Aaron Gordon Over 3.5 REB | Cade Cunningham Under 34.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,PUSH/DOWNGRADE
+4,0.2448936628,10.0x,Aaron Gordon Over 3.5 REB | Cade Cunningham Under 40.5 PRA | Devin Vassell Over 1.5 AST | VJ Edgecombe Under 23.5 PA,PUSH/DOWNGRADE
+4,0.244642901625,10.0x,Aaron Gordon Over 3.5 REB | Davion Mitchell Under 18.5 PRA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+4,0.2438981743749999,10.0x,Aaron Gordon Over 3.5 REB | Jalen Green Under 23.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+4,0.24352581075,10.0x,Aaron Gordon Over 3.5 REB | Jalen Green Under 25.5 PR | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+4,0.243153447125,10.0x,Aaron Gordon Over 3.5 REB | Jalen Green Under 28.0 PRA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+4,0.241663992625,10.0x,Aaron Gordon Over 3.5 REB | Bam Adebayo Under 33.5 PR | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,PUSH/DOWNGRADE
+4,0.2415117031999999,10.0x,Aaron Gordon Over 3.5 REB | Cade Cunningham Under 34.5 PA | Devin Vassell Over 1.5 AST | VJ Edgecombe Under 23.5 PA,PUSH/DOWNGRADE
+5,0.1696425343199999,20.0x,Aaron Gordon Over 3.5 REB | Cade Cunningham Under 40.5 PRA | Devin Vassell Over 1.5 AST | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,PUSH/DOWNGRADE
+5,0.1672997860799999,20.0x,Aaron Gordon Over 3.5 REB | Cade Cunningham Under 34.5 PA | Devin Vassell Over 1.5 AST | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,PUSH/DOWNGRADE
+5,0.1661547100139999,20.0x,Aaron Gordon Over 3.5 REB | Cade Cunningham Under 40.5 PRA | Davion Mitchell Under 18.5 PRA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+5,0.1658135222124999,20.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 21.5 PTS | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+5,0.16564891181,20.0x,Aaron Gordon Over 3.5 REB | Cade Cunningham Under 40.5 PRA | Jalen Green Under 23.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+5,0.1653960127079999,20.0x,Aaron Gordon Over 3.5 REB | Cade Cunningham Under 40.5 PRA | Jalen Green Under 25.5 PR | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+5,0.1651431136059999,20.0x,Aaron Gordon Over 3.5 REB | Cade Cunningham Under 40.5 PRA | Jalen Green Under 28.0 PRA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+5,0.1648453767875,20.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 26.5 PA | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+5,0.1641315171979999,20.0x,Aaron Gordon Over 3.5 REB | Bam Adebayo Under 33.5 PR | Cade Cunningham Under 40.5 PRA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,PUSH/DOWNGRADE
+5,0.164104346385,20.0x,Aaron Gordon Over 3.5 REB | Davion Mitchell Under 18.5 PRA | Devin Vassell Over 1.5 AST | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+6,0.1126159701205999,25.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 21.5 PTS | Cade Cunningham Under 40.5 PRA | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+6,0.1119584324553999,25.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 26.5 PA | Cade Cunningham Under 40.5 PRA | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+6,0.11145514504824,25.0x,Aaron Gordon Over 3.5 REB | Cade Cunningham Under 40.5 PRA | Davion Mitchell Under 18.5 PRA | Devin Vassell Over 1.5 AST | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+6,0.1112262792165,25.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 21.5 PTS | Devin Vassell Over 1.5 AST | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+6,0.1111158599796,25.0x,Aaron Gordon Over 3.5 REB | Cade Cunningham Under 40.5 PRA | Devin Vassell Over 1.5 AST | Jalen Green Under 23.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+6,0.1110607536364,25.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 21.5 PTS | Cade Cunningham Under 34.5 PA | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+6,0.11094621744528,25.0x,Aaron Gordon Over 3.5 REB | Cade Cunningham Under 40.5 PRA | Devin Vassell Over 1.5 AST | Jalen Green Under 25.5 PR | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+6,0.1107765749109599,25.0x,Aaron Gordon Over 3.5 REB | Cade Cunningham Under 40.5 PRA | Devin Vassell Over 1.5 AST | Jalen Green Under 28.0 PRA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+6,0.1105768556234999,25.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 26.5 PA | Devin Vassell Over 1.5 AST | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+6,0.1104122965075999,25.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 26.5 PA | Cade Cunningham Under 34.5 PA | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+7,0.075541820532696,40.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 21.5 PTS | Cade Cunningham Under 40.5 PRA | Devin Vassell Over 1.5 AST | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+7,0.075100749943464,40.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 26.5 PA | Cade Cunningham Under 40.5 PRA | Devin Vassell Over 1.5 AST | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+7,0.074498594741424,40.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 21.5 PTS | Cade Cunningham Under 34.5 PA | Devin Vassell Over 1.5 AST | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+7,0.074063615297616,40.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 26.5 PA | Cade Cunningham Under 34.5 PA | Devin Vassell Over 1.5 AST | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+7,0.0739886923692342,40.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 21.5 PTS | Cade Cunningham Under 40.5 PRA | Davion Mitchell Under 18.5 PRA | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+7,0.073763460428993,40.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 21.5 PTS | Cade Cunningham Under 40.5 PRA | Jalen Green Under 23.5 PA | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+7,0.0736508444588723,40.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 21.5 PTS | Cade Cunningham Under 40.5 PRA | Jalen Green Under 25.5 PR | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+7,0.0735566901231978,40.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 26.5 PA | Cade Cunningham Under 40.5 PRA | Davion Mitchell Under 18.5 PRA | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+7,0.0735382284887518,40.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 21.5 PTS | Cade Cunningham Under 40.5 PRA | Jalen Green Under 28.0 PRA | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+7,0.0733327732582869,40.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 26.5 PA | Cade Cunningham Under 40.5 PRA | Jalen Green Under 23.5 PA | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+8,0.0496309760899812,80.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 21.5 PTS | Cade Cunningham Under 40.5 PRA | Davion Mitchell Under 18.5 PRA | Devin Vassell Over 1.5 AST | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+8,0.0494798924489158,80.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 21.5 PTS | Cade Cunningham Under 40.5 PRA | Devin Vassell Over 1.5 AST | Jalen Green Under 23.5 PA | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+8,0.0494043506283831,80.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 21.5 PTS | Cade Cunningham Under 40.5 PRA | Devin Vassell Over 1.5 AST | Jalen Green Under 25.5 PR | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+8,0.0493411927128558,80.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 26.5 PA | Cade Cunningham Under 40.5 PRA | Davion Mitchell Under 18.5 PRA | Devin Vassell Over 1.5 AST | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+8,0.0493288088078504,80.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 21.5 PTS | Cade Cunningham Under 40.5 PRA | Devin Vassell Over 1.5 AST | Jalen Green Under 28.0 PRA | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+8,0.0491909912129689,80.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 26.5 PA | Cade Cunningham Under 40.5 PRA | Devin Vassell Over 1.5 AST | Jalen Green Under 23.5 PA | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+8,0.0491158904630254,80.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 26.5 PA | Cade Cunningham Under 40.5 PRA | Devin Vassell Over 1.5 AST | Jalen Green Under 25.5 PR | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+8,0.0490407897130819,80.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 26.5 PA | Cade Cunningham Under 40.5 PRA | Devin Vassell Over 1.5 AST | Jalen Green Under 28.0 PRA | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+8,0.0490266415257197,80.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 21.5 PTS | Bam Adebayo Under 33.5 PR | Cade Cunningham Under 40.5 PRA | Devin Vassell Over 1.5 AST | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
+8,0.0489455767451155,80.0x,Aaron Gordon Over 3.5 REB | Austin Reaves Under 21.5 PTS | Cade Cunningham Under 34.5 PA | Davion Mitchell Under 18.5 PRA | Devin Vassell Over 1.5 AST | Josh Giddey Under 26.5 PA | Julian Champagnie Over 3.5 REB | VJ Edgecombe Under 23.5 PA,LOSS
