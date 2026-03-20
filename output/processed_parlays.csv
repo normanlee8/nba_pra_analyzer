@@ -9,63 +9,13 @@ Legs,Joint Prob,Payout,Picks
 2,0.49725,3.0x,Ayo Dosunmu Under 21.5 PR | Jaylen Brown Over 3.5 AST
 2,0.4948699999999999,3.0x,Ayo Dosunmu Under 26.5 PRA | Derrick White Over 3.5 AST
 2,0.49415999999999993,3.0x,Ayo Dosunmu Under 17.5 PTS | Derrick White Over 3.5 AST
-3,0.3711708,6.0x,Ayo Dosunmu Under 22.5 PA | Derrick White Over 3.5 AST | Jaylen Brown Over 3.5 AST
-3,0.3687915,6.0x,Ayo Dosunmu Under 22.5 PA | Jaylen Brown Over 3.5 AST | OG Anunoby Under 21.5 PTS
-3,0.36392475,6.0x,Ayo Dosunmu Under 22.5 PA | Dyson Daniels Over 9.5 RA | Jaylen Brown Over 3.5 AST
-3,0.3588156,6.0x,Ayo Dosunmu Under 26.5 PRA | Derrick White Over 3.5 AST | Jaylen Brown Over 3.5 AST
-3,0.3583008,6.0x,Ayo Dosunmu Under 17.5 PTS | Derrick White Over 3.5 AST | Jaylen Brown Over 3.5 AST
-3,0.3566066,6.0x,Ayo Dosunmu Under 22.5 PA | Jaylen Brown Over 3.5 AST | Sam Hauser Under 14.5 PA
-3,0.3565155,6.0x,Ayo Dosunmu Under 26.5 PRA | Jaylen Brown Over 3.5 AST | OG Anunoby Under 21.5 PTS
-3,0.35600400000000004,6.0x,Ayo Dosunmu Under 17.5 PTS | Jaylen Brown Over 3.5 AST | OG Anunoby Under 21.5 PTS
-3,0.35527274999999997,6.0x,Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Jaylen Brown Over 3.5 AST
-3,0.3552367,6.0x,Ayo Dosunmu Under 22.5 PA | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA
-4,0.2531384856,10.0x,Ayo Dosunmu Under 22.5 PA | Derrick White Over 3.5 AST | Jaylen Brown Over 3.5 AST | OG Anunoby Under 21.5 PTS
-4,0.2509801,10.0x,Ayo Dosunmu Under 22.5 PA | Derrick White Over 3.5 AST | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA
-4,0.24979794840000002,10.0x,Ayo Dosunmu Under 22.5 PA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jaylen Brown Over 3.5 AST
-4,0.24819667950000004,10.0x,Ayo Dosunmu Under 22.5 PA | Dyson Daniels Over 9.5 RA | Jaylen Brown Over 3.5 AST | OG Anunoby Under 21.5 PTS
-4,0.24471223920000001,10.0x,Ayo Dosunmu Under 26.5 PRA | Derrick White Over 3.5 AST | Jaylen Brown Over 3.5 AST | OG Anunoby Under 21.5 PTS
-4,0.2443611456,10.0x,Ayo Dosunmu Under 17.5 PTS | Derrick White Over 3.5 AST | Jaylen Brown Over 3.5 AST | OG Anunoby Under 21.5 PTS
-4,0.2438592156,10.0x,Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Jaylen Brown Over 3.5 AST
-4,0.24366194999999996,10.0x,Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Jamal Murray Under 6.5 AST | Jaylen Brown Over 3.5 AST
-4,0.2432057012,10.0x,Ayo Dosunmu Under 22.5 PA | Jaylen Brown Over 3.5 AST | OG Anunoby Under 21.5 PTS | Sam Hauser Under 14.5 PA
-4,0.2426257,10.0x,Ayo Dosunmu Under 26.5 PRA | Derrick White Over 3.5 AST | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA
-5,0.1711684282,20.0x,Ayo Dosunmu Under 22.5 PA | Derrick White Over 3.5 AST | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA | OG Anunoby Under 21.5 PTS
-5,0.17036220080880002,20.0x,Ayo Dosunmu Under 22.5 PA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jaylen Brown Over 3.5 AST | OG Anunoby Under 21.5 PTS
-5,0.1689096073,20.0x,Ayo Dosunmu Under 22.5 PA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA
-5,0.16724956248,20.0x,Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Jamal Murray Under 6.5 AST | Jaylen Brown Over 3.5 AST
-5,0.16631198503920003,20.0x,Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Jaylen Brown Over 3.5 AST | OG Anunoby Under 21.5 PTS
-5,0.1661774499,20.0x,Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Jamal Murray Under 6.5 AST | Jaylen Brown Over 3.5 AST | OG Anunoby Under 21.5 PTS
-5,0.1659133476,20.0x,Ayo Dosunmu Under 22.5 PA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jaylen Brown Over 3.5 AST | Tari Eason Under 12.5 PA
-5,0.16547072740000002,20.0x,Ayo Dosunmu Under 26.5 PRA | Derrick White Over 3.5 AST | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA | OG Anunoby Under 21.5 PTS
-5,0.16523332320000003,20.0x,Ayo Dosunmu Under 17.5 PTS | Derrick White Over 3.5 AST | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA | OG Anunoby Under 21.5 PTS
-5,0.1648939257,20.0x,Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA
-6,0.1151963521786,25.0x,Ayo Dosunmu Under 22.5 PA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA | OG Anunoby Under 21.5 PTS
-6,0.11406420161136001,25.0x,Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Jamal Murray Under 6.5 AST | Jaylen Brown Over 3.5 AST | OG Anunoby Under 21.5 PTS
-6,0.11315290306320001,25.0x,Ayo Dosunmu Under 22.5 PA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jaylen Brown Over 3.5 AST | OG Anunoby Under 21.5 PTS | Tari Eason Under 12.5 PA
-6,0.11309163305999999,25.0x,Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Jamal Murray Under 6.5 AST | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA
-6,0.11255895554904001,25.0x,Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jamal Murray Under 6.5 AST | Jaylen Brown Over 3.5 AST
-6,0.11245765732740001,25.0x,Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA | OG Anunoby Under 21.5 PTS
-6,0.1121881047,25.0x,Ayo Dosunmu Under 22.5 PA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA | Tari Eason Under 12.5 PA
-6,0.11196315218088003,25.0x,Amen Thompson Over 14.5 PTS | Ayo Dosunmu Under 22.5 PA | Derrick White Over 3.5 AST | Dyson Daniels Over 16.5 PR | Jaylen Brown Over 3.5 AST | OG Anunoby Under 21.5 PTS
-6,0.11192796593138161,25.0x,Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jaylen Brown Over 3.5 AST | OG Anunoby Under 21.5 PTS
-6,0.11183742378270002,25.0x,Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Dyson Daniels Over 9.5 RA | Jamal Murray Under 6.5 AST | Jaylen Brown Over 3.5 AST | OG Anunoby Under 21.5 PTS
-7,0.07712849374692,40.0x,Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Jamal Murray Under 6.5 AST | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA | OG Anunoby Under 21.5 PTS
-7,0.0767652076844453,40.0x,Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jamal Murray Under 6.5 AST | Jaylen Brown Over 3.5 AST | OG Anunoby Under 21.5 PTS
-7,0.0765122874054,40.0x,Ayo Dosunmu Under 22.5 PA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA | OG Anunoby Under 21.5 PTS | Tari Eason Under 12.5 PA
-7,0.07611066904937999,40.0x,Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jamal Murray Under 6.5 AST | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA
-7,0.07570779579286002,40.0x,Amen Thompson Over 14.5 PTS | Ayo Dosunmu Under 22.5 PA | Derrick White Over 3.5 AST | Dyson Daniels Over 16.5 PR | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA | OG Anunoby Under 21.5 PTS
-7,0.07568400338134021,40.0x,Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA | OG Anunoby Under 21.5 PTS
-7,0.07555374420748001,40.0x,Alperen Sengun Under 24.5 PA | Ayo Dosunmu Under 22.5 PA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA | OG Anunoby Under 21.5 PTS
-7,0.07555374420748001,40.0x,Alperen Sengun Under 14.0 RA | Ayo Dosunmu Under 22.5 PA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA | OG Anunoby Under 21.5 PTS
-7,0.07476055442856,40.0x,Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jamal Murray Under 6.5 AST | Jaylen Brown Over 3.5 AST | Tari Eason Under 12.5 PA
-7,0.07456110976644001,40.0x,Ayo Dosunmu Under 26.5 PRA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Jamal Murray Under 6.5 AST | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA | OG Anunoby Under 21.5 PTS
-8,0.051907476291677156,80.0x,Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jamal Murray Under 6.5 AST | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA | OG Anunoby Under 21.5 PTS
-8,0.050986698120277923,80.0x,Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jamal Murray Under 6.5 AST | Jaylen Brown Over 3.5 AST | OG Anunoby Under 21.5 PTS | Tari Eason Under 12.5 PA
-8,0.05055195997782,80.0x,Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jamal Murray Under 6.5 AST | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA | Tari Eason Under 12.5 PA
-8,0.05045059637270454,80.0x,Amen Thompson Over 14.5 PTS | Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Dyson Daniels Over 16.5 PR | Jamal Murray Under 6.5 AST | Jaylen Brown Over 3.5 AST | OG Anunoby Under 21.5 PTS
-8,0.05034793859125432,80.0x,Alperen Sengun Under 24.5 PA | Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jamal Murray Under 6.5 AST | Jaylen Brown Over 3.5 AST | OG Anunoby Under 21.5 PTS
-8,0.05034793859125432,80.0x,Alperen Sengun Under 14.0 RA | Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jamal Murray Under 6.5 AST | Jaylen Brown Over 3.5 AST | OG Anunoby Under 21.5 PTS
-8,0.05026857282534781,80.0x,Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA | OG Anunoby Under 21.5 PTS | Tari Eason Under 12.5 PA
-8,0.050179626872814125,80.0x,Ayo Dosunmu Under 26.5 PRA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jamal Murray Under 6.5 AST | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA | OG Anunoby Under 21.5 PTS
-8,0.05010763314702817,80.0x,Ayo Dosunmu Under 17.5 PTS | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Dyson Daniels Over 9.5 RA | Jamal Murray Under 6.5 AST | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA | OG Anunoby Under 21.5 PTS
-8,0.05002042930243801,80.0x,Amen Thompson Over 14.5 PTS | Ayo Dosunmu Under 22.5 PA | Christian Braun Under 25.5 PRA | Derrick White Over 3.5 AST | Dyson Daniels Over 16.5 PR | Jamal Murray Under 6.5 AST | Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA
+2,0.49275,3.0x,Christian Braun Under 25.5 PRA | Jaylen Brown Over 3.5 AST
+2,0.4921,3.0x,Jaylen Brown Over 3.5 AST | Jaylen Wells Over 11.5 PA
+2,0.491722,3.0x,Ayo Dosunmu Under 22.5 PA | OG Anunoby Under 21.5 PTS
+2,0.48859699999999995,3.0x,Ayo Dosunmu Under 26.5 PRA | Sam Hauser Under 14.5 PA
+2,0.48789599999999994,3.0x,Ayo Dosunmu Under 17.5 PTS | Sam Hauser Under 14.5 PA
+2,0.48525,3.0x,Jamal Murray Under 6.5 AST | Jaylen Brown Over 3.5 AST
+2,0.485233,3.0x,Ayo Dosunmu Under 22.5 PA | Dyson Daniels Over 9.5 RA
+2,0.48450000000000004,3.0x,Amen Thompson Over 14.5 PTS | Jaylen Brown Over 3.5 AST
+2,0.48422000000000004,3.0x,Derrick White Over 3.5 AST | OG Anunoby Under 21.5 PTS
+2,0.48150000000000004,3.0x,Jaylen Brown Over 3.5 AST | Julius Randle Under 30.5 PR

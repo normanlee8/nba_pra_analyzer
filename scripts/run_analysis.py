@@ -195,7 +195,7 @@ def main():
         print_tier_summary(results_df)
 
         # --- PARLAY OPTIMIZER INTEGRATION ---
-        logging.info("Initializing Maximum Probability Parlay Optimizer...")
+        logging.info("Initializing Maximum Probability 2-Leg Parlay Optimizer...")
         try:
             hist_df = pd.read_parquet(cfg.MASTER_BOX_SCORES_FILE) 
             optimizer = ParlayOptimizer(historical_data=hist_df)
@@ -220,7 +220,8 @@ def main():
                     'Tier': row['Tier'] 
                 })
                 
-            top_parlays = optimizer.optimize_parlays(daily_props_for_parlays, min_legs=2, max_legs=8, top_n=10)
+            # Changed: Only getting top 20 2-leg parlays
+            top_parlays = optimizer.optimize_parlays(daily_props_for_parlays, top_n=20)
             parlays_df = format_parlays_for_output(top_parlays)
             
         except Exception as e:
@@ -256,13 +257,11 @@ def main():
             console_parlays['Joint Prob'] = console_parlays['Joint Prob'].apply(lambda x: f"{x*100:.2f}%")
             
             print("\n" + "="*80)
-            print(" TOP UNDERDOG PARLAYS BY MAXIMUM WIN PROBABILITY (PER LEG COUNT)")
+            print(" TOP 20 2-LEG PARLAYS BY MAXIMUM WIN PROBABILITY")
             print("="*80)
             
-            for leg_count in range(2, 9):
-                leg_df = console_parlays[console_parlays['Legs'] == leg_count]
-                if not leg_df.empty:
-                    print_stacked_parlays(leg_df.head(3), title=f"TOP {leg_count}-LEG PARLAYS")
+            # Changed: Cleaned loop out, simply passing top 20
+            print_stacked_parlays(console_parlays.head(20), title="TOP 2-LEG TICKET COMBINATIONS")
             
         logging.info("<<< PROBABILITY ANALYSIS COMPLETE >>>")
         

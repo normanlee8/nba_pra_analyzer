@@ -115,7 +115,6 @@ class ParlayOptimizer:
     def calculate_ticket_metrics(self, ticket: list) -> dict:
         """
         Calculates the true Joint Probability of the parlay hitting and enforces strict DFS rules.
-        Now calculates Expected Value (EV) so larger parlays aren't punished in sorting.
         """
         num_legs = len(ticket)
             
@@ -143,8 +142,6 @@ class ParlayOptimizer:
             total_joint_prob *= cluster_prob
             
         payout_multiplier = UNDERDOG_PAYOUTS.get(num_legs, 0.0)
-        
-        # CRITICAL FIX: Calculate EV to compare parlays of different sizes fairly
         expected_value = total_joint_prob * payout_multiplier
         
         return {
@@ -155,11 +152,12 @@ class ParlayOptimizer:
             'expected_value': expected_value
         }
 
-    def optimize_parlays(self, daily_props: list, min_legs=2, max_legs=8, top_n=10, beam_width=150) -> list:
+    def optimize_parlays(self, daily_props: list, top_n=20) -> list:
         """
-        Optimizes parlays using a Greedy Beam Search algorithm sorted by Expected Value (EV).
+        Optimizes exactly 2-leg parlays by checking all pairwise combinations
+        of the most viable daily props, sorted by Maximum Joint Probability.
         """
-        logger.info(f"Optimizing parlays for {len(daily_props)} props using EV Maximization...")
+        logger.info(f"Optimizing 2-leg parlays for {len(daily_props)} props...")
         
         # 1. Strict Probability Pruning
         viable_props = []
@@ -173,50 +171,27 @@ class ParlayOptimizer:
                 
         viable_props = sorted(viable_props, key=lambda x: x.get('win_prob', x.get('Prob', 0)), reverse=True)[:35]
         
-        logger.info(f"Filtered down to {len(viable_props)} highly consistent props for parlay construction.")
-        if len(viable_props) < min_legs:
+        logger.info(f"Filtered down to {len(viable_props)} highly consistent props for 2-leg parlay construction.")
+        if len(viable_props) < 2:
             logger.warning("Not enough viable props to form high-probability parlays today.")
             return []
 
-        final_best_tickets = []
-        current_beams = [[p] for p in viable_props]
+        evaluated_tickets = []
 
-        for k in range(2, max_legs + 1):
-            logger.info(f"Evaluating {k}-leg combinations...")
-            next_beams = []
+        # 2. Exact Pairwise Combination Search
+        for prop1, prop2 in combinations(viable_props, 2):
+            # Enforce DFS Rule instantly: players must be from different teams
+            if prop1.get('team') == prop2.get('team'):
+                continue 
             
-            for base_ticket in current_beams:
-                existing_players = {p['player_name'] for p in base_ticket}
-                
-                for prop in viable_props:
-                    if prop['player_name'] in existing_players:
-                        continue 
-                    
-                    new_ticket = sorted(base_ticket + [prop], key=lambda x: x['player_name'])
-                    ticket_signature = tuple(f"{p['player_name']}_{p.get('stat_type', p.get('Prop Category', ''))}_{p['pick']}" for p in new_ticket)
-                    next_beams.append((ticket_signature, new_ticket))
+            ticket = sorted([prop1, prop2], key=lambda x: x['player_name'])
+            ticket_eval = self.calculate_ticket_metrics(ticket)
             
-            unique_next_beams = {}
-            for sig, ticket in next_beams:
-                if sig not in unique_next_beams:
-                    unique_next_beams[sig] = ticket
-                    
-            evaluated_tickets = []
-            for ticket in unique_next_beams.values():
-                ticket_eval = self.calculate_ticket_metrics(ticket)
-                # Keep ticket if the joint probability is valid
-                if ticket_eval['joint_prob'] > 0:
-                    evaluated_tickets.append(ticket_eval)
-            
-            if not evaluated_tickets:
-                break
+            # Keep ticket if the joint probability is valid
+            if ticket_eval['joint_prob'] > 0:
+                evaluated_tickets.append(ticket_eval)
 
-            # CRITICAL FIX: Sort strictly by Highest Expected Value Return
-            leg_best = sorted(evaluated_tickets, key=lambda x: x['expected_value'], reverse=True)[:top_n]
-            final_best_tickets.extend(leg_best)
-            
-            # Feed the highest EV tickets to the next beam level
-            evaluated_tickets = sorted(evaluated_tickets, key=lambda x: x['expected_value'], reverse=True)[:beam_width]
-            current_beams = [t['ticket'] for t in evaluated_tickets]
+        # 3. Sort strictly by Highest Joint Probability
+        final_best_tickets = sorted(evaluated_tickets, key=lambda x: x['joint_prob'], reverse=True)[:top_n]
 
         return final_best_tickets

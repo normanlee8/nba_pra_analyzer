@@ -354,13 +354,13 @@ def analyze_strengths_and_weaknesses(graded_df):
     logging.info(f"\nSystematic Bias (Positive = Under-projecting, Negative = Over-projecting):\n{bias_props.to_string()}")
 
 def grade_parlays(graded_props_df, game_date_str):
-    """Grades historical parlays by parsing the 'Picks' column string."""
+    """Grades historical 2-leg parlays by parsing the 'Picks' column string."""
     parlay_path = cfg.OUTPUT_DIR / "processed_parlays.csv"
     if not parlay_path.exists():
         logging.warning("No processed_parlays.csv found to grade.")
         return
         
-    logging.info(">>> GRADING PARLAYS <<<")
+    logging.info(">>> GRADING 2-LEG PARLAYS <<<")
     parlays_df = pd.read_csv(parlay_path)
     
     # Ensure Mapped_Prop exists
@@ -405,7 +405,7 @@ def grade_parlays(graded_props_df, game_date_str):
             elif all(res == 'WIN' for res in leg_results):
                 status = 'WIN'
             else:
-                # E.g., Wins and a Push = Downgraded Parlay
+                # E.g., Wins and a Push = Downgraded Parlay (Refund/Multiplier change depending on platform)
                 status = 'PUSH/DOWNGRADE'
                 
             parlay_results.append(status)
@@ -427,10 +427,10 @@ def grade_parlays(graded_props_df, game_date_str):
     
     if total_decided > 0:
         roi = ((total_won - total_wagered) / total_wagered) * 100
-        logging.info(f"Parlay Win Rate: {(wins/total_decided)*100:.1f}% ({wins}/{total_decided})")
-        logging.info(f"Parlay ROI: {roi:.2f}% (Units Wagered: {total_wagered}, Units Won: {total_won:.2f})")
+        logging.info(f"2-Leg Parlay Win Rate: {(wins/total_decided)*100:.1f}% ({wins}/{total_decided})")
+        logging.info(f"2-Leg Parlay ROI: {roi:.2f}% (Units Wagered: {total_wagered}, Units Won: {total_won:.2f})")
     else:
-        logging.info("No parlays fully completed yet.")
+        logging.info("No 2-Leg parlays fully completed yet.")
     
     # Save graded parlays using the game date into the new parlay directory
     parlays_df.to_csv(cfg.GRADED_PARLAYS_DIR / f"graded_parlays_{game_date_str}.csv", index=False)

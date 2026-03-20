@@ -52,7 +52,7 @@ def build_meta_dataset(days_back=45):
     }
     
     for old_col, new_col in schema_mapping.items():
-        if old_col in df.columns and new_col not in df.columns:
+        if old_col in old_col in df.columns and new_col not in df.columns:
             df[new_col] = df[old_col]
             
     if Cols.PREDICTION not in df.columns and 'Proj' in df.columns:
@@ -113,7 +113,6 @@ def train_meta_classifier():
         return
 
     # CHRONOLOGICAL SPLIT: Fixes time-series data leakage
-    # We do NOT use random stratify here because sports data is strictly chronological
     split_idx = int(len(X) * 0.8)
     X_train, X_test = X.iloc[:split_idx], X.iloc[split_idx:]
     y_train, y_test = y.iloc[:split_idx], y.iloc[split_idx:]
@@ -121,6 +120,13 @@ def train_meta_classifier():
     num_neg = (y_train == 0).sum()
     num_pos = (y_train == 1).sum()
     scale_weight = num_neg / num_pos if num_pos > 0 else 1.0
+    
+    # 2-Leg Optimizer Alignment: Create sample weights to hyper-focus on the 55% - 65% boundary
+    # This prevents the model from wasting learning capacity on >80% or <40% locks, 
+    # ensuring the calibrator is deadly accurate right at the 58% parlay inclusion threshold.
+    sample_weights = np.ones(len(y_train))
+    prob_series = X_train['Prob']
+    sample_weights[(prob_series >= 0.55) & (prob_series <= 0.65)] = 2.0
 
     # Base XGBoost Classifier
     base_model = xgb.XGBClassifier(
@@ -135,13 +141,12 @@ def train_meta_classifier():
     )
 
     # PROBABILITY CALIBRATION: Fixes uncalibrated tree probabilities
-    # Dynamic switch: 'isotonic' is strictly better for large data, 'sigmoid' prevents small-sample overfitting
     calib_method = 'isotonic' if len(X_train) >= 1000 else 'sigmoid'
     
-    # Increased cv to 5 for better generalization on small 45-day windows
     meta_model = CalibratedClassifierCV(estimator=base_model, method=calib_method, cv=5)
     
-    meta_model.fit(X_train, y_train)
+    # Fit with the newly engineered parlay-threshold sample weights
+    meta_model.fit(X_train, y_train, sample_weight=sample_weights)
     logging.info(f"Calibrating probabilities using method: {calib_method} (Training size: {len(X_train)})")
 
     # Evaluate
