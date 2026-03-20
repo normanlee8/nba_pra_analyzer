@@ -4,6 +4,8 @@ import datetime
 import logging
 import pandas as pd
 from pathlib import Path
+from unidecode import unidecode  # Added to normalize accented names
+
 from prop_analyzer import config as cfg
 from prop_analyzer.config import Cols
 
@@ -124,7 +126,10 @@ def _parse_prizepicks(lines, date_detector):
         
         if anchor_match and i + 4 < len(lines):
             current_team = anchor_match.group(1)
-            current_player = lines[i+1]
+            
+            # --- FIX: Remove accents and clean trailing spaces ---
+            current_player = unidecode(lines[i+1]).strip()
+            
             matchup_line = lines[i+2]
             prop_line_str = lines[i+3]
             prop_category_str = lines[i+4]
@@ -221,7 +226,8 @@ def _parse_underdog(lines, date_detector):
         if any(char.isdigit() for char in line) or 'OVER' in upper_line or 'UNDER' in upper_line:
             continue
         
-        current_player = line
+        # --- FIX: Remove accents and clean trailing spaces ---
+        current_player = unidecode(line).strip()
         prop_line_value = None 
         
     return data_to_write, "Underdog"
