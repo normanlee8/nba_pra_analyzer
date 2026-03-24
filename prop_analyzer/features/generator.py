@@ -44,20 +44,25 @@ def add_rolling_stats_history(df, stats_to_roll=None):
     new_cols = {}
 
     for col in stats_to_roll:
-        # TARGET LEAKAGE FIX: Shift the series by 1 so we only use past games
-        shifted_col = grouped[col].shift(1)
-        shifted_grouped = shifted_col.groupby(df[Cols.PLAYER_ID])
+        # REMOVED .shift(1) - Rely strictly on merge_asof for chronological separation
+        current_grouped = grouped[col]
 
-        winsorized = shifted_grouped.transform(lambda x: winsorize_series(x, limit=0.10))
+        # Use strictly expanding standard deviations instead of global winsorization
+        expanding_mean = current_grouped.expanding().mean().reset_index(level=0, drop=True)
+        expanding_std = current_grouped.expanding().std().reset_index(level=0, drop=True).fillna(0)
+        
+        # Clip outliers dynamically based ONLY on the past games played up to that date
+        upper_bound = expanding_mean + (2.5 * expanding_std)
+        winsorized = df[col].clip(upper=upper_bound)
         grouped_winsor = winsorized.groupby(df[Cols.PLAYER_ID])
         
-        szn_avg = shifted_grouped.expanding().mean().values
+        szn_avg = expanding_mean.values
         l5_mean = grouped_winsor.rolling(window=5, min_periods=1).mean().values
         
         # Calculate Mean (For mathematical Expected Value)
         l1_avg = grouped_winsor.rolling(window=1, min_periods=1).mean().values
         l3_avg = grouped_winsor.rolling(window=3, min_periods=1).mean().values
-        l5_avg = l5_mean  # Already calculated above
+        l5_avg = l5_mean  
         l10_avg = grouped_winsor.rolling(window=10, min_periods=1).mean().values
         l20_avg = grouped_winsor.rolling(window=20, min_periods=1).mean().values
 
@@ -81,10 +86,10 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         new_cols[f'{col}_L10_MEDIAN'] = l10_med
         new_cols[f'{col}_L20_MEDIAN'] = l20_med
         
-        l3_std = shifted_grouped.rolling(window=3, min_periods=2).std().values
-        l5_std = shifted_grouped.rolling(window=5, min_periods=2).std().values
-        l10_std = shifted_grouped.rolling(window=10, min_periods=3).std().values
-        l20_std = shifted_grouped.rolling(window=20, min_periods=5).std().values
+        l3_std = current_grouped.rolling(window=3, min_periods=2).std().values
+        l5_std = current_grouped.rolling(window=5, min_periods=2).std().values
+        l10_std = current_grouped.rolling(window=10, min_periods=3).std().values
+        l20_std = current_grouped.rolling(window=20, min_periods=5).std().values
 
         new_cols[f'{col}_L3_STD_DEV'] = l3_std
         new_cols[f'{col}_L5_STD_DEV'] = l5_std
@@ -97,7 +102,6 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         new_cols[f'{col}_L20_CV'] = np.divide(l20_std, l20_avg, out=np.zeros_like(l20_std), where=(l20_avg > 0))
         
         # FORM RATIO W/ BAYESIAN REGULARIZATION (Prior = 2.0)
-        # Prevents early season / low-minute players from experiencing 500%+ explosions
         prior = 2.0
         new_cols[f'{col}_FORM_RATIO'] = (l5_mean + prior) / (szn_avg + prior)
 
@@ -110,14 +114,14 @@ def add_rolling_stats_history(df, stats_to_roll=None):
         min_l5 = new_cols['MIN_L5_AVG']
         for col in stats_to_roll:
             if col not in ['MIN', 'USG_PROXY', 'TS_PCT']:
-                # SAFE DIVISION: Use np.divide to prevent division by zero evaluation
+                # SAFE DIVISION
                 base_per_min = np.divide(new_cols[f'{col}_L5_AVG'], min_l5, out=np.zeros_like(min_l5), where=(min_l5 > 0))
                 new_cols[f'{col}_L5_PER36'] = base_per_min * 36.0
 
-    # TARGET LEAKAGE FIX: Shift values for correlations as well
-    new_cols['PTS_REB_CORR'] = grouped.apply(lambda x: x['PTS'].shift(1).rolling(50, min_periods=5).corr(x['REB'].shift(1)), include_groups=False).reset_index(level=0, drop=True).values
-    new_cols['PTS_AST_CORR'] = grouped.apply(lambda x: x['PTS'].shift(1).rolling(50, min_periods=5).corr(x['AST'].shift(1)), include_groups=False).reset_index(level=0, drop=True).values
-    new_cols['REB_AST_CORR'] = grouped.apply(lambda x: x['REB'].shift(1).rolling(50, min_periods=5).corr(x['AST'].shift(1)), include_groups=False).reset_index(level=0, drop=True).values
+    # REMOVED shifts for correlations to align chronological extraction
+    new_cols['PTS_REB_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['REB']), include_groups=False).reset_index(level=0, drop=True).values
+    new_cols['PTS_AST_CORR'] = grouped.apply(lambda x: x['PTS'].rolling(50, min_periods=5).corr(x['AST']), include_groups=False).reset_index(level=0, drop=True).values
+    new_cols['REB_AST_CORR'] = grouped.apply(lambda x: x['REB'].rolling(50, min_periods=5).corr(x['AST']), include_groups=False).reset_index(level=0, drop=True).values
 
     df = pd.concat([df, pd.DataFrame(new_cols, index=df.index)], axis=1)
 
@@ -126,14 +130,15 @@ def add_rolling_stats_history(df, stats_to_roll=None):
     if 'Rest_Category' in df.columns:
         for col in split_targets:
             if col in df.columns:
-                # TARGET LEAKAGE FIX: Shift for Expanding Splits
-                val = df.groupby([Cols.PLAYER_ID, 'Rest_Category'])[col].transform(lambda x: x.shift(1).expanding().mean())
+                # REMOVED shift for Expanding Splits
+                val = df.groupby([Cols.PLAYER_ID, 'Rest_Category'])[col].transform(lambda x: x.expanding().mean())
                 new_split_cols[f'{col}_REST_SPLIT_AVG'] = val.fillna(df[f'{col}_{Cols.SZN_AVG}'])
 
     if new_split_cols:
         df = pd.concat([df, pd.DataFrame(new_split_cols, index=df.index)], axis=1)
 
     return df
+
 
 def add_team_fatigue_and_travel(df):
     """Calculates schedule density, flight miles, and accurate time zone shifts (DST Supported)."""
@@ -195,6 +200,7 @@ def add_team_fatigue_and_travel(df):
         
     return df
 
+
 def build_feature_set(props_df):
     logging.info("Building Probability-Optimized feature set...")
     
@@ -253,6 +259,13 @@ def build_feature_set(props_df):
         return p
         
     features_df['Primary_Pos'] = features_df['Position'].apply(normalize_pos)
+
+    # ========================================================================
+    # NEW: Rotational Overlap Marker (Bench vs Starter Dynamics)
+    # Allows the model to price in 6th men attacking weak opponent bench units
+    # ========================================================================
+    szn_mins = features_df.get(f'MIN_{Cols.SZN_AVG}', pd.Series(20.0, index=features_df.index))
+    features_df['IS_BENCH_ROLE'] = np.where(szn_mins < 24.5, 1, 0)
 
     # =============== PLAY-BY-PLAY (PBPStats) DATA INTEGRATION ===============
     season_folders = sorted([f for f in cfg.DATA_DIR.iterdir() if f.is_dir() and re.match(r'\d{4}-\d{2}', f.name)])

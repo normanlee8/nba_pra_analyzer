@@ -7,7 +7,7 @@ from pathlib import Path
 from datetime import datetime, timedelta
 
 # Add project root to path
-sys.path.append(str(Path(__file__).resolve().parent.parent))
+sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
 
 from prop_analyzer import config as cfg
 from prop_analyzer.config import Cols
@@ -19,57 +19,14 @@ from prop_analyzer.features.calculator import (smooth_projection,
 def load_artifacts(prop_cat):
     return registry.load_artifacts(prop_cat)
 
-def get_system_learning_maps(days_back=21):
-    """
-    Returns global system biases for retrospective analysis.
-    """
-    graded_files = sorted(cfg.GRADED_PROPS_PARQUET_DIR.glob("graded_props_*.parquet"), reverse=True)
-    if not graded_files: return {}, {}
-
-    recent_dfs = []
-    cutoff_date = pd.Timestamp.now() - timedelta(days=days_back)
-    
-    for f in graded_files:
-        try:
-            file_date_str = f.stem.replace('graded_props_', '').replace('graded_', '')
-            file_date = pd.to_datetime(file_date_str)
-            if file_date < cutoff_date: continue
-            df = pd.read_parquet(f)
-            if Cols.ACTUAL_VAL in df.columns and Cols.PREDICTION in df.columns:
-                recent_dfs.append(df)
-        except Exception: continue
-            
-    if not recent_dfs: return {}, {}
-        
-    full_history = pd.concat(recent_dfs, ignore_index=True)
-    keep_cols = [c for c in [Cols.PLAYER_ID, Cols.PLAYER_NAME, Cols.PROP_TYPE, Cols.ACTUAL_VAL, Cols.PREDICTION] if c in full_history.columns]
-    full_history = full_history[keep_cols].copy()
-
-    full_history[Cols.ACTUAL_VAL] = pd.to_numeric(full_history[Cols.ACTUAL_VAL], errors='coerce')
-    full_history[Cols.PREDICTION] = pd.to_numeric(full_history[Cols.PREDICTION], errors='coerce')
-    full_history.dropna(subset=[Cols.ACTUAL_VAL, Cols.PREDICTION], inplace=True)
-    
-    full_history['Error'] = full_history[Cols.ACTUAL_VAL] - full_history[Cols.PREDICTION]
-    full_history['Abs_Error'] = full_history['Error'].abs()
-    
-    full_history['Pct_Error'] = np.where(
-        full_history[Cols.PREDICTION] > 0, 
-        full_history['Error'] / full_history[Cols.PREDICTION], 
-        0.0
-    )
-    
-    full_history['Mapped_Prop'] = full_history[Cols.PROP_TYPE].map(lambda x: cfg.MASTER_PROP_MAP.get(x, x))
-    cat_bias_pct = full_history.groupby('Mapped_Prop')['Pct_Error'].mean().to_dict()
-    cat_mae = full_history.groupby('Mapped_Prop')['Abs_Error'].mean().to_dict()
-
-    return cat_bias_pct, cat_mae
 
 def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv, l10_hit_rate, vs_opp_hit_rate, vs_opp_games, s_avg, r_avg):
     """
-    Strictly evaluates based on Win Probability, Hit Rates, Volatility, and Edge/Delta.
+    Evaluates confidence tiers based strictly on probability, hit rates, volatility, and edge/delta.
     """
     tier = 'Pass'
     
+    # 1. TRAP DETECTION (Hard Passes)
     if pick_type == 'Over':
         if cv > cfg.MAX_CV_HARD_PASS_OVER or l10_hit_rate < cfg.MIN_L10_HIT_HARD_PASS_OVER:
             return 'Pass / Too Volatile'
@@ -79,6 +36,7 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
         if cv > dynamic_cv_threshold or l10_hit_rate < min_l10_hit_under:
             return 'Pass / Too Volatile'
 
+    # 2. TIER ASSIGNMENT
     if win_prob >= cfg.MIN_PROB_FOR_S_TIER and cv < cfg.MAX_CV_FOR_S_TIER and (pick_type != 'Over' or l10_hit_rate >= cfg.MIN_L10_HIT_FOR_S_TIER): 
         if abs_diff >= (line * 0.08):
             tier = 'S Tier'
@@ -98,8 +56,9 @@ def determine_confidence_tier(win_prob, pick_type, delta_gap, line, abs_diff, cv
     
     return tier
 
+
 def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, vs_opp_games, s_avg, r_avg, tweedie_power=1.5):
-    """Evaluates probability of outcome based on distribution modeling."""
+    """Evaluates the win probability of a projection against a specific line using statistical distributions."""
     if line <= 0: return None
     
     nbinom_props = ['PTS', 'REB', 'AST', 'STL', 'BLK', 'FG3M', 'PRA', 'PR', 'PA', 'RA']
@@ -121,45 +80,40 @@ def evaluate_prop(proj, line, variance, prop_type, delta_gap, cv, l10_over_rate,
     tier = determine_confidence_tier(win_prob, pick, delta_gap, line, abs_diff, cv, active_hit_rate, active_vs_opp_hit_rate, vs_opp_games, s_avg, r_avg)
         
     return {
-        'Pick': pick,
-        'Win_Prob': win_prob,
-        'Tier': tier,
-        'Active_Hit_Rate': active_hit_rate,
-        'Active_VS_Opp_Hit_Rate': active_vs_opp_hit_rate
+        'Pick': pick, 'Win_Prob': win_prob, 'Tier': tier,
+        'Active_Hit_Rate': active_hit_rate, 'Active_VS_Opp_Hit_Rate': active_vs_opp_hit_rate
     }
 
+
 def get_col_safe(df, prop_cat, base_name):
+    """Helper to safely extract columns with or without prop prefixes."""
     if base_name in df.columns: return df[base_name]
     if f"{prop_cat}_{base_name}" in df.columns: return df[f"{prop_cat}_{base_name}"]
     return pd.Series(np.nan, index=df.index)
 
+
 def predict_props(todays_props_df):
-    logging.info(f"Starting Probability Inference for {len(todays_props_df)} props...")
+    logging.info(f"Starting Quantile Inference for {len(todays_props_df)} props...")
     results = []
     
-    if Cols.PROP_TYPE not in todays_props_df.columns: return pd.DataFrame()
+    if Cols.PROP_TYPE not in todays_props_df.columns: 
+        return pd.DataFrame()
     
-    # Attempt to load Meta-Model Calibrator
     meta_artifacts = load_artifacts('META_CALIBRATOR')
     meta_model = meta_artifacts['model'] if meta_artifacts else None
     meta_features = meta_artifacts['features'] if meta_artifacts else []
-    if meta_model:
-        logging.info(f"Loaded Meta-Calibrator successfully. {len(meta_features)} features.")
-    
-    try: 
-        _, cat_mae = get_system_learning_maps(days_back=21)
-    except Exception as e: 
-        logging.warning(f"Could not load system learning maps: {e}")
-        cat_mae = {}
 
     predicted_mins = {}
     min_artifacts = load_artifacts('MIN')
+    
     if min_artifacts:
-        logging.info("Standalone Minutes model found. Predicting minutes...")
-        min_model = min_artifacts['model']
-        min_features_raw = min_artifacts['features']
+        min_model_dict = min_artifacts['model']
         min_scaler = min_artifacts['scaler']
+        min_features_raw = min_artifacts['features']
         
+        # Handle dict if quantile trained, else handle direct model
+        min_model = min_model_dict['q50'] if isinstance(min_model_dict, dict) else min_model_dict
+
         X_raw_mins = todays_props_df.copy()
         sanitized_map_mins = {c: re.sub(r'[^\w\s]', '_', str(c)).replace(' ', '_') for c in X_raw_mins.columns}
         inv_map_mins = {v: k for k, v in sanitized_map_mins.items()}
@@ -177,20 +131,15 @@ def predict_props(todays_props_df):
             X_raw_mins['PRED_MIN'] = min_model.predict(X_min_scaled_df)
             predicted_mins = X_raw_mins['PRED_MIN'].to_dict()
             
-            # FIXED: MINUTES DISCONNECT. Feed PRED_MIN back into the feature set to dynamically scale PER36 stats.
-            # This ensures backups getting spot starts are projected using their starter-level minute workload.
             for orig_idx, pred_min in predicted_mins.items():
                 if pred_min <= 0 or pd.isna(pred_min): continue
-                
-                # Scale up baseline features to match expected game script
                 for stat in ['PTS', 'REB', 'AST', 'PRA', 'PR', 'PA', 'RA', 'USG_PROXY']:
                     per36_col = f'{stat}_L5_PER36'
                     if per36_col in todays_props_df.columns:
                         val_per36 = todays_props_df.at[orig_idx, per36_col]
                         if not pd.isna(val_per36) and val_per36 > 0:
+                            # Dynamically scale the L5 average to the model's expected minute workload
                             todays_props_df.at[orig_idx, f'{stat}_L5_AVG'] = val_per36 * (pred_min / 36.0)
-                            
-                # Align Minute Averages to the new predicted reality
                 todays_props_df.at[orig_idx, 'MIN_L5_AVG'] = pred_min
 
         except Exception as e:
@@ -202,15 +151,13 @@ def predict_props(todays_props_df):
         if prop_cat == 'MIN': continue
         
         artifacts = load_artifacts(prop_cat)
-        if not artifacts:
-            logging.warning(f"No trained artifacts found for {prop_cat}. Skipping.")
+        if not artifacts: 
+            logging.warning(f"Missing artifacts for {prop_cat}, skipping inference.")
             continue
             
-        model, scaler, feature_names = artifacts['model'], artifacts['scaler'], artifacts['features']
-        tweedie_power = artifacts.get('metadata', {}).get('tweedie_variance_power', 1.5)
+        model_dict, scaler, feature_names = artifacts['model'], artifacts['scaler'], artifacts['features']
         
         X_raw = group.copy()
-        
         sanitized_map = {c: re.sub(r'[^\w\s]', '_', str(c)).replace(' ', '_') for c in X_raw.columns}
         inv_map = {v: k for k, v in sanitized_map.items()}
         
@@ -222,19 +169,22 @@ def predict_props(todays_props_df):
             
         X_model = pd.DataFrame(new_features, index=X_raw.index)
 
-        # FIXED: SHAP FLAW. Removed the logic that injected np.nan into X_model.
-        # Tree-based models natively ignore uninformative features. Injecting NaNs into a 
-        # trained model forces incorrect tree pathing and ruins the mathematical output.
-
         try:
             X_scaled = scaler.transform(X_model)
             X_scaled_df = pd.DataFrame(X_scaled, columns=X_model.columns, index=X_model.index)
             
-            raw_projections = model.predict(X_scaled_df)
+            # Extract Exact Quantiles
+            if isinstance(model_dict, dict) and 'q50' in model_dict:
+                pred_q10 = model_dict['q10'].predict(X_scaled_df)
+                pred_q50 = model_dict['q50'].predict(X_scaled_df)
+                pred_q90 = model_dict['q90'].predict(X_scaled_df)
+            else:
+                pred_q50 = model_dict.predict(X_scaled_df)
+                pred_q10 = pred_q50 * 0.75
+                pred_q90 = pred_q50 * 1.25
             
             szn_avgs = get_col_safe(X_raw, prop_cat, 'SZN_AVG')
             l5_avgs = get_col_safe(X_raw, prop_cat, 'L5_AVG')
-            stds = get_col_safe(X_raw, prop_cat, 'L10_STD_DEV')
             cvs = get_col_safe(X_raw, prop_cat, 'L10_CV')
             games_played_col = get_col_safe(X_raw, prop_cat, 'SEASON_G')
             
@@ -251,39 +201,23 @@ def predict_props(todays_props_df):
             corr_pa = get_col_safe(X_raw, prop_cat, 'PTS_AST_CORR')
             corr_ra = get_col_safe(X_raw, prop_cat, 'REB_AST_CORR')
             
-            base_stds = {
-                'PTS': get_col_safe(X_raw, 'PTS', 'L10_STD_DEV'),
-                'REB': get_col_safe(X_raw, 'REB', 'L10_STD_DEV'),
-                'AST': get_col_safe(X_raw, 'AST', 'L10_STD_DEV')
-            }
-            
-            base_projs_dict = {
-                'PTS': get_col_safe(X_raw, 'PTS', 'L5_AVG'),
-                'REB': get_col_safe(X_raw, 'REB', 'L5_AVG'),
-                'AST': get_col_safe(X_raw, 'AST', 'L5_AVG')
-            }
-            
             for idx, (orig_idx, row) in enumerate(group.iterrows()):
                 line = float(row[Cols.PROP_LINE])
-                raw_val = raw_projections[idx]
                 
-                pred_min = predicted_mins.get(orig_idx, float(row.get('MIN_SZN_AVG', 36.0)))
-                hist_mins = float(row.get('MIN_L10_AVG', pred_min))
-                
-                adjusted_raw = raw_val
-                
-                # Loose Line Regression Implementation (Kept intact based on instructions)
-                if line > 0:
-                    gap = abs(adjusted_raw - line) / line
-                    if gap > 0.10: 
-                        adjusted_raw = (adjusted_raw * 0.70) + (line * 0.30)
+                # EXACT TARGET PREDICTION (Median of the Quantile Spread)
+                # Removed artificial 30% Vegas regression. We trust the ML model natively.
+                adjusted_raw = pred_q50[idx] 
                 
                 s_avg = float(szn_avgs.iloc[idx]) if not pd.isna(szn_avgs.iloc[idx]) else adjusted_raw
                 r_avg = float(l5_avgs.iloc[idx]) if not pd.isna(l5_avgs.iloc[idx]) else adjusted_raw
-                raw_std = float(stds.iloc[idx]) if not pd.isna(stds.iloc[idx]) else 1.0
                 
                 floor_std = max(line * 0.35, np.sqrt(line))
-                std_dev = max(raw_std, floor_std)
+                
+                # TRUE VARIANCE FROM MACHINE LEARNING QUANTILES
+                # The spread between the 10th and 90th percentile gives us an exact, player-specific standard deviation
+                # A normal distribution 10th-90th spread is roughly 2.56 standard deviations wide
+                model_implied_std = (pred_q90[idx] - pred_q10[idx]) / 2.56
+                std_dev = max(model_implied_std, floor_std)
                 
                 cv = float(cvs.iloc[idx]) if not pd.isna(cvs.iloc[idx]) else (std_dev / s_avg if s_avg > 0 else 0.5)
                 
@@ -297,8 +231,8 @@ def predict_props(todays_props_df):
                 vs_opp_games = int(vs_opp_games_counts.iloc[idx]) if not pd.isna(vs_opp_games_counts.iloc[idx]) else 0
 
                 days_rest = float(row.get(Cols.DAYS_REST, 2.0))
-                min_deviation = abs(pred_min - hist_mins) / hist_mins if hist_mins > 0 else 0
-
+                
+                # Projection is fully driven by the model's exact learned median
                 proj = smooth_projection(adjusted_raw, s_avg, r_avg, std_dev)
                 
                 dynamic_correlations = {
@@ -307,112 +241,55 @@ def predict_props(todays_props_df):
                     'REB_AST': float(corr_ra.iloc[idx]) if not pd.isna(corr_ra.iloc[idx]) else 0.25
                 }
                 
-                dynamic_base_stds = {
-                    'PTS': float(base_stds['PTS'].iloc[idx]) if not pd.isna(base_stds['PTS'].iloc[idx]) else (proj*0.2),
-                    'REB': float(base_stds['REB'].iloc[idx]) if not pd.isna(base_stds['REB'].iloc[idx]) else (proj*0.1),
-                    'AST': float(base_stds['AST'].iloc[idx]) if not pd.isna(base_stds['AST'].iloc[idx]) else (proj*0.1)
-                }
-                
-                dynamic_base_projs = {
-                    'PTS': float(base_projs_dict['PTS'].iloc[idx]) if not pd.isna(base_projs_dict['PTS'].iloc[idx]) else (proj*0.55),
-                    'REB': float(base_projs_dict['REB'].iloc[idx]) if not pd.isna(base_projs_dict['REB'].iloc[idx]) else (proj*0.25),
-                    'AST': float(base_projs_dict['AST'].iloc[idx]) if not pd.isna(base_projs_dict['AST'].iloc[idx]) else (proj*0.20)
-                }
-                
                 sample_size = int(games_played_col.iloc[idx]) if not pd.isna(games_played_col.iloc[idx]) else 15
-                variance = estimate_combo_variance(prop_cat, proj, std_dev, base_stds=dynamic_base_stds, correlations=dynamic_correlations, sample_size=sample_size, base_projs=dynamic_base_projs)
-                
-                historic_mae = cat_mae.get(prop_cat, 1.0)
-                if historic_mae > 1.5:  
-                    variance_multiplier = min(1.0 + (historic_mae * 0.15), 1.5)
-                    variance = variance * variance_multiplier
+                variance = estimate_combo_variance(prop_cat, proj, std_dev, base_stds={}, correlations=dynamic_correlations, sample_size=sample_size, base_projs={})
 
                 delta_gap_final = abs(proj - line) / line if line > 0 else 0
                 
-                eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap_final, cv, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, vs_opp_games, s_avg, r_avg, tweedie_power=tweedie_power)
+                eval_res = evaluate_prop(proj, line, variance, prop_cat, delta_gap_final, cv, l10_over_rate, l10_under_rate, vs_opp_over_rate, vs_opp_under_rate, vs_opp_games, s_avg, r_avg, tweedie_power=1.5)
                 if not eval_res: continue
                 
                 base_tier = eval_res['Tier']
-                
-                if days_rest > 7.0 or min_deviation > 0.30:
-                    tier_ladder = ['S Tier', 'A Tier', 'B Tier', 'C Tier', 'Pass']
-                    if base_tier in tier_ladder:
-                        current_idx = tier_ladder.index(base_tier)
-                        if current_idx < len(tier_ladder) - 2: 
-                            base_tier = tier_ladder[current_idx + 1]
-                            eval_res['Tier'] = base_tier
-                
                 final_tier = base_tier
                 meta_prob = None
 
-                # === APPLY META-MODEL CALIBRATION ===
+                # Meta-Calibrator adjustments (Detecting Traps)
                 if meta_model is not None and len(meta_features) > 0:
                     blowout_pot = float(row.get('BLOWOUT_POTENTIAL', 0.0))
-                    if pd.isna(blowout_pot): blowout_pot = 0.0
-                    
                     matchup_hit_pct = eval_res['Active_VS_Opp_Hit_Rate'] * 100.0 if vs_opp_games > 0 else eval_res['Active_Hit_Rate'] * 100.0
                     
                     meta_input_dict = {
-                        'Prob': eval_res['Win_Prob'],
-                        'Consistency_CV': cv,
-                        'Proj': proj,
-                        Cols.PROP_LINE: line,
-                        'Active_Hit%': eval_res['Active_Hit_Rate'] * 100.0,
-                        'Matchup_Hit%': matchup_hit_pct,
-                        'BLOWOUT_POTENTIAL': blowout_pot,
-                        'Delta_Gap_Pct': delta_gap_final
+                        'Prob': eval_res['Win_Prob'], 'Consistency_CV': cv, 'Proj': proj,
+                        Cols.PROP_LINE: line, 'Active_Hit%': eval_res['Active_Hit_Rate'] * 100.0,
+                        'Matchup_Hit%': matchup_hit_pct, 'BLOWOUT_POTENTIAL': blowout_pot, 'Delta_Gap_Pct': delta_gap_final
                     }
-                    
                     meta_input = pd.DataFrame([meta_input_dict])
-                    
                     for f in meta_features:
-                        if f not in meta_input.columns:
-                            meta_input[f] = np.nan
-                    meta_input = meta_input[meta_features]
+                        if f not in meta_input.columns: meta_input[f] = np.nan
                     
                     try:
-                        meta_prob = meta_model.predict_proba(meta_input)[0][1]
-                        
-                        if base_tier in ['S Tier', 'A Tier'] and meta_prob < 0.45:
-                            final_tier = 'Trap / Fade'
-                        elif base_tier == 'Pass' and meta_prob > 0.65:
-                            final_tier = 'B Tier (Meta Edge)'
-                        elif base_tier == 'A Tier' and meta_prob > 0.70:
-                            final_tier = 'S Tier (Meta Conf)'
-                        elif base_tier == 'B Tier' and meta_prob < 0.50:
-                            final_tier = 'Pass (Meta Low)'
-                    except Exception as e:
-                        logging.warning(f"Meta-model prediction failed for {row.get(Cols.PLAYER_NAME)}: {e}")
+                        meta_prob = meta_model.predict_proba(meta_input[meta_features])[0][1]
+                        if base_tier in ['S Tier', 'A Tier'] and meta_prob < 0.45: final_tier = 'Trap / Fade'
+                        elif base_tier == 'Pass' and meta_prob > 0.65: final_tier = 'B Tier (Meta Edge)'
+                    except Exception: pass
 
                 position = row.get('POSITION', row.get('PLAYER_POSITION', row.get('Position', 'UNK')))
 
-                res_dict = {
-                    Cols.PLAYER_NAME: row[Cols.PLAYER_NAME],
-                    Cols.TEAM: row.get('TEAM_ABBREVIATION', row.get(Cols.TEAM, 'UNK')),
-                    Cols.OPPONENT: row.get(Cols.OPPONENT, 'UNK'),
-                    'Position': position,
-                    Cols.DATE: row[Cols.DATE],
-                    Cols.PROP_TYPE: prop_cat,
-                    Cols.PROP_LINE: line,
-                    'Proj': round(proj, 2),
-                    'Prob': round(eval_res['Win_Prob'], 3),
-                    'Pick': eval_res['Pick'],
-                    'Consistency_CV': round(cv, 3), 
+                results.append({
+                    Cols.PLAYER_NAME: row[Cols.PLAYER_NAME], Cols.TEAM: row.get('TEAM_ABBREVIATION', row.get(Cols.TEAM, 'UNK')),
+                    Cols.OPPONENT: row.get(Cols.OPPONENT, 'UNK'), 'Position': position,
+                    Cols.DATE: row[Cols.DATE], Cols.PROP_TYPE: prop_cat, Cols.PROP_LINE: line,
+                    'Proj': round(proj, 2), 'Prob': round(eval_res['Win_Prob'], 3),
+                    'Pick': eval_res['Pick'], 'Consistency_CV': round(cv, 3), 
                     'Active_Hit%': round(eval_res['Active_Hit_Rate'] * 100.0, 1), 
                     'Matchup_Hit%': round(eval_res['Active_VS_Opp_Hit_Rate'] * 100.0, 1) if vs_opp_games > 0 else 'N/A',
-                    'Tier': final_tier,
-                    'Base_Tier': base_tier,
+                    'Tier': final_tier, 'Base_Tier': base_tier,
                     'Meta_Prob': round(meta_prob, 3) if meta_prob is not None else 'N/A',
                     'BLOWOUT_POTENTIAL': round(float(row.get('BLOWOUT_POTENTIAL', 0.0)), 2),
                     '_Sort_Diff': meta_prob if meta_prob is not None else eval_res['Win_Prob'] 
-                }
-                results.append(res_dict)
+                })
 
         except Exception as e:
             logging.error(f"Inference error for {prop_cat}: {e}", exc_info=True)
-            continue
 
-    final_df = pd.DataFrame(results)
-    if final_df.empty: return pd.DataFrame()
-        
-    return final_df
+    return pd.DataFrame(results) if results else pd.DataFrame()
