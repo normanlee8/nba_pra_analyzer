@@ -220,8 +220,8 @@ def main():
                     'Tier': row['Tier'] 
                 })
                 
-            # Changed: Only getting top 20 2-leg parlays
-            top_parlays = optimizer.optimize_parlays(daily_props_for_parlays, top_n=20)
+            # Changed: Only getting top 10 2-leg parlays
+            top_parlays = optimizer.optimize_parlays(daily_props_for_parlays, top_n=10)
             parlays_df = format_parlays_for_output(top_parlays)
             
         except Exception as e:
@@ -257,11 +257,11 @@ def main():
             console_parlays['Joint Prob'] = console_parlays['Joint Prob'].apply(lambda x: f"{x*100:.2f}%")
             
             print("\n" + "="*80)
-            print(" TOP 20 2-LEG PARLAYS BY MAXIMUM WIN PROBABILITY")
+            print(" TOP 10 2-LEG PARLAYS BY MAXIMUM WIN PROBABILITY")
             print("="*80)
             
-            # Changed: Cleaned loop out, simply passing top 20
-            print_stacked_parlays(console_parlays.head(20), title="TOP 2-LEG TICKET COMBINATIONS")
+            # Changed: Cleaned loop out, simply passing top 10
+            print_stacked_parlays(console_parlays.head(10), title="TOP 2-LEG TICKET COMBINATIONS")
             
         logging.info("<<< PROBABILITY ANALYSIS COMPLETE >>>")
         

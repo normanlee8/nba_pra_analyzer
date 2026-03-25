@@ -219,10 +219,12 @@ class ParlayOptimizer:
             'payout_multiplier': payout_multiplier, 'expected_value': expected_value
         }
 
-    def optimize_parlays(self, daily_props: list, top_n=20) -> list:
+    def optimize_parlays(self, daily_props: list, top_n=10) -> list:
         """
         Takes the day's predicted props, filters for high confidence, 
         and iterates to find the absolute mathematically optimal parlays.
+        Ensures that a specific Player + Prop combination is only used once 
+        across the final outputted parlays.
         """
         logger.info(f"Optimizing 2-leg parlays for {len(daily_props)} props...")
         viable_props = []
@@ -260,7 +262,27 @@ class ParlayOptimizer:
                 evaluated_tickets.append(ticket_eval)
 
         # Sort all evaluated tickets by true joint probability of hitting
-        final_best_tickets = sorted(evaluated_tickets, key=lambda x: x['joint_prob'], reverse=True)[:top_n]
+        all_sorted_tickets = sorted(evaluated_tickets, key=lambda x: x['joint_prob'], reverse=True)
+        
+        final_best_tickets = []
+        used_player_props = set()
+        
+        for ticket_eval in all_sorted_tickets:
+            ticket = ticket_eval['ticket']
+            
+            # Create a unique identifier for the player and the specific prop category (e.g., "Nikola Jokic_PRA")
+            leg1_id = f"{ticket[0].get('player_name', ticket[0].get(Cols.PLAYER_NAME, ''))}_{ticket[0].get('stat_type', ticket[0].get('PROP_TYPE', ''))}"
+            leg2_id = f"{ticket[1].get('player_name', ticket[1].get(Cols.PLAYER_NAME, ''))}_{ticket[1].get('stat_type', ticket[1].get('PROP_TYPE', ''))}"
+            
+            # Check if either player-prop combination has already been used in a selected parlay
+            if leg1_id not in used_player_props and leg2_id not in used_player_props:
+                final_best_tickets.append(ticket_eval)
+                used_player_props.add(leg1_id)
+                used_player_props.add(leg2_id)
+            
+            # Stop once we reach the desired number of top parlays
+            if len(final_best_tickets) >= top_n:
+                break
         
         logger.info(f"Generated top {len(final_best_tickets)} optimal parlays.")
         return final_best_tickets
