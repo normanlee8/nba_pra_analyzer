@@ -4591,3 +4591,32 @@
 2026-03-25 10:29:27 [INFO] root: Saved Excel analysis to: output/processed_props.xlsx
 2026-03-25 10:29:27 [INFO] root: Saved 10 parlay combinations to output/processed_parlays.csv
 2026-03-25 10:29:27 [INFO] root: <<< PROBABILITY ANALYSIS COMPLETE >>>
+2026-06-02 15:37:45 [INFO] root: Logging initialized. Writing to logs/analysis_pregame.log
+2026-06-02 15:37:45 [INFO] root: >>> STARTING PRE-GAME MAXIMUM PROBABILITY ANALYSIS <<<
+2026-06-02 15:37:45 [INFO] root: Loaded 110 props.
+2026-06-02 15:37:45 [INFO] root: Building Probability-Optimized feature set...
+2026-06-02 15:37:45 [INFO] root: --- Loading Static Data Files (Parquet) ---
+2026-06-02 15:37:48 [INFO] root: Calculating form hit rates and opponent matchup history...
+2026-06-02 15:37:49 [INFO] root: Merging Defense vs Position (DvP) Stats safely to avoid leakage...
+2026-06-02 15:37:49 [INFO] root: Merging historical VS Opponent stats...
+2026-06-02 15:37:49 [INFO] root: Merging Scheme Synergy Stats...
+2026-06-02 15:37:49 [INFO] root: Feature set built. Final Shape: (110, 462)
+2026-06-02 15:37:49 [INFO] root: Running Probabilistic Inference Engine...
+2026-06-02 15:37:49 [INFO] root: Starting Quantile Inference for 110 props...
+2026-06-02 15:37:50 [INFO] root: --- PROBABILITY ANALYSIS SUMMARY ---
+2026-06-02 15:37:50 [INFO] root:   S Tier: 2 props
+2026-06-02 15:37:50 [INFO] root:   A Tier: 3 props
+2026-06-02 15:37:50 [INFO] root:   B Tier: 9 props
+2026-06-02 15:37:50 [INFO] root:   C Tier: 11 props
+2026-06-02 15:37:50 [INFO] root:   Pass: 6 props
+2026-06-02 15:37:50 [INFO] root:   Pass / Too Volatile: 79 props
+2026-06-02 15:37:50 [INFO] root:   Trap / High Variance: 0 props
+2026-06-02 15:37:50 [INFO] root: ------------------------------------
+2026-06-02 15:37:50 [INFO] root: Initializing Maximum Probability 2-Leg Parlay Optimizer...
+2026-06-02 15:37:50 [INFO] prop_analyzer.models.parlay_optimizer: Initialized ParlayOptimizer with Empirical Covariance Mapping.
+2026-06-02 15:37:50 [INFO] prop_analyzer.models.parlay_optimizer: Successfully loaded 23094 historical logs for empirical correlation.
+2026-06-02 15:37:50 [INFO] prop_analyzer.models.parlay_optimizer: Optimizing 2-leg parlays for 110 props...
+2026-06-02 15:37:50 [INFO] prop_analyzer.models.parlay_optimizer: Generated top 9 optimal parlays.
+2026-06-02 15:37:50 [INFO] root: Saved Excel analysis to: output/processed_props.xlsx
+2026-06-02 15:37:50 [INFO] root: Saved 9 parlay combinations to output/processed_parlays.csv
+2026-06-02 15:37:50 [INFO] root: <<< PROBABILITY ANALYSIS COMPLETE >>>

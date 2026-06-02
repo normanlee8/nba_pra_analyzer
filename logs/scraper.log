@@ -3264,3 +3264,64 @@
 2026-03-25 23:19:00 [INFO] root: Successfully saved NBA Team Opponent Fastbreak Points per Game.parquet
 2026-03-25 23:19:01 [INFO] root: ========= NBA DATA SCRAPER FINISHED in 0:23 minutes =========
 2026-03-25 23:19:01 [INFO] root: <<< SCRAPER COMPLETE >>>
+2026-06-02 15:27:35 [INFO] root: Logging initialized. Writing to logs/scraper.log
+2026-06-02 15:27:35 [INFO] root: >>> STARTING DATA SCRAPER <<<
+2026-06-02 15:27:35 [INFO] root: ========= STARTING NBA DATA SCRAPER (FAST CONCURRENT MODE) =========
+2026-06-02 15:27:35 [INFO] root: --- Processing Season: 2024-25 (Live: False) ---
+2026-06-02 15:27:37 [INFO] root: --- Processing Season: 2025-26 (Live: True) ---
+2026-06-02 15:27:37 [INFO] root: --- Scraping Daily Injury Report (CBS Sports) ---
+2026-06-02 15:27:39 [INFO] root: Successfully saved daily_injuries.parquet
+2026-06-02 15:27:42 [INFO] root: Successfully saved NBA Player Per Game Averages.parquet
+2026-06-02 15:27:42 [INFO] root: Successfully saved NBA Player Advanced Stats.parquet
+2026-06-02 15:27:42 [INFO] root: Successfully saved NBA Player Shooting Stats.parquet
+2026-06-02 15:27:43 [INFO] root: --- Gap Detection: ESPN Box Scores for 2025-26 ---
+2026-06-02 15:27:43 [INFO] root: Identified 34 missing days to fetch concurrently.
+2026-06-02 15:27:43 [WARNING] urllib3.connectionpool: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("HTTPSConnection(host='site.api.espn.com', port=443): Failed to resolve 'site.api.espn.com' ([Errno 8] nodename nor servname provided, or not known)")': /apis/site/v2/sports/basketball/nba/scoreboard?dates=20260214
+2026-06-02 15:27:43 [WARNING] urllib3.connectionpool: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("HTTPSConnection(host='site.api.espn.com', port=443): Failed to resolve 'site.api.espn.com' ([Errno 8] nodename nor servname provided, or not known)")': /apis/site/v2/sports/basketball/nba/scoreboard?dates=20251020
+2026-06-02 15:27:43 [WARNING] urllib3.connectionpool: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("HTTPSConnection(host='site.api.espn.com', port=443): Failed to resolve 'site.api.espn.com' ([Errno 8] nodename nor servname provided, or not known)")': /apis/site/v2/sports/basketball/nba/scoreboard?dates=20260216
+2026-06-02 15:27:43 [WARNING] urllib3.connectionpool: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("HTTPSConnection(host='site.api.espn.com', port=443): Failed to resolve 'site.api.espn.com' ([Errno 8] nodename nor servname provided, or not known)")': /apis/site/v2/sports/basketball/nba/scoreboard?dates=20251127
+2026-06-02 15:27:43 [WARNING] urllib3.connectionpool: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("HTTPSConnection(host='site.api.espn.com', port=443): Failed to resolve 'site.api.espn.com' ([Errno 8] nodename nor servname provided, or not known)")': /apis/site/v2/sports/basketball/nba/scoreboard?dates=20260213
+2026-06-02 15:27:43 [WARNING] urllib3.connectionpool: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("HTTPSConnection(host='site.api.espn.com', port=443): Failed to resolve 'site.api.espn.com' ([Errno 8] nodename nor servname provided, or not known)")': /apis/site/v2/sports/basketball/nba/scoreboard?dates=20260218
+2026-06-02 15:27:43 [WARNING] urllib3.connectionpool: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("HTTPSConnection(host='site.api.espn.com', port=443): Failed to resolve 'site.api.espn.com' ([Errno 8] nodename nor servname provided, or not known)")': /apis/site/v2/sports/basketball/nba/scoreboard?dates=20251224
+2026-06-02 15:27:44 [ERROR] root: Error fetching summary for game 401810949: 'id'
+2026-06-02 15:27:44 [ERROR] root: Error fetching summary for game 401810934: 'id'
+2026-06-02 15:27:44 [INFO] root:   Fetches complete: 10/34
+2026-06-02 15:27:44 [ERROR] root: Error fetching summary for game 401810925: 'id'
+2026-06-02 15:27:45 [INFO] root:   Fetches complete: 20/34
+2026-06-02 15:27:46 [INFO] root:   Fetches complete: 30/34
+2026-06-02 15:27:47 [INFO] root:   Fetches complete: 34/34
+2026-06-02 15:27:47 [INFO] root: Successfully saved NBA Player Box Scores.parquet
+2026-06-02 15:27:47 [INFO] root: Updated aggregated box scores. Added 3335 rows. Total rows: 27051
+2026-06-02 15:27:47 [INFO] root: --- Scraping PBPStats Assist Networks for 2025-26 ---
+2026-06-02 15:27:50 [INFO] root: Successfully saved PBPStats Assist Networks.parquet
+2026-06-02 15:27:50 [INFO] root: --- Scraping PBPStats Player Totals for 2025-26 ---
+2026-06-02 15:27:53 [INFO] root: Successfully saved PBPStats Player Totals.parquet
+2026-06-02 15:27:53 [INFO] root: --- Scraping PBPStats Lineup Totals for 2025-26 ---
+2026-06-02 15:27:56 [INFO] root: Successfully saved PBPStats Lineup Totals.parquet
+2026-06-02 15:27:56 [INFO] root: Successfully saved NBA Team Shooting %.parquet
+2026-06-02 15:27:57 [INFO] root: Successfully saved NBA Team Offensive Efficiency.parquet
+2026-06-02 15:27:57 [INFO] root: Successfully saved NBA Team Points per Game.parquet
+2026-06-02 15:27:57 [INFO] root: Successfully saved NBA Team Defensive Efficiency.parquet
+2026-06-02 15:27:57 [INFO] root: Successfully saved NBA Team Effective Field Goal %.parquet
+2026-06-02 15:27:57 [INFO] root: Successfully saved NBA Team True Shooting %.parquet
+2026-06-02 15:27:57 [INFO] root: Successfully saved NBA Team Assists per Game.parquet
+2026-06-02 15:27:58 [INFO] root: Successfully saved NBA Team Total Rebounds per Game.parquet
+2026-06-02 15:27:58 [INFO] root: Successfully saved NBA Team Opponent Points per Game.parquet
+2026-06-02 15:27:58 [INFO] root: Successfully saved NBA Team Opponent Total Rebounds per Game.parquet
+2026-06-02 15:27:59 [INFO] root: Successfully saved NBA Team Possessions per Game.parquet
+2026-06-02 15:27:59 [INFO] root: Successfully saved NBA Team Opponent Assists per Game.parquet
+2026-06-02 15:27:59 [INFO] root: Successfully saved NBA Team Opponent Effective Field Goal %.parquet
+2026-06-02 15:27:59 [INFO] root: Successfully saved NBA Team Opponent True Shooting %.parquet
+2026-06-02 15:27:59 [INFO] root: Successfully saved NBA Team Field Goals Attempted per Game.parquet
+2026-06-02 15:27:59 [INFO] root: Successfully saved NBA Team Three Pointers Attempted per Game.parquet
+2026-06-02 15:28:00 [INFO] root: Successfully saved NBA Team Opponent Three Pointers Attempted per Game.parquet
+2026-06-02 15:28:00 [INFO] root: Successfully saved NBA Team Opponent Field Goals Attempted per Game.parquet
+2026-06-02 15:28:00 [INFO] root: Successfully saved NBA Team Assists per FGM.parquet
+2026-06-02 15:28:00 [INFO] root: Successfully saved NBA Team Opponent Assists per FGM.parquet
+2026-06-02 15:28:00 [INFO] root: Successfully saved NBA Team Opponent Offensive Rebounding %.parquet
+2026-06-02 15:28:01 [INFO] root: Successfully saved NBA Team Opponent Points in Paint per Game.parquet
+2026-06-02 15:28:01 [INFO] root: Successfully saved NBA Team Opponent Personal Fouls per Game.parquet
+2026-06-02 15:28:01 [INFO] root: Successfully saved NBA Team Opponent Percent of Points from 3 Pointers.parquet
+2026-06-02 15:28:01 [INFO] root: Successfully saved NBA Team Opponent Fastbreak Points per Game.parquet
+2026-06-02 15:28:03 [INFO] root: ========= NBA DATA SCRAPER FINISHED in 0:27 minutes =========
+2026-06-02 15:28:03 [INFO] root: <<< SCRAPER COMPLETE >>>
