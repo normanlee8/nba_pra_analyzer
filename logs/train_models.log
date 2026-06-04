@@ -4934,3 +4934,78 @@
 2026-06-02 15:36:09 [INFO] root: Saved versioned artifacts for PRA to model_PRA_latest.pkl
 2026-06-02 15:36:09 [INFO] root: [PRA] Successfully trained exact probability distributions.
 2026-06-02 15:36:09 [INFO] root: ========= QUANTILE MODEL TRAINING FINISHED in 5:29 minutes =========
+2026-06-03 23:09:45 [INFO] root: Logging initialized. Writing to logs/train_models.log
+2026-06-03 23:09:45 [INFO] root: >>> STARTING QUANTILE PROBABILITY MODEL TRAINING PIPELINE
+2026-06-03 23:09:45 [INFO] root: --- Training Engine: AST ---
+2026-06-03 23:09:45 [INFO] root: Training Exact-Quantile Model for AST...
+2026-06-03 23:09:45 [INFO] root: [AST] Running Hyperparameter Optimization for Q50...
+2026-06-03 23:10:21 [INFO] root: [AST] Trained Q10 distribution bound.
+2026-06-03 23:10:22 [INFO] root: [AST] Trained Q50 distribution bound.
+2026-06-03 23:10:23 [INFO] root: [AST] Trained Q90 distribution bound.
+2026-06-03 23:10:23 [INFO] root: [AST] Q50 Median Holdout Metrics - MAE: 0.08, RMSE: 0.35, R2: 0.98
+2026-06-03 23:10:23 [INFO] root: Saved versioned artifacts for AST to model_AST_latest.pkl
+2026-06-03 23:10:23 [INFO] root: [AST] Successfully trained exact probability distributions.
+2026-06-03 23:10:23 [INFO] root: --- Training Engine: PRA ---
+2026-06-03 23:10:23 [INFO] root: Training Exact-Quantile Model for PRA...
+2026-06-03 23:10:23 [INFO] root: [PRA] Running Hyperparameter Optimization for Q50...
+2026-06-03 23:11:10 [INFO] root: [PRA] Trained Q10 distribution bound.
+2026-06-03 23:11:11 [INFO] root: [PRA] Trained Q50 distribution bound.
+2026-06-03 23:11:13 [INFO] root: [PRA] Trained Q90 distribution bound.
+2026-06-03 23:11:13 [INFO] root: [PRA] Q50 Median Holdout Metrics - MAE: 0.21, RMSE: 1.07, R2: 0.99
+2026-06-03 23:11:13 [INFO] root: Saved versioned artifacts for PRA to model_PRA_latest.pkl
+2026-06-03 23:11:13 [INFO] root: [PRA] Successfully trained exact probability distributions.
+2026-06-03 23:11:13 [INFO] root: --- Training Engine: REB ---
+2026-06-03 23:11:13 [INFO] root: Training Exact-Quantile Model for REB...
+2026-06-03 23:11:13 [INFO] root: [REB] Running Hyperparameter Optimization for Q50...
+2026-06-03 23:11:47 [INFO] root: [REB] Trained Q10 distribution bound.
+2026-06-03 23:11:48 [INFO] root: [REB] Trained Q50 distribution bound.
+2026-06-03 23:11:50 [INFO] root: [REB] Trained Q90 distribution bound.
+2026-06-03 23:11:50 [INFO] root: [REB] Q50 Median Holdout Metrics - MAE: 0.09, RMSE: 0.36, R2: 0.99
+2026-06-03 23:11:50 [INFO] root: Saved versioned artifacts for REB to model_REB_latest.pkl
+2026-06-03 23:11:50 [INFO] root: [REB] Successfully trained exact probability distributions.
+2026-06-03 23:11:50 [INFO] root: --- Training Engine: PA ---
+2026-06-03 23:11:50 [INFO] root: Training Exact-Quantile Model for PA...
+2026-06-03 23:11:50 [INFO] root: [PA] Running Hyperparameter Optimization for Q50...
+2026-06-03 23:12:31 [INFO] root: [PA] Trained Q10 distribution bound.
+2026-06-03 23:12:33 [INFO] root: [PA] Trained Q50 distribution bound.
+2026-06-03 23:12:35 [INFO] root: [PA] Trained Q90 distribution bound.
+2026-06-03 23:12:35 [INFO] root: [PA] Q50 Median Holdout Metrics - MAE: 0.17, RMSE: 0.92, R2: 0.99
+2026-06-03 23:12:35 [INFO] root: Saved versioned artifacts for PA to model_PA_latest.pkl
+2026-06-03 23:12:35 [INFO] root: [PA] Successfully trained exact probability distributions.
+2026-06-03 23:12:35 [INFO] root: --- Training Engine: PR ---
+2026-06-03 23:12:35 [INFO] root: Training Exact-Quantile Model for PR...
+2026-06-03 23:12:35 [INFO] root: [PR] Running Hyperparameter Optimization for Q50...
+2026-06-03 23:13:13 [INFO] root: [PR] Trained Q10 distribution bound.
+2026-06-03 23:13:15 [INFO] root: [PR] Trained Q50 distribution bound.
+2026-06-03 23:13:17 [INFO] root: [PR] Trained Q90 distribution bound.
+2026-06-03 23:13:17 [INFO] root: [PR] Q50 Median Holdout Metrics - MAE: 0.22, RMSE: 0.91, R2: 0.99
+2026-06-03 23:13:17 [INFO] root: Saved versioned artifacts for PR to model_PR_latest.pkl
+2026-06-03 23:13:17 [INFO] root: [PR] Successfully trained exact probability distributions.
+2026-06-03 23:13:17 [INFO] root: --- Training Engine: PTS ---
+2026-06-03 23:13:17 [INFO] root: Training Exact-Quantile Model for PTS...
+2026-06-03 23:13:17 [INFO] root: [PTS] Running Hyperparameter Optimization for Q50...
+2026-06-03 23:14:01 [INFO] root: [PTS] Trained Q10 distribution bound.
+2026-06-03 23:14:03 [INFO] root: [PTS] Trained Q50 distribution bound.
+2026-06-03 23:14:04 [INFO] root: [PTS] Trained Q90 distribution bound.
+2026-06-03 23:14:05 [INFO] root: [PTS] Q50 Median Holdout Metrics - MAE: 0.14, RMSE: 1.00, R2: 0.99
+2026-06-03 23:14:05 [INFO] root: Saved versioned artifacts for PTS to model_PTS_latest.pkl
+2026-06-03 23:14:05 [INFO] root: [PTS] Successfully trained exact probability distributions.
+2026-06-03 23:14:05 [INFO] root: --- Training Engine: MIN ---
+2026-06-03 23:14:05 [INFO] root: Training Exact-Quantile Model for MIN...
+2026-06-03 23:14:05 [INFO] root: [MIN] Running Hyperparameter Optimization for Q50...
+2026-06-03 23:14:40 [INFO] root: [MIN] Trained Q10 distribution bound.
+2026-06-03 23:14:41 [INFO] root: [MIN] Trained Q50 distribution bound.
+2026-06-03 23:14:43 [INFO] root: [MIN] Trained Q90 distribution bound.
+2026-06-03 23:14:43 [INFO] root: [MIN] Q50 Median Holdout Metrics - MAE: 0.31, RMSE: 0.77, R2: 1.00
+2026-06-03 23:14:43 [INFO] root: Saved versioned artifacts for MIN to model_MIN_latest.pkl
+2026-06-03 23:14:43 [INFO] root: [MIN] Successfully trained exact probability distributions.
+2026-06-03 23:14:43 [INFO] root: --- Training Engine: RA ---
+2026-06-03 23:14:43 [INFO] root: Training Exact-Quantile Model for RA...
+2026-06-03 23:14:43 [INFO] root: [RA] Running Hyperparameter Optimization for Q50...
+2026-06-03 23:15:28 [INFO] root: [RA] Trained Q10 distribution bound.
+2026-06-03 23:15:30 [INFO] root: [RA] Trained Q50 distribution bound.
+2026-06-03 23:15:31 [INFO] root: [RA] Trained Q90 distribution bound.
+2026-06-03 23:15:31 [INFO] root: [RA] Q50 Median Holdout Metrics - MAE: 0.08, RMSE: 0.46, R2: 0.99
+2026-06-03 23:15:32 [INFO] root: Saved versioned artifacts for RA to model_RA_latest.pkl
+2026-06-03 23:15:32 [INFO] root: [RA] Successfully trained exact probability distributions.
+2026-06-03 23:15:32 [INFO] root: ========= QUANTILE MODEL TRAINING FINISHED in 5:46 minutes =========

@@ -348,7 +348,7 @@ def scrape_bball_ref(session, url_template, table_id, filename, season_cfg, outp
 def get_season_dates(season_str):
     start_year = int(season_str.split('-')[0])
     start_date = datetime(start_year, 10, 20) 
-    end_date = datetime(start_year + 1, 4, 20)
+    end_date = datetime(start_year + 1, 6, 25) 
     if end_date > datetime.now():
         end_date = datetime.now()
     return start_date, end_date
